@@ -1,0 +1,29 @@
+name: Hospital QCOR 2567 source qualification
+on:
+  push:
+    branches: [diagnostics/qcor-hospital]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-qcor-hospital
+  cancel-in-progress: false
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m py_compile scripts/probe_qcor_hospital.py
+      - run: python scripts/probe_qcor_hospital.py --audit "$RUNNER_TEMP/qcor-hospital-audit.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qcor-hospital-audit-only
+          path: ${{ runner.temp }}/qcor-hospital-audit.json
+          retention-days: 14
+          if-no-files-found: warn
