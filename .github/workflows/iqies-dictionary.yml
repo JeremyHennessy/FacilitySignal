@@ -1,0 +1,28 @@
+name: iQIES official dictionary location and domain qualification
+on:
+  push:
+    branches: [diagnostics/iqies-codebook]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-iqies-codebook
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - run: python probe_iqies_dictionary.py --audit "$RUNNER_TEMP/iqies-dictionary-audit.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: iqies-dictionary-metadata-audit
+          path: ${{ runner.temp }}/iqies-dictionary-audit.json
+          retention-days: 14
+          if-no-files-found: warn
