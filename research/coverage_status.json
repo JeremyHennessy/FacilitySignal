@@ -100,7 +100,10 @@
     },
     {
       "id": "FS-020",
-      "status": "discovered_not_tested"
+      "status": "snapshot_qualified",
+      "adapter": "qcor-hospital",
+      "evidence": "45670792995",
+      "note": "Standalone structured projection: 284391 source rows, no rejects, 81025 survey event keys, 6952 CCNs; memo rows retained, narrative omitted, correction and publication unknown. Combined qualification pending."
     },
     {
       "id": "FS-021",
