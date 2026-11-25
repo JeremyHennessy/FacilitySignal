@@ -1,0 +1,9 @@
+# Full PECOS hospital/SNF projection candidate
+
+Metadata qualification run 45675674166 passed (audit artifact 15050803120). November 2026 hospital enrollments 9,120, all owners 147,029; SNF enrollments 14,401, all owners 302,718; Q3 2026 hospital CHOW 779, SNF CHOW 5,340. These six release counts are pinned for full qualification. HHA and hospice owners also sample-qualified (102,942 and 70,717); supplemental hospital files not found under exact catalog titles and require separate resource discovery.
+
+Official older CMS hospital and SNF owner dictionaries define I individual and O organization, enrollment ID, PAC ID, role and ownership percentage:
+https://data.cms.gov/sites/default/files/2023-02/6159d07d-0341-40e7-85a8-7fd8329475f7/Hospital_All_Owners_Data_Dictionary_2023.02.01.pdf
+https://data.cms.gov/sites/default/files/2024-12/7a976b38-70d9-4332-a913-446c89641840/SNF_All_Owners_Data_Dictionary.pdf
+
+The first projection explicitly excludes all individual owner rows, rejects unknown owner type, never stores owner names/addresses of individuals or any owner addresses, retains organization roles and source-native dates and flags (not interpreted yet). Counts reconcile imported and deliberately excluded rows; no duplicate collapse. No public row-level artifact. Exact enrollment + PAC link is source relationship evidence, not deed ownership or physical-site identity. Blank/nonstandard IDs are counted, not fabricated or padded. Raw originals temporary; reproducible official version/file hashes in manifest. Only aggregate audit retained. Full qualification and later combined integration/UI are pending.

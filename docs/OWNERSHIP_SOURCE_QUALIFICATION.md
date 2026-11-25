@@ -1,0 +1,9 @@
+# Ownership source qualification — November 25, 2026
+
+The original inventory FS-045–050 identifies CMS ownership and change-of-ownership records. FS-008 is SNF enrollments. Also investigate hospital enrollments and supplemental address and NPI files. The official CMS SNF owners API currently reports October 2026, 300,738 rows, 40 fields, version d44dd3c9-ffd7-4d92-93de-ab698395d048 (https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/skilled-nursing-facility-all-owners/api-docs). The hospital API page available through web search showed May 2026 147,332 rows, so use the live catalog instead of assuming this is latest.
+
+The source is self-reported PECOS enrollment ownership and management, not property/deed ownership. Join on enrollment ID within the appropriate source scope and verify provider/associate IDs and supplemental addresses before assigning a site or system. Retain only organizationally necessary fields in the app; individual-owner names and personal addresses are outside the first projection. Source sample inspection emits keys and counts only. No raw or individual rows exported. Investigate actual codes and dictionaries prior to interpreting roles, dates and ownership shares.
+
+POS iQIES methodology (https://data.cms.gov/resources/provider-of-services-file-internet-quality-improvement-and-evaluation-system-methodology) says the file includes active providers and those with termination expiration after 2000-01-01; explicitly distinguish Not Applicable from Not Available. No presence-based active classification. Probe catalog for official documentation links; do not infer code semantics from names.
+
+This branch is metadata and schema-access qualification only, isolated from the integrated hospital build. No new full ingestion, canonical matches or production data publication claimed.

@@ -305,7 +305,15 @@ def render_detail(db,params):
             body += '<h2>Hospital survey evidence</h2><p>'+fmt(survey["total"])+' matching source rows by exact CCN; not a resolved physical-site relationship or current open deficiency count. <a href="'+link("/hospital-surveys",{"ccn":ident})+'">View source records</a></p>'
         else:
             body += '<h2>Hospital surveys</h2><p>QCOR source not loaded into this local snapshot.</p>'
-    body += '<h2>Additional intelligence</h2><div class="roadmap">Water, equipment, property, ownership relationships and contracts have not been integrated. Unknown is not zero.</div>'
+    from ownership_evidence import profile
+    if dataset in ("hospital","rehabilitation","long-term-hospital","nursing"):
+        own=profile(db,dataset,ident)
+        body += '<h2>Organizational ownership evidence</h2>'
+        if own["enrollment_rows"] is None:
+            body += '<p>Qualified ownership evidence not available for this profile.</p>'
+        else:
+            body += '<p>'+fmt(own["enrollment_rows"])+' same-state enrollment candidate rows · '+fmt(own["organization_role_rows"])+' linked organizational role rows. '+esc(own["note"])+'</p><p>Enrollment source: '+esc(own["enrollment_release"]["modified"])+' · '+source_anchor(own["enrollment_release"]["url"])+'</p>'
+    body += '<h2>Additional intelligence</h2><div class="roadmap">Water, equipment, physical property ownership and contracts have not been integrated. Unknown is not zero.</div>'
     return layout(r["name"],"/facilities",body)
 
 def registry_search(db, params):
@@ -387,6 +395,9 @@ def handler(db_path):
                 with closing(connect(db_path)) as db:
                     if path.startswith("/api/"):
                         kind=path[5:]
+                        if kind=="ownership-evidence":
+                            from ownership_evidence import profile
+                            return self.send(200,json.dumps(profile(db,params.get("dataset",""),params.get("ccn",""))),"application/json; charset=utf-8")
                         data=overview(db) if kind=="overview" else sources(params) if kind=="sources" else registry_search(db,params) if kind=="certifications" else hospital_survey_search(db,params) if kind=="hospital-surveys" else paged(db,kind,params) if kind in ("facilities","findings") else None
                         return self.send(200 if data is not None else 404,json.dumps(data if data is not None else {"error":"not found"}),"application/json; charset=utf-8")
                     if path=="/":
