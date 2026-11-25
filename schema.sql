@@ -45,3 +45,27 @@ CREATE TABLE IF NOT EXISTS certification_records (
 CREATE INDEX IF NOT EXISTS certification_id ON certification_records(registry,provider_id);
 CREATE INDEX IF NOT EXISTS certification_state ON certification_records(state,registry,name);
 CREATE INDEX IF NOT EXISTS certification_name ON certification_records(name COLLATE NOCASE,registry,row_number);
+
+CREATE TABLE IF NOT EXISTS qcor_hospital_releases (
+ id INTEGER PRIMARY KEY, source_sha256 TEXT NOT NULL UNIQUE,
+ retrieved_at TEXT NOT NULL, download_url TEXT NOT NULL,
+ byte_count INTEGER NOT NULL, expected_rows INTEGER NOT NULL, stored_rows INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS qcor_hospital_current (
+ singleton INTEGER PRIMARY KEY CHECK(singleton=1),
+ release_id INTEGER NOT NULL REFERENCES qcor_hospital_releases(id)
+);
+CREATE TABLE IF NOT EXISTS qcor_hospital_rows (
+ release_id INTEGER NOT NULL REFERENCES qcor_hospital_releases(id),
+ row_ordinal INTEGER NOT NULL, projection_sha256 TEXT NOT NULL,
+ ccn TEXT NOT NULL, name TEXT NOT NULL, subtype TEXT NOT NULL, address TEXT NOT NULL,
+ city TEXT NOT NULL, state TEXT NOT NULL, zip TEXT NOT NULL, region TEXT NOT NULL,
+ event_id TEXT NOT NULL, survey_date TEXT NOT NULL, survey_type TEXT NOT NULL,
+ tag TEXT NOT NULL, description TEXT NOT NULL, tag_type TEXT NOT NULL,
+ row_kind TEXT NOT NULL CHECK(row_kind IN ('tag','memo','no_tag_reported')),
+ PRIMARY KEY(release_id,row_ordinal)
+);
+CREATE INDEX IF NOT EXISTS qcor_hospital_ccn ON qcor_hospital_rows(release_id,ccn,survey_date DESC);
+CREATE INDEX IF NOT EXISTS qcor_hospital_state ON qcor_hospital_rows(release_id,state,survey_date DESC);
+CREATE INDEX IF NOT EXISTS qcor_hospital_tag ON qcor_hospital_rows(release_id,tag,survey_date DESC);
+CREATE INDEX IF NOT EXISTS qcor_hospital_recent ON qcor_hospital_rows(release_id,survey_date DESC,row_ordinal);
