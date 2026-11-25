@@ -818,5 +818,19 @@
     "source_records": 1904060,
     "db_bytes": 854065152,
     "note": "19 sources integrated and tested locally; aggregate profile/API, no durable storage or live dynamic deployment."
+  },
+  "iqies_capability_qualified_baseline": {
+    "commit": "1772798323bf34be199d9f5b61acd9dae823a2e4",
+    "run": "45699688960",
+    "main_verification": "45700448628",
+    "artifact": 15061803885,
+    "source_records_verified": 100334,
+    "provider_scope_rows": {
+      "ASC": 8492,
+      "ESRD": 8659
+    },
+    "derived_observations": 68604,
+    "unrecognized_operating_room_values": 4,
+    "note": "Standalone source-scoped local database and API qualified; code promoted, full national integration not yet tested; observations do not add to unique source record count."
   }
 }
