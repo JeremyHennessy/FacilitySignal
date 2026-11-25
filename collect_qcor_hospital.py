@@ -48,7 +48,10 @@ def survey_date(value):
 
 def project(values):
     # Only the first 14 source fields are inspected by this projection.
-    if len(values)!=len(HEADER): raise ValueError("wrong_column_count")
+    # Read-only XLSX iteration can omit trailing empty cells. The exact header
+    # is checked separately; reject extra columns and restore missing trailing blanks.
+    if len(values)>len(HEADER): raise ValueError("wrong_column_count")
+    values=tuple(values)+(None,)*(len(HEADER)-len(values))
     ccn=identifier(values[0],ccn=True)
     name=text_field(values[1])
     if not name: raise ValueError("missing_facility_name")

@@ -15,6 +15,8 @@ class QCORTests(unittest.TestCase):
         self.assertEqual(result[9],"2026-01-02")
         self.assertEqual(result[-1],"memo")
         self.assertNotIn("NEVER STORE ME",result)
+        self.assertEqual(q.project(data[:14]),result)
+        with self.assertRaisesRegex(ValueError,"wrong_column_count"): q.project(data+[None])
         data[8]=123
         with self.assertRaisesRegex(ValueError,"event_id"): q.project(data)
 
