@@ -1,0 +1,43 @@
+name: FacilitySignal browser foundation qualification
+on:
+  pull_request:
+    paths:
+      - facilitysignal.py
+      - web/**
+      - scripts/build_ui_qa_fixture.py
+      - scripts/qualify_ui_browser.py
+      - .github/workflows/ui-browser.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-ui-browser-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0
+      - run: python -m playwright install --with-deps chromium
+      - name: Build isolated volume-matched synthetic QA database
+        run: python scripts/build_ui_qa_fixture.py "$RUNNER_TEMP/ui-qa.sqlite3"
+      - name: Preserve baseline and capture browser screenshots
+        run: |
+          git worktree add --detach "$RUNNER_TEMP/fs-ui-baseline" b7c261bd2e4ee16f2137b172a9d85d0960e1aa8a
+          python scripts/qualify_ui_browser.py --baseline "$RUNNER_TEMP/fs-ui-baseline" --db "$RUNNER_TEMP/ui-qa.sqlite3" --output "$RUNNER_TEMP/ui-browser-evidence"
+      - name: Retain synthetic screenshots and timing report only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: facilitysignal-ui-browser-synthetic
+          path: ${{ runner.temp }}/ui-browser-evidence/
+          retention-days: 7
+          if-no-files-found: warn
