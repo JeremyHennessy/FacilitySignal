@@ -31,6 +31,6 @@ jobs:
             sleep 1
           done
           python -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["facility_records"] is None and d["source_entries"] == 176' "$RUNNER_TEMP/overview.json"
-          for path in / /facilities /findings /sources /certifications /hospital-surveys /styles.css /api/facilities /api/findings /api/certifications /api/hospital-surveys /api/ownership-evidence /api/sources; do
+          for path in / /facilities /findings /sources /certifications /hospital-surveys /styles.css /api/facilities /api/findings /api/certifications /api/hospital-surveys /api/ownership-evidence /api/sources /search /ownership-coverage /api/search; do
             curl -fsS "http://127.0.0.1:8081$path" >/dev/null
           done

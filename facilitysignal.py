@@ -159,15 +159,72 @@ def import_csv(path, dataset, csv_path, release, expected_rows):
 def rows(db, sql, args=()):
     return [dict(r) for r in db.execute(sql,args)]
 
+def ownership_releases(db):
+    """Aggregate-only evidence. An absent release is not a zero-row observation."""
+    if not db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='pecos_releases'").fetchone():
+        return []
+    tables = {"enrollment":("pecos_enrollment_rows","enrollment"),
+              "owner":("pecos_org_role_rows","organization_roles"),
+              "chow":("pecos_chow_rows","ownership_changes")}
+    out = []
+    for r in rows(db,"SELECT source,period,modified,url,stored_rows FROM pecos_releases ORDER BY source"):
+        suffix=r["source"].rsplit("-",1)[-1]
+        if suffix not in tables:
+            continue
+        table_name,family=tables[suffix]
+        if not db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",(table_name,)).fetchone():
+            continue
+        count=db.execute("SELECT count(*) FROM "+table_name+" WHERE source=?",(r["source"],)).fetchone()[0]
+        out.append({"family":family,"source":r["source"],"title":"PECOS "+r["source"].replace("-"," "),
+                    "period":r["period"]+" · Catalog modified "+r["modified"],"loaded_at":None,
+                    "records":count,"declared":r["stored_rows"],"url":r["url"],
+                    "path":"/ownership-coverage","params":{"kind":family}})
+    return out
+
+def loaded_releases(db, releases):
+    out=[]
+    for r in releases:
+        dataset=r["dataset"]
+        if dataset not in CATALOG:
+            continue
+        family="findings" if dataset in FINDING_DATASETS else "providers"
+        table_name="findings" if family=="findings" else "facilities"
+        count=db.execute("SELECT count(*) FROM "+table_name+" WHERE dataset=? AND release_id=?",(dataset,r["id"])).fetchone()[0]
+        out.append({"family":family,"source":dataset,"title":CATALOG[dataset][1],"period":r["published_on"],
+                    "loaded_at":r["imported_at"],"records":count,"declared":r["stored_rows"],"url":r["source_url"],
+                    "path":"/"+table_name,"params":{"dataset":dataset}})
+    for r in rows(db,"SELECT registry,title,period,imported_at,row_count,download_url FROM certification_releases ORDER BY registry"):
+        count=db.execute("SELECT count(*) FROM certification_records WHERE registry=?",(r["registry"],)).fetchone()[0]
+        out.append({"family":"certifications","source":r["registry"],"title":r["title"],"period":r["period"],
+                    "loaded_at":r["imported_at"],"records":count,"declared":r["row_count"],"url":r["download_url"],
+                    "path":"/certifications","params":{"registry":r["registry"]}})
+    qcor=db.execute("SELECT r.* FROM qcor_hospital_current c JOIN qcor_hospital_releases r ON r.id=c.release_id").fetchone()
+    if qcor:
+        count=db.execute("SELECT count(*) FROM qcor_hospital_rows WHERE release_id=?",(qcor["id"],)).fetchone()[0]
+        out.append({"family":"hospital_surveys","source":"qcor-hospital","title":"QCOR hospital survey workbook",
+                    "period":"Publication date unavailable","loaded_at":qcor["retrieved_at"],"records":count,
+                    "declared":qcor["stored_rows"],"url":"https://qcor.cms.gov/Hospital_2567_Reports",
+                    "path":"/hospital-surveys","params":{}})
+    return out+ownership_releases(db)
+
+def family_count(items,family):
+    matches=[r["records"] for r in items if r["family"]==family]
+    return sum(matches) if matches else None
+
 def overview(db):
-    releases = rows(db,"SELECT r.* FROM current_release c JOIN releases r ON r.id=c.release_id ORDER BY r.dataset")
-    counts = {r["dataset"]:r["stored_rows"] for r in releases}
+    releases=rows(db,"SELECT r.* FROM current_release c JOIN releases r ON r.id=c.release_id ORDER BY r.dataset")
+    loaded=loaded_releases(db,releases)
     return {
-        "facility_records": sum(counts.get(k,0) for k in FACILITY_DATASETS) if any(k in counts for k in FACILITY_DATASETS) else None,
-        "finding_records":sum(counts.get(k,0) for k in FINDING_DATASETS) if any(k in counts for k in FINDING_DATASETS) else None,
-        "by_category":rows(db,"SELECT category,COUNT(*) AS records FROM facilities GROUP BY category ORDER BY category"),
+        "facility_records":family_count(loaded,"providers"),
+        "finding_records":family_count(loaded,"findings"),
+        "certification_records":family_count(loaded,"certifications"),
+        "hospital_survey_records":family_count(loaded,"hospital_surveys"),
+        "enrollment_records":family_count(loaded,"enrollment"),
+        "organization_role_records":family_count(loaded,"organization_roles"),
+        "ownership_change_records":family_count(loaded,"ownership_changes"),
+        "by_category":rows(db,"SELECT dataset,category,COUNT(*) AS records FROM facilities GROUP BY dataset,category ORDER BY category,dataset"),
         "by_state":rows(db,"SELECT state,COUNT(*) AS records FROM facilities GROUP BY state ORDER BY records DESC,state"),
-        "releases":releases,
+        "releases":releases,"loaded_releases":loaded,
         "source_entries":len(json.loads(REGISTER.read_text(encoding="utf-8"))["sources"]),
         "coverage_note":"Current imported source records, not unique properties or nationwide inspection coverage."
     }
@@ -181,23 +238,29 @@ def page_args(params):
     return page,limit
 
 def paged(db, kind, params):
-    page,limit = page_args(params)
-    where = []
-    values = []
-    fields = ("name","city","ccn","zip","chain") if kind == "facilities" else ("provider_name","ccn","description","tag","category")
-    query = params.get("q","").strip()[:160]
+    if kind not in ("facilities","findings"):
+        raise ValueError("unsupported directory")
+    page,limit=page_args(params)
+    where,values=[],[]
+    fields=("name","city","ccn","zip","chain","address","county") if kind=="facilities" else ("provider_name","ccn","description","tag","category")
+    query=params.get("q","").strip()[:160]
     if query:
-        pattern = "%" + query.replace("\\","\\\\").replace("%","\\%").replace("_","\\_") + "%"
+        pattern="%"+query.replace("\\","\\\\").replace("%","\\%").replace("_","\\_")+"%"
         where.append("("+" OR ".join(f+" LIKE ? ESCAPE '\\'" for f in fields)+")")
         values.extend([pattern]*len(fields))
-    for key,col in (("state","state"),("dataset","dataset"),("ccn","ccn")):
+    for key,col in (("state","state"),("dataset","dataset"),("ccn","ccn"),("identifier","ccn")):
         if params.get(key):
             where.append(col+"=?")
-            values.append(params[key])
-    clause = " WHERE "+" AND ".join(where) if where else ""
-    total = db.execute("SELECT count(*) FROM "+kind+clause,values).fetchone()[0]
-    order = "name COLLATE NOCASE,dataset,ccn" if kind=="facilities" else "survey_date DESC,ccn,row_hash"
-    result = rows(db,"SELECT * FROM "+kind+clause+" ORDER BY "+order+" LIMIT ? OFFSET ?", values+[limit,(page-1)*limit])
+            values.append(params[key].strip().upper() if key in ("ccn","identifier") else params[key])
+    if kind=="facilities" and params.get("identifier") and not params.get("dataset"):
+        where.append("dataset IN (SELECT dataset FROM current_release)")
+    clause=" WHERE "+" AND ".join(where) if where else ""
+    total=db.execute("SELECT count(*) FROM "+kind+clause,values).fetchone()[0]
+    orders={"name":"name COLLATE NOCASE,dataset,ccn","name_desc":"name COLLATE NOCASE DESC,dataset,ccn",
+            "state":"state,city COLLATE NOCASE,name COLLATE NOCASE,dataset,ccn",
+            "identifier":"ccn,dataset"}
+    order=orders.get(params.get("sort"),orders["name"]) if kind=="facilities" else "survey_date DESC,ccn,row_hash"
+    result=rows(db,"SELECT * FROM "+kind+clause+" ORDER BY "+order+" LIMIT ? OFFSET ?",values+[limit,(page-1)*limit])
     return {"rows":result,"total":total,"page":page,"limit":limit}
 
 def sources(params):
@@ -225,12 +288,18 @@ def fmt(v):
 def table(headers, body):
     if not body:
         return '<div class="empty">No matching records in the currently imported data. This is not evidence of compliance or absence.</div>'
-    return '<div class="table-wrap"><table><thead><tr>'+''.join('<th>'+esc(x)+'</th>' for x in headers)+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+x+'</td>' for x in r)+'</tr>' for r in body)+'</tbody></table></div>'
+    return '<div class="table-wrap" role="region" aria-label="Results table, scroll horizontally if needed" tabindex="0"><table><thead><tr>'+''.join('<th scope="col">'+esc(x)+'</th>' for x in headers)+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+x+'</td>' for x in r)+'</tr>' for r in body)+'</tbody></table></div>'
 
 def layout(title, path, body):
-    nav = [("/","Overview"),("/facilities","Facilities"),("/findings","Inspections"),("/hospital-surveys","Hospital surveys"),("/certifications","Certifications"),("/sources","Data sources")]
-    links = "".join('<a href="'+p+'"'+(' aria-current="page"' if path==p else '')+'>'+t+'</a>' for p,t in nav)
-    return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+esc(title)+' | FacilitySignal</title><link rel="stylesheet" href="/styles.css"></head><body><aside><a class="brand" href="/">Facility<span>Signal</span><small>PHARM3R</small></a><div class="nav-label">NATIONAL INTELLIGENCE</div><nav>'+links+'</nav><div class="aside-foot">Development alpha<br>United States · local data</div></aside><main><header><span>Healthcare facility intelligence</span><span class="status">LOCAL WORKSPACE</span></header><section class="content"><h1>'+esc(title)+'</h1>'+body+'</section><footer>Source-backed intelligence · Missing records do not establish compliance.</footer></main></body></html>'
+    groups=[("Intelligence",[("/","Overview"),("/search","Unified search"),("/facilities","Facilities"),("/certifications","Certifications")]),
+            ("Compliance",[("/findings","Nursing home citations"),("/hospital-surveys","Hospital surveys")]),
+            ("Data intelligence",[("/ownership-coverage","Ownership evidence coverage"),("/sources","Source register")])]
+    def navlink(p,t):
+        return '<a href="'+p+'"'+(' aria-current="page"' if path==p else '')+'>'+esc(t)+'</a>'
+    links=''.join('<div class="nav-group"><div class="nav-label">'+esc(label)+'</div>'+''.join(navlink(p,t) for p,t in items)+'</div>' for label,items in groups)
+    crumb='<nav aria-label="Breadcrumb" class="breadcrumbs"><a href="/">Intelligence</a><span aria-hidden="true">/</span><span aria-current="page">'+esc(title)+'</span></nav>' if path!="/" else ''
+    search='<form class="global-search" method="get" action="/search" role="search"><label for="global-q" class="sr-only">Search facilities and certification registries</label><input id="global-q" name="q" placeholder="Facility, CCN, CLIA, address or city"><button>Search</button></form>'
+    return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+esc(title)+' | FacilitySignal</title><link rel="stylesheet" href="/styles.css"></head><body><a class="skip-link" href="#main-content">Skip to content</a><aside><a class="brand" href="/">Facility<span>Signal</span><small>PHARM3R</small></a><nav aria-label="Primary navigation" class="primary-nav">'+links+'</nav><div class="aside-foot">United States · development workspace<br>Source-scoped intelligence</div></aside><main id="main-content"><header>'+search+'<span class="status">LOCAL SNAPSHOT · NOT PRODUCTION</span></header><section class="content">'+crumb+'<h1>'+esc(title)+'</h1>'+body+'</section><footer>Source-backed intelligence · Missing records do not establish compliance.</footer></main></body></html>'
 
 def select(name, label, options, params):
     return '<label>'+esc(label)+'<select name="'+esc(name)+'"><option value="">All</option>'+''.join('<option value="'+esc(v)+'"'+(' selected' if params.get(name)==v else '')+'>'+esc(t)+'</option>' for v,t in options)+'</select></label>'
@@ -244,6 +313,8 @@ def filters(params, kind):
         controls += select("state","State / territory",[(s,s) for s in STATES],params)
         if kind=="facilities":
             controls += select("dataset","Facility type",[(k,v[1]) for k,v in CATALOG.items() if k in FACILITY_DATASETS],params)
+            controls += '<label>Exact CCN<input name="identifier" value="'+esc(params.get("identifier",""))+'" placeholder="Six-character ID"></label>'
+            controls += select("sort","Sort by",[("name","Name A–Z"),("name_desc","Name Z–A"),("state","State / city"),("identifier","CCN")],params)
         else:
             controls += select("dataset","Citation source",[(k,v[1]) for k,v in CATALOG.items() if k in FINDING_DATASETS],params)
     return '<form class="filters" method="get">'+controls+'<button>Search</button><a href="'+('/sources' if kind=="sources" else '/'+kind)+'">Reset</a></form>'
@@ -260,21 +331,109 @@ def pager(path, params, result):
 def source_anchor(url):
     return '<a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">Official source</a>' if url.startswith("https://") else esc(url)
 
+def record_link(path,params,label,cls=""):
+    return '<a'+(' class="'+esc(cls)+'"' if cls else '')+' href="'+link(path,params)+'">'+esc(label)+'</a>'
+
+def release_table(items):
+    return table(["Source / registry","Source date or period","Local import / retrieval","Loaded rows","Evidence"],[
+        [record_link(r["path"],r["params"],r["title"],"record"),esc(r["period"]),esc(r["loaded_at"][:10] if r["loaded_at"] else "Not recorded"),
+         fmt(r["records"])+('<small class="review">Manifest declares '+fmt(r["declared"])+'; review mismatch</small>' if r["records"]!=r["declared"] else ""),
+         source_anchor(r["url"])] for r in items])
+
 def render_overview(db):
-    d = overview(db)
-    cards = [("Facility records",d["facility_records"],"Imported provider records"),("Jurisdictions represented",len(d["by_state"]) if d["facility_records"] is not None else None,"Based on imported addresses"),("Health & fire citations",d["finding_records"],"Nursing home records only"),("Discovered sources",d["source_entries"],"Research inventory, not live feeds")]
-    body = '<p class="intro">National directory, compliance and infrastructure intelligence. Coverage increases as validated snapshots are imported.</p><div class="metrics">'+''.join('<article><small>'+esc(a)+'</small><strong>'+fmt(b)+'</strong><span>'+esc(c)+'</span></article>' for a,b,c in cards)+'</div>'
-    body += '<h2>Current source releases</h2>'+table(["Dataset","Published","Imported","Rows"],[[esc(CATALOG[r["dataset"]][1]),esc(r["published_on"]),esc(r["imported_at"][:10]),fmt(r["stored_rows"])] for r in d["releases"]])
-    body += '<div class="columns"><section><h2>By provider type</h2>'+table(["Type","Records"],[[esc(r["category"]),fmt(r["records"])] for r in d["by_category"]])+'</section><section><h2>Geographic coverage</h2>'+table(["Jurisdiction","Records"],[[esc(r["state"]),fmt(r["records"])] for r in d["by_state"]])+'</section></div>'
-    body += '<h2>Next intelligence layers</h2><div class="roadmap">Water and environmental · Equipment · Ownership · Property · Procurement<br><small>Not yet integrated. Hospital survey source coverage is shown on its own page. No service opportunity scores are published.</small></div>'
+    d=overview(db)
+    cards=[("Care Compare providers",d["facility_records"],"Source-scoped provider records","/facilities",{}),
+           ("Certification & laboratory records",d["certification_records"],"QIES, iQIES and CLIA; includes historical records","/certifications",{}),
+           ("Nursing home citations",d["finding_records"],"Health and fire safety; not outstanding violations","/findings",{}),
+           ("Hospital survey rows",d["hospital_survey_records"],"QCOR tags, memos and other source rows","/hospital-surveys",{}),
+           ("PECOS enrollments",d["enrollment_records"],"Enrollment evidence, not unique physical sites","/ownership-coverage",{"kind":"enrollment"}),
+           ("Organizational role rows",d["organization_role_records"],"Organizational evidence; individuals excluded","/ownership-coverage",{"kind":"organization_roles"}),
+           ("Ownership change rows",d["ownership_change_records"],"Reported changes, not property title","/ownership-coverage",{"kind":"ownership_changes"}),
+           ("Jurisdictions represented",len(d["by_state"]) if d["facility_records"] is not None else None,"Care Compare address coverage only","/#geography",{})]
+    body='<p class="intro">Research the currently loaded national healthcare facility sources. Each count describes its own source population; these records are not additive measures of unique active facilities.</p><div class="metrics">'+''.join('<a class="metric" href="'+link(path,params)+'"><small>'+esc(title)+'</small><strong>'+fmt(value)+'</strong><span>'+esc(note)+'</span><span class="metric-action">'+("View loaded records" if value is not None else "Check source availability")+' <span aria-hidden="true">›</span></span></a>' for title,value,note,path,params in cards)+'</div>'
+    body+='<div class="columns"><section><h2>Provider types</h2>'+table(["Type","Records"],[[record_link("/facilities",{"dataset":r["dataset"]},r["category"]),fmt(r["records"])] for r in d["by_category"]])+'</section><section id="geography"><h2>Geographic coverage</h2><p class="section-note">Care Compare records by reported jurisdiction; not complete regulatory or infrastructure coverage.</p>'+table(["Jurisdiction","Records"],[[record_link("/facilities",{"state":r["state"]},r["state"]),fmt(r["records"])] for r in d["by_state"]])+'</section></div>'
+    body+='<h2>Loaded source releases</h2><p class="section-note">Counts are read from the local database. Historical qualification and source discovery are separate from this snapshot. A dash means no release is loaded for that family.</p>'+release_table(d["loaded_releases"])
+    body+='<h2>Coverage and limitations</h2><div class="roadmap">Equipment, water and environmental, physical property and procurement intelligence are not yet integrated. No active compliance or service opportunity score is inferred. <a href="/sources">Review the source register and historical qualification ledger</a>.</div>'
     return layout("National overview","/",body)
+
+def render_ownership_coverage(db,params):
+    labels={"enrollment":"PECOS enrollment records","organization_roles":"PECOS organizational role records","ownership_changes":"PECOS ownership change records"}
+    kind=params.get("kind","")
+    if kind and kind not in labels:
+        raise ValueError("unsupported ownership evidence family")
+    data=ownership_releases(db)
+    if kind:
+        data=[r for r in data if r["family"]==kind]
+    body='<p class="intro">Aggregate release coverage only. Exact identifier and state matches are candidates, not proof of controlling ownership, legal title, a complete portfolio or current responsibility. Individual owner records are excluded; row-level organizational projections are not published.</p>'
+    body+='<div class="subnav">'+record_link("/ownership-coverage",{},"All evidence")+''.join(record_link("/ownership-coverage",{"kind":k},v) for k,v in labels.items())+'</div>'
+    body+='<h2>'+esc(labels.get(kind,"Loaded PECOS releases"))+'</h2>'+release_table(data)
+    if not data:
+        body+='<p>No qualifying release for this selection is loaded in the current database.</p>'
+    return layout("Ownership evidence coverage","/ownership-coverage",body)
+
+def global_search(db,params):
+    q=params.get("q","").strip()[:160]
+    mode=params.get("mode","text")
+    if mode not in ("text","identifier"):
+        raise ValueError("unsupported search mode")
+    state=params.get("state","")
+    if state and state not in STATES:
+        raise ValueError("invalid jurisdiction")
+    if not q:
+        return {"q":q,"mode":mode,"groups":[]}
+    common={"identifier" if mode=="identifier" else "q":q}
+    if state:
+        common["state"]=state
+    return {"q":q,"mode":mode,"groups":[
+        {"kind":"facilities","label":"Care Compare provider records","params":common,
+         "result":paged(db,"facilities",{**common,"limit":"6"})},
+        {"kind":"certifications","label":"Certification and laboratory registry records","params":common,
+         "result":registry_search(db,{**common,"limit":"6"})}]}
+
+def render_search(db,params):
+    result=global_search(db,params)
+    body='<p class="intro">Search provider names, reported addresses, cities, ZIP codes and identifiers across loaded Care Compare and certification registries. Records remain separate; similar names and identifiers are not resolved physical facilities.</p>'
+    body+='<form class="filters" method="get" action="/search" role="search"><label>Search<input name="q" value="'+esc(result["q"])+'" placeholder="Name, location, CCN or CLIA number"></label>'+select("mode","Match",[("text","Text / partial"),("identifier","Exact identifier")],params)+select("state","State / territory",[(s,s) for s in STATES],params)+'<button>Search</button><a href="/search">Reset</a></form>'
+    if not result["q"]:
+        body+='<div class="empty">Enter a name, location or identifier to begin. For exact identifier matching, choose Exact identifier.</div>'
+    for group in result["groups"]:
+        data=group["result"]
+        body+='<h2>'+esc(group["label"])+' · '+fmt(data["total"])+'</h2>'
+        if group["kind"]=="facilities":
+            cells=[[record_link("/facility",{"dataset":r["dataset"],"ccn":r["ccn"]},r["name"],"record"),esc(r["ccn"]),esc(r["category"]),esc(r["address"]+" · "+r["city"]+", "+r["state"]+" "+r["zip"])] for r in data["rows"]]
+        else:
+            cells=[[record_link("/certification",{"registry":r["registry"],"row":r["row_number"]},r["name"] or "Unnamed source record","record"),esc(r["provider_id"] or "Not reported"),esc(r["registry"]),esc(r["address"]+" · "+r["city"]+", "+r["state"]+" "+r["zip"])] for r in data["rows"]]
+        body+=table(["Record","Identifier","Source / type","Reported location"],cells)
+        body+='<p>'+record_link("/"+group["kind"],group["params"],"View all "+fmt(data["total"])+" matching records")+'</p>'
+    return layout("Unified search","/search",body)
+
+def render_certification_detail(db,params):
+    registry=params.get("registry","")
+    try:
+        number=int(params.get("row",""))
+    except ValueError:
+        raise ValueError("invalid registry row")
+    if number<1:
+        raise ValueError("invalid registry row")
+    r=db.execute("SELECT c.*,r.title,r.period,r.imported_at,r.download_url FROM certification_records c JOIN certification_releases r ON r.registry=c.registry WHERE c.registry=? AND c.row_number=?",(registry,number)).fetchone()
+    if not r:
+        return None
+    fields=[("Source identifier",r["provider_id"]),("Registry",r["registry"]),("Reported address",r["address"]+" "+r["city"]+" "+r["state"]+" "+r["zip"]),("Provider type code",r["provider_type"]),("Subtype code",r["subtype"]),("Certification date",r["certification_date"]),("Termination date",r["termination_date"]),("Source status code",r["status"]),("Release period",r["period"]),("Imported",r["imported_at"][:10]),("Source row number",r["row_number"]),("Source row SHA-256",r["row_sha256"])]
+    body='<p class="intro">Source-specific registry record. Historical or terminated providers may be listed. Source-native codes are not interpreted as current operating or compliance status.</p><div class="details">'+''.join('<article><small>'+esc(k)+'</small><strong>'+esc(v or "Not reported")+'</strong></article>' for k,v in fields)+'</div><p>'+source_anchor(r["download_url"])+' · '+record_link("/certifications",{"registry":registry},"Browse this registry")+'</p>'
+    return layout(r["name"] or "Certification record","/certifications",body)
 
 def render_list(db, kind, params):
     result = sources(params) if kind=="sources" else paged(db,kind,params)
     body = filters(params,kind)
     if kind=="facilities":
-        headers = ["Facility / CCN","Type","Location","Ownership / chain","Source"]
-        data = [[ '<a class="record" href="'+link("/facility",{"dataset":r["dataset"],"ccn":r["ccn"]})+'">'+esc(r["name"])+'</a><small>'+esc(r["ccn"])+'</small>',esc(r["category"]),esc(r["city"]+", "+r["state"]+" "+r["zip"]),esc(r["ownership"] or "Unknown")+'<small>'+esc(r["chain"])+'</small>',source_anchor(source_url(r["dataset"]))] for r in result["rows"]]
+        headers = ["Provider / CCN","Type","Reported location","Capacity","Reported ownership / chain","Source release"]
+        dates={r["id"]:r["published_on"] for r in rows(db,"SELECT id,published_on FROM releases")}
+        data=[[record_link("/facility",{"dataset":r["dataset"],"ccn":r["ccn"]},r["name"],"record")+'<small>'+esc(r["ccn"])+'</small>',
+               esc(r["category"]),esc(r["city"]+", "+r["state"]+" "+r["zip"])+'<small>'+esc(r["address"])+'</small>',
+               esc(r["capacity"] or "Not reported")+('<small>Certified beds</small>' if r["capacity"] and r["dataset"]=="nursing" else '<small>Dialysis stations</small>' if r["capacity"] and r["dataset"]=="dialysis" else ""),
+               esc(r["ownership"] or "Not reported")+'<small>'+esc(r["chain"])+'</small>',
+               esc(dates.get(r["release_id"],"Not recorded"))+'<small>'+source_anchor(source_url(r["dataset"]))+'</small>'] for r in result["rows"]]
+        body='<p class="intro">Source-scoped Care Compare provider records, not resolved physical facilities. Capacity is shown as reported; status is not inferred.</p>'+body
         title="Facilities"
     elif kind=="findings":
         headers=["Provider / CCN","Survey date","Tag / severity","Finding","Correction status"]
@@ -323,11 +482,16 @@ def registry_search(db, params):
         if params.get(k):
             clauses.append(k+"=?")
             values.append(params[k])
+    if params.get("identifier"):
+        clauses.append("provider_id=?")
+        values.append(params["identifier"].strip().upper())
+        if not params.get("registry"):
+            clauses.append("registry IN (SELECT registry FROM certification_releases)")
     q=params.get("q","").strip()[:160]
     if q:
         pattern="%"+q.replace("\\","\\\\").replace("%","\\%").replace("_","\\_")+"%"
-        clauses.append("(provider_id LIKE ? ESCAPE '\\' OR name LIKE ? ESCAPE '\\' OR city LIKE ? ESCAPE '\\' OR address LIKE ? ESCAPE '\\')")
-        values.extend([pattern]*4)
+        clauses.append("(provider_id LIKE ? ESCAPE '\\' OR name LIKE ? ESCAPE '\\' OR city LIKE ? ESCAPE '\\' OR address LIKE ? ESCAPE '\\' OR zip LIKE ? ESCAPE '\\')")
+        values.extend([pattern]*5)
     where=" WHERE "+" AND ".join(clauses) if clauses else ""
     n=db.execute("SELECT count(*) FROM certification_records"+where,values).fetchone()[0]
     data=rows(db,"SELECT * FROM certification_records"+where+" ORDER BY name COLLATE NOCASE,registry,row_number LIMIT ? OFFSET ?",values+[l,(p-1)*l])
@@ -336,10 +500,10 @@ def registry_search(db, params):
 
 def render_certifications(db,params):
     result=registry_search(db,params)
-    form='<form class="filters" method="get"><label>Search<input name="q" value="'+esc(params.get("q",""))+'" placeholder="Name, provider number, city"></label>'+select("registry","Registry",[("qies","QIES"),("iqies","iQIES"),("clia","CLIA")],params)+select("state","State / territory",[(s,s) for s in STATES],params)+'<button>Search</button><a href="/certifications">Reset</a></form>'
+    form='<form class="filters" method="get"><label>Search<input name="q" value="'+esc(params.get("q",""))+'" placeholder="Name, provider number, city"></label><label>Exact identifier<input name="identifier" value="'+esc(params.get("identifier",""))+'"></label>'+select("registry","Registry",[("qies","QIES"),("iqies","iQIES"),("clia","CLIA")],params)+select("state","State / territory",[(s,s) for s in STATES],params)+'<button>Search</button><a href="/certifications">Reset</a></form>'
     body='<p class="intro">CMS certification records are stored separately from Care Compare providers. Historical and terminated records are included. Status and provider-type codes are source-native; do not infer an active facility from a listed record.</p>'
     body+=table(["Registry","Release period","Source rows"],[[esc(x["registry"]),esc(x["period"]),fmt(x["row_count"])] for x in result["releases"]])+form
-    body+=table(["Provider / identifier","Registry","Location","Type code","Certification / termination"],[[esc(r["name"] or "Not reported")+'<small>'+esc(r["provider_id"] or "No source ID")+'</small>',esc(r["registry"]),esc(r["address"]+" "+r["city"]+" "+r["state"]+" "+r["zip"]),esc(r["provider_type"] or "Not reported"),esc(r["certification_date"] or "Not reported")+'<small>Termination: '+esc(r["termination_date"] or "Not reported")+'</small><small>Status: '+esc(r["status"] or "Not reported")+'</small>'] for r in result["rows"]])
+    body+=table(["Provider / identifier","Registry","Location","Type code","Certification / termination"],[[record_link("/certification",{"registry":r["registry"],"row":r["row_number"]},r["name"] or "Unnamed source record","record")+'<small>'+esc(r["provider_id"] or "No source ID")+'</small>',esc(r["registry"]),esc(r["address"]+" "+r["city"]+" "+r["state"]+" "+r["zip"]),esc(r["provider_type"] or "Not reported"),esc(r["certification_date"] or "Not reported")+'<small>Termination: '+esc(r["termination_date"] or "Not reported")+'</small><small>Status: '+esc(r["status"] or "Not reported")+'</small>'] for r in result["rows"]])
     return layout("CMS certifications","/certifications",body+pager("/certifications",params,result))
 
 def hospital_survey_search(db,params):
@@ -395,6 +559,8 @@ def handler(db_path):
                 with closing(connect(db_path)) as db:
                     if path.startswith("/api/"):
                         kind=path[5:]
+                        if kind=="search":
+                            return self.send(200,json.dumps(global_search(db,params)),"application/json; charset=utf-8")
                         if kind=="ownership-evidence":
                             from ownership_evidence import profile
                             return self.send(200,json.dumps(profile(db,params.get("dataset",""),params.get("ccn",""))),"application/json; charset=utf-8")
@@ -410,6 +576,12 @@ def handler(db_path):
                         body=render_hospital_surveys(db,params)
                     elif path=="/facility":
                         body=render_detail(db,params)
+                    elif path=="/search":
+                        body=render_search(db,params)
+                    elif path=="/certification":
+                        body=render_certification_detail(db,params)
+                    elif path=="/ownership-coverage":
+                        body=render_ownership_coverage(db,params)
                     else:
                         body=None
                     return self.send(200 if body else 404,body or layout("Not found",path,"<p>Record not available in the current directory.</p><a href='/facilities'>Return to facilities</a>"),"text/html; charset=utf-8")
