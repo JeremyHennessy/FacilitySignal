@@ -30,10 +30,16 @@ class CMSRedirect(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 def response(url):
-    req = urllib.request.Request(allowed(url),headers={"User-Agent":"FacilitySignal/0.2 public data ingestion"})
+    req = urllib.request.Request(allowed(url),headers={"User-Agent":"FacilitySignal-development/0.1","Accept":"application/json" if "/api/" in url or url.endswith(".json") else "text/csv"})
     return urllib.request.build_opener(CMSRedirect()).open(req,timeout=45)
 
 def get_json(url):
+    try:
+        return _get_json(url)
+    except Exception as e:
+        raise RuntimeError("JSON endpoint "+urlsplit(url).path+": "+str(e)) from e
+
+def _get_json(url):
     with response(url) as r:
         content=r.read(MAX_JSON+1)
         if len(content)>MAX_JSON:
@@ -63,7 +69,11 @@ def download(key, folder):
     dest=folder/(key+".csv")
     h=hashlib.sha256()
     size=0
-    with response(meta["url"]) as r, dest.open("wb") as f:
+    try:
+        resp=response(meta["url"])
+    except Exception as e:
+        raise RuntimeError("CSV distribution "+urlsplit(meta["url"]).path+": "+str(e)) from e
+    with resp as r, dest.open("wb") as f:
         while chunk:=r.read(1024*1024):
             size+=len(chunk)
             if size>MAX_BYTES:
