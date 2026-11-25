@@ -28,3 +28,20 @@ CREATE TABLE IF NOT EXISTS findings (
 );
 CREATE INDEX IF NOT EXISTS findings_ccn ON findings(ccn,survey_date);
 CREATE INDEX IF NOT EXISTS findings_state ON findings(state,survey_date);
+
+CREATE TABLE IF NOT EXISTS certification_releases (
+ registry TEXT PRIMARY KEY, title TEXT NOT NULL, period TEXT NOT NULL,
+ version_api TEXT NOT NULL, download_url TEXT NOT NULL, source_sha256 TEXT NOT NULL,
+ row_count INTEGER NOT NULL, imported_at TEXT NOT NULL, column_mapping TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS certification_records (
+ registry TEXT NOT NULL REFERENCES certification_releases(registry),
+ row_number INTEGER NOT NULL, row_sha256 TEXT NOT NULL, provider_id TEXT NOT NULL,
+ name TEXT NOT NULL, address TEXT NOT NULL, city TEXT NOT NULL, state TEXT NOT NULL,
+ zip TEXT NOT NULL, provider_type TEXT NOT NULL, subtype TEXT NOT NULL,
+ certification_date TEXT NOT NULL, termination_date TEXT NOT NULL, status TEXT NOT NULL,
+ PRIMARY KEY(registry,row_number)
+);
+CREATE INDEX IF NOT EXISTS certification_id ON certification_records(registry,provider_id);
+CREATE INDEX IF NOT EXISTS certification_state ON certification_records(state,registry,name);
+CREATE INDEX IF NOT EXISTS certification_name ON certification_records(name COLLATE NOCASE,registry,row_number);

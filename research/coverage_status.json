@@ -1,0 +1,759 @@
+{
+  "version": 1,
+  "inventory_blob": "8d3a5e9992cc4b9d819452cd4050dd19731e0d55",
+  "as_of": "2026-11-25",
+  "qualified_baseline": {
+    "commit": "bc0586169db10ca4dd3ea7bc234d6b306928474a",
+    "run": "https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45664651617",
+    "note": "Full source snapshot imported and tested on ephemeral CI, not durable deployment."
+  },
+  "sources": [
+    {
+      "id": "FS-001",
+      "status": "qualification_candidate",
+      "adapter": "qies"
+    },
+    {
+      "id": "FS-002",
+      "status": "qualification_candidate",
+      "adapter": "iqies"
+    },
+    {
+      "id": "FS-003",
+      "status": "qualification_candidate",
+      "adapter": "clia"
+    },
+    {
+      "id": "FS-004",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-005",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-006",
+      "status": "snapshot_qualified",
+      "adapter": "hospital",
+      "evidence": "45664651617"
+    },
+    {
+      "id": "FS-007",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-008",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-009",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-010",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-011",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-012",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-013",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-014",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-015",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-016",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-017",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-018",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-019",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-020",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-021",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-022",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-023",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-024",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-025",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-026",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-027",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-028",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-029",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-030",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-031",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-032",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-033",
+      "status": "snapshot_qualified",
+      "adapter": "nursing-health",
+      "evidence": "45664651617"
+    },
+    {
+      "id": "FS-034",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-035",
+      "status": "snapshot_qualified",
+      "adapter": "nursing-fire",
+      "evidence": "45664651617"
+    },
+    {
+      "id": "FS-036",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-037",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-038",
+      "status": "snapshot_qualified",
+      "adapter": "nursing",
+      "evidence": "45664651617"
+    },
+    {
+      "id": "FS-039",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-040",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-041",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-042",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-043",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-044",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-045",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-046",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-047",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-048",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-049",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-050",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-051",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-052",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-053",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-054",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-055",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-056",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-057",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-058",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-059",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-060",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-061",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-062",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-063",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-064",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-065",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-066",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-067",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-068",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-069",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-070",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-071",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-072",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-073",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-074",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-075",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-076",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-077",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-078",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-079",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-080",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-081",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-082",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-083",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-084",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-085",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-086",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-087",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-088",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-089",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-090",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-091",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-092",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-093",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-094",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-095",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-096",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-097",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-098",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-099",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-100",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-101",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-102",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-103",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-104",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-105",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-106",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-107",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-108",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-109",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-110",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-111",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-112",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-113",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-114",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-115",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-116",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-117",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-118",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-119",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-120",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-121",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-122",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-123",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-124",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-125",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-126",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-127",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-128",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-129",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-130",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-131",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-132",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-133",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-134",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-135",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-136",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-137",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-138",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-139",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-140",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-141",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-142",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-143",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-144",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-145",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-146",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-147",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-148",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-149",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-150",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-151",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-152",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-153",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-154",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-155",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-156",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-157",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-158",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-159",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-160",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-161",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-162",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-163",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-164",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-165",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-166",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-167",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-168",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-169",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-170",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-171",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-172",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-173",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-174",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-175",
+      "status": "discovered_not_tested"
+    },
+    {
+      "id": "FS-176",
+      "status": "discovered_not_tested"
+    }
+  ],
+  "additional_qualified_datasets": [
+    {
+      "adapter": "dialysis",
+      "status": "snapshot_qualified",
+      "evidence": "45664651617"
+    },
+    {
+      "adapter": "home-health",
+      "status": "snapshot_qualified",
+      "evidence": "45664651617"
+    },
+    {
+      "adapter": "hospice",
+      "status": "snapshot_qualified",
+      "evidence": "45664651617"
+    },
+    {
+      "adapter": "rehabilitation",
+      "status": "snapshot_qualified",
+      "evidence": "45664651617"
+    },
+    {
+      "adapter": "long-term-hospital",
+      "status": "snapshot_qualified",
+      "evidence": "45664651617"
+    }
+  ],
+  "notes": [
+    "A catalog or source family is not fully ingested just because one constituent dataset is qualified.",
+    "Local runtime presence is reported separately from historical qualification.",
+    "Discovered sources still require access/reuse review, exact endpoint, mapping and coverage validation."
+  ]
+}

@@ -1,0 +1,54 @@
+name: National provider registry full qualification
+on:
+  push:
+    branches: [build/registry-ingestion]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  registry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m py_compile facilitysignal.py collect_registry.py
+      - run: python -m unittest discover -s tests -v
+      - name: Download and validate all registry files
+        run: python collect_registry.py --output "$RUNNER_TEMP/registry-snapshot"
+      - name: Verify populated certifications UI and API
+        shell: bash
+        run: |
+          set -euo pipefail
+          export FACILITYSIGNAL_DB="$RUNNER_TEMP/registry-snapshot/facilitysignal.sqlite3"
+          python facilitysignal.py serve --port 8081 &
+          PID=$!
+          trap 'kill "$PID" 2>/dev/null || true' EXIT
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8081/api/certifications > "$RUNNER_TEMP/certifications.json"; then break; fi
+            sleep 1
+          done
+          python - <<'PY'
+          import json,os,urllib.request
+          base="http://127.0.0.1:8081"
+          def get(path): return json.load(urllib.request.urlopen(base+path))
+          d=get("/api/certifications")
+          manifest=json.load(open(os.environ["RUNNER_TEMP"]+"/registry-snapshot/registry-manifest.json"))
+          assert d["total"]==manifest["certification_records"]
+          assert len(d["releases"])==3
+          for key in ("qies","iqies","clia"):
+              result=get("/api/certifications?registry="+key+"&limit=1")
+              assert result["total"]>0 and result["rows"][0]["registry"]==key
+          assert get("/api/overview")["facility_records"] is None
+          with urllib.request.urlopen(base+"/certifications") as r:
+              assert r.status==200 and b"CMS certifications" in r.read()
+          print("Populated registry routes verified")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: registry-audit-only
+          path: ${{ runner.temp }}/registry-snapshot/registry-manifest.json
+          retention-days: 14
+          if-no-files-found: error

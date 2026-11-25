@@ -28,6 +28,7 @@ CATALOG = {
     "long-term-hospital": ("azum-44iv", "Long-term care hospital", "CMS Provider Data Catalog"),
 }
 REGISTER = ROOT / "research" / "facilitysignal_source_register_v0.2.json"
+COVERAGE = ROOT / "research" / "coverage_status.json"
 FINDING_DATASETS = {"nursing-health", "nursing-fire"}
 FACILITY_DATASETS = set(CATALOG) - FINDING_DATASETS
 
@@ -201,6 +202,8 @@ def paged(db, kind, params):
 
 def sources(params):
     data = json.loads(REGISTER.read_text(encoding="utf-8"))["sources"]
+    coverage = {x["id"]:x for x in json.loads(COVERAGE.read_text(encoding="utf-8"))["sources"]} if COVERAGE.exists() else {}
+    data = [{**s,"qualification_status":coverage.get(s["id"],{}).get("status","discovered_not_tested")} for s in data]
     q = params.get("q","").lower().strip()[:160]
     for k in ("category","priority","jurisdiction"):
         if params.get(k):
@@ -225,7 +228,7 @@ def table(headers, body):
     return '<div class="table-wrap"><table><thead><tr>'+''.join('<th>'+esc(x)+'</th>' for x in headers)+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+x+'</td>' for x in r)+'</tr>' for r in body)+'</tbody></table></div>'
 
 def layout(title, path, body):
-    nav = [("/","Overview"),("/facilities","Facilities"),("/findings","Inspections"),("/sources","Data sources")]
+    nav = [("/","Overview"),("/facilities","Facilities"),("/findings","Inspections"),("/certifications","Certifications"),("/sources","Data sources")]
     links = "".join('<a href="'+p+'"'+(' aria-current="page"' if path==p else '')+'>'+t+'</a>' for p,t in nav)
     return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+esc(title)+' | FacilitySignal</title><link rel="stylesheet" href="/styles.css"></head><body><aside><a class="brand" href="/">Facility<span>Signal</span><small>PHARM3R</small></a><div class="nav-label">NATIONAL INTELLIGENCE</div><nav>'+links+'</nav><div class="aside-foot">Development alpha<br>United States · local data</div></aside><main><header><span>Healthcare facility intelligence</span><span class="status">LOCAL WORKSPACE</span></header><section class="content"><h1>'+esc(title)+'</h1>'+body+'</section><footer>Source-backed intelligence · Missing records do not establish compliance.</footer></main></body></html>'
 
@@ -280,9 +283,9 @@ def render_list(db, kind, params):
         body='<p class="intro">Current scope: CMS nursing home health and fire safety citations. Source statuses and historical records are retained; a citation is not automatically an active service need.</p>'+body
     else:
         headers=["Source","Jurisdiction","Priority","Discovery status","Ingestion / reuse"]
-        data=[[esc(r["id"]+" · "+r["source"])+'<small>'+esc(r["publisher"])+' · '+source_anchor(r["source_url"])+'</small>',esc(r["jurisdiction"]),esc(r["priority"]),esc(r["discovery_status"]),esc(r["ingestion_status"])+'<small>'+esc(r["reuse_review"])+'</small>'] for r in result["rows"]]
+        data=[[esc(r["id"]+" · "+r["source"])+'<small>'+esc(r["publisher"])+' · '+source_anchor(r["source_url"])+'</small>',esc(r["jurisdiction"]),esc(r["priority"]),esc(r["discovery_status"]),esc(r["qualification_status"])+'<small>'+esc(r["reuse_review"])+'</small>'] for r in result["rows"]]
         title="Data source register"
-        body='<p class="intro">Original v0.2 research inventory. Discovery status is preserved, not overwritten by local import status.</p>'+body
+        body='<p class="intro">Original research inventory with a separate qualification ledger. Historical qualification is not proof that the source is present in this local database.</p>'+body
     return layout(title,"/"+kind,body+table(headers,data)+pager("/"+kind,params,result))
 
 def render_detail(db,params):
@@ -298,6 +301,32 @@ def render_detail(db,params):
         body += '<h2>Health and fire safety citations · '+fmt(result["total"])+' matching imported records</h2><p>Exact CCN linkage within the nursing home source scope. A missing citation does not indicate compliance.</p>'+table(["Date","Tag","Description","Correction status"],[[esc(x["survey_date"]),esc(x["tag"]),esc(x["description"]),esc(x["correction_status"] or "Unknown")] for x in result["rows"]])+'<p><a href="'+link("/findings",{"ccn":ident})+'">View all matching citations</a></p>'
     body += '<h2>Additional intelligence</h2><div class="roadmap">Water, equipment, property, ownership relationships, hospital surveys and contracts have not been integrated. Unknown is not zero.</div>'
     return layout(r["name"],"/facilities",body)
+
+def registry_search(db, params):
+    p,l=page_args(params)
+    clauses,values=[],[]
+    for k in ("registry","state"):
+        if params.get(k):
+            clauses.append(k+"=?")
+            values.append(params[k])
+    q=params.get("q","").strip()[:160]
+    if q:
+        pattern="%"+q.replace("\\","\\\\").replace("%","\\%").replace("_","\\_")+"%"
+        clauses.append("(provider_id LIKE ? ESCAPE '\\' OR name LIKE ? ESCAPE '\\' OR city LIKE ? ESCAPE '\\' OR address LIKE ? ESCAPE '\\')")
+        values.extend([pattern]*4)
+    where=" WHERE "+" AND ".join(clauses) if clauses else ""
+    n=db.execute("SELECT count(*) FROM certification_records"+where,values).fetchone()[0]
+    data=rows(db,"SELECT * FROM certification_records"+where+" ORDER BY name COLLATE NOCASE,registry,row_number LIMIT ? OFFSET ?",values+[l,(p-1)*l])
+    releases=rows(db,"SELECT * FROM certification_releases ORDER BY registry")
+    return {"rows":data,"total":n,"page":p,"limit":l,"releases":releases,"note":"Source registry records, including historical/terminated records; not unique active providers."}
+
+def render_certifications(db,params):
+    result=registry_search(db,params)
+    form='<form class="filters" method="get"><label>Search<input name="q" value="'+esc(params.get("q",""))+'" placeholder="Name, provider number, city"></label>'+select("registry","Registry",[("qies","QIES"),("iqies","iQIES"),("clia","CLIA")],params)+select("state","State / territory",[(s,s) for s in STATES],params)+'<button>Search</button><a href="/certifications">Reset</a></form>'
+    body='<p class="intro">CMS certification records are stored separately from Care Compare providers. Historical and terminated records are included. Status and provider-type codes are source-native; do not infer an active facility from a listed record.</p>'
+    body+=table(["Registry","Release period","Source rows"],[[esc(x["registry"]),esc(x["period"]),fmt(x["row_count"])] for x in result["releases"]])+form
+    body+=table(["Provider / identifier","Registry","Location","Type code","Certification / termination"],[[esc(r["name"] or "Not reported")+'<small>'+esc(r["provider_id"] or "No source ID")+'</small>',esc(r["registry"]),esc(r["address"]+" "+r["city"]+" "+r["state"]+" "+r["zip"]),esc(r["provider_type"] or "Not reported"),esc(r["certification_date"] or "Not reported")+'<small>Termination: '+esc(r["termination_date"] or "Not reported")+'</small><small>Status: '+esc(r["status"] or "Not reported")+'</small>'] for r in result["rows"]])
+    return layout("CMS certifications","/certifications",body+pager("/certifications",params,result))
 
 def handler(db_path):
     class Handler(BaseHTTPRequestHandler):
@@ -321,12 +350,14 @@ def handler(db_path):
                 with closing(connect(db_path)) as db:
                     if path.startswith("/api/"):
                         kind=path[5:]
-                        data=overview(db) if kind=="overview" else sources(params) if kind=="sources" else paged(db,kind,params) if kind in ("facilities","findings") else None
+                        data=overview(db) if kind=="overview" else sources(params) if kind=="sources" else registry_search(db,params) if kind=="certifications" else paged(db,kind,params) if kind in ("facilities","findings") else None
                         return self.send(200 if data is not None else 404,json.dumps(data if data is not None else {"error":"not found"}),"application/json; charset=utf-8")
                     if path=="/":
                         body=render_overview(db)
                     elif path in ("/facilities","/findings","/sources"):
                         body=render_list(db,path[1:],params)
+                    elif path=="/certifications":
+                        body=render_certifications(db,params)
                     elif path=="/facility":
                         body=render_detail(db,params)
                     else:
