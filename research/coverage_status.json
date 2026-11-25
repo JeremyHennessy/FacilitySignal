@@ -844,5 +844,15 @@
     "unknown_codes": 0,
     "layout_sha256": "08291e4cd5d0221b1201d48be1d58a916af9ea4b608b90c4ebc5ae450ef1f4b7",
     "note": "Standalone QIES source-code distribution qualified; historical labels provisional; full national integration not yet qualified."
+  },
+  "national_capability_recovery_qualified_baseline": {
+    "commit": "773fd2958e6597b75ef8de8ef62232d250d49c3e",
+    "run": 45705545314,
+    "artifact": 15065176997,
+    "source_records": 1904060,
+    "derived_observations": 231780,
+    "database_bytes": 888987648,
+    "database_sha256": "b75c18a43deb884e3fe4c7a6f49fc7966530845ec17bdef08c068c2339fcf331",
+    "note": "19 pinned source files plus two pinned dictionary documents reconstructed; 37 tests and populated national local API passed; zero orphan capability observations; not persistent storage or production."
   }
 }
