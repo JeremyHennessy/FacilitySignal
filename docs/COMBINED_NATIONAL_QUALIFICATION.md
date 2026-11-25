@@ -1,0 +1,11 @@
+# Combined national CMS qualification — 2026-11-25
+
+Previous main bc0586169db10ca4dd3ea7bc234d6b306928474a preserved in history. Registry candidate e4efcaa8b98df4273b348560d203c9fcbe5d776b passed full qualification run 45666079471 (11 unit tests, populated routes; QIES 13,598; iQIES 100,334; CLIA 686,058; no missing/repeated IDs or exact duplicate rows reported). Promoted by non-force fast-forward after checking the diff and exact head.
+
+The retained Care Compare snapshot from run 45665664275 has 48,004 providers, 619,069 findings, 56 represented jurisdictions, no unmatched nursing finding CCNs. Artifact 15046953633 expires 2026-11-28T17:33:01Z. The combined workflow reuses this exact artifact/hash on branch pushes. Manual fresh_cms=true rebuilds after expiry; no silent fallback or repeated downloads. Registry data is downloaded locally from official release distributions. Only aggregate manifests are uploaded.
+
+The combined builder verifies the original hash, release and row counts, preserves all four prior tables exactly in both directions, independently reconciles all registry sources and raw checksums, records read-only identifier overlap candidates (not canonical matches), and publishes a new local output directory only after qualification. It also records small single-process SQLite timing samples. The retained CMS artifact lacks the original raw CMS files; its reproducible retrieval manifests remain available. No durable hosted storage, browser rendering, production security, canonical matching or active-status interpretation is claimed.
+
+Run locally: python build_combined.py --cms-base data/cms-snapshot --output data/combined. The input must contain facilitysignal.sqlite3 and manifest.json. Keep the output on authorized controlled storage, not the public repository. Never interpret the combined sum as distinct healthcare facilities.
+
+Pending gates: full combined qualification; verify workflow and audit; promote only after passing; persistent storage approval/availability; canonical identifiers and reviewed entity resolution; CMS field definitions and service extraction; national hospital survey, ownership, state, equipment, environmental and procurement sources; production access control and browser testing. Original source registers preserved; TowerSignal unchanged.

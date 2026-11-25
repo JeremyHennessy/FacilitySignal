@@ -1,0 +1,86 @@
+name: Combined national CMS qualification
+on:
+  push:
+    branches: [build/combined-national]
+  workflow_dispatch:
+    inputs:
+      fresh_cms:
+        description: Rebuild all Care Compare datasets instead of using the retained baseline
+        type: boolean
+        default: false
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: facilitysignal-combined-qualification
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m py_compile facilitysignal.py collect_cms.py collect_registry.py build_combined.py
+      - run: python -m unittest discover -s tests -v
+      - name: Retrieve previously qualified baseline (expires November 28)
+        if: github.event_name != 'workflow_dispatch' || !inputs.fresh_cms
+        uses: actions/download-artifact@v4
+        with:
+          name: facilitysignal-cms-snapshot
+          run-id: 45665664275
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/cms-base
+      - name: Check retained database hash against successful run
+        if: github.event_name != 'workflow_dispatch' || !inputs.fresh_cms
+        run: echo "baa78020a2c60df25408421d4491f66f6f260aa25d3c7579c13199aee9e23960  $RUNNER_TEMP/cms-base/facilitysignal.sqlite3" | sha256sum -c
+      - name: Rebuild full Care Compare baseline if explicitly requested
+        if: github.event_name == 'workflow_dispatch' && inputs.fresh_cms
+        run: python collect_cms.py --output "$RUNNER_TEMP/cms-base"
+      - name: Build combined database and independently reconcile source rows
+        run: python build_combined.py --cms-base "$RUNNER_TEMP/cms-base" --output "$RUNNER_TEMP/combined"
+      - name: Test populated combined UI and API
+        shell: bash
+        run: |
+          set -euo pipefail
+          export FACILITYSIGNAL_DB="$RUNNER_TEMP/combined/facilitysignal.sqlite3"
+          python facilitysignal.py serve --port 8081 &
+          PID=$!
+          trap 'kill "$PID" 2>/dev/null || true' EXIT
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8081/api/overview >/dev/null; then break; fi
+            sleep 1
+          done
+          python - <<'PY'
+          import json,os,urllib.request,urllib.parse
+          from pathlib import Path
+          root="http://127.0.0.1:8081"
+          audit=json.loads((Path(os.environ["RUNNER_TEMP"])/"combined"/"combined-audit.json").read_text())
+          def get(path): return json.load(urllib.request.urlopen(root+path,timeout=20))
+          overview=get("/api/overview")
+          assert overview["facility_records"]==audit["preserved_core_rows"]["facilities"]
+          assert overview["finding_records"]==audit["preserved_core_rows"]["findings"]
+          assert len(overview["releases"])==9 and len(overview["by_state"])==56
+          for registry,n in audit["registry_rows"].items():
+              r=get("/api/certifications?registry="+registry+"&limit=1")
+              assert r["total"]==n and r["rows"][0]["registry"]==registry
+          r=get("/api/facilities?dataset=nursing&limit=1")["rows"][0]
+          assert get("/api/findings?ccn="+r["ccn"])["total"]>=0
+          for path in ("/","/facilities","/findings","/certifications","/sources","/styles.css",
+                       "/facility?"+urllib.parse.urlencode({"dataset":r["dataset"],"ccn":r["ccn"]})):
+              with urllib.request.urlopen(root+path,timeout=20) as response:
+                  assert response.status==200 and response.read()
+          print("Combined populated routes passed; browser rendering and production remain unqualified.")
+          PY
+      - name: Retain aggregate evidence only
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-national-audit
+          path: |
+            ${{ runner.temp }}/combined/cms-manifest.json
+            ${{ runner.temp }}/combined/registry-manifest.json
+            ${{ runner.temp }}/combined/combined-audit.json
+          retention-days: 14
+          if-no-files-found: error
