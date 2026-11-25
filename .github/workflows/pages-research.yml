@@ -19,6 +19,7 @@ jobs:
       - run: python -m playwright install --with-deps chromium
       - run: python scripts/test_pages_research.py
       - name: Verify deployed public baseline in Chromium
+        if: always()
         run: python scripts/verify_pages_deployed.py
       - uses: actions/upload-artifact@v4
         if: always()

@@ -9,6 +9,11 @@ URL="http://127.0.0.1:8091/"
 OUT=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"pages-research-evidence"
 OUT.mkdir(exist_ok=True)
 meta=json.loads((ROOT/"web/public-directory/manifest.json").read_text())
+# Assert the filter and geographic aggregation use the complete qualified jurisdiction set.
+import re
+js=(ROOT/"web/pages.js").read_text()
+ui_states=re.search(r'const states="([^"]+)"',js).group(1).split()
+assert len(ui_states)==len(set(ui_states))==56 and set(ui_states)==set(meta["jurisdictions"]), "UI jurisdiction set differs from the qualified snapshot"
 hospital=json.loads((ROOT/"web/public-directory/hospital.json").read_text())["records"][0]
 nursing=json.loads((ROOT/"web/public-directory/nursing.json").read_text())["records"][0]
 all_provider_files=[s for s in meta["sources"] if not s.startswith("nursing-")]
@@ -49,6 +54,8 @@ try:
             page.get_by_role("link",name="Market explorer",exact=True).click()
             page.get_by_text("48,004 provider source records across 7 of 7 sources.",exact=False).wait_for()
             assert page.locator("tbody tr").count()==56
+            assert set(page.locator("tbody tr td:first-child").all_inner_texts())==set(meta["jurisdictions"])
+            assert sum(int(v.replace(",","")) for v in page.locator("tbody tr td:last-child").all_inner_texts())==meta["provider_rows"]
             shot("geography")
             page.goto(URL+"#facilities?source=hospital&state=NY&sort=name_desc")
             page.locator("tbody tr").first.wait_for()
