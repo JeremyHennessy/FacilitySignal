@@ -1,0 +1,61 @@
+name: iQIES surgical and dialysis capability qualification
+on:
+  push:
+    branches: [build/iqies-capabilities]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-iqies-capabilities
+  cancel-in-progress: true
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m py_compile iqies_capabilities.py
+      - run: python -m unittest discover -s tests -v
+      - name: Qualify one pinned iQIES file and dictionary without rebuilding unrelated sources
+        run: python iqies_capabilities.py --output "$RUNNER_TEMP/iqies-capabilities" --download
+      - name: Test populated local source-scoped API
+        shell: bash
+        run: |
+          set -euo pipefail
+          export FACILITYSIGNAL_DB="$RUNNER_TEMP/iqies-capabilities/facilitysignal.sqlite3"
+          python facilitysignal.py serve --port 8081 &
+          PID=$!
+          trap 'kill "$PID" 2>/dev/null || true' EXIT
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8081/api/overview >/dev/null; then break; fi
+            sleep 1
+          done
+          python - <<'PY'
+          import os,json,sqlite3,urllib.request,urllib.parse
+          from contextlib import closing
+          root="http://127.0.0.1:8081"
+          def get(path):return json.load(urllib.request.urlopen(root+path,timeout=30))
+          assert get("/api/certifications?registry=iqies&limit=1")["total"]==100334
+          with closing(sqlite3.connect(os.environ["FACILITYSIGNAL_DB"])) as db:
+              for scope in ("ASC","ESRD"):
+                  row=db.execute("""SELECT c.provider_id FROM iqies_capability_observations o
+                    JOIN certification_records c ON c.registry=o.registry AND c.row_number=o.row_number
+                    WHERE o.provider_scope=? AND o.value_state IN ('reported_count','reported_yes','reported_no')
+                    AND length(c.provider_id) IN (6,10) LIMIT 1""",(scope,)).fetchone()
+                  assert row,"No reported evidence for "+scope
+                  r=get("/api/iqies-capabilities?"+urllib.parse.urlencode({"provider_id":row[0]}))
+                  assert r["status"]=="source_observations" and any(x["provider_scope"]==scope for x in r["rows"])
+                  assert r["release"]["dictionary_sha256"]=="bd68d76dc72ee5c3b3249c459644ff2ed90c8e8cf6e182b76742ec53164c0594"
+          assert get("/api/iqies-capabilities")["status"]=="invalid_identifier"
+          print("Populated source-scoped ASC and ESRD API evidence passed; no production or canonical linkage claim.")
+          PY
+      - name: Retain aggregate evidence only
+        uses: actions/upload-artifact@v4
+        with:
+          name: iqies-capability-audit-only
+          path: ${{ runner.temp }}/iqies-capabilities/iqies-capability-audit.json
+          retention-days: 14
+          if-no-files-found: error

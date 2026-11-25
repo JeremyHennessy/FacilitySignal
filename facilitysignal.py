@@ -395,6 +395,9 @@ def handler(db_path):
                 with closing(connect(db_path)) as db:
                     if path.startswith("/api/"):
                         kind=path[5:]
+                        if kind=="iqies-capabilities":
+                            from iqies_capabilities import profile
+                            return self.send(200,json.dumps(profile(db,params.get("provider_id",""))),"application/json; charset=utf-8")
                         if kind=="ownership-evidence":
                             from ownership_evidence import profile
                             return self.send(200,json.dumps(profile(db,params.get("dataset",""),params.get("ccn",""))),"application/json; charset=utf-8")
