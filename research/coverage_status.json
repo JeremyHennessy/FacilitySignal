@@ -10,18 +10,27 @@
   "sources": [
     {
       "id": "FS-001",
-      "status": "qualification_candidate",
-      "adapter": "qies"
+      "status": "snapshot_qualified",
+      "adapter": "qies",
+      "evidence": "45666079471",
+      "source_records": 13598,
+      "note": "Standalone full registry snapshot and populated routes qualified; historical source rows, not unique active facilities."
     },
     {
       "id": "FS-002",
-      "status": "qualification_candidate",
-      "adapter": "iqies"
+      "status": "snapshot_qualified",
+      "adapter": "iqies",
+      "evidence": "45666079471",
+      "source_records": 100334,
+      "note": "Standalone full registry snapshot and populated routes qualified; historical source rows, not unique active facilities."
     },
     {
       "id": "FS-003",
-      "status": "qualification_candidate",
-      "adapter": "clia"
+      "status": "snapshot_qualified",
+      "adapter": "clia",
+      "evidence": "45666079471",
+      "source_records": 686058,
+      "note": "Standalone full registry snapshot and populated routes qualified; historical source rows, not unique active facilities."
     },
     {
       "id": "FS-004",
@@ -755,5 +764,10 @@
     "A catalog or source family is not fully ingested just because one constituent dataset is qualified.",
     "Local runtime presence is reported separately from historical qualification.",
     "Discovered sources still require access/reuse review, exact endpoint, mapping and coverage validation."
-  ]
+  ],
+  "registry_qualified_baseline": {
+    "commit": "e4efcaa8b98df4273b348560d203c9fcbe5d776b",
+    "run": "https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45666079471",
+    "note": "Registry standalone qualification passed; combined qualification pending."
+  }
 }

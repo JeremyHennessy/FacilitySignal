@@ -9,3 +9,7 @@ The combined builder verifies the original hash, release and row counts, preserv
 Run locally: python build_combined.py --cms-base data/cms-snapshot --output data/combined. The input must contain facilitysignal.sqlite3 and manifest.json. Keep the output on authorized controlled storage, not the public repository. Never interpret the combined sum as distinct healthcare facilities.
 
 Pending gates: full combined qualification; verify workflow and audit; promote only after passing; persistent storage approval/availability; canonical identifiers and reviewed entity resolution; CMS field definitions and service extraction; national hospital survey, ownership, state, equipment, environmental and procurement sources; production access control and browser testing. Original source registers preserved; TowerSignal unchanged.
+
+## Indexed overlap audit correction
+
+A local synthetic SQLite query-plan check at 48,004 facility and 799,990 registry rows identified a nested scan of facilities for each QIES/iQIES row in the original overlap query. The corrected inner join fixes the loop order and explicitly uses certification_id (registry,provider_id). Synthetic plan shows SCAN f then SEARCH c USING INDEX certification_id (registry=? AND provider_id=?); the corrected synthetic query completed in approximately 0.10 seconds. This is not a measurement of the live national data, nor proof of the first CI run's actual bottleneck. Candidate-only workflow concurrency now cancels obsolete qualification runs on a new push; no production job is affected. Requalify exact new head.

@@ -1,20 +1,11 @@
 # Implementation status — 2026-11-25
 
-Initial independent local development slice. The public repository contains source research, application code and tests, not commercial customer data or production infrastructure.
+Verified baseline: main e4efcaa8b98df4273b348560d203c9fcbe5d776b; main verification run 45669619063 passed. Previous main bc0586169db10ca4dd3ea7bc234d6b306928474a is preserved in ancestry. The original early-alpha statement that no source has been live-ingested is superseded by two independent ephemeral full qualifications.
 
-## Decisions
-Use the standard library and SQLite for a runnable, zero-dependency local vertical slice. Retain the conceptual PostgreSQL/PostGIS + API + React architecture in the master plan; no production architecture decision is implied. Server-rendered screens avoid an initial JavaScript build dependency.
+- CMS Care Compare: nine source releases, 48,004 source-scoped provider records, 619,069 nursing health/fire findings, 56 represented jurisdictions; runs 45664651617 and 45665664275 passed. No unmatched nursing citation CCNs. Temporary database artifact from latter run expires Nov 28, 2026. No claim of unique sites or open deficiencies.
+- CMS POS QIES 13,598; iQIES 100,334; CLIA 686,058; standalone full qualification run 45666079471 passed all 11 tests and populated routes. No missing or repeated source IDs or exact duplicate rows reported within each registry. May include historical/terminated providers; do not count as unique active facilities.
+- Source ledger overlay records historical qualification separately from local runtime presence; original 176-entry inventory is unchanged. Five additional Care Compare datasets are tracked separately.
+- Combined DB builder and tests exist on candidate branch; full national combined qualification, persistent storage and recovery not yet established. Read docs/COMBINED_NATIONAL_QUALIFICATION.md and live workflow results. An identifier overlap audit is not resolved identity.
+- Local server and API are development only. No secure production deployment, authenticated tenancy, actual browser qualification, canonical entities, national map, equipment, property, opportunity or organization intelligence completed. GitHub Pages is not the dynamic app.
 
-Official catalog documentation confirms IDs xubh-q36u, 4pq5-n9py, 23ew-n7w9 and r5ix-sfxw. Live payload retrieval in this environment was unavailable; adapters use explicit full CSV imports and independently declared release dates/row counts. The source research snapshots remain byte-identical. The new dialysis dataset is mapped separately.
-
-No source has been live-ingested. Do not claim national population counts until import, row-count validation, current release confirmation and coverage audit. Public access is not automatic commercial reuse clearance.
-
-## Next release gates
-1. Retrieve full official releases; confirm CSV schemas, counts, dates, permitted reuse and original checksums; run first real national imports.
-2. Independently validate provider record coverage and identifiers; resolve POS QIES/iQIES and CLIA national feeds.
-3. Add hospital Form 2567 survey index, nursing home fire safety and penalties; preserve correction status.
-4. Add normalized site/organization model, exact and reviewed crosswalks, geospatial API and national map.
-5. Add equipment, environment, properties, procurement and service opportunity evidence classification. No scores before validation.
-6. Production access control, tenant separation, deployment and monitoring require separate review.
-
-This alpha intentionally does not expose an unauthenticated network server or automatically publish regulatory records. TowerSignal is unchanged.
+Next gates: verify the full combined snapshot and indexed performance, preserve reproducible audit evidence and qualified promotion; durable controlled storage/backup and architecture review; canonical facility/source identity and status-code semantics; POS commercial field normalization; hospital QCOR survey source and ownership; national environmental, equipment, property, procurement, state/local expansion; evidence-backed opportunities; complete secure UI, refresh, real browser and national performance/security tests. No additional paid infrastructure or TowerSignal modification.

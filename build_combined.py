@@ -94,7 +94,7 @@ def verify(base, candidate):
             WITH per_registry AS (
                 SELECT c.registry,c.row_number,
                        MAX(CASE WHEN f.state=c.state AND c.state<>'' THEN 1 ELSE 0 END) AS same_state
-                FROM certification_records c JOIN facilities f ON c.provider_id=f.ccn
+                FROM facilities f CROSS JOIN certification_records c INDEXED BY certification_id ON c.provider_id=f.ccn
                 WHERE c.registry IN ('qies','iqies') AND c.provider_id<>''
                 GROUP BY c.registry,c.row_number
             )
