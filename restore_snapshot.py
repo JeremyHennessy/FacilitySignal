@@ -128,7 +128,8 @@ def audit_db(path,lock):
         require(all(v["unmatched_org_role_rows"]==0 for v in links.values()),"ownership linkage regression")
     return counts
 
-def recover(lock_path,raw_dir,output,allow_download,with_capabilities=False):
+def recover(lock_path,raw_dir,output,allow_download,with_capabilities=False,with_status_identity=False):
+    require(not with_status_identity or with_capabilities,"status/identity recovery requires --with-capabilities")
     lock=load_lock(lock_path)
     output=output.resolve()
     require(not output.exists(),"output must be new")
@@ -146,12 +147,20 @@ def recover(lock_path,raw_dir,output,allow_download,with_capabilities=False):
             import_one(db,s,path)
             if with_capabilities and s["family"]=="registry" and s["key"] in ("iqies","qies"):
                 projections[s["key"]]=project_one(db,s,path,dictionaries)
+                if with_status_identity and s["key"]=="iqies":
+                    from identity_status_recovery import project_status
+                    status_projection=project_status(db,s,path,dictionaries["iqies"])
             if path.parent==raw: path.unlink()
             print("RECOVERED_SOURCE",s["key"],s["stored_rows"],flush=True)
         counts=audit_db(db,lock)
         manifest={"source_lock_sha256":sha(lock_path),"source_records_total":sum(counts.values()),"table_counts":counts,"database_sha256":sha(db),"database_bytes":db.stat().st_size,"reconstructed_at":datetime.now(timezone.utc).isoformat(),"note":"Logical source reconstruction, not a byte-for-byte restoration; no production or reuse clearance."}
         if with_capabilities:
             manifest["capabilities"]=audit_projections(db,projections)
+        if with_status_identity:
+            from identity_status_recovery import finish
+            manifest["status_identity"]=finish(db,status_projection)
+            manifest["database_sha256"]=sha(db)
+            manifest["database_bytes"]=db.stat().st_size
         (ready/"recovery-audit.json").write_text(json.dumps(manifest,indent=2)+"\n")
         os.rename(ready,output)
         print("RECOVERY_VERIFIED",json.dumps(manifest),flush=True)
@@ -160,5 +169,6 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--lock",type=Path,default=LOCK);p.add_argument("--raw-dir",type=Path);p.add_argument("--output",type=Path,required=True);p.add_argument("--download",action="store_true")
     p.add_argument("--with-capabilities",action="store_true",help="Also recover the separately qualified iQIES and QIES projections using the pinned dictionaries")
-    a=p.parse_args();recover(a.lock,a.raw_dir.resolve() if a.raw_dir else None,a.output,a.download,a.with_capabilities)
+    p.add_argument("--with-status-identity",action="store_true",help="Also recover iQIES status and build source-scoped identity candidates")
+    a=p.parse_args();recover(a.lock,a.raw_dir.resolve() if a.raw_dir else None,a.output,a.download,a.with_capabilities,a.with_status_identity)
 if __name__=="__main__":main()

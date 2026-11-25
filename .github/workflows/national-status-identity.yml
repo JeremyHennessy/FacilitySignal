@@ -1,0 +1,72 @@
+name: National status and facility identity evidence qualification
+on:
+  push:
+    branches: [build/national-status-identity]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-national-status-identity
+  cancel-in-progress: true
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m py_compile restore_snapshot.py recovery_capabilities.py qies_hospital_services.py iqies_status_evidence.py identity_status_recovery.py
+      - run: python -m unittest discover -s tests -v
+      - name: One integrated recovery from 19 pinned source files and two dictionaries
+        run: python restore_snapshot.py --output "$RUNNER_TEMP/national" --download --with-capabilities --with-status-identity
+      - name: Populated HTTP checks against national integrated snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          export FACILITYSIGNAL_DB="$RUNNER_TEMP/national/facilitysignal.sqlite3"
+          python facilitysignal.py serve --port 8081 &
+          PID=$!
+          trap 'kill "$PID" 2>/dev/null || true' EXIT
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8081/api/overview >/dev/null; then break; fi
+            sleep 1
+          done
+          python - <<'PY'
+          import json,os,sqlite3,urllib.request,urllib.parse
+          from contextlib import closing
+          root="http://127.0.0.1:8081"
+          def get(path):return json.load(urllib.request.urlopen(root+path,timeout=60))
+          assert get("/api/facilities?limit=1")["total"]==48004
+          assert get("/api/findings?limit=1")["total"]==619069
+          assert get("/api/certifications?registry=qies&limit=1")["total"]==13598
+          assert get("/api/certifications?registry=iqies&limit=1")["total"]==100334
+          assert get("/api/certifications?registry=clia&limit=1")["total"]==686058
+          assert get("/api/hospital-surveys?limit=1")["total"]==284391
+          with closing(sqlite3.connect(os.environ["FACILITYSIGNAL_DB"])) as db:
+              for scope in ("ASC","ESRD"):
+                  r=db.execute("""SELECT c.provider_id FROM iqies_capability_observations o JOIN certification_records c ON c.registry=o.registry AND c.row_number=o.row_number WHERE o.provider_scope=? AND o.value_state IN ('reported_count','reported_yes','reported_no') AND length(c.provider_id) IN (6,10) LIMIT 1""",(scope,)).fetchone()
+                  assert r and any(x["provider_scope"]==scope for x in get("/api/iqies-capabilities?"+urllib.parse.urlencode({"provider_id":r[0]}))["rows"])
+          with closing(sqlite3.connect(os.environ["FACILITYSIGNAL_DB"])) as db:
+              row=db.execute("SELECT provider_id FROM certification_records WHERE registry='iqies' AND length(provider_id) IN (6,10) LIMIT 1").fetchone()
+              assert row
+              r=get("/api/iqies-status?"+urllib.parse.urlencode({"provider_id":row[0]}))
+              assert r["status"]=="source_observations" and r["rows"]
+              f=db.execute("SELECT dataset,ccn FROM facility_registry_candidate WHERE candidate_state='same_state' LIMIT 1").fetchone()
+              assert f
+              r=get("/api/identity-candidates?"+urllib.parse.urlencode({"dataset":f[0],"ccn":f[1]}))
+              assert r["status"]=="candidate_evidence" and any(x["candidate_state"]=="same_state" for x in r["candidates"])
+              assert db.execute("SELECT count(*) FROM iqies_status_observations").fetchone()[0]==100334
+              assert db.execute("SELECT count(*) FROM iqies_capability_observations").fetchone()[0]==68604
+              assert db.execute("SELECT count(*) FROM qies_hospital_service_observations").fetchone()[0]==163176
+          print("NATIONAL_STATUS_IDENTITY_HTTP_PASS: baseline and new local evidence endpoints")
+          print("NATIONAL_CAPABILITY_HTTP_PASS: preserved populated baseline APIs and iQIES capability profile")
+          PY
+      - name: Retain aggregate recovery evidence only
+        uses: actions/upload-artifact@v4
+        with:
+          name: national-status-identity-audit
+          path: ${{ runner.temp }}/national/recovery-audit.json
+          retention-days: 14
+          if-no-files-found: error

@@ -854,5 +854,35 @@
     "database_bytes": 888987648,
     "database_sha256": "b75c18a43deb884e3fe4c7a6f49fc7966530845ec17bdef08c068c2339fcf331",
     "note": "19 pinned source files plus two pinned dictionary documents reconstructed; 37 tests and populated national local API passed; zero orphan capability observations; not persistent storage or production."
+  },
+  "iqies_status_qualified_baseline": {
+    "commit": "891655f5a9735ca10be0ff4bc0ce4097a2903522",
+    "run": "45714378763",
+    "artifact": 15068842303,
+    "source_records": 100334,
+    "derived_status_rows": 100334,
+    "termination_code_00": 74762,
+    "unrecognized_termination_codes": 285,
+    "termination_date_unknown": 100334,
+    "note": "Standalone local qualification and post-promotion verification 45714563422 passed; current operation not inferred."
+  },
+  "national_status_identity_qualified_baseline": {
+    "candidate": "b390d0f3b4ae31ff3afe8101deb3183c961070b8",
+    "run": 45714729059,
+    "artifact": 15069163019,
+    "source_records": 1904060,
+    "capability_observations": 231780,
+    "status_observations": 100334,
+    "candidate_pairs": 47169,
+    "unmatched_facility_source_rows": 835,
+    "same_state_type_address_city_zip_pairs": 34264,
+    "tests": 44,
+    "database_bytes": 904990720,
+    "database_sha256": "44b2c0dc8c79ed5dba8cf1652404060129b81ecbbba9e687cbca81c8a7cb43fe",
+    "date_shape_counts": {
+      "slash_date_uninterpreted": 25568,
+      "not_available": 74766
+    },
+    "note": "All pairs same state/type, no multiple candidates within dataset. Candidate evidence, not canonical sites. Aggregate audit only. Qualified branch merged preserving disjoint public UI changes; date format remains unresolved."
   }
 }
