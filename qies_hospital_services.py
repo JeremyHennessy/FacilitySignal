@@ -22,6 +22,8 @@ from probe_pos_fields import INVENTORY
 
 LAYOUT_URL="https://data.cms.gov/sites/default/files/2023-07/0ca58d5d-7914-4532-b22d-41741d3e6151/P.QWB.POSQ.OTHER.LAYOUT.MAR23.pdf"
 LAYOUT_DATE="2023-04-02"
+LAYOUT_SHA="08291e4cd5d0221b1201d48be1d58a916af9ea4b608b90c4ebc5ae450ef1f4b7"
+LAYOUT_BYTES=6141361
 # Scope and field/domain reviewed in the Hospital category 01 portion of the
 # catalog-linked layout. Keep mappings provisional pending current-version review.
 FIELDS={
@@ -86,9 +88,11 @@ def dictionary_evidence(path):
         while chunk:=src.read(1024*1024):
             n+=len(chunk);require(n<=30_000_000,"layout size limit")
             h.update(chunk);dst.write(chunk)
+    require(n==LAYOUT_BYTES and h.hexdigest()==LAYOUT_SHA,"layout changed; review required")
     return {"url":LAYOUT_URL,"sha256":h.hexdigest(),"bytes":n,"document_date":LAYOUT_DATE,"catalog_reference_verified":True}
 
 def project(db,source,item,layout):
+    require(layout.get("sha256")==LAYOUT_SHA and layout.get("bytes")==LAYOUT_BYTES and layout.get("url")==LAYOUT_URL,"unqualified layout metadata")
     verify_raw(source,item)
     rel=db.execute("SELECT source_sha256,row_count,period FROM certification_releases WHERE registry='qies'").fetchone()
     require(rel is not None and tuple(rel)==(item["sha256"],item["stored_rows"],item["release"]),"QIES release mismatch")

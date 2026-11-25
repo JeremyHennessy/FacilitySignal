@@ -128,7 +128,7 @@ def audit_db(path,lock):
         require(all(v["unmatched_org_role_rows"]==0 for v in links.values()),"ownership linkage regression")
     return counts
 
-def recover(lock_path,raw_dir,output,allow_download):
+def recover(lock_path,raw_dir,output,allow_download,with_capabilities=False):
     lock=load_lock(lock_path)
     output=output.resolve()
     require(not output.exists(),"output must be new")
@@ -137,13 +137,21 @@ def recover(lock_path,raw_dir,output,allow_download):
         stage=Path(tmp);raw=stage/"raw";raw.mkdir();ready=stage/"ready";ready.mkdir()
         db=ready/"facilitysignal.sqlite3"
         fs.init(db)
+        projections={}
+        if with_capabilities:
+            from recovery_capabilities import prepare_dictionaries,project_one,audit_projections
+            dictionaries=prepare_dictionaries(raw_dir,raw,allow_download)
         for s in sorted(lock["sources"],key=lambda x:({"care-compare":0,"registry":1,"qcor":2,"pecos":3}[x["family"]],x["key"])):
             path=materialize(s,raw_dir,raw,allow_download)
             import_one(db,s,path)
+            if with_capabilities and s["family"]=="registry" and s["key"] in ("iqies","qies"):
+                projections[s["key"]]=project_one(db,s,path,dictionaries)
             if path.parent==raw: path.unlink()
             print("RECOVERED_SOURCE",s["key"],s["stored_rows"],flush=True)
         counts=audit_db(db,lock)
         manifest={"source_lock_sha256":sha(lock_path),"source_records_total":sum(counts.values()),"table_counts":counts,"database_sha256":sha(db),"database_bytes":db.stat().st_size,"reconstructed_at":datetime.now(timezone.utc).isoformat(),"note":"Logical source reconstruction, not a byte-for-byte restoration; no production or reuse clearance."}
+        if with_capabilities:
+            manifest["capabilities"]=audit_projections(db,projections)
         (ready/"recovery-audit.json").write_text(json.dumps(manifest,indent=2)+"\n")
         os.rename(ready,output)
         print("RECOVERY_VERIFIED",json.dumps(manifest),flush=True)
@@ -151,5 +159,6 @@ def recover(lock_path,raw_dir,output,allow_download):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--lock",type=Path,default=LOCK);p.add_argument("--raw-dir",type=Path);p.add_argument("--output",type=Path,required=True);p.add_argument("--download",action="store_true")
-    a=p.parse_args();recover(a.lock,a.raw_dir.resolve() if a.raw_dir else None,a.output,a.download)
+    p.add_argument("--with-capabilities",action="store_true",help="Also recover the separately qualified iQIES and QIES projections using the pinned dictionaries")
+    a=p.parse_args();recover(a.lock,a.raw_dir.resolve() if a.raw_dir else None,a.output,a.download,a.with_capabilities)
 if __name__=="__main__":main()

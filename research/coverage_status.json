@@ -832,5 +832,17 @@
     "derived_observations": 68604,
     "unrecognized_operating_room_values": 4,
     "note": "Standalone source-scoped local database and API qualified; code promoted, full national integration not yet tested; observations do not add to unique source record count."
+  },
+  "qies_service_qualified_baseline": {
+    "commit": "adac31a670ec2e8449842be13315ca0a5e0c7afe",
+    "run": "45700676606",
+    "artifact": 15062766848,
+    "source_records_verified": 13598,
+    "derived_observations": 163176,
+    "semantic_status": "catalog_linked_2023_layout_provisional_for_2026",
+    "blank_per_field": 1395,
+    "unknown_codes": 0,
+    "layout_sha256": "08291e4cd5d0221b1201d48be1d58a916af9ea4b608b90c4ebc5ae450ef1f4b7",
+    "note": "Standalone QIES source-code distribution qualified; historical labels provisional; full national integration not yet qualified."
   }
 }
