@@ -34,3 +34,13 @@ class RegistryTests(unittest.TestCase):
                 self.assertIn("Historical provider",fs.render_certifications(conn,{}))
     def test_missing_header_rejected(self):
         with self.assertRaises(ValueError): cr.mapping(["FAC_NAME","PRVDR_NUM"])
+
+    def test_legacy_encoding_is_strict(self):
+        with tempfile.TemporaryDirectory() as temp:
+            p=Path(temp)/"legacy.csv"
+            p.write_bytes(b"NAME\nTest\xa0Provider\n")
+            self.assertEqual(cr.source_encoding(p,False),"cp1252")
+            with cr.open_csv(p,False,"cp1252") as f:
+                self.assertIn("\u00a0",f.read())
+            p.write_bytes(b"NAME\nTest\x81Provider\n")
+            with self.assertRaises(ValueError): cr.source_encoding(p,False)

@@ -97,16 +97,39 @@ def download(meta,dest):
     return h.hexdigest(),size
 
 @contextmanager
-def open_csv(path,zipped):
+def open_binary(path,zipped):
     if zipped:
         with zipfile.ZipFile(path) as z:
             entries=[i for i in z.infolist() if not i.is_dir() and i.filename.lower().endswith(".csv")]
             if len(entries)!=1 or entries[0].file_size>MAX_UNCOMPRESSED:
                 raise ValueError("unexpected ZIP CSV content")
-            with z.open(entries[0]) as b,io.TextIOWrapper(b,encoding="utf-8-sig",newline="") as f:
-                yield f
+            with z.open(entries[0]) as stream: yield stream
     else:
-        with path.open(encoding="utf-8-sig",newline="") as f: yield f
+        with path.open("rb") as stream: yield stream
+
+def source_encoding(path,zipped):
+    # Validate the complete byte stream before choosing a strict decoder.
+    # CMS QIES Q3 2026 was observed to contain 0xA0 outside valid UTF-8.
+    # Windows-1252 is a provisional legacy-codepage interpretation, not
+    # a publisher-confirmed charset. No replacement or ignored bytes.
+    import codecs
+    for encoding in ("utf-8-sig","cp1252"):
+        try:
+            decoder=codecs.getincrementaldecoder(encoding)(errors="strict")
+            with open_binary(path,zipped) as stream:
+                while chunk:=stream.read(1024*1024):
+                    decoder.decode(chunk,final=False)
+                decoder.decode(b"",final=True)
+            return encoding
+        except UnicodeDecodeError:
+            continue
+    raise ValueError("unsupported source encoding")
+
+@contextmanager
+def open_csv(path,zipped,encoding):
+    with open_binary(path,zipped) as stream:
+        with io.TextIOWrapper(stream,encoding=encoding,errors="strict",newline="") as f:
+            yield f
 
 def mapping(headers):
     if not headers: raise ValueError("no CSV header")
@@ -119,7 +142,9 @@ def mapping(headers):
 
 def import_registry(db_path,meta,path,digest,expected):
     key=meta["registry"]
-    with open_csv(path,meta["zipped"]) as f:
+    encoding=source_encoding(path,meta["zipped"])
+    print("REGISTRY_ENCODING",key,encoding,flush=True)
+    with open_csv(path,meta["zipped"],encoding) as f:
         reader=csv.DictReader(f)
         print("REGISTRY_COLUMNS",key,json.dumps(reader.fieldnames),flush=True)
         cols=mapping(reader.fieldnames)
@@ -143,7 +168,7 @@ def import_registry(db_path,meta,path,digest,expected):
             unique_ids=db.execute("SELECT count(DISTINCT provider_id) FROM certification_records WHERE registry=? AND provider_id<>''",(key,)).fetchone()[0]
             duplicate_rows=n-db.execute("SELECT count(DISTINCT row_sha256) FROM certification_records WHERE registry=?",(key,)).fetchone()[0]
             states=fs.rows(db,"SELECT state,count(*) AS records FROM certification_records WHERE registry=? GROUP BY state ORDER BY state",(key,))
-    return {"registry":key,"rows":n,"unique_nonblank_ids":unique_ids,"missing_ids":missing_ids,"repeated_id_rows":n-missing_ids-unique_ids,"exact_duplicate_rows":duplicate_rows,"states":states,"mapping":cols}
+    return {"registry":key,"rows":n,"unique_nonblank_ids":unique_ids,"missing_ids":missing_ids,"repeated_id_rows":n-missing_ids-unique_ids,"exact_duplicate_rows":duplicate_rows,"states":states,"mapping":cols,"encoding":encoding}
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
