@@ -55,8 +55,8 @@
       "status": "snapshot_qualified",
       "adapter": "snf-enrollment",
       "source_records": 14401,
-      "evidence": "45675883927",
-      "note": "Standalone PECOS organizational projection qualified; integrated candidate pending; no row-level redistribution."
+      "evidence": "45681360390",
+      "note": "Integrated organizational PECOS projection qualified locally; no row-level redistribution or canonical ownership conclusion."
     },
     {
       "id": "FS-009",
@@ -217,32 +217,32 @@
       "status": "snapshot_qualified",
       "adapter": "hospital-owner",
       "source_records": 22735,
-      "evidence": "45675883927",
-      "note": "Standalone PECOS organizational projection qualified; integrated candidate pending; no row-level redistribution."
+      "evidence": "45681360390",
+      "note": "Integrated organizational PECOS projection qualified locally; no row-level redistribution or canonical ownership conclusion."
     },
     {
       "id": "FS-046",
       "status": "snapshot_qualified",
       "adapter": "hospital-chow",
       "source_records": 779,
-      "evidence": "45675883927",
-      "note": "Standalone PECOS organizational projection qualified; integrated candidate pending; no row-level redistribution."
+      "evidence": "45681360390",
+      "note": "Integrated organizational PECOS projection qualified locally; no row-level redistribution or canonical ownership conclusion."
     },
     {
       "id": "FS-047",
       "status": "snapshot_qualified",
       "adapter": "snf-owner",
       "source_records": 100231,
-      "evidence": "45675883927",
-      "note": "Standalone PECOS organizational projection qualified; integrated candidate pending; no row-level redistribution."
+      "evidence": "45681360390",
+      "note": "Integrated organizational PECOS projection qualified locally; no row-level redistribution or canonical ownership conclusion."
     },
     {
       "id": "FS-048",
       "status": "snapshot_qualified",
       "adapter": "snf-chow",
       "source_records": 5340,
-      "evidence": "45675883927",
-      "note": "Standalone PECOS organizational projection qualified; integrated candidate pending; no row-level redistribution."
+      "evidence": "45681360390",
+      "note": "Integrated organizational PECOS projection qualified locally; no row-level redistribution or canonical ownership conclusion."
     },
     {
       "id": "FS-049",
@@ -786,9 +786,9 @@
     {
       "adapter": "hospital-enrollment",
       "status": "snapshot_qualified",
-      "evidence": "45675883927",
+      "evidence": "45681360390",
       "source_records": 9120,
-      "note": "Standalone PECOS qualification; integrated candidate pending."
+      "note": "Integrated PECOS projection qualified locally; no durable deployment."
     }
   ],
   "notes": [
@@ -808,5 +808,13 @@
     "source_records": 1751454,
     "db_bytes": 728506368,
     "note": "Full local qualification and local backup/restore passed; no permanent deployment."
+  },
+  "integrated_ownership_qualified_baseline": {
+    "commit": "b7c261bd2e4ee16f2137b172a9d85d0960e1aa8a",
+    "run": "45681360390",
+    "main_verification": "45685565214",
+    "source_records": 1904060,
+    "db_bytes": 854065152,
+    "note": "19 sources integrated and tested locally; aggregate profile/API, no durable storage or live dynamic deployment."
   }
 }

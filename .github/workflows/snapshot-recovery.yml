@@ -1,0 +1,58 @@
+name: Snapshot release lock and recovery qualification
+on:
+  push:
+    branches: [build/snapshot-recovery]
+  workflow_dispatch:
+    inputs:
+      recover_full:
+        description: Explicitly download and reconstruct all 19 pinned releases (no row-level artifact)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: facilitysignal-snapshot-recovery
+  cancel-in-progress: true
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m py_compile restore_snapshot.py capture_release_urls.py
+      - run: python -m unittest discover -s tests -v
+      - name: Recover aggregate release URLs from previously qualified audit
+        if: github.event_name == 'push'
+        uses: actions/download-artifact@v4
+        with:
+          name: facilitysignal-cms-snapshot
+          run-id: 45665664275
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/cms-base
+      - name: Verify original snapshot and enrich release lock
+        if: github.event_name == 'push'
+        run: python capture_release_urls.py --lock research/snapshot_release_20261125.json --base "$RUNNER_TEMP/cms-base" --output "$RUNNER_TEMP/release-lock.json"
+      - name: Retain aggregate metadata only
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: facilitysignal-pinned-release-lock
+          path: ${{ runner.temp }}/release-lock.json
+          retention-days: 14
+          if-no-files-found: error
+      - name: Explicit full reconstruction
+        if: github.event_name == 'workflow_dispatch' && inputs.recover_full
+        run: python restore_snapshot.py --output "$RUNNER_TEMP/recovered" --download
+      - name: Retain recovery audit only
+        if: github.event_name == 'workflow_dispatch' && inputs.recover_full
+        uses: actions/upload-artifact@v4
+        with:
+          name: recovery-audit-only
+          path: ${{ runner.temp }}/recovered/recovery-audit.json
+          retention-days: 14
+          if-no-files-found: error

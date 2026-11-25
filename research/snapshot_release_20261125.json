@@ -1,0 +1,407 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-25",
+  "qualified_code": "b7c261bd2e4ee16f2137b172a9d85d0960e1aa8a",
+  "qualification_run": 45681360390,
+  "qualification_artifact": 15054422926,
+  "source_records_total": 1904060,
+  "excluded_individual_owner_rows": 326781,
+  "qualified_database": {
+    "bytes": 854065152,
+    "sha256": "323f59f1de2f5880f3dbbdc83907ac52a7b76c99a06a63039afda5cd59290df3",
+    "note": "Observed ephemeral database digest; reconstruction includes new import timestamps and is not expected to be byte-identical."
+  },
+  "care_compare_baseline": {
+    "run": 45665664275,
+    "artifact": 15046953633,
+    "sha256": "baa78020a2c60df25408421d4491f66f6f260aa25d3c7579c13199aee9e23960",
+    "expires_at": "2026-11-28T17:33:01Z"
+  },
+  "limitations": [
+    "Care Compare direct distribution URLs not present in retained job logs; complete from the verified retained manifest before expiry, or use catalog metadata only when release and raw checksum match.",
+    "QCOR unversioned export may change; exact bytes are not guaranteed available.",
+    "Source access and commercial redistribution clearance are distinct. Do not publish raw or row-level records.",
+    "All input checksums transcribed programmatically from successful CI logs. No durable raw retention established."
+  ],
+  "sources": [
+    {
+      "family": "care-compare",
+      "key": "hospital",
+      "file": "hospital.csv",
+      "catalog_id": "xubh-q36u",
+      "landing_url": "https://data.cms.gov/provider-data/dataset/xubh-q36u",
+      "release": "2026-11-12",
+      "bytes": 1461350,
+      "sha256": "ff2a82a7149975fb86348e7f901aa3bcd9f3701e8b0ecd0ab34702df193ff559",
+      "input_rows": 5435,
+      "stored_rows": 5435,
+      "excluded_rows": 0,
+      "download_url": null
+    },
+    {
+      "family": "care-compare",
+      "key": "nursing",
+      "file": "nursing.csv",
+      "catalog_id": "4pq5-n9py",
+      "landing_url": "https://data.cms.gov/provider-data/dataset/4pq5-n9py",
+      "release": "2026-10-28",
+      "bytes": 9218563,
+      "sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2",
+      "input_rows": 14686,
+      "stored_rows": 14686,
+      "excluded_rows": 0,
+      "download_url": null
+    },
+    {
+      "family": "care-compare",
+      "key": "dialysis",
+      "file": "dialysis.csv",
+      "catalog_id": "23ew-n7w9",
+      "landing_url": "https://data.cms.gov/provider-data/dataset/23ew-n7w9",
+      "release": "2026-10-28",
+      "bytes": 6840069,
+      "sha256": "9b0232d73b8aa9628b51bc76b7246b8590daa0393ec9dfd3126171ce571469ed",
+      "input_rows": 7471,
+      "stored_rows": 7471,
+      "excluded_rows": 0,
+      "download_url": null
+    },
+    {
+      "family": "care-compare",
+      "key": "nursing-health",
+      "file": "nursing-health.csv",
+      "catalog_id": "r5ix-sfxw",
+      "landing_url": "https://data.cms.gov/provider-data/dataset/r5ix-sfxw",
+      "release": "2026-10-28",
+      "bytes": 165372053,
+      "sha256": "15185c61678f9bcc663076de666d5054a0ca34249c97206cf9e0e3f4ae922473",
+      "input_rows": 418682,
+      "stored_rows": 418682,
+      "excluded_rows": 0,
+      "download_url": null
+    },
+    {
+      "family": "care-compare",
+      "key": "nursing-fire",
+      "file": "nursing-fire.csv",
+      "catalog_id": "ifjz-ge4w",
+      "landing_url": "https://data.cms.gov/provider-data/dataset/ifjz-ge4w",
+      "release": "2026-10-28",
+      "bytes": 69355711,
+      "sha256": "54a18c6409013e2bdcac2da315ddc4557430a993fd324abecd34d7d071c70cb7",
+      "input_rows": 200387,
+      "stored_rows": 200387,
+      "excluded_rows": 0,
+      "download_url": null
+    },
+    {
+      "family": "care-compare",
+      "key": "home-health",
+      "file": "home-health.csv",
+      "catalog_id": "6jpm-sxkc",
+      "landing_url": "https://data.cms.gov/provider-data/dataset/6jpm-sxkc",
+      "release": "2026-10-21",
+      "bytes": 12508977,
+      "sha256": "7adf3e17961949bbd64ef243545aa387224d9837e8c5601476f5b11946e76d22",
+      "input_rows": 12409,
+      "stored_rows": 12409,
+      "excluded_rows": 0,
+      "download_url": null
+    },
+    {
+      "family": "care-compare",
+      "key": "hospice",
+      "file": "hospice.csv",
+      "catalog_id": "yc9t-dgbk",
+      "landing_url": "https://data.cms.gov/provider-data/dataset/yc9t-dgbk",
+      "release": "2026-11-20",
+      "bytes": 835927,
+      "sha256": "9ff0f8e60a0864f51faf9d5668b1a5b7a644f15eefc1fecd66a771783722700f",
+      "input_rows": 6470,
+      "stored_rows": 6470,
+      "excluded_rows": 0,
+      "download_url": null
+    },
+    {
+      "family": "care-compare",
+      "key": "rehabilitation",
+      "file": "rehabilitation.csv",
+      "catalog_id": "7t8x-u3ir",
+      "landing_url": "https://data.cms.gov/provider-data/dataset/7t8x-u3ir",
+      "release": "2026-09-23",
+      "bytes": 159829,
+      "sha256": "18f89d14e22355b3ae2bcf02b2db93e7e54341f679ad380a2d741ce58002e214",
+      "input_rows": 1222,
+      "stored_rows": 1222,
+      "excluded_rows": 0,
+      "download_url": null
+    },
+    {
+      "family": "care-compare",
+      "key": "long-term-hospital",
+      "file": "long-term-hospital.csv",
+      "catalog_id": "azum-44iv",
+      "landing_url": "https://data.cms.gov/provider-data/dataset/azum-44iv",
+      "release": "2026-09-23",
+      "bytes": 43350,
+      "sha256": "176b1fae71a5ac97bf89f9d3404b98c6d3135b184f079baec939bcb2e016ba2e",
+      "input_rows": 311,
+      "stored_rows": 311,
+      "excluded_rows": 0,
+      "download_url": null
+    },
+    {
+      "family": "registry",
+      "key": "qies",
+      "file": "qies.csv",
+      "metadata": {
+        "registry": "qies",
+        "title": "Provider of Services File - Quality Improvement and Evaluation System",
+        "period": "2026-07-01/2026-09-30",
+        "modified": "2026-10-16",
+        "license": "https://www.usa.gov/government-works",
+        "api": "https://data.cms.gov/data-api/v1/dataset/b1e5b072-5e82-4e37-9bd6-de8708679935/data",
+        "url": "https://data.cms.gov/sites/default/files/2026-10/e5a8afbb-a1f4-4d3b-bdb9-3968e194da0e/Hospital_and_other.DATA.Q3_2026.csv",
+        "zipped": false
+      },
+      "download_url": "https://data.cms.gov/sites/default/files/2026-10/e5a8afbb-a1f4-4d3b-bdb9-3968e194da0e/Hospital_and_other.DATA.Q3_2026.csv",
+      "release": "2026-07-01/2026-09-30",
+      "bytes": 10757357,
+      "sha256": "8c83318826efc7de996811c22b67f5422ad639581e94830817645d5c0585bf7c",
+      "input_rows": 13598,
+      "stored_rows": 13598,
+      "excluded_rows": 0
+    },
+    {
+      "family": "registry",
+      "key": "iqies",
+      "file": "iqies.csv",
+      "metadata": {
+        "registry": "iqies",
+        "title": "Provider of Services File - Internet Quality Improvement and Evaluation System",
+        "period": "2026-07-01/2026-09-30",
+        "modified": "2026-10-16",
+        "license": "https://www.usa.gov/government-works",
+        "api": "https://data.cms.gov/data-api/v1/dataset/8b2c0a70-7e47-4b0f-a592-e51eb315cead/data",
+        "url": "https://data.cms.gov/sites/default/files/2026-10/d7e32873-6bf0-4719-9048-376972900d5c/POS_iQIES.DATA.Q3_2026.csv",
+        "zipped": false
+      },
+      "download_url": "https://data.cms.gov/sites/default/files/2026-10/d7e32873-6bf0-4719-9048-376972900d5c/POS_iQIES.DATA.Q3_2026.csv",
+      "release": "2026-07-01/2026-09-30",
+      "bytes": 238101556,
+      "sha256": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2",
+      "input_rows": 100334,
+      "stored_rows": 100334,
+      "excluded_rows": 0
+    },
+    {
+      "family": "registry",
+      "key": "clia",
+      "file": "clia.csv",
+      "metadata": {
+        "registry": "clia",
+        "title": "Provider of Services File - Clinical Laboratories",
+        "period": "2026-07-01/2026-09-30",
+        "modified": "2026-10-16",
+        "license": "https://www.usa.gov/government-works",
+        "api": "https://data.cms.gov/data-api/v1/dataset/1562f97e-b03b-49a0-8552-d321321b54a3/data",
+        "url": "https://data.cms.gov/sites/default/files/2026-10/fb46beda-9e19-4141-882e-7da5fd35b6da/Clia_Data.Q3_2026.csv",
+        "zipped": false
+      },
+      "download_url": "https://data.cms.gov/sites/default/files/2026-10/fb46beda-9e19-4141-882e-7da5fd35b6da/Clia_Data.Q3_2026.csv",
+      "release": "2026-07-01/2026-09-30",
+      "bytes": 221994249,
+      "sha256": "b7b7dce68abec2ad69b6c3378ff14e0b1c4e12f5dda433d12db2cf8eb4c5b1bf",
+      "input_rows": 686058,
+      "stored_rows": 686058,
+      "excluded_rows": 0
+    },
+    {
+      "family": "qcor",
+      "key": "qcor-hospital",
+      "file": "qcor-hospital.xlsx",
+      "download_url": "https://qcor.cms.gov/downloadHospital2567",
+      "release": null,
+      "retrieved_at": "2026-11-25T19:05:37.859410+00:00",
+      "bytes": 249544306,
+      "sha256": "0827c681005f3fe61b5e46f6448c3128456b5a7b25b0318738ab764d418c4eec",
+      "input_rows": 284391,
+      "stored_rows": 284391,
+      "excluded_rows": 0
+    },
+    {
+      "family": "pecos",
+      "key": "hospital-enrollment",
+      "file": "hospital-enrollment.csv",
+      "metadata": {
+        "title": "Hospital Enrollments",
+        "period": "2026-11-01/2026-11-30",
+        "modified": "2026-11-24",
+        "license": "https://www.usa.gov/government-works",
+        "api": "https://data.cms.gov/data-api/v1/dataset/a13f9528-2640-4f67-b716-884abdbe822c/data",
+        "distributions": [
+          {
+            "url": "https://data.cms.gov/sites/default/files/2026-11/68a679e0-ec3c-4c6f-98cf-566084547755/Hospital_Enrollments_2026.11.12.csv",
+            "format": "CSV",
+            "media_type": "text/csv"
+          }
+        ],
+        "landing": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospital-enrollments",
+        "url": "https://data.cms.gov/sites/default/files/2026-11/68a679e0-ec3c-4c6f-98cf-566084547755/Hospital_Enrollments_2026.11.12.csv",
+        "zipped": false
+      },
+      "download_url": "https://data.cms.gov/sites/default/files/2026-11/68a679e0-ec3c-4c6f-98cf-566084547755/Hospital_Enrollments_2026.11.12.csv",
+      "release": "2026-11-01/2026-11-30",
+      "bytes": 3089060,
+      "sha256": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e",
+      "input_rows": 9120,
+      "stored_rows": 9120,
+      "excluded_rows": 0
+    },
+    {
+      "family": "pecos",
+      "key": "hospital-owner",
+      "file": "hospital-owner.csv",
+      "metadata": {
+        "title": "Hospital All Owners",
+        "period": "2026-11-01/2026-11-30",
+        "modified": "2026-11-24",
+        "license": "https://www.usa.gov/government-works",
+        "api": "https://data.cms.gov/data-api/v1/dataset/5c50f5b1-90c7-43df-9d5e-8cc22a11a2d0/data",
+        "distributions": [
+          {
+            "url": "https://data.cms.gov/sites/default/files/2026-11/937b8468-6c43-423e-bdd0-853e3e969020/Hospital_Owners_2026.11.12.csv",
+            "format": "CSV",
+            "media_type": "text/csv"
+          }
+        ],
+        "landing": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospital-all-owners",
+        "url": "https://data.cms.gov/sites/default/files/2026-11/937b8468-6c43-423e-bdd0-853e3e969020/Hospital_Owners_2026.11.12.csv",
+        "zipped": false
+      },
+      "download_url": "https://data.cms.gov/sites/default/files/2026-11/937b8468-6c43-423e-bdd0-853e3e969020/Hospital_Owners_2026.11.12.csv",
+      "release": "2026-11-01/2026-11-30",
+      "bytes": 29940255,
+      "sha256": "4886fc907dd67d56d2c45057a13288b5e74a220f11cd6ba32b908a81728038f0",
+      "input_rows": 147029,
+      "stored_rows": 22735,
+      "excluded_rows": 124294
+    },
+    {
+      "family": "pecos",
+      "key": "hospital-chow",
+      "file": "hospital-chow.csv",
+      "metadata": {
+        "title": "Hospital Change of Ownership",
+        "period": "2026-07-01/2026-09-30",
+        "modified": "2026-10-19",
+        "license": "https://www.usa.gov/government-works",
+        "api": "https://data.cms.gov/data-api/v1/dataset/a78e5b6a-d1ee-4078-98d1-1415c704a028/data",
+        "distributions": [
+          {
+            "url": "https://data.cms.gov/sites/default/files/2026-10/f94c78c7-c3b0-4935-bc54-a1f4126703c0/Hospital_CHOW_2026.09.29.csv",
+            "format": "CSV",
+            "media_type": "text/csv"
+          }
+        ],
+        "landing": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/hospital-change-of-ownership",
+        "url": "https://data.cms.gov/sites/default/files/2026-10/f94c78c7-c3b0-4935-bc54-a1f4126703c0/Hospital_CHOW_2026.09.29.csv",
+        "zipped": false
+      },
+      "download_url": "https://data.cms.gov/sites/default/files/2026-10/f94c78c7-c3b0-4935-bc54-a1f4126703c0/Hospital_CHOW_2026.09.29.csv",
+      "release": "2026-07-01/2026-09-30",
+      "bytes": 253613,
+      "sha256": "a8cb5111dee64780f2c5bd9b10fdd304140848eeeee2e4b2c5012c7421533648",
+      "input_rows": 779,
+      "stored_rows": 779,
+      "excluded_rows": 0
+    },
+    {
+      "family": "pecos",
+      "key": "snf-enrollment",
+      "file": "snf-enrollment.csv",
+      "metadata": {
+        "title": "Skilled Nursing Facility Enrollments",
+        "period": "2026-11-01/2026-11-30",
+        "modified": "2026-11-24",
+        "license": "https://www.usa.gov/government-works",
+        "api": "https://data.cms.gov/data-api/v1/dataset/92a8ea7b-7007-451a-90a3-7215c49345e0/data",
+        "distributions": [
+          {
+            "url": "https://data.cms.gov/sites/default/files/2026-11/f7ae8d2f-bd31-4729-b735-f47190393f15/SNF_Enrollments_2026.11.12.csv",
+            "format": "CSV",
+            "media_type": "text/csv"
+          }
+        ],
+        "landing": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/skilled-nursing-facility-enrollments",
+        "url": "https://data.cms.gov/sites/default/files/2026-11/f7ae8d2f-bd31-4729-b735-f47190393f15/SNF_Enrollments_2026.11.12.csv",
+        "zipped": false
+      },
+      "download_url": "https://data.cms.gov/sites/default/files/2026-11/f7ae8d2f-bd31-4729-b735-f47190393f15/SNF_Enrollments_2026.11.12.csv",
+      "release": "2026-11-01/2026-11-30",
+      "bytes": 4417293,
+      "sha256": "21f6b282b07017f2596d9c3cb84dac3eaa100bd2ec637e0d7f03510e0f0acf89",
+      "input_rows": 14401,
+      "stored_rows": 14401,
+      "excluded_rows": 0
+    },
+    {
+      "family": "pecos",
+      "key": "snf-owner",
+      "file": "snf-owner.csv",
+      "metadata": {
+        "title": "Skilled Nursing Facility All Owners",
+        "period": "2026-11-01/2026-11-30",
+        "modified": "2026-11-24",
+        "license": "https://www.usa.gov/government-works",
+        "api": "https://data.cms.gov/data-api/v1/dataset/e910a8eb-3e63-49a3-9586-2c82ee51a2ab/data",
+        "distributions": [
+          {
+            "url": "https://data.cms.gov/sites/default/files/2026-11/474b2361-b502-4ef9-8817-fff94d642bb3/SNF_All_Owners_2026.11.12.csv",
+            "format": "CSV",
+            "media_type": "text/csv"
+          }
+        ],
+        "landing": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/skilled-nursing-facility-all-owners",
+        "url": "https://data.cms.gov/sites/default/files/2026-11/474b2361-b502-4ef9-8817-fff94d642bb3/SNF_All_Owners_2026.11.12.csv",
+        "zipped": false
+      },
+      "download_url": "https://data.cms.gov/sites/default/files/2026-11/474b2361-b502-4ef9-8817-fff94d642bb3/SNF_All_Owners_2026.11.12.csv",
+      "release": "2026-11-01/2026-11-30",
+      "bytes": 65545255,
+      "sha256": "538b02368085b57139619c643ef5bad19c1c855cc6643e4a7eb2e6f098f46657",
+      "input_rows": 302718,
+      "stored_rows": 100231,
+      "excluded_rows": 202487
+    },
+    {
+      "family": "pecos",
+      "key": "snf-chow",
+      "file": "snf-chow.csv",
+      "metadata": {
+        "title": "Skilled Nursing Facility Change of Ownership",
+        "period": "2026-07-01/2026-09-30",
+        "modified": "2026-10-19",
+        "license": "https://www.usa.gov/government-works",
+        "api": "https://data.cms.gov/data-api/v1/dataset/e3143536-7a28-41b3-8e29-f3b56047e3cd/data",
+        "distributions": [
+          {
+            "url": "https://data.cms.gov/sites/default/files/2026-10/89166aa5-0fb8-49d6-bef5-f970876794b5/SNF_CHOW_2026.09.29.csv",
+            "format": "CSV",
+            "media_type": "text/csv"
+          }
+        ],
+        "landing": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/skilled-nursing-facility-change-of-ownership",
+        "url": "https://data.cms.gov/sites/default/files/2026-10/89166aa5-0fb8-49d6-bef5-f970876794b5/SNF_CHOW_2026.09.29.csv",
+        "zipped": false
+      },
+      "download_url": "https://data.cms.gov/sites/default/files/2026-10/89166aa5-0fb8-49d6-bef5-f970876794b5/SNF_CHOW_2026.09.29.csv",
+      "release": "2026-07-01/2026-09-30",
+      "bytes": 1888921,
+      "sha256": "8214fe65ec7c9b291bf579bd9fcdd281fbf9bd8a593613e9db93b6f0d8bdbcb5",
+      "input_rows": 5340,
+      "stored_rows": 5340,
+      "excluded_rows": 0
+    }
+  ]
+}
