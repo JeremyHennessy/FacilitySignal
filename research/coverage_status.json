@@ -254,7 +254,9 @@
     },
     {
       "id": "FS-051",
-      "status": "discovered_not_tested"
+      "status": "blocked_access",
+      "evidence": "45686566826",
+      "note": "Official AHRQ system CSV request from CI returned HTTP 403 before first download; 25 tests passed, no source rows ingested. Do not bypass or automatically retry. Official authorized local copy and commercial-use review required."
     },
     {
       "id": "FS-052",
