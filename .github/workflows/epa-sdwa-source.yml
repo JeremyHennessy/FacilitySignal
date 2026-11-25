@@ -1,0 +1,31 @@
+name: EPA SDWA national source qualification
+on:
+  push:
+    branches: [diagnostics/epa-sdwa-search]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-epa-sdwa-source
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m py_compile scripts/qualify_epa_sdwa.py
+      - run: python -m unittest discover -s tests -v
+      - name: One bounded publisher ZIP retrieval and local reconciliation
+        run: python scripts/qualify_epa_sdwa.py --audit "$RUNNER_TEMP/epa-sdwa-audit.json"
+      - name: Retain aggregate source evidence even if key anomalies fail qualification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: epa-sdwa-aggregate-only
+          path: ${{ runner.temp }}/epa-sdwa-audit.json
+          retention-days: 14
+          if-no-files-found: warn
