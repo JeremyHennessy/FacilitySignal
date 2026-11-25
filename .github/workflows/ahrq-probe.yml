@@ -1,0 +1,27 @@
+name: AHRQ 2023 five-source schema and affiliation qualification
+on:
+  push:
+    branches: [diagnostics/ahrq-2023]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-ahrq-2023-probe
+  cancel-in-progress: true
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/probe_ahrq.py --audit "$RUNNER_TEMP/ahrq-audit.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ahrq-2023-aggregate-audit
+          path: ${{ runner.temp }}/ahrq-audit.json
+          retention-days: 14
+          if-no-files-found: error
