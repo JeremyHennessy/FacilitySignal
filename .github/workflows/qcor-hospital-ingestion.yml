@@ -1,0 +1,56 @@
+name: Hospital QCOR full structured ingestion qualification
+on:
+  push:
+    branches: [build/qcor-hospital-ingestion]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-hospital-ingest
+  cancel-in-progress: true
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m py_compile facilitysignal.py collect_qcor_hospital.py
+      - run: python -m unittest discover -s tests -v
+      - name: Import qualified official workbook structured fields
+        run: python collect_qcor_hospital.py --expected-rows 284391 --output "$RUNNER_TEMP/hospital"
+      - name: Verify populated source routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          export FACILITYSIGNAL_DB="$RUNNER_TEMP/hospital/facilitysignal.sqlite3"
+          python facilitysignal.py serve --port 8081 &
+          PID=$!
+          trap 'kill "$PID" 2>/dev/null || true' EXIT
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8081/api/hospital-surveys >/dev/null; then break; fi
+            sleep 1
+          done
+          python - <<'PY'
+          import json,urllib.request,os
+          from pathlib import Path
+          root="http://127.0.0.1:8081"
+          a=json.loads((Path(os.environ["RUNNER_TEMP"])/"hospital"/"qcor-hospital-manifest.json").read_text())
+          def get(path):return json.load(urllib.request.urlopen(root+path,timeout=20))
+          d=get("/api/hospital-surveys?limit=1")
+          assert d["total"]==a["stored_rows"]==284391 and d["release"]
+          assert d["rows"] and all("narrative" not in k.lower() for k in d["rows"][0])
+          assert get("/api/overview")["facility_records"] is None
+          with urllib.request.urlopen(root+"/hospital-surveys") as r:
+              assert r.status==200 and b"Hospital survey evidence" in r.read()
+          print("Populated hospital survey routes verified")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qcor-hospital-ingestion-audit-only
+          path: ${{ runner.temp }}/hospital/qcor-hospital-manifest.json
+          retention-days: 14
+          if-no-files-found: error

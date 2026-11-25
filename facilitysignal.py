@@ -228,7 +228,7 @@ def table(headers, body):
     return '<div class="table-wrap"><table><thead><tr>'+''.join('<th>'+esc(x)+'</th>' for x in headers)+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+x+'</td>' for x in r)+'</tr>' for r in body)+'</tbody></table></div>'
 
 def layout(title, path, body):
-    nav = [("/","Overview"),("/facilities","Facilities"),("/findings","Inspections"),("/certifications","Certifications"),("/sources","Data sources")]
+    nav = [("/","Overview"),("/facilities","Facilities"),("/findings","Inspections"),("/hospital-surveys","Hospital surveys"),("/certifications","Certifications"),("/sources","Data sources")]
     links = "".join('<a href="'+p+'"'+(' aria-current="page"' if path==p else '')+'>'+t+'</a>' for p,t in nav)
     return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+esc(title)+' | FacilitySignal</title><link rel="stylesheet" href="/styles.css"></head><body><aside><a class="brand" href="/">Facility<span>Signal</span><small>PHARM3R</small></a><div class="nav-label">NATIONAL INTELLIGENCE</div><nav>'+links+'</nav><div class="aside-foot">Development alpha<br>United States · local data</div></aside><main><header><span>Healthcare facility intelligence</span><span class="status">LOCAL WORKSPACE</span></header><section class="content"><h1>'+esc(title)+'</h1>'+body+'</section><footer>Source-backed intelligence · Missing records do not establish compliance.</footer></main></body></html>'
 
@@ -266,7 +266,7 @@ def render_overview(db):
     body = '<p class="intro">National directory, compliance and infrastructure intelligence. Coverage increases as validated snapshots are imported.</p><div class="metrics">'+''.join('<article><small>'+esc(a)+'</small><strong>'+fmt(b)+'</strong><span>'+esc(c)+'</span></article>' for a,b,c in cards)+'</div>'
     body += '<h2>Current source releases</h2>'+table(["Dataset","Published","Imported","Rows"],[[esc(CATALOG[r["dataset"]][1]),esc(r["published_on"]),esc(r["imported_at"][:10]),fmt(r["stored_rows"])] for r in d["releases"]])
     body += '<div class="columns"><section><h2>By provider type</h2>'+table(["Type","Records"],[[esc(r["category"]),fmt(r["records"])] for r in d["by_category"]])+'</section><section><h2>Geographic coverage</h2>'+table(["Jurisdiction","Records"],[[esc(r["state"]),fmt(r["records"])] for r in d["by_state"]])+'</section></div>'
-    body += '<h2>Next intelligence layers</h2><div class="roadmap">Hospital surveys · Water and environmental · Equipment · Ownership · Property · Procurement<br><small>Not yet integrated. No service opportunity scores are published.</small></div>'
+    body += '<h2>Next intelligence layers</h2><div class="roadmap">Water and environmental · Equipment · Ownership · Property · Procurement<br><small>Not yet integrated. Hospital survey source coverage is shown on its own page. No service opportunity scores are published.</small></div>'
     return layout("National overview","/",body)
 
 def render_list(db, kind, params):
@@ -299,7 +299,13 @@ def render_detail(db,params):
     if dataset=="nursing":
         result=paged(db,"findings",{"ccn":ident,"limit":"25"})
         body += '<h2>Health and fire safety citations · '+fmt(result["total"])+' matching imported records</h2><p>Exact CCN linkage within the nursing home source scope. A missing citation does not indicate compliance.</p>'+table(["Date","Tag","Description","Correction status"],[[esc(x["survey_date"]),esc(x["tag"]),esc(x["description"]),esc(x["correction_status"] or "Unknown")] for x in result["rows"]])+'<p><a href="'+link("/findings",{"ccn":ident})+'">View all matching citations</a></p>'
-    body += '<h2>Additional intelligence</h2><div class="roadmap">Water, equipment, property, ownership relationships, hospital surveys and contracts have not been integrated. Unknown is not zero.</div>'
+    if dataset in ("hospital","rehabilitation","long-term-hospital"):
+        survey=hospital_survey_search(db,{"ccn":ident,"limit":"5"})
+        if survey["release"]:
+            body += '<h2>Hospital survey evidence</h2><p>'+fmt(survey["total"])+' matching source rows by exact CCN; not a resolved physical-site relationship or current open deficiency count. <a href="'+link("/hospital-surveys",{"ccn":ident})+'">View source records</a></p>'
+        else:
+            body += '<h2>Hospital surveys</h2><p>QCOR source not loaded into this local snapshot.</p>'
+    body += '<h2>Additional intelligence</h2><div class="roadmap">Water, equipment, property, ownership relationships and contracts have not been integrated. Unknown is not zero.</div>'
     return layout(r["name"],"/facilities",body)
 
 def registry_search(db, params):
@@ -328,6 +334,37 @@ def render_certifications(db,params):
     body+=table(["Provider / identifier","Registry","Location","Type code","Certification / termination"],[[esc(r["name"] or "Not reported")+'<small>'+esc(r["provider_id"] or "No source ID")+'</small>',esc(r["registry"]),esc(r["address"]+" "+r["city"]+" "+r["state"]+" "+r["zip"]),esc(r["provider_type"] or "Not reported"),esc(r["certification_date"] or "Not reported")+'<small>Termination: '+esc(r["termination_date"] or "Not reported")+'</small><small>Status: '+esc(r["status"] or "Not reported")+'</small>'] for r in result["rows"]])
     return layout("CMS certifications","/certifications",body+pager("/certifications",params,result))
 
+def hospital_survey_search(db,params):
+    p,l=page_args(params)
+    release=db.execute("SELECT r.* FROM qcor_hospital_current c JOIN qcor_hospital_releases r ON r.id=c.release_id").fetchone()
+    if not release:
+        return {"rows":[],"total":0,"page":p,"limit":l,"release":None,"note":"Source not loaded; no conclusion about compliance."}
+    clauses=["release_id=?"];args=[release["id"]]
+    for k in ("state","ccn","tag","row_kind"):
+        if params.get(k):
+            clauses.append(k+"=?");args.append(params[k])
+    q=params.get("q","").strip()[:160]
+    if q:
+        pattern="%"+q.replace("\\","\\\\").replace("%","\\%").replace("_","\\_")+"%"
+        clauses.append("(name LIKE ? ESCAPE '\\' OR ccn LIKE ? ESCAPE '\\' OR description LIKE ? ESCAPE '\\')")
+        args.extend([pattern]*3)
+    where=" WHERE "+" AND ".join(clauses)
+    n=db.execute("SELECT count(*) FROM qcor_hospital_rows"+where,args).fetchone()[0]
+    result=rows(db,"SELECT * FROM qcor_hospital_rows"+where+" ORDER BY survey_date DESC,row_ordinal LIMIT ? OFFSET ?",args+[l,(p-1)*l])
+    return {"rows":result,"total":n,"page":p,"limit":l,"release":dict(release),
+            "note":"QCOR source rows including memo entries and historical survey tags. Correction status is not reported; no active violation inference. Narrative omitted."}
+
+def render_hospital_surveys(db,params):
+    result=hospital_survey_search(db,params)
+    body='<p class="intro">Official CMS QCOR hospital survey records. Source rows may include repeated tags and initial comments. Correction status is unknown. <a href="https://qcor.cms.gov/Hospital_2567_Reports" target="_blank" rel="noopener noreferrer">Official report</a>.</p>'
+    if result["release"]:
+        body+='<p>Snapshot retrieved '+esc(result["release"]["retrieved_at"][:10])+' · '+fmt(result["release"]["stored_rows"])+' source rows. Published date unavailable.</p>'
+    else:
+        body+='<p>QCOR source has not been loaded into this local database.</p>'
+    body+='<form class="filters" method="get"><label>Search<input name="q" value="'+esc(params.get("q",""))+'" placeholder="Facility, CCN, tag description"></label><label>CCN<input name="ccn" value="'+esc(params.get("ccn",""))+'"></label><label>Tag<input name="tag" value="'+esc(params.get("tag",""))+'"></label>'+select("state","State / territory",[(x,x) for x in STATES],params)+select("row_kind","Record type",[("tag","Non-memo tag"),("memo","Memo"),("no_tag_reported","No tag reported")],params)+'<button>Search</button><a href="/hospital-surveys">Reset</a></form>'
+    body+=table(["Provider / CCN","Survey / event","Tag","Description / record type","Correction"],[[esc(r["name"])+'<small>'+esc(r["ccn"]+" · "+r["city"]+", "+r["state"])+'</small>',esc(r["survey_date"])+'<small>'+esc(r["event_id"]+" · "+r["survey_type"])+'</small>',esc(r["tag"] or "Not reported"),esc(r["description"] or "Not reported")+'<small>'+esc(r["tag_type"]+" · "+r["row_kind"])+'</small>',"Unknown"] for r in result["rows"]])
+    return layout("Hospital survey evidence","/hospital-surveys",body+pager("/hospital-surveys",params,result))
+
 def handler(db_path):
     class Handler(BaseHTTPRequestHandler):
         def send(self, status, data, content_type):
@@ -350,7 +387,7 @@ def handler(db_path):
                 with closing(connect(db_path)) as db:
                     if path.startswith("/api/"):
                         kind=path[5:]
-                        data=overview(db) if kind=="overview" else sources(params) if kind=="sources" else registry_search(db,params) if kind=="certifications" else paged(db,kind,params) if kind in ("facilities","findings") else None
+                        data=overview(db) if kind=="overview" else sources(params) if kind=="sources" else registry_search(db,params) if kind=="certifications" else hospital_survey_search(db,params) if kind=="hospital-surveys" else paged(db,kind,params) if kind in ("facilities","findings") else None
                         return self.send(200 if data is not None else 404,json.dumps(data if data is not None else {"error":"not found"}),"application/json; charset=utf-8")
                     if path=="/":
                         body=render_overview(db)
@@ -358,6 +395,8 @@ def handler(db_path):
                         body=render_list(db,path[1:],params)
                     elif path=="/certifications":
                         body=render_certifications(db,params)
+                    elif path=="/hospital-surveys":
+                        body=render_hospital_surveys(db,params)
                     elif path=="/facility":
                         body=render_detail(db,params)
                     else:
