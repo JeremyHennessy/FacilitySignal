@@ -1,0 +1,45 @@
+name: One-time pinned national snapshot reconstruction
+on:
+  push:
+    branches: [qualify/full-snapshot-recovery-20261125]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-full-recovery-once-20261125
+  cancel-in-progress: false
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - name: Reconstruct exact 19-source logical snapshot after simulating artifact loss
+        run: python restore_snapshot.py --output "$RUNNER_TEMP/recovered" --download
+      - name: Validate populated local API against recovered database
+        shell: bash
+        run: |
+          set -euo pipefail
+          export FACILITYSIGNAL_DB="$RUNNER_TEMP/recovered/facilitysignal.sqlite3"
+          python facilitysignal.py serve --port 8081 &
+          PID=$!
+          trap 'kill "$PID" 2>/dev/null || true' EXIT
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8081/api/overview > "$RUNNER_TEMP/overview.json"; then break; fi
+            sleep 1
+          done
+          python -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["facility_records"] == 48004 and d["finding_records"] == 619069' "$RUNNER_TEMP/overview.json"
+          for path in / /facilities /findings /sources /certifications /hospital-surveys /api/facilities /api/findings /api/certifications /api/hospital-surveys /api/ownership-evidence /api/sources; do
+            curl -fsS "http://127.0.0.1:8081$path" >/dev/null
+          done
+      - name: Retain aggregate evidence only
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-recovery-audit-only
+          path: ${{ runner.temp }}/recovered/recovery-audit.json
+          retention-days: 14
+          if-no-files-found: error
