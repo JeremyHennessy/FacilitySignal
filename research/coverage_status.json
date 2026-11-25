@@ -854,5 +854,16 @@
     "database_bytes": 888987648,
     "database_sha256": "b75c18a43deb884e3fe4c7a6f49fc7966530845ec17bdef08c068c2339fcf331",
     "note": "19 pinned source files plus two pinned dictionary documents reconstructed; 37 tests and populated national local API passed; zero orphan capability observations; not persistent storage or production."
+  },
+  "iqies_status_qualified_baseline": {
+    "commit": "891655f5a9735ca10be0ff4bc0ce4097a2903522",
+    "run": "45714378763",
+    "artifact": 15068842303,
+    "source_records": 100334,
+    "derived_status_rows": 100334,
+    "termination_code_00": 74762,
+    "unrecognized_termination_codes": 285,
+    "termination_date_unknown": 100334,
+    "note": "Standalone local status qualification passed, 41 tests. Main expected-SHA promotion verified; post-promotion CI pending at creation. National integration and date format investigation pending; no current operation inference."
   }
 }
