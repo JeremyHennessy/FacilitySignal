@@ -21,8 +21,15 @@ CATALOG = {
     "nursing": ("4pq5-n9py", "Nursing home", "FS-038"),
     "dialysis": ("23ew-n7w9", "Dialysis", "new adapter; original register unchanged"),
     "nursing-health": ("r5ix-sfxw", "Nursing home health citations", "FS-033"),
+    "nursing-fire": ("ifjz-ge4w", "Nursing home fire safety citations", "CMS Provider Data Catalog"),
+    "home-health": ("6jpm-sxkc", "Home health agency", "CMS Provider Data Catalog"),
+    "hospice": ("yc9t-dgbk", "Hospice", "CMS Provider Data Catalog"),
+    "rehabilitation": ("7t8x-u3ir", "Inpatient rehabilitation facility", "CMS Provider Data Catalog"),
+    "long-term-hospital": ("azum-44iv", "Long-term care hospital", "CMS Provider Data Catalog"),
 }
 REGISTER = ROOT / "research" / "facilitysignal_source_register_v0.2.json"
+FINDING_DATASETS = {"nursing-health", "nursing-fire"}
+FACILITY_DATASETS = set(CATALOG) - FINDING_DATASETS
 
 def source_url(dataset):
     return "https://data.cms.gov/provider-data/dataset/" + CATALOG[dataset][0]
@@ -65,21 +72,24 @@ def state(row):
 
 def normalize_facility(dataset, row):
     return (
-        dataset, ccn(row), value(row, "Facility Name", "Provider Name", required=True),
-        " ".join(filter(None, [value(row, "Address", "Provider Address", "Address Line 1"), value(row, "Address Line 2")])),
+        dataset, ccn(row), value(row, "Facility Name", "Provider Name", "Provider", required=True),
+        " ".join(filter(None, [value(row, "Address", "Provider Address", "Address Line 1", "Street Address"), value(row, "Address Line 2")])),
         value(row, "City/Town", "City", required=True), state(row),
-        value(row, "ZIP Code"), value(row, "County/Parish"),
+        value(row, "ZIP Code"), value(row, "County/Parish", "CountyName", "County"),
         CATALOG[dataset][1], value(row, "Hospital Type", "Provider Type"),
-        value(row, "Hospital Ownership", "Ownership Type", "Profit or Non-Profit"),
+        value(row, "Hospital Ownership", "Ownership Type", "Profit or Non-Profit", "Ownership"),
         value(row, "Chain Name", "Chain Organization"),
-        value(row, "Number of Certified Beds", "# of Dialysis Stations"),
+        value(row, "Number of Certified Beds", "# of Dialysis Stations", "Number of Dialysis Stations"),
     )
 
 def normalize_finding(dataset, row):
     # Hash all normalized source columns, not a guessed unique survey key.
     digest = hashlib.sha256(json.dumps(row, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
     survey = value(row, "Survey Date", required=True)
-    date.fromisoformat(survey)
+    try:
+        survey = date.fromisoformat(survey).isoformat()
+    except ValueError:
+        survey = datetime.strptime(survey, "%m/%d/%Y").date().isoformat()
     return (
         dataset, digest, ccn(row), value(row, "Provider Name", required=True),
         state(row), survey, value(row, "Survey Type"),
@@ -108,7 +118,7 @@ def import_csv(path, dataset, csv_path, release, expected_rows):
     keys = [clean_key(k) for k in reader.fieldnames]
     if len(set(keys)) != len(keys):
         raise ValueError("ambiguous normalized headers")
-    finding = dataset == "nursing-health"
+    finding = dataset in FINDING_DATASETS
     table = "findings" if finding else "facilities"
     init(path)
     with closing(connect(path)) as db, db:
@@ -152,8 +162,8 @@ def overview(db):
     releases = rows(db,"SELECT r.* FROM current_release c JOIN releases r ON r.id=c.release_id ORDER BY r.dataset")
     counts = {r["dataset"]:r["stored_rows"] for r in releases}
     return {
-        "facility_records": sum(counts.get(k,0) for k in ("hospital","nursing","dialysis")) if any(k in counts for k in ("hospital","nursing","dialysis")) else None,
-        "finding_records":counts.get("nursing-health"),
+        "facility_records": sum(counts.get(k,0) for k in FACILITY_DATASETS) if any(k in counts for k in FACILITY_DATASETS) else None,
+        "finding_records":sum(counts.get(k,0) for k in FINDING_DATASETS) if any(k in counts for k in FINDING_DATASETS) else None,
         "by_category":rows(db,"SELECT category,COUNT(*) AS records FROM facilities GROUP BY category ORDER BY category"),
         "by_state":rows(db,"SELECT state,COUNT(*) AS records FROM facilities GROUP BY state ORDER BY records DESC,state"),
         "releases":releases,
@@ -230,7 +240,9 @@ def filters(params, kind):
     else:
         controls += select("state","State / territory",[(s,s) for s in STATES],params)
         if kind=="facilities":
-            controls += select("dataset","Facility type",[(k,v[1]) for k,v in CATALOG.items() if k!="nursing-health"],params)
+            controls += select("dataset","Facility type",[(k,v[1]) for k,v in CATALOG.items() if k in FACILITY_DATASETS],params)
+        else:
+            controls += select("dataset","Citation source",[(k,v[1]) for k,v in CATALOG.items() if k in FINDING_DATASETS],params)
     return '<form class="filters" method="get">'+controls+'<button>Search</button><a href="'+('/sources' if kind=="sources" else '/'+kind)+'">Reset</a></form>'
 
 def pager(path, params, result):
@@ -247,7 +259,7 @@ def source_anchor(url):
 
 def render_overview(db):
     d = overview(db)
-    cards = [("Facility records",d["facility_records"],"Imported provider records"),("Jurisdictions represented",len(d["by_state"]) if d["facility_records"] is not None else None,"Based on imported addresses"),("Health citations",d["finding_records"],"Nursing home records only"),("Discovered sources",d["source_entries"],"Research inventory, not live feeds")]
+    cards = [("Facility records",d["facility_records"],"Imported provider records"),("Jurisdictions represented",len(d["by_state"]) if d["facility_records"] is not None else None,"Based on imported addresses"),("Health & fire citations",d["finding_records"],"Nursing home records only"),("Discovered sources",d["source_entries"],"Research inventory, not live feeds")]
     body = '<p class="intro">National directory, compliance and infrastructure intelligence. Coverage increases as validated snapshots are imported.</p><div class="metrics">'+''.join('<article><small>'+esc(a)+'</small><strong>'+fmt(b)+'</strong><span>'+esc(c)+'</span></article>' for a,b,c in cards)+'</div>'
     body += '<h2>Current source releases</h2>'+table(["Dataset","Published","Imported","Rows"],[[esc(CATALOG[r["dataset"]][1]),esc(r["published_on"]),esc(r["imported_at"][:10]),fmt(r["stored_rows"])] for r in d["releases"]])
     body += '<div class="columns"><section><h2>By provider type</h2>'+table(["Type","Records"],[[esc(r["category"]),fmt(r["records"])] for r in d["by_category"]])+'</section><section><h2>Geographic coverage</h2>'+table(["Jurisdiction","Records"],[[esc(r["state"]),fmt(r["records"])] for r in d["by_state"]])+'</section></div>'
@@ -263,9 +275,9 @@ def render_list(db, kind, params):
         title="Facilities"
     elif kind=="findings":
         headers=["Provider / CCN","Survey date","Tag / severity","Finding","Correction status"]
-        data=[[ '<a href="'+link("/facility",{"dataset":"nursing","ccn":r["ccn"]})+'">'+esc(r["provider_name"])+'</a><small>'+esc(r["ccn"]+" · "+r["state"])+'</small>',esc(r["survey_date"]),esc(r["tag"]+" / "+r["severity"]),esc(r["description"]),esc(r["correction_status"] or "Unknown")+'<small>'+esc(r["correction_date"])+'</small>'] for r in result["rows"]]
+        data=[[ '<a href="'+link("/facility",{"dataset":"nursing","ccn":r["ccn"]})+'">'+esc(r["provider_name"])+'</a><small>'+esc(r["ccn"]+" · "+r["state"])+'</small>',esc(r["survey_date"]),esc(r["tag"]+" / "+r["severity"])+"<small>"+esc(CATALOG[r["dataset"]][1])+"</small>",esc(r["description"]),esc(r["correction_status"] or "Unknown")+'<small>'+esc(r["correction_date"])+'</small>'] for r in result["rows"]]
         title="Inspections and compliance"
-        body='<p class="intro">Current scope: CMS nursing home health citations. Source statuses and historical records are retained; a citation is not automatically an active service need.</p>'+body
+        body='<p class="intro">Current scope: CMS nursing home health and fire safety citations. Source statuses and historical records are retained; a citation is not automatically an active service need.</p>'+body
     else:
         headers=["Source","Jurisdiction","Priority","Discovery status","Ingestion / reuse"]
         data=[[esc(r["id"]+" · "+r["source"])+'<small>'+esc(r["publisher"])+' · '+source_anchor(r["source_url"])+'</small>',esc(r["jurisdiction"]),esc(r["priority"]),esc(r["discovery_status"]),esc(r["ingestion_status"])+'<small>'+esc(r["reuse_review"])+'</small>'] for r in result["rows"]]
@@ -282,8 +294,8 @@ def render_detail(db,params):
     labels = [("Address",r["address"]+" "+r["city"]+" "+r["state"]+" "+r["zip"]),("Subtype",r["subtype"]),("Reported ownership",r["ownership"]),("Reported chain",r["chain"]),("Certified beds" if dataset=="nursing" else "Dialysis stations" if dataset=="dialysis" else "Capacity",r["capacity"]),("Source release",r["published_on"])]
     body += ''.join('<article><small>'+esc(k)+'</small><strong>'+esc(v or "Not reported")+'</strong></article>' for k,v in labels)+'</div><p>'+source_anchor(r["source_url"])+'</p>'
     if dataset=="nursing":
-        result=paged(db,"findings",{"ccn":ident,"dataset":"nursing-health","limit":"25"})
-        body += '<h2>Health citations · '+fmt(result["total"])+' matching imported records</h2><p>Exact CCN linkage within the nursing home source scope. A missing citation does not indicate compliance.</p>'+table(["Date","Tag","Description","Correction status"],[[esc(x["survey_date"]),esc(x["tag"]),esc(x["description"]),esc(x["correction_status"] or "Unknown")] for x in result["rows"]])+'<p><a href="'+link("/findings",{"ccn":ident})+'">View all matching citations</a></p>'
+        result=paged(db,"findings",{"ccn":ident,"limit":"25"})
+        body += '<h2>Health and fire safety citations · '+fmt(result["total"])+' matching imported records</h2><p>Exact CCN linkage within the nursing home source scope. A missing citation does not indicate compliance.</p>'+table(["Date","Tag","Description","Correction status"],[[esc(x["survey_date"]),esc(x["tag"]),esc(x["description"]),esc(x["correction_status"] or "Unknown")] for x in result["rows"]])+'<p><a href="'+link("/findings",{"ccn":ident})+'">View all matching citations</a></p>'
     body += '<h2>Additional intelligence</h2><div class="roadmap">Water, equipment, property, ownership relationships, hospital surveys and contracts have not been integrated. Unknown is not zero.</div>'
     return layout(r["name"],"/facilities",body)
 

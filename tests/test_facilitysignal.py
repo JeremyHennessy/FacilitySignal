@@ -69,6 +69,17 @@ class ImportTests(unittest.TestCase):
             self.assertIn("&lt;script&gt;",page)
             self.assertNotIn("<script>",page)
             self.assertEqual(fs.paged(db,"facilities",{})["rows"][0]["capacity"],"12")
+    def test_fire_and_expanded_categories(self):
+        p=self.write_csv(["CMS Certification Number (CCN)","Facility Name","Address Line 1","City","State","ZIP Code"],[["010001","Fixture hospice","3 Test St","Testville","AL","01234"]])
+        fs.import_csv(self.db,"hospice",p,"2025-01-01",1)
+        fields=["CMS Certification Number (CCN)","Provider Name","State","Survey Date","Deficiency Prefix","Deficiency Tag Number","Deficiency Description","Scope Severity Code","Deficiency Corrected","Correction Date"]
+        p=self.write_csv(fields,[["015009","Fixture nursing","AL","12/01/2024","K","0321","Fixture fire citation","D","Corrected","12/05/2024"]])
+        fs.import_csv(self.db,"nursing-fire",p,"2025-01-01",1)
+        with closing(fs.connect(self.db)) as db:
+            self.assertEqual(fs.overview(db)["facility_records"],1)
+            self.assertEqual(fs.overview(db)["finding_records"],1)
+            self.assertEqual(fs.paged(db,"findings",{"dataset":"nursing-fire"})["rows"][0]["survey_date"],"2024-12-01")
+
     def test_sources_and_invalid_pages(self):
         self.assertEqual(fs.sources({})["total"],176)
         self.assertEqual(len(fs.sources({"limit":"3"})["rows"]),3)
