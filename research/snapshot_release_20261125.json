@@ -18,10 +18,10 @@
     "expires_at": "2026-11-28T17:33:01Z"
   },
   "limitations": [
-    "Care Compare direct distribution URLs not present in retained job logs; complete from the verified retained manifest before expiry, or use catalog metadata only when release and raw checksum match.",
     "QCOR unversioned export may change; exact bytes are not guaranteed available.",
     "Source access and commercial redistribution clearance are distinct. Do not publish raw or row-level records.",
-    "All input checksums transcribed programmatically from successful CI logs. No durable raw retention established."
+    "All input checksums transcribed programmatically from successful CI logs. No durable raw retention established.",
+    "All 19 direct distribution URLs are now recorded. Exact historical availability is not established; checksums remain mandatory."
   ],
   "sources": [
     {
@@ -36,7 +36,7 @@
       "input_rows": 5435,
       "stored_rows": 5435,
       "excluded_rows": 0,
-      "download_url": null
+      "download_url": "https://data.cms.gov/provider-data/sites/default/files/resources/d3bf87c5505155f549d603688414f3c6_1793059553/Hospital_General_Information_2.csv"
     },
     {
       "family": "care-compare",
@@ -50,7 +50,7 @@
       "input_rows": 14686,
       "stored_rows": 14686,
       "excluded_rows": 0,
-      "download_url": null
+      "download_url": "https://data.cms.gov/provider-data/sites/default/files/resources/0970c657767e40f8521187d02ba8d0ed_1792181744/NH_ProviderInfo_Oct2026.csv"
     },
     {
       "family": "care-compare",
@@ -64,7 +64,7 @@
       "input_rows": 7471,
       "stored_rows": 7471,
       "excluded_rows": 0,
-      "download_url": null
+      "download_url": "https://data.cms.gov/provider-data/sites/default/files/resources/610e4ab03db86f9cfac93530c3ba5a7c_1792706819/DFC_FACILITY_2.csv"
     },
     {
       "family": "care-compare",
@@ -78,7 +78,7 @@
       "input_rows": 418682,
       "stored_rows": 418682,
       "excluded_rows": 0,
-      "download_url": null
+      "download_url": "https://data.cms.gov/provider-data/sites/default/files/resources/327fc64eff7ccc64fd7d23c853bb1ade_1792181729/NH_HealthCitations_Oct2026.csv"
     },
     {
       "family": "care-compare",
@@ -92,7 +92,7 @@
       "input_rows": 200387,
       "stored_rows": 200387,
       "excluded_rows": 0,
-      "download_url": null
+      "download_url": "https://data.cms.gov/provider-data/sites/default/files/resources/908176fdfb9dcb11451601593513c639_1792181728/NH_FireSafetyCitations_Oct2026.csv"
     },
     {
       "family": "care-compare",
@@ -106,7 +106,7 @@
       "input_rows": 12409,
       "stored_rows": 12409,
       "excluded_rows": 0,
-      "download_url": null
+      "download_url": "https://data.cms.gov/provider-data/sites/default/files/resources/92900270a41131976715718c15738673_1791237945/HH_Provider_Oct2026.csv"
     },
     {
       "family": "care-compare",
@@ -120,7 +120,7 @@
       "input_rows": 6470,
       "stored_rows": 6470,
       "excluded_rows": 0,
-      "download_url": null
+      "download_url": "https://data.cms.gov/provider-data/sites/default/files/resources/a41ea139a065bf901e922147ddda6ff2_1793909115/Hospice_General-Information_Nov2026.csv"
     },
     {
       "family": "care-compare",
@@ -134,7 +134,7 @@
       "input_rows": 1222,
       "stored_rows": 1222,
       "excluded_rows": 0,
-      "download_url": null
+      "download_url": "https://data.cms.gov/provider-data/sites/default/files/resources/dfc1c2f6b3882096ee5eff28272b1028_1788977188/Inpatient_Rehabilitation_Facility-General_Information_Sep2026.csv"
     },
     {
       "family": "care-compare",
@@ -148,7 +148,7 @@
       "input_rows": 311,
       "stored_rows": 311,
       "excluded_rows": 0,
-      "download_url": null
+      "download_url": "https://data.cms.gov/provider-data/sites/default/files/resources/2b538c65447e4897d75b0365b394e49b_1788977190/Long-Term_Care_Hospital-General_Information_Sep2026.csv"
     },
     {
       "family": "registry",
@@ -403,5 +403,11 @@
       "stored_rows": 5340,
       "excluded_rows": 0
     }
-  ]
+  ],
+  "release_url_capture": {
+    "run": 45685785885,
+    "artifact": 15056880829,
+    "commit": "c606d080552b72195f6c04b441188b851f64d4ca",
+    "note": "Nine Care Compare direct distribution URLs captured from original verified database manifest; release date and SHA-256 reconciled."
+  }
 }

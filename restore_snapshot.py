@@ -55,11 +55,7 @@ def fetch_missing(item,dest):
     family=item["family"];key=item["key"]
     if family=="care-compare":
         url=item["download_url"]
-        if not url:
-            meta=cms.metadata(item["catalog_id"])
-            require(meta["released"]==item["release"],"Care Compare release unavailable: "+key)
-            require(cms.count(item["catalog_id"])==item["input_rows"],"Care Compare count changed: "+key)
-            url=meta["url"]
+        require(bool(url),"pinned Care Compare download URL required: "+key)
         with cms.response(url) as src,dest.open("xb") as out:
             n=0
             while chunk:=src.read(1024*1024):

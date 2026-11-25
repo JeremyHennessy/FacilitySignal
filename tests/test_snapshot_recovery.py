@@ -11,6 +11,7 @@ class RecoveryTests(unittest.TestCase):
         lock=load_lock(LOCK)
         self.assertEqual(len(lock["sources"]),19)
         self.assertEqual(lock["source_records_total"],1904060)
+        self.assertTrue(all(s["download_url"] for s in lock["sources"]))
         self.assertEqual(sum(s["excluded_rows"] for s in lock["sources"]),326781)
     def test_exact_bytes_only(self):
         with tempfile.TemporaryDirectory() as tmp:

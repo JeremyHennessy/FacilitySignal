@@ -4,6 +4,10 @@ on:
     branches: [build/snapshot-recovery]
   workflow_dispatch:
     inputs:
+      capture_urls:
+        description: Recheck original retained Care Compare manifest (only while artifact exists)
+        type: boolean
+        default: false
       recover_full:
         description: Explicitly download and reconstruct all 19 pinned releases (no row-level artifact)
         type: boolean
@@ -27,7 +31,7 @@ jobs:
       - run: python -m py_compile restore_snapshot.py capture_release_urls.py
       - run: python -m unittest discover -s tests -v
       - name: Recover aggregate release URLs from previously qualified audit
-        if: github.event_name == 'push'
+        if: github.event_name == 'workflow_dispatch' && inputs.capture_urls
         uses: actions/download-artifact@v4
         with:
           name: facilitysignal-cms-snapshot
@@ -35,10 +39,10 @@ jobs:
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/cms-base
       - name: Verify original snapshot and enrich release lock
-        if: github.event_name == 'push'
+        if: github.event_name == 'workflow_dispatch' && inputs.capture_urls
         run: python capture_release_urls.py --lock research/snapshot_release_20261125.json --base "$RUNNER_TEMP/cms-base" --output "$RUNNER_TEMP/release-lock.json"
       - name: Retain aggregate metadata only
-        if: github.event_name == 'push'
+        if: github.event_name == 'workflow_dispatch' && inputs.capture_urls
         uses: actions/upload-artifact@v4
         with:
           name: facilitysignal-pinned-release-lock
