@@ -57,6 +57,17 @@ def bounded_code(value,width=12):
     if not s:return "(blank)"
     return s if re.fullmatch(r"[A-Z0-9_-]{1,"+str(width)+r"}",s) else "(unrecognized)"
 
+def key_format(key):
+    # EPA Federal Reporting Services dictionary explicitly documents UTAH + 5 digits.
+    # EPA FRDS data entry instructions identify numeric region prefixes 01 through 10.
+    # Do not infer a location, change identifiers, or accept other shapes.
+    if re.fullmatch(r"[A-Z]{2}[0-9]{7}",key):return "standard"
+    if re.fullmatch(r"UTAH[0-9]{5}",key):return "utah"
+    if re.fullmatch(r"(?:0[1-9]|10)[0-9]{7}",key):return "epa_region"
+    if not key:return "blank"
+    if len(key)!=9:return "wrong_length"
+    return "other_nine_character"
+
 def ingest(db,path,encoding="utf-8-sig"):
     with zipfile.ZipFile(path) as z:
         members=z.infolist()
@@ -64,7 +75,7 @@ def ingest(db,path,encoding="utf-8-sig"):
         require(0<members[0].file_size<=MAX_EXPANDED,"expanded size exceeds budget")
         require(not members[0].flag_bits&1,"encrypted archive")
         db.execute("CREATE TABLE pws_key(pwsid TEXT PRIMARY KEY,state TEXT NOT NULL,kind TEXT NOT NULL,activity TEXT NOT NULL)")
-        input_rows=0;invalid=0;duplicate=0;states=Counter();types=Counter();activity=Counter();blank_fields=Counter()
+        input_rows=0;invalid=0;duplicate=0;states=Counter();types=Counter();activity=Counter();blank_fields=Counter();formats=Counter();invalid_formats=Counter()
         with db,z.open(members[0]) as raw,io.TextIOWrapper(raw,encoding=encoding,newline="") as stream:
             reader=csv.DictReader(stream,strict=True)
             headers=reader.fieldnames or []
@@ -75,7 +86,10 @@ def ingest(db,path,encoding="utf-8-sig"):
                 for field in REQUIRED:
                     if not row[field].strip():blank_fields[field]+=1
                 key=row["PWSID"].strip()
-                if not re.fullmatch(r"[A-Z]{2}[0-9]{7}",key):invalid+=1;continue
+                fmt=key_format(key)
+                if fmt not in {"standard","utah","epa_region"}:
+                    invalid+=1;invalid_formats[fmt]+=1;continue
+                formats[fmt]+=1
                 state=bounded_code(row["STATE_CODE"],2);kind=bounded_code(row["PWS_TYPE_CODE"],6)
                 act=bounded_code(row["PWS_ACTIVITY_CODE"],1)
                 cursor=db.execute("INSERT OR IGNORE INTO pws_key VALUES(?,?,?,?)",(key,state,kind,act))
@@ -84,11 +98,12 @@ def ingest(db,path,encoding="utf-8-sig"):
             stored=db.execute("SELECT count(*) FROM pws_key").fetchone()[0]
             require(input_rows==stored+duplicate+invalid and stored>0,"row reconciliation")
             require(sum(states.values())==sum(types.values())==sum(activity.values())==stored,"distribution reconciliation")
+            require(sum(formats.values())==stored+duplicate and sum(invalid_formats.values())==invalid,"format reconciliation")
             require(db.execute("PRAGMA integrity_check").fetchone()[0]=="ok","SQLite integrity failed")
         return {"header":headers,"columns":len(headers),"encoding":encoding,"expanded_bytes":members[0].file_size,
                 "input_rows":input_rows,"stored_unique_pws_keys":stored,"duplicate_keys":duplicate,"invalid_keys":invalid,
                 "state_code_count":len(states),"system_type_counts":dict(types),"activity_code_counts":dict(activity),
-                "blank_required_fields":dict(blank_fields),
+                "blank_required_fields":dict(blank_fields),"accepted_key_format_counts":dict(formats),"invalid_key_format_counts":dict(invalid_formats),
                 "qualification":"clean_keys" if duplicate==invalid==0 else "key_anomalies_require_review",
                 "limits":"Ephemeral key/type/status projection, no healthcare attribution or current facility operation inference. Source codes not reinterpreted. No row-level artifact."}
 
@@ -105,7 +120,7 @@ def main():
                 audit=ingest(db,path,"cp1252")
         meta.update(audit)
         require(hashlib.file_digest(path.open("rb"),"sha256").hexdigest()==meta["sha256"],"source mutated")
-    meta.update({"dictionary_url":DOC,"publication_date":None,"reuse_review":"pending","retention":"aggregate audit only"})
+    meta.update({"comparison_baseline_sha256":"cad153417ac7f22726bd4b5ebe1cb4aca6088b45910a0b343324fc82cf78ce21","same_bytes_as_failed_run":meta["sha256"]=="cad153417ac7f22726bd4b5ebe1cb4aca6088b45910a0b343324fc82cf78ce21","dictionary_url":DOC,"publication_date":None,"reuse_review":"pending","retention":"aggregate audit only"})
     a.audit.parent.mkdir(parents=True,exist_ok=True);a.audit.write_text(json.dumps(meta,indent=2)+"\n")
     print("EPA_SDWA_QUALIFICATION",json.dumps(meta),flush=True)
     require(meta["qualification"]=="clean_keys","key anomalies: inspect aggregate audit before correction")
