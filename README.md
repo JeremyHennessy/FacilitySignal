@@ -13,6 +13,15 @@ python facilitysignal.py serve
 
 Open http://127.0.0.1:8080. The UI and API read the same SQLite database. The source register is populated; no facilities or findings are seeded. The server is for local development only; do not expose it to a network.
 
+## Build a validated national snapshot
+
+```sh
+python collect_cms.py --output data/cms-snapshot
+python facilitysignal.py --db data/cms-snapshot/facilitysignal.sqlite3 serve
+```
+
+First full qualification: November 25, 2026, [run 45664651617](https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45664651617). 48,004 provider records and 619,069 nursing home citation records, across 56 jurisdictions. Not unique properties or open violations. Local reproduction remains the durable path until approved persistent storage is connected.
+
 ## Load source snapshots
 
 Obtain the full official CSV (not an Excel-edited or filtered export), verify its published date, row count, and permitted use; then import. Identifiers must remain strings.
@@ -25,7 +34,7 @@ python facilitysignal.py import-csv nursing-health /path/to/deficiencies.csv --r
 python -m unittest discover -s tests -v
 ```
 
-The first three datasets represent source-scoped provider records, not unique buildings. The fourth provides nursing home citations, including historical and corrected findings; status is source-native. No clinical ratings are interpreted as facilities risk. No service leads generated yet.
+The seven provider datasets represent source-scoped provider records, not unique buildings. Two citation datasets provide nursing home health and fire citations, including historical and corrected findings; status is source-native. No clinical ratings are interpreted as facilities risk. No service leads generated yet.
 
 | Adapter | Official catalog |
 |---|---|
@@ -33,8 +42,13 @@ The first three datasets represent source-scoped provider records, not unique bu
 | nursing | https://data.cms.gov/provider-data/dataset/4pq5-n9py |
 | dialysis | https://data.cms.gov/provider-data/dataset/23ew-n7w9 |
 | nursing-health | https://data.cms.gov/provider-data/dataset/r5ix-sfxw |
+| nursing-fire | https://data.cms.gov/provider-data/dataset/ifjz-ge4w |
+| home-health | https://data.cms.gov/provider-data/dataset/6jpm-sxkc |
+| hospice | https://data.cms.gov/provider-data/dataset/yc9t-dgbk |
+| rehabilitation | https://data.cms.gov/provider-data/dataset/7t8x-u3ir |
+| long-term-hospital | https://data.cms.gov/provider-data/dataset/azum-44iv |
 
-A CSV import checks the declared row count, required field mappings, identifiers and duplicate facility keys; exact duplicate finding rows are counted separately. One transaction replaces only its source's current snapshot. Older releases are rejected. Failed imports leave the existing snapshot intact. The audit log stores input hash, release and count, not the full source CSV; retain input originals externally where permitted. Row count checks alone cannot prove completeness; live retrieval and independent source validation remain required. Do not upload raw CSV, local DB, secrets, or restricted records to GitHub.
+A CSV import checks the declared row count, required field mappings, identifiers and duplicate facility keys; exact duplicate finding rows are counted separately. One transaction replaces only its source's current snapshot. Older releases are rejected. Failed imports leave the existing snapshot intact. The audit log stores input hash, release and count, not the full source CSV; retain input originals externally where permitted. Row count checks alone cannot prove completeness; live retrieval and independent source validation remain required. Do not commit raw CSV, local DB, secrets or restricted records. The separate qualification workflow temporarily retains only the normalized nine-dataset public CMS database and audit manifest, for three days; public repository artifacts may be accessed by signed-in GitHub users.
 
 ## Current scope
 

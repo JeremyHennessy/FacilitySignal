@@ -1,0 +1,9 @@
+# National CMS baseline and source expansion — 2026-11-25
+
+Promoted verified baseline bc0586169db10ca4dd3ea7bc234d6b306928474a after successful run 45664651617. Seven provider snapshots: hospital 5,435; nursing 14,686; dialysis 7,471; home health 12,409; hospice 6,470; rehabilitation 1,222; long-term hospital 311. Health citations 418,682; fire citations 200,387. All 56 jurisdictions represented; no unmatched nursing home citation CCNs; zero exact duplicates removed in these releases. Full imports and populated HTTP checks passed. Prior audit only; no durable DB retained.
+
+Next: qualify POS QIES, iQIES and CLIA release metadata and source schemas independently. QIES and iQIES source records may be historical or terminated; keep separate from active Care Compare counts until reviewed. Official API documentation: https://data.cms.gov/api-docs. Legacy catalog /v1-1-data.json remains available through March 31, 2027; migrate to DCAT-US 3.0 before then.
+
+Temporary artifact retention decision: CMS's public data reuse statement https://data.cms.gov/about and https://data.cms.gov/provider-data/topics/long-term-care-hospitals/about-using-government-data states U.S. government works are public domain; attribute CMS and do not imply endorsement. The previously qualified nine PDC releases are public and the normalized database contains only the whitelisted provider identity, capacity, ownership, survey tag/description and status fields already available from public CMS files. No raw files, patient records, nonpublic or secret material, and no new registry data will be included in the public artifact. Retain for 3 days only; not permanent storage, not production. Public GitHub repository artifacts are accessible to signed-in users. Review additional source-specific conditions before expanding artifact scope.
+
+No production deployment or new paid infrastructure. Do not confuse temporary artifact retention with database hosting.
