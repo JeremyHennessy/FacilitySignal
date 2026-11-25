@@ -1,0 +1,20 @@
+name: FacilitySignal Pages browser verification
+on:
+  push:
+    branches: [ui/github-pages-app]
+    paths: [index.html, 'web/pages.*', scripts/test_pages_browser.py, '.github/workflows/pages-browser.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install playwright==1.51.0
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/test_pages_browser.py
