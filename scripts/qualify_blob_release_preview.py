@@ -11,7 +11,7 @@ import azure_national_archive as archive
 import facilitysignal as fs
 from build_combined import require,sha,readonly,check_integrity
 from scripts import azure_verified_extension as ext,weekly_azure_refresh as weekly
-from scripts import build_market_summary as market,requalify_care_compare_dependencies as deps
+from scripts import build_market_summary as market,requalify_care_compare_dependencies as deps,requalify_dialysis_blob_dependency as dialysis
 from scripts.azure_inventory import verify_inventory
 ROOT=Path(__file__).resolve().parents[1]
 LOCK="research/snapshot_release_20261125.json"
@@ -150,7 +150,7 @@ def project(core,pins,approved,out,changed,as_of):
 
 def fetch_approved(store,national,root):
     root.mkdir()
-    keys={"web/public-directory/"+k+".json" for k in SOURCES|{"manifest"}}|{"web/market-summary.json","web/hha-service-evidence.json",LOCK}
+    keys={"web/public-directory/"+k+".json" for k in SOURCES|{"manifest"}}|{"web/market-summary.json","web/hha-service-evidence.json","web/dialysis-service-evidence.json",LOCK}
     for key in sorted(keys):
         pin=national["files"][key];dest=root/key;dest.parent.mkdir(parents=True,exist_ok=True)
         require(sha(ROOT/key)==pin["sha256"],"approved baseline drift")
@@ -178,18 +178,25 @@ def qualify(store,national,report,root,rehearse=False):
     core=root/"preview-core.sqlite3";assemble(base_db,candidates,pins,core)
     out=root/"private-preview";result=project(core,pins,approved,out,set(changed),as_of)
     dependency_result=deps.qualify(out,pins,set(changed),root/"raw-dependencies",approved,rehearse)
-    if dependency_result:
+    dialysis_result=dialysis.qualify(out,pins,set(changed),base_db,approved,report,rehearse)
+    if dialysis_result is not None:dependency_result["dialysis"]=dialysis_result
+    verified_dependencies={k:v for k,v in dependency_result.items() if v["status"] in {"BASELINE_PARITY_PASS","PRIVATE_DEPENDENCY_QUALIFIED"}}
+    if verified_dependencies:
         # Recompute downstream checksums and market summary after LTCH enrichment.
         m=market.build(out)
         (out/"web/market-summary.json").write_text(json.dumps(m,sort_keys=True,separators=(",",":"))+"\n",encoding="utf-8")
         allowed={p["path"] for p in result["packs"]}
-        if "home-health" in dependency_result:
+        if "home-health" in verified_dependencies:
             allowed.add("web/hha-service-evidence.json")
             result["other_packs_not_emitted"].remove("web/hha-service-evidence.json")
+        if "dialysis" in verified_dependencies:
+            allowed.add("web/dialysis-service-evidence.json")
+            result["other_packs_not_emitted"].remove("web/dialysis-service-evidence.json")
         require({str(p.relative_to(out)) for p in (out/"web").rglob("*") if p.is_file()}==allowed,"dependency preview file scope")
         result["packs"]=[archive.rec(k,out/k) for k in sorted(allowed)]
         result["directory_hashes"]={k:sha(out/"web/public-directory"/(k+".json")) for k in SOURCES}
-    result["qualified_dependencies"]=dependency_result
+    result["qualified_dependencies"]=verified_dependencies
+    result["blocked_dependencies"]={k:v for k,v in dependency_result.items() if k not in verified_dependencies}
     parity=None
     if rehearse:
         parity=all(sha(out/"web/public-directory"/(key+".json"))==sha(approved/"web/public-directory"/(key+".json")) for key in SOURCES)
@@ -197,7 +204,7 @@ def qualify(store,national,report,root,rehearse=False):
         old=read_json(approved/"web/market-summary.json");new=read_json(out/"web/market-summary.json")
         require(old["regions"]==new["regions"] and old["sources"]==new["sources"] and old["provider_rows"]==new["provider_rows"],"baseline market parity")
     ext.unchanged(store,national)
-    return {**common,**result,"status":"BASELINE_REHEARSAL_PASS" if rehearse else "PRIVATE_PREVIEW_GENERATED_REVIEW_REQUIRED","changed_sources":sorted(changed),"preview_generated":True,"baseline_directory_byte_parity":parity,"dependent_pack_review":sorted(set(dependency_review(changed))-{v["dependency"] for v in dependency_result.values()}),"preview_exported":False,"source_database_sha256":sha(core)}
+    return {**common,**result,"status":"BASELINE_REHEARSAL_PASS" if rehearse else "PRIVATE_PREVIEW_GENERATED_REVIEW_REQUIRED","changed_sources":sorted(changed),"preview_generated":True,"baseline_directory_byte_parity":parity,"dependent_pack_review":sorted(set(dependency_review(changed))-{v["dependency"] for v in verified_dependencies.values()}),"preview_exported":False,"source_database_sha256":sha(core)}
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--weekly-audit",type=Path);p.add_argument("--rehearse-baseline",action="store_true");p.add_argument("--receipt",type=Path,required=True);args=p.parse_args()

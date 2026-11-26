@@ -2,10 +2,12 @@ name: FacilitySignal private changed-release preview rehearsal
 on:
   workflow_dispatch:
   push:
-    branches: [main, build/azure-changed-release-preview-20261126, build/azure-dependent-pack-requalification-20261126]
+    branches: [main, build/azure-changed-release-preview-20261126, build/azure-dependent-pack-requalification-20261126, build/azure-dialysis-dependency-requalification-20261126]
     paths:
       - scripts/qualify_blob_release_preview.py
       - scripts/requalify_care_compare_dependencies.py
+      - scripts/requalify_dialysis_blob_dependency.py
+      - tests/test_dialysis_blob_dependency.py
       - tests/test_care_compare_dependency_requalification.py
       - tests/test_blob_release_preview.py
       - .github/workflows/azure-release-preview-rehearsal.yml
