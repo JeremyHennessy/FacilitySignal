@@ -1607,17 +1607,82 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "mn-boiler-aggregate",
+      "source_sha256": "a9b6054c1b19e65931135cb3a72a8c3e6829ba36e7cfa10a070040cb6e0b6b49",
+      "kind": "aggregate",
+      "observations": 0,
+      "screened_observations": 171503,
+      "run": 45866627645,
+      "job": 140071162448,
+      "files": [
+        {
+          "bytes": 8192,
+          "path": "projection.sqlite3",
+          "sha256": "2991e29bf173f75a3bacc4df5c972093b8298601c66ef624ea0ae93ff02e7de5"
+        },
+        {
+          "bytes": 2470,
+          "path": "audit.json",
+          "sha256": "70274a91bcd67d73e1d8445832dc45545388eab1f259ea06c32e22e3316dce7f"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "mn-elevator-aggregate",
+      "source_sha256": "81014bada07b0ebcf841b83a571d1cbdaf33d74beea859a748b9bd5b81b21aff",
+      "kind": "aggregate",
+      "observations": 0,
+      "screened_observations": 51950,
+      "run": 45866627645,
+      "job": 140071162483,
+      "files": [
+        {
+          "bytes": 8192,
+          "path": "projection.sqlite3",
+          "sha256": "bfe1e0d6fbb79d5dd92f4cd8c604255f4744def438b1909d3c8b58e80a114610"
+        },
+        {
+          "bytes": 1849,
+          "path": "audit.json",
+          "sha256": "0a89aff637c04864af701567a162c03202e63b8de0dfaa41d34162daa82e27d6"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "il-idph-hospital-directory",
+      "source_sha256": "a4f5bc44dd64b998d0ec92eaff6408318d1b7635d00de12514e138b302123ee4",
+      "kind": "publisher",
+      "observations": 207,
+      "run": 45866627645,
+      "job": 140071162673,
+      "files": [
+        {
+          "bytes": 40960,
+          "path": "projection.sqlite3",
+          "sha256": "45e0eb2f5aac7344500325cac1c100c1619cdf5dd18cf482d20e863c65f7b897"
+        },
+        {
+          "bytes": 1517,
+          "path": "audit.json",
+          "sha256": "fa8892f0b0e386eabfc7e5ac29c671b69b9818a8b27fbbcd87e8656272dbdf8d"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
-    "publisher_releases": 55,
-    "source_observations": 117850515,
+    "publisher_releases": 56,
+    "source_observations": 117850722,
     "supplemental_numeric_archives": 41,
     "supplemental_numeric_observations": 107619587,
     "derived_candidate_observations": 23520,
-    "aggregate_evidence_releases": 6,
-    "aggregate_source_rows_screened": 40564158,
-    "payload_files": 202,
-    "payload_bytes": 10886240663
+    "aggregate_evidence_releases": 8,
+    "aggregate_source_rows_screened": 40787611,
+    "payload_files": 208,
+    "payload_bytes": 10886303843
   }
 }

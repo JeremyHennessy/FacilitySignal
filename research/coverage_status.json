@@ -3988,24 +3988,23 @@
     "note": "Scheduled private candidate refresh and metadata discovery; coherent public pack cutover and remaining source-family policies pending. First run matched existing release metadata/counts; no claim of reverified unchanged mutable URL bytes."
   },
   "latest_consolidated_private_checkpoint": {
-    "scope": "Pinned publisher observations, supplementary numeric children, derived candidates and aggregate-only screened rows; not unique facilities",
-    "evidence_commit": "c61be556155d69247c91a28b5008e974dd66c313",
-    "ledger": "research/azure_archive_inventory_20261126.json",
+    "candidate_ledger": "research/azure_archive_inventory_20261126.json",
+    "prior_consolidated_audit_run": 45866627687,
+    "new_source_runs": [
+      45866627645
+    ],
     "totals": {
-      "publisher_releases": 55,
-      "source_observations": 117850515,
+      "publisher_releases": 56,
+      "source_observations": 117850722,
       "supplemental_numeric_archives": 41,
       "supplemental_numeric_observations": 107619587,
       "derived_candidate_observations": 23520,
-      "aggregate_evidence_releases": 6,
-      "aggregate_source_rows_screened": 40564158,
-      "payload_files": 202,
-      "payload_bytes": 10886240663
+      "aggregate_evidence_releases": 8,
+      "aggregate_source_rows_screened": 40787611,
+      "payload_files": 208,
+      "payload_bytes": 10886303843
     },
-    "prior_consolidated_audit_run": 45864494608,
-    "new_source_runs": [
-      45864494699
-    ],
+    "qualification": "Individually verified complete receipts; consolidated inventory audit pending for this expanded ledger.",
     "public_promotion": false
   }
 }
