@@ -1,0 +1,33 @@
+name: QCOR clinic documented state-prefix requalification
+on:
+  push:
+    branches: [diagnostics/qcor-state-prefix-20261126]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-qcor-clinic-key-requalification
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        source: [rhc, fqhc]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - run: python -m scripts.requalify_qcor_clinic_keys --source ${{ matrix.source }} --audit "$RUNNER_TEMP/qcor-clinic-${{ matrix.source }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qcor-clinic-${{ matrix.source }}-aggregate-only
+          path: ${{ runner.temp }}/qcor-clinic-${{ matrix.source }}.json
+          retention-days: 14
+          if-no-files-found: warn
