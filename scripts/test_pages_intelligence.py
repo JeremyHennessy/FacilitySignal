@@ -3,6 +3,7 @@ import json,os,subprocess,time
 from pathlib import Path
 from urllib.request import urlopen
 from playwright.sync_api import sync_playwright
+from pages_navigation import open_workspace
 
 ROOT=Path(__file__).resolve().parents[1]
 URL="http://127.0.0.1:8095/"
@@ -27,7 +28,7 @@ try:
             page.get_by_text("48,004",exact=True).wait_for()
             for section in evidence["sections"]:
                 start=time.perf_counter()
-                page.locator("nav a[href='#"+section["id"]+"']").click()
+                open_workspace(page,section["id"])
                 page.get_by_role("heading",name=section["title"],exact=True).wait_for()
                 page.locator("tbody tr").first.wait_for()
                 tables=page.locator("#app .table-wrap")

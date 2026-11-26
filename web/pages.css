@@ -41,3 +41,43 @@
 
 /* Scoped visual-review fix: checkbox and label read as one horizontal control. */
 .hha-required label{flex-direction:row;justify-content:flex-start;align-items:center;min-height:30px}.hha-required input{margin:0}.hha-table-hint{font-size:12px;color:var(--muted);margin:8px 0}@media(max-width:900px){.hha-required{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:540px){.hha-required{grid-template-columns:1fr}.hha-required label{min-height:26px}}
+
+/* Workflow-first shell; the existing source workspaces keep their established styling. */
+aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px;min-width:0}
+.nav-group summary{display:flex;align-items:center;justify-content:space-between;gap:8px;list-style:none;padding:10px;color:#dbe7ee;font-size:12px;font-weight:650;cursor:pointer;border-radius:5px}
+.nav-group summary::-webkit-details-marker{display:none}
+.nav-group summary::after{content:"+";font-size:15px;color:#a9bdcc}
+.nav-group[open]>summary::after{content:"−"}
+.nav-group summary:hover,.nav-group summary:focus-visible{background:#25465b;color:white}
+.nav-subgroup{display:flex;flex-direction:column;gap:3px;padding:2px 0 5px 8px;border-left:1px solid #345064;margin-left:10px}
+.nav-subgroup a{font-size:12px;padding:7px 9px}
+.home-discovery{padding:20px 20px 17px;background:var(--surface);border:1px solid var(--border);border-radius:8px;border-top:3px solid var(--accent)}
+.home-discovery h2{margin:0 0 4px;font-size:18px}
+.home-discovery .intro{margin-bottom:12px}
+.home-discovery-form{margin:0;padding:0;border:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:end;background:transparent}
+.home-discovery-form input,.home-discovery-form select{width:100%}
+.home-discovery-form button{grid-column:1/-1;justify-self:start}
+.home-metrics{grid-template-columns:repeat(3,minmax(0,1fr));margin:14px 0 6px}
+.home-metrics .metric{padding:12px 15px;gap:3px}
+.home-scope{font-size:12px;margin:8px 0 16px}
+.home-workflows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.home-workflow{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:16px;min-width:0}
+.home-workflow h3{font-size:15px;margin:0 0 5px;color:var(--text)}
+.home-workflow .intro{font-size:13px;margin-bottom:8px}
+.home-workflow-links{display:grid;gap:7px}
+.home-workflow-links a{font-weight:600;font-size:13px;overflow-wrap:anywhere}
+.home-coverage{margin-top:20px;background:var(--surface);padding:14px 16px;border:1px solid var(--border);border-radius:7px;min-width:0}
+.home-coverage summary{cursor:pointer;color:var(--link);font-weight:650}
+.home-coverage .notice{margin:12px 0}
+.portfolio-provider-cell{display:flex;align-items:flex-start;gap:8px;min-width:0}
+.portfolio-provider-cell>input{flex:none;width:16px;height:16px;margin:4px 0}
+.portfolio-provider-cell>div{min-width:0}
+.portfolio-compare-controls{align-items:center}
+.portfolio-compare-controls .intro{margin:0}
+.comparison-table table{table-layout:fixed;min-width:800px}
+.comparison-table th:first-child{width:180px}
+.comparison-table th,.comparison-table td{overflow-wrap:anywhere;white-space:normal}
+.comparison-table td:first-child{font-weight:650}
+@media(max-width:1100px){.home-discovery-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){aside nav>.nav-group{display:none}.home-discovery{padding:14px}.home-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.home-metrics .metric:last-child{grid-column:1/-1}.home-metrics .metric{padding:10px}.home-workflow{padding:13px}.home-workflows{grid-template-columns:1fr}.home-coverage{padding:12px}.comparison-table table{min-width:760px!important}.comparison-table th,.comparison-table td{overflow-wrap:anywhere!important}}
+@media(max-width:420px){.home-discovery-form{grid-template-columns:1fr}.home-discovery-form button{width:100%}}

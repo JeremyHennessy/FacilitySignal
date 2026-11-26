@@ -2,6 +2,7 @@
 import json, subprocess
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+from pages_navigation import open_workspace
 root=Path(__file__).resolve().parents[1]
 meta=json.loads((root/"web/public-directory/manifest.json").read_text())
 assert meta["provider_rows"]==48004 and meta["citation_source_rows"]==619069 and len(meta["jurisdictions"])==56
@@ -14,9 +15,9 @@ try:
             page.goto("http://127.0.0.1:8091/")
             page.get_by_text("48,004",exact=True).wait_for()
             assert page.evaluate("document.documentElement.scrollWidth <= innerWidth+1")
-            page.get_by_role("link",name="Source register",exact=True).click()
+            open_workspace(page,"sources")
             page.get_by_text("176 source entries",exact=False).wait_for()
-            page.get_by_role("link",name="Facilities",exact=True).click()
+            open_workspace(page,"facilities")
             page.locator("tbody tr").first.wait_for()
             assert 0<page.locator("tbody tr").count()<=25
             page.locator("select[name=state]").select_option("NY")
@@ -27,10 +28,10 @@ try:
             page.locator(".detail-grid").first.wait_for()
             page.go_back()
             page.locator("tbody tr").first.wait_for()
-            page.get_by_role("link",name="Nursing home citations",exact=True).click()
+            open_workspace(page,"citations")
             page.get_by_role("columnheader",name="Historical citation rows").wait_for()
             assert page.locator("tbody tr").count()>0
-            page.get_by_role("link",name="Certifications & laboratories",exact=True).click()
+            open_workspace(page,"certifications")
             page.get_by_role("heading",name="Certifications & laboratories").wait_for()
             assert page.get_by_text("row-level registry data are not published",exact=False).count()==1
             assert page.evaluate("document.documentElement.scrollWidth <= innerWidth+1")

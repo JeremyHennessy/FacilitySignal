@@ -4,6 +4,7 @@ from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import urlopen
 from playwright.sync_api import sync_playwright
+from pages_navigation import open_workspace
 
 ROOT=Path(__file__).resolve().parents[1]
 URL="http://127.0.0.1:8093/"
@@ -47,7 +48,7 @@ try:
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth+1")
                 assert not errors,errors
             page.goto(URL)
-            page.get_by_role("link",name="Capacity explorer",exact=True).click()
+            open_workspace(page,"capacity")
             start=time.perf_counter()
             metrics(expected["nursing"])
             measurements.append({"width":width,"nursing_render_ms":round((time.perf_counter()-start)*1000,1)})

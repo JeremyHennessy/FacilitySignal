@@ -4,6 +4,7 @@ from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import urlopen
 from playwright.sync_api import sync_playwright
+from pages_navigation import open_workspace
 ROOT=Path(__file__).resolve().parents[1]
 URL="http://127.0.0.1:8099/"
 OUT=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"mobile-evidence";OUT.mkdir(exist_ok=True)
@@ -28,7 +29,7 @@ try:
                 page.locator("#mobile-route").select_option("#procurement")
             else:
                 assert not page.locator("#mobile-route").is_visible()
-                page.get_by_role("link",name="Procurement research",exact=True).first.click()
+                open_workspace(page,"procurement")
             page.get_by_role("heading",name="Commercial evidence classifications").wait_for()
             page.locator('.procurement-pilot[data-qualified="true"]').wait_for()
             assert page.locator(".procurement-pilot .metric strong").all_inner_texts()==["100","100"]

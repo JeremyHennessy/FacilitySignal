@@ -26,8 +26,44 @@ const citationSources=()=>byFamily("care-compare").filter(s=>s.key.startsWith("n
 const aggregate=items=>items.reduce((n,s)=>n+s.stored_rows,0);
 function sourceRows(items){return items.map(s=>[s.family==="care-compare"?anchor(names[s.key]||s.key,route(s.key.startsWith("nursing-")?"citations":"facilities",{source:s.key})):names[s.key]||s.key,s.release||s.metadata?.period||"Publication date unavailable",N.format(s.stored_rows),sourceLink(s)])}
 function historicalNote(){return el("div","Historical qualification as of "+lock.as_of+". These figures describe the pinned releases. The public site includes a limited Care Compare directory and nursing citation aggregates, not the integrated database. Counts are source rows, not unique active facilities or outstanding violations.","notice")}
-function overview(){title("National overview","National healthcare provider, certification and compliance research. Public Care Compare directory and source-specific qualification evidence.");app.append(historicalNote());const group=el("div",undefined,"metrics");const pecos=byFamily("pecos");for(const [label,items,note,href] of [
-["Care Compare providers",providerSources(),"Provider records",route("facilities")],["Certifications & laboratories",byFamily("registry"),"Includes historical records",route("certifications")],["Nursing home citations",citationSources(),"Health and fire source rows",route("citations")],["Hospital survey rows",byFamily("qcor"),"Includes memos and repeated tags",route("hospital-surveys")],["PECOS enrollments",pecos.filter(s=>s.key.endsWith("enrollment")),"Historical qualification; aggregate only",route("ownership")],["Organizational roles",pecos.filter(s=>s.key.endsWith("owner")),"Individual rows excluded",route("ownership")],["Ownership changes",pecos.filter(s=>s.key.endsWith("chow")),"Not legal property title",route("ownership")],["Jurisdictions represented",publicManifest.jurisdictions.map(()=>({stored_rows:1})),"Care Compare reported addresses",route("geography")]])group.append(card(label,aggregate(items),note,href));app.append(group,el("h2","Provider source coverage"),table(["Provider family","Qualified release","Historical rows","Evidence"],sourceRows(providerSources())),el("h2","Research coverage"),el("p","The local development database also supports registry, hospital survey and aggregate ownership research. Raw registry, hospital survey and PECOS data are not published on this public site. Equipment and environmental aggregate research is available; individual equipment/environmental records, property and procurement relationships remain unavailable here.","notice"),el("h2","Qualified aggregate research"),el("p","Explore national evidence separately from publicly searchable provider records.","intro"),aggregateResearchLinks())}
+function overview(){
+    title("National overview","Discover healthcare facilities, investigate historical evidence and build a research portfolio. Start with a question rather than a dataset.");
+    const panel=el("section",undefined,"home-discovery");
+    panel.append(el("h2","Find facilities"),el("p","Search public provider records by name, identifier, address or location.","intro"));
+    const f=el("form",undefined,"toolbar home-discovery-form");
+    const category=options("Provider category","source",[["all","All provider categories"],...providerSources().map(s=>[s.key,names[s.key]])],"all");
+    const state=options("State / territory","state",[["","All jurisdictions"],...states.slice().sort().map(s=>[s,s])],"");
+    const field=options("Search field","field",[["name","Provider name contains"],["id","Exact CCN"],["city","Exact city"],["zip","Exact ZIP"],["address","Address contains"]],"name");
+    const q=input("Search value (optional)","q","");
+    const go=el("button","Find matching facilities");go.type="submit";
+    f.append(category,state,field,q,go);
+    f.addEventListener("submit",e=>{e.preventDefault();location.hash=route("advanced",{...Object.fromEntries(new FormData(f)),run:1})});
+    panel.append(f);app.append(panel);
+    const metrics=el("div",undefined,"metrics home-metrics");
+    metrics.append(card("Published provider records",aggregate(providerSources()),"Seven source families",route("facilities")),card("Jurisdictions",publicManifest.jurisdictions.length,"Reported provider geography",route("geography")),card("Historical nursing citation rows",aggregate(citationSources()),"Health and fire source rows",route("citations")));
+    app.append(metrics,el("p","Pinned historical releases · source records are not unique buildings, and citation rows are not current outstanding violations.","intro home-scope"));
+    const tasks=[
+        ["Discover a market","Compare regional provider coverage and reported capacity.",[["Explore the national map",route("geography")],["Research reported capacity",route("capacity")]]],
+        ["Investigate facilities and compliance","Find historical regulatory evidence and operational context.",[["Historical compliance research",route("compliance-research")],["Hospital infrastructure",route("hospital-infrastructure")],["Equipment and water safety evidence",route("equipment-environment")]]],
+        ["Research organizations and portfolios","Save source records, compare facilities and review reported affiliation evidence.",[["Open my saved portfolio",route("saved-portfolio")],["Reported nursing chain research",route("nursing-portfolios")],["Organizational relationship evidence",route("ownership")]]],
+        ["Explore commercial markets","Follow evidence-based service, financial and purchasing research pathways.",[["Browse industry research pathways",route("industry")],["Historical financial report evidence",route("financial-research")],["Federal procurement evidence",route("procurement")]]]
+    ];
+    app.append(el("h2","Choose a research workflow"));
+    const grid=el("div",undefined,"home-workflows");
+    for(const [label,note,links] of tasks){const box=el("section",undefined,"home-workflow");box.append(el("h3",label),el("p",note,"intro"));const list=el("div",undefined,"home-workflow-links");for(const [text,url] of links)list.append(anchor(text,url));box.append(list);grid.append(box)}
+    app.append(grid);
+    const coverageDetails=el("details",undefined,"home-coverage");
+    coverageDetails.append(el("summary","Data coverage and limitations"),historicalNote(),el("h2","Published provider source coverage"),table(["Provider family","Qualified release","Historical rows","Evidence"],sourceRows(providerSources())));
+    const pecos=byFamily("pecos");
+    coverageDetails.append(el("h2","Additional qualified historical source rows"),table(["Source evidence","Rows"],[
+        [anchor("Certification and laboratory coverage",route("certifications")),N.format(aggregate(byFamily("registry")))],
+        [anchor("Hospital survey evidence",route("hospital-surveys")),N.format(aggregate(byFamily("qcor")))],
+        [anchor("Reported enrollment evidence",route("ownership")),N.format(aggregate(pecos.filter(s=>s.key.endsWith("enrollment"))))],
+        ["Reported organizational roles",N.format(aggregate(pecos.filter(s=>s.key.endsWith("owner"))))],
+        ["Reported ownership changes",N.format(aggregate(pecos.filter(s=>s.key.endsWith("chow"))))]
+    ]),el("p","Individual registry, hospital survey, ownership and financial records are not published in this public workspace. Qualified aggregate evidence cannot establish legal title, current equipment or confirmed purchasing intent.","intro"),aggregateResearchLinks());
+    app.append(coverageDetails,add(el("div",undefined,"links"),anchor("Review source inventory",route("sources")),anchor("Review national data quality",route("data-evidence"))))
+}
 function aggregateResearchLinks(){
     const wrap=el("div",undefined,"links");
     for(const [name,view] of [["Advanced facility search","advanced"],["Industry research","industry"],["Service intelligence","services"],["Compliance research","compliance-research"],["Equipment & environmental research","equipment-environment"],["Procurement research","procurement"],["Financial report research","financial-research"],["Saved facility portfolio","saved-portfolio"],["Data intelligence","data-evidence"]])wrap.append(anchor(name,route(view)));
@@ -968,14 +1004,74 @@ function savedPortfolio(p){
     form.append(source,state,el("button","Filter"));form.addEventListener("submit",e=>{e.preventDefault();location.hash=route("saved-portfolio",Object.fromEntries(new FormData(form)))});app.append(form);
     const filtered=rows.filter(r=>(!p.source||r.source===p.source)&&(!p.state||r.state===p.state));
     if(!filtered.length){app.append(el("div",rows.length?"No saved records match these filters.":"No records saved. Open a facility profile and save the exact source record.","notice"));return}
+    const picked=new Set(),checks=[],compare=el("button","Compare selected (0 / 4)");compare.type="button";compare.disabled=true;
+    const compareStatus=el("span","Select 2–4 saved records to compare source-reported evidence.","intro");
+    const update=()=>{compare.disabled=picked.size<2;compare.textContent="Compare selected ("+picked.size+" / 4)";for(const c of checks)c.disabled=!c.checked&&picked.size>=4};
+    compare.addEventListener("click",()=>{if(picked.size>=2&&picked.size<=4)location.hash=route("compare",{records:[...picked].join("|")})});
+    app.append(add(el("div",undefined,"links portfolio-compare-controls"),compare,compareStatus));
     const grid=el("div",undefined,"metrics"),groups=new Map();
     for(const r of filtered)groups.set(r.source,(groups.get(r.source)||0)+1);
     for(const [source,n] of groups)grid.append(capacityMetric(names[source],n,"Saved source records (not unique sites)"));
     app.append(grid,table(["Saved provider / CCN","Category","Reported state","Saved source release","Action"],filtered.map(r=>{
         const current=providerSources().find(s=>s.key===r.source),remove=el("button","Remove");remove.type="button";
         remove.addEventListener("click",()=>{try{writePortfolio(readPortfolio().filter(x=>portfolioKey(x)!==portfolioKey(r)));savedPortfolio(p)}catch(e){app.append(el("div","Unable to remove record; browser storage unavailable.","error"))}});
-        return [add(el("div"),anchor(r.name,route("detail",{source:r.source,id:r.ccn,state:r.state})),el("small"," · "+r.ccn)),names[r.source],r.state,r.release+(current.release!==r.release?" (newer source available)":""),remove]
+        const pick=el("input");pick.type="checkbox";pick.setAttribute("aria-label","Select "+r.name+" ("+r.ccn+") for comparison");checks.push(pick);
+        pick.addEventListener("change",()=>{if(pick.checked){if(picked.size>=4){pick.checked=false;return}picked.add(portfolioKey(r))}else picked.delete(portfolioKey(r));update()});
+        return [add(el("div",undefined,"portfolio-provider-cell"),pick,add(el("div"),anchor(r.name,route("detail",{source:r.source,id:r.ccn,state:r.state})),el("small"," · "+r.ccn))),names[r.source],r.state,r.release+(current.release!==r.release?" (newer source available)":""),remove]
     })),el("p","Source names and dates are saved snapshots. Open profiles to re-check current published source records; no identity merge or update is inferred.","intro"));
+}
+
+async function compareFacilities(p,signal,epoch){
+    title("Compare saved facilities","Compare 2–4 exact public provider source records. Different capacity units are not combined; national coverage is not attributed to individual facilities.");
+    app.append(add(el("div",undefined,"links"),anchor("Back to saved portfolio",route("saved-portfolio"))));
+    let selected;
+    try{
+        const tokens=(p.records||"").split("|"),rows=readPortfolio(),map=new Map(rows.map(r=>[portfolioKey(r),r]));
+        if(tokens.length<2||tokens.length>4||new Set(tokens).size!==tokens.length||tokens.some(k=>!map.has(k)))throw Error("Select 2–4 distinct records from your saved portfolio.");
+        selected=tokens.map(k=>map.get(k));
+    }catch(e){app.append(el("div",e.message,"error"));return}
+    const status=el("div","Loading exact source records and historical nursing citation aggregates…","notice");app.append(status);
+    const wanted=new Set(selected.map(r=>r.source));
+    if(wanted.has("nursing")){wanted.add("nursing-health");wanted.add("nursing-fire")}
+    const data=new Map();
+    await Promise.all([...wanted].map(async key=>{
+        const source=lock.sources.find(s=>s.key===key&&s.family==="care-compare");
+        try{if(!source)throw Error("Source missing");data.set(key,{source,rows:(await loadShard(source,signal)).records})}
+        catch(e){data.set(key,{source,error:true})}
+    }));
+    if(epoch!==sequence||signal.aborted)return;
+    function observation(key,r){
+        const d=data.get(key);
+        if(!d||d.error)return {label:"Source unavailable",record:null};
+        const found=d.rows.filter(x=>x.ccn===r.ccn&&x.state===r.state);
+        if(found.length!==1)return {label:found.length?"Multiple matching source records":"No matching source record",record:null};
+        return {label:"Exact CCN and reported state match",record:found[0]}
+    }
+    const obs=selected.map(r=>observation(r.source,r));
+    const cellsFor=(label,fn)=>[label,...selected.map((r,i)=>fn(r,obs[i],i))];
+    const citation=(key,r,o)=>{
+        if(r.source!=="nursing")return "Not applicable to this source";
+        if(!o.record)return "Provider record unresolved";
+        const c=observation(key,r);
+        return c.record?N.format(c.record.citation_rows)+" historical rows":c.label+" (not zero)"
+    };
+    const rows=[
+        cellsFor("Provider category",r=>names[r.source]),
+        cellsFor("Source identifier",r=>r.ccn),
+        cellsFor("Reported state",r=>r.state),
+        cellsFor("Saved source release",r=>r.release),
+        cellsFor("Current published release",r=>data.get(r.source)?.source?.release||"Unavailable"),
+        cellsFor("Source record lookup",(_,o)=>o.label),
+        cellsFor("Published provider name",(_,o)=>o.record?shown(o.record.name):"Unavailable"),
+        cellsFor("Published address",(_,o)=>o.record?[o.record.address,o.record.city,o.record.state,o.record.zip].filter(Boolean).join(", ")||"Not reported":"Unavailable"),
+        cellsFor("Reported capacity", (r,o)=>o.record?advancedCapacityText(data.get(r.source).source,o.record):"Unavailable"),
+        cellsFor("Nursing health citation evidence",(r,o)=>citation("nursing-health",r,o)),
+        cellsFor("Nursing fire citation evidence",(r,o)=>citation("nursing-fire",r,o)),
+        cellsFor("Facility evidence profile",r=>anchor("Open source record",route("detail",{source:r.source,id:r.ccn,state:r.state})))
+    ];
+    const wrapper=table(["Evidence field",...selected.map(r=>r.name+" · "+r.ccn)],rows);wrapper.classList.add("comparison-table");wrapper.setAttribute("aria-label","Saved facility evidence comparison; scroll horizontally");
+    status.replaceWith(el("p",N.format(selected.length)+" selected source records · "+N.format(obs.filter(o=>o.record).length)+" exact published records resolved","intro comparison-status"));
+    app.append(wrapper,el("div","Historical nursing citation rows are not current findings or counts of inspections. Missing or unresolved evidence does not establish compliance. No portfolio ownership or shared property is inferred.","notice"))
 }
 
 async function procurementResearch(signal,epoch){
@@ -1020,14 +1116,19 @@ async function procurementResearch(signal,epoch){
 
 function coverageView(view){const own=view==="ownership",items=byFamily(own?"pecos":"qcor");title(own?"Ownership evidence coverage":"Hospital survey coverage",own?"Aggregate PECOS qualification only. Individual ownership records and organizational projections are not published on this public site.":"QCOR survey rows include tags, memos, repeated projections and historical evidence. Correction status is unknown; narrative and row-level workbook data are not published here.");app.append(historicalNote());if(own){app.append(add(el("div",undefined,"links"),anchor("Nursing portfolio research",route("nursing-portfolios"))));const group=el("div",undefined,"metrics");for(const [label,prefix] of [["Hospital enrollment evidence","hospital"],["Skilled nursing enrollment evidence","snf"]]){const family=items.filter(s=>s.key.startsWith(prefix+"-"));const enroll=family.filter(s=>s.key.endsWith("-enrollment")),roles=family.filter(s=>s.key.endsWith("-owner")),changes=family.filter(s=>s.key.endsWith("-chow"));group.append(capacityMetric(label,aggregate(enroll),"Historical source enrollment rows"),capacityMetric(prefix==="hospital"?"Hospital organizational roles":"SNF organizational roles",aggregate(roles),"Organization role source rows; not unique owners"),capacityMetric(prefix==="hospital"?"Hospital ownership changes":"SNF ownership changes",aggregate(changes),"Historical CHOW source rows"))}app.append(group,el("p","Organization research requires a source-family enrollment ID and provider PAC ID relationship, with separate CCN/state corroboration. Individual source relationships remain local-only; no public portfolio can be inferred from these aggregate counts.","intro"))}app.append(table(["Source","Release period","Historical retained rows","Evidence"],sourceRows(items)),el("div",own?"Exact CCN and state candidates do not establish controlling ownership, physical property title, complete portfolios or current operational responsibility.":"Use the official QCOR report for source research. This site does not publish or infer active hospital violations.","notice"))}
 function sourceRegister(p){title("Source register","Discovered sources, historical qualification, and reuse review are separate. A listed source is not necessarily loaded or publicly searchable.");const f=el("form",undefined,"toolbar");f.append(input("Filter source names, publishers or jurisdiction","q",p.q),el("button","Filter"));f.addEventListener("submit",e=>{e.preventDefault();location.hash=route("sources",Object.fromEntries(new FormData(f)))});app.append(f);let overlay=new Map(coverage.sources.map(s=>[s.id,s]));let q=(p.q||"").toLowerCase();let rows=register.sources.filter(s=>!q||[s.id,s.source,s.publisher,s.jurisdiction,s.category].some(x=>String(x).toLowerCase().includes(q)));let page=Math.max(1,Math.min(Math.ceil(rows.length/pageSize)||1,Number(p.page)||1));app.append(el("p",N.format(rows.length)+" source entries · original register preserved"));app.append(table(["Source","Jurisdiction","Qualification","Reuse review","Evidence"],rows.slice((page-1)*pageSize,page*pageSize).map(s=>[s.id+" · "+s.source,s.jurisdiction,overlay.get(s.id)?.status||"Discovered / not tested",overlay.get(s.id)?.reuse_review||s.reuse_review,safeExternal(s.source_url)?anchor("Publisher source",safeExternal(s.source_url),true):"See register"])));const pager=el("div",undefined,"pager");if(page>1)pager.append(anchor("Previous",route("sources",{...p,page:page-1})));if(page*pageSize<rows.length)pager.append(anchor("Next",route("sources",{...p,page:page+1})));app.append(pager)}
-async function render(){if(!lock)return;if(active)active.abort();active=new AbortController();const {view,p}=read(),epoch=++sequence;for(const a of document.querySelectorAll("nav a")){if(a.getAttribute("href")==="#"+view)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")}if(view==="overview")overview();else if(view==="search")await unifiedSearch(p,active.signal,epoch);else if(view==="advanced")await advancedResearch(p,active.signal,epoch);else if(view==="industry")industryResearch(p);else if(view==="procurement")await procurementResearch(active.signal,epoch);else if(view==="saved-portfolio")savedPortfolio(p);else if(view==="geography")await geography(p,active.signal,epoch);else if(view==="capacity")await capacityExplorer(p,active.signal,epoch);else if(view==="dialysis-services")await dialysisServices(p,active.signal,epoch);else if(view==="hha-services")await hhaServices(p,active.signal,epoch);else if(["services","compliance-research","equipment-environment","data-evidence","nursing-portfolios","hospital-infrastructure","financial-research"].includes(view))await intelligence(view,active.signal,epoch);else if(["facilities","citations"].includes(view))await directory(view,p,active.signal,epoch);else if(view==="certifications")certificationCoverage();else if(view==="detail")await detail(p,active.signal,epoch);else if(["ownership","hospital-surveys"].includes(view))coverageView(view);else if(view==="sources")sourceRegister(p);else title("Page not found","Choose an available workspace from navigation.");}
+async function render(){if(!lock)return;if(active)active.abort();active=new AbortController();const {view,p}=read(),epoch=++sequence;for(const a of document.querySelectorAll("nav[aria-label='Primary navigation'] a")){if(a.getAttribute("href")==="#"+(view==="compare"?"saved-portfolio":view==="detail"?"facilities":view))a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")}if(view==="overview")overview();else if(view==="search")await unifiedSearch(p,active.signal,epoch);else if(view==="advanced")await advancedResearch(p,active.signal,epoch);else if(view==="industry")industryResearch(p);else if(view==="procurement")await procurementResearch(active.signal,epoch);else if(view==="saved-portfolio")savedPortfolio(p);else if(view==="compare")await compareFacilities(p,active.signal,epoch);else if(view==="geography")await geography(p,active.signal,epoch);else if(view==="capacity")await capacityExplorer(p,active.signal,epoch);else if(view==="dialysis-services")await dialysisServices(p,active.signal,epoch);else if(view==="hha-services")await hhaServices(p,active.signal,epoch);else if(["services","compliance-research","equipment-environment","data-evidence","nursing-portfolios","hospital-infrastructure","financial-research"].includes(view))await intelligence(view,active.signal,epoch);else if(["facilities","citations"].includes(view))await directory(view,p,active.signal,epoch);else if(view==="certifications")certificationCoverage();else if(view==="detail")await detail(p,active.signal,epoch);else if(["ownership","hospital-surveys"].includes(view))coverageView(view);else if(view==="sources")sourceRegister(p);else title("Page not found","Choose an available workspace from navigation.");}
 $("global-search").addEventListener("submit",e=>{e.preventDefault();let q=$("global-q").value.trim();location.hash=route("search",{field:/^\d{5}$/.test(q)?"zip":/^(?=.*[0-9])[A-Za-z0-9]{6}$/.test(q)?"id":"name",q})});
 document.querySelector(".skip").addEventListener("click",e=>{e.preventDefault();$("workspace").focus()});
 const mobileSelect=$("mobile-route"),primaryNav=document.querySelector("nav[aria-label='Primary navigation']");
-for(const a of primaryNav.querySelectorAll("a")){const o=el("option",a.textContent);o.value=a.getAttribute("href");mobileSelect.append(o)}
-function syncMobileRoute(){const {view}=read();const activeLink=primaryNav.querySelector('a[aria-current="page"]');const target=view==="detail"?"#facilities":"#"+view;
+for(const item of primaryNav.children){
+    if(item.matches("a")){const o=el("option",item.textContent);o.value=item.getAttribute("href");mobileSelect.append(o)}
+    else if(item.matches("details")){const group=el("optgroup");group.label=item.querySelector("summary").textContent;for(const a of item.querySelectorAll("a")){const o=el("option",a.textContent);o.value=a.getAttribute("href");group.append(o)}mobileSelect.append(group)}
+}
+function syncMobileRoute(){const {view}=read();const target=view==="detail"?"#facilities":view==="compare"?"#saved-portfolio":"#"+view;
+    const activeLink=[...primaryNav.querySelectorAll("a")].find(a=>a.getAttribute("href")===target);
+    for(const group of primaryNav.querySelectorAll("details"))group.open=!!activeLink&&group.contains(activeLink);
     if([...mobileSelect.options].some(o=>o.value===target))mobileSelect.value=target;
-    if(window.matchMedia("(max-width:720px)").matches&&activeLink){const x=activeLink.getBoundingClientRect().left-primaryNav.getBoundingClientRect().left;if(x<0||x+activeLink.offsetWidth>primaryNav.clientWidth)primaryNav.scrollLeft+=x-10}
+    if(window.matchMedia("(max-width:720px)").matches&&activeLink&&activeLink.getClientRects().length){const x=activeLink.getBoundingClientRect().left-primaryNav.getBoundingClientRect().left;if(x<0||x+activeLink.offsetWidth>primaryNav.clientWidth)primaryNav.scrollLeft+=x-10}
 }
 mobileSelect.addEventListener("change",()=>{location.hash=mobileSelect.value});
 window.addEventListener("hashchange",()=>{render();syncMobileRoute()});

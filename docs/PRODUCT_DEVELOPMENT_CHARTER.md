@@ -1,0 +1,29 @@
+# FacilitySignal continuous product development charter
+
+Owner directive received 2026-11-26. This supersedes prior FacilitySignal layout-preservation constraints for ordinary reversible product development, not security, data integrity, publication permissions, or verified functionality.
+
+## Product mandate
+
+Build a unified national healthcare facility intelligence platform for facility operators, property managers, environmental/water/infection-prevention service firms, compliance professionals, insurers and MGAs, sales teams, researchers and portfolio analysts. Organize around user objectives: discover facilities and markets, examine facility/organization evidence, compare and manage portfolios, understand regulatory history, research operational infrastructure and commercial markets, monitor meaningful changes, and trace findings to sources.
+
+Regularly reconsider the product as if built from scratch today. Remove, merge or redesign redundant pages when useful; retain effective behavior, deep links and recoverable versions until equivalents are qualified. Do not create a page for every dataset. Use new data to improve meaningful intelligence and progressive disclosure.
+
+## Non-negotiable evidence boundaries
+
+Source -> collection -> processing -> entity resolution -> analysis -> application -> presentation. Distinguish source record, physical site, legal entity, candidate relationship, confirmed relationship, and national aggregate. Preserve original release, grain, provenance, missingness, applicability, units, status and time semantics. Do not equate clinical quality with building risk, historical citations with open violations, service flags with equipment installation, cost reports with purchases, or affiliation with legal title. Do not release restricted rows or change access/security merely to expand features. No unapproved paid or private-storage architecture changes.
+
+## Development and acceptance
+
+Inspect main, live site, latest ingestion and field utilization evidence. Prioritize user value, implement directly in a recoverable branch, test actual data and all affected user interactions, deploy via existing GitHub Pages, verify normal live URL with exact asset checks and actual desktop/tablet/mobile Chromium screenshots, visually inspect meaningful changes, correct defects, retain qualification evidence and update priorities. Do not count a commit, recommendation, or queued job as success. Preserve ongoing concurrent data work. If live verification or publisher/reuse clearance is blocked, explicitly report the limitation.
+
+## First architectural release
+
+Rollback baseline: main 47f2d9d12c1a56f80b5f0a16409a602abc9c804d; preceding application release 2026b4cca52bd1e58d5f28a8e2cffe3f9e5b5204, ordinary live visual run 45841346962. Subsequent data-only changes preserved. Actual live baseline reviewed: crowded navigation and dataset-first landing page. Decision: make the landing page a discovery/workflow hub; organize existing deep links under five task groups; preserve grouped mobile selection; add 2–4 exact-source saved-record comparison including qualified capacity units and same-CCN/state nursing citation aggregates. No new raw data exposure.
+
+## Next substantive priorities
+
+1. Improve actual provider evidence profiles using individually cleared fields from the 1,433-field routing plan; validate each source pin, value domain and reuse scope first.
+2. Add comparable historical regulatory timelines and domain evidence only where source row-level publication is approved; qualify entity/organization relationships before organization profiles.
+3. Improve task-specific search and comparison, map-to-profile navigation, exports and evidence-based benchmarking without inferred risk/purchasing claims.
+4. Build meaningful changes/alerts and persistent research accounts only after historical snapshots, entity grain, access and storage are qualified.
+5. Resolve authorized permanent private recovery storage and full-size restore. GitHub Pages remains public/static. No raw or restricted database in public repository.
