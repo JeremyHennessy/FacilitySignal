@@ -61,6 +61,17 @@ try:
             expected=chosen+([extra] if width<=720 else [])
             assert [(r["source"],r["source_identifier"],r["reported_state"]) for r in exported]==[(s,r["ccn"],r["state"]) for s,r in expected]
             assert all(r["saved_source_release"] and r["current_published_release"] and "not a unique property" in r["evidence_scope"] for r in exported)
+            page.screenshot(path=str(OUT/f"{width}-portfolio-export.png"),full_page=True)
+            page.goto(URL+"#saved-portfolio?source=nursing")
+            page.get_by_role("button",name="Export filtered portfolio CSV").wait_for()
+            assert page.locator(".portfolio-provider-cell").count()==2
+            with page.expect_download() as dl:
+                page.get_by_role("button",name="Export filtered portfolio CSV").click()
+            with dl.value.path().open(encoding="utf-8",newline="") as f:
+                filtered=list(csv.DictReader(f))
+            assert [(r["source"],r["source_identifier"]) for r in filtered]==[(s,r["ccn"]) for s,r in expected if s=="nursing"]
+            page.goto(URL+"#saved-portfolio")
+            page.locator(".portfolio-provider-cell").nth(len(expected)-1).wait_for()
             check=page.locator(".portfolio-provider-cell input")
             check.nth(0).check();assert page.get_by_role("button",name="Compare selected (1 / 4)").is_disabled()
             check.nth(1).check()
