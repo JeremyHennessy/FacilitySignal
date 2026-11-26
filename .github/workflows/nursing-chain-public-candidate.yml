@@ -1,0 +1,67 @@
+name: FacilitySignal nursing chain public candidate
+on:
+  push:
+    branches: [build/nursing-chain-public-20261126]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: nursing-chain-public-candidate
+  cancel-in-progress: false
+jobs:
+  qualify:
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/build/nursing-chain-public-20261126'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - name: Retrieve one exact pinned public source and qualify minimal candidate
+        run: |
+          umask 077
+          python -m scripts.build_nursing_chain_pack build --download --output "$RUNNER_TEMP/nursing-chain-evidence.json"
+          python -m scripts.build_nursing_chain_pack check --output "$RUNNER_TEMP/nursing-chain-evidence.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nursing-chain-public-candidate
+          path: ${{ runner.temp }}/nursing-chain-evidence.json
+          retention-days: 7
+          if-no-files-found: error
+  preserve:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/build/nursing-chain-public-20261126' && github.run_attempt == 1
+    permissions:
+      contents: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - uses: actions/download-artifact@v4
+        with:
+          name: nursing-chain-public-candidate
+          path: ${{ runner.temp }}/candidate
+      - name: Retain only validated public fields on isolated branch
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          test ! -e web/nursing-chain-evidence.json
+          python -m scripts.build_nursing_chain_pack check --output "$RUNNER_TEMP/candidate/nursing-chain-evidence.json"
+          cp "$RUNNER_TEMP/candidate/nursing-chain-evidence.json" web/nursing-chain-evidence.json
+          git add -- web/nursing-chain-evidence.json
+          test "$(git diff --cached --name-only)" = web/nursing-chain-evidence.json
+          git -c user.name=github-actions[bot] -c user.email=41898282+github-actions[bot]@users.noreply.github.com commit -m "Retain exact qualified CMS nursing chain public candidate"
+          git push origin HEAD:refs/heads/build/nursing-chain-public-20261126
+          echo "NURSING_CHAIN_CANDIDATE_COMMIT $(git rev-parse HEAD)"
