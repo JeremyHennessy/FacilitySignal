@@ -52,6 +52,17 @@ def scan_deactivation(reader,*,allow_pinned_preamble=False):
         print("NPPES_DEACTIVATION_SCHEMA",json.dumps({"row_ordinal":i,"column_count":len(h0),"columns":structure[:20]},sort_keys=True),flush=True)
         if len(h0)==2 and len(set(h0))==2 and "npi" in h0 and len(set(h0)&DATE_HEADERS)==1:
             h=h0;header_ordinal=i;break
+        # The pinned workbook's row two has an exact NPI column and a
+        # longer alphabetic date-column label. Only recognize clear
+        # deactivation-date wording, never infer from ordinal alone.
+        if allow_pinned_preamble and len(h0)==2 and h0[0]=="npi" and isinstance(header[1],str):
+            candidate=header[1].strip()
+            words=set(re.findall(r"[A-Za-z]+",candidate.casefold()))
+            allowed_words={"npi","provider","deactivation","deactivated","deactivate","effective","date","of","last","most","recent","on","the","reported","actual","national","identifier","number","inactive"}
+            safe_label=bool(re.fullmatch(r"[A-Za-z _-]{1,80}",candidate)) and "date" in words and bool(words&{"deactivation","deactivated","deactivate"}) and words<=allowed_words
+            print("NPPES_DEACTIVATION_LABEL_EVIDENCE",json.dumps({"recognized_metadata_words":sorted(words&allowed_words),"other_word_count":len(words-allowed_words),"date_label_confirmed":safe_label,"observed_label":candidate if safe_label else None}),flush=True)
+            if safe_label:
+                h=["npi","deactivationdate"];header_ordinal=i;break
         nonblank=[str(x).strip() for x in header if x is not None and str(x).strip()]
         if not nonblank:preamble["blank"]+=1;continue
         # The pinned release may begin with publisher metadata. A singleton

@@ -56,3 +56,10 @@ class NPPESSupplementTests(unittest.TestCase):
         self.assertNotIn("Unrecognized metadata",str(a))
         for pre in ([key],[key,"11/01/2026"],["text "+key]):
             with self.assertRaises(ValueError):scan_deactivation(iter([pre,header]),allow_pinned_preamble=True)
+
+    def test_long_pinned_date_label_never_guesses_position(self):
+        key=next("123456789"+str(i) for i in range(10) if npi_valid("123456789"+str(i)))
+        a=scan_deactivation(iter([["NPI","Effective Deactivation Date"],[key,"11/01/2026"]]),allow_pinned_preamble=True)
+        self.assertEqual(a["input_rows"],1)
+        for label in ("Deactivation Reason","Effective Date","Some Other Field","NPI Deactivation Date Reason"):
+            with self.assertRaises(ValueError):scan_deactivation(iter([["NPI",label],[key,"11/01/2026"]]),allow_pinned_preamble=True)
