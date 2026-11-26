@@ -19,13 +19,20 @@ jobs:
         with:
           python-version: '3.12'
       - name: Retrieve previously qualified narrow projection
+        if: hashFiles('web/hha-service-evidence.json', 'research/hha_service_public_audit_20261126.json') == ''
         uses: actions/download-artifact@v4
         with:
           name: hha-service-narrow-projection-candidate
           run-id: 45828532285
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: ${{ runner.temp }}/qualified-hha
-      - run: python scripts/verify_hha_public.py --install "$RUNNER_TEMP/qualified-hha"
+      - name: Verify or install exact retained projection
+        run: |
+          if [ -f web/hha-service-evidence.json ] && [ -f research/hha_service_public_audit_20261126.json ]; then
+            python scripts/verify_hha_public.py
+          else
+            python scripts/verify_hha_public.py --install "$RUNNER_TEMP/qualified-hha"
+          fi
       - run: python scripts/verify_dialysis_public.py
       - run: python scripts/stamp_pages_assets.py --write
       - run: python scripts/stamp_pages_assets.py --check

@@ -825,7 +825,7 @@ async function hhaServices(p,signal,epoch){
         const slice=matched.slice((v.page-1)*pageSize,v.page*pageSize);
         if(slice.length){
             const rows=slice.map(r=>{const cell=el("div");cell.append(anchor(r.name,route("detail",{source:"home-health",id:r.ccn,state:r.state,section:"services",return:localResearchReturn(location.hash)})),el("small",r.ccn));return [cell,[r.city,r.state].filter(Boolean).join(", "),...hhaFields.map(f=>hhaStates[d.records[hhaKey(r)][f]])]});
-            const wrap=table(["Provider / CCN","Reported city / state",...hhaFields],rows);wrap.classList.add("hha-results");wrap.setAttribute("aria-label","Home health service observations; scroll horizontally if needed");app.append(wrap);
+            const wrap=table(["Provider / CCN","Reported city / state",...hhaFields],rows);wrap.classList.add("hha-results");wrap.setAttribute("aria-label","Home health service observations; scroll horizontally if needed");app.append(el("p","Scroll horizontally to see all six service columns if needed.","hha-table-hint"),wrap);
             const exp=el("button","Export current page (CSV)");exp.type="button";exp.addEventListener("click",()=>hhaExport(slice,d.records));app.append(add(el("div",undefined,"links"),exp))
         }else app.append(el("div",matched.length?"Page outside matching results. Return to the first page.":"No provider records match these filters.","empty"));
         const pager=el("div",undefined,"pager"),safe={state:v.state,field:v.field,evidence:v.evidence,q:v.q,required:v.required.join("|")};

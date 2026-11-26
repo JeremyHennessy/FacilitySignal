@@ -48,6 +48,8 @@ try:
             assert len(exported)==min(25,expected2)
             assert all(r["state"]=="NY" and all(r["Offers "+f+" Services"]=="yes" for f in ("Nursing Care","Physical Therapy","Occupational Therapy")) for r in exported)
             assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+            assert page.locator(".hha-required label").evaluate_all("(els)=>els.every(e=>getComputedStyle(e).flexDirection==='row'&&e.querySelector('input').getBoundingClientRect().width>=15)")
+            assert page.get_by_text("Scroll horizontally to see all six service columns",exact=False).is_visible()
             page.locator(".hha-service-form").screenshot(path=str(OUT/f"{width}-filters.png"))
             page.locator(".hha-results").screenshot(path=str(OUT/f"{width}-results.png"))
             page.locator(".hha-results tbody a").first.click()
