@@ -1095,13 +1095,15 @@ function savedPortfolio(p){
     const grid=el("div",undefined,"metrics"),groups=new Map();
     for(const r of filtered)groups.set(r.source,(groups.get(r.source)||0)+1);
     for(const [source,n] of groups)grid.append(capacityMetric(names[source],n,"Saved source records (not unique sites)"));
-    app.append(grid,table(["Saved provider / CCN","Category","Reported state","Saved source release","Action"],filtered.map(r=>{
+    const results=table(["Saved provider / CCN","Category","Reported state","Saved source release","Action"],filtered.map(r=>{
         const current=providerSources().find(s=>s.key===r.source),remove=el("button","Remove");remove.type="button";
         remove.addEventListener("click",()=>{try{writePortfolio(readPortfolio().filter(x=>portfolioKey(x)!==portfolioKey(r)));savedPortfolio(p)}catch(e){app.append(el("div","Unable to remove record; browser storage unavailable.","error"))}});
         const pick=el("input");pick.type="checkbox";pick.setAttribute("aria-label","Select "+r.name+" ("+r.ccn+") for comparison");checks.push(pick);
         pick.addEventListener("change",()=>{if(pick.checked){if(picked.size>=4){pick.checked=false;return}picked.add(portfolioKey(r))}else picked.delete(portfolioKey(r));update()});
         return [add(el("div",undefined,"portfolio-provider-cell"),pick,add(el("div"),anchor(r.name,route("detail",{source:r.source,id:r.ccn,state:r.state})),el("small"," · "+r.ccn))),names[r.source],r.state,r.release+(current.release!==r.release?" (newer source available)":""),remove]
-    })),el("p","Source names and dates are saved snapshots. Open profiles to re-check current published source records; no identity merge or update is inferred.","intro"));
+    }));
+    results.classList.add("portfolio-results");results.setAttribute("aria-label","Saved facility source records; scroll horizontally if needed");
+    app.append(grid,el("p","Scroll the saved records table horizontally to view source dates and actions.","portfolio-scroll-hint intro"),results,el("p","Source names and dates are saved snapshots. Open profiles to re-check current published source records; no identity merge or update is inferred.","intro"));
 }
 
 async function compareFacilities(p,signal,epoch){
