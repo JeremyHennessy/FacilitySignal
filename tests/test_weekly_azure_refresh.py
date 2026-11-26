@@ -21,3 +21,7 @@ class WeeklyRefreshTests(unittest.TestCase):
         with self.assertRaises(ValueError):w.discover_nppes(html.replace("/nppes/w.zip","https://example.org/w.zip"))
     def test_fingerprint_is_order_independent(self):
         self.assertEqual(w.fingerprint({"a":1,"b":2}),w.fingerprint({"b":2,"a":1}))
+
+    def test_refresh_new_release_has_distinct_private_identity(self):
+        week={"label":"synthetic","url":"https://download.cms.gov/nppes/example.zip"}
+        self.assertNotEqual(w.fingerprint({"policy":w.POLICY_VERSION,"release":week}),w.fingerprint({"policy":w.POLICY_VERSION,"release":week,"private_projection":1}))

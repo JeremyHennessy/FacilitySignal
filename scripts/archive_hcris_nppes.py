@@ -69,7 +69,8 @@ def normalize_date(v):
     return datetime.strptime(v.strip(),"%m/%d/%Y").date().isoformat() if state=="reported" else None
 
 class OrgObserver:
-    def __init__(self):self.ready=False;self.batch=[];self.tax=[];self.states=Counter()
+    def __init__(self):self.ready=False;self.batch=[];self.tax=[];self.states=Counter();self.seen=0
+    def finish(self,db):self.flush(db)
     def flush(self,db):
         if self.batch:db.executemany("INSERT INTO organization_fields VALUES(?,?,?,?,?,?,?,?)",self.batch);self.batch.clear()
         if self.tax:db.executemany("INSERT INTO organization_taxonomy VALUES(?,?,?)",self.tax);self.tax.clear()
@@ -78,6 +79,7 @@ class OrgObserver:
             db.executescript("""CREATE TABLE organization_fields(npi TEXT PRIMARY KEY,ordinal INTEGER NOT NULL UNIQUE,enumerated_on TEXT,updated_on TEXT,deactivated_on TEXT,reactivated_on TEXT,practice_state TEXT,practice_country TEXT) WITHOUT ROWID;
             CREATE TABLE organization_taxonomy(npi TEXT NOT NULL,slot INTEGER NOT NULL,code TEXT NOT NULL,PRIMARY KEY(npi,slot)) WITHOUT ROWID;""")
             self.ready=True
+        self.seen+=1
         dates=[normalize_date(get(k)) for k in ("Provider Enumeration Date","Last Update Date","NPI Deactivation Date","NPI Reactivation Date")]
         state=get("Provider Business Practice Location Address State Name").strip().upper()
         country=get("Provider Business Practice Location Address Country Code (If outside U.S.)").strip().upper()
@@ -91,22 +93,15 @@ class OrgObserver:
             self.tax.append((npi,i,code));self.states["taxonomy_retained"]+=1
         if len(self.batch)>=10000:self.flush(db)
 
-def nppes_project(path,db_path,kind,prior):
+def nppes_project(path,db_path,kind,prior=None):
     observer=OrgObserver()
-    # The qualified reader owns the connection and calls the observer only
-    # after the Type 2 gate and checksum. Flush final observer batches before
-    # the connection closes via a wrapped observer that detects last key
-    # from the independently known release count.
-    class FinalObserver:
-        def __init__(self):self.n=0
-        def __call__(self,db,*args):
-            self.n+=1;observer(db,*args)
-            if self.n==prior["distinct_valid_organization_npis"]:observer.flush(db)
-    final=FinalObserver()
-    audit=n.inspect(path,db_path,kind,organization_observer=final)
-    require(all(audit[k]==prior[k] for k in audit),"NPPES original structural audit differs")
-    expected=prior["distinct_valid_organization_npis"]
-    require(final.n==expected and not observer.batch and not observer.tax,"observer reconciliation")
+    audit=n.inspect(path,db_path,kind,organization_observer=observer)
+    if prior is not None:require(all(audit[k]==prior[k] for k in audit),"NPPES original structural audit differs")
+    expected=audit["distinct_valid_organization_npis"]
+    c=audit["entity_classes"];k=audit["organization_key_counts"]
+    require(expected>0 and not any(c.get(x,0) for x in ("malformed_width","unrecognized_entity_type")) and k.get("invalid_organization_npi",0)==audit["duplicate_valid_organization_rows"]==0,"organization exceptions")
+    require(all(not x["key_counts"].get("malformed_width") and not x["key_counts"].get("invalid_key_shape") for x in audit["reference_files"].values()),"reference exceptions")
+    require(observer.seen==expected and not observer.batch and not observer.tax,"observer reconciliation")
     with closing(sqlite3.connect(db_path)) as db:
         require(db.execute("SELECT count(*) FROM organizations").fetchone()[0]==db.execute("SELECT count(*) FROM organization_fields").fetchone()[0]==expected,"organization table count")
         require(not db.execute("SELECT 1 FROM organization_fields f LEFT JOIN organizations o ON o.npi=f.npi WHERE o.npi IS NULL LIMIT 1").fetchone(),"organization detail orphan")
@@ -116,7 +111,7 @@ def nppes_project(path,db_path,kind,prior):
         db.execute("CREATE INDEX org_state ON organization_fields(practice_state)")
         db.execute("CREATE INDEX org_taxonomy_code ON organization_taxonomy(code)")
         db.commit();check_integrity(db)
-    return {"input_rows":audit["input_rows"],"organization_observations":expected,"individual_rows_excluded":audit["entity_classes"].get("individual_excluded",0),"untyped_rows_excluded":sum(v for k,v in audit["entity_classes"].items() if k.startswith("untyped_")),"taxonomy_observations":taxonomy,"field_shape_exceptions":dict(observer.states),"organization_names_addresses_contacts_retained":0,"individual_identifiers_retained":0,"reference_membership_counts":{k:v["key_counts"] for k,v in audit["reference_files"].items()},"weekly_applied_to_monthly":False}
+    return {"input_rows":audit["input_rows"],"organization_observations":expected,"individual_rows_excluded":audit["entity_classes"].get("individual_excluded",0),"untyped_rows_excluded":sum(v for k,v in audit["entity_classes"].items() if k.startswith("untyped_")),"taxonomy_observations":taxonomy,"field_shape_exceptions":dict(observer.states),"organization_names_addresses_contacts_retained":0,"individual_identifiers_retained":0,"reference_membership_counts":{k:v["key_counts"] for k,v in audit["reference_files"].items()},"weekly_applied_to_monthly":False,"structural_audit":audit}
 
 def run_one(store,national,key,prior,root):
     meta=prior["audit"]["publisher"];kind="hcris-hha-2024" if key=="hcris" else "nppes-monthly" if key=="monthly" else "nppes-weekly"

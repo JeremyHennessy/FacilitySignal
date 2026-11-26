@@ -2,7 +2,7 @@
 
 The stable national and extension pointers and Pages files are read-only.
 Care Compare changes are independently imported and archived by release.
-New NPPES weekly updates are structurally qualified, aggregate evidence only.
+New NPPES releases retain verified organization-only private projections.
 No automatic public promotion of inconsistent multi-source data packs.
 """
 import argparse,hashlib,io,json,os,re,sqlite3,tempfile
@@ -14,7 +14,7 @@ from urllib.parse import urljoin
 import azure_national_archive as archive
 from scripts.azure_verified_extension import national_manifest,unchanged,read_small
 from scripts.azure_inventory import verify_inventory
-from scripts import qualify_nppes_v2 as nppes
+from scripts import qualify_nppes_v2 as nppes,archive_hcris_nppes as institutional,azure_source_archive as source_archive
 import collect_cms as cms
 import collect_registry as registry
 import facilitysignal as fs
@@ -40,14 +40,22 @@ def safe_name(name):
     require(re.fullmatch(pat,name) is not None,"outside weekly candidate namespace")
     return name
 
-class WeeklyAzure(archive.Azure):
+class WeeklyAzure(source_archive.SourceAzure):
     def blob(self,name):
         if name.startswith(PREFIX+"/"):safe_name(name)
+        elif name.startswith(source_archive.PREFIX+"/nppes-weekly/"):source_archive.safe(name)
         else:archive.allowed_name(name)
         return self.container.get_blob_client(name)
     def create(self,name,stream,size,kind):
-        safe_name(name)
-        return super().create(name,stream,size,kind)
+        if name.startswith(source_archive.PREFIX+"/nppes-weekly/"):source_archive.safe(name)
+        else:safe_name(name)
+        return archive.Azure.create(self,name,stream,size,kind)
+    def list(self,prefix):
+        if prefix.startswith(source_archive.PREFIX+"/nppes-weekly/"):
+            yield from source_archive.SourceAzure.list(self,prefix);return
+        safe_name(prefix+"/audit.json")
+        for p in self.container.list_blobs(name_starts_with=prefix+"/",include=["metadata"]):
+            yield {"name":p.name,"bytes":p.size,"etag":str(p.etag),"folder":str((p.metadata or {}).get("hdi_isfolder","")).lower()=="true"}
     def delete_probe(self,name,etag):
         raise ValueError("weekly refresh does not delete blobs")
 
@@ -93,13 +101,15 @@ def publish_candidate(store,prefix,key,identity,files,result,national):
     unchanged(store,national)
     records=[archive.rec(p,f) for p,f in sorted(files.items())]
     require(not store.exists(prefix+"/complete.json"),"candidate already exists")
+    etags={}
     for r in records:
         name=prefix+"/"+r["path"];safe_name(name)
         # Resume an incomplete upload only if its bytes already match exactly.
         if not store.exists(name):
             with files[r["path"]].open("rb") as f:
                 store.create(name,f,r["bytes"],"application/json" if name.endswith(".json") else "application/octet-stream")
-        archive.verify(store,name,r)
+        etags[name]=archive.verify(store,name,r)
+    verify_inventory(store,prefix,records,etags)
     receipt={"format_version":1,"status":"COMPLETE","domain":"FACILITYSIGNAL_WEEKLY_CANDIDATE",
              "policy_version":POLICY_VERSION,"key":key,"identity":identity,
              "base_release":national["pointer"]["release"],"base_receipt_sha256":national["receipt_sha256"],
@@ -142,15 +152,18 @@ def discover_nppes(html):
     require(0<len(weeks)<=8 and len(monthly)==1,"NPPES index coverage")
     return sorted(weeks.values(),key=lambda x:x["start"]),monthly[0]
 
-def qualify_nppes_week(w,root):
+def qualify_nppes_week(week,root,store,national):
     path=root/"source.zip"
-    meta=nppes.download(path,"weekly",publisher_label=w["label"])
-    require(meta["url"]==w["url"],"NPPES weekly distribution changed")
-    a=nppes.inspect(path,root/"org.sqlite3","weekly")
-    c=a["entity_classes"];k=a["organization_key_counts"]
-    require(a["distinct_valid_organization_npis"]>0 and not any(c.get(x,0) for x in ("malformed_width","unrecognized_entity_type")) and k.get("invalid_organization_npi",0)==a["duplicate_valid_organization_rows"]==0,"weekly organization exceptions")
-    require(all(not x["key_counts"].get("malformed_width") and not x["key_counts"].get("invalid_key_shape") for x in a["reference_files"].values()),"weekly reference exceptions")
-    return {"release":w,"publisher":meta,"audit":a,"scope":"Independent weekly organizational observations, not applied to the monthly registry.","retained_row_level_records":0}
+    meta=nppes.download(path,"weekly",publisher_label=week["label"])
+    require(meta["url"]==week["url"],"NPPES weekly distribution changed")
+    prior=source_archive.existing(store,"nppes-weekly",meta["sha256"])
+    if prior is None:
+        db=root/"projection.sqlite3";summary=institutional.nppes_project(path,db,"weekly")
+        path.unlink()
+        audit={"release":week,"publisher":meta,"summary":summary,"projection_sha256":sha(db),"projection_bytes":db.stat().st_size,"reuse_review":"pending","public_promotion":False}
+        prior=source_archive.publish(store,"nppes-weekly",meta,db,audit,root,national)
+    require(prior["summary"]["organization_observations"]>0 and prior["summary"]["individual_identifiers_retained"]==0,"institutional archive scope")
+    return {"release":week,"publisher":meta,"archive_release":prior["payload_prefix"],"archive_source_sha256":meta["sha256"],"organization_observations":prior["summary"]["organization_observations"],"taxonomy_observations":prior["summary"]["taxonomy_observations"],"scope":"Private organization-only weekly projection; not applied to monthly registry.","public_promotion":False}
 
 def discover_registry(catalog,sources):
     # Discover latest version metadata without fetching large registry or
@@ -209,21 +222,21 @@ def run(store,national,root):
                 report.append({**week,"state":"previously_qualified"});continue
             if week["label"] in known:
                 report.append({**week,"state":"same_label_revision_review"});continue
-            identity=fingerprint({"policy":POLICY_VERSION,"release":week});prefix=PREFIX+"/nppes-weekly/"+identity
+            identity=fingerprint({"policy":POLICY_VERSION,"release":week,"private_projection":1});prefix=PREFIX+"/nppes-weekly/"+identity
             prior=existing(store,prefix,"nppes-weekly",identity)
-            if prior:report.append({**week,"state":"candidate_already_qualified","organization_observations":prior["result"]["audit"]["distinct_valid_organization_npis"]});continue
+            if prior:report.append({**week,"state":"candidate_already_qualified","organization_observations":prior["result"]["organization_observations"]});continue
             new+=1;require(new<=MAX_NEW_WEEKS,"weekly update bound")
             with tempfile.TemporaryDirectory(prefix="weekly-nppes-",dir=root) as d:
-                stage=Path(d);result=qualify_nppes_week(week,stage)
-                a=stage/"audit.json";a.write_bytes(archive.encode(result))
+                stage=Path(d);result=qualify_nppes_week(week,stage,store,national)
+                a=stage/"weekly-index-audit.json";a.write_bytes(archive.encode(result))
                 publish_candidate(store,prefix,"nppes-weekly",identity,{"audit.json":a},result,national)
-            report.append({**week,"state":"private_aggregate_qualified","organization_observations":result["audit"]["distinct_valid_organization_npis"]})
+            report.append({**week,"state":"private_projection_qualified","organization_observations":result["organization_observations"],"archive_release":result["archive_release"]})
         results["nppes"]={"weeks":report,"monthly":{**monthly,"state":"unchanged" if known.get(monthly["label"])==monthly["url"] else "new_monthly_release_review"}}
     except Exception as e:results["nppes"]={"state":"failed","error_type":type(e).__name__};failures.append("nppes")
     try:results["registry_and_ownership"]=discover_registry(registry.get_json(registry.CATALOG),lock["sources"])
     except Exception as e:results["registry_and_ownership"]={"state":"failed","error_type":type(e).__name__};failures.append("registry_and_ownership")
     unchanged(store,national)
-    return {"format_version":1,"checked_at":datetime.now(timezone.utc).isoformat(),"base_release":national["pointer"]["release"],"policy_version":POLICY_VERSION,"sources":results,"failed_checks":failures,"national_pointer_unchanged":True,"pages_packs_unchanged":True,"public_promotion":False,"limits":"Care Compare source candidates and NPPES weekly aggregate qualifications only. Nursing supplementary, registry/ownership and monthly NPPES changes detected for separate qualification; not automatic public release. Source metadata equality does not prove unchanged bytes at mutable URLs."}
+    return {"format_version":1,"checked_at":datetime.now(timezone.utc).isoformat(),"base_release":national["pointer"]["release"],"policy_version":POLICY_VERSION,"sources":results,"failed_checks":failures,"national_pointer_unchanged":True,"pages_packs_unchanged":True,"public_promotion":False,"limits":"Care Compare source candidates and NPPES weekly private institutional projections. Nursing supplementary, registry/ownership and monthly NPPES changes detected for separate qualification; not automatic public release. Source metadata equality does not prove unchanged bytes at mutable URLs."}
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--audit",type=Path,required=True);a=p.parse_args()

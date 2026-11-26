@@ -146,6 +146,7 @@ def main_rows(reader,header,db,limit,*,organization_observer=None):
         states["practice_state_presence"][present(get("Provider Business Practice Location Address State Name"))]+=1
         states["practice_country_presence"][present(get("Provider Business Practice Location Address Country Code (If outside U.S.)"))]+=1
     if batch:flush()
+    if organization_observer is not None and hasattr(organization_observer,'finish'):organization_observer.finish(db)
     db.commit();unique=db.execute("SELECT count(*) FROM organizations").fetchone()[0]
     require(total==sum(types.values()) and types["organization"]==sum(counts.values()),"entity reconciliation")
     require(unique+duplicate==counts["valid_organization_npi"] and all(sum(v.values())==counts["valid_organization_npi"] for v in states.values()),"organization reconciliation")
