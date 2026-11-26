@@ -819,6 +819,50 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "epa-npdes-part1-healthcare-aggregate",
+      "source_sha256": "a1d9d9b9ba2a43c6bc61a0dfe1079b04e4a9a43919d5a539a4a53f9fcd35b03e",
+      "kind": "aggregate",
+      "observations": 0,
+      "screened_observations": 7116755,
+      "run": 45862337827,
+      "job": 140056485793,
+      "files": [
+        {
+          "bytes": 8192,
+          "path": "projection.sqlite3",
+          "sha256": "9f67de18d53c09d733d4ba13a0cb44083ced570c285a8d2eb1d8d36475e02927"
+        },
+        {
+          "bytes": 3722,
+          "path": "audit.json",
+          "sha256": "491dd5e7426c271911f70e9e5ae10996711359305c2985d806ef1d952bffef4b"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "epa-rcra-healthcare-aggregate",
+      "source_sha256": "faba1c79e5c21486adfd7f9e046c3891ec2b86070d27f5517e1f620b4d6cad59",
+      "kind": "aggregate",
+      "observations": 0,
+      "screened_observations": 4347789,
+      "run": 45862337827,
+      "job": 140056485794,
+      "files": [
+        {
+          "bytes": 8192,
+          "path": "projection.sqlite3",
+          "sha256": "5accdee0554e8d0604dbcc961b7e81c355eddf265fe728e2a7c26cfda994cf57"
+        },
+        {
+          "bytes": 2717,
+          "path": "audit.json",
+          "sha256": "0ef55bf8bb67ce89394b7e382805259614871b4130e5b1eaf1ed125e3b022240"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
@@ -827,9 +871,9 @@
     "supplemental_numeric_archives": 12,
     "supplemental_numeric_observations": 29452107,
     "derived_candidate_observations": 23520,
-    "aggregate_evidence_releases": 3,
-    "aggregate_source_rows_screened": 10589813,
-    "payload_files": 138,
-    "payload_bytes": 4437643765
+    "aggregate_evidence_releases": 5,
+    "aggregate_source_rows_screened": 22054357,
+    "payload_files": 142,
+    "payload_bytes": 4437666588
   }
 }
