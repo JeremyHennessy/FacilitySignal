@@ -43,7 +43,16 @@ class NPPESSupplementTests(unittest.TestCase):
         key=next("123456789"+str(i) for i in range(10) if npi_valid("123456789"+str(i)))
         a=scan_deactivation(iter([["NPPES Deactivated NPI Report - 11/09/2026"],[],["NPI","Deactivation Date"],[key,"11/01/2026"]]))
         self.assertEqual(a["header_ordinal"],3)
-        self.assertEqual(a["preamble_counts"],{"recognized_report_title":1,"blank":1})
+        self.assertEqual(a["preamble_counts"],{"bounded_metadata_cell":1,"blank":1})
         self.assertEqual(a["input_rows"],1)
         with self.assertRaises(ValueError):scan_deactivation(iter([[key],["NPI","Deactivation Date"]]))
         with self.assertRaises(ValueError):scan_deactivation(iter([["unexpected title"],["NPI","Deactivation Date"]]))
+
+    def test_pinned_metadata_cell_still_rejects_possible_records(self):
+        key=next("123456789"+str(i) for i in range(10) if npi_valid("123456789"+str(i)))
+        header=["NPI","Deactivation Date"]
+        a=scan_deactivation(iter([["Unrecognized metadata"],header,[key,"11/01/2026"]]),allow_pinned_preamble=True)
+        self.assertEqual(a["preamble_counts"],{"bounded_metadata_cell":1})
+        self.assertNotIn("Unrecognized metadata",str(a))
+        for pre in ([key],[key,"11/01/2026"],["text "+key]):
+            with self.assertRaises(ValueError):scan_deactivation(iter([pre,header]),allow_pinned_preamble=True)

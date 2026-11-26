@@ -37,12 +37,13 @@ def date_bucket(v):
         except ValueError:return "invalid"
     return "after_release" if d>date(2026,11,9) else "on_or_before_release"
 
-def scan_deactivation(reader):
+def scan_deactivation(reader,*,allow_pinned_preamble=False):
     # The publisher's actual first record has one 43-character cell.
     # Only skip a bounded recognizable report title or empty rows; never
     # discard arbitrary data rows or a second table before the header.
     recognized={"npi","npideactivationdate","deactivationdate","npinumber","npiid","deactivationdt","npideactivationdt"}
-    h=None;header_ordinal=0;preamble=Counter()
+    h=None;header_ordinal=0;preamble=Counter();pending=[]
+    known_words={"npi","nppes","national","provider","identifier","number","report","deactivation","deactivated","deactivations","date","data","as","of","on","through","for","update","monthly","november"}
     for i,header in enumerate(reader,1):
         require(i<=10,"deactivation header not recognized")
         h0=[norm(x) for x in header]
@@ -53,9 +54,22 @@ def scan_deactivation(reader):
             h=h0;header_ordinal=i;break
         nonblank=[str(x).strip() for x in header if x is not None and str(x).strip()]
         if not nonblank:preamble["blank"]+=1;continue
-        if len(nonblank)==1 and len(nonblank[0])<=200 and re.search(r"\bnpi\b",nonblank[0],re.I) and re.search(r"deactivat",nonblank[0],re.I) and not re.fullmatch(r"[0-9]+",nonblank[0]):
-            preamble["recognized_report_title"]+=1;continue
-        raise ValueError("deactivation header not recognized")
+        # The pinned release may begin with publisher metadata. A singleton
+        # text cell is never a valid two-field deactivation record. Require
+        # exact source pin (caller), letters, bounded size and no NPI-like
+        # substring. Do not silently skip any multi-field record.
+        words=set(re.findall(r"[A-Za-z]+",nonblank[0].casefold())) if len(nonblank)==1 else set()
+        safe=(len(nonblank)==1 and 0<len(nonblank[0])<=200 and bool(words)
+              and not re.search(r"[0-9]{10}",nonblank[0]))
+        if not safe:raise ValueError("deactivation header not recognized")
+        # Do not accept arbitrary singleton labels in unpinned/synthetic
+        # inputs. The exact pinned-source mode can recognize an explicitly
+        # accounted-for preamble; no content is retained.
+        if not (words&known_words) and not allow_pinned_preamble:
+            raise ValueError("deactivation header not recognized")
+        pending.append({"ordinal":i,"character_count":len(nonblank[0]),"recognized_metadata_words":sorted(words&known_words),
+                        "unrecognized_word_count":len(words-known_words)})
+        preamble["bounded_metadata_cell"]+=1
     require(h is not None,"deactivation header not recognized")
     key_idx=h.index("npi");date_idx=next(i for i,v in enumerate(h) if v in DATE_HEADERS)
     rows=0;keys=Counter();dates=Counter();shapes=Counter()
@@ -71,12 +85,12 @@ def scan_deactivation(reader):
         keys["checksum_valid" if npi_valid(n) else "invalid_or_missing"]+=1
         dates[date_bucket(row[date_idx])]+=1
     require(rows>0 and rows==sum(keys.values())==sum(dates.values()),"deactivation row reconciliation")
-    return {"input_rows":rows,"columns":2,"header_ordinal":header_ordinal,"preamble_counts":dict(preamble),"width_counts":dict(shapes),"key_validation_counts":dict(keys),
+    return {"input_rows":rows,"columns":2,"header_ordinal":header_ordinal,"preamble_counts":dict(preamble),"preamble_structure":pending,"width_counts":dict(shapes),"key_validation_counts":dict(keys),
             "deactivation_date_states":dict(dates),"distinct_key_count":None,
             "entity_type_available":False,"retained_identifiers":0,
             "limits":"Deactivation list includes both entity types without entity type attribution. No duplicate-key test or identity linkage performed. Count comparison to monthly file is not record-level reconciliation."}
 
-def inspect_deactivation(path):
+def inspect_deactivation(path,*,allow_pinned_preamble=False):
     with zipfile.ZipFile(path) as z:
         members=[i for i in z.infolist() if not i.is_dir()]
         require(0<len(members)<=20 and sum(i.file_size for i in members)<=MAX_DEACTIVATION_EXPANDED,"deactivation archive bound")
@@ -84,9 +98,10 @@ def inspect_deactivation(path):
                     and "header" not in PurePosixPath(i.filename).stem.casefold()]
         require(len(candidates)==1 and not candidates[0].flag_bits&1,"deactivation data member ambiguous")
         item=candidates[0];fmt=PurePosixPath(item.filename).suffix.casefold()
+        print("NPPES_DEACTIVATION_MEMBER",json.dumps({"format":fmt,"uncompressed_bytes":item.file_size,"archive_entries":len(members)}),flush=True)
         if fmt==".csv":
             with z.open(item) as raw,io.TextIOWrapper(raw,encoding="utf-8-sig",newline="",errors="strict") as f:
-                result=scan_deactivation(csv.reader(f,strict=True))
+                result=scan_deactivation(csv.reader(f,strict=True),allow_pinned_preamble=allow_pinned_preamble)
         else:
             require(item.file_size<=50_000_000,"nested workbook bound")
             payload=z.read(item)
@@ -96,7 +111,7 @@ def inspect_deactivation(path):
             try:
                 require(len(book.worksheets)==1,"unexpected workbook count")
                 sheet=book.worksheets[0];sheet.reset_dimensions()
-                result=scan_deactivation(sheet.iter_rows(values_only=True))
+                result=scan_deactivation(sheet.iter_rows(values_only=True),allow_pinned_preamble=allow_pinned_preamble)
             finally:book.close()
         result.update({"member_format":fmt,"member_bytes":item.file_size,"member_crc32":format(item.CRC,"08x")})
         return result
@@ -114,7 +129,7 @@ def main():
             try:
                 meta=download(path,"weekly",publisher_label=label)
                 if key=="deactivation":require(meta["sha256"]==DEACTIVATION_PIN,"deactivation release changed")
-                result=inspect_deactivation(path) if key=="deactivation" else inspect(path,root/"org.sqlite3","weekly")
+                result=inspect_deactivation(path,allow_pinned_preamble=True) if key=="deactivation" else inspect(path,root/"org.sqlite3","weekly")
                 result.update({"source_id":"FS-004","scope":key,"publisher_label":label,"publisher":meta,
                                "retained_row_level_records":0,"reuse_review":"pending"})
                 if key=="deactivation":
