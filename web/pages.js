@@ -625,7 +625,7 @@ async function directory(view,p,signal,epoch){
 }
 function certificationCoverage(){title("Certifications & laboratories","Qualified QIES, iQIES and CLIA release coverage. Direct browser API access failed; raw registry records are not published. A narrow corroborated dialysis service projection is available separately.");app.append(historicalNote(),table(["Registry","Release period","Historical source rows","Official API"],sourceRows(byFamily("registry"))),el("div","Certification status, current operations and equipment are not inferred. Full registry research remains in the local qualified application.","notice"))}
 
-const profileSections=[["summary","Summary"],["services","Services & capacity"],["compliance","Compliance evidence"],["sources","Sources & coverage"]];
+const profileSections=[["summary","Summary"],["services","Services & capacity"],["compliance","Compliance evidence"],["location","Location & peers"],["sources","Sources & coverage"]];
 function localResearchReturn(hash){
     if(typeof hash!=="string"||hash.length>1600||!/^#(?:facilities|citations|capacity|search|advanced|dialysis-services|hha-services)(?:\?|$)/.test(hash))return "";
     return hash
@@ -919,6 +919,65 @@ async function hhaProfile(r,signal,epoch){
     return section
 }
 
+// Research within the already published record grain. No new physical-site or organization resolution.
+function reportedAddressKey(r){
+    const parts=["address","city","state","zip"].map(k=>String(r[k]||"").trim().replace(/\s+/g," ").toUpperCase());
+    // Require a complete reported tuple. No ZIP truncation, punctuation stripping, abbreviation expansion or geocoding.
+    return parts.every(Boolean)?JSON.stringify(parts):null
+}
+async function profileLocation(r,s,signal,epoch,p){
+    const section=el("section",undefined,"profile-location");
+    section.append(el("h2","Location and peer evidence"),el("p","Compare the reported address tuple and same-category records in the reported jurisdiction. Text agreement is not a verified physical site, ownership link, or distance measurement.","intro"));
+    const status=el("div","Checking the seven published provider sources…","notice");section.append(status);
+    const outcomes=await Promise.all(providerSources().map(async source=>{
+        try{return {source,rows:(await loadShard(source,signal)).records}}
+        catch(e){return {source,error:true}}
+    }));
+    if(epoch!==sequence||signal.aborted)return null;
+    const available=outcomes.filter(x=>!x.error),own=available.find(x=>x.source.key===s.key),state=r.state,tuple=reportedAddressKey(r);
+    const peers=own?own.rows.filter(x=>x.state===state):null;
+    const matches=tuple?available.flatMap(({source,rows})=>rows.filter(x=>reportedAddressKey(x)===tuple&&!(source.key===s.key&&x.state===r.state&&x.ccn===r.ccn)).map(row=>({source,row}))):[];
+    matches.sort((a,b)=>a.source.key.localeCompare(b.source.key)||a.row.name.localeCompare(b.row.name)||a.row.ccn.localeCompare(b.row.ccn));
+    status.textContent=available.length+" of "+outcomes.length+" provider sources checked."+(available.length!==outcomes.length?" Partial results; unavailable sources were not interpreted as zero.":"");
+    section.dataset.complete=String(available.length===outcomes.length);
+    section.append(el("h3","Same-category jurisdiction context"));
+    if(!peers)section.append(el("div","The source needed for peer context is unavailable.","error"));
+    else{
+        const unit=capacityUnits[s.key],grid=el("div",undefined,"metrics profile-peer-metrics");
+        grid.append(capacityMetric("Same-category source records",peers.length,state+" · "+s.release));
+        if(unit){
+            const values=peers.map(publicCapacity).filter(x=>x!==null).sort((a,b)=>a-b),v=publicCapacity(r);
+            const mid=Math.floor(values.length/2),median=values.length?(values.length%2?values[mid]:(values[mid-1]+values[mid])/2):null;
+            grid.append(capacityMetric("Numeric capacity reported",values.length,unit.label+" · "+N.format(peers.length-values.length)+" unknown"),capacityMetric("Jurisdiction median",median,unit.label+" among numeric reports"));
+            if(v!==null&&values.length)grid.append(capacityMetric("Records at or below this value",values.filter(x=>x<=v).length,"Of "+N.format(values.length)+" numeric reports, including this record"));
+        }
+        section.append(grid,el("p","This is historical source-record context, not a risk ranking or unique-site benchmark. Explicit zeros remain in the numeric distribution; unknown values are excluded from the median. No different units are combined.","intro"));
+    }
+    section.append(add(el("div",undefined,"links"),anchor("Browse same category in "+state,route("advanced",{source:s.key,state,run:1})),anchor("Open jurisdiction map",route("geography",{source:s.key,state}))));
+    section.append(el("h3","Other records with matching reported address text"));
+    if(!tuple)section.append(el("div","Address comparison unavailable: one or more reported street, city, state or ZIP fields are missing. No relationship is inferred.","notice"));
+    else{
+        const rawPage=p.locpage||"1",valid=/^\d{1,6}$/.test(rawPage),page=valid?Math.max(1,Number(rawPage)):1,start=(page-1)*pageSize;
+        const summary=el("p",N.format(matches.length)+" other source records with the same reported address tuple"+(available.length!==outcomes.length?" in the available sources":"")+".","intro location-match-count");
+        summary.dataset.total=String(matches.length);section.append(summary,el("p","Matching uses complete street, city, state and ZIP text with case and whitespace normalized only. Different programs or organizations may report the same address. This is a research lead, not a resolved relationship.","intro"));
+        if(!valid)section.append(el("div","Invalid location results page; showing the first page.","notice"));
+        if(matches.length&&start<matches.length){
+            const visible=matches.slice(start,start+pageSize);
+            const wrapper=table(["Provider / CCN","Category","Reported address","Source release"],visible.map(({source,row})=>[add(el("div"),anchor(row.name,route("detail",{source:source.key,id:row.ccn,state:row.state})),el("small",row.ccn)),names[source.key],[row.address,row.city,row.state,row.zip].join(", "),source.release]));
+            wrapper.classList.add("profile-location-table");wrapper.setAttribute("aria-label","Reported address text matches");section.append(wrapper);
+        }else section.append(el("div",matches.length?"Page outside matching records. Return to the first page.":available.length===outcomes.length?"No other matching address tuple was found in these seven published source projections.":"No match in the available sources; comparison incomplete.","empty"));
+        if(matches.length>pageSize||page>1){
+            const pager=el("div",undefined,"pager"),base={source:s.key,id:r.ccn,state:r.state,section:"location",return:localResearchReturn(p.return)};
+            pager.append(el("span","Page "+page+" · "+N.format(matches.length)+" matches"));
+            if(page>1)pager.append(anchor("First page",route("detail",{...base,locpage:1})),anchor("Previous",route("detail",{...base,locpage:page-1})));
+            if(page*pageSize<matches.length)pager.append(anchor("Next",route("detail",{...base,locpage:page+1})));
+            section.append(pager);
+        }
+    }
+    const evidence=el("details",undefined,"location-coverage");evidence.append(el("summary","Sources checked and limitations"),table(["Provider category","Release","Lookup status"],outcomes.map(({source,error})=>[names[source.key],source.release,error?"Unavailable":"Published projection checked"])));
+    section.append(evidence);
+    section.dataset.ready="true";return section
+}
 function profileSources(s,r,f){
     const section=el("section");
     section.append(el("h2","Source and release"),table(["Evidence","Value"],[["Provider source",names[s.key]],["Source identifier (CCN)",shown(value(r,f,"id"))],["Reported state",shown(value(r,f,"state"))],["Published release",s.release],["Public projection",sourceLink(s,"Official source")]]),
@@ -958,13 +1017,27 @@ async function detail(p,signal,epoch){
         for(const r of result.rows){
             if(result.total>1)app.append(el("h2",shown(value(r,f,"name"))+" · "+shown(value(r,f,"state"))));
             if(section==="summary"){
-                app.append(el("h2","Provider identity"),profileGrid(r,s,f),profileResearchActions(s,r,f));
+                app.append(el("h2","Provider identity"),profileGrid(r,s,f));
                 if(result.total===1)app.append(portfolioSavePanel(s,r,f));
-                if(capacityUnits[s.key])app.append(add(el("p"),anchor("Explore reported capacity in this jurisdiction",route("capacity",{source:s.key,state:value(r,f,"state")}))));
-                if(s.key==="nursing"){const c=await profileCompliance(r,s,f,signal,epoch);if(!c||epoch!==sequence)return;app.append(c)}
-                app.append(el("h2","Related source coverage"),add(el("div",undefined,"links"),anchor("Certification registry coverage",route("certifications")),anchor("Hospital survey coverage",route("hospital-surveys")),anchor("Ownership evidence coverage",route("ownership")),anchor("National service evidence",route("services")),anchor("National equipment and environmental research",route("equipment-environment"))),el("div","Individual-level certification, equipment, environmental, property and ownership relationships are not inferred or published here. Coverage links describe national source families, not resolved relationships for this facility.","notice"));
+                const evidence=el("section",undefined,"dossier-evidence");
+                evidence.append(el("h2","Published facility evidence"),el("p","Only evidence available for this exact source record is shown here. Source periods and observation types remain separate.","intro"));
+                if(capacityUnits[s.key]){
+                    const unit=capacityUnits[s.key],v=publicCapacity(r);
+                    evidence.append(add(el("div",undefined,"dossier-capacity"),el("strong",v===null?"Not reported / nonnumeric":N.format(v)+" "+unit.label.toLowerCase()),el("span",v===null?"Unknown capacity":v===0?"Explicit reported zero":"Source-reported capacity"),anchor("Explore comparable records",route("capacity",{source:s.key,state:r.state}))));
+                }
+                app.append(evidence);
+                if(s.key==="nursing"){const c=await profileCompliance(r,s,f,signal,epoch);if(!c||epoch!==sequence)return;evidence.append(c)}
+                else if(s.key==="dialysis"){const c=await dialysisProfile(r,signal,epoch);if(!c||epoch!==sequence)return;evidence.append(c)}
+                else if(s.key==="home-health"){const c=await hhaProfile(r,signal,epoch);if(!c||epoch!==sequence)return;evidence.append(c)}
+                else evidence.append(el("p","Additional individual service, inspection or infrastructure observations are not currently published for this category.","notice"));
+                evidence.dataset.ready="true";
+                const base={source:s.key,id:r.ccn,state:r.state,return:localResearchReturn(p.return)};
+                app.append(profileResearchActions(s,r,f),add(el("div",undefined,"links"),anchor("Investigate reported address and peers",route("detail",{...base,section:"location"})),anchor("View sources and coverage",route("detail",{...base,section:"sources"}))));
+                const related=el("details",undefined,"dossier-coverage");
+                related.append(el("summary","National research and evidence limitations"),el("p","Individual-level equipment, environmental, property, financial and ownership relationships are not inferred or published here. National coverage links do not establish relationships for this facility.","intro"),add(el("div",undefined,"links"),anchor("Certification registry coverage",route("certifications")),anchor("Hospital survey coverage",route("hospital-surveys")),anchor("Ownership evidence coverage",route("ownership")),anchor("National service evidence",route("services")),anchor("National equipment and environmental research",route("equipment-environment")),anchor("Financial report research",route("financial-research"))));app.append(related);
             }else if(section==="services"){const services=await profileService(r,s,f,signal,epoch);if(!services||epoch!==sequence)return;app.append(services)}
             else if(section==="compliance"){const c=await profileCompliance(r,s,f,signal,epoch);if(!c||epoch!==sequence)return;app.append(c)}
+            else if(section==="location"){const waiting=el("div","Loading source-scoped location evidence…","notice");app.append(waiting);const c=await profileLocation(r,s,signal,epoch,p);if(!c||epoch!==sequence)return;waiting.replaceWith(c)}
             else app.append(profileSources(s,r,f))
         }
     }catch(e){if(epoch!==sequence||e.name==="AbortError")return;title("Source record","Provider evidence unavailable.");app.append(errorBox(s,e))}
