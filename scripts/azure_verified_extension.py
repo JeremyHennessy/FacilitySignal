@@ -285,7 +285,7 @@ def publish(store,release,commit,national,db_path,db_audit,root):
     inventory=verify_inventory(store,payload,records,etags)
     receipt={"format_version":1,"status":"COMPLETE","domain":EXT_DOMAIN,"release":release,"commit":commit,"base_release":national["pointer"]["release"],"base_receipt_sha256":national["receipt_sha256"],"base_pointer_sha256":national["pointer_sha256"],"payload_prefix":payload,"source_records":EXPECTED_ROWS,"base_source_records":1904060,"source_count":16,"database_sha256":db_audit["database_sha256"],"database_bytes":db_audit["database_bytes"],"files":records,"file_count":len(records),"total_bytes":sum(r["bytes"] for r in records),"sha256_readback":True,"exact_inventory":True,"scope":db_audit["scope"],"inventory_etag_audit":inventory,"application_pack_parity":db_audit["application_pack_parity"]}
     data=archive.encode(receipt);name=prefix+"/complete.json";archive.put_bytes(store,name,data)
-    archive.check_inventory(store,payload,records,etags);unchanged(store,national)
+    verify_inventory(store,payload,records,etags);unchanged(store,national)
     pointer={"format_version":1,"domain":EXT_DOMAIN,"release":release,"commit":commit,"base_release":receipt["base_release"],"base_receipt_sha256":receipt["base_receipt_sha256"],"receipt":name,"receipt_sha256":hashlib.sha256(data).hexdigest(),"source_records":EXPECTED_ROWS}
     archive.put_bytes(store,EXT_POINTER,archive.encode(pointer))
     unchanged(store,national)

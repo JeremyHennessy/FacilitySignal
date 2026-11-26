@@ -1,7 +1,7 @@
 name: Private Azure verified national extension migration
 on:
   push:
-    branches: [main, build/azure-verified-extension-20261126]
+    branches: [build/azure-verified-extension-20261126]
     paths:
       - .github/workflows/azure-verified-extension.yml
       - scripts/azure_verified_extension.py

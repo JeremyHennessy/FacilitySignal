@@ -1,0 +1,161 @@
+{
+  "format_version": 1,
+  "run": 45847822268,
+  "attempt": 1,
+  "job": 140006098332,
+  "commit": "320ac454b01412025886ba3935757c36f90a74e6",
+  "release": "extension-45847822268-1",
+  "base_release": "bootstrap-45845760984-1",
+  "base_database_sha256": "138ad57c3719fe63895eeaff702c04b51107fe1cf6dc4daf403a554985a1f033",
+  "source_log_results": {
+    "FS-036": {
+      "link_counts": {
+        "same_state": 15007
+      },
+      "original_qualification_run": 45821686668,
+      "rows": 15007,
+      "source_sha256": "5b2be235e7cfbba04d3a6fb6441b2634aa43d309f4cb61cd247410211207cd01",
+      "stable_audit_fields_compared": 13,
+      "table": "penalty"
+    },
+    "FS-056": {
+      "link_counts": {
+        "same_state": 5935,
+        "unmatched_ccn": 174
+      },
+      "original_qualification_run": 45825853982,
+      "rows": 6109,
+      "source_sha256": "bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782",
+      "stable_audit_fields_compared": 13,
+      "table": "hospital_cost_report"
+    },
+    "FS-057": {
+      "link_counts": {
+        "same_state": 14416,
+        "unmatched_ccn": 171
+      },
+      "original_qualification_run": 45826492063,
+      "rows": 14587,
+      "source_sha256": "adcef64de8d15b772aa37ca03bba162e78f781d22198b8fbb478810685e6c05c",
+      "stable_audit_fields_compared": 13,
+      "table": "snf_cost_report"
+    },
+    "FS-034": {
+      "link_counts": {
+        "ccn_present": 148956
+      },
+      "original_qualification_run": 45830147045,
+      "rows": 148956,
+      "source_sha256": "f4997d4adbbc155e3e6472a3d12fc1f278766f9f815c300d48f35ea35a813d20",
+      "stable_audit_fields_compared": 15,
+      "table": "inspection_dates"
+    },
+    "FS-037": {
+      "link_counts": {
+        "same_state": 43931
+      },
+      "original_qualification_run": 45829569072,
+      "rows": 43931,
+      "source_sha256": "2aefb25a631161fc060af82bd3fa10923356e08b93d8521f4061051e8271f687",
+      "stable_audit_fields_compared": 14,
+      "table": "survey_summary"
+    },
+    "FS-023": {
+      "distinct_source_provider_keys": 1407,
+      "original_qualification_run": 45827150713,
+      "rows": 56226,
+      "source_event_keys": 10718,
+      "source_sha256": "ba7884671a35de85271db27693b1440f1086b75c1d57bc539e9a501975820400",
+      "stable_audit_fields_compared": 12,
+      "table": "qcor_provider_rows"
+    },
+    "FS-024": {
+      "distinct_source_provider_keys": 263,
+      "original_qualification_run": 45827150713,
+      "rows": 6634,
+      "source_event_keys": 1033,
+      "source_sha256": "fd21478cc1952c97846dbb131c71d19385cbbff8d5f8ea2bafb3570674737a43",
+      "stable_audit_fields_compared": 12,
+      "table": "qcor_provider_rows"
+    },
+    "FS-025": {
+      "distinct_source_provider_keys": 4482,
+      "original_qualification_run": 45826621964,
+      "rows": 61443,
+      "source_event_keys": 13755,
+      "source_sha256": "87be909585e91ce0c2bf97586944e79eb640fc338dab5b7d54b9bc8c93be9bbb",
+      "stable_audit_fields_compared": 12,
+      "table": "qcor_provider_rows"
+    },
+    "FS-026": {
+      "distinct_source_provider_keys": 3284,
+      "original_qualification_run": 45827861053,
+      "rows": 16481,
+      "source_event_keys": 4246,
+      "source_sha256": "6bc5ea259da6149770068d823f8223704e05e6505032d7b0528aa98bc3a66fc1",
+      "stable_audit_fields_compared": 12,
+      "table": "qcor_provider_rows"
+    },
+    "FS-027": {
+      "distinct_source_provider_keys": 483,
+      "original_qualification_run": 45827861053,
+      "rows": 875,
+      "source_event_keys": 691,
+      "source_sha256": "058bd6dbe8dafcb775d1c7eda09fb225197627b4a1a821d3906a65959a63c4ea",
+      "stable_audit_fields_compared": 12,
+      "table": "qcor_provider_rows"
+    },
+    "FS-028": {
+      "distinct_source_provider_keys": 347,
+      "original_qualification_run": 45826621964,
+      "rows": 751,
+      "source_event_keys": 418,
+      "source_sha256": "1993d3954d0df88e8735343f117795fb1355a728b0f872feb37bcd28fe89d17e",
+      "stable_audit_fields_compared": 12,
+      "table": "qcor_provider_rows"
+    },
+    "FS-029": {
+      "distinct_source_provider_keys": 335,
+      "original_qualification_run": 45827150713,
+      "rows": 3458,
+      "source_event_keys": 987,
+      "source_sha256": "a82e78cb58b6e94099190e353dfd7cf2405cf3f204d738eb3acdbc77e304ae9b",
+      "stable_audit_fields_compared": 12,
+      "table": "qcor_provider_rows"
+    },
+    "FS-030": {
+      "distinct_source_provider_keys": 118,
+      "original_qualification_run": 45827150713,
+      "rows": 1104,
+      "source_event_keys": 156,
+      "source_sha256": "aa9157fb1c59901ab6a38c41aced4fe79a2093a6b238cb9715f7538904184239",
+      "stable_audit_fields_compared": 12,
+      "table": "qcor_provider_rows"
+    },
+    "FS-031": {
+      "distinct_source_provider_keys": 6239,
+      "original_qualification_run": 45829896464,
+      "rows": 385312,
+      "source_event_keys": 113034,
+      "source_sha256": "4522aff6cf8242a7315814d1629c58729c2a17971038b51a3e717780ca8e4dda",
+      "stable_audit_fields_compared": 12,
+      "table": "qcor_provider_rows"
+    },
+    "FS-032": {
+      "distinct_source_provider_keys": 8593,
+      "original_qualification_run": 45827150713,
+      "rows": 95789,
+      "source_event_keys": 21637,
+      "source_sha256": "a494dbdc6b25d3e96eceb3267494b950a3093ae6cc2d3fa37e700d37c1513ef9",
+      "stable_audit_fields_compared": 12,
+      "table": "qcor_provider_rows"
+    }
+  },
+  "app_parity": {
+    "byte_parity": true,
+    "bytes": 12589349,
+    "file_count": 15,
+    "pages_paths_unchanged": true
+  },
+  "failure": "second inventory comparison after completion receipt readback"
+}
