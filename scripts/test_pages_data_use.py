@@ -25,16 +25,16 @@ try:
             errors=[]
             page.on("pageerror",lambda e:errors.append(str(e)))
             page.goto(URL+"#capacity?source=long-term-hospital")
-            page.get_by_role("columnheader",name="Total reported beds",exact=True).wait_for()
+            page.get_by_role("columnheader",name="Total beds",exact=True).wait_for()
             assert page.locator(".metrics .metric strong").all_inner_texts()==["311","21,765","305","6"]
             assert page.locator("select[name=source]").input_value()=="long-term-hospital"
             page.screenshot(path=str(OUT/f"{width}-ltch-capacity.png"),full_page=True)
             page.goto(URL+"#capacity?source=long-term-hospital&reported=unknown")
-            page.get_by_role("columnheader",name="Total reported beds",exact=True).wait_for()
+            page.get_by_role("columnheader",name="Total beds",exact=True).wait_for()
             assert page.locator(".metrics .metric strong").all_inner_texts()==["6","—","0","6"]
             page.goto(URL+"#detail?"+urlencode({"source":"long-term-hospital","id":provider["ccn"],"state":provider["state"],"section":"services"}))
             page.get_by_role("heading",name="Reported capacity and service evidence").wait_for()
-            assert page.get_by_text("Total reported beds",exact=True).count()==1
+            assert page.get_by_text("Total beds",exact=True).count()==1
             assert page.get_by_text(f'{int(provider["capacity"]):,}',exact=True).count()>=1
             page.screenshot(path=str(OUT/f"{width}-ltch-profile.png"),full_page=True)
             page.goto(URL+"#advanced?source=long-term-hospital&min=50&run=1")
@@ -48,6 +48,9 @@ try:
             page.goto(URL+"#data-evidence")
             page.get_by_role("heading",name="National field audit coverage").wait_for()
             page.get_by_role("heading",name="Home health general control classification").wait_for()
+            page.get_by_role("heading",name="CLIA certificate code distribution").wait_for()
+            page.get_by_role("heading",name="Hospital-to-laboratory reference evidence").wait_for()
+            page.locator('[aria-label^="Hospital-to-laboratory reference evidence"]').screenshot(path=str(OUT/f"{width}-clia-links.png"))
             assert page.get_by_text("1,433",exact=True).count()>=1
             assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
             assert not errors,errors

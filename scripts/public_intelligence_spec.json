@@ -2210,6 +2210,163 @@
               }
             ]
           ]
+        },
+        {
+          "id": "clia-certificate",
+          "title": "CLIA certificate code distribution",
+          "note": "Q3 2026 laboratory registry records. All five certificate codes match the catalog-linked April 2023 layout; meanings remain historical-reference labels, not a count of active laboratories. No facility-level records or certificate status inference.",
+          "run": 45824121085,
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "columns": [
+            "Source code",
+            "Historical reference label",
+            "Registry rows"
+          ],
+          "rows": [
+            [
+              "1",
+              "Compliance",
+              {
+                "path": [
+                  "clia_audit",
+                  "domain_counts",
+                  "CRTFCT_TYPE_CD",
+                  "1"
+                ]
+              }
+            ],
+            [
+              "2",
+              "Waiver",
+              {
+                "path": [
+                  "clia_audit",
+                  "domain_counts",
+                  "CRTFCT_TYPE_CD",
+                  "2"
+                ]
+              }
+            ],
+            [
+              "3",
+              "Accreditation",
+              {
+                "path": [
+                  "clia_audit",
+                  "domain_counts",
+                  "CRTFCT_TYPE_CD",
+                  "3"
+                ]
+              }
+            ],
+            [
+              "4",
+              "Provider-performed microscopy",
+              {
+                "path": [
+                  "clia_audit",
+                  "domain_counts",
+                  "CRTFCT_TYPE_CD",
+                  "4"
+                ]
+              }
+            ],
+            [
+              "9",
+              "Registration",
+              {
+                "path": [
+                  "clia_audit",
+                  "domain_counts",
+                  "CRTFCT_TYPE_CD",
+                  "9"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "clia-link",
+          "title": "Hospital-to-laboratory reference evidence",
+          "note": "Exact source CLIA-reference tokens matched to laboratory registry identifiers; 25 candidate pairs disagree on reported state. Historical hospital category and registry records are source-scoped, not unique physical facilities, verified affiliations, current operations or installed assets.",
+          "run": 45824121085,
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "columns": [
+            "Evidence measure",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Hospital source rows with reference",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "qies_rows_with_reference"
+                ]
+              }
+            ],
+            [
+              "Hospital rows with exact candidate",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "qies_rows_with_exact_lab_candidate"
+                ]
+              }
+            ],
+            [
+              "Distinct matched CLIA tokens",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "distinct_matched_reference_tokens"
+                ]
+              }
+            ],
+            [
+              "Exact candidate row pairs",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "candidate_lab_row_pairs"
+                ]
+              }
+            ],
+            [
+              "Pairs with matching state",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "same_state_candidate_pairs"
+                ]
+              }
+            ],
+            [
+              "Pairs with conflicting state",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "different_state_candidate_pairs"
+                ]
+              }
+            ],
+            [
+              "Unmatched reference occurrences",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "unmatched_reference_occurrences"
+                ]
+              }
+            ]
+          ]
         }
       ]
     }

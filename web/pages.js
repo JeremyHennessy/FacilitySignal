@@ -408,7 +408,7 @@ async function geography(p,signal,epoch){
     else await marketMap(panel,p,sums,sources,signal,epoch)
 }
 
-const capacityUnits=Object.freeze({nursing:{label:"Certified beds",plural:"certified beds"},dialysis:{label:"Dialysis stations",plural:"dialysis stations"},"long-term-hospital":{label:"Total reported beds",plural:"total reported beds"}});
+const capacityUnits=Object.freeze({nursing:{label:"Certified beds",plural:"certified beds"},dialysis:{label:"Dialysis stations",plural:"dialysis stations"},"long-term-hospital":{label:"Total beds",plural:"total reported beds"}});
 function publicCapacity(row){
     const text=String(row.capacity??"").trim();
     if(!/^\d+$/.test(text))return null;
@@ -504,7 +504,7 @@ async function capacityExplorer(p,signal,epoch){
         status.replaceChildren(el("span",names[s.key]+" · Source release "+data.release+" · "+N.format(totals.records)+" matching provider source records. "),sourceLink(s));
         const metrics=el("div",undefined,"metrics");
         metrics.append(capacityMetric("Matching source records",totals.records,"Filtered provider records"),
-            capacityMetric(unit.label+" reported total",totals.reported?totals.sum:null,"Sum of numeric values only; not unique sites"),
+            capacityMetric(s.key==="long-term-hospital"?"Total reported beds":unit.label+" reported total",totals.reported?totals.sum:null,"Sum of numeric values only; not unique sites"),
             capacityMetric("Numeric capacity reported",totals.reported,N.format(totals.zero)+" records explicitly report zero"),
             capacityMetric("Missing or nonnumeric",totals.unknown,"Excluded from totals; not treated as zero"));
         app.append(metrics,capacityDistribution(s,p,region),el("h2","Matching providers"));

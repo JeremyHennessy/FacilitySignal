@@ -13,6 +13,8 @@ def build(ledger,cap,spec,data_use=None):
         path=ROOT/"research/qualified_data_use_20261126.json"
         if path.exists():data_use=read(path)
     if data_use is not None:ctx["data_use"]=data_use
+    clia_path=ROOT/"research/clia_domain_link_audit_20261126.json"
+    if clia_path.exists():ctx["clia_audit"]=read(clia_path)
     def resolve(cell):
         if isinstance(cell,dict):
             if set(cell)!={"path"}:raise ValueError("unexpected field selector")

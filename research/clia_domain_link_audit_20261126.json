@@ -1,0 +1,402 @@
+{
+  "clia_source_rows": 686058,
+  "domain_counts": {
+    "APLCTN_TYPE_CD": {
+      "1": 48559,
+      "2": 525660,
+      "3": 35749,
+      "4": 76090
+    },
+    "CLIA_TRMNTN_CD": {
+      "10": 2692,
+      "11": 228,
+      "12": 25939,
+      "13": 1716,
+      "14": 1000,
+      "15": 5708,
+      "16": 1952,
+      "17": 6640,
+      "20": 71,
+      "33": 2252,
+      "80": 7,
+      "99": 785,
+      "00": 299345,
+      "01": 136223,
+      "02": 154,
+      "03": 266,
+      "04": 6372,
+      "05": 2368,
+      "06": 264,
+      "07": 759,
+      "08": 191197,
+      "09": 22,
+      "unrecognized": 98
+    },
+    "CMPLNC_STUS_CD": {
+      "A": 73622,
+      "B": 5248,
+      "blank": 607188
+    },
+    "CRTFCT_TYPE_CD": {
+      "1": 39116,
+      "2": 525660,
+      "3": 30127,
+      "4": 76090,
+      "9": 15065
+    },
+    "CURRENT_CLIA_LAB_CLSFCTN_CD": {
+      "10": 1236,
+      "00": 652322,
+      "05": 32500
+    },
+    "GNRL_FAC_TYPE_CD": {
+      "10": 2027,
+      "11": 1672,
+      "12": 37402,
+      "13": 9593,
+      "14": 16342,
+      "15": 26646,
+      "16": 5065,
+      "17": 164,
+      "18": 3136,
+      "19": 7243,
+      "20": 39233,
+      "21": 315902,
+      "22": 15981,
+      "23": 1714,
+      "24": 1405,
+      "25": 4717,
+      "26": 11769,
+      "27": 20806,
+      "28": 158,
+      "29": 81211,
+      "01": 10043,
+      "02": 11294,
+      "03": 9173,
+      "04": 16158,
+      "05": 933,
+      "06": 17403,
+      "07": 2387,
+      "08": 9696,
+      "09": 6785
+    },
+    "HOSP_LAB_EXCPTN_SW": {
+      "N": 683574,
+      "Y": 2484
+    },
+    "LAB_TEMP_TSTG_SITE_SW": {
+      "N": 666451,
+      "Y": 19607
+    },
+    "MLT_SITE_EXCPTN_SW": {
+      "N": 647437,
+      "Y": 38621
+    },
+    "NON_PRFT_EXCPTN_SW": {
+      "N": 670917,
+      "Y": 15141
+    },
+    "SHR_LAB_SW": {
+      "N": 681620,
+      "Y": 4438
+    }
+  },
+  "format_version": 1,
+  "historical_clia_layout_sha256": "8887f8603550af0ec6cb793b1f1fcb61afd5ab1bea4c1ca5701f592b56e7be65",
+  "historical_semantics_status": "provisional 2023 reference; actual 2026 exact literal domain observations",
+  "limitations": [
+    "Exact identifier references only; repeated source rows, historical/terminated records and multi-site certificates remain distinct.",
+    "Affiliated provider numbers are not interpreted as ownership or hospital affiliation without verified semantics.",
+    "No individual links or identifiers, no canonical sites, no current operation, installed equipment or service demand.",
+    "Volume states are lexical per certificate code; no sums, current test volume or cross-field aggregation. Historical applicability is not presumed."
+  ],
+  "links": {
+    "candidate_lab_row_pairs": 7715,
+    "clia_rows_with_exact_reference_candidate": 6566,
+    "different_state_candidate_pairs": 25,
+    "distinct_matched_reference_tokens": 6566,
+    "distinct_qies_reference_tokens": 6567,
+    "matched_reference_occurrences": 7715,
+    "missing_state_candidate_pairs": 0,
+    "multiple_lab_row_candidates": 0,
+    "qies_rows_with_exact_lab_candidate": 6132,
+    "qies_rows_with_reference": 6133,
+    "same_state_candidate_pairs": 7690,
+    "unmatched_reference_occurrences": 1
+  },
+  "period": "2026-07-01/2026-09-30",
+  "qies_reference_field_counts": {
+    "CLIA_ID_NUMBER_1": {
+      "blank": 7517,
+      "distinct_reference_occurrence": 6081,
+      "nonblank": 6081
+    },
+    "CLIA_ID_NUMBER_2": {
+      "blank": 12666,
+      "distinct_reference_occurrence": 931,
+      "nonblank": 932,
+      "repeated_within_row": 1
+    },
+    "CLIA_ID_NUMBER_3": {
+      "blank": 13195,
+      "distinct_reference_occurrence": 402,
+      "nonblank": 403,
+      "repeated_within_row": 1
+    },
+    "CLIA_ID_NUMBER_4": {
+      "blank": 13404,
+      "distinct_reference_occurrence": 194,
+      "nonblank": 194
+    },
+    "CLIA_ID_NUMBER_5": {
+      "blank": 13488,
+      "distinct_reference_occurrence": 108,
+      "nonblank": 110,
+      "repeated_within_row": 2
+    }
+  },
+  "qies_scope_counts": {
+    "historical_hospital_category": 13598
+  },
+  "reference_domains": {
+    "APLCTN_TYPE_CD": {
+      "1": "compliance",
+      "2": "waiver",
+      "3": "accreditation",
+      "4": "provider_performed_microscopy"
+    },
+    "CLIA_TRMNTN_CD": {
+      "10": "historical_other_status",
+      "11": "historical_other_status",
+      "12": "historical_other_status",
+      "13": "historical_other_status",
+      "14": "historical_other_status",
+      "15": "historical_other_status",
+      "16": "historical_other_status",
+      "17": "historical_other_status",
+      "20": "historical_other_status",
+      "33": "historical_other_status",
+      "80": "historical_other_status",
+      "99": "historical_other_status",
+      "00": "historical_active_label",
+      "01": "historical_other_status",
+      "02": "historical_other_status",
+      "03": "historical_other_status",
+      "04": "historical_other_status",
+      "05": "historical_other_status",
+      "06": "historical_other_status",
+      "07": "historical_other_status",
+      "08": "historical_other_status",
+      "09": "historical_other_status"
+    },
+    "CMPLNC_STUS_CD": {
+      "A": "at_survey_in_compliance",
+      "B": "at_survey_not_in_compliance"
+    },
+    "CRTFCT_TYPE_CD": {
+      "1": "compliance",
+      "2": "waiver",
+      "3": "accreditation",
+      "4": "provider_performed_microscopy",
+      "9": "registration"
+    },
+    "CURRENT_CLIA_LAB_CLSFCTN_CD": {
+      "10": "CLIA VA laboratory",
+      "00": "CLIA laboratory",
+      "05": "CLIA exempt laboratory"
+    },
+    "GNRL_FAC_TYPE_CD": {
+      "10": "Health fair",
+      "11": "Health maintenance organization",
+      "12": "Home health agency",
+      "13": "Hospice",
+      "14": "Hospital",
+      "15": "Independent",
+      "16": "Industrial",
+      "17": "Insurance",
+      "18": "Intermediate care",
+      "19": "Mobile laboratory",
+      "20": "Pharmacy",
+      "21": "Physician office",
+      "22": "Other practitioner",
+      "23": "Prison",
+      "24": "Public health laboratory",
+      "25": "Rural health clinic",
+      "26": "School/student health",
+      "27": "Skilled nursing/nursing facility",
+      "28": "Tissue bank/repository",
+      "29": "Other",
+      "01": "Ambulance",
+      "02": "Ambulatory surgery center",
+      "03": "Ancillary test site",
+      "04": "Assisted living facility",
+      "05": "Blood bank",
+      "06": "Community clinic",
+      "07": "Comprehensive outpatient rehabilitation",
+      "08": "Dialysis",
+      "09": "Federally qualified health center"
+    },
+    "HOSP_LAB_EXCPTN_SW": {
+      "N": null,
+      "Y": null
+    },
+    "LAB_TEMP_TSTG_SITE_SW": {
+      "N": null,
+      "Y": null
+    },
+    "MLT_SITE_EXCPTN_SW": {
+      "N": null,
+      "Y": null
+    },
+    "NON_PRFT_EXCPTN_SW": {
+      "N": null,
+      "Y": null
+    },
+    "SHR_LAB_SW": {
+      "N": null,
+      "Y": null
+    }
+  },
+  "source_hashes": {
+    "clia": "b7b7dce68abec2ad69b6c3378ff14e0b1c4e12f5dda433d12db2cf8eb4c5b1bf",
+    "qies": "8c83318826efc7de996811c22b67f5422ad639581e94830817645d5c0585bf7c"
+  },
+  "volume_value_states_by_certificate_code": {
+    "FORM_116_ACRDTD_TEST_VOL_CNT": {
+      "1": {
+        "positive": 20,
+        "zero": 39096
+      },
+      "2": {
+        "positive": 21,
+        "zero": 525639
+      },
+      "3": {
+        "positive": 18502,
+        "zero": 11625
+      },
+      "4": {
+        "positive": 4,
+        "zero": 76086
+      },
+      "9": {
+        "positive": 1744,
+        "zero": 13321
+      }
+    },
+    "FORM_116_TEST_VOL_CNT": {
+      "1": {
+        "positive": 18703,
+        "zero": 20413
+      },
+      "2": {
+        "positive": 49,
+        "zero": 525611
+      },
+      "3": {
+        "positive": 172,
+        "zero": 29955
+      },
+      "4": {
+        "positive": 6,
+        "zero": 76084
+      },
+      "9": {
+        "positive": 2293,
+        "zero": 12772
+      }
+    },
+    "FORM_1557_TEST_VOL_CNT": {
+      "1": {
+        "blank": 255,
+        "positive": 15117,
+        "zero": 23744
+      },
+      "2": {
+        "zero": 525660
+      },
+      "3": {
+        "blank": 193,
+        "zero": 29934
+      },
+      "4": {
+        "zero": 76090
+      },
+      "9": {
+        "blank": 77,
+        "positive": 211,
+        "zero": 14777
+      }
+    },
+    "LAB_SITE_CNT": {
+      "1": {
+        "positive": 946,
+        "zero": 38170
+      },
+      "2": {
+        "positive": 32131,
+        "zero": 493529
+      },
+      "3": {
+        "positive": 1949,
+        "zero": 28178
+      },
+      "4": {
+        "positive": 3279,
+        "zero": 72811
+      },
+      "9": {
+        "positive": 460,
+        "zero": 14605
+      }
+    },
+    "PPMP_TEST_VOL_CNT": {
+      "1": {
+        "positive": 3174,
+        "zero": 35942
+      },
+      "2": {
+        "positive": 156,
+        "zero": 525504
+      },
+      "3": {
+        "positive": 1486,
+        "zero": 28641
+      },
+      "4": {
+        "positive": 27809,
+        "zero": 48281
+      },
+      "9": {
+        "positive": 407,
+        "zero": 14658
+      }
+    },
+    "WVD_TEST_VOL_CNT": {
+      "1": {
+        "positive": 18833,
+        "zero": 20283
+      },
+      "2": {
+        "positive": 500868,
+        "zero": 24792
+      },
+      "3": {
+        "positive": 16404,
+        "zero": 13723
+      },
+      "4": {
+        "positive": 61418,
+        "zero": 14672
+      },
+      "9": {
+        "positive": 5838,
+        "zero": 9227
+      }
+    }
+  },
+  "as_of": "2026-11-26",
+  "qualification_run": 45824121085,
+  "qualification_job": 139923724955,
+  "qualified_commit": "1936934407d4c86bfc0f95109d386ad7d8461c04"
+}
