@@ -307,7 +307,13 @@
     },
     {
       "id": "FS-057",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45826492063",
+      "retrieved_rows": 14587,
+      "ephemeral_projected_rows": 14587,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Report-grain projection of 15 selected 2024 measures; 14416 same-state CCN evidence pairs and 171 unmatched reports. No retained row-level records or integrated national baseline increment; ambiguous and missing dates retained."
     },
     {
       "id": "FS-058",
@@ -1657,6 +1663,126 @@
       "source_sha256": "bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782",
       "bytes": 4153389,
       "retrieved_at": "2026-11-26T13:06:27.982375+00:00",
+      "baseline_sha256": "baa78020a2c60df25408421d4491f66f6f260aa25d3c7579c13199aee9e23960",
+      "reuse_review": "pending",
+      "limits": "Report-scoped selected historical measures, not purchase intent, equipment count, vendor payments, current operating capacity or audited financial totals. No row-level publication, no sum across reporting periods, no ambiguous date normalization. Measure semantics and units require dictionary review."
+    },
+    "reuse_review": "pending",
+    "retained_row_level_records": 0,
+    "included_in_integrated_national_baseline": false
+  },
+  "snf_cost_qualified_baseline": {
+    "commit": "72a30f3a0f871482ccdc9693070bdc2809079d79",
+    "run": 45826492063,
+    "artifact": 15120940842,
+    "artifact_digest": "sha256:dd800b94dd2ae76b9a4024ff5e270838f3a4b7ff7eed941611e8015fe3833d1b",
+    "audit": {
+      "input_rows": 14587,
+      "stored_rows": 14587,
+      "rejected_rows": 0,
+      "reject_reasons": {},
+      "exact_duplicate_rows": 0,
+      "distinct_ccns": 13988,
+      "ccns_with_multiple_reports": 565,
+      "link_counts": {
+        "same_state": 14416,
+        "unmatched_ccn": 171
+      },
+      "fiscal_date_shape_counts": {
+        "begin_ambiguous": 3868,
+        "end_mdy_only": 14288,
+        "begin_blank": 226,
+        "end_blank": 226,
+        "begin_mdy_only": 155,
+        "begin_both_same": 10338,
+        "end_both_same": 16,
+        "end_ambiguous": 57
+      },
+      "unambiguous_period_order_anomalies": 0,
+      "measure_value_states": {
+        "Number of Beds": {
+          "positive": 14355,
+          "blank": 232
+        },
+        "Total Bed Days Available": {
+          "positive": 14352,
+          "blank": 235
+        },
+        "Total Days Total": {
+          "positive": 14361,
+          "blank": 226
+        },
+        "Total Costs": {
+          "positive": 14360,
+          "blank": 227
+        },
+        "Total Charges": {
+          "positive": 14359,
+          "blank": 228
+        },
+        "Overhead Non-Salary Costs": {
+          "positive": 14361,
+          "blank": 226
+        },
+        "Total Salaries From Worksheet A": {
+          "positive": 14361,
+          "blank": 226
+        },
+        "Contract Labor": {
+          "positive": 10674,
+          "blank": 3913
+        },
+        "Land": {
+          "blank": 11563,
+          "positive": 3024
+        },
+        "Land Improvements": {
+          "blank": 10176,
+          "positive": 4403,
+          "negative": 8
+        },
+        "Buildings": {
+          "blank": 9679,
+          "positive": 4902,
+          "negative": 6
+        },
+        "Leasehold Improvements": {
+          "positive": 9167,
+          "blank": 5409,
+          "negative": 11
+        },
+        "Fixed Equipment": {
+          "blank": 8166,
+          "positive": 6417,
+          "negative": 4
+        },
+        "Major Movable Equipment": {
+          "positive": 10373,
+          "blank": 4210,
+          "negative": 4
+        },
+        "Total Current Assets": {
+          "positive": 13756,
+          "blank": 316,
+          "negative": 515
+        }
+      },
+      "columns": 122,
+      "projected_measure_count": 15,
+      "retained_row_level_records": 0,
+      "publisher": {
+        "title": "Skilled Nursing Facility Cost Report",
+        "period": "2024-01-01/2024-12-31",
+        "version": "16af99d3-49cc-4845-8707-2f94542ddcb2",
+        "api": "https://data.cms.gov/data-api/v1/dataset/16af99d3-49cc-4845-8707-2f94542ddcb2/data",
+        "url": "https://data.cms.gov/sites/default/files/2026-10/0f2b9acd-7ed2-4984-b0d7-6ec003493c1c/CostReportsnf_Final_24.csv",
+        "modified": "2026-10-05",
+        "license": "https://www.usa.gov/government-works",
+        "dictionary_candidate": "https://data.cms.gov/sites/default/files/2023-12/Skilled%20Nursing%20Facility%20Cost%20Report%20Data%20Dictionary_508.pdf"
+      },
+      "source_sha256": "adcef64de8d15b772aa37ca03bba162e78f781d22198b8fbb478810685e6c05c",
+      "bytes": 8490747,
+      "retrieved_at": "2026-11-26T13:10:22.026603+00:00",
       "baseline_sha256": "baa78020a2c60df25408421d4491f66f6f260aa25d3c7579c13199aee9e23960",
       "reuse_review": "pending",
       "limits": "Report-scoped selected historical measures, not purchase intent, equipment count, vendor payments, current operating capacity or audited financial totals. No row-level publication, no sum across reporting periods, no ambiguous date normalization. Measure semantics and units require dictionary review."
