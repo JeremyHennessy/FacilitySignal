@@ -1036,5 +1036,24 @@
     },
     "source_release_sha256": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2",
     "note": "Qualified full pinned logical reconstruction and promoted main. Prior historical baseline preserved. Ambiguous dates remain unresolved. Aggregate evidence only; no persistent database or dynamic deployment."
+  },
+  "citation_evidence_qualified_baseline": {
+    "commit": "9342f36c823ca32881637861ec89ed0b43d1d2f9",
+    "run": 45776550120,
+    "artifact": 15096248272,
+    "source_artifact": 15046953633,
+    "source_database_sha256": "baa78020a2c60df25408421d4491f66f6f260aa25d3c7579c13199aee9e23960",
+    "source_release": "2026-10-28",
+    "citation_rows": 619069,
+    "same_ccn_state_source_links": 619069,
+    "source_domains": {
+      "health": 418682,
+      "life_safety": 178762,
+      "emergency_preparedness": 21625
+    },
+    "unmapped_correction_rows": 6093,
+    "correction_dates_after_release": 128,
+    "confirmed_opportunities": 0,
+    "note": "Aggregate evidence only, not additional source rows, current compliance, purchasing intent or operating status."
   }
 }
