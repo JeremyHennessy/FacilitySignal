@@ -1,0 +1,28 @@
+name: Institutional observation candidate qualification
+on:
+  push:
+    branches: [research/institutional-observations-20261126]
+    paths:
+      - institutional_observations.py
+      - tests/test_institutional_observations.py
+      - .github/workflows/institutional-observations.yml
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_institutional_observations.py -v
+      - run: python institutional_observations.py --download --output "$RUNNER_TEMP/institutional-observations.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: institutional-observation-aggregates
+          path: ${{ runner.temp }}/institutional-observations.json
+          retention-days: 14
+          if-no-files-found: error
