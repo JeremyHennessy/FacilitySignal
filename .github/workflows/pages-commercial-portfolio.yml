@@ -1,0 +1,32 @@
+name: FacilitySignal commercial and portfolio qualification
+on:
+  push:
+    branches: [ui/pages-commercial-portfolio-20261126]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/stamp_pages_assets.py --check
+      - run: python scripts/build_public_intelligence.py --check
+      - run: node --check web/pages.js
+      - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0
+      - run: python -m unittest discover -s tests -v
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/test_pages_commercial_portfolio.py
+      - run: python scripts/test_pages_hospital_infrastructure.py
+      - run: python scripts/test_pages_nursing_portfolios.py
+      - run: python scripts/test_pages_intelligence.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: commercial-portfolio-browser-evidence
+          path: ${{ runner.temp }}/commercial-portfolio-evidence/
+          retention-days: 7

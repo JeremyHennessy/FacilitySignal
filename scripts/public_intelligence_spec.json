@@ -5409,6 +5409,1580 @@
       ]
     },
     {
+      "id": "financial-research",
+      "title": "Financial report research",
+      "intro": "Historical Medicare cost-report qualification. Explore source-report coverage and selected measure availability without interpreting unresolved units, combining fiscal periods, or attributing financial records to individual sites.",
+      "groups": [
+        {
+          "id": "hospital-cost-report-coverage",
+          "title": "Hospital FY2024 cost-report coverage",
+          "note": "CMS selected cost reports, published October 2026. Counts are reports or source CCNs, not unique physical sites. Multiple reports per CCN and unresolved dates remain separate. Individual financial values are not published.",
+          "run": 45825853982,
+          "columns": [
+            "Measure",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Qualified report rows",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "stored_rows"
+                ]
+              }
+            ],
+            [
+              "Distinct source CCNs",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "distinct_ccns"
+                ]
+              }
+            ],
+            [
+              "CCNs with multiple reports",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "ccns_with_multiple_reports"
+                ]
+              }
+            ],
+            [
+              "Same-state CCN candidate report rows",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "link_counts",
+                  "same_state"
+                ]
+              }
+            ],
+            [
+              "Unmatched report rows",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "link_counts",
+                  "unmatched_ccn"
+                ]
+              }
+            ],
+            [
+              "Retained individual report rows",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "retained_row_level_records"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-compliance/cost-reports/hospital-provider-cost-report"
+        },
+        {
+          "id": "hospital-cost-measure-quality",
+          "title": "Hospital selected cost-report measure coverage",
+          "note": "Counts of report rows by original measure value state. Zero is an explicit numeric zero; blank is not zero. Negative values are retained, not treated as errors or losses. No monetary totals, equipment counts, operating capacity, or vendor payments are inferred. Measure semantics and units still require review.",
+          "run": 45825853982,
+          "columns": [
+            "Source measure",
+            "Positive",
+            "Negative",
+            "Zero",
+            "Blank"
+          ],
+          "rows": [
+            [
+              "Number of Beds",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Number of Beds",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Number of Beds",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Number of Beds",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Number of Beds",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Costs",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Costs",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Costs",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Costs",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Costs",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Overhead Non-Salary Costs",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Overhead Non-Salary Costs",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Overhead Non-Salary Costs",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Overhead Non-Salary Costs",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Overhead Non-Salary Costs",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Depreciation Cost",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Depreciation Cost",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Depreciation Cost",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Depreciation Cost",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Depreciation Cost",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Land",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Land",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Land",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Land",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Land",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Land Improvements",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Land Improvements",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Land Improvements",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Land Improvements",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Land Improvements",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Buildings",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Buildings",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Buildings",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Buildings",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Buildings",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Leasehold Improvements",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Leasehold Improvements",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Leasehold Improvements",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Leasehold Improvements",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Leasehold Improvements",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Fixed Equipment",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Fixed Equipment",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Fixed Equipment",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Fixed Equipment",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Fixed Equipment",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Major Movable Equipment",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Major Movable Equipment",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Major Movable Equipment",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Major Movable Equipment",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Major Movable Equipment",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Minor Equipment Depreciable",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Minor Equipment Depreciable",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Minor Equipment Depreciable",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Minor Equipment Depreciable",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Minor Equipment Depreciable",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Fixed Assets",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Fixed Assets",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Fixed Assets",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Fixed Assets",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Fixed Assets",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Assets",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Assets",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Assets",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Assets",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Assets",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Less Total Operating Expense",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Less Total Operating Expense",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Less Total Operating Expense",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Less Total Operating Expense",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Less Total Operating Expense",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Net Patient Revenue",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Net Patient Revenue",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Net Patient Revenue",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Net Patient Revenue",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Net Patient Revenue",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Patient Revenue",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Patient Revenue",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Patient Revenue",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Patient Revenue",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Patient Revenue",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Net Income",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Net Income",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Net Income",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Net Income",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Net Income",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Salaries From Worksheet A",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Salaries From Worksheet A",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Salaries From Worksheet A",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Salaries From Worksheet A",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Total Salaries From Worksheet A",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Contract Labor: Direct Patient Care",
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Contract Labor: Direct Patient Care",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Contract Labor: Direct Patient Care",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Contract Labor: Direct Patient Care",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "hospital",
+                  "measure_states",
+                  "Contract Labor: Direct Patient Care",
+                  "blank"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-compliance/cost-reports/hospital-provider-cost-report"
+        },
+        {
+          "id": "snf-cost-report-coverage",
+          "title": "Skilled nursing FY2024 cost-report coverage",
+          "note": "CMS selected cost reports, published October 2026. Counts are reports or source CCNs, not unique physical sites. Multiple reports per CCN and unresolved dates remain separate. Individual financial values are not published.",
+          "run": 45826492063,
+          "columns": [
+            "Measure",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Qualified report rows",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "stored_rows"
+                ]
+              }
+            ],
+            [
+              "Distinct source CCNs",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "distinct_ccns"
+                ]
+              }
+            ],
+            [
+              "CCNs with multiple reports",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "ccns_with_multiple_reports"
+                ]
+              }
+            ],
+            [
+              "Same-state CCN candidate report rows",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "link_counts",
+                  "same_state"
+                ]
+              }
+            ],
+            [
+              "Unmatched report rows",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "link_counts",
+                  "unmatched_ccn"
+                ]
+              }
+            ],
+            [
+              "Retained individual report rows",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "retained_row_level_records"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-compliance/cost-reports/skilled-nursing-facility-cost-report"
+        },
+        {
+          "id": "snf-cost-measure-quality",
+          "title": "Skilled nursing selected cost-report measure coverage",
+          "note": "Counts of report rows by original measure value state. Zero is an explicit numeric zero; blank is not zero. Negative values are retained, not treated as errors or losses. No monetary totals, equipment counts, operating capacity, or vendor payments are inferred. Measure semantics and units still require review.",
+          "run": 45826492063,
+          "columns": [
+            "Source measure",
+            "Positive",
+            "Negative",
+            "Zero",
+            "Blank"
+          ],
+          "rows": [
+            [
+              "Number of Beds",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Number of Beds",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Number of Beds",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Number of Beds",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Number of Beds",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Bed Days Available",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Bed Days Available",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Bed Days Available",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Bed Days Available",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Bed Days Available",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Days Total",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Days Total",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Days Total",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Days Total",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Days Total",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Costs",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Costs",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Costs",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Costs",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Costs",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Charges",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Charges",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Charges",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Charges",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Charges",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Overhead Non-Salary Costs",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Overhead Non-Salary Costs",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Overhead Non-Salary Costs",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Overhead Non-Salary Costs",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Overhead Non-Salary Costs",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Salaries From Worksheet A",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Salaries From Worksheet A",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Salaries From Worksheet A",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Salaries From Worksheet A",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Salaries From Worksheet A",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Contract Labor",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Contract Labor",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Contract Labor",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Contract Labor",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Contract Labor",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Land",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Land",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Land",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Land",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Land",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Land Improvements",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Land Improvements",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Land Improvements",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Land Improvements",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Land Improvements",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Buildings",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Buildings",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Buildings",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Buildings",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Buildings",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Leasehold Improvements",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Leasehold Improvements",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Leasehold Improvements",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Leasehold Improvements",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Leasehold Improvements",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Fixed Equipment",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Fixed Equipment",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Fixed Equipment",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Fixed Equipment",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Fixed Equipment",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Major Movable Equipment",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Major Movable Equipment",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Major Movable Equipment",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Major Movable Equipment",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Major Movable Equipment",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Total Current Assets",
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Current Assets",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Current Assets",
+                  "negative"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Current Assets",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "finance",
+                  "snf",
+                  "measure_states",
+                  "Total Current Assets",
+                  "blank"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-compliance/cost-reports/skilled-nursing-facility-cost-report"
+        },
+        {
+          "id": "hha-cost-structure",
+          "title": "Home health FY2024 cost-report structure",
+          "note": "CMS-1728-20 structural qualification only. Worksheet numeric and alpha cells are not financial measures or additional facilities; semantic and unit crosswalk remains outstanding.",
+          "run": 45831729611,
+          "columns": [
+            "Source grain",
+            "Qualified rows"
+          ],
+          "rows": [
+            [
+              "Parent reports",
+              {
+                "path": [
+                  "finance",
+                  "hha",
+                  "tables",
+                  "report",
+                  "rows"
+                ]
+              }
+            ],
+            [
+              "Numeric worksheet cells",
+              {
+                "path": [
+                  "finance",
+                  "hha",
+                  "tables",
+                  "numeric",
+                  "rows"
+                ]
+              }
+            ],
+            [
+              "Alpha worksheet cells",
+              {
+                "path": [
+                  "finance",
+                  "hha",
+                  "tables",
+                  "alpha",
+                  "rows"
+                ]
+              }
+            ],
+            [
+              "Retained row-level records",
+              {
+                "path": [
+                  "finance",
+                  "hha",
+                  "retained_row_level_records"
+                ]
+              }
+            ]
+          ],
+          "source": "https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year/hha20-fy-2024-data-files"
+        }
+      ]
+    },
+    {
       "id": "equipment-environment",
       "title": "Equipment & environmental research",
       "intro": "Source qualification and candidate evidence only. Individual mammography and water system records are not published here. No confirmed installed equipment, water-system connection, current compliance or sales opportunity is inferred.",
@@ -5627,6 +7201,179 @@
             ]
           ],
           "source": "https://echo.epa.gov/help/facility-search/drinking-water-search-results-help"
+        },
+        {
+          "id": "nursing-sprinkler-coverage",
+          "title": "Nursing-home reported sprinkler coverage",
+          "note": "October 28 Care Compare provider snapshot. Literal source responses; Yes is not an independent current inspection, Partial is not an inferred open violation, and Data Not Available is unknown. Dictionary revision mismatch remains documented.",
+          "run": 45835796014,
+          "columns": [
+            "Source response",
+            "Provider records"
+          ],
+          "rows": [
+            [
+              "Yes",
+              {
+                "path": [
+                  "infra",
+                  "nursing",
+                  "literal_counts",
+                  "Automatic Sprinkler Systems in All Required Areas",
+                  "Yes"
+                ]
+              }
+            ],
+            [
+              "Partial",
+              {
+                "path": [
+                  "infra",
+                  "nursing",
+                  "literal_counts",
+                  "Automatic Sprinkler Systems in All Required Areas",
+                  "Partial"
+                ]
+              }
+            ],
+            [
+              "Data Not Available",
+              {
+                "path": [
+                  "infra",
+                  "nursing",
+                  "literal_counts",
+                  "Automatic Sprinkler Systems in All Required Areas",
+                  "Data Not Available"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf"
+        },
+        {
+          "id": "nursing-survey-age-coverage",
+          "title": "Nursing-home reported health survey age",
+          "note": "Source snapshot indicator only. A reported survey age exceeding two years is not proof of an overdue legal obligation.",
+          "run": 45835796014,
+          "columns": [
+            "Most recent health inspection more than 2 years ago",
+            "Provider records"
+          ],
+          "rows": [
+            [
+              "Reported Y",
+              {
+                "path": [
+                  "infra",
+                  "nursing",
+                  "literal_counts",
+                  "Most Recent Health Inspection More Than 2 Years Ago",
+                  "Y"
+                ]
+              }
+            ],
+            [
+              "Reported N",
+              {
+                "path": [
+                  "infra",
+                  "nursing",
+                  "literal_counts",
+                  "Most Recent Health Inspection More Than 2 Years Ago",
+                  "N"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf"
+        },
+        {
+          "id": "hospital-laboratory-corroboration",
+          "title": "Hospital laboratory reference corroboration",
+          "note": "Q3 2026 QIES and CLIA, program code 00 with same-state Care Compare candidate only. Address categories count reference pairs, not unique labs or sites. No installed equipment, legal identity or certificate validity inferred.",
+          "run": 45839078040,
+          "columns": [
+            "Evidence category",
+            "Source rows / pairs"
+          ],
+          "rows": [
+            [
+              "Hospital source rows in subset",
+              {
+                "path": [
+                  "lab",
+                  "hospital_cohorts",
+                  "code00_same_state_public_candidate"
+                ]
+              }
+            ],
+            [
+              "Hospital rows with laboratory references",
+              {
+                "path": [
+                  "lab",
+                  "hospital_rows_with_references",
+                  "code00_same_state_public_candidate"
+                ]
+              }
+            ],
+            [
+              "Reference occurrences",
+              {
+                "path": [
+                  "lab",
+                  "reference_dispositions",
+                  "code00_same_state_public_candidate|reference_occurrences"
+                ]
+              }
+            ],
+            [
+              "Street, city, ZIP and state text agree",
+              {
+                "path": [
+                  "lab",
+                  "pairs_by_address_evidence",
+                  "code00_same_state_public_candidate",
+                  "same_state_street_city_zip_agree"
+                ]
+              }
+            ],
+            [
+              "City, ZIP and state agree; street differs",
+              {
+                "path": [
+                  "lab",
+                  "pairs_by_address_evidence",
+                  "code00_same_state_public_candidate",
+                  "same_state_city_zip_agree_street_differs"
+                ]
+              }
+            ],
+            [
+              "Other same-state address difference",
+              {
+                "path": [
+                  "lab",
+                  "pairs_by_address_evidence",
+                  "code00_same_state_public_candidate",
+                  "same_state_other_address_difference"
+                ]
+              }
+            ],
+            [
+              "State conflict",
+              {
+                "path": [
+                  "lab",
+                  "pairs_by_address_evidence",
+                  "code00_same_state_public_candidate",
+                  "state_conflict"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities"
         }
       ]
     },

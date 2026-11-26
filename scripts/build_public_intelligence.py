@@ -162,6 +162,42 @@ def build(ledger,cap,spec,data_use=None):
     semantic_path=ROOT/"research/clia_certificate_semantic_audit_20261126.json"
     if semantic_path.exists():
         ctx["clia_semantic"]=qualify_clia_semantic(read(semantic_path),ctx.get("clia_audit"),read(ROOT/"research/snapshot_release_20261125.json"))
+    # Aggregate-only financial and infrastructure extensions. Reject mismatched pins or incomplete domains.
+    finance={}
+    for key,run,n,measure_count,sha in (
+        ("hospital",45825853982,6109,19,"bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782"),
+        ("snf",45826492063,14587,15,"adcef64de8d15b772aa37ca03bba162e78f781d22198b8fbb478810685e6c05c")):
+        b=ledger[key+"_cost_qualified_baseline"];a=b["audit"]
+        if b["run"]!=run or a["source_sha256"]!=sha or a["input_rows"]!=n or a["stored_rows"]!=n or a["rejected_rows"] or a["retained_row_level_records"] or b["retained_row_level_records"] or len(a["measure_value_states"])!=measure_count or a["projected_measure_count"]!=measure_count or sum(a["link_counts"].values())!=n:
+            raise ValueError("Cost-report qualification mismatch")
+        states={}
+        for field,v in a["measure_value_states"].items():
+            if set(v)-{"positive","negative","zero","blank"} or any(type(x) is not int or x<0 for x in v.values()) or sum(v.values())!=n:
+                raise ValueError("Cost-report measure reconciliation")
+            states[field]={k:v.get(k,0) for k in ("positive","negative","zero","blank")}
+        finance[key]={**a,"measure_states":states}
+    b=ledger["hcris_hha_structural_baseline"];a=b["audit"];t=a["tables"]
+    if b["run"]!=45831729611 or a["form"]!="CMS-1728-20" or a["fiscal_year"]!=2024 or a["publisher"]["sha256"]!="d3bf63b5d6293aa98f5a1cee096858c5d32d322f3cbe8471d9b6d410b37182d6" or t["report"]["rows"]!=11009 or t["report"]["distinct_report_keys"]!=11009 or a["retained_row_level_records"]:
+        raise ValueError("HHA report structural qualification mismatch")
+    for kind,n in (("numeric",3558558),("alpha",1222130)):
+        if t[kind]["rows"]!=n or t[kind]["report_key_link_counts"]!={"report_present":n} or t[kind]["coordinate_shape_counts"]!={"shape_valid":n}:
+            raise ValueError("HHA child reconciliation")
+    finance["hha"]=a;ctx["finance"]=finance
+    pins={s["key"]:s for s in read(ROOT/"research/snapshot_release_20261125.json")["sources"]}
+    i=read(ROOT/"research/care_compare_infrastructure_qualification_20261126.json")
+    if i["qualification_run"]!=45835796014 or i["tests_passed"]!=4:
+        raise ValueError("Infrastructure qualification mismatch")
+    for key,v in i["sources"].items():
+        if (v["sha256"],v["rows"],v["release"])!=(pins[key]["sha256"],pins[key]["stored_rows"],pins[key]["release"]) or any(sum(c.values())!=v["rows"] for c in v["literal_counts"].values()):
+            raise ValueError("Infrastructure source pin or domain mismatch")
+    ctx["infra"]=i["sources"]
+    a=read(ROOT/"research/hospital_lab_corroboration_qualification_20261126.json")
+    if a["qualification_run"]!=45839078040 or a["tests_passed"]!=2 or a["source_hashes"]!={key:pins[key]["sha256"] for key in ("clia","qies")} or a["public_hospital"]["records"]!=pins["hospital"]["stored_rows"]:
+        raise ValueError("Hospital laboratory qualification mismatch")
+    r=a["result"];co="code00_same_state_public_candidate"
+    if r["hospital_cohorts"][co]!=5362 or sum(r["hospital_cohorts"].values())!=pins["qies"]["stored_rows"] or r["lab_rows"]!=pins["clia"]["stored_rows"] or sum(r["pairs_by_address_evidence"][co].values())!=r["reference_dispositions"][co+"|reference_occurrences"]:
+        raise ValueError("Hospital laboratory reference reconciliation")
+    ctx["lab"]=r
     def resolve(cell):
         if isinstance(cell,dict):
             if set(cell)!={"path"}:raise ValueError("unexpected field selector")
