@@ -1,0 +1,3 @@
+# HCRIS FY2024 HHA and FDA access checkpoint
+
+HCRIS exact-release structural qualification 45831729611 passed 176 tests and reconciled 11,009 parent reports plus 4,780,688 worksheet cells. All child keys matched; all previously rejected coordinate shapes resolved using documented CMS reporting formats. Full financial semantics, historical form/year coverage, duplicate cell-grain review and persistent database integration remain pending. FDA 503B retry 45831289206 received HTTP 401; no source rows retrieved, no attempt to circumvent access controls. Preserve failed attempts and exact source pins. Only the qualified HCRIS code is promoted; failed FDA implementation stays isolated. Existing expanded source lock and national projection counts are unchanged.

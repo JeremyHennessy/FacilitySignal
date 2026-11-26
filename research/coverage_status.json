@@ -375,7 +375,16 @@
     },
     {
       "id": "FS-055",
-      "status": "discovered_not_tested"
+      "status": "partial_structural_qualification",
+      "evidence": "45831729611",
+      "qualified_form": "CMS-1728-20",
+      "qualified_fiscal_year": 2024,
+      "report_rows": 11009,
+      "numeric_cell_rows": 3558558,
+      "alpha_cell_rows": 1222130,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "One form/year only: complete HHA relational file structural qualification. 4,780,688 child cells linked; no unresolved coordinate formats. Worksheet semantic crosswalk, exact measure/unit interpretation and durable projection pending. Do not add cells to facility or existing projection totals."
     },
     {
       "id": "FS-056",
@@ -475,7 +484,12 @@
     },
     {
       "id": "FS-077",
-      "status": "discovered_not_tested"
+      "status": "blocked_publisher_access",
+      "evidence": "45831289206",
+      "retrieved_rows": 0,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "FDA public HTML table documented, but initial runner redirect failure and narrowly scoped canonical-page retry returned HTTP 401. No source rows obtained by collector. Do not bypass access controls; failed collector remains isolated."
     },
     {
       "id": "FS-078",
@@ -3034,5 +3048,129 @@
       "retained_row_level_records": 0,
       "included_in_integrated_national_baseline": false
     }
+  },
+  "hcris_hha_structural_baseline": {
+    "commit": "ce3a04c5557e0a931429a601fa024c96ffcff0d5",
+    "run": 45831729611,
+    "artifact": 15121408928,
+    "artifact_digest": "sha256:e8d1f6f2a1c540a7e6f56b1f73b855759f442c39e5c83766a2becde6f5e03b6a",
+    "audit": {
+      "source_id": "FS-055",
+      "form": "CMS-1728-20",
+      "fiscal_year": 2024,
+      "publisher": {
+        "url": "https://downloads.cms.gov/FILES/HCRIS/HHA20FY2024.ZIP",
+        "bytes": 25621487,
+        "sha256": "d3bf63b5d6293aa98f5a1cee096858c5d32d322f3cbe8471d9b6d410b37182d6",
+        "last_modified": "Mon, 05 Oct 2026 23:46:27 GMT",
+        "etag": "\"7ae2981b1563fb4f5f1c37283c259c20:1791243984.087112\"",
+        "retrieved_at": "2026-11-26T13:42:31.774511+00:00"
+      },
+      "landing": "https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year/hha20-fy-2024-data-files",
+      "documentation": "https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/home-health-agency-1728-2020-form",
+      "tables": {
+        "report": {
+          "rows": 11009,
+          "width_counts": {
+            "18": 11009
+          },
+          "distinct_report_keys": 11009,
+          "invalid_report_key_rows": 0,
+          "duplicate_report_key_rows": 0,
+          "uncompressed_bytes": 1133950,
+          "zip_crc32": "1120a727"
+        },
+        "numeric": {
+          "rows": 3558558,
+          "width_counts": {
+            "5": 3558558
+          },
+          "report_key_link_counts": {
+            "report_present": 3558558
+          },
+          "reports_with_cells": 7487,
+          "coordinate_shape_counts": {
+            "shape_valid": 3558558
+          },
+          "coordinate_class_counts": {
+            "standard": 3319236,
+            "alphanumeric_column": 239322
+          },
+          "unrecognized_coordinate_component_shapes": {
+            "worksheet": {},
+            "line": {},
+            "column": {}
+          },
+          "distinct_valid_worksheet_coordinates": 7997,
+          "value_states": {
+            "positive": 3488535,
+            "negative": 70023
+          },
+          "uncompressed_bytes": 119454292,
+          "zip_crc32": "45e7ab5a"
+        },
+        "alpha": {
+          "rows": 1222130,
+          "width_counts": {
+            "5": 1222130
+          },
+          "report_key_link_counts": {
+            "report_present": 1222130
+          },
+          "reports_with_cells": 11009,
+          "coordinate_shape_counts": {
+            "shape_valid": 1222130
+          },
+          "coordinate_class_counts": {
+            "standard": 909513,
+            "worksheet_heading": 312617
+          },
+          "unrecognized_coordinate_component_shapes": {
+            "worksheet": {},
+            "line": {},
+            "column": {}
+          },
+          "distinct_valid_worksheet_coordinates": 2574,
+          "value_states": {
+            "present": 1222130
+          },
+          "uncompressed_bytes": 48396573,
+          "zip_crc32": "d2d7ccd5"
+        }
+      },
+      "retained_row_level_records": 0,
+      "reuse_review": "pending",
+      "limits": "Structural streaming qualification only. No worksheet measure/unit crosswalk, report-status interpretation, unique facility count or durable projection. Numeric and alpha cells are not additional facility records. No provider identity, individual cell or alpha text retained."
+    },
+    "prior_attempts": [
+      {
+        "run": 45831121202,
+        "artifact": 15121913514,
+        "coordinate_exceptions": 551939
+      },
+      {
+        "run": 45831393062,
+        "artifact": 15121828883,
+        "coordinate_exceptions": 551939
+      }
+    ],
+    "documentation": "https://www.cms.gov/files/document/r7p247i.pdf",
+    "reuse_review": "pending",
+    "retained_row_level_records": 0,
+    "included_in_integrated_national_baseline": false,
+    "included_in_expanded_projection_total": false
+  },
+  "fda_503b_access_blocker": {
+    "initial_commit": "9eee42b3fa7a298d712b6acac76e18f7433ba5d9",
+    "initial_run": 45831121202,
+    "initial_job": 139947836000,
+    "initial_failure": "unexpected redirect",
+    "retry_commit": "8e4e9cb6c76ec70a85d2cfa2a1a0cdcdb1c74b9a",
+    "retry_run": 45831289206,
+    "retry_job": 139948419095,
+    "retry_http_status": 401,
+    "source_url": "https://www.fda.gov/drugs/human-drug-compounding/registered-outsourcing-facilities",
+    "retained_row_level_records": 0,
+    "qualified": false
   }
 }
