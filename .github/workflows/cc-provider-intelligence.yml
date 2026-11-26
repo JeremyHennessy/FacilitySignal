@@ -1,0 +1,45 @@
+name: FacilitySignal Care Compare provider aggregate intelligence qualification
+on:
+  push:
+    branches: [build/care-compare-provider-intelligence-20261126]
+    paths:
+      - scripts/build_public_intelligence.py
+      - scripts/public_intelligence_spec.json
+      - scripts/verify_pages_live_visual.py
+      - .github/workflows/cc-provider-intelligence.yml
+permissions:
+  contents: write
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0
+      - run: python scripts/build_public_intelligence.py && python scripts/build_public_intelligence.py --check
+      - run: python scripts/stamp_pages_assets.py --check && python scripts/build_market_summary.py --check
+      - run: python -m unittest discover -s tests -v
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/test_pages_intelligence.py
+      - run: python scripts/verify_pages_live_visual.py --local
+      - name: Retain exactly qualified public aggregate file
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git config user.name 'FacilitySignal qualification'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -- web/public-intelligence.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Retain qualified Care Compare provider aggregate projection"
+            git push origin HEAD:refs/heads/build/care-compare-provider-intelligence-20261126
+          fi
+          git rev-parse HEAD
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cc-provider-intelligence-visual
+          path: ${{ runner.temp }}/pages-live-visual-evidence/
+          retention-days: 7
