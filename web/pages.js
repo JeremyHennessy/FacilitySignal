@@ -107,6 +107,101 @@ async function geography(signal,epoch){
     app.append(table(["Jurisdiction",...sources.map(s=>names[s.key]),"Total source records"],sums.map(({state,m,total})=>[state,...sources.map(s=>m.has(s.key)?anchor(N.format(m.get(s.key)),route("facilities",{source:s.key,state})):failed?"—":"0"),N.format(total)])));
     app.append(el("p","Counts refer to source records, not unique physical facilities or complete regional regulatory coverage.","intro"))
 }
+
+const capacityUnits=Object.freeze({nursing:{label:"Certified beds",plural:"certified beds"},dialysis:{label:"Dialysis stations",plural:"dialysis stations"}});
+function publicCapacity(row){
+    const text=String(row.capacity??"").trim();
+    if(!/^\d+$/.test(text))return null;
+    const n=Number(text);
+    return Number.isSafeInteger(n)?n:null
+}
+function summarizeCapacity(rows){
+    let reported=0,unknown=0,zero=0,sum=0;
+    for(const r of rows){
+        const n=publicCapacity(r);
+        if(n===null){unknown++;continue}
+        reported++;if(n===0)zero++;sum+=n
+    }
+    if(!Number.isSafeInteger(sum))throw Error("Capacity total exceeds safe numeric range");
+    return {records:rows.length,reported,unknown,zero,sum}
+}
+function capacityForm(p,sources){
+    const f=el("form",undefined,"toolbar");
+    const min=input("Minimum reported capacity","min",p.min),number=min.querySelector("input");
+    number.type="number";number.min="0";number.max="1000000";number.step="1";number.placeholder="Any";
+    f.append(options("Facility type","source",sources.map(s=>[s.key,names[s.key]]),p.source),
+        options("State / territory","state",[["","All jurisdictions"],...states.map(s=>[s,s])],p.state),
+        options("Capacity evidence","reported",[["all","All source records"],["known","Numeric capacity reported"],["unknown","Missing or nonnumeric capacity"]],p.reported),
+        min,options("Sort by","sort",[["capacity_desc","Capacity high to low"],["capacity_asc","Capacity low to high"],["name","Name A–Z"]],p.sort),
+        el("button","Apply filters"));
+    f.addEventListener("submit",e=>{e.preventDefault();location.hash=route("capacity",Object.fromEntries(new FormData(f)))});
+    return f
+}
+function capacityMetric(label,count,note){
+    const a=el("article",undefined,"metric");
+    a.append(el("small",label),el("strong",count===null?"—":N.format(count)),el("span",note));
+    return a
+}
+async function capacityExplorer(p,signal,epoch){
+    const sources=providerSources().filter(s=>Object.hasOwn(capacityUnits,s.key));
+    const s=sources.find(s=>s.key===p.source)||sources.find(s=>s.key==="nursing");
+    p={...p,source:s.key,reported:p.reported||"all",sort:p.sort||"capacity_desc"};
+    const unit=capacityUnits[s.key];
+    title("Capacity explorer","Research source-reported nursing-home certified beds and dialysis stations. These are different units and are never added together. This is a public market-size indicator, not proof of current operating capacity, installed equipment, service demand or a procurement opportunity.");
+    app.append(capacityForm(p,sources));
+    const status=el("div","Loading qualified public capacity fields…","notice");app.append(status);
+    try{
+        if(p.state&&!states.includes(p.state))throw Error("Invalid jurisdiction");
+        if(!["all","known","unknown"].includes(p.reported))throw Error("Invalid capacity evidence filter");
+        if(!["capacity_desc","capacity_asc","name"].includes(p.sort))throw Error("Invalid sort");
+        const min=p.min==null||p.min===""?null:publicCapacity({capacity:p.min});
+        if(p.min!=null&&p.min!==""&&(min===null||min>1000000))throw Error("Minimum capacity must be a nonnegative whole number up to 1,000,000");
+        if(min!==null&&p.reported==="unknown")throw Error("Minimum capacity cannot be combined with missing capacity");
+        const data=await loadShard(s,signal);if(epoch!==sequence)return;
+        const region=data.records.filter(r=>!p.state||r.state===p.state);
+        const filtered=region.filter(r=>{
+            const n=publicCapacity(r);
+            return !(p.reported==="known"&&n===null||p.reported==="unknown"&&n!==null||min!==null&&(n===null||n<min))
+        });
+        const totals=summarizeCapacity(filtered),regionTotals=summarizeCapacity(region);
+        const alpha=(a,b)=>String(a.name||"").localeCompare(String(b.name||""),"en",{sensitivity:"base"})||String(a.ccn).localeCompare(String(b.ccn))||String(a.state).localeCompare(String(b.state));
+        filtered.sort((a,b)=>{
+            if(p.sort==="name")return alpha(a,b);
+            const av=publicCapacity(a),bv=publicCapacity(b);
+            if(av===null&&bv!==null)return 1;if(bv===null&&av!==null)return -1;
+            if(av!==null&&bv!==null&&av!==bv)return p.sort==="capacity_desc"?bv-av:av-bv;
+            return alpha(a,b)
+        });
+        const page=Math.max(1,Math.min(Math.max(1,Math.ceil(filtered.length/pageSize)),Number.parseInt(p.page||"1",10)||1));
+        status.replaceChildren(el("span",names[s.key]+" · Source release "+data.release+" · "+N.format(totals.records)+" matching provider source records. "),sourceLink(s));
+        const metrics=el("div",undefined,"metrics");
+        metrics.append(capacityMetric("Matching source records",totals.records,"Filtered provider records"),
+            capacityMetric(unit.label+" reported total",totals.reported?totals.sum:null,"Sum of numeric values only; not unique sites"),
+            capacityMetric("Numeric capacity reported",totals.reported,N.format(totals.zero)+" records explicitly report zero"),
+            capacityMetric("Missing or nonnumeric",totals.unknown,"Excluded from totals; not treated as zero"));
+        app.append(metrics,el("h2","Matching providers"));
+        if(!filtered.length)app.append(el("div","No source records match these filters. Adjust the selection to continue.","empty"));
+        else{
+            const result=filtered.slice((page-1)*pageSize,page*pageSize);
+            const cells=result.map(r=>[recordCell(s,r,publicFields),shown([r.address,r.city,r.state,r.zip].filter(Boolean).join(", ")),publicCapacity(r)===null?"Not reported / nonnumeric":N.format(publicCapacity(r)),sourceLink(s)]);
+            app.append(table(["Provider / CCN","Reported address",unit.label,"Evidence"],cells))
+        }
+        const pager=el("div",undefined,"pager");pager.append(el("span","Page "+page+" · "+N.format(totals.records)+" matches"));
+        if(page>1)pager.append(anchor("Previous",route("capacity",{...p,page:page-1})));
+        if(page*pageSize<totals.records)pager.append(anchor("Next",route("capacity",{...p,page:page+1})));
+        app.append(pager);
+        if(!p.state){
+            app.append(el("h2","Regional capacity coverage"),el("p","The same capacity filters apply to these regional aggregates. Select a jurisdiction to inspect its matching source records.","intro"));
+            const grouped=new Map(states.map(st=>[st,[]]));
+            for(const row of filtered){if(!grouped.has(row.state))throw Error("Unrecognized jurisdiction in provider shard");grouped.get(row.state).push(row)}
+            const regional=[...grouped].map(([state,rows])=>({state,...summarizeCapacity(rows)}));
+            regional.sort((a,b)=>b.sum-a.sum||b.records-a.records||a.state.localeCompare(b.state));
+            app.append(table(["Jurisdiction","Matching records","Numeric capacity reported","Missing / nonnumeric",unit.label+" reported total"],regional.map(g=>[anchor(g.state,route("capacity",{...p,state:g.state,page:1})),N.format(g.records),N.format(g.reported),N.format(g.unknown),g.reported?N.format(g.sum):"—"])))
+        }else app.append(add(el("p"),anchor("View all jurisdictions",route("capacity",{...p,state:"",page:1}))));
+        app.append(el("p","Within the selected geography, "+N.format(regionTotals.reported)+" of "+N.format(regionTotals.records)+" provider source records report a nonnegative whole-number capacity before capacity filters. Reported zeros are retained. Blank, nonnumeric and negative values are not interpreted. Capacity is derived only from the existing public Care Compare projection.","intro"))
+    }catch(e){if(epoch!==sequence||e.name==="AbortError")return;status.replaceWith(errorBox(s,e))}
+}
+
 function errorBox(s,e){return add(el("div",undefined,"error"),el("strong","Source unavailable. "),el("span",e.message+". This is not a zero-result or compliance finding. "),sourceLink(s,"Open the official source"))}
 function recordCell(s,r,f){const id=value(r,f,"id"),name=value(r,f,"name"),cell=el("div");if(id)cell.append(anchor(shown(name),route("detail",{source:s.key,id,state:value(r,f,"state")})));else cell.append(el("span",shown(name)));cell.append(el("small",shown(id)));return cell}
 function cells(view,s,r,f){const v=k=>value(r,f,k);if(view==="citations")return [anchor(shown(v("name")),route("detail",{source:"nursing",id:v("id"),state:v("state")})),shown(v("id")),shown(v("state")),N.format(r.citation_rows),sourceLink(s)];return [recordCell(s,r,f),shown([v("address"),v("city"),v("state"),v("zip")].filter(Boolean).join(", ")),shown(v("capacity")),sourceLink(s)]}
@@ -161,14 +256,15 @@ async function detail(p,signal,epoch){
                 if(epoch!==sequence)return;summary.replaceWith(table(["Source","Historical citation rows","Source release","Evidence"],cellsOut))
             }
         }
-        const links=el("div",undefined,"links");links.append(sourceLink(s),anchor("Back to directory",route("facilities",{source:s.key,state:p.state})));app.append(links);
+        const links=el("div",undefined,"links");links.append(sourceLink(s),anchor("Back to directory",route("facilities",{source:s.key,state:p.state})));if(Object.hasOwn(capacityUnits,s.key))links.append(anchor("Explore reported capacity in this jurisdiction",route("capacity",{source:s.key,state:p.state})));app.append(links);
         app.append(el("h2","Related source coverage"),add(el("div",undefined,"links"),anchor("Certification registry coverage",route("certifications")),anchor("Hospital survey coverage",route("hospital-surveys")),anchor("Ownership evidence coverage",route("ownership"))),
             el("div","Individual-level certification, equipment, environmental, property and ownership relationships are not inferred or published here. The related links show source-family coverage, not resolved links for this facility.","notice"))
     }catch(e){if(epoch!==sequence||e.name==="AbortError")return;status.replaceWith(errorBox(s,e))}
 }
 function coverageView(view){const own=view==="ownership",items=byFamily(own?"pecos":"qcor");title(own?"Ownership evidence coverage":"Hospital survey coverage",own?"Aggregate PECOS qualification only. Individual ownership records and organizational projections are not published on this public site.":"QCOR survey rows include tags, memos, repeated projections and historical evidence. Correction status is unknown; narrative and row-level workbook data are not published here.");app.append(historicalNote(),table(["Source","Release period","Historical retained rows","Evidence"],sourceRows(items)),el("div",own?"Exact CCN and state candidates do not establish controlling ownership, physical property title, complete portfolios or current operational responsibility.":"Use the official QCOR report for source research. This site does not publish or infer active hospital violations.","notice"))}
 function sourceRegister(p){title("Source register","Discovered sources, historical qualification, and reuse review are separate. A listed source is not necessarily loaded or publicly searchable.");const f=el("form",undefined,"toolbar");f.append(input("Filter source names, publishers or jurisdiction","q",p.q),el("button","Filter"));f.addEventListener("submit",e=>{e.preventDefault();location.hash=route("sources",Object.fromEntries(new FormData(f)))});app.append(f);let overlay=new Map(coverage.sources.map(s=>[s.id,s]));let q=(p.q||"").toLowerCase();let rows=register.sources.filter(s=>!q||[s.id,s.source,s.publisher,s.jurisdiction,s.category].some(x=>String(x).toLowerCase().includes(q)));let page=Math.max(1,Math.min(Math.ceil(rows.length/pageSize)||1,Number(p.page)||1));app.append(el("p",N.format(rows.length)+" source entries · original register preserved"));app.append(table(["Source","Jurisdiction","Qualification","Reuse review","Evidence"],rows.slice((page-1)*pageSize,page*pageSize).map(s=>[s.id+" · "+s.source,s.jurisdiction,overlay.get(s.id)?.status||"Discovered / not tested",s.reuse_review,safeExternal(s.source_url)?anchor("Publisher source",safeExternal(s.source_url),true):"See register"])));const pager=el("div",undefined,"pager");if(page>1)pager.append(anchor("Previous",route("sources",{...p,page:page-1})));if(page*pageSize<rows.length)pager.append(anchor("Next",route("sources",{...p,page:page+1})));app.append(pager)}
-async function render(){if(!lock)return;if(active)active.abort();active=new AbortController();const {view,p}=read(),epoch=++sequence;for(const a of document.querySelectorAll("nav a")){if(a.getAttribute("href")==="#"+view)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")}if(view==="overview")overview();else if(view==="search")await unifiedSearch(p,active.signal,epoch);else if(view==="geography")await geography(active.signal,epoch);else if(["facilities","citations"].includes(view))await directory(view,p,active.signal,epoch);else if(view==="certifications")certificationCoverage();else if(view==="detail")await detail(p,active.signal,epoch);else if(["ownership","hospital-surveys"].includes(view))coverageView(view);else if(view==="sources")sourceRegister(p);else title("Page not found","Choose an available workspace from navigation.");}
+async function render(){if(!lock)return;if(active)active.abort();active=new AbortController();const {view,p}=read(),epoch=++sequence;for(const a of document.querySelectorAll("nav a")){if(a.getAttribute("href")==="#"+view)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")}if(view==="overview")overview();else if(view==="search")await unifiedSearch(p,active.signal,epoch);else if(view==="geography")await geography(active.signal,epoch);else if(view==="capacity")await capacityExplorer(p,active.signal,epoch);else if(["facilities","citations"].includes(view))await directory(view,p,active.signal,epoch);else if(view==="certifications")certificationCoverage();else if(view==="detail")await detail(p,active.signal,epoch);else if(["ownership","hospital-surveys"].includes(view))coverageView(view);else if(view==="sources")sourceRegister(p);else title("Page not found","Choose an available workspace from navigation.");}
 $("global-search").addEventListener("submit",e=>{e.preventDefault();let q=$("global-q").value.trim();location.hash=route("search",{field:/^\d{5}$/.test(q)?"zip":/^(?=.*[0-9])[A-Za-z0-9]{6}$/.test(q)?"id":"name",q})});
-window.addEventListener("hashchange",()=>{if(location.hash==="#workspace"){$("workspace").focus();return}render()});
+document.querySelector(".skip").addEventListener("click",e=>{e.preventDefault();$("workspace").focus()});
+window.addEventListener("hashchange",()=>{render()});
 (async()=>{try{[lock,register,coverage,publicManifest]=await Promise.all(["research/snapshot_release_20261125.json","research/facilitysignal_source_register_v0.2.json","research/coverage_status.json","web/public-directory/manifest.json"].map(async path=>{let r=await fetch(path);if(!r.ok)throw Error("Source metadata HTTP "+r.status);return r.json()}));if(!Array.isArray(lock.sources)||!Array.isArray(register.sources)||!Array.isArray(coverage.sources)||!Array.isArray(publicManifest.jurisdictions)||!publicManifest.sources)throw Error("Invalid source metadata");render()}catch(e){title("Source metadata unavailable","The workspace could not load its source metadata. No data are inferred.");app.append(el("div",e.message,"error"),anchor("FacilitySignal repository","https://github.com/JeremyHennessy/FacilitySignal",true))}})();
