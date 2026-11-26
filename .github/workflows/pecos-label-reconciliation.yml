@@ -1,0 +1,28 @@
+name: PECOS label reconciliation
+on:
+  push:
+    branches: [research/pecos-label-reconciliation-20261126]
+    paths:
+      - pecos_label_reconciliation.py
+      - tests/test_pecos_label_reconciliation.py
+      - .github/workflows/pecos-label-reconciliation.yml
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_pecos_label_reconciliation.py -v
+      - run: python pecos_label_reconciliation.py --download --output "$RUNNER_TEMP/pecos-label.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pecos-label-aggregates
+          path: ${{ runner.temp }}/pecos-label.json
+          retention-days: 14
+          if-no-files-found: error

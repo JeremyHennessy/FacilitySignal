@@ -1,0 +1,577 @@
+{
+  "as_of": "2026-11-26",
+  "scope": "Evidence-supported provisional interpretations, not resolution of current publisher discrepancies or approval for new application use.",
+  "source_sha256": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2",
+  "release": "2026-07-01/2026-09-30",
+  "fields": [
+    {
+      "field": "chow_sw",
+      "scope": "HHA",
+      "interpretation": "Ownership change since the previous survey; historical HHA definition and actual population support HHA rather than ASC.",
+      "historical_candidates": [
+        {
+          "description_candidate": "Indicates if the home health agency has undergone a change of ownership since the last survey.",
+          "label_candidate": "CHOW Indicator",
+          "locations": [
+            [
+              "05",
+              273,
+              23
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "current_candidates": [
+        {
+          "row": 58,
+          "publisher_header": "chow_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Change of Ownership Indicator",
+          "definition": "Indicates if the home health agency has undergone a change of ownership since the last survey.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "observed_scope_states": {
+        "not_available": 3189,
+        "other_nonblank": 20575,
+        "rows": 23764,
+        "scope_unresolved": 23764,
+        "scope_unresolved_nonblank": 20575
+      },
+      "all_scope_states": {
+        "ASC": {
+          "not_applicable": 8492,
+          "rows": 8492,
+          "scope_unresolved": 8492
+        },
+        "CMHC": {
+          "not_applicable": 263,
+          "rows": 263,
+          "scope_unresolved": 263
+        },
+        "CORF": {
+          "not_applicable": 226,
+          "rows": 226,
+          "scope_unresolved": 226
+        },
+        "ESRD": {
+          "not_applicable": 8659,
+          "rows": 8659,
+          "scope_unresolved": 8659
+        },
+        "FQHC": {
+          "not_applicable": 14581,
+          "rows": 14581,
+          "scope_unresolved": 14581
+        },
+        "HHA": {
+          "not_available": 3189,
+          "other_nonblank": 20575,
+          "rows": 23764,
+          "scope_unresolved": 23764,
+          "scope_unresolved_nonblank": 20575
+        },
+        "HOSPICE": {
+          "not_applicable": 9372,
+          "rows": 9372,
+          "scope_unresolved": 9372
+        },
+        "ICFIID": {
+          "not_applicable": 6710,
+          "rows": 6710,
+          "scope_unresolved": 6710
+        },
+        "NH": {
+          "not_applicable": 17082,
+          "rows": 17082,
+          "scope_unresolved": 17082
+        },
+        "OPO": {
+          "not_applicable": 59,
+          "rows": 59,
+          "scope_unresolved": 59
+        },
+        "OPT/SLP": {
+          "not_applicable": 2738,
+          "rows": 2738,
+          "scope_unresolved": 2738
+        },
+        "PRTF": {
+          "not_applicable": 547,
+          "rows": 547,
+          "scope_unresolved": 547
+        },
+        "PXR": {
+          "not_applicable": 705,
+          "rows": 705,
+          "scope_unresolved": 705
+        },
+        "RHC": {
+          "not_applicable": 7136,
+          "rows": 7136,
+          "scope_unresolved": 7136
+        }
+      },
+      "release_gate": "current publisher clarification and exact domain qualification required; no promotion"
+    },
+    {
+      "field": "ot_cntrctr_sw",
+      "scope": "CORF",
+      "interpretation": "Occupational therapy by independent contractor is supported by historical CORF metadata; current label duplicates nursing.",
+      "historical_candidates": [
+        {
+          "description_candidate": "Indicates if occupational therapy services are provided by independent contractors.",
+          "label_candidate": "Services: OT - Independent Contractor Indicator",
+          "locations": [
+            [
+              "14",
+              568,
+              23
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "current_candidates": [
+        {
+          "row": 154,
+          "publisher_header": "ot_cntrctr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Nurses By Independent Contract",
+          "definition": "Indicates that the provider has nurses employed as independent contractors.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "observed_scope_states": {
+        "not_available": 47,
+        "other_nonblank": 179,
+        "rows": 226,
+        "scope_unresolved": 226,
+        "scope_unresolved_nonblank": 179
+      },
+      "all_scope_states": {
+        "ASC": {
+          "not_applicable": 8492,
+          "rows": 8492,
+          "scope_unresolved": 8492
+        },
+        "CMHC": {
+          "not_applicable": 263,
+          "rows": 263,
+          "scope_unresolved": 263
+        },
+        "CORF": {
+          "not_available": 47,
+          "other_nonblank": 179,
+          "rows": 226,
+          "scope_unresolved": 226,
+          "scope_unresolved_nonblank": 179
+        },
+        "ESRD": {
+          "not_applicable": 8659,
+          "rows": 8659,
+          "scope_unresolved": 8659
+        },
+        "FQHC": {
+          "not_applicable": 14581,
+          "rows": 14581,
+          "scope_unresolved": 14581
+        },
+        "HHA": {
+          "not_applicable": 23764,
+          "rows": 23764,
+          "scope_unresolved": 23764
+        },
+        "HOSPICE": {
+          "not_applicable": 9372,
+          "rows": 9372,
+          "scope_unresolved": 9372
+        },
+        "ICFIID": {
+          "not_applicable": 6710,
+          "rows": 6710,
+          "scope_unresolved": 6710
+        },
+        "NH": {
+          "not_applicable": 17082,
+          "rows": 17082,
+          "scope_unresolved": 17082
+        },
+        "OPO": {
+          "not_applicable": 59,
+          "rows": 59,
+          "scope_unresolved": 59
+        },
+        "OPT/SLP": {
+          "not_applicable": 2738,
+          "rows": 2738,
+          "scope_unresolved": 2738
+        },
+        "PRTF": {
+          "not_applicable": 547,
+          "rows": 547,
+          "scope_unresolved": 547
+        },
+        "PXR": {
+          "not_applicable": 705,
+          "rows": 705,
+          "scope_unresolved": 705
+        },
+        "RHC": {
+          "not_applicable": 7136,
+          "rows": 7136,
+          "scope_unresolved": 7136
+        }
+      },
+      "release_gate": "current publisher clarification and exact domain qualification required; no promotion"
+    },
+    {
+      "field": "ot_arngmt_sw",
+      "scope": "CORF",
+      "interpretation": "Occupational therapy by arrangement is supported by historical CORF metadata; current label duplicates nursing.",
+      "historical_candidates": [
+        {
+          "description_candidate": "Indicates if occupational therapy services are provided under arrangement. 3-4)",
+          "label_candidate": "Services: OT - Under Arrangement Indicator",
+          "locations": [
+            [
+              "14",
+              568,
+              24
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "current_candidates": [
+        {
+          "row": 155,
+          "publisher_header": "ot_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Nurses By Arrangement",
+          "definition": "Indicates that the provider has nurses employed under arrangement.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "observed_scope_states": {
+        "not_available": 47,
+        "other_nonblank": 179,
+        "rows": 226,
+        "scope_unresolved": 226,
+        "scope_unresolved_nonblank": 179
+      },
+      "all_scope_states": {
+        "ASC": {
+          "not_applicable": 8492,
+          "rows": 8492,
+          "scope_unresolved": 8492
+        },
+        "CMHC": {
+          "not_applicable": 263,
+          "rows": 263,
+          "scope_unresolved": 263
+        },
+        "CORF": {
+          "not_available": 47,
+          "other_nonblank": 179,
+          "rows": 226,
+          "scope_unresolved": 226,
+          "scope_unresolved_nonblank": 179
+        },
+        "ESRD": {
+          "not_applicable": 8659,
+          "rows": 8659,
+          "scope_unresolved": 8659
+        },
+        "FQHC": {
+          "not_applicable": 14581,
+          "rows": 14581,
+          "scope_unresolved": 14581
+        },
+        "HHA": {
+          "not_applicable": 23764,
+          "rows": 23764,
+          "scope_unresolved": 23764
+        },
+        "HOSPICE": {
+          "not_applicable": 9372,
+          "rows": 9372,
+          "scope_unresolved": 9372
+        },
+        "ICFIID": {
+          "not_applicable": 6710,
+          "rows": 6710,
+          "scope_unresolved": 6710
+        },
+        "NH": {
+          "not_applicable": 17082,
+          "rows": 17082,
+          "scope_unresolved": 17082
+        },
+        "OPO": {
+          "not_applicable": 59,
+          "rows": 59,
+          "scope_unresolved": 59
+        },
+        "OPT/SLP": {
+          "not_applicable": 2738,
+          "rows": 2738,
+          "scope_unresolved": 2738
+        },
+        "PRTF": {
+          "not_applicable": 547,
+          "rows": 547,
+          "scope_unresolved": 547
+        },
+        "PXR": {
+          "not_applicable": 705,
+          "rows": 705,
+          "scope_unresolved": 705
+        },
+        "RHC": {
+          "not_applicable": 7136,
+          "rows": 7136,
+          "scope_unresolved": 7136
+        }
+      },
+      "release_gate": "current publisher clarification and exact domain qualification required; no promotion"
+    },
+    {
+      "field": "physn_arngmt_sw",
+      "scope": "CORF",
+      "interpretation": "Both current entries and historical reference agree on physician services by arrangement; second current entry adds form context.",
+      "historical_candidates": [
+        {
+          "description_candidate": "Indicates if physician services are provided under arrangement.",
+          "label_candidate": null,
+          "locations": [
+            [
+              "14",
+              569,
+              24
+            ]
+          ],
+          "type_candidate": null
+        }
+      ],
+      "current_candidates": [
+        {
+          "row": 158,
+          "publisher_header": "physn_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Physicians By Arrangement",
+          "definition": "Indicates that the provider offers physician services by arrangement.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        },
+        {
+          "row": 159,
+          "publisher_header": "physn_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Physicians By Arrangement",
+          "definition": "Indicates that the provider offers physician services by arrangement. Included in CMS-359 forms.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "observed_scope_states": {
+        "not_available": 47,
+        "other_nonblank": 179,
+        "rows": 226,
+        "scope_unresolved": 226,
+        "scope_unresolved_nonblank": 179
+      },
+      "all_scope_states": {
+        "ASC": {
+          "not_applicable": 8492,
+          "rows": 8492,
+          "scope_unresolved": 8492
+        },
+        "CMHC": {
+          "not_applicable": 263,
+          "rows": 263,
+          "scope_unresolved": 263
+        },
+        "CORF": {
+          "not_available": 47,
+          "other_nonblank": 179,
+          "rows": 226,
+          "scope_unresolved": 226,
+          "scope_unresolved_nonblank": 179
+        },
+        "ESRD": {
+          "not_applicable": 8659,
+          "rows": 8659,
+          "scope_unresolved": 8659
+        },
+        "FQHC": {
+          "not_applicable": 14581,
+          "rows": 14581,
+          "scope_unresolved": 14581
+        },
+        "HHA": {
+          "not_applicable": 23764,
+          "rows": 23764,
+          "scope_unresolved": 23764
+        },
+        "HOSPICE": {
+          "not_applicable": 9372,
+          "rows": 9372,
+          "scope_unresolved": 9372
+        },
+        "ICFIID": {
+          "not_applicable": 6710,
+          "rows": 6710,
+          "scope_unresolved": 6710
+        },
+        "NH": {
+          "not_applicable": 17082,
+          "rows": 17082,
+          "scope_unresolved": 17082
+        },
+        "OPO": {
+          "not_applicable": 59,
+          "rows": 59,
+          "scope_unresolved": 59
+        },
+        "OPT/SLP": {
+          "not_applicable": 2738,
+          "rows": 2738,
+          "scope_unresolved": 2738
+        },
+        "PRTF": {
+          "not_applicable": 547,
+          "rows": 547,
+          "scope_unresolved": 547
+        },
+        "PXR": {
+          "not_applicable": 705,
+          "rows": 705,
+          "scope_unresolved": 705
+        },
+        "RHC": {
+          "not_applicable": 7136,
+          "rows": 7136,
+          "scope_unresolved": 7136
+        }
+      },
+      "release_gate": "current publisher clarification and exact domain qualification required; no promotion"
+    },
+    {
+      "field": "fed_fundd_fqhc_sw",
+      "scope": "FQHC",
+      "interpretation": "Historical reference describes receipt of federal funding; current definition absent.",
+      "historical_candidates": [
+        {
+          "description_candidate": "Indicates whether this facility receives federal funds.",
+          "label_candidate": "FQHC Federally Funded Indicator",
+          "locations": [
+            [
+              "21",
+              733,
+              22
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "current_candidates": [],
+      "observed_scope_states": {
+        "not_available": 7214,
+        "other_nonblank": 7367,
+        "rows": 14581,
+        "scope_unresolved": 14581,
+        "scope_unresolved_nonblank": 7367
+      },
+      "all_scope_states": {
+        "ASC": {
+          "not_applicable": 8492,
+          "rows": 8492,
+          "scope_unresolved": 8492
+        },
+        "CMHC": {
+          "not_applicable": 263,
+          "rows": 263,
+          "scope_unresolved": 263
+        },
+        "CORF": {
+          "not_applicable": 226,
+          "rows": 226,
+          "scope_unresolved": 226
+        },
+        "ESRD": {
+          "not_applicable": 8659,
+          "rows": 8659,
+          "scope_unresolved": 8659
+        },
+        "FQHC": {
+          "not_available": 7214,
+          "other_nonblank": 7367,
+          "rows": 14581,
+          "scope_unresolved": 14581,
+          "scope_unresolved_nonblank": 7367
+        },
+        "HHA": {
+          "not_applicable": 23764,
+          "rows": 23764,
+          "scope_unresolved": 23764
+        },
+        "HOSPICE": {
+          "not_applicable": 9372,
+          "rows": 9372,
+          "scope_unresolved": 9372
+        },
+        "ICFIID": {
+          "not_applicable": 6710,
+          "rows": 6710,
+          "scope_unresolved": 6710
+        },
+        "NH": {
+          "not_applicable": 17082,
+          "rows": 17082,
+          "scope_unresolved": 17082
+        },
+        "OPO": {
+          "not_applicable": 59,
+          "rows": 59,
+          "scope_unresolved": 59
+        },
+        "OPT/SLP": {
+          "not_applicable": 2738,
+          "rows": 2738,
+          "scope_unresolved": 2738
+        },
+        "PRTF": {
+          "not_applicable": 547,
+          "rows": 547,
+          "scope_unresolved": 547
+        },
+        "PXR": {
+          "not_applicable": 705,
+          "rows": 705,
+          "scope_unresolved": 705
+        },
+        "RHC": {
+          "not_applicable": 7136,
+          "rows": 7136,
+          "scope_unresolved": 7136
+        }
+      },
+      "release_gate": "current publisher clarification and exact domain qualification required; no promotion"
+    }
+  ],
+  "blocked_hospital_operating_room": {
+    "field": "OPRTG_ROOM_CNT",
+    "reason": "Historical hospital-section definition refers to ASC. No hospital count interpretation approved."
+  },
+  "reference": "https://www.cms.gov/Medicare/CMS-Forms/CMS-Forms/downloads/CMS359.pdf"
+}

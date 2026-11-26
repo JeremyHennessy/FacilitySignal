@@ -1,0 +1,149 @@
+{
+  "as_of": "2026-11-26",
+  "qualification_run": 45843011520,
+  "qualification_job": 139989332700,
+  "qualified_commit": "08254bbb923f25abc36fc4b52861c37aeb62e41e",
+  "tests_passed": 3,
+  "dictionaries": [
+    "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
+    "https://data.cms.gov/sites/default/files/2026-07/SNF_Enrollments_Data_Dictionary.pdf",
+    "https://data.cms.gov/sites/default/files/2026-07/Hospital_CHOW_Data_Dictionary.pdf",
+    "https://data.cms.gov/resources/medicare-fee-for-service-public-provider-enrollment-data-dictionary",
+    "https://www.cms.gov/Medicare/CMS-Forms/CMS-Forms/Downloads/cms855a.pdf"
+  ],
+  "limits": "Exact code/label corroboration only. Structure form options and bounded candidate variants are not export-domain confirmation. No source values outside the explicit domain, no ownership inference or date normalization.",
+  "sources": {
+    "hospital-chow": {
+      "organization_structure_candidates": {},
+      "proprietary_nonprofit": {},
+      "provider_code_label_states": {
+        " - BUYER": {
+          "00-09|matches": 607,
+          "00-24|documented_general_dictionary_variant": 3,
+          "00-85|matches": 169
+        },
+        " - SELLER": {
+          "00-06|matches": 2,
+          "00-09|matches": 601,
+          "00-14|matches": 1,
+          "00-19|matches": 7,
+          "00-24|documented_general_dictionary_variant": 2,
+          "00-85|matches": 166
+        }
+      },
+      "release": "2026-07-01/2026-09-30",
+      "rows": 779,
+      "sha256": "a8cb5111dee64780f2c5bd9b10fdd304140848eeeee2e4b2c5012c7421533648",
+      "structure_by_proprietary_nonprofit": {}
+    },
+    "hospital-enrollment": {
+      "organization_structure_candidates": {
+        "CORPORATION": 5185,
+        "OTHER": 1388,
+        "PARTNERSHIP": 167,
+        "SOLE PROPRIETOR": 1,
+        "candidate_variant:LIMITED LIABILITY COMPANY": 1749,
+        "candidate_variant:government_unspecified": 627,
+        "other_unreviewed": 3
+      },
+      "proprietary_nonprofit": {
+        "nonprofit": 6662,
+        "proprietary": 2312,
+        "unreviewed": 146
+      },
+      "provider_code_label_states": {
+        "": {
+          "00-09|matches": 6321,
+          "00-24|documented_general_dictionary_variant": 57,
+          "00-85|matches": 2742
+        }
+      },
+      "release": "2026-11-01/2026-11-30",
+      "rows": 9120,
+      "sha256": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e",
+      "structure_by_proprietary_nonprofit": {
+        "CORPORATION|nonprofit": 4582,
+        "CORPORATION|proprietary": 600,
+        "CORPORATION|unreviewed": 3,
+        "OTHER|nonprofit": 1272,
+        "OTHER|proprietary": 110,
+        "OTHER|unreviewed": 6,
+        "PARTNERSHIP|proprietary": 162,
+        "PARTNERSHIP|unreviewed": 5,
+        "SOLE PROPRIETOR|proprietary": 1,
+        "candidate_variant:LIMITED LIABILITY COMPANY|nonprofit": 213,
+        "candidate_variant:LIMITED LIABILITY COMPANY|proprietary": 1406,
+        "candidate_variant:LIMITED LIABILITY COMPANY|unreviewed": 130,
+        "candidate_variant:government_unspecified|nonprofit": 594,
+        "candidate_variant:government_unspecified|proprietary": 31,
+        "candidate_variant:government_unspecified|unreviewed": 2,
+        "other_unreviewed|nonprofit": 1,
+        "other_unreviewed|proprietary": 2
+      }
+    },
+    "snf-chow": {
+      "organization_structure_candidates": {},
+      "proprietary_nonprofit": {},
+      "provider_code_label_states": {
+        " - BUYER": {
+          "00-18|matches": 5340
+        },
+        " - SELLER": {
+          "00-04|matches": 2,
+          "00-09|matches": 1,
+          "00-10|matches": 1,
+          "00-14|matches": 1,
+          "00-17|matches": 1,
+          "00-18|matches": 5332,
+          "00-85|matches": 2
+        }
+      },
+      "release": "2026-07-01/2026-09-30",
+      "rows": 5340,
+      "sha256": "8214fe65ec7c9b291bf579bd9fcdd281fbf9bd8a593613e9db93b6f0d8bdbcb5",
+      "structure_by_proprietary_nonprofit": {}
+    },
+    "snf-enrollment": {
+      "organization_structure_candidates": {
+        "CORPORATION": 3939,
+        "OTHER": 913,
+        "PARTNERSHIP": 182,
+        "SOLE PROPRIETOR": 1,
+        "candidate_variant:LIMITED LIABILITY COMPANY": 8142,
+        "candidate_variant:government_unspecified": 1213,
+        "other_unreviewed": 11
+      },
+      "proprietary_nonprofit": {
+        "nonprofit": 4429,
+        "proprietary": 9747,
+        "unreviewed": 225
+      },
+      "provider_code_label_states": {
+        "": {
+          "00-18|matches": 14401
+        }
+      },
+      "release": "2026-11-01/2026-11-30",
+      "rows": 14401,
+      "sha256": "21f6b282b07017f2596d9c3cb84dac3eaa100bd2ec637e0d7f03510e0f0acf89",
+      "structure_by_proprietary_nonprofit": {
+        "CORPORATION|nonprofit": 2297,
+        "CORPORATION|proprietary": 1639,
+        "CORPORATION|unreviewed": 3,
+        "OTHER|nonprofit": 748,
+        "OTHER|proprietary": 164,
+        "OTHER|unreviewed": 1,
+        "PARTNERSHIP|proprietary": 181,
+        "PARTNERSHIP|unreviewed": 1,
+        "SOLE PROPRIETOR|proprietary": 1,
+        "candidate_variant:LIMITED LIABILITY COMPANY|nonprofit": 236,
+        "candidate_variant:LIMITED LIABILITY COMPANY|proprietary": 7695,
+        "candidate_variant:LIMITED LIABILITY COMPANY|unreviewed": 211,
+        "candidate_variant:government_unspecified|nonprofit": 1148,
+        "candidate_variant:government_unspecified|proprietary": 56,
+        "candidate_variant:government_unspecified|unreviewed": 9,
+        "other_unreviewed|proprietary": 11
+      }
+    }
+  }
+}

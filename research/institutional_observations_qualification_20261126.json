@@ -1,0 +1,84 @@
+{
+  "as_of": "2026-11-26",
+  "qualification_run": 45842903741,
+  "qualification_job": 139988966252,
+  "qualified_commit": "614bfc6eab219b90c364304ea8ce8d3bef5b8c72",
+  "tests_passed": 4,
+  "field_rules": 10,
+  "limits": "Ephemeral institutional candidate only. Exact same-source public directory and raw identities; no new public individual evidence, canonical property, current operation or compliance inference.",
+  "membership_and_state_filter_checks": "passed",
+  "observations": 101534,
+  "source_records": 27592,
+  "sources": {
+    "dialysis": {
+      "fields": {
+        "chain_owned_or_managed": {
+          "reported_no": 737,
+          "reported_yes": 6734
+        },
+        "home_hemodialysis_training": {
+          "reported_no": 5060,
+          "reported_yes": 2411
+        },
+        "in_center_hemodialysis": {
+          "reported_no": 512,
+          "reported_yes": 6959
+        },
+        "late_shift": {
+          "reported_no": 6335,
+          "reported_yes": 1136
+        },
+        "peritoneal_dialysis": {
+          "reported_no": 3404,
+          "reported_yes": 4067
+        }
+      },
+      "observations": 37355,
+      "providers": 7471,
+      "public_sha256": "e8343f678ec1780ac49047f162754657f60eaa3f61b1d4f48ea4b55d39d4008a",
+      "release": "2026-10-28",
+      "source_sha256": "9b0232d73b8aa9628b51bc76b7246b8590daa0393ec9dfd3126171ce571469ed"
+    },
+    "hospital": {
+      "fields": {
+        "emergency_services": {
+          "reported_no": 934,
+          "reported_yes": 4501
+        }
+      },
+      "observations": 5435,
+      "providers": 5435,
+      "public_sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a",
+      "release": "2026-11-12",
+      "source_sha256": "ff2a82a7149975fb86348e7f901aa3bcd9f3701e8b0ecd0ab34702df193ff559"
+    },
+    "nursing": {
+      "fields": {
+        "health_survey_over_two_years": {
+          "reported_no": 13731,
+          "reported_yes": 955
+        },
+        "ownership_change_12_months": {
+          "reported_no": 14626,
+          "reported_yes": 60
+        },
+        "special_focus": {
+          "not_reported": 14159,
+          "reported_candidate": 440,
+          "reported_sff": 87
+        },
+        "sprinklers": {
+          "all_required_areas": 14599,
+          "not_available": 51,
+          "partial": 36
+        }
+      },
+      "observations": 58744,
+      "providers": 14686,
+      "public_sha256": "36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce",
+      "release": "2026-10-28",
+      "source_sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2"
+    }
+  },
+  "sqlite_integrity": "ok"
+}
