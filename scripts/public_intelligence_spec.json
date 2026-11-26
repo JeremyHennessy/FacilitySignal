@@ -6952,6 +6952,1430 @@
               }
             ]
           ]
+        },
+        {
+          "id": "clia-semantic-status",
+          "title": "CLIA historical termination-code scopes",
+          "note": "Q3 2026 source records; historical reference semantics only. Both raw termination columns agree row by row in this release. Code 00 is not proof of current operations or a valid certificate. Code 95 has no established authoritative meaning.",
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "run": 45831429985,
+          "columns": [
+            "Source scope",
+            "Registry rows"
+          ],
+          "rows": [
+            [
+              "Literal 00 — historical active code",
+              {
+                "path": [
+                  "clia_semantic",
+                  "scopes",
+                  "literal_00"
+                ]
+              }
+            ],
+            [
+              "Other historically documented codes",
+              {
+                "path": [
+                  "clia_semantic",
+                  "scopes",
+                  "other_documented"
+                ]
+              }
+            ],
+            [
+              "Unmapped code 95",
+              {
+                "path": [
+                  "clia_semantic",
+                  "scopes",
+                  "unresolved"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "clia-semantic-certificates",
+          "title": "CLIA certificates by reported status scope",
+          "note": "Five historical certificate classifications, stratified by literal source status. Counts are records, not independently confirmed current licenses or unique physical premises.",
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "run": 45831429985,
+          "columns": [
+            "Source code",
+            "Historical classification",
+            "Code 00",
+            "Other documented",
+            "Unmapped"
+          ],
+          "rows": [
+            [
+              "1",
+              "Compliance",
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "literal_00",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "other_documented",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "unresolved",
+                  "code_1"
+                ]
+              }
+            ],
+            [
+              "2",
+              "Waiver",
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "literal_00",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "other_documented",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "unresolved",
+                  "code_2"
+                ]
+              }
+            ],
+            [
+              "3",
+              "Accreditation",
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "literal_00",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "other_documented",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "unresolved",
+                  "code_3"
+                ]
+              }
+            ],
+            [
+              "4",
+              "Provider-performed microscopy",
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "literal_00",
+                  "code_4"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "other_documented",
+                  "code_4"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "unresolved",
+                  "code_4"
+                ]
+              }
+            ],
+            [
+              "9",
+              "Registration",
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "literal_00",
+                  "code_9"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "other_documented",
+                  "code_9"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "certificates",
+                  "unresolved",
+                  "code_9"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "clia-semantic-facility-type",
+          "title": "CLIA reported facility-type classifications",
+          "note": "Q3 2026 category-specific facility-type codes using historical reference labels. Laboratory records may occur within other provider types; no unique-site, property, or current operations inference. The extracted code 18 label is incomplete.",
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "run": 45831429985,
+          "columns": [
+            "Code",
+            "Historical facility label",
+            "All registry rows",
+            "Code 00 rows"
+          ],
+          "rows": [
+            [
+              "01",
+              "Ambulance",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_01"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_01"
+                ]
+              }
+            ],
+            [
+              "02",
+              "Ambulatory Surgery Center",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_02"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_02"
+                ]
+              }
+            ],
+            [
+              "03",
+              "Ancillary Test Site",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_03"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_03"
+                ]
+              }
+            ],
+            [
+              "04",
+              "Assisted Living Facility",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_04"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_04"
+                ]
+              }
+            ],
+            [
+              "05",
+              "Blood Banks",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_05"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_05"
+                ]
+              }
+            ],
+            [
+              "06",
+              "Community Clinic",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_06"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_06"
+                ]
+              }
+            ],
+            [
+              "07",
+              "Comprehensive Outpatient Rehab",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_07"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_07"
+                ]
+              }
+            ],
+            [
+              "08",
+              "End Stage Renal Disease Dialysis",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_08"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_08"
+                ]
+              }
+            ],
+            [
+              "09",
+              "Federally Qualified Health Center",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_09"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_09"
+                ]
+              }
+            ],
+            [
+              "10",
+              "Health Fair",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_10"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_10"
+                ]
+              }
+            ],
+            [
+              "11",
+              "Health Maintenance Organization",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_11"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_11"
+                ]
+              }
+            ],
+            [
+              "12",
+              "Home Health Agency",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_12"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_12"
+                ]
+              }
+            ],
+            [
+              "13",
+              "Hospice",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_13"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_13"
+                ]
+              }
+            ],
+            [
+              "14",
+              "Hospital",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_14"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_14"
+                ]
+              }
+            ],
+            [
+              "15",
+              "Independent",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_15"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_15"
+                ]
+              }
+            ],
+            [
+              "16",
+              "Industrial",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_16"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_16"
+                ]
+              }
+            ],
+            [
+              "17",
+              "Insurance",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_17"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_17"
+                ]
+              }
+            ],
+            [
+              "18",
+              "Intermediate care facility — historical label incomplete",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_18"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_18"
+                ]
+              }
+            ],
+            [
+              "19",
+              "Mobile Lab",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_19"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_19"
+                ]
+              }
+            ],
+            [
+              "20",
+              "Pharmacy",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_20"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_20"
+                ]
+              }
+            ],
+            [
+              "21",
+              "Physician Office",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_21"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_21"
+                ]
+              }
+            ],
+            [
+              "22",
+              "Other Practitioner",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_22"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_22"
+                ]
+              }
+            ],
+            [
+              "23",
+              "Prison",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_23"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_23"
+                ]
+              }
+            ],
+            [
+              "24",
+              "Public Health Laboratory",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_24"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_24"
+                ]
+              }
+            ],
+            [
+              "25",
+              "Rural Health Clinic",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_25"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_25"
+                ]
+              }
+            ],
+            [
+              "26",
+              "School/Student Health Service",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_26"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_26"
+                ]
+              }
+            ],
+            [
+              "27",
+              "Skilled Nursing/Nursing Facility",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_27"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_27"
+                ]
+              }
+            ],
+            [
+              "28",
+              "Tissue Bank/Repositories",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_28"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_28"
+                ]
+              }
+            ],
+            [
+              "29",
+              "Other",
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_all",
+                  "code_29"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "facility_00",
+                  "code_29"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "clia-semantic-accreditation",
+          "title": "CLIA accreditation declarations and confirmations",
+          "note": "Historical application X flags, literal Y confirmation flags, and match-date presence. Organization labels follow the source field prefixes; organizations can overlap. These are not verified current accreditations.",
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "run": 45831429985,
+          "columns": [
+            "Source organization",
+            "Reported X",
+            "Confirmed Y + date",
+            "X without confirmed match",
+            "Code 00 confirmed"
+          ],
+          "rows": [
+            [
+              "A2LA",
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "A2LA",
+                  "reported"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "A2LA",
+                  "confirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "A2LA",
+                  "unconfirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "A2LA",
+                  "code00_confirmed"
+                ]
+              }
+            ],
+            [
+              "AABB",
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "AABB",
+                  "reported"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "AABB",
+                  "confirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "AABB",
+                  "unconfirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "AABB",
+                  "code00_confirmed"
+                ]
+              }
+            ],
+            [
+              "AOA",
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "AOA",
+                  "reported"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "AOA",
+                  "confirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "AOA",
+                  "unconfirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "AOA",
+                  "code00_confirmed"
+                ]
+              }
+            ],
+            [
+              "ASHI",
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "ASHI",
+                  "reported"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "ASHI",
+                  "confirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "ASHI",
+                  "unconfirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "ASHI",
+                  "code00_confirmed"
+                ]
+              }
+            ],
+            [
+              "CAP",
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "CAP",
+                  "reported"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "CAP",
+                  "confirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "CAP",
+                  "unconfirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "CAP",
+                  "code00_confirmed"
+                ]
+              }
+            ],
+            [
+              "COLA",
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "COLA",
+                  "reported"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "COLA",
+                  "confirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "COLA",
+                  "unconfirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "COLA",
+                  "code00_confirmed"
+                ]
+              }
+            ],
+            [
+              "JCAHO",
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "JCAHO",
+                  "reported"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "JCAHO",
+                  "confirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "JCAHO",
+                  "unconfirmed"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "accreditation",
+                  "JCAHO",
+                  "code00_confirmed"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "clia-semantic-dates",
+          "title": "CLIA certificate date diagnostics",
+          "note": "Literal YYYYMMDD calendar dates compared with the source period end (September 30, 2026), not today's date. The combined termination/expiration date does not identify which event occurred; no present-day certificate validity inference.",
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "run": 45831429985,
+          "columns": [
+            "Status scope",
+            "Date field",
+            "On / before period end",
+            "After period end",
+            "Other / missing"
+          ],
+          "rows": [
+            [
+              "Literal 00 — historical active code",
+              "Certificate effective",
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "literal_00/CRTFCT_EFCTV_DT",
+                  "before"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "literal_00/CRTFCT_EFCTV_DT",
+                  "after"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "literal_00/CRTFCT_EFCTV_DT",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Literal 00 — historical active code",
+              "Termination / expiration",
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "literal_00/TRMNTN_EXPRTN_DT",
+                  "before"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "literal_00/TRMNTN_EXPRTN_DT",
+                  "after"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "literal_00/TRMNTN_EXPRTN_DT",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Literal 00 — historical active code",
+              "Certificate mailed",
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "literal_00/CRTFCT_MAIL_DT",
+                  "before"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "literal_00/CRTFCT_MAIL_DT",
+                  "after"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "literal_00/CRTFCT_MAIL_DT",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Other historically documented codes",
+              "Certificate effective",
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "other_documented/CRTFCT_EFCTV_DT",
+                  "before"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "other_documented/CRTFCT_EFCTV_DT",
+                  "after"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "other_documented/CRTFCT_EFCTV_DT",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Other historically documented codes",
+              "Termination / expiration",
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "other_documented/TRMNTN_EXPRTN_DT",
+                  "before"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "other_documented/TRMNTN_EXPRTN_DT",
+                  "after"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "other_documented/TRMNTN_EXPRTN_DT",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Other historically documented codes",
+              "Certificate mailed",
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "other_documented/CRTFCT_MAIL_DT",
+                  "before"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "other_documented/CRTFCT_MAIL_DT",
+                  "after"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "other_documented/CRTFCT_MAIL_DT",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Unmapped code 95",
+              "Certificate effective",
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "unresolved/CRTFCT_EFCTV_DT",
+                  "before"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "unresolved/CRTFCT_EFCTV_DT",
+                  "after"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "unresolved/CRTFCT_EFCTV_DT",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Unmapped code 95",
+              "Termination / expiration",
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "unresolved/TRMNTN_EXPRTN_DT",
+                  "before"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "unresolved/TRMNTN_EXPRTN_DT",
+                  "after"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "unresolved/TRMNTN_EXPRTN_DT",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Unmapped code 95",
+              "Certificate mailed",
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "unresolved/CRTFCT_MAIL_DT",
+                  "before"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "unresolved/CRTFCT_MAIL_DT",
+                  "after"
+                ]
+              },
+              {
+                "path": [
+                  "clia_semantic",
+                  "dates",
+                  "unresolved/CRTFCT_MAIL_DT",
+                  "other"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "clia-semantic-references",
+          "title": "CLIA identifier and affiliation-reference diagnostics",
+          "note": "Exact identifier tokens and source flag/count observations only. Affiliation matches are candidates, not validated relationships, ownership, or physical sites. Date and multisite discrepancies are review flags, not proof of errors.",
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "run": 45831429985,
+          "columns": [
+            "Evidence measure",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Source fields reviewed",
+              {
+                "path": [
+                  "clia_semantic",
+                  "field_count"
+                ]
+              }
+            ],
+            [
+              "Distinct registry identifier tokens",
+              {
+                "path": [
+                  "clia_semantic",
+                  "identity",
+                  "distinct_registry_id_tokens"
+                ]
+              }
+            ],
+            [
+              "Registry tokens with multiple rows",
+              {
+                "path": [
+                  "clia_semantic",
+                  "identity",
+                  "registry_id_tokens_with_multiple_rows"
+                ]
+              }
+            ],
+            [
+              "Populated affiliation reference occurrences",
+              {
+                "path": [
+                  "clia_semantic",
+                  "identity",
+                  "affiliation_reference_occurrences"
+                ]
+              }
+            ],
+            [
+              "Occurrences matching registry IDs",
+              {
+                "path": [
+                  "clia_semantic",
+                  "identity",
+                  "affiliation_occurrences_matching_registry_id"
+                ]
+              }
+            ],
+            [
+              "Occurrences without registry ID match",
+              {
+                "path": [
+                  "clia_semantic",
+                  "unmatched_references"
+                ]
+              }
+            ],
+            [
+              "Distinct reference tokens",
+              {
+                "path": [
+                  "clia_semantic",
+                  "identity",
+                  "distinct_affiliation_reference_tokens"
+                ]
+              }
+            ],
+            [
+              "Distinct tokens matching registry IDs",
+              {
+                "path": [
+                  "clia_semantic",
+                  "identity",
+                  "distinct_affiliation_tokens_matching_registry_id"
+                ]
+              }
+            ],
+            [
+              "Self-reference occurrences",
+              {
+                "path": [
+                  "clia_semantic",
+                  "identity",
+                  "affiliation_self_reference_occurrences"
+                ]
+              }
+            ],
+            [
+              "Current classification found in reported history",
+              {
+                "path": [
+                  "clia_semantic",
+                  "history_match"
+                ]
+              }
+            ],
+            [
+              "Effective date after termination / expiration",
+              {
+                "path": [
+                  "clia_semantic",
+                  "reversed_dates"
+                ]
+              }
+            ],
+            [
+              "Multisite N with positive site count",
+              {
+                "path": [
+                  "clia_semantic",
+                  "multisite",
+                  "literal_N/positive"
+                ]
+              }
+            ],
+            [
+              "Multisite Y with zero site count",
+              {
+                "path": [
+                  "clia_semantic",
+                  "multisite",
+                  "literal_Y/zero"
+                ]
+              }
+            ],
+            [
+              "Multisite Y with positive site count",
+              {
+                "path": [
+                  "clia_semantic",
+                  "multisite",
+                  "literal_Y/positive"
+                ]
+              }
+            ],
+            [
+              "Multisite N with zero site count",
+              {
+                "path": [
+                  "clia_semantic",
+                  "multisite",
+                  "literal_N/zero"
+                ]
+              }
+            ]
+          ]
         }
       ]
     }
