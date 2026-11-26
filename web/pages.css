@@ -116,3 +116,11 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 .profile-location-table table{min-width:650px}
 .profile-location-table th,.profile-location-table td{overflow-wrap:anywhere}
 @media(max-width:720px){.dossier-evidence{padding:12px}.dossier-capacity{padding:10px;align-items:flex-start;flex-direction:column}.dossier-capacity strong{font-size:16px}.profile-peer-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-peer-metrics .metric strong{font-size:21px}}
+
+/* Saved portfolio only: retain readable columns and intact actions in the existing scroll region. */
+#app .portfolio-results table{min-width:680px!important;table-layout:auto}
+#app .portfolio-results th,#app .portfolio-results td{overflow-wrap:normal;word-break:normal}
+#app .portfolio-results th:first-child,#app .portfolio-results td:first-child{min-width:210px;overflow-wrap:break-word}
+#app .portfolio-results th:not(:first-child),#app .portfolio-results td:not(:first-child),#app .portfolio-results td button{white-space:nowrap}
+.portfolio-scroll-hint{display:none;font-size:12px;margin:6px 0}
+@media(max-width:980px){.portfolio-scroll-hint{display:block}}
