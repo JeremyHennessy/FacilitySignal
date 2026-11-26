@@ -1,0 +1,56 @@
+name: FacilitySignal geographic market qualification
+on:
+  push:
+    branches: [ui/pages-market-map-20261126]
+    paths:
+      - scripts/build_market_boundaries.py
+      - scripts/test_pages_market.py
+      - web/pages.js
+      - web/pages.css
+      - .github/workflows/pages-market.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: facilitysignal-market-map
+  cancel-in-progress: false
+jobs:
+  map:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0 pyshp==2.3.1 pyproj==3.7.1 shapely==2.1.1
+      - name: Qualify official Census boundary source once
+        run: |
+          if [ ! -f web/market-boundaries.json ]; then
+            python scripts/build_market_boundaries.py --download
+          fi
+          python scripts/build_market_boundaries.py --check
+      - run: node --check web/pages.js
+      - run: python scripts/build_public_intelligence.py --check
+      - run: python -m unittest discover -s tests -v
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/test_pages_research.py
+      - run: python scripts/test_pages_profiles.py
+      - run: python scripts/test_pages_market.py
+      - name: Retain qualified display projection on isolated branch only
+        if: github.ref == 'refs/heads/ui/pages-market-map-20261126'
+        run: |
+          set -euo pipefail
+          git config user.name 'FacilitySignal qualification'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -- web/market-boundaries.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Retain qualified official 2025 Census display boundaries"
+            git push origin HEAD:refs/heads/ui/pages-market-map-20261126
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-market-map-evidence
+          path: ${{ runner.temp }}/market-map-evidence/
+          retention-days: 7

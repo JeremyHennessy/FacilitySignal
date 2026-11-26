@@ -128,24 +128,111 @@ async function unifiedSearch(p,signal,epoch){
     progress.textContent=N.format(total)+" matching source records across "+completed+" of 7 provider sources."+(failed?" "+failed+" source(s) unavailable; totals are partial.":"");
     if(!total&&!failed)app.append(el("div","No matching published Care Compare source records. Other registries or sources may contain records.","empty"));
 }
-async function geography(signal,epoch){
-    title("Market explorer","Regional provider-source aggregation by reported state or territory. Coordinates have not been qualified; no individual facility pins or centroid approximations are shown.");
+
+const marketGeometryUrl="web/market-boundaries.json";
+const marketGeometrySource="https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_state_500k.zip";
+const marketBands=[{lo:0,hi:0,label:"0",cls:"band-0"},{lo:1,hi:49,label:"1–49",cls:"band-1"},{lo:50,hi:199,label:"50–199",cls:"band-2"},{lo:200,hi:499,label:"200–499",cls:"band-3"},{lo:500,hi:999,label:"500–999",cls:"band-4"},{lo:1000,hi:null,label:"1,000+",cls:"band-5"}];
+const svgNS="http://www.w3.org/2000/svg";
+function svgNode(tag,attrs={},text){
+    const e=document.createElementNS(svgNS,tag);
+    for(const [key,value] of Object.entries(attrs))e.setAttribute(key,String(value));
+    if(text!==undefined)e.textContent=text;
+    return e
+}
+function marketControls(p,sources){
+    const form=el("form",undefined,"toolbar market-toolbar");
+    form.append(options("Map provider category","source",[["all","All provider source records"],...sources.map(s=>[s.key,names[s.key]])],p.source||"all"),
+        options("Jurisdiction","state",[["","Select a jurisdiction"],...states.slice().sort().map(s=>[s,s])],p.state||""),el("button","Apply map filters"));
+    form.addEventListener("submit",e=>{e.preventDefault();location.hash=route("geography",Object.fromEntries(new FormData(form)))});
+    return form
+}
+function marketValue(row,source){return source==="all"?row.total:(row.m.get(source)||0)}
+function marketSelection(p,sources,sums){
+    const box=el("section",undefined,"market-selection");
+    const row=sums.find(x=>x.state===p.state);
+    if(!row){box.append(el("h2","Explore a jurisdiction"),el("p","Choose a region on the map, use the jurisdiction selector, or select a jurisdiction in the table. The map shows source-record counts, not physical facility locations.","intro"));return box}
+    const source=p.source||"all",v=marketValue(row,source);
+    box.append(el("h2",row.state+" market"),el("p",(source==="all"?"All provider sources":names[source])+" · "+N.format(v)+" source records","market-selected-count"));
+    const links=el("div",undefined,"links");
+    for(const s of sources){
+        const n=row.m.get(s.key)||0;
+        if(n)links.append(anchor(names[s.key]+" · "+N.format(n),route("facilities",{source:s.key,state:row.state})))
+    }
+    box.append(links,el("p","Explore reported capacity separately:","intro"),
+        add(el("div",undefined,"links"),anchor("Certified nursing beds",route("capacity",{source:"nursing",state:row.state})),anchor("Dialysis stations",route("capacity",{source:"dialysis",state:row.state}))));
+    if(source!=="all")box.append(add(el("p"),anchor("Open selected category in directory",route("facilities",{source,state:row.state}))));
+    return box
+}
+function marketShape(data,sums,p){
+    if(!data||data.version!==1||data.vintage!==2025||data.source_url!==marketGeometrySource||!Array.isArray(data.regions)||data.regions.length!==states.length||!Array.isArray(data.insets))throw Error("Boundary projection manifest mismatch");
+    if(!/^[0-9a-f]{64}$/.test(data.source_sha256)||data.view_box!=="0 0 960 560")throw Error("Boundary provenance missing");
+    const seen=new Set(), rows=new Map(sums.map(row=>[row.state,row]));
+    const source=p.source||"all",selected=p.state||"";
+    const svg=svgNode("svg",{viewBox:data.view_box,role:"group","aria-label":"Interactive jurisdiction map: "+(source==="all"?"all provider source records":names[source]),class:"market-svg"});
+    svg.append(svgNode("title",{},"Provider source records by reported state or territory"));
+    for(const i of data.insets){
+        if(!Array.isArray(i.box)||i.box.length!==4||i.box.some(x=>!Number.isFinite(x))||!states.includes(i.state))throw Error("Invalid map inset");
+        const [x,y,w,h]=i.box;
+        svg.append(svgNode("rect",{x,y,width:w,height:h,rx:3,class:"market-inset"}),svgNode("text",{x:x+7,y:y+14,class:"market-inset-label"},i.state))
+    }
+    for(const r of data.regions){
+        if(!states.includes(r.state)||seen.has(r.state)||typeof r.name!=="string"||typeof r.path!=="string"||!/^M[MLZ0-9., -]+Z$/.test(r.path)||!rows.has(r.state))throw Error("Invalid or duplicate map region");
+        seen.add(r.state);
+        const n=marketValue(rows.get(r.state),source);
+        const band=marketBands.find(b=>n>=b.lo&&(b.hi===null||n<=b.hi));
+        if(!band)throw Error("Invalid map value");
+        const label=r.name+" ("+r.state+"): "+N.format(n)+" provider source records";
+        const a=svgNode("a",{href:route("geography",{source,state:r.state}),tabindex:0,"aria-label":label,"data-state":r.state,"data-count":n,class:"market-region "+band.cls+(selected===r.state?" selected":"")});
+        if(selected===r.state)a.setAttribute("aria-current","true");
+        a.append(svgNode("title",{},label),svgNode("path",{d:r.path,"fill-rule":"evenodd","vector-effect":"non-scaling-stroke"}));svg.append(a)
+    }
+    if(seen.size!==states.length)throw Error("Incomplete jurisdiction coverage");
+    const frame=el("div",undefined,"market-map-frame");frame.append(svg);
+    return frame
+}
+async function marketMap(panel,p,sums,sources,signal,epoch){
+    const selected=marketSelection(p,sources,sums);
+    const legend=el("div",undefined,"market-legend");
+    for(const b of marketBands)legend.append(add(el("span",undefined,"market-legend-item"),el("span",undefined,"market-swatch "+b.cls),el("span",b.label)));
+    const notice=el("p","Loading qualified Census boundary projection…","notice");
+    panel.append(el("h2","National jurisdiction map"),el("p","Shading shows absolute counts of source records in the selected provider category, not population-adjusted rates or risk. Select a jurisdiction for directory links.","intro"),legend,notice,selected);
+    try{
+        const resp=await fetch(marketGeometryUrl,{signal});
+        if(!resp.ok)throw Error("Boundary projection HTTP "+resp.status);
+        const data=await resp.json();if(epoch!==sequence)return;
+        notice.replaceWith(marketShape(data,sums,p));
+        panel.append(add(el("p",undefined,"intro"),document.createTextNode("Boundaries: U.S. Census Bureau, 2025 Cartographic Boundary Files, 1:500,000, simplified for display. Alaska, Hawaii and territorial insets are displaced and independently scaled. Not for geocoding or precise area measurement. "),anchor("Boundary source",data.source_url,true)))
+    }catch(e){if(epoch!==sequence||e.name==="AbortError")return;notice.textContent="Map geometry unavailable. The jurisdiction table and selector remain usable; no boundary or location is inferred. "+e.message;notice.className="error"}
+}
+async function geography(p,signal,epoch){
+    title("Market explorer","Regional provider-source aggregation by reported state or territory. No individual facility coordinates or centroid approximations are shown.");
     const status=el("div","Reading qualified provider projections…","notice");app.append(status);
     const sources=providerSources(),counts=new Map(states.map(s=>[s,new Map()]));
+    if(p.source&&p.source!=="all"&&!sources.some(s=>s.key===p.source)||p.state&&!states.includes(p.state)){
+        status.replaceWith(el("div","Invalid market category or jurisdiction.","error"));app.append(add(el("p"),anchor("Reset Market Explorer",route("geography"))));return
+    }
+    p={...p,source:p.source||"all"};
+    app.append(marketControls(p,sources));
+    const panel=el("section",undefined,"market-map-panel");app.append(panel);
     let completed=0,failed=0,total=0;
+    const loaded=new Set();
     for(const s of sources){
         try{
             const data=await loadShard(s,signal);if(epoch!==sequence)return;
             for(const row of data.records){if(!counts.has(row.state))throw Error("Unrecognized jurisdiction");}
             for(const row of data.records){const m=counts.get(row.state);m.set(s.key,(m.get(s.key)||0)+1);total++}
-            completed++;
+            loaded.add(s.key);completed++;
         }catch(e){if(epoch!==sequence||e.name==="AbortError")return;failed++;app.append(errorBox(s,e))}
     }
     if(epoch!==sequence)return;
     status.textContent=N.format(total)+" provider source records across "+completed+" of 7 sources."+(failed?" Partial coverage; unavailable categories are marked —.":" All 56 target jurisdictions are represented in this snapshot.");
-    const sums=[...counts].map(([state,m])=>({state,m,total:[...m.values()].reduce((n,v)=>n+v,0)})).sort((a,b)=>b.total-a.total||a.state.localeCompare(b.state));
-    app.append(table(["Jurisdiction",...sources.map(s=>names[s.key]),"Total source records"],sums.map(({state,m,total})=>[state,...sources.map(s=>m.has(s.key)?anchor(N.format(m.get(s.key)),route("facilities",{source:s.key,state})):failed?"—":"0"),N.format(total)])));
-    app.append(el("p","Counts refer to source records, not unique physical facilities or complete regional regulatory coverage.","intro"))
+    const sums=[...counts].map(([state,m])=>({state,m,total:[...m.values()].reduce((n,v)=>n+v,0)})).sort((a,b)=>marketValue(b,p.source)-marketValue(a,p.source)||a.state.localeCompare(b.state));
+    const tableWrap=table(["Jurisdiction",...sources.map(s=>names[s.key]),"Total source records"],sums.map(({state,m,total})=>[anchor(state,route("geography",{source:p.source,state})),...sources.map(s=>m.has(s.key)?anchor(N.format(m.get(s.key)),route("facilities",{source:s.key,state})):loaded.has(s.key)?"0":"—"),N.format(total)]));
+    tableWrap.classList.add("market-region-table");
+    for(const row of tableWrap.querySelectorAll("tbody tr"))if(row.firstChild.textContent===p.state)row.classList.add("market-selected-row");
+    app.append(el("h2","All provider categories by jurisdiction"),el("p","Sorted by the selected map category. Select a numeric count to open the filtered facility directory. Scroll horizontally if needed.","intro"),tableWrap,el("p","Counts refer to source records, not unique physical facilities or complete regional regulatory coverage.","intro"));
+    if(failed)panel.append(el("div","The map is not displayed because one or more public provider sources are unavailable. The table shows only available records.","notice"));
+    else await marketMap(panel,p,sums,sources,signal,epoch)
 }
 
 const capacityUnits=Object.freeze({nursing:{label:"Certified beds",plural:"certified beds"},dialysis:{label:"Dialysis stations",plural:"dialysis stations"}});
@@ -406,7 +493,7 @@ async function detail(p,signal,epoch){
 }
 function coverageView(view){const own=view==="ownership",items=byFamily(own?"pecos":"qcor");title(own?"Ownership evidence coverage":"Hospital survey coverage",own?"Aggregate PECOS qualification only. Individual ownership records and organizational projections are not published on this public site.":"QCOR survey rows include tags, memos, repeated projections and historical evidence. Correction status is unknown; narrative and row-level workbook data are not published here.");app.append(historicalNote(),table(["Source","Release period","Historical retained rows","Evidence"],sourceRows(items)),el("div",own?"Exact CCN and state candidates do not establish controlling ownership, physical property title, complete portfolios or current operational responsibility.":"Use the official QCOR report for source research. This site does not publish or infer active hospital violations.","notice"))}
 function sourceRegister(p){title("Source register","Discovered sources, historical qualification, and reuse review are separate. A listed source is not necessarily loaded or publicly searchable.");const f=el("form",undefined,"toolbar");f.append(input("Filter source names, publishers or jurisdiction","q",p.q),el("button","Filter"));f.addEventListener("submit",e=>{e.preventDefault();location.hash=route("sources",Object.fromEntries(new FormData(f)))});app.append(f);let overlay=new Map(coverage.sources.map(s=>[s.id,s]));let q=(p.q||"").toLowerCase();let rows=register.sources.filter(s=>!q||[s.id,s.source,s.publisher,s.jurisdiction,s.category].some(x=>String(x).toLowerCase().includes(q)));let page=Math.max(1,Math.min(Math.ceil(rows.length/pageSize)||1,Number(p.page)||1));app.append(el("p",N.format(rows.length)+" source entries · original register preserved"));app.append(table(["Source","Jurisdiction","Qualification","Reuse review","Evidence"],rows.slice((page-1)*pageSize,page*pageSize).map(s=>[s.id+" · "+s.source,s.jurisdiction,overlay.get(s.id)?.status||"Discovered / not tested",overlay.get(s.id)?.reuse_review||s.reuse_review,safeExternal(s.source_url)?anchor("Publisher source",safeExternal(s.source_url),true):"See register"])));const pager=el("div",undefined,"pager");if(page>1)pager.append(anchor("Previous",route("sources",{...p,page:page-1})));if(page*pageSize<rows.length)pager.append(anchor("Next",route("sources",{...p,page:page+1})));app.append(pager)}
-async function render(){if(!lock)return;if(active)active.abort();active=new AbortController();const {view,p}=read(),epoch=++sequence;for(const a of document.querySelectorAll("nav a")){if(a.getAttribute("href")==="#"+view)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")}if(view==="overview")overview();else if(view==="search")await unifiedSearch(p,active.signal,epoch);else if(view==="geography")await geography(active.signal,epoch);else if(view==="capacity")await capacityExplorer(p,active.signal,epoch);else if(["services","compliance-research","equipment-environment","data-evidence"].includes(view))await intelligence(view,active.signal,epoch);else if(["facilities","citations"].includes(view))await directory(view,p,active.signal,epoch);else if(view==="certifications")certificationCoverage();else if(view==="detail")await detail(p,active.signal,epoch);else if(["ownership","hospital-surveys"].includes(view))coverageView(view);else if(view==="sources")sourceRegister(p);else title("Page not found","Choose an available workspace from navigation.");}
+async function render(){if(!lock)return;if(active)active.abort();active=new AbortController();const {view,p}=read(),epoch=++sequence;for(const a of document.querySelectorAll("nav a")){if(a.getAttribute("href")==="#"+view)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")}if(view==="overview")overview();else if(view==="search")await unifiedSearch(p,active.signal,epoch);else if(view==="geography")await geography(p,active.signal,epoch);else if(view==="capacity")await capacityExplorer(p,active.signal,epoch);else if(["services","compliance-research","equipment-environment","data-evidence"].includes(view))await intelligence(view,active.signal,epoch);else if(["facilities","citations"].includes(view))await directory(view,p,active.signal,epoch);else if(view==="certifications")certificationCoverage();else if(view==="detail")await detail(p,active.signal,epoch);else if(["ownership","hospital-surveys"].includes(view))coverageView(view);else if(view==="sources")sourceRegister(p);else title("Page not found","Choose an available workspace from navigation.");}
 $("global-search").addEventListener("submit",e=>{e.preventDefault();let q=$("global-q").value.trim();location.hash=route("search",{field:/^\d{5}$/.test(q)?"zip":/^(?=.*[0-9])[A-Za-z0-9]{6}$/.test(q)?"id":"name",q})});
 document.querySelector(".skip").addEventListener("click",e=>{e.preventDefault();$("workspace").focus()});
 window.addEventListener("hashchange",()=>{render()});
