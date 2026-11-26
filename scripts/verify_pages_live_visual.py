@@ -16,10 +16,12 @@ OUT=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"pages-live-visual-evidence"
 OUT.mkdir(exist_ok=True)
 def sha(data):return hashlib.sha256(data).hexdigest()
 ASSETS=("web/pages.js","web/pages.css")
-HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json")}
+HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json","web/public-directory/manifest.json","web/public-directory/long-term-hospital.json","web/public-intelligence.json")}
 VERSIONS={x:x+"?v="+HASHES[x][:16] for x in ASSETS}
 MANIFEST=json.loads((ROOT/"web/public-directory/manifest.json").read_text())
 TOTAL=MANIFEST["provider_rows"]
+LTCH_META=MANIFEST["field_enrichments"]["long-term-hospital"]
+LTCH=next(r for r in json.loads((ROOT/"web/public-directory/long-term-hospital.json").read_text())["records"] if r["capacity"])
 HOSPITAL=Counter(r["state"] for r in json.loads((ROOT/"web/public-directory/hospital.json").read_text())["records"])
 PROVIDER=json.loads((ROOT/"web/public-directory/nursing.json").read_text())["records"][0]
 ROUTES=[
@@ -34,14 +36,16 @@ ROUTES=[
     ("profile-summary","detail?"+urlencode({"source":"nursing","id":PROVIDER["ccn"],"state":PROVIDER["state"]}),lambda page:page.get_by_role("heading",name="Continue this research")),
     ("certifications","certifications",lambda page:page.get_by_role("heading",name="Certifications & laboratories",exact=True)),
     ("capacity","capacity?source=dialysis&state=NY",lambda page:page.locator(".capacity-band").first),
-    ("services","services",lambda page:page.get_by_role("heading",name="Hospital service provision codes")),
+    ("ltch-capacity","capacity?source=long-term-hospital",lambda page:page.locator(".ltch-capacity-table")),
+    ("ltch-profile","detail?"+urlencode({"source":"long-term-hospital","id":LTCH["ccn"],"state":LTCH["state"],"section":"services"}),lambda page:page.get_by_role("heading",name="Reported capacity and service evidence")),
+    ("services","services",lambda page:page.get_by_role("heading",name="ASC service provision arrangements")),
     ("compliance","compliance-research",lambda page:page.get_by_role("heading",name="Literal correction wording")),
     ("citations","citations?source=nursing-health&state=NY",lambda page:page.get_by_role("columnheader",name="Historical citation rows")),
     ("hospital-surveys","hospital-surveys",lambda page:page.get_by_role("heading",name="Hospital survey coverage",exact=True)),
     ("equipment","equipment-environment",lambda page:page.get_by_role("heading",name="FDA mammography directory")),
     ("ownership","ownership",lambda page:page.get_by_role("heading",name="Ownership evidence coverage",exact=True)),
     ("sources","sources",lambda page:page.locator("tbody tr").first),
-    ("data","data-evidence",lambda page:page.get_by_role("heading",name="Snapshot retention checkpoint")),
+    ("data","data-evidence",lambda page:page.get_by_role("heading",name="Hospital-to-laboratory reference evidence")),
 ]
 def ordinary_entry(browser,base,utm,attempts):
     """New context for each propagation retry; normal navigation, no revision query."""
@@ -64,9 +68,11 @@ def ordinary_entry(browser,base,utm,attempts):
                 assert seen and sha(seen[-1].body())==HASHES[asset],"Browser received stale "+asset
             geo=[resp for resp in responses if resp.url==base+"web/market-boundaries.json"]
             assert geo and sha(geo[-1].body())==HASHES["web/market-boundaries.json"],"Browser received stale geography"
-            summary=[resp for resp in responses if resp.url==base+"web/market-summary.json?v="+MANIFEST["source_database_sha256"][:16]]
+            summary=[resp for resp in responses if resp.url==base+"web/market-summary.json?v="+LTCH_META["projection_sha256"][:16]]
             assert summary and sha(summary[-1].body())==HASHES["web/market-summary.json"],"Browser received stale regional summary"
             assert page.locator('[data-aggregation="precomputed"]').count()==1
+            manifests=[resp for resp in responses if resp.url==base+"web/public-directory/manifest.json"]
+            assert manifests and sha(manifests[-1].body())==HASHES["web/public-directory/manifest.json"],"Browser received stale public manifest"
             # Warm-cache reload is deliberately in the same context and ordinary URL.
             page.reload(wait_until="load")
             page.locator(".market-region").first.wait_for(timeout=15000)
@@ -89,13 +95,30 @@ def run(base,local):
             page=ctx.new_page()
             errors=[]
             page.on("pageerror",lambda e:errors.append(str(e)))
+            responses=[];page.on("response",lambda resp:responses.append(resp))
             for name,route,ready in ROUTES:
+                responses.clear()
                 page.goto(base+"#"+route,wait_until="load",timeout=30000)
                 ready(page).wait_for(timeout=30000)
                 assert not errors,(name,errors)
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="ltch-capacity":
+                    assert page.locator(".metrics .metric strong").all_inner_texts()==["311","21,765","305","6"]
+                    seen=[r for r in responses if r.url==base+"web/public-directory/long-term-hospital.json?v="+LTCH_META["projection_sha256"][:16]]
+                    assert seen and sha(seen[-1].body())==HASHES["web/public-directory/long-term-hospital.json"],"Browser loaded wrong LTCH projection"
+                    page.locator(".metrics").screenshot(path=str(OUT/f"{width}-ltch-metrics.png"))
+                    page.locator(".ltch-capacity-table").screenshot(path=str(OUT/f"{width}-ltch-results.png"))
+                    if width<=768: assert page.locator(".ltch-capacity-table").evaluate("(e)=>{e.scrollLeft=100;const moved=e.scrollLeft>0;e.scrollLeft=0;return moved}")
+                if name=="ltch-profile":
+                    assert page.get_by_text("Total beds",exact=True).count()==1
+                    assert page.get_by_text(f'{int(LTCH["capacity"]):,}',exact=True).count()>=1
+                if name in ("services","data"):
+                    seen=[r for r in responses if r.url==base+"web/public-intelligence.json"]
+                    assert seen and sha(seen[-1].body())==HASHES["web/public-intelligence.json"],"Browser loaded wrong aggregate evidence"
+                    groups=("ASC service provision arrangements","Home health reported services") if name=="services" else ("CLIA certificate code distribution","Hospital-to-laboratory reference evidence","National field audit coverage")
+                    for n,g in enumerate(groups):page.locator(f'[aria-label^="{g}"]').screenshot(path=str(OUT/f"{width}-{name}-group-{n}.png"))
                 if name=="profile-summary":
                     page.locator(".profile-research-actions").screenshot(path=str(OUT/f"{width}-profile-actions.png"))
                     assert page.get_by_role("link",name="All provider records in reported city").count()==1

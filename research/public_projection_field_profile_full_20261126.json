@@ -1,0 +1,536 @@
+{
+  "as_of": "2026-11-26",
+  "qualified_commit": "d814686e033b913a104077fa00d65275277cf186",
+  "qualification_run": 45820549376,
+  "qualification_job": 139911370145,
+  "qualification_tests_passed": 90,
+  "previous_incomplete_profile": "research/public_projection_field_profile_20261126.json",
+  "citation_source_rows": 619069,
+  "format_version": 1,
+  "manifest_sha256": "0c9a4588d940470f9d0a5beb48a8f0396f7a45e5ef46669e865afb29eae31c6b",
+  "provider_rows": 48004,
+  "published_rows": 76537,
+  "release_lock_sha256": "b830627c44a759d042cc52311f175280e08fd81d5e3079f13b9b60068d298204",
+  "scope": "Full committed public projection only; no raw publisher fields or current compliance conclusions.",
+  "sources_profiled": 9,
+  "sources": [
+    {
+      "capacity_note": "Published capacity values are not installed equipment or occupancy.",
+      "capacity_unit": "dialysis stations",
+      "columns": {
+        "address": {
+          "blank": 0,
+          "distinct_nonblank": 7464,
+          "nonblank": 7471,
+          "null": 0
+        },
+        "capacity": {
+          "blank": 0,
+          "distinct_nonblank": 70,
+          "max": 254,
+          "min": 0,
+          "non_numeric_or_negative": 0,
+          "nonblank": 7471,
+          "null": 0,
+          "numeric_nonnegative_integer_rows": 7471,
+          "sum": 132479,
+          "zero_rows": 147
+        },
+        "ccn": {
+          "blank": 0,
+          "distinct_nonblank": 7471,
+          "nonblank": 7471,
+          "null": 0
+        },
+        "city": {
+          "blank": 0,
+          "distinct_nonblank": 3509,
+          "nonblank": 7471,
+          "null": 0
+        },
+        "name": {
+          "blank": 0,
+          "distinct_nonblank": 7461,
+          "nonblank": 7471,
+          "null": 0
+        },
+        "state": {
+          "blank": 0,
+          "distinct_nonblank": 56,
+          "nonblank": 7471,
+          "null": 0
+        },
+        "zip": {
+          "blank": 0,
+          "distinct_nonblank": 5162,
+          "nonblank": 7471,
+          "null": 0
+        }
+      },
+      "complete_reported_address_rows": 7471,
+      "distinct_ccn_state": 7471,
+      "distinct_reported_address_tuples": 7465,
+      "file_sha256": "e8343f678ec1780ac49047f162754657f60eaa3f61b1d4f48ea4b55d39d4008a",
+      "published_rows": 7471,
+      "release": "2026-10-28",
+      "source": "dialysis",
+      "source_rows": 7471
+    },
+    {
+      "capacity_note": "Published capacity values are not installed equipment or occupancy.",
+      "capacity_unit": null,
+      "columns": {
+        "address": {
+          "blank": 0,
+          "distinct_nonblank": 12307,
+          "nonblank": 12409,
+          "null": 0
+        },
+        "capacity": {
+          "blank": 12409,
+          "distinct_nonblank": 0,
+          "max": null,
+          "min": null,
+          "non_numeric_or_negative": 0,
+          "nonblank": 0,
+          "null": 0,
+          "numeric_nonnegative_integer_rows": 0,
+          "sum": null,
+          "zero_rows": 0
+        },
+        "ccn": {
+          "blank": 0,
+          "distinct_nonblank": 12409,
+          "nonblank": 12409,
+          "null": 0
+        },
+        "city": {
+          "blank": 0,
+          "distinct_nonblank": 2712,
+          "nonblank": 12409,
+          "null": 0
+        },
+        "name": {
+          "blank": 0,
+          "distinct_nonblank": 10622,
+          "nonblank": 12409,
+          "null": 0
+        },
+        "state": {
+          "blank": 0,
+          "distinct_nonblank": 55,
+          "nonblank": 12409,
+          "null": 0
+        },
+        "zip": {
+          "blank": 0,
+          "distinct_nonblank": 4628,
+          "nonblank": 12409,
+          "null": 0
+        }
+      },
+      "complete_reported_address_rows": 12409,
+      "distinct_ccn_state": 12409,
+      "distinct_reported_address_tuples": 12310,
+      "file_sha256": "3b244338ff11e39258aa0620a4b3a6f1813c6b8569f0290380f06493e0344d3d",
+      "published_rows": 12409,
+      "release": "2026-10-21",
+      "source": "home-health",
+      "source_rows": 12409
+    },
+    {
+      "capacity_note": "Published capacity values are not installed equipment or occupancy.",
+      "capacity_unit": null,
+      "columns": {
+        "address": {
+          "blank": 0,
+          "distinct_nonblank": 6462,
+          "nonblank": 6470,
+          "null": 0
+        },
+        "capacity": {
+          "blank": 6470,
+          "distinct_nonblank": 0,
+          "max": null,
+          "min": null,
+          "non_numeric_or_negative": 0,
+          "nonblank": 0,
+          "null": 0,
+          "numeric_nonnegative_integer_rows": 0,
+          "sum": null,
+          "zero_rows": 0
+        },
+        "ccn": {
+          "blank": 0,
+          "distinct_nonblank": 6470,
+          "nonblank": 6470,
+          "null": 0
+        },
+        "city": {
+          "blank": 0,
+          "distinct_nonblank": 1997,
+          "nonblank": 6470,
+          "null": 0
+        },
+        "name": {
+          "blank": 0,
+          "distinct_nonblank": 5555,
+          "nonblank": 6470,
+          "null": 0
+        },
+        "state": {
+          "blank": 0,
+          "distinct_nonblank": 55,
+          "nonblank": 6470,
+          "null": 0
+        },
+        "zip": {
+          "blank": 0,
+          "distinct_nonblank": 3196,
+          "nonblank": 6470,
+          "null": 0
+        }
+      },
+      "complete_reported_address_rows": 6470,
+      "distinct_ccn_state": 6470,
+      "distinct_reported_address_tuples": 6464,
+      "file_sha256": "3e1cf8b371d40e78ad387a76da5487115c455279087b7672a21bfdc3847b1bb4",
+      "published_rows": 6470,
+      "release": "2026-11-20",
+      "source": "hospice",
+      "source_rows": 6470
+    },
+    {
+      "capacity_note": "Published capacity values are not installed equipment or occupancy.",
+      "capacity_unit": null,
+      "columns": {
+        "address": {
+          "blank": 0,
+          "distinct_nonblank": 5399,
+          "nonblank": 5435,
+          "null": 0
+        },
+        "capacity": {
+          "blank": 5435,
+          "distinct_nonblank": 0,
+          "max": null,
+          "min": null,
+          "non_numeric_or_negative": 0,
+          "nonblank": 0,
+          "null": 0,
+          "numeric_nonnegative_integer_rows": 0,
+          "sum": null,
+          "zero_rows": 0
+        },
+        "ccn": {
+          "blank": 0,
+          "distinct_nonblank": 5435,
+          "nonblank": 5435,
+          "null": 0
+        },
+        "city": {
+          "blank": 0,
+          "distinct_nonblank": 3048,
+          "nonblank": 5435,
+          "null": 0
+        },
+        "name": {
+          "blank": 0,
+          "distinct_nonblank": 5301,
+          "nonblank": 5435,
+          "null": 0
+        },
+        "state": {
+          "blank": 0,
+          "distinct_nonblank": 56,
+          "nonblank": 5435,
+          "null": 0
+        },
+        "zip": {
+          "blank": 0,
+          "distinct_nonblank": 4723,
+          "nonblank": 5435,
+          "null": 0
+        }
+      },
+      "complete_reported_address_rows": 5435,
+      "distinct_ccn_state": 5435,
+      "distinct_reported_address_tuples": 5425,
+      "file_sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a",
+      "published_rows": 5435,
+      "release": "2026-11-12",
+      "source": "hospital",
+      "source_rows": 5435
+    },
+    {
+      "capacity_note": "Published capacity values are not installed equipment or occupancy.",
+      "capacity_unit": null,
+      "columns": {
+        "address": {
+          "blank": 0,
+          "distinct_nonblank": 311,
+          "nonblank": 311,
+          "null": 0
+        },
+        "capacity": {
+          "blank": 311,
+          "distinct_nonblank": 0,
+          "max": null,
+          "min": null,
+          "non_numeric_or_negative": 0,
+          "nonblank": 0,
+          "null": 0,
+          "numeric_nonnegative_integer_rows": 0,
+          "sum": null,
+          "zero_rows": 0
+        },
+        "ccn": {
+          "blank": 0,
+          "distinct_nonblank": 311,
+          "nonblank": 311,
+          "null": 0
+        },
+        "city": {
+          "blank": 0,
+          "distinct_nonblank": 265,
+          "nonblank": 311,
+          "null": 0
+        },
+        "name": {
+          "blank": 0,
+          "distinct_nonblank": 311,
+          "nonblank": 311,
+          "null": 0
+        },
+        "state": {
+          "blank": 0,
+          "distinct_nonblank": 47,
+          "nonblank": 311,
+          "null": 0
+        },
+        "zip": {
+          "blank": 0,
+          "distinct_nonblank": 307,
+          "nonblank": 311,
+          "null": 0
+        }
+      },
+      "complete_reported_address_rows": 311,
+      "distinct_ccn_state": 311,
+      "distinct_reported_address_tuples": 311,
+      "file_sha256": "e3524fef37b82af98678bfba39dc59b2ca38f8767fe70e2158b3c0c657fdba06",
+      "published_rows": 311,
+      "release": "2026-09-23",
+      "source": "long-term-hospital",
+      "source_rows": 311
+    },
+    {
+      "capacity_note": "Published capacity values are not installed equipment or occupancy.",
+      "capacity_unit": "certified beds",
+      "columns": {
+        "address": {
+          "blank": 0,
+          "distinct_nonblank": 14665,
+          "nonblank": 14686,
+          "null": 0
+        },
+        "capacity": {
+          "blank": 11,
+          "distinct_nonblank": 392,
+          "max": 843,
+          "min": 2,
+          "non_numeric_or_negative": 0,
+          "nonblank": 14675,
+          "null": 0,
+          "numeric_nonnegative_integer_rows": 14675,
+          "sum": 1567009,
+          "zero_rows": 0
+        },
+        "ccn": {
+          "blank": 0,
+          "distinct_nonblank": 14686,
+          "nonblank": 14686,
+          "null": 0
+        },
+        "city": {
+          "blank": 0,
+          "distinct_nonblank": 5857,
+          "nonblank": 14686,
+          "null": 0
+        },
+        "name": {
+          "blank": 0,
+          "distinct_nonblank": 14566,
+          "nonblank": 14686,
+          "null": 0
+        },
+        "state": {
+          "blank": 0,
+          "distinct_nonblank": 53,
+          "nonblank": 14686,
+          "null": 0
+        },
+        "zip": {
+          "blank": 0,
+          "distinct_nonblank": 8922,
+          "nonblank": 14686,
+          "null": 0
+        }
+      },
+      "complete_reported_address_rows": 14686,
+      "distinct_ccn_state": 14686,
+      "distinct_reported_address_tuples": 14677,
+      "file_sha256": "36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce",
+      "published_rows": 14686,
+      "release": "2026-10-28",
+      "source": "nursing",
+      "source_rows": 14686
+    },
+    {
+      "capacity_note": "Published capacity values are not installed equipment or occupancy.",
+      "capacity_unit": null,
+      "columns": {
+        "ccn": {
+          "blank": 0,
+          "distinct_nonblank": 13909,
+          "nonblank": 13909,
+          "null": 0
+        },
+        "citation_rows": {
+          "blank": 0,
+          "distinct_nonblank": 77,
+          "max": 97,
+          "min": 1,
+          "non_numeric_or_negative": 0,
+          "nonblank": 13909,
+          "null": 0,
+          "numeric_nonnegative_integer_rows": 13909,
+          "sum": 200387,
+          "zero_rows": 0
+        },
+        "name": {
+          "blank": 0,
+          "distinct_nonblank": 13800,
+          "nonblank": 13909,
+          "null": 0
+        },
+        "state": {
+          "blank": 0,
+          "distinct_nonblank": 53,
+          "nonblank": 13909,
+          "null": 0
+        }
+      },
+      "distinct_ccn_state": 13909,
+      "file_sha256": "60365b05b5241c289049eaea04c39cecce53ee6aebbfb719b5577a315bdba0f0",
+      "published_rows": 13909,
+      "release": "2026-10-28",
+      "source": "nursing-fire",
+      "source_rows": 200387
+    },
+    {
+      "capacity_note": "Published capacity values are not installed equipment or occupancy.",
+      "capacity_unit": null,
+      "columns": {
+        "ccn": {
+          "blank": 0,
+          "distinct_nonblank": 14624,
+          "nonblank": 14624,
+          "null": 0
+        },
+        "citation_rows": {
+          "blank": 0,
+          "distinct_nonblank": 156,
+          "max": 276,
+          "min": 1,
+          "non_numeric_or_negative": 0,
+          "nonblank": 14624,
+          "null": 0,
+          "numeric_nonnegative_integer_rows": 14624,
+          "sum": 418682,
+          "zero_rows": 0
+        },
+        "name": {
+          "blank": 0,
+          "distinct_nonblank": 14504,
+          "nonblank": 14624,
+          "null": 0
+        },
+        "state": {
+          "blank": 0,
+          "distinct_nonblank": 53,
+          "nonblank": 14624,
+          "null": 0
+        }
+      },
+      "distinct_ccn_state": 14624,
+      "file_sha256": "34d86813b4abc6bc6453dbb1cbacec847a0d1d330e0a5de1e622b39f7f4e2707",
+      "published_rows": 14624,
+      "release": "2026-10-28",
+      "source": "nursing-health",
+      "source_rows": 418682
+    },
+    {
+      "capacity_note": "Published capacity values are not installed equipment or occupancy.",
+      "capacity_unit": null,
+      "columns": {
+        "address": {
+          "blank": 0,
+          "distinct_nonblank": 1220,
+          "nonblank": 1222,
+          "null": 0
+        },
+        "capacity": {
+          "blank": 1222,
+          "distinct_nonblank": 0,
+          "max": null,
+          "min": null,
+          "non_numeric_or_negative": 0,
+          "nonblank": 0,
+          "null": 0,
+          "numeric_nonnegative_integer_rows": 0,
+          "sum": null,
+          "zero_rows": 0
+        },
+        "ccn": {
+          "blank": 0,
+          "distinct_nonblank": 1222,
+          "nonblank": 1222,
+          "null": 0
+        },
+        "city": {
+          "blank": 0,
+          "distinct_nonblank": 830,
+          "nonblank": 1222,
+          "null": 0
+        },
+        "name": {
+          "blank": 0,
+          "distinct_nonblank": 1207,
+          "nonblank": 1222,
+          "null": 0
+        },
+        "state": {
+          "blank": 0,
+          "distinct_nonblank": 52,
+          "nonblank": 1222,
+          "null": 0
+        },
+        "zip": {
+          "blank": 0,
+          "distinct_nonblank": 1126,
+          "nonblank": 1222,
+          "null": 0
+        }
+      },
+      "complete_reported_address_rows": 1222,
+      "distinct_ccn_state": 1222,
+      "distinct_reported_address_tuples": 1222,
+      "file_sha256": "65bbd35e32ff5a1379c30c53c316ebcdee5d1712ee3192df01f9b210aef4f28d",
+      "published_rows": 1222,
+      "release": "2026-09-23",
+      "source": "rehabilitation",
+      "source_rows": 1222
+    }
+  ]
+}

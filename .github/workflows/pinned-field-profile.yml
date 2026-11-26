@@ -1,0 +1,65 @@
+name: FacilitySignal pinned raw field profiling and header recovery
+on:
+  push:
+    branches: [docs/data-understanding-20261126]
+    paths:
+      - pos_raw_field_profile.py
+      - recover_source_headers.py
+      - tests/test_pos_raw_field_profile.py
+      - .github/workflows/pinned-field-profile.yml
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: facilitysignal-pinned-field-profile
+  cancel-in-progress: false
+jobs:
+  headers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: cms-national-snapshot-audit
+          run-id: 45664651617
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/cms-header
+      - uses: actions/download-artifact@v4
+        with:
+          name: pecos-ownership-audit-only
+          run-id: 45675883927
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/pecos-header
+      - run: python recover_source_headers.py --cms "$RUNNER_TEMP/cms-header/manifest.json" --pecos "$RUNNER_TEMP/pecos-header/ownership-manifest.json" --output "$RUNNER_TEMP/exact-headers.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: exact-pinned-headers
+          path: ${{ runner.temp }}/exact-headers.json
+          retention-days: 14
+          if-no-files-found: error
+  pos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        source: [qies, iqies, clia]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_pos_raw_field_profile.py -v
+      - run: python pos_raw_field_profile.py --source ${{ matrix.source }} --download --output "$RUNNER_TEMP/pos-profile.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pos-field-profile-${{ matrix.source }}
+          path: ${{ runner.temp }}/pos-profile.json
+          retention-days: 14
+          if-no-files-found: error

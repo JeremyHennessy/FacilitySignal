@@ -58,7 +58,7 @@ async function intelligence(view,signal,epoch){
             evidenceTable.classList.add("intelligence-table");
             evidenceTable.setAttribute("aria-label",g.title+"; scroll horizontally if needed");
             app.append(el("h2",g.title),el("p",g.note,"intro"));
-            if(g.columns.length>3)app.append(el("p","Scroll horizontally to see all columns.","intelligence-scroll-hint"));
+            if(g.columns.length>3||g.id==="clia-certificate")app.append(el("p","Scroll horizontally to see all columns.","intelligence-scroll-hint"));
             app.append(evidenceTable);
             const evidence=el("div",undefined,"links");
             evidence.append(anchor("Qualification run "+g.run,"https://github.com/JeremyHennessy/FacilitySignal/actions/runs/"+g.run,true));
@@ -73,13 +73,16 @@ function input(label,id,v){let l=el("label",label,id==="q"?"query":""),i=el("inp
 function formFor(view,p,sources){let f=el("form",undefined,"toolbar"),modes=view==="citations"?[["id","Exact CCN"],["name","Provider name contains"]]:[["name","Provider name contains"],["id","Exact identifier"],["city","Exact city"],["zip","Exact ZIP"],["address","Address contains"]];f.append(options("Source","source",sources.map(s=>[s.key,names[s.key]||s.key]),p.source),options("State / territory","state",[["","All jurisdictions"],...states.map(s=>[s,s])],p.state),options("Search field","field",modes,p.field),input("Search value","q",p.q),options("Sort by","sort",[["state","Jurisdiction / name"],["name","Name A–Z"],["name_desc","Name Z–A"],["id","CCN"],...(view==="citations"?[["citations","Historical citation rows (descending)"]]:[])],p.sort),el("button","Search"));f.addEventListener("submit",e=>{e.preventDefault();location.hash=route(view,{...Object.fromEntries(new FormData(f)),page:1})});return f}
 async function loadShard(s,signal){
     if(s.family!=="care-compare"||!/^[-a-z]+$/.test(s.key))throw Error("Unsupported public source");
-    const response=await fetch("web/public-directory/"+s.key+".json",{signal});
+    const enrichment=s.key==="long-term-hospital"?publicManifest.field_enrichments?.[s.key]:null;
+    if(s.key==="long-term-hospital"&&(!enrichment||!/^[0-9a-f]{64}$/.test(enrichment.projection_sha256)))throw Error("Qualified total-bed projection unavailable");
+    const response=await fetch("web/public-directory/"+s.key+".json"+(enrichment?"?v="+enrichment.projection_sha256.slice(0,16):""),{signal});
     if(!response.ok)throw Error("Static source HTTP "+response.status);
     const data=await response.json(),published=publicManifest.sources[s.key];
     if(data.source!==s.key||data.release!==s.release||!Array.isArray(data.records)||data.row_count!==s.stored_rows||data.records.length!==published?.published_records)throw Error("Static source manifest mismatch");
     if(s.key.startsWith("nursing-")){
         if(data.records.some(r=>!Number.isSafeInteger(r.citation_rows)||r.citation_rows<1)||data.records.reduce((n,r)=>n+r.citation_rows,0)!==data.row_count)throw Error("Citation aggregate reconciliation failed");
     }else if(data.records.length!==data.row_count)throw Error("Provider count mismatch");
+    if(enrichment){const totals=summarizeCapacity(data.records);if(totals.reported!==enrichment.numeric_rows||totals.unknown!==enrichment.unknown_rows||totals.sum!==enrichment.sum)throw Error("Total-bed projection reconciliation failed")}
     return data
 }
 const publicFields={id:"ccn",name:"name",address:"address",city:"city",state:"state",zip:"zip",capacity:"capacity",count:"citation_rows"};
@@ -144,7 +147,7 @@ function advancedParameters(p,sources){
         bounds[key]=Number(p[key])
     }
     const filteredCapacity=reported!=="all"||bounds.min!==null||bounds.max!==null;
-    if(filteredCapacity&&!Object.hasOwn(capacityUnits,source))throw Error("Choose one capacity-qualified category: nursing homes or dialysis facilities. Their units cannot be combined.");
+    if(filteredCapacity&&!Object.hasOwn(capacityUnits,source))throw Error("Choose one capacity-qualified category: nursing homes, dialysis facilities or long-term care hospitals. Their units cannot be combined.");
     if(bounds.min!==null&&bounds.max!==null&&bounds.min>bounds.max)throw Error("Minimum capacity cannot exceed maximum capacity");
     if(reported==="unknown"&&(bounds.min!==null||bounds.max!==null))throw Error("Capacity bounds cannot be combined with missing capacity");
     if(p.page&&!/^\d{1,6}$/.test(p.page))throw Error("Invalid page");
@@ -169,7 +172,7 @@ function advancedForm(p,sources){
     function sync(){
         const unit=capacityUnits[selector.value],available=!!unit;
         for(const c of [ev,lo,hi]){c.disabled=!available;c.setAttribute("aria-describedby",hint.id)}
-        if(!available){ev.value="all";lo.value="";hi.value="";hint.textContent="Capacity filters require a single nursing-home or dialysis category. Other public provider categories do not contain a qualified numeric capacity unit."}
+        if(!available){ev.value="all";lo.value="";hi.value="";hint.textContent="Capacity filters require a single nursing-home, dialysis or long-term care hospital category. Other public provider categories do not contain a qualified numeric capacity unit."}
         else{
             hint.textContent="Capacity unit: "+unit.label+". Reported zero is distinct from missing or nonnumeric data. Individual registry service observations are not published.";
             const missing=ev.value==="unknown";lo.disabled=missing;hi.disabled=missing;
@@ -345,7 +348,7 @@ async function marketMap(panel,p,sums,sources,signal,epoch){
 
 function marketSummaryUrl(){
     if(!/^[0-9a-f]{64}$/.test(publicManifest.source_database_sha256))throw Error("Public manifest source hash unavailable");
-    return "web/market-summary.json?v="+publicManifest.source_database_sha256.slice(0,16)
+    return "web/market-summary.json?v="+(publicManifest.field_enrichments?.["long-term-hospital"]?.projection_sha256||publicManifest.source_database_sha256).slice(0,16)
 }
 async function readMarketSummary(sources,signal){
     const response=await fetch(marketSummaryUrl(),{signal});
@@ -405,7 +408,7 @@ async function geography(p,signal,epoch){
     else await marketMap(panel,p,sums,sources,signal,epoch)
 }
 
-const capacityUnits=Object.freeze({nursing:{label:"Certified beds",plural:"certified beds"},dialysis:{label:"Dialysis stations",plural:"dialysis stations"}});
+const capacityUnits=Object.freeze({nursing:{label:"Certified beds",plural:"certified beds"},dialysis:{label:"Dialysis stations",plural:"dialysis stations"},"long-term-hospital":{label:"Total beds",plural:"total reported beds"}});
 function publicCapacity(row){
     const text=String(row.capacity??"").trim();
     if(!/^\d+$/.test(text))return null;
@@ -435,7 +438,7 @@ function capacityForm(p,sources){
     return f
 }
 function capacityBands(source){
-    return source==="nursing"?[[0,0],[1,49],[50,99],[100,199],[200,null]]:[[0,0],[1,9],[10,19],[20,39],[40,null]]
+    return source==="nursing"||source==="long-term-hospital"?[[0,0],[1,49],[50,99],[100,199],[200,null]]:[[0,0],[1,9],[10,19],[20,39],[40,null]]
 }
 function capacityDistribution(s,p,region){
     const panel=el("section",undefined,"capacity-distribution");
@@ -469,7 +472,7 @@ async function capacityExplorer(p,signal,epoch){
     const s=sources.find(s=>s.key===p.source)||sources.find(s=>s.key==="nursing");
     p={...p,source:s.key,reported:p.reported||"all",sort:p.sort||"capacity_desc"};
     const unit=capacityUnits[s.key];
-    title("Capacity explorer","Research source-reported nursing-home certified beds and dialysis stations. These are different units and are never added together. This is a public market-size indicator, not proof of current operating capacity, installed equipment, service demand or a procurement opportunity.");
+    title("Capacity explorer","Research source-reported nursing-home certified beds, dialysis stations and long-term care hospital total beds. These measures are kept separate and are never added together. This is a public market-size indicator, not proof of current operating capacity, installed equipment, service demand or a procurement opportunity.");
     app.append(capacityForm(p,sources));
     const status=el("div","Loading qualified public capacity fields…","notice");app.append(status);
     try{
@@ -501,7 +504,7 @@ async function capacityExplorer(p,signal,epoch){
         status.replaceChildren(el("span",names[s.key]+" · Source release "+data.release+" · "+N.format(totals.records)+" matching provider source records. "),sourceLink(s));
         const metrics=el("div",undefined,"metrics");
         metrics.append(capacityMetric("Matching source records",totals.records,"Filtered provider records"),
-            capacityMetric(unit.label+" reported total",totals.reported?totals.sum:null,"Sum of numeric values only; not unique sites"),
+            capacityMetric(s.key==="long-term-hospital"?"Total reported beds":unit.label+" reported total",totals.reported?totals.sum:null,"Sum of numeric values only; not unique sites"),
             capacityMetric("Numeric capacity reported",totals.reported,N.format(totals.zero)+" records explicitly report zero"),
             capacityMetric("Missing or nonnumeric",totals.unknown,"Excluded from totals; not treated as zero"));
         app.append(metrics,capacityDistribution(s,p,region),el("h2","Matching providers"));
@@ -509,7 +512,9 @@ async function capacityExplorer(p,signal,epoch){
         else{
             const result=filtered.slice((page-1)*pageSize,page*pageSize);
             const cells=result.map(r=>[recordCell(s,r,publicFields),shown([r.address,r.city,r.state,r.zip].filter(Boolean).join(", ")),publicCapacity(r)===null?"Not reported / nonnumeric":N.format(publicCapacity(r)),sourceLink(s)]);
-            app.append(table(["Provider / CCN","Reported address",unit.label,"Evidence"],cells))
+            const resultsTable=table(["Provider / CCN","Reported address",unit.label,"Evidence"],cells);
+            if(s.key==="long-term-hospital"){resultsTable.classList.add("ltch-capacity-table");app.append(el("p","Scroll horizontally to see all columns if needed.","intelligence-scroll-hint"))}
+            app.append(resultsTable)
         }
         const pager=el("div",undefined,"pager");pager.append(el("span","Page "+page+" · "+N.format(totals.records)+" matches"));
         if(page>1)pager.append(anchor("Previous",route("capacity",{...p,page:page-1})));
@@ -521,7 +526,7 @@ async function capacityExplorer(p,signal,epoch){
             for(const row of filtered){if(!grouped.has(row.state))throw Error("Unrecognized jurisdiction in provider shard");grouped.get(row.state).push(row)}
             const regional=[...grouped].map(([state,rows])=>({state,...summarizeCapacity(rows)}));
             regional.sort((a,b)=>b.sum-a.sum||b.records-a.records||a.state.localeCompare(b.state));
-            app.append(table(["Jurisdiction","Matching records","Numeric capacity reported","Missing / nonnumeric",unit.label+" reported total"],regional.map(g=>[anchor(g.state,route("capacity",{...p,state:g.state,page:1})),N.format(g.records),N.format(g.reported),N.format(g.unknown),g.reported?N.format(g.sum):"—"])))
+            const regionalTable=table(["Jurisdiction","Matching records","Numeric capacity reported","Missing / nonnumeric",unit.label+" reported total"],regional.map(g=>[anchor(g.state,route("capacity",{...p,state:g.state,page:1})),N.format(g.records),N.format(g.reported),N.format(g.unknown),g.reported?N.format(g.sum):"—"]));if(s.key==="long-term-hospital")regionalTable.classList.add("ltch-capacity-region");app.append(regionalTable)
         }else app.append(add(el("p"),anchor("View all jurisdictions",route("capacity",{...p,state:"",page:1}))));
         app.append(el("p","Within the selected geography, "+N.format(regionTotals.reported)+" of "+N.format(regionTotals.records)+" provider source records report a nonnegative whole-number capacity before capacity filters. Reported zeros are retained. Blank, nonnumeric and negative values are not interpreted. Capacity is derived only from the existing public Care Compare projection.","intro"))
     }catch(e){if(epoch!==sequence||e.name==="AbortError")return;status.replaceWith(errorBox(s,e))}
@@ -570,7 +575,7 @@ function profileNav(p,section){
 }
 function profileGrid(r,s,f){
     const v=k=>value(r,f,k),grid=el("dl",undefined,"detail-grid");
-    for(const [label,k] of [["CCN","id"],["Address","address"],["City","city"],["State","state"],["ZIP","zip"],[s.key==="nursing"?"Certified beds":s.key==="dialysis"?"Dialysis stations":"Reported capacity","capacity"]])grid.append(add(el("div"),el("dt",label),el("dd",shown(v(k)))));
+    for(const [label,k] of [["CCN","id"],["Address","address"],["City","city"],["State","state"],["ZIP","zip"],[capacityUnits[s.key]?.label||"Reported capacity","capacity"]])grid.append(add(el("div"),el("dt",label),el("dd",shown(v(k)))));
     return grid
 }
 function profileService(r,s,f){

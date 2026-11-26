@@ -1,0 +1,1149 @@
+{
+  "as_of": "2026-11-26",
+  "format_version": 1,
+  "qualification_run": 45822384234,
+  "qualification_job": 139917678755,
+  "qualified_commit": "1a946bc562100c6497cf9426021e66000fd693d5",
+  "source_count": 2,
+  "field_count": 48,
+  "profiled_rows": 619069,
+  "sources": [
+    {
+      "columns": 24,
+      "excluded_rows": 0,
+      "family": "care-compare",
+      "input_rows": 200387,
+      "period": "2026-10-28",
+      "profiled_rows": 200387,
+      "scope": "Aggregate-only exact pinned source; lexical profile, not publisher semantic qualification.",
+      "source": "nursing-fire",
+      "source_bytes": 69355711,
+      "source_sha256": "54a18c6409013e2bdcac2da315ddc4557430a993fd324abecd34d7d071c70cb7",
+      "fields": [
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "CMS Certification Number (CCN)",
+          "lexical_shapes": {
+            "other_text": 2878,
+            "unsigned_integer_text": 197509
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 6,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 1,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Provider Name",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 50,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 2,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Provider Address",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 50,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 3,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "City/Town",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 21,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 4,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 53,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "State",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 5,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ZIP Code",
+          "lexical_shapes": {
+            "unsigned_integer_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 5,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 6,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Survey Date",
+          "lexical_shapes": {
+            "iso_date_shape": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 7,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Survey Type",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 11,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 8,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Prefix",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 9,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 9,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Category",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 48,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 10,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 145,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Tag Number",
+          "lexical_shapes": {
+            "unsigned_integer_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 4,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 11,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Tag Version",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 3,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 12,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 143,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Description",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 183,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 13,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 11,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Scope Severity Code",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 14,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 7,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Corrected",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 45,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 15,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Correction Date",
+          "lexical_shapes": {
+            "iso_date_shape": 198751
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 16,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 1636,
+            "other_nonblank": 198751
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 3,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Inspection Cycle",
+          "lexical_shapes": {
+            "unsigned_integer_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 17,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Standard Deficiency",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 18,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Complaint Deficiency",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 19,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Infection Control Inspection Deficiency",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 20,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Citation under IDR",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 21,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Citation under IIDR",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 22,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Location",
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 72,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 23,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        },
+        {
+          "cell_types": {
+            "str": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Processing Date",
+          "lexical_shapes": {
+            "iso_date_shape": 200387
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 24,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 200387
+          }
+        }
+      ]
+    },
+    {
+      "columns": 24,
+      "excluded_rows": 0,
+      "family": "care-compare",
+      "input_rows": 418682,
+      "period": "2026-10-28",
+      "profiled_rows": 418682,
+      "scope": "Aggregate-only exact pinned source; lexical profile, not publisher semantic qualification.",
+      "source": "nursing-health",
+      "source_bytes": 165372053,
+      "source_sha256": "15185c61678f9bcc663076de666d5054a0ca34249c97206cf9e0e3f4ae922473",
+      "fields": [
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "CMS Certification Number (CCN)",
+          "lexical_shapes": {
+            "other_text": 4982,
+            "unsigned_integer_text": 413700
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 6,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 1,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Provider Name",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 50,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 2,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Provider Address",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 50,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 3,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "City/Town",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 21,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 4,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 53,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "State",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 5,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ZIP Code",
+          "lexical_shapes": {
+            "unsigned_integer_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 5,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 6,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Survey Date",
+          "lexical_shapes": {
+            "iso_date_shape": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 7,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Survey Footnote",
+          "lexical_shapes": {
+            "unsigned_integer_text": 194
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 8,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 418488,
+            "other_nonblank": 194
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Survey Type",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 6,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 9,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Prefix",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 10,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 10,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Category",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 58,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 11,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 249,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Tag Number",
+          "lexical_shapes": {
+            "unsigned_integer_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 4,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 12,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 239,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Description",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 286,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 13,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 11,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Scope Severity Code",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 14,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 6,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Corrected",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 45,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 15,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Correction Date",
+          "lexical_shapes": {
+            "iso_date_shape": 416072
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 16,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 2610,
+            "other_nonblank": 416072
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 3,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Inspection Cycle",
+          "lexical_shapes": {
+            "unsigned_integer_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 17,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Standard Deficiency",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 18,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Complaint Deficiency",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 19,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Infection Control Inspection Deficiency",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 20,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Citation under IDR",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 21,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Citation under IIDR",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 22,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Location",
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 72,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 23,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        },
+        {
+          "cell_types": {
+            "str": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Processing Date",
+          "lexical_shapes": {
+            "iso_date_shape": 418682
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 24,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 418682
+          }
+        }
+      ]
+    }
+  ]
+}
