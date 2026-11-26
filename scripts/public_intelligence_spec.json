@@ -5405,6 +5405,145 @@
               }
             ]
           ]
+        },
+        {
+          "id": "cc-nursing-indicators",
+          "title": "Nursing-home source-reported oversight indicators",
+          "note": "October 28, 2026 snapshot. Abuse and inspection-age flags use the publisher's historical survey definitions; not current incidents, outstanding violations, property title or present-day risk scores.",
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "run": 45833630704,
+          "columns": [
+            "Reported indicator",
+            "Y",
+            "N",
+            "Other / missing"
+          ],
+          "rows": [
+            [
+              "Abuse Icon",
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Abuse Icon",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Abuse Icon",
+                  "no"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Abuse Icon",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Most Recent Health Inspection More Than 2 Years Ago",
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Most Recent Health Inspection More Than 2 Years Ago",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Most Recent Health Inspection More Than 2 Years Ago",
+                  "no"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Most Recent Health Inspection More Than 2 Years Ago",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Provider Changed Ownership in Last 12 Months",
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Provider Changed Ownership in Last 12 Months",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Provider Changed Ownership in Last 12 Months",
+                  "no"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Provider Changed Ownership in Last 12 Months",
+                  "other"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "cc-nursing-focus",
+          "title": "Nursing-home Special Focus source status",
+          "note": "October 28, 2026 snapshot. Program and candidate status differ from individual citations. Blank means no listed status in the source, not a compliance determination.",
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "run": 45833630704,
+          "columns": [
+            "Reported status",
+            "Source records"
+          ],
+          "rows": [
+            [
+              "Special Focus Facility",
+              {
+                "path": [
+                  "cc_semantic",
+                  "focus",
+                  "SFF"
+                ]
+              }
+            ],
+            [
+              "Special Focus candidate",
+              {
+                "path": [
+                  "cc_semantic",
+                  "focus",
+                  "SFF Candidate"
+                ]
+              }
+            ],
+            [
+              "No listed status (blank)",
+              {
+                "path": [
+                  "cc_semantic",
+                  "focus",
+                  "blank"
+                ]
+              }
+            ]
+          ]
         }
       ]
     },
@@ -5627,6 +5766,59 @@
             ]
           ],
           "source": "https://echo.epa.gov/help/facility-search/drinking-water-search-results-help"
+        },
+        {
+          "id": "cc-nursing-sprinkler",
+          "title": "Nursing-home reported sprinkler coverage",
+          "note": "October 28, 2026 provider release. Source-reported coverage of required areas, not an engineering survey or current fire-code compliance determination. Partial and unavailable are separate. No means an observed source category, not a count of uninspected buildings.",
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "run": 45833630704,
+          "columns": [
+            "Reported sprinkler coverage",
+            "Source records"
+          ],
+          "rows": [
+            [
+              "Yes",
+              {
+                "path": [
+                  "cc_semantic",
+                  "sprinklers",
+                  "Yes"
+                ]
+              }
+            ],
+            [
+              "Partial",
+              {
+                "path": [
+                  "cc_semantic",
+                  "sprinklers",
+                  "Partial"
+                ]
+              }
+            ],
+            [
+              "No",
+              {
+                "path": [
+                  "cc_semantic",
+                  "sprinklers",
+                  "No"
+                ]
+              }
+            ],
+            [
+              "Data Not Available",
+              {
+                "path": [
+                  "cc_semantic",
+                  "sprinklers",
+                  "Data Not Available"
+                ]
+              }
+            ]
+          ]
         }
       ]
     },
@@ -8372,6 +8564,497 @@
                   "clia_semantic",
                   "multisite",
                   "literal_N/zero"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "cc-hospital-categories",
+          "title": "Hospital reported type and ownership classifications",
+          "note": "November 12, 2026 release. Nine type labels and 12 ownership labels independently reconcile to 5,435 records. Two separate classification dimensions; no property title or legal owner inference.",
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "run": 45833939891,
+          "columns": [
+            "Classification field",
+            "Literal reported label",
+            "Source records"
+          ],
+          "rows": [
+            [
+              "Hospital Ownership",
+              "Department of Defense",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Department of Defense"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Government - Federal",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Government - Federal"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Government - Hospital District or Authority",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Government - Hospital District or Authority"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Government - Local",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Government - Local"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Government - State",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Government - State"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Physician",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Physician"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Proprietary",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Proprietary"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Tribal",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Tribal"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Veterans Health Administration",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Veterans Health Administration"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Voluntary non-profit - Church",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Voluntary non-profit - Church"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Voluntary non-profit - Other",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Voluntary non-profit - Other"
+                ]
+              }
+            ],
+            [
+              "Hospital Ownership",
+              "Voluntary non-profit - Private",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Ownership",
+                  "Voluntary non-profit - Private"
+                ]
+              }
+            ],
+            [
+              "Hospital Type",
+              "Acute Care - Department of Defense",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Type",
+                  "Acute Care - Department of Defense"
+                ]
+              }
+            ],
+            [
+              "Hospital Type",
+              "Acute Care - Veterans Administration",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Type",
+                  "Acute Care - Veterans Administration"
+                ]
+              }
+            ],
+            [
+              "Hospital Type",
+              "Acute Care Hospitals",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Type",
+                  "Acute Care Hospitals"
+                ]
+              }
+            ],
+            [
+              "Hospital Type",
+              "Childrens",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Type",
+                  "Childrens"
+                ]
+              }
+            ],
+            [
+              "Hospital Type",
+              "Critical Access Hospitals",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Type",
+                  "Critical Access Hospitals"
+                ]
+              }
+            ],
+            [
+              "Hospital Type",
+              "Dedicated Cancer Care",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Type",
+                  "Dedicated Cancer Care"
+                ]
+              }
+            ],
+            [
+              "Hospital Type",
+              "Long-term",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Type",
+                  "Long-term"
+                ]
+              }
+            ],
+            [
+              "Hospital Type",
+              "Psychiatric",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Type",
+                  "Psychiatric"
+                ]
+              }
+            ],
+            [
+              "Hospital Type",
+              "Rural Emergency Hospital",
+              {
+                "path": [
+                  "cc_semantic",
+                  "categories",
+                  "Hospital Type",
+                  "Rural Emergency Hospital"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "cc-hospital-quality-coverage",
+          "title": "Hospital clinical quality measure availability",
+          "note": "November 12, 2026 provider release. Count of records with numeric measure-count fields, not patient counts, violations or clinical performance. Missing measures are not zero; groups may overlap.",
+          "source": "https://data.cms.gov/provider-data/topics/hospitals/overall-hospital-quality-star-rating",
+          "run": 45833630704,
+          "columns": [
+            "CMS quality measure group",
+            "Numeric count present",
+            "Not available",
+            "Other / missing"
+          ],
+          "rows": [
+            [
+              "Mortality",
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "MORT",
+                  "numeric"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "MORT",
+                  "unavailable"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "MORT",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Safety of care",
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "Safety",
+                  "numeric"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "Safety",
+                  "unavailable"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "Safety",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Readmission",
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "READM",
+                  "numeric"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "READM",
+                  "unavailable"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "READM",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Patient experience",
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "Pt Exp",
+                  "numeric"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "Pt Exp",
+                  "unavailable"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "Pt Exp",
+                  "other"
+                ]
+              }
+            ],
+            [
+              "Timely and effective care",
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "TE",
+                  "numeric"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "TE",
+                  "unavailable"
+                ]
+              },
+              {
+                "path": [
+                  "cc_semantic",
+                  "coverage",
+                  "TE",
+                  "other"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "cc-nursing-location",
+          "title": "Nursing-home location and reporting diagnostics",
+          "note": "October 28, 2026 provider snapshot. Footnote 22 identifies ZIP-based coordinate estimates. Coordinates in range do not verify the street location. Census and certified-bed time bases may differ; comparison is diagnostic only.",
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "run": 45833630704,
+          "columns": [
+            "Evidence measure",
+            "Source records"
+          ],
+          "rows": [
+            [
+              "Provider resides in hospital (Y)",
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Provider Resides in Hospital",
+                  "yes"
+                ]
+              }
+            ],
+            [
+              "Continuing care retirement community (Y)",
+              {
+                "path": [
+                  "cc_semantic",
+                  "flags",
+                  "Continuing Care Retirement Community",
+                  "yes"
+                ]
+              }
+            ],
+            [
+              "Coordinates in range; footnote 22 (ZIP estimate)",
+              {
+                "path": [
+                  "cc_semantic",
+                  "diagnostics",
+                  "zip_estimate"
+                ]
+              }
+            ],
+            [
+              "Coordinates in range; no geocoding footnote",
+              {
+                "path": [
+                  "cc_semantic",
+                  "diagnostics",
+                  "no_geocoding_footnote"
+                ]
+              }
+            ],
+            [
+              "Average daily resident census above certified beds",
+              {
+                "path": [
+                  "cc_semantic",
+                  "diagnostics",
+                  "census_above_beds"
+                ]
+              }
+            ],
+            [
+              "Census / bed comparison unavailable",
+              {
+                "path": [
+                  "cc_semantic",
+                  "diagnostics",
+                  "census_not_comparable"
                 ]
               }
             ]
