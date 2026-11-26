@@ -120,6 +120,22 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="overview":
+                    assert page.locator(".home-discovery-form").count()==1
+                    assert page.locator(".home-workflow").count()==4
+                    assert page.locator("nav[aria-label='Primary navigation'] a").count()==23
+                    assert page.locator(".home-coverage").evaluate("(e)=>!e.open")
+                    page.locator(".home-discovery-form select[name=source]").select_option("hospital")
+                    page.locator(".home-discovery-form select[name=state]").select_option("NY")
+                    page.get_by_role("button",name="Find matching facilities").click()
+                    page.locator('.advanced-status[data-complete="true"]').wait_for()
+                    assert page.locator("select[name=source]").input_value()=="hospital"
+                    assert page.locator("select[name=state]").input_value()=="NY"
+                    page.go_back();page.locator(".home-discovery-form").wait_for()
+                    page.locator(".home-coverage summary").click()
+                    assert page.locator(".home-coverage").evaluate("(e)=>e.open")
+                    page.locator(".home-coverage summary").click()
+                    page.locator(".home-workflows").screenshot(path=str(OUT/f"{width}-home-workflows.png"))
                 if name=="financial-research":
                     assert page.locator("#app .intelligence-table").count()==5
                     seen=[r for r in responses if r.url==base+"web/public-intelligence.json"]
@@ -184,7 +200,28 @@ def run(base,local):
                     page.reload();page.locator(".portfolio-count").wait_for()
                     assert "1 saved source records" in page.locator(".portfolio-count").inner_text()
                     page.screenshot(path=str(OUT/f"{width}-saved-portfolio-populated.png"))
-                    page.get_by_role("button",name="Remove",exact=True).click()
+                    second=DIALYSIS_ROWS[0]
+                    page.goto(base+"#detail?"+urlencode({"source":"dialysis","id":second["ccn"],"state":second["state"]}))
+                    page.get_by_role("button",name="Save to research portfolio").click()
+                    page.get_by_role("link",name="Open saved portfolio").click()
+                    page.locator(".portfolio-count").wait_for()
+                    assert "2 saved source records" in page.locator(".portfolio-count").inner_text()
+                    page.locator(".portfolio-provider-cell input").nth(0).check()
+                    page.locator(".portfolio-provider-cell input").nth(1).check()
+                    page.get_by_role("button",name="Compare selected (2 / 4)").click()
+                    page.locator(".comparison-table").wait_for()
+                    assert "2 exact published records resolved" in page.locator(".comparison-status").inner_text()
+                    assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+                    page.screenshot(path=str(OUT/f"{width}-facility-comparison.png"))
+                    if width<=720:
+                        wrap=page.locator(".comparison-table")
+                        assert page.locator(".comparison-scroll-hint").is_visible()
+                        assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;return e.scrollLeft>0}")
+                        assert wrap.locator("td").first.evaluate("(e)=>getComputedStyle(e).position==='sticky'")
+                        page.screenshot(path=str(OUT/f"{width}-facility-comparison-scrolled.png"))
+                    page.get_by_role("link",name="Back to saved portfolio").click()
+                    page.locator(".portfolio-count").wait_for()
+                    for _ in range(2):page.get_by_role("button",name="Remove",exact=True).first.click()
                     assert "0 saved source records" in page.locator(".portfolio-count").inner_text()
                 if name=="procurement":
                     assert page.locator(".procurement-pilot .metric strong").all_inner_texts()==["100","100"]
