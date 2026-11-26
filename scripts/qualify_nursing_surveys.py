@@ -14,7 +14,7 @@ from citation_evidence import BASE_SHA
 RELEASE="2026-10-28"
 PROCESSING="2026-10-01"
 CCN="CMS Certification Number (CCN)"
-DATES=[CCN,"Survey Date","Type of Survey","Survey Cycle","Processing Date"]
+DATES=[CCN,"Survey Date","Survey Footnote","Type of Survey","Survey Cycle","Processing Date"]
 SUMMARY_HEAD=[CCN,"Provider Name","Provider Address","City/Town","State","ZIP Code","Inspection Cycle","Health Survey Date","Survey Footnote","Fire Safety Survey Date"]
 SUMMARY_TOTALS=["Total Number of Health Deficiencies","Total Number of Fire Safety Deficiencies"]
 CATEGORIES=["Freedom from Abuse and Neglect and Exploitation","Quality of Life and Care","Resident Assessment and Care Planning","Nursing and Physician Services","Resident Rights","Nutrition and Dietary","Pharmacy Service","Environmental","Administration","Infection Control","Emergency Preparedness","Automatic Sprinkler Systems","Construction","Services","Corridor Walls and Doors","Egress","Electrical","Emergency Plans and Fire Drills","Fire Alarm Systems","Smoke","Interior","Gas and Vacuum and Electrical Systems","Hazardous Area","Illumination and Emergency Power","Laboratories","Medical Gases and Anaesthetizing Areas","Smoking Regulations","Miscellaneous"]
@@ -23,7 +23,7 @@ SUMMARY=SUMMARY_HEAD+SUMMARY_COUNTS+["Location","Processing Date"]
 SOURCES={"dates":("FS-034","svdt-c123",DATES),"summary":("FS-037","tbry-pc2d",SUMMARY)}
 MAX_BYTES=80_000_000
 MAX_ROWS=500000
-TYPES={"Health Standard","Fire Safety Standard","Health Complaint","Fire Safety Complaint","Infection Control"}
+TYPES={"Health Standard","Fire Safety Standard","Health Complaint","Fire Safety Complaint","Infection Control","Health Inspection Standard","Health Inspection Complaint"}
 def parse_date(raw,blank=False):
     s=raw.strip()
     if not s and blank:return None
@@ -55,6 +55,8 @@ def download(key):
         cms.allowed(res.geturl());data=res.read(MAX_BYTES+1)
     require(0<len(data)<=MAX_BYTES,"download bound")
     require(cms.metadata(ident)==meta and cms.count(ident)==n,"source changed during retrieval")
+    if key=="dates":
+        require(hashlib.sha256(data).hexdigest()=="f4997d4adbbc155e3e6472a3d12fc1f278766f9f815c300d48f35ea35a813d20" and n==148956,"inspection_date_pin_changed")
     return data,meta,n
 
 def project(key,data,expected,db,providers):
@@ -63,7 +65,7 @@ def project(key,data,expected,db,providers):
     require(reader.fieldnames==header,"source_header_drift")
     table="inspection_dates" if key=="dates" else "survey_summary"
     db.execute("CREATE TABLE "+table+"(ordinal INTEGER PRIMARY KEY,row_sha TEXT NOT NULL,ccn TEXT NOT NULL,cycle INTEGER NOT NULL,processing TEXT NOT NULL,kind TEXT,date1 TEXT,date2 TEXT,health_count INTEGER,fire_count INTEGER,link_state TEXT NOT NULL)")
-    rejects=Counter();links=Counter();classes=Counter();cycles=Counter();states=defaultdict(Counter);keys=Counter();digests=set();total=duplicates=0
+    rejects=Counter();links=Counter();classes=Counter();cycles=Counter();states=defaultdict(Counter);keys=Counter();footnotes=Counter();digests=set();total=duplicates=0
     for total,row in enumerate(reader,1):
         require(total<=MAX_ROWS,"row bound")
         if None in row or any(v is None for v in row.values()):
@@ -80,6 +82,7 @@ def project(key,data,expected,db,providers):
             if key=="dates":
                 cy=cycle(row["Survey Cycle"]);kind=row["Type of Survey"].strip()
                 require(kind in TYPES,"survey_type")
+                note,note_state=numeric_count(row["Survey Footnote"])
                 d1=parse_date(row["Survey Date"]);d2=None
                 require(d1<=proc,"survey_after_processing")
                 health=fire=None;candidate=(ccn,cy,kind,d1)
@@ -101,18 +104,20 @@ def project(key,data,expected,db,providers):
             continue
         db.execute("INSERT INTO "+table+" VALUES(?,?,?,?,?,?,?,?,?,?,?)",(total,digest,ccn,cy,proc,kind,d1,d2,health,fire,link))
         keys[candidate]+=1;links[link]+=1;classes[kind]+=1;cycles[str(cy)]+=1
+        if key=="dates":footnotes[note_state]+=1
         for field,st in field_states.items():states[field][st]+=1
     db.commit()
     stored=db.execute("SELECT count(*) FROM "+table).fetchone()[0]
     require(total==expected==stored+sum(rejects.values()),"input reconciliation")
     require(stored==sum(links.values())==sum(classes.values())==sum(cycles.values())==sum(keys.values()),"projection reconciliation")
     require(all(sum(v.values())==stored for v in states.values()),"count field reconciliation")
+    if key=="dates":require(sum(footnotes.values())==stored,"footnote reconciliation")
     db.execute("CREATE INDEX "+table+"_ccn ON "+table+"(ccn)")
     require(db.execute("PRAGMA integrity_check").fetchone()[0]=="ok","SQLite integrity")
     return {"source_id":sid,"dataset":ident,"columns":len(header),"input_rows":total,"stored_rows":stored,"rejected_rows":sum(rejects.values()),"reject_reasons":dict(rejects),
             "exact_duplicate_source_rows":duplicates,"repeated_candidate_key_rows":stored-len(keys),"distinct_ccns":db.execute("SELECT count(DISTINCT ccn) FROM "+table).fetchone()[0],
             "link_counts":dict(links),"source_classes":dict(classes),"cycle_counts":dict(cycles),"count_field_value_states":{k:dict(v) for k,v in states.items()},
-            "retained_public_row_level_records":0,"limits":"Historical report-grain source observations; repeated candidate keys are not collapsed. Blank counts remain unknown. No compliance, vulnerability, equipment, procurement or current-operation inference."}
+            "survey_footnote_value_states":dict(footnotes),"retained_public_row_level_records":0,"limits":"Historical report-grain source observations; repeated candidate keys are not collapsed. Blank counts remain unknown. No compliance, vulnerability, equipment, procurement or current-operation inference."}
 
 def compare_dates(db,base):
     dates=set(db.execute("SELECT DISTINCT ccn,date1 FROM inspection_dates"))
@@ -148,7 +153,7 @@ def main():
                 out[key]=result
             except Exception as e:
                 # Only fixed reason names; no values or network response contents.
-                safe_reasons={"unexpected_release","unexpected_count","source_header_drift","source changed during retrieval","download bound","input reconciliation","projection reconciliation","count field reconciliation","SQLite integrity","unexpected dataset identity/access","ambiguous CSV distribution or release missing","unexpected API count"}
+                safe_reasons={"unexpected_release","unexpected_count","inspection_date_pin_changed","source_header_drift","source changed during retrieval","download bound","input reconciliation","projection reconciliation","count field reconciliation","SQLite integrity","unexpected dataset identity/access","ambiguous CSV distribution or release missing","unexpected API count"}
                 reason=str(e) if str(e) in safe_reasons else "unclassified_exception"
                 out[key]={"status":"failed","error_type":type(e).__name__,"reason":reason,**info};failed.append(key)
                 print("NURSING_SURVEY_SOURCE_FAILED",key,type(e).__name__,reason,flush=True)
