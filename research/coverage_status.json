@@ -1,7 +1,7 @@
 {
   "version": 1,
   "inventory_blob": "8d3a5e9992cc4b9d819452cd4050dd19731e0d55",
-  "as_of": "2026-11-25",
+  "as_of": "2026-11-26",
   "qualified_baseline": {
     "commit": "bc0586169db10ca4dd3ea7bc234d6b306928474a",
     "run": "https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45664651617",
@@ -680,7 +680,29 @@
     },
     {
       "id": "FS-157",
-      "status": "discovered_not_tested"
+      "status": "blocked_key_format_review",
+      "adapter": "epa-sdwa-search",
+      "evidence": "45742515823",
+      "publisher": "US EPA ECHO",
+      "official_url": "https://echo.epa.gov/tools/data-downloads/sdwa-facility-search-download-summary",
+      "download_url": "https://echo.epa.gov/files/echodownloads/SDWA_system_search_download.zip",
+      "retrieved_at": "2026-11-26T02:27:20.097359+00:00",
+      "publication_date": null,
+      "source_sha256": "cad153417ac7f22726bd4b5ebe1cb4aca6088b45910a0b343324fc82cf78ce21",
+      "download_bytes": 34972222,
+      "columns": 76,
+      "retrieved_rows": 434757,
+      "documented_format_rows": 431470,
+      "unresolved_format_rows": 3287,
+      "all_unique_nonblank_keys": 434757,
+      "duplicate_keys": 0,
+      "blank_keys": 0,
+      "trimmed_keys": 0,
+      "retained_database_rows": 0,
+      "artifact": 15080819158,
+      "reuse_review": "pending",
+      "ui_status": "source register only; no EPA rows",
+      "note": "Exact same source bytes across three diagnostic runs. All keys unique and nonblank; 3,287 source IDs have undocumented formats. No format waiver, no production ingestion, no canonical matches or healthcare relationship claims. Aggregate evidence only."
     },
     {
       "id": "FS-158",
@@ -884,5 +906,26 @@
       "not_available": 74766
     },
     "note": "All pairs same state/type, no multiple candidates within dataset. Candidate evidence, not canonical sites. Aggregate audit only. Qualified branch merged preserving disjoint public UI changes; date format remains unresolved."
+  },
+  "national_date_normalization_qualified_baseline": {
+    "candidate": "e2a21f69e4d0f3e724a802bd807a723161e59b3c",
+    "run": 45736841012,
+    "artifact": 15080195027,
+    "source_records": 1904060,
+    "capability_observations": 231780,
+    "status_observations": 100334,
+    "candidate_pairs": 47169,
+    "unmatched_facility_source_rows": 835,
+    "same_state_type_address_city_zip_pairs": 34264,
+    "tests": 45,
+    "database_bytes": 906149888,
+    "database_sha256": "c87a2351db5d3d0e688f9b9a42946083ae0b242b24aa85554d3e886d35f91fc7",
+    "date_state_counts": {
+      "reported": 15803,
+      "ambiguous": 9765,
+      "not_available": 74766
+    },
+    "source_release_sha256": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2",
+    "note": "Qualified full pinned logical reconstruction and promoted main. Prior historical baseline preserved. Ambiguous dates remain unresolved. Aggregate evidence only; no persistent database or dynamic deployment."
   }
 }
