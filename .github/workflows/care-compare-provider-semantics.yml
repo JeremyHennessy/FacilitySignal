@@ -1,0 +1,28 @@
+name: FacilitySignal Care Compare provider semantic qualification
+on:
+  push:
+    branches: [research/care-compare-provider-semantics-20261126]
+    paths:
+      - care_compare_provider_semantics.py
+      - tests/test_care_compare_provider_semantics.py
+      - .github/workflows/care-compare-provider-semantics.yml
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_care_compare_provider_semantics.py -v
+      - run: python care_compare_provider_semantics.py --download --output "$RUNNER_TEMP/care-compare-semantics.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: care-compare-provider-semantic-audit
+          path: ${{ runner.temp }}/care-compare-semantics.json
+          retention-days: 14
+          if-no-files-found: error

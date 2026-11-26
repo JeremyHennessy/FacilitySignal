@@ -1,0 +1,49 @@
+{
+  "classification_counts": {
+    "Hospital Ownership": {
+      "Department of Defense": 32,
+      "Government - Federal": 43,
+      "Government - Hospital District or Authority": 512,
+      "Government - Local": 391,
+      "Government - State": 212,
+      "Physician": 80,
+      "Proprietary": 1064,
+      "Tribal": 17,
+      "Veterans Health Administration": 132,
+      "Voluntary non-profit - Church": 261,
+      "Voluntary non-profit - Other": 350,
+      "Voluntary non-profit - Private": 2341
+    },
+    "Hospital Type": {
+      "Acute Care - Department of Defense": 32,
+      "Acute Care - Veterans Administration": 132,
+      "Acute Care Hospitals": 3094,
+      "Childrens": 94,
+      "Critical Access Hospitals": 1386,
+      "Dedicated Cancer Care": 11,
+      "Long-term": 5,
+      "Psychiatric": 632,
+      "Rural Emergency Hospital": 49
+    }
+  },
+  "format_version": 1,
+  "not_in_initial_dictionary_based_list": {
+    "Hospital Ownership": {
+      "Department of Defense": 32,
+      "Veterans Health Administration": 132
+    },
+    "Hospital Type": {
+      "Acute Care - Department of Defense": 32,
+      "Dedicated Cancer Care": 11,
+      "Long-term": 5,
+      "Rural Emergency Hospital": 49
+    }
+  },
+  "period": "2026-11-12",
+  "rows": 5435,
+  "scope": "Only literal hospital type and ownership category labels, not legal owners, unique sites or property classification. No individual rows or arbitrary values published.",
+  "source_sha256": "ff2a82a7149975fb86348e7f901aa3bcd9f3701e8b0ecd0ab34702df193ff559",
+  "qualification_run": 45833939891,
+  "qualification_job": 139957677977,
+  "qualified_commit": "f2f49237cdd3b287acc7314f4ffc39b3443e5729"
+}
