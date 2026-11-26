@@ -1,0 +1,45 @@
+name: FacilitySignal capacity and dossier migration regression qualification
+on:
+  push:
+    branches: [fix/azure-migration-capacity-regression-20261126]
+    paths:
+      - web/pages.js
+      - web/pages.css
+      - index.html
+      - scripts/test_pages_capacity.py
+      - scripts/test_pages_profiles.py
+      - scripts/verify_pages_profiles_deployed.py
+      - .github/workflows/pages-profiles.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node --check web/pages.js
+      - run: python scripts/build_public_intelligence.py --check
+      - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0
+      - run: python -m unittest discover -s tests -v
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/test_pages_research.py
+      - run: python scripts/test_pages_capacity.py
+      - run: python scripts/test_pages_intelligence.py
+      - run: python scripts/test_pages_profiles.py
+      - run: python scripts/test_pages_integrated_dossiers.py
+      - run: python scripts/verify_pages_live_visual.py --local
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-profile-browser-evidence
+          path: |
+            ${{ runner.temp }}/profile-evidence/
+            ${{ runner.temp }}/pages-capacity-evidence/
+            ${{ runner.temp }}/dossier-evidence/
+            ${{ runner.temp }}/pages-live-visual-evidence/
+          retention-days: 7

@@ -79,8 +79,21 @@ try:
             page.screenshot(path=str(OUT/f"{width}-dialysis-filter.png"),full_page=True)
             if selected:
                 page.locator("tbody tr").first.locator("a").first.click()
-                page.get_by_role("link",name="Explore reported capacity in this jurisdiction").wait_for()
-                page.get_by_role("link",name="Explore reported capacity in this jurisdiction").click()
+                # Integrated dossier summary now exposes the same capacity
+                # route via Explore comparable records; the original link
+                # remains in Services & capacity. Verify both entry points.
+                page.locator(".dossier-evidence[data-ready=true]").wait_for()
+                summary_link=page.get_by_role("link",name="Explore comparable records",exact=True)
+                summary_link.wait_for()
+                expected_href=summary_link.get_attribute("href")
+                assert expected_href.startswith("#capacity?"),expected_href
+                page.get_by_role("link",name="Services & capacity",exact=True).click()
+                service_link=page.get_by_role("link",name="Explore reported capacity in this jurisdiction",exact=True)
+                service_link.wait_for()
+                assert service_link.get_attribute("href")==expected_href
+                page.go_back()
+                page.locator(".dossier-evidence[data-ready=true]").wait_for()
+                page.get_by_role("link",name="Explore comparable records",exact=True).click()
                 metrics(stats([r for r in sources["dialysis"] if r["state"]=="NY"]))
             page.goto(URL+"#capacity?source=nursing&reported=unknown")
             metrics(stats([r for r in sources["nursing"] if capacity(r) is None]))
