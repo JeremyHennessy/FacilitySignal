@@ -49,7 +49,7 @@ def monitor(store,national):
             elif key.startswith("il-reportcard-"):
                 _,hashes=state.il_records(key.removeprefix("il-reportcard-"))
                 results[ident]={"state":"metadata_unchanged" if hashes==old["page_sha256"] else "new_version_review","pages_checked":len(hashes)}
-            elif key.startswith("hcris-") or key in {"epa-sdwa-aggregate","epa-frs-healthcare-aggregate"}:
+            elif key.startswith("hcris-") or key in {"epa-sdwa-aggregate","epa-frs-healthcare-aggregate","epa-rcra-healthcare-aggregate","epa-npdes-part1-healthcare-aggregate"}:
                 if key.endswith("-index"):
                     targets=[k for k,v in forms.TARGETS.items() if "hcris-"+v[0]==key]
                     require(len(targets)==1,"monitor form identity")

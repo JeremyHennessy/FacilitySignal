@@ -1,0 +1,62 @@
+name: FacilitySignal private RCRA and NPDES aggregate coverage
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, build/azure-epa-program-coverage-20261126]
+    paths:
+      - scripts/archive_epa_program_coverage.py
+      - tests/test_epa_program_coverage.py
+      - .github/workflows/azure-epa-program-coverage.yml
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-epa-program-coverage
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  archive:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: azure-production
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        source: [rcra, npdes]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Verify and archive national source aggregates
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+          SOURCE: ${{ matrix.source }}
+        run: |
+          umask 077
+          python -m scripts.archive_epa_program_coverage --source "$SOURCE" --receipt "$RUNNER_TEMP/epa-program-receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: private-epa-program-${{ matrix.source }}-receipt
+          path: ${{ runner.temp }}/epa-program-receipt.json
+          retention-days: 30
+          if-no-files-found: error
