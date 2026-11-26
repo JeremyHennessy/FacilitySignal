@@ -83,7 +83,14 @@ def provider_key(value):
     if isinstance(value,int) and not isinstance(value,bool) and 0<=value<=999999:
         return str(value).zfill(6)
     s="" if value is None else str(value).strip().upper()
-    require(re.fullmatch(r"[0-9]{2}[A-Z0-9][0-9]{3}",s) is not None,"provider_key_shape")
+    # CMS SOM 2779A1, revision 226 (December 6, 2024): additional state
+    # codes A0-A9, B0-B9, C0-C9, D0-D9, E1-E3 are documented.
+    # Add only the observed letter-first plus five-digit shape. No geography
+    # or certification-type inference and no changes to numeric-prefix rules.
+    extra_prefixes={a+str(n) for a in "ABCD" for n in range(10)}|{"E1","E2","E3"}
+    numeric_prefix=re.fullmatch(r"[0-9]{2}[A-Z0-9][0-9]{3}",s)
+    alpha_prefix=len(s)==6 and s[:2] in extra_prefixes and re.fullmatch(r"[0-9]{4}",s[2:])
+    require(bool(numeric_prefix or alpha_prefix),"provider_key_shape")
     return s
 
 def classify(values,m):

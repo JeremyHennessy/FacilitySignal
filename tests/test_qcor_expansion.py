@@ -12,7 +12,9 @@ class QCORExpansionTests(unittest.TestCase):
     def test_source_key_shape(self):
         self.assertEqual(provider_key(11300),"011300")
         self.assertEqual(provider_key("01L003"),"01L003")
-        for v in ("", "01L00300", "unknown", True):
+        for code in ("A03401","B73975","C21823","D98500","E28900"):
+            self.assertEqual(provider_key(code),code)
+        for v in ("", "01L00300", "unknown", True,"E03401","E43401","F03401","A0L003","A0340X"):
             with self.assertRaises(ValueError):provider_key(v)
     def test_project_without_row_details(self):
         with tempfile.TemporaryDirectory() as t:

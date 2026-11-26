@@ -5,7 +5,7 @@ class QCORExpansionLedgerTests(unittest.TestCase):
     def test_completed_source_jobs_and_publication_boundary(self):
         l=json.loads((ROOT/"coverage_status.json").read_text())
         entries=l["qcor_expansion_qualified_baselines"]
-        self.assertTrue({"cah","transplant","rhc","fqhc","prtf","corf","hha"}<=set(entries))
+        self.assertTrue({"cah","transplant","rhc","fqhc","prtf","corf","icf","hha"}==set(entries))
         for key,b in entries.items():
             a=b["audit"];row=next(s for s in l["sources"] if s["id"]==a["source_id"])
             self.assertEqual(a["input_rows"],a["stored_rows"]+a["rejected_rows"])
@@ -18,3 +18,13 @@ class QCORExpansionLedgerTests(unittest.TestCase):
             self.assertEqual(row["reuse_review"],"pending")
         self.assertEqual(len(l["sources"]),176)
         self.assertEqual(json.loads((ROOT/"snapshot_release_20261125.json").read_text())["source_records_total"],1904060)
+    def test_documented_prefix_correction_preserves_prior_attempts(self):
+        l=json.loads((ROOT/"coverage_status.json").read_text())
+        entries=l["qcor_expansion_qualified_baselines"]
+        for key,rows,rejects in (("rhc",16481,153),("fqhc",875,12)):
+            b=entries[key];a=b["audit"];old=b["prior_attempt"]["audit"]
+            self.assertTrue(a["same_release_verified"])
+            self.assertEqual(a["source"]["sha256"],old["source"]["sha256"])
+            self.assertEqual((a["stored_rows"],a["rejected_rows"],old["rejected_rows"]),(rows,0,rejects))
+        self.assertEqual(entries["icf"]["audit"]["rejected_rows"],50674)
+        self.assertEqual(entries["icf"]["job_conclusion"],"failure")

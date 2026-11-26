@@ -167,25 +167,25 @@
     },
     {
       "id": "FS-026",
-      "status": "blocked_key_format_review",
-      "evidence": "45827150713",
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45827861053",
       "retrieved_rows": 16481,
-      "ephemeral_projected_rows": 16328,
-      "rejected_rows": 153,
+      "ephemeral_projected_rows": 16481,
+      "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Source projection incomplete; rejected provider key formats remain unresolved. Not qualified or integrated."
+      "note": "Exact prior source bytes requalified after documented CMS alphanumeric state prefix correction; no retained row-level publication or integrated baseline increment."
     },
     {
       "id": "FS-027",
-      "status": "blocked_key_format_review",
-      "evidence": "45827150713",
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45827861053",
       "retrieved_rows": 875,
-      "ephemeral_projected_rows": 863,
-      "rejected_rows": 12,
+      "ephemeral_projected_rows": 875,
+      "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Source projection incomplete; rejected provider key formats remain unresolved. Not qualified or integrated."
+      "note": "Exact prior source bytes requalified after documented CMS alphanumeric state prefix correction; no retained row-level publication or integrated baseline increment."
     },
     {
       "id": "FS-028",
@@ -221,7 +221,14 @@
     },
     {
       "id": "FS-031",
-      "status": "discovered_not_tested"
+      "status": "blocked_key_format_review",
+      "evidence": "45827150713",
+      "retrieved_rows": 385312,
+      "ephemeral_projected_rows": 334638,
+      "rejected_rows": 50674,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "QCOR workbook schema mapped; 50,674 tag-format exceptions, not fully qualified or integrated. Official report displays KS three-digit tags; actual remaining variant distribution requires targeted review."
     },
     {
       "id": "FS-032",
@@ -2116,12 +2123,12 @@
       "included_in_integrated_national_baseline": false
     },
     "fqhc": {
-      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
-      "run": 45827150713,
-      "job_id": 139934133913,
-      "job_conclusion": "failure",
-      "artifact": 15119024893,
-      "artifact_digest": "sha256:aebf6776e784acf93e0aa2b083bce620cde3a8c4b49e885b33a5917fdd7e53d4",
+      "commit": "6159c6a9bcd70adcb63d23f37babf6ddc8775b01",
+      "run": 45827861053,
+      "job_id": 139936565070,
+      "job_conclusion": "success",
+      "artifact": 15119919739,
+      "artifact_digest": "sha256:b1de085e84e27840a1e4c211354d35400edd2982021b90ab6e5e9df4605e79e4",
       "audit": {
         "source_id": "FS-027",
         "report_url": "https://qcor.cms.gov/FQHC_2567_Reports",
@@ -2152,19 +2159,17 @@
         "mapping_complete": true,
         "input_rows": 875,
         "blank_rows": 0,
-        "stored_rows": 863,
-        "rejected_rows": 12,
-        "reject_reasons": {
-          "provider_key_shape": 12
-        },
+        "stored_rows": 875,
+        "rejected_rows": 0,
+        "reject_reasons": {},
         "row_kinds": {
-          "memo": 690,
-          "nonmemo_tag": 173
+          "memo": 701,
+          "nonmemo_tag": 174
         },
-        "distinct_provider_keys": 472,
-        "distinct_survey_event_keys": 680,
-        "events_with_nonmemo_tag": 91,
-        "events_without_nonmemo_tag": 589,
+        "distinct_provider_keys": 483,
+        "distinct_survey_event_keys": 691,
+        "events_with_nonmemo_tag": 92,
+        "events_without_nonmemo_tag": 599,
         "retained_row_level_records": 0,
         "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
         "source": {
@@ -2173,10 +2178,81 @@
           "sha256": "058bd6dbe8dafcb775d1c7eda09fb225197627b4a1a821d3906a65959a63c4ea",
           "last_modified": null,
           "etag": null,
-          "retrieved_at": "2026-11-26T13:14:50.026617+00:00"
+          "retrieved_at": "2026-11-26T13:18:52.869045+00:00"
         },
-        "reuse_review": "pending"
+        "reuse_review": "pending",
+        "prior_run": 45827150713,
+        "diagnostic_run": 45827628592,
+        "key_reference": "https://www.cms.gov/files/document/r226soma.pdf",
+        "same_release_verified": true
       },
+      "prior_attempt": {
+        "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+        "run": 45827150713,
+        "job_id": 139934133913,
+        "job_conclusion": "failure",
+        "artifact": 15119024893,
+        "artifact_digest": "sha256:aebf6776e784acf93e0aa2b083bce620cde3a8c4b49e885b33a5917fdd7e53d4",
+        "audit": {
+          "source_id": "FS-027",
+          "report_url": "https://qcor.cms.gov/FQHC_2567_Reports",
+          "header": [
+            "CCN",
+            "Facility Name",
+            "Street Address",
+            "City",
+            "State/Territory",
+            "ZIP",
+            "CMS Region",
+            "Survey Event ID",
+            "Survey Date",
+            "Survey Type",
+            "Deficiency Tag",
+            "Deficiency Description",
+            "Deficiency Tag Type",
+            "Statement of Deficiency Text"
+          ],
+          "columns": 14,
+          "field_mapping": {
+            "ccn": "CCN",
+            "event": "Survey Event ID",
+            "date": "Survey Date",
+            "tag": "Deficiency Tag",
+            "kind": "Deficiency Tag Type"
+          },
+          "mapping_complete": true,
+          "input_rows": 875,
+          "blank_rows": 0,
+          "stored_rows": 863,
+          "rejected_rows": 12,
+          "reject_reasons": {
+            "provider_key_shape": 12
+          },
+          "row_kinds": {
+            "memo": 690,
+            "nonmemo_tag": 173
+          },
+          "distinct_provider_keys": 472,
+          "distinct_survey_event_keys": 680,
+          "events_with_nonmemo_tag": 91,
+          "events_without_nonmemo_tag": 589,
+          "retained_row_level_records": 0,
+          "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+          "source": {
+            "url": "https://qcor.cms.gov/downloadFQHC2567",
+            "bytes": 342170,
+            "sha256": "058bd6dbe8dafcb775d1c7eda09fb225197627b4a1a821d3906a65959a63c4ea",
+            "last_modified": null,
+            "etag": null,
+            "retrieved_at": "2026-11-26T13:14:50.026617+00:00"
+          },
+          "reuse_review": "pending"
+        },
+        "reuse_review": "pending",
+        "retained_row_level_records": 0,
+        "included_in_integrated_national_baseline": false
+      },
+      "diagnostic_run": 45827628592,
       "reuse_review": "pending",
       "retained_row_level_records": 0,
       "included_in_integrated_national_baseline": false
@@ -2315,12 +2391,12 @@
       "included_in_integrated_national_baseline": false
     },
     "rhc": {
-      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
-      "run": 45827150713,
-      "job_id": 139934134074,
-      "job_conclusion": "failure",
-      "artifact": 15119839207,
-      "artifact_digest": "sha256:3a5dcca65d473e8575923b96a7e7672ab07669cd12c74a0d85263199f9736cfa",
+      "commit": "6159c6a9bcd70adcb63d23f37babf6ddc8775b01",
+      "run": 45827861053,
+      "job_id": 139936564485,
+      "job_conclusion": "success",
+      "artifact": 15120429169,
+      "artifact_digest": "sha256:f3b48b1c5e158da7df663e63750b3068ad4107ebc1f8e38969d29b049afc0fd0",
       "audit": {
         "source_id": "FS-026",
         "report_url": "https://qcor.cms.gov/RHC_2567_Reports",
@@ -2352,19 +2428,17 @@
         "mapping_complete": true,
         "input_rows": 16481,
         "blank_rows": 0,
-        "stored_rows": 16328,
-        "rejected_rows": 153,
-        "reject_reasons": {
-          "provider_key_shape": 153
-        },
+        "stored_rows": 16481,
+        "rejected_rows": 0,
+        "reject_reasons": {},
         "row_kinds": {
-          "memo": 7388,
-          "nonmemo_tag": 8940
+          "memo": 7537,
+          "nonmemo_tag": 8944
         },
-        "distinct_provider_keys": 3209,
-        "distinct_survey_event_keys": 4170,
-        "events_with_nonmemo_tag": 1986,
-        "events_without_nonmemo_tag": 2184,
+        "distinct_provider_keys": 3284,
+        "distinct_survey_event_keys": 4246,
+        "events_with_nonmemo_tag": 1989,
+        "events_without_nonmemo_tag": 2257,
         "retained_row_level_records": 0,
         "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
         "source": {
@@ -2373,10 +2447,82 @@
           "sha256": "6bc5ea259da6149770068d823f8223704e05e6505032d7b0528aa98bc3a66fc1",
           "last_modified": null,
           "etag": null,
-          "retrieved_at": "2026-11-26T13:14:32.460004+00:00"
+          "retrieved_at": "2026-11-26T13:18:38.340221+00:00"
         },
-        "reuse_review": "pending"
+        "reuse_review": "pending",
+        "prior_run": 45827150713,
+        "diagnostic_run": 45827628592,
+        "key_reference": "https://www.cms.gov/files/document/r226soma.pdf",
+        "same_release_verified": true
       },
+      "prior_attempt": {
+        "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+        "run": 45827150713,
+        "job_id": 139934134074,
+        "job_conclusion": "failure",
+        "artifact": 15119839207,
+        "artifact_digest": "sha256:3a5dcca65d473e8575923b96a7e7672ab07669cd12c74a0d85263199f9736cfa",
+        "audit": {
+          "source_id": "FS-026",
+          "report_url": "https://qcor.cms.gov/RHC_2567_Reports",
+          "header": [
+            "CCN",
+            "Facility Name",
+            "Street Address",
+            "City",
+            "State/Territory",
+            "ZIP",
+            "CMS Region",
+            "Survey Event ID",
+            "Survey Date",
+            "Survey Type",
+            "Deficiency Tag",
+            "Deficiency Description",
+            "Deficiency Tag Type",
+            "Statement of Deficiency Text (Part 1)",
+            "Statement of Deficiency Text (Part 2)"
+          ],
+          "columns": 15,
+          "field_mapping": {
+            "ccn": "CCN",
+            "event": "Survey Event ID",
+            "date": "Survey Date",
+            "tag": "Deficiency Tag",
+            "kind": "Deficiency Tag Type"
+          },
+          "mapping_complete": true,
+          "input_rows": 16481,
+          "blank_rows": 0,
+          "stored_rows": 16328,
+          "rejected_rows": 153,
+          "reject_reasons": {
+            "provider_key_shape": 153
+          },
+          "row_kinds": {
+            "memo": 7388,
+            "nonmemo_tag": 8940
+          },
+          "distinct_provider_keys": 3209,
+          "distinct_survey_event_keys": 4170,
+          "events_with_nonmemo_tag": 1986,
+          "events_without_nonmemo_tag": 2184,
+          "retained_row_level_records": 0,
+          "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+          "source": {
+            "url": "https://qcor.cms.gov/downloadRHC2567",
+            "bytes": 6933304,
+            "sha256": "6bc5ea259da6149770068d823f8223704e05e6505032d7b0528aa98bc3a66fc1",
+            "last_modified": null,
+            "etag": null,
+            "retrieved_at": "2026-11-26T13:14:32.460004+00:00"
+          },
+          "reuse_review": "pending"
+        },
+        "reuse_review": "pending",
+        "retained_row_level_records": 0,
+        "included_in_integrated_national_baseline": false
+      },
+      "diagnostic_run": 45827628592,
       "reuse_review": "pending",
       "retained_row_level_records": 0,
       "included_in_integrated_national_baseline": false
@@ -2438,6 +2584,75 @@
           "last_modified": null,
           "etag": null,
           "retrieved_at": "2026-11-26T13:15:05.578844+00:00"
+        },
+        "reuse_review": "pending"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    },
+    "icf": {
+      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+      "run": 45827150713,
+      "job_id": 139934133544,
+      "job_conclusion": "failure",
+      "artifact": 15119534698,
+      "artifact_digest": "sha256:7ccd0a62765d0f0a39f4e5bc289399f91a3a7e29da10be1ad28f76d7e380b235",
+      "audit": {
+        "source_id": "FS-031",
+        "report_url": "https://qcor.cms.gov/ICF-IID_2567_Reports",
+        "header": [
+          "CCN",
+          "Facility Name",
+          "Street Address",
+          "City",
+          "State/Territory",
+          "ZIP",
+          "CMS Region",
+          "Survey Event ID",
+          "Survey Date",
+          "Survey Type",
+          "Deficiency Tag",
+          "Deficiency Description",
+          "Deficiency Tag Type",
+          "Statement of Deficiency Text (Part 1)",
+          "Statement of Deficiency Text (Part 2)",
+          "Statement of Deficiency Text (Part 3)",
+          "Statement of Deficiency Text (Part 4)"
+        ],
+        "columns": 17,
+        "field_mapping": {
+          "ccn": "CCN",
+          "event": "Survey Event ID",
+          "date": "Survey Date",
+          "tag": "Deficiency Tag",
+          "kind": "Deficiency Tag Type"
+        },
+        "mapping_complete": true,
+        "input_rows": 385312,
+        "blank_rows": 0,
+        "stored_rows": 334638,
+        "rejected_rows": 50674,
+        "reject_reasons": {
+          "tag_key_shape": 50674
+        },
+        "row_kinds": {
+          "memo": 143667,
+          "nonmemo_tag": 190971
+        },
+        "distinct_provider_keys": 6239,
+        "distinct_survey_event_keys": 113013,
+        "events_with_nonmemo_tag": 47838,
+        "events_without_nonmemo_tag": 65175,
+        "retained_row_level_records": 0,
+        "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+        "source": {
+          "url": "https://qcor.cms.gov/downloadICFIID2567",
+          "bytes": 254561490,
+          "sha256": "4522aff6cf8242a7315814d1629c58729c2a17971038b51a3e717780ca8e4dda",
+          "last_modified": null,
+          "etag": null,
+          "retrieved_at": "2026-11-26T13:15:26.009879+00:00"
         },
         "reuse_review": "pending"
       },
