@@ -19,3 +19,8 @@ class StateArchiveTests(unittest.TestCase):
         self.assertEqual(m.identifier("12-3456","license"),"12-3456")
         self.assertEqual(m.identifier("12345A","mpn"),"12345A")
         with self.assertRaises(ValueError):m.identifier("12345A","entity")
+
+    def test_invalid_closure_is_not_active_or_closed(self):
+        self.assertEqual(m.closure_date("0000-00-00"),(None,"invalid_source_date_review"))
+        self.assertEqual(m.closure_date("2024-01-02"),("2024-01-02","reported_closed"))
+        self.assertEqual(m.closure_date(None),(None,"no_reported_closure"))

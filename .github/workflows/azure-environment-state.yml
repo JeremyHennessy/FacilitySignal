@@ -1,7 +1,7 @@
 name: FacilitySignal private environmental and state sources
 on:
   push:
-    branches: [main, build/azure-environment-state-20261126, build/azure-priority-completion-20261126]
+    branches: [main, build/azure-environment-state-20261126, build/azure-priority-completion-20261126, build/azure-state-date-exceptions-20261126]
     paths:
       - .github/workflows/azure-environment-state.yml
       - scripts/archive_environment_state.py

@@ -110,18 +110,27 @@ def field(value):
     if value is None:return None
     require(isinstance(value,str) and len(value)<=300 and "\x00" not in value,"IL field shape")
     return value.strip() or None
+def closure_date(value):
+    raw=field(value)
+    if not raw:return None,"no_reported_closure"
+    try:date.fromisoformat(raw)
+    except ValueError:return None,"invalid_source_date_review"
+    return raw,"reported_closed"
 def illinois(kind,root):
     records,hashes=il_records(kind);required={"entity_id","local_id","mpn_id","name","city","county_name","closed_date"};out=root/"projection.sqlite3"
     with closing(sqlite3.connect(out)) as db:
         db.execute("CREATE TABLE institutional_directory(entity_id TEXT PRIMARY KEY,license_id TEXT,mpn_source_text TEXT,name TEXT NOT NULL,city TEXT,county TEXT,reported_closed_date TEXT) WITHOUT ROWID")
         count=Counter();keys=[]
+        if kind=="hospitals":db.execute("ALTER TABLE institutional_directory ADD COLUMN closure_date_state TEXT NOT NULL DEFAULT 'no_reported_closure'")
         for row in records:
             require(isinstance(row,dict) and required<=set(row),"IL source fields")
             eid=identifier(row["entity_id"]);lic=identifier(row["local_id"],"license");mpn=identifier(row["mpn_id"],"mpn");name=field(row["name"])
-            closed=field(row["closed_date"])
-            if closed:date.fromisoformat(closed)
+            closed,closure_state=closure_date(row["closed_date"])
             require(eid is not None and name is not None,"IL institutional identity")
-            db.execute("INSERT INTO institutional_directory VALUES(?,?,?,?,?,?,?)",(eid,lic,mpn,name,field(row["city"]),field(row["county_name"]),closed));count["reported_closed" if closed else "no_reported_closure"]+=1
+            db.execute("INSERT INTO institutional_directory(entity_id,license_id,mpn_source_text,name,city,county,reported_closed_date) VALUES(?,?,?,?,?,?,?)",(eid,lic,mpn,name,field(row["city"]),field(row["county_name"]),closed))
+            if kind=="hospitals":db.execute("UPDATE institutional_directory SET closure_date_state=? WHERE entity_id=?",(closure_state,eid))
+            else:require(closure_state!="invalid_source_date_review","ASC date schema drift")
+            count[closure_state]+=1
         db.commit();check_integrity(db)
         require(db.execute("SELECT count(*) FROM institutional_directory").fetchone()[0]==len(records)==sum(count.values()),"IL source count")
         summary={"stored_rows":len(records),"input_rows":len(records),"closure_date_states":dict(count),"contact_street_coordinates_retained":0,"source_scope":"Illinois Hospital Report Card "+kind+" institutional directory; source MPN is not normalized to CCN.","public_promotion":False}
