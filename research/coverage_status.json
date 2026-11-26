@@ -448,7 +448,43 @@
     },
     {
       "id": "FS-039",
-      "status": "discovered_not_tested"
+      "status": "discovered_not_tested",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": null,
+        "archive_readback_run": 45900550088,
+        "receipt_keys": [
+          "cms-nursing-ownership-organizations"
+        ],
+        "release_observations": 71270,
+        "aggregate_source_rows_screened": 0,
+        "publisher_release_count": 1,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 0,
+        "qualification_run_ids": [
+          45900035551,
+          45900550088
+        ],
+        "limit": "Pinned October 2026 CMS Care Compare organization-role projection; excludes individuals and unknown owner types. Source dates unresolved; percentage text not interpreted. No canonical property ownership, current relationship or commercial reuse clearance.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false,
+        "status": "private_archive_partial",
+        "display_status": "Private archive (partial)"
+      },
+      "private_qualification": {
+        "status": "private_organizational_projection_qualified",
+        "release": "2026-10-28",
+        "source_sha256": "7a103a44530a2cc8756d9a9d3cfa01819ad74ef67f59d7eefa798d5573518045",
+        "input_rows": 252468,
+        "retained_rows": 71270,
+        "excluded_individual_rows": 180548,
+        "excluded_unknown_owner_type_rows": 650,
+        "distinct_ccns": 12052,
+        "qualification_run": 45900035551,
+        "archive_readback_run": 45900550088,
+        "reuse_review": "pending"
+      }
     },
     {
       "id": "FS-040",

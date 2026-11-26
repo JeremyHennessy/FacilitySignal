@@ -1,0 +1,104 @@
+{
+  "qualification_run": 45900035551,
+  "archive_run": 45900550088,
+  "job": 140185065344,
+  "verified_commit": "7aed5a59029503ffab94671435c0b40ae3a72e6d",
+  "receipt": {
+    "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e",
+    "base_release": "bootstrap-45845760984-1",
+    "domain": "FACILITYSIGNAL_PRIVATE_SOURCE",
+    "files": [
+      {
+        "bytes": 13340672,
+        "path": "projection.sqlite3",
+        "sha256": "ac05a28260d921ae71ec95c3ee754b6b851148653214fae439a3a6b537f55601"
+      },
+      {
+        "bytes": 2487,
+        "path": "audit.json",
+        "sha256": "b9776c0532ad7a6d9701a0ff59eb4a773c02c3c08b64504e0a7d907a3e6fac9f"
+      }
+    ],
+    "format_version": 1,
+    "inventory": {
+      "files": 2,
+      "folder_markers": 0,
+      "list_head_etag_relations": {
+        "different": 0,
+        "exact": 0,
+        "quote_only": 2
+      }
+    },
+    "key": "cms-nursing-ownership-organizations",
+    "payload_prefix": "CMS Facility Demo/source-releases/cms-nursing-ownership-organizations/v1/7a103a44530a2cc8756d9a9d3cfa01819ad74ef67f59d7eefa798d5573518045/files",
+    "projector_version": 1,
+    "public_promotion": false,
+    "publisher": {
+      "bytes": 57955787,
+      "id": "y2hd-n93e",
+      "modified": "2026-10-01",
+      "released": "2026-10-28",
+      "sha256": "7a103a44530a2cc8756d9a9d3cfa01819ad74ef67f59d7eefa798d5573518045",
+      "url": "https://data.cms.gov/provider-data/sites/default/files/resources/a2e6a7208dcd6857394bd1f9590336d2_1792181737/NH_Ownership_Oct2026.csv"
+    },
+    "reuse_review": "pending",
+    "sha256_readback": true,
+    "source_sha256": "7a103a44530a2cc8756d9a9d3cfa01819ad74ef67f59d7eefa798d5573518045",
+    "status": "COMPLETE",
+    "summary": {
+      "association_date_states": {
+        "date_review": 71270
+      },
+      "dataset_id": "y2hd-n93e",
+      "dispositions": {
+        "excluded_individual": 180548,
+        "excluded_unknown_owner_type": 650,
+        "stored_organization": 71270
+      },
+      "distinct_source_ccns": 12052,
+      "individual_rows_retained": 0,
+      "input_rows": 252468,
+      "limits": "Private organizational role observations; unresolved source literals are not interpreted. No individual owner records, raw publisher bytes, provider addresses, public promotion, canonical property ownership, verified current relationships or commercial reuse clearance.",
+      "literal_evidence": {
+        "association_format_counts": {
+          "other_text_review": 71270
+        },
+        "date_or_percentage_interpretation": "not_qualified",
+        "percentage_format_counts": {
+          "other_text_review": 7497,
+          "outside_dictionary_role_missing": 53960,
+          "percent_marked_shape": 9813
+        },
+        "retained_literal_rows": 71270
+      },
+      "organization_role_rows": 71270,
+      "ownership_value_states": {
+        "value_review": 71270
+      },
+      "processing_date_counts": {
+        "2026-10-01": 71270
+      },
+      "public_rows_retained": 0,
+      "qualification_run": 45900035551,
+      "repeated_projected_tuple_rows": 0,
+      "reuse_review": "pending",
+      "source_columns": 13,
+      "source_id": "FS-039",
+      "source_reported_roles": {
+        "5% or greater direct ownership interest": 8139,
+        "5% or greater indirect ownership interest": 9171,
+        "5% or greater mortgage interest": 1573,
+        "5% or greater security interest": 1604,
+        "adp of the snf": 30239,
+        "direct ownership interest": 2057,
+        "general partnership interest": 289,
+        "indirect ownership interest": 4975,
+        "limited partnership interest": 396,
+        "operational/managerial control": 12442,
+        "trustee of the snf": 385
+      },
+      "stored_organization_rows": 71270
+    },
+    "total_bytes": 13343159
+  }
+}

@@ -1764,18 +1764,39 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "cms-nursing-ownership-organizations",
+      "source_sha256": "7a103a44530a2cc8756d9a9d3cfa01819ad74ef67f59d7eefa798d5573518045",
+      "kind": "publisher",
+      "observations": 71270,
+      "run": 45900550088,
+      "job": 140185065344,
+      "files": [
+        {
+          "bytes": 13340672,
+          "path": "projection.sqlite3",
+          "sha256": "ac05a28260d921ae71ec95c3ee754b6b851148653214fae439a3a6b537f55601"
+        },
+        {
+          "bytes": 2487,
+          "path": "audit.json",
+          "sha256": "b9776c0532ad7a6d9701a0ff59eb4a773c02c3c08b64504e0a7d907a3e6fac9f"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
-    "publisher_releases": 56,
-    "source_observations": 117850722,
+    "publisher_releases": 57,
+    "source_observations": 117921992,
     "supplemental_numeric_archives": 41,
     "supplemental_numeric_observations": 107619587,
     "derived_candidate_observations": 23520,
     "aggregate_evidence_releases": 8,
     "aggregate_source_rows_screened": 40787611,
-    "payload_files": 214,
-    "payload_bytes": 10917820634,
+    "payload_files": 216,
+    "payload_bytes": 10931163793,
     "derived_institutional_observations": 101534,
     "repository_data_evidence_files": 73,
     "repository_supplemental_data_files": 13,

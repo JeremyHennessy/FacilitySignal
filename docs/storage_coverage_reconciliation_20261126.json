@@ -3,15 +3,15 @@
   "scope": "Reconciliation of pinned repository evidence, not fresh Azure access or publisher/reuse approval. Register entries and receipt references overlap; never sum source-entry observations. No raw retention or public approval inferred.",
   "archive_evidence_mode": "historical_metadata_inventory_and_prior_upload_sha256",
   "archive_totals": {
-    "publisher_releases": 56,
-    "source_observations": 117850722,
+    "publisher_releases": 57,
+    "source_observations": 117921992,
     "supplemental_numeric_archives": 41,
     "supplemental_numeric_observations": 107619587,
     "derived_candidate_observations": 23520,
     "aggregate_evidence_releases": 8,
     "aggregate_source_rows_screened": 40787611,
-    "payload_files": 214,
-    "payload_bytes": 10917820634,
+    "payload_files": 216,
+    "payload_bytes": 10931163793,
     "derived_institutional_observations": 101534,
     "repository_data_evidence_files": 73,
     "repository_supplemental_data_files": 13,
@@ -21,8 +21,8 @@
   "additional_national_entries": 6,
   "register_storage_counts": {
     "national_private_projection": 13,
-    "private_archive_partial": 5,
-    "no_pinned_source_projection": 130,
+    "private_archive_partial": 6,
+    "no_pinned_source_projection": 129,
     "aggregate_qualification_only": 1,
     "extension_private_projection": 16,
     "private_aggregate_archived": 6,
@@ -30,7 +30,7 @@
     "private_directory_archived": 1,
     "private_aggregate_key_review": 1
   },
-  "discovery_only_entries": 126,
+  "discovery_only_entries": 125,
   "sources": [
     {
       "id": "FS-001",
@@ -775,10 +775,18 @@
       "source": "Nursing home Ownership",
       "priority": "P1",
       "historical_status": "discovered_not_tested",
-      "qualification": "discovered_not_tested",
-      "storage": "no_pinned_source_projection",
-      "evidence": [],
-      "limit": null,
+      "qualification": "private_organizational_projection_qualified",
+      "storage": "private_archive_partial",
+      "evidence": [
+        {
+          "key": "cms-nursing-ownership-organizations",
+          "source_sha256": "7a103a44530a2cc8756d9a9d3cfa01819ad74ef67f59d7eefa798d5573518045",
+          "kind": "publisher",
+          "observations": 71270,
+          "receipt_run": 45900550088
+        }
+      ],
+      "limit": "Pinned October 2026 CMS Care Compare organization-role projection; excludes individuals and unknown owner types. Source dates unresolved; percentage text not interpreted. No canonical property ownership, current relationship or commercial reuse clearance.",
       "blocked": false,
       "raw_original_retention": "not_established_by_this_ledger",
       "public_row_redistribution": "not_granted_by_private_archive"
@@ -3297,12 +3305,12 @@
     },
     "limit": "Historical pack parity and pinned evidence inventory; not an ordinary-live browser check or new publication."
   },
-  "baseline_commit": "a0b0b8457c31479536b318591cb0f7280e7efe97",
+  "baseline_commit": "7aed5a59029503ffab94671435c0b40ae3a72e6d",
   "input_git_blob_shas": {
     "research/facilitysignal_source_register_v0.2.json": "8d3a5e9992cc4b9d819452cd4050dd19731e0d55",
-    "research/coverage_status.json": "243f71fc31ac241ced75cf10a0a55ff15bf6ccfd",
-    "research/azure_archive_inventory_20261126.json": "5dab2d792a6d7587472f3516317e774edd0141f1",
-    "research/private_source_register_receipt_map_20261126.json": "b459490a2ee60f226e9653acc2e2e8386adb5905",
+    "research/coverage_status.json": "f183e231565b4ff732ae54f8419e129833ff208e",
+    "research/azure_archive_inventory_20261126.json": "420b6591d6b75dc10f8c4f564f5143c346611e0b",
+    "research/private_source_register_receipt_map_20261126.json": "24a232cbad1049a1b06cab1902ab36a5fef98f54",
     "research/snapshot_release_20261125.json": "9162fbdcc3ee591b63429df3279cdf11a8ddf125",
     "research/expanded_source_lock_20261126.json": "70a434e2d5a2102b65005d80884f5841302796fb",
     "research/azure_extension_recovery_pin_20261126.json": "1ffce7f894fae7589b4072e6c234292295ffd342",
@@ -3318,6 +3326,7 @@
     "drifting archive totals rejected",
     "unknown overlay rejected",
     "unmapped core source rejected",
-    "append-only archive delta: all 73 prior receipts and two layers unchanged; new corroboration receipt's four input archive hashes, counts and database hashes match; payload bytes and files reconcile; 176 source classifications unchanged"
+    "append-only archive delta: all 73 prior receipts and two layers unchanged; new corroboration receipt's four input archive hashes, counts and database hashes match; payload bytes and files reconcile; 176 source classifications unchanged",
+    "FS-039 append-only: exact completed private receipt, two payload hashes, 71,270 organizational role rows, unchanged preceding archive receipts and historical source states; source-specific readback, not yet included in a new consolidated audit."
   ]
 }

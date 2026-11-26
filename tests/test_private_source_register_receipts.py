@@ -8,7 +8,7 @@ class PrivateSourceRegisterReceiptTest(unittest.TestCase):
         plan=read("private_source_register_receipt_map_20261126.json");ledger=read("azure_archive_inventory_20261126.json")
         cov=read("coverage_status.json");overlay={x["id"]:x for x in cov["sources"]}
         original={x["id"] for x in read("facilitysignal_source_register_v0.2.json")["sources"]}
-        self.assertEqual(len(plan["sources"]),14)
+        self.assertEqual(len(plan["sources"]),15)
         for ident,rule in plan["sources"].items():
             with self.subTest(ident=ident):
                 self.assertIn(ident,original);row=overlay[ident];self.assertEqual(row["status"],row["historical_qualification_status"])
@@ -19,7 +19,8 @@ class PrivateSourceRegisterReceiptTest(unittest.TestCase):
                 self.assertEqual(e["receipt_keys"],sorted({x["key"] for x in pins}))
                 self.assertEqual(e["release_observations"],sum(x["observations"] for x in pins if x["kind"] in ("publisher","supplemental_numeric")))
                 self.assertEqual(e["aggregate_source_rows_screened"],sum(x["screened_observations"] for x in pins if x["kind"]=="aggregate"))
-                self.assertFalse(e["public_promotion"]);self.assertEqual(e["consolidated_audit_run"],plan["consolidated_audit_run"])
+                self.assertFalse(e["public_promotion"]);self.assertEqual(e["consolidated_audit_run"],rule.get("consolidated_audit_run",plan["consolidated_audit_run"]))
+                if "archive_readback_run" in rule:self.assertEqual(e["archive_readback_run"],rule["archive_readback_run"]);self.assertIn(e["archive_readback_run"],[p["run"] for p in pins])
     def test_crosswalk_receipt_scope(self):
         q=read("hcris_direct_measure_crosswalk_20261126.json")
         self.assertEqual(set(q["forms"]),{"hospital","snf"})

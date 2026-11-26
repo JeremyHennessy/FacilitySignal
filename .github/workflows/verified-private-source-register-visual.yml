@@ -1,7 +1,7 @@
 name: FacilitySignal verified source register visual evidence
 on:
   push:
-    branches: [main, build/verified-archive-source-register-20261126]
+    branches: [main, build/verified-archive-source-register-20261126, build/fs039-archive-receipt-reconciliation-20261126]
     paths:
       - research/coverage_status.json
       - research/private_source_register_receipt_map_20261126.json
