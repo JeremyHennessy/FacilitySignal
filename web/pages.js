@@ -296,7 +296,7 @@ function advancedForm(p,sources){
     const ifield=institutionalField.querySelector("select"),ivalue=institutionalValue.querySelector("select");
     function syncInstitutional(selected){
         const pin=institutionalPin.sources[selector.value];
-        ifield.replaceChildren(...[["","Any characteristic"],...(pin?pin.fields.map(k=>[k,institutionalLabels[k]]):[])].map(([v,t])=>{const o=el("option",t);o.value=v;return o}));
+        ifield.replaceChildren(...[["","Any characteristic"],...(pin?pin.fields.map(k=>[k,k==="ownership_change_12_months"?"Ownership change (past year)":institutionalLabels[k]]):[])].map(([v,t])=>{const o=el("option",t);o.value=v;return o}));
         ifield.value=pin?.fields.includes(selected)?selected:"";
         ifield.disabled=!pin;ivalue.disabled=!pin||!ifield.value;
         institutionalField.hidden=!pin;institutionalValue.hidden=!pin;
