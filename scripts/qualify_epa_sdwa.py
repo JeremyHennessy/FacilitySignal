@@ -68,6 +68,10 @@ def key_format(key):
     if len(key)!=9:return "wrong_length"
     return "other_nine_character"
 
+def shape_mask(key):
+    # Fixed alphabet of character classes only; never emit source identifiers.
+    return "".join("A" if "A"<=c<="Z" else "a" if "a"<=c<="z" else "9" if "0"<=c<="9" else "?" for c in key) if len(key)==9 else "(other_length)"
+
 def ingest(db,path,encoding="utf-8-sig"):
     with zipfile.ZipFile(path) as z:
         members=z.infolist()
@@ -75,7 +79,9 @@ def ingest(db,path,encoding="utf-8-sig"):
         require(0<members[0].file_size<=MAX_EXPANDED,"expanded size exceeds budget")
         require(not members[0].flag_bits&1,"encrypted archive")
         db.execute("CREATE TABLE pws_key(pwsid TEXT PRIMARY KEY,state TEXT NOT NULL,kind TEXT NOT NULL,activity TEXT NOT NULL)")
+        db.execute("CREATE TEMP TABLE all_source_keys(key TEXT PRIMARY KEY)")
         input_rows=0;invalid=0;duplicate=0;states=Counter();types=Counter();activity=Counter();blank_fields=Counter();formats=Counter();invalid_formats=Counter()
+        invalid_shapes=Counter();all_key_duplicates=0;all_key_blanks=0;trimmed_keys=0
         with db,z.open(members[0]) as raw,io.TextIOWrapper(raw,encoding=encoding,newline="") as stream:
             reader=csv.DictReader(stream,strict=True)
             headers=reader.fieldnames or []
@@ -85,10 +91,14 @@ def ingest(db,path,encoding="utf-8-sig"):
                 require(None not in row and all(v is not None for v in row.values()),"malformed CSV row")
                 for field in REQUIRED:
                     if not row[field].strip():blank_fields[field]+=1
-                key=row["PWSID"].strip()
+                raw_key=row["PWSID"]
+                key=raw_key.strip()
+                if raw_key!=key:trimmed_keys+=1
+                if not key:all_key_blanks+=1
+                elif db.execute("INSERT OR IGNORE INTO all_source_keys VALUES(?)",(key,)).rowcount!=1:all_key_duplicates+=1
                 fmt=key_format(key)
                 if fmt not in {"standard","utah","epa_region"}:
-                    invalid+=1;invalid_formats[fmt]+=1;continue
+                    invalid+=1;invalid_formats[fmt]+=1;invalid_shapes[shape_mask(key)]+=1;continue
                 formats[fmt]+=1
                 state=bounded_code(row["STATE_CODE"],2);kind=bounded_code(row["PWS_TYPE_CODE"],6)
                 act=bounded_code(row["PWS_ACTIVITY_CODE"],1)
@@ -98,12 +108,15 @@ def ingest(db,path,encoding="utf-8-sig"):
             stored=db.execute("SELECT count(*) FROM pws_key").fetchone()[0]
             require(input_rows==stored+duplicate+invalid and stored>0,"row reconciliation")
             require(sum(states.values())==sum(types.values())==sum(activity.values())==stored,"distribution reconciliation")
-            require(sum(formats.values())==stored+duplicate and sum(invalid_formats.values())==invalid,"format reconciliation")
+            require(sum(formats.values())==stored+duplicate and sum(invalid_formats.values())==sum(invalid_shapes.values())==invalid,"format reconciliation")
+            all_unique=db.execute("SELECT count(*) FROM all_source_keys").fetchone()[0]
+            require(all_unique+all_key_duplicates+all_key_blanks==input_rows,"all key reconciliation")
+            db.execute("DROP TABLE all_source_keys")
             require(db.execute("PRAGMA integrity_check").fetchone()[0]=="ok","SQLite integrity failed")
         return {"header":headers,"columns":len(headers),"encoding":encoding,"expanded_bytes":members[0].file_size,
                 "input_rows":input_rows,"stored_unique_pws_keys":stored,"duplicate_keys":duplicate,"invalid_keys":invalid,
                 "state_code_count":len(states),"system_type_counts":dict(types),"activity_code_counts":dict(activity),
-                "blank_required_fields":dict(blank_fields),"accepted_key_format_counts":dict(formats),"invalid_key_format_counts":dict(invalid_formats),
+                "blank_required_fields":dict(blank_fields),"accepted_key_format_counts":dict(formats),"invalid_key_format_counts":dict(invalid_formats),"rejected_character_class_masks":dict(invalid_shapes),"all_nonblank_unique_keys":all_unique,"all_nonblank_duplicate_keys":all_key_duplicates,"all_blank_keys":all_key_blanks,"whitespace_trimmed_key_rows":trimmed_keys,
                 "qualification":"clean_keys" if duplicate==invalid==0 else "key_anomalies_require_review",
                 "limits":"Ephemeral key/type/status projection, no healthcare attribution or current facility operation inference. Source codes not reinterpreted. No row-level artifact."}
 

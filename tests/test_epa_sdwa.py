@@ -5,7 +5,7 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
-from scripts.qualify_epa_sdwa import ingest,MEMBER,allowed,URL,key_format
+from scripts.qualify_epa_sdwa import ingest,MEMBER,allowed,URL,key_format,shape_mask
 
 class EpaSdwaTests(unittest.TestCase):
     def archive(self,root,rows,header=None,member=MEMBER):
@@ -46,6 +46,20 @@ class EpaSdwaTests(unittest.TestCase):
             self.assertEqual(a["invalid_key_format_counts"],{})
             self.assertEqual(a["stored_unique_pws_keys"],4)
             self.assertEqual(db.execute("SELECT count(*) FROM pws_key WHERE pwsid='010123456'").fetchone()[0],1)
+
+    def test_unresolved_key_shape_and_full_uniqueness(self):
+        self.assertEqual(shape_mask("AB12C3456"),"AA99A9999")
+        self.assertEqual(shape_mask("abc12-456"),"aaa99?999")
+        self.assertEqual(shape_mask("secret"),"(other_length)")
+        with tempfile.TemporaryDirectory() as t,sqlite3.connect(":memory:") as db:
+            p=self.archive(t,[[k,"","CWS","A","",""] for k in
+                ("NY1234567","AB12C3456","AB12C3456",""," UTAH12345 ")])
+            a=ingest(db,p)
+            self.assertEqual(a["qualification"],"key_anomalies_require_review")
+            self.assertEqual(a["rejected_character_class_masks"],{"AA99A9999":2,"(other_length)":1})
+            self.assertEqual((a["all_nonblank_unique_keys"],a["all_nonblank_duplicate_keys"],a["all_blank_keys"],a["whitespace_trimmed_key_rows"]),(3,1,1,1))
+            self.assertNotIn("AB12C3456",str(a))
+            self.assertEqual(db.execute("SELECT count(*) FROM sqlite_temp_master WHERE name='all_source_keys'").fetchone()[0],0)
 
     def test_schema_and_membership_fail_closed(self):
         with tempfile.TemporaryDirectory() as t,sqlite3.connect(":memory:") as db:
