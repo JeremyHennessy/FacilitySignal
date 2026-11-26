@@ -749,6 +749,86 @@
               299
             ]
           ]
+        },
+        {
+          "id": "clia-certificate",
+          "title": "CLIA certificate code distribution",
+          "note": "Q3 2026 laboratory registry records. All five certificate codes match the catalog-linked April 2023 layout; meanings remain historical-reference labels, not a count of active laboratories. No facility-level records or certificate status inference.",
+          "run": 45824121085,
+          "columns": [
+            "Source code",
+            "Historical reference label",
+            "Registry rows"
+          ],
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "rows": [
+            [
+              "1",
+              "Compliance",
+              39116
+            ],
+            [
+              "2",
+              "Waiver",
+              525660
+            ],
+            [
+              "3",
+              "Accreditation",
+              30127
+            ],
+            [
+              "4",
+              "Provider-performed microscopy",
+              76090
+            ],
+            [
+              "9",
+              "Registration",
+              15065
+            ]
+          ]
+        },
+        {
+          "id": "clia-link",
+          "title": "Hospital-to-laboratory reference evidence",
+          "note": "Exact source CLIA-reference tokens matched to laboratory registry identifiers; 25 candidate pairs disagree on reported state. Historical hospital category and registry records are source-scoped, not unique physical facilities, verified affiliations, current operations or installed assets.",
+          "run": 45824121085,
+          "columns": [
+            "Evidence measure",
+            "Count"
+          ],
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "rows": [
+            [
+              "Hospital source rows with reference",
+              6133
+            ],
+            [
+              "Hospital rows with exact candidate",
+              6132
+            ],
+            [
+              "Distinct matched CLIA tokens",
+              6566
+            ],
+            [
+              "Exact candidate row pairs",
+              7715
+            ],
+            [
+              "Pairs with matching state",
+              7690
+            ],
+            [
+              "Pairs with conflicting state",
+              25
+            ],
+            [
+              "Unmatched reference occurrences",
+              1
+            ]
+          ]
         }
       ]
     }
