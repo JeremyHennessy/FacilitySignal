@@ -1,0 +1,28 @@
+name: FacilitySignal nursing portfolio qualification
+on:
+  push:
+    branches: [ui/pages-nursing-portfolios-20261126]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/build_public_intelligence.py --check
+      - run: node --check web/pages.js
+      - run: python -m pip install playwright==1.51.0
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/test_pages_nursing_portfolios.py
+      - run: python scripts/test_pages_intelligence.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nursing-portfolio-browser-evidence
+          path: ${{ runner.temp }}/nursing-portfolio-evidence/
+          retention-days: 7
