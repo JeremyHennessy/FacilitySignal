@@ -1,0 +1,2727 @@
+{
+  "as_of": "2026-11-26",
+  "source": "home-health",
+  "source_sha256": "7adf3e17961949bbd64ef243545aa387224d9837e8c5601476f5b11946e76d22",
+  "release": "2026-10-21",
+  "profile_blob": "fffcab3246603538d4a3ff5be13e571aa868e744",
+  "profile_path": "research/care_compare_directory_raw_field_profiles_20261126.json",
+  "dictionary": {
+    "url": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/home_health/HHS_Data_Dictionary.pdf",
+    "version": "14.0; April 2026 title, January 2026 footer on page 12",
+    "table": 3,
+    "visually_reviewed_printed_pages": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "retrieved_sha256": null,
+    "status": "publisher dictionary reviewed visually; exact October release equivalence not established"
+  },
+  "publisher_catalog": "https://data.cms.gov/provider-data/dataset/6jpm-sxkc",
+  "release_notes": "https://www.cms.gov/medicare/quality/home-health-quality-reporting-program/home-health-hh-quality-reporting-program-qrp-public-reporting",
+  "measure_methodology": "https://www.cms.gov/medicare/quality/home-health/home-health-quality-measures",
+  "measure_date_catalog": "https://data.cms.gov/provider-data/dataset/c886-nwpj",
+  "period_notes": {
+    "assessment": "2025-01-01 to 2025-12-31 (October 2026 release notice)",
+    "DTC": "2024-01-01 to 2025-12-31",
+    "PPR": "2023-01-01 to 2025-12-31",
+    "PPH": "2025-01-01 to 2025-12-31",
+    "MSPB": "October refresh explicitly retained 2023-01-01 to 2024-12-31; updated period announced for January 2027",
+    "limits": "Do not attach a single measurement period to all fields; exact measure-date CSV not acquired. October notice predates refined DTC specification; no retroactive substitution."
+  },
+  "totals": {
+    "fields": 96,
+    "retained_rows": 12409,
+    "reviewed_dictionary_ordinals": 96,
+    "restricted_presence_fields": 1,
+    "numeric_candidate_fields": 60,
+    "clinical_context_only_fields": 81,
+    "existing_service_fields": 6,
+    "new_domain_qualified_fields": 0,
+    "new_application_approved_fields": 0,
+    "raw_downloads": 0
+  },
+  "fields": [
+    {
+      "ordinal": 1,
+      "field": "State",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "identity_context",
+      "meaning": "Agency jurisdiction code",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_source_identity_only",
+      "domain_status": "source identity context, no new validation",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 55,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 2,
+      "field": "CMS Certification Number (CCN)",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "identity_context",
+      "meaning": "CMS-assigned agency certification identifier; preserve leading zeros",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_source_identity_only",
+      "domain_status": "source identity context, no new validation",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "unsigned_integer_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 3,
+      "field": "Provider Name",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "identity_context",
+      "meaning": "Reported agency name in certification system",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_source_identity_only",
+      "domain_status": "source identity context, no new validation",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 4,
+      "field": "Address",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "identity_context",
+      "meaning": "Agency mailing or street address as listed; not a validated campus",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_source_identity_only",
+      "domain_status": "source identity context, no new validation",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "other_text": 12408,
+        "unsigned_integer_text": 1
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 5,
+      "field": "City/Town",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "identity_context",
+      "meaning": "Reported municipality",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_source_identity_only",
+      "domain_status": "source identity context, no new validation",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 6,
+      "field": "ZIP Code",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "identity_context",
+      "meaning": "Five-digit reported ZIP; preserve leading zeros",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_source_identity_only",
+      "domain_status": "source identity context, no new validation",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "unsigned_integer_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 7,
+      "field": "Telephone Number",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "contact",
+      "meaning": "Reported agency telephone; excluded from value inspection",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "presence_only",
+      "domain_status": "restricted_presence_only",
+      "profile_states": null,
+      "restricted_presence": {
+        "nonblank": 12409
+      },
+      "distinct_nonmissing": null,
+      "lexical_shapes": null,
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 8,
+      "field": "Type of Ownership",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "control_category",
+      "meaning": "General agency control classification, not deed title",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "candidate_control_filter_pending_domain",
+      "domain_status": "four observed tokens versus three described broad classes; exact mapping pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 9,
+      "field": "Offers Nursing Care Services",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "service_indicator",
+      "meaning": "Reported nursing offering",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_narrow_projection_only",
+      "domain_status": "existing_qualified_yes_no_unknown",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": {
+        "no": 34,
+        "other_token": 2167,
+        "yes": 10208
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 10,
+      "field": "Offers Physical Therapy Services",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "service_indicator",
+      "meaning": "Reported physical therapy offering",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_narrow_projection_only",
+      "domain_status": "existing_qualified_yes_no_unknown",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": {
+        "no": 469,
+        "other_token": 2172,
+        "yes": 9768
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 11,
+      "field": "Offers Occupational Therapy Services",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "service_indicator",
+      "meaning": "Reported occupational therapy offering",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_narrow_projection_only",
+      "domain_status": "existing_qualified_yes_no_unknown",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": {
+        "no": 887,
+        "other_token": 2175,
+        "yes": 9347
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 12,
+      "field": "Offers Speech Pathology Services",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "service_indicator",
+      "meaning": "Reported speech pathology offering",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_narrow_projection_only",
+      "domain_status": "existing_qualified_yes_no_unknown",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": {
+        "no": 1590,
+        "other_token": 2199,
+        "yes": 8620
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 13,
+      "field": "Offers Medical Social Services",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "service_indicator",
+      "meaning": "Reported medical social service offering",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_narrow_projection_only",
+      "domain_status": "existing_qualified_yes_no_unknown",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": {
+        "no": 2243,
+        "other_token": 2206,
+        "yes": 7960
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 14,
+      "field": "Offers Home Health Aide Services",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "service_indicator",
+      "meaning": "Reported home health aide offering",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "existing_narrow_projection_only",
+      "domain_status": "existing_qualified_yes_no_unknown",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": {
+        "no": 1230,
+        "other_token": 2171,
+        "yes": 9008
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 15,
+      "field": "Certification Date",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "date",
+      "meaning": "Original Medicare certification date, not opening date",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "candidate_date_pending_parse",
+      "domain_status": "one non-date lexical token; exact date parsing pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "other_text": 1,
+        "slash_date_shape": 12408
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 16,
+      "field": "Quality of patient care star rating",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "rating",
+      "meaning": "Clinical patient-care rating on a 1 to 5 half-step scale",
+      "unit": "stars",
+      "measure_group": null,
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 10,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 4100,
+        "other_text": 4283,
+        "unsigned_integer_text": 4026
+      },
+      "number_shaped_rows": 8126,
+      "unresolved_nonnumeric_rows": 4283,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 17,
+      "field": "Footnote for quality of patient care star rating",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Explanation associated with unavailable rating",
+      "unit": null,
+      "measure_group": null,
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 18,
+      "field": "Numerator for how often the home health team began their patients' care in a timely manner",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for timely start of care",
+      "unit": "measure-specific count",
+      "measure_group": "timely start of care",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "other_text": 5572,
+        "unsigned_integer_text": 6837
+      },
+      "number_shaped_rows": 6837,
+      "unresolved_nonnumeric_rows": 5572,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 19,
+      "field": "Denominator for how often the home health team began their patients' care in a timely manner",
+      "dictionary_printed_page": 10,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for timely start of care",
+      "unit": "measure-specific count",
+      "measure_group": "timely start of care",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "other_text": 5610,
+        "unsigned_integer_text": 6799
+      },
+      "number_shaped_rows": 6799,
+      "unresolved_nonnumeric_rows": 5610,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 20,
+      "field": "How often the home health team began their patients' care in a timely manner",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for timely start of care",
+      "unit": "percent",
+      "measure_group": "timely start of care",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1869,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8775,
+        "other_text": 3634
+      },
+      "number_shaped_rows": 8775,
+      "unresolved_nonnumeric_rows": 3634,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 21,
+      "field": "Footnote for how often the home health team began their patients' care in a timely manner",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable timely start of care measure",
+      "unit": null,
+      "measure_group": "timely start of care",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 22,
+      "field": "Numerator for how often the home health team determined whether patients received a flu shot for the current flu season",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for flu vaccination assessment",
+      "unit": "measure-specific count",
+      "measure_group": "flu vaccination assessment",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1492,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 4648,
+        "unsigned_integer_text": 7761
+      },
+      "number_shaped_rows": 7761,
+      "unresolved_nonnumeric_rows": 4648,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 23,
+      "field": "Denominator for how often the home health team determined whether patients received a flu shot for the current flu season",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for flu vaccination assessment",
+      "unit": "measure-specific count",
+      "measure_group": "flu vaccination assessment",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1874,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5172,
+        "unsigned_integer_text": 7237
+      },
+      "number_shaped_rows": 7237,
+      "unresolved_nonnumeric_rows": 5172,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 24,
+      "field": "How often the home health team determined whether patients received a flu shot for the current flu season",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for flu vaccination assessment",
+      "unit": "percent",
+      "measure_group": "flu vaccination assessment",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8481,
+        "other_text": 3928
+      },
+      "number_shaped_rows": 8481,
+      "unresolved_nonnumeric_rows": 3928,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 25,
+      "field": "Footnote for how often the home health team determined whether patients received a flu shot for the current flu season",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable flu vaccination assessment measure",
+      "unit": null,
+      "measure_group": "flu vaccination assessment",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 26,
+      "field": "Numerator for how often patients got better at walking or moving around",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for mobility improvement",
+      "unit": "measure-specific count",
+      "measure_group": "mobility improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1914,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5466,
+        "unsigned_integer_text": 6943
+      },
+      "number_shaped_rows": 6943,
+      "unresolved_nonnumeric_rows": 5466,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 27,
+      "field": "Denominator for how often patients got better at walking or moving around",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for mobility improvement",
+      "unit": "measure-specific count",
+      "measure_group": "mobility improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1992,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5623,
+        "unsigned_integer_text": 6786
+      },
+      "number_shaped_rows": 6786,
+      "unresolved_nonnumeric_rows": 5623,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 28,
+      "field": "How often patients got better at walking or moving around",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for mobility improvement",
+      "unit": "percent",
+      "measure_group": "mobility improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8198,
+        "other_text": 4211
+      },
+      "number_shaped_rows": 8198,
+      "unresolved_nonnumeric_rows": 4211,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 29,
+      "field": "Footnote for how often patients got better at walking or moving around",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable mobility improvement measure",
+      "unit": null,
+      "measure_group": "mobility improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 30,
+      "field": "Numerator for how often patients got better at getting in and out of bed",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for bed transfer improvement",
+      "unit": "measure-specific count",
+      "measure_group": "bed transfer improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1922,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5515,
+        "unsigned_integer_text": 6894
+      },
+      "number_shaped_rows": 6894,
+      "unresolved_nonnumeric_rows": 5515,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 31,
+      "field": "Denominator for how often patients got better at getting in and out of bed",
+      "dictionary_printed_page": 11,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for bed transfer improvement",
+      "unit": "measure-specific count",
+      "measure_group": "bed transfer improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2003,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5650,
+        "unsigned_integer_text": 6759
+      },
+      "number_shaped_rows": 6759,
+      "unresolved_nonnumeric_rows": 5650,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 32,
+      "field": "How often patients got better at getting in and out of bed",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for bed transfer improvement",
+      "unit": "percent",
+      "measure_group": "bed transfer improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8167,
+        "other_text": 4242
+      },
+      "number_shaped_rows": 8167,
+      "unresolved_nonnumeric_rows": 4242,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 33,
+      "field": "Footnote for how often patients got better at getting in and out of bed",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable bed transfer improvement measure",
+      "unit": null,
+      "measure_group": "bed transfer improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 34,
+      "field": "Numerator for how often patients got better at bathing",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for bathing improvement",
+      "unit": "measure-specific count",
+      "measure_group": "bathing improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1941,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5481,
+        "unsigned_integer_text": 6928
+      },
+      "number_shaped_rows": 6928,
+      "unresolved_nonnumeric_rows": 5481,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 35,
+      "field": "Denominator for how often patients got better at bathing",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for bathing improvement",
+      "unit": "measure-specific count",
+      "measure_group": "bathing improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2019,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5611,
+        "unsigned_integer_text": 6798
+      },
+      "number_shaped_rows": 6798,
+      "unresolved_nonnumeric_rows": 5611,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 36,
+      "field": "How often patients got better at bathing",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for bathing improvement",
+      "unit": "percent",
+      "measure_group": "bathing improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8212,
+        "other_text": 4197
+      },
+      "number_shaped_rows": 8212,
+      "unresolved_nonnumeric_rows": 4197,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 37,
+      "field": "Footnote for how often patients got better at bathing",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable bathing improvement measure",
+      "unit": null,
+      "measure_group": "bathing improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 38,
+      "field": "Numerator for how often patients' breathing improved",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for breathing improvement",
+      "unit": "measure-specific count",
+      "measure_group": "breathing improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1843,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5591,
+        "unsigned_integer_text": 6818
+      },
+      "number_shaped_rows": 6818,
+      "unresolved_nonnumeric_rows": 5591,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 39,
+      "field": "Denominator for how often patients' breathing improved",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for breathing improvement",
+      "unit": "measure-specific count",
+      "measure_group": "breathing improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1890,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5685,
+        "unsigned_integer_text": 6724
+      },
+      "number_shaped_rows": 6724,
+      "unresolved_nonnumeric_rows": 5685,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 40,
+      "field": "How often patients' breathing improved",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for breathing improvement",
+      "unit": "percent",
+      "measure_group": "breathing improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 7966,
+        "other_text": 4443
+      },
+      "number_shaped_rows": 7966,
+      "unresolved_nonnumeric_rows": 4443,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 41,
+      "field": "Footnote for how often patients' breathing improved",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable breathing improvement measure",
+      "unit": null,
+      "measure_group": "breathing improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 42,
+      "field": "Numerator for how often patients got better at taking their drugs correctly by mouth",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for oral medication management improvement",
+      "unit": "measure-specific count",
+      "measure_group": "oral medication management improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1868,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5550,
+        "unsigned_integer_text": 6859
+      },
+      "number_shaped_rows": 6859,
+      "unresolved_nonnumeric_rows": 5550,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 43,
+      "field": "Denominator for how often patients got better at taking their drugs correctly by mouth",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for oral medication management improvement",
+      "unit": "measure-specific count",
+      "measure_group": "oral medication management improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1974,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5699,
+        "unsigned_integer_text": 6710
+      },
+      "number_shaped_rows": 6710,
+      "unresolved_nonnumeric_rows": 5699,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 44,
+      "field": "How often patients got better at taking their drugs correctly by mouth",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for oral medication management improvement",
+      "unit": "percent",
+      "measure_group": "oral medication management improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8085,
+        "other_text": 4324
+      },
+      "number_shaped_rows": 8085,
+      "unresolved_nonnumeric_rows": 4324,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 45,
+      "field": "Footnote for how often patients got better at taking their drugs correctly by mouth",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable oral medication management improvement measure",
+      "unit": null,
+      "measure_group": "oral medication management improvement",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 46,
+      "field": "Numerator for Changes in skin integrity post-acute care: pressure ulcer/injury",
+      "dictionary_printed_page": 12,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for new or worsened pressure injury",
+      "unit": "measure-specific count",
+      "measure_group": "new or worsened pressure injury",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 44,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 4126,
+        "unsigned_integer_text": 8283
+      },
+      "number_shaped_rows": 8283,
+      "unresolved_nonnumeric_rows": 4126,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 47,
+      "field": "Denominator for Changes in skin integrity post-acute care: pressure ulcer/injury",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for new or worsened pressure injury",
+      "unit": "measure-specific count",
+      "measure_group": "new or worsened pressure injury",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2045,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5604,
+        "unsigned_integer_text": 6805
+      },
+      "number_shaped_rows": 6805,
+      "unresolved_nonnumeric_rows": 5604,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 48,
+      "field": "Changes in skin integrity post-acute care: pressure ulcer/injury",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for new or worsened pressure injury",
+      "unit": "percent",
+      "measure_group": "new or worsened pressure injury",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 330,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8283,
+        "other_text": 4126
+      },
+      "number_shaped_rows": 8283,
+      "unresolved_nonnumeric_rows": 4126,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 49,
+      "field": "Footnote Changes in skin integrity post-acute care: pressure ulcer/injury",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "publisher display wording differs; ordinal candidate only",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable new or worsened pressure injury measure",
+      "unit": null,
+      "measure_group": "new or worsened pressure injury",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 50,
+      "field": "Numerator for how often physician-recommended actions to address medication issues were completely timely",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for timely action on medication issues",
+      "unit": "measure-specific count",
+      "measure_group": "timely action on medication issues",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "other_text": 5520,
+        "unsigned_integer_text": 6889
+      },
+      "number_shaped_rows": 6889,
+      "unresolved_nonnumeric_rows": 5520,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 51,
+      "field": "Denominator for how often physician-recommended actions to address medication issues were completely timely",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for timely action on medication issues",
+      "unit": "measure-specific count",
+      "measure_group": "timely action on medication issues",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "other_text": 5610,
+        "unsigned_integer_text": 6799
+      },
+      "number_shaped_rows": 6799,
+      "unresolved_nonnumeric_rows": 5610,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 52,
+      "field": "How often physician-recommended actions to address medication issues were completely timely",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for timely action on medication issues",
+      "unit": "percent",
+      "measure_group": "timely action on medication issues",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8780,
+        "other_text": 3629
+      },
+      "number_shaped_rows": 8780,
+      "unresolved_nonnumeric_rows": 3629,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 53,
+      "field": "Footnote for how often physician-recommended actions to address medication issues were completely timely",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable timely action on medication issues measure",
+      "unit": null,
+      "measure_group": "timely action on medication issues",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 54,
+      "field": "Numerator for Percent of Residents Experiencing One or More Falls with Major Injury",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for major injury falls",
+      "unit": "measure-specific count",
+      "measure_group": "major injury falls",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 128,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 3647,
+        "unsigned_integer_text": 8762
+      },
+      "number_shaped_rows": 8762,
+      "unresolved_nonnumeric_rows": 3647,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 55,
+      "field": "Denominator for Percent of Residents Experiencing One or More Falls with Major Injury",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for major injury falls",
+      "unit": "measure-specific count",
+      "measure_group": "major injury falls",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "other_text": 5611,
+        "unsigned_integer_text": 6798
+      },
+      "number_shaped_rows": 6798,
+      "unresolved_nonnumeric_rows": 5611,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 56,
+      "field": "Percent of Residents Experiencing One or More Falls with Major Injury",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "publisher display wording differs; ordinal candidate only",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for major injury falls",
+      "unit": "percent",
+      "measure_group": "major injury falls",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 518,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8762,
+        "other_text": 3647
+      },
+      "number_shaped_rows": 8762,
+      "unresolved_nonnumeric_rows": 3647,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 57,
+      "field": "Footnote for Percent of Residents Experiencing One or More Falls with Major Injury",
+      "dictionary_printed_page": 13,
+      "dictionary_alignment": "publisher display wording differs; ordinal candidate only",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable major injury falls measure",
+      "unit": null,
+      "measure_group": "major injury falls",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 58,
+      "field": "Numerator for Discharge Function Score",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for discharge function",
+      "unit": "measure-specific count",
+      "measure_group": "discharge function",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1721,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5167,
+        "unsigned_integer_text": 7242
+      },
+      "number_shaped_rows": 7242,
+      "unresolved_nonnumeric_rows": 5167,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 59,
+      "field": "Denominator for Discharge Function Score",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for discharge function",
+      "unit": "measure-specific count",
+      "measure_group": "discharge function",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2018,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5582,
+        "unsigned_integer_text": 6827
+      },
+      "number_shaped_rows": 6827,
+      "unresolved_nonnumeric_rows": 5582,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 60,
+      "field": "Discharge Function Score",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for discharge function",
+      "unit": "percent",
+      "measure_group": "discharge function",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8245,
+        "other_text": 4164
+      },
+      "number_shaped_rows": 8245,
+      "unresolved_nonnumeric_rows": 4164,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 61,
+      "field": "Footnote for Discharge Function Score",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable discharge function measure",
+      "unit": null,
+      "measure_group": "discharge function",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 62,
+      "field": "Numerator for Transfer of Health Information to the Provider",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for information transfer to receiving provider",
+      "unit": "measure-specific count",
+      "measure_group": "information transfer to receiving provider",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1157,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5395,
+        "unsigned_integer_text": 7014
+      },
+      "number_shaped_rows": 7014,
+      "unresolved_nonnumeric_rows": 5395,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 63,
+      "field": "Denominator for Transfer of Health Information to the Provider",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for information transfer to receiving provider",
+      "unit": "measure-specific count",
+      "measure_group": "information transfer to receiving provider",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1244,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5516,
+        "unsigned_integer_text": 6893
+      },
+      "number_shaped_rows": 6893,
+      "unresolved_nonnumeric_rows": 5516,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 64,
+      "field": "Transfer of Health Information to the Provider",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for information transfer to receiving provider",
+      "unit": "percent",
+      "measure_group": "information transfer to receiving provider",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 7356,
+        "other_text": 5053
+      },
+      "number_shaped_rows": 7356,
+      "unresolved_nonnumeric_rows": 5053,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 65,
+      "field": "Footnote for Transfer of Health Information to the Provider",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable information transfer to receiving provider measure",
+      "unit": null,
+      "measure_group": "information transfer to receiving provider",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 66,
+      "field": "Numerator for Transfer of Health Information to the Patient",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Eligible event count for information transfer to patient",
+      "unit": "measure-specific count",
+      "measure_group": "information transfer to patient",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1924,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5700,
+        "unsigned_integer_text": 6709
+      },
+      "number_shaped_rows": 6709,
+      "unresolved_nonnumeric_rows": 5700,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 67,
+      "field": "Denominator for Transfer of Health Information to the Patient",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Measure-specific eligible population for information transfer to patient",
+      "unit": "measure-specific count",
+      "measure_group": "information transfer to patient",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1988,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5811,
+        "unsigned_integer_text": 6598
+      },
+      "number_shaped_rows": 6598,
+      "unresolved_nonnumeric_rows": 5811,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 68,
+      "field": "Transfer of Health Information to the Patient",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "reported_percentage",
+      "meaning": "Published clinical percentage for information transfer to patient",
+      "unit": "percent",
+      "measure_group": "information transfer to patient",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 7981,
+        "other_text": 4428
+      },
+      "number_shaped_rows": 7981,
+      "unresolved_nonnumeric_rows": 4428,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 69,
+      "field": "Footnote for Transfer of Health Information to the Patient",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Publisher explanation for unavailable information transfer to patient measure",
+      "unit": null,
+      "measure_group": "information transfer to patient",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 70,
+      "field": "DTC Numerator",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Observed event count for discharge to community",
+      "unit": "stays or events",
+      "measure_group": "discharge to community",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1663,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 5137,
+        "unsigned_integer_text": 7272
+      },
+      "number_shaped_rows": 7272,
+      "unresolved_nonnumeric_rows": 5137,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 71,
+      "field": "DTC Denominator",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Eligible stay count for discharge to community",
+      "unit": "stays or events",
+      "measure_group": "discharge to community",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1903,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 3751,
+        "unsigned_integer_text": 8658
+      },
+      "number_shaped_rows": 8658,
+      "unresolved_nonnumeric_rows": 3751,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 72,
+      "field": "DTC Observed Rate",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "observed_rate",
+      "meaning": "Unadjusted reported rate for discharge to community",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "discharge to community",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8180,
+        "other_text": 4229
+      },
+      "number_shaped_rows": 8180,
+      "unresolved_nonnumeric_rows": 4229,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 73,
+      "field": "DTC Risk-Standardized Rate",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "risk_standardized_rate",
+      "meaning": "Risk-standardized reported rate for discharge to community",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "discharge to community",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8180,
+        "other_text": 4229
+      },
+      "number_shaped_rows": 8180,
+      "unresolved_nonnumeric_rows": 4229,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 74,
+      "field": "DTC Risk-Standardized Rate (Lower Limit)",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "confidence_lower",
+      "meaning": "Lower 95% interval limit for discharge to community",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "discharge to community",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8180,
+        "other_text": 4229
+      },
+      "number_shaped_rows": 8180,
+      "unresolved_nonnumeric_rows": 4229,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 75,
+      "field": "DTC Risk-Standardized Rate (Upper Limit)",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "confidence_upper",
+      "meaning": "Upper 95% interval limit for discharge to community",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "discharge to community",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8180,
+        "other_text": 4229
+      },
+      "number_shaped_rows": 8180,
+      "unresolved_nonnumeric_rows": 4229,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 76,
+      "field": "DTC Performance Categorization",
+      "dictionary_printed_page": 14,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "performance_category",
+      "meaning": "Publisher comparison with national rate for discharge to community",
+      "unit": null,
+      "measure_group": "discharge to community",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "four observed tokens including explicit unavailable; exact domain pending",
+      "profile_states": {
+        "not_available": 1710,
+        "other_nonblank": 10699
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 10699
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 77,
+      "field": "Footnote for DTC Risk-Standardized Rate",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Explanation associated with unavailable adjusted rate for discharge to community",
+      "unit": null,
+      "measure_group": "discharge to community",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 78,
+      "field": "PPR Numerator",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Observed event count for potentially preventable post-discharge readmission",
+      "unit": "stays or events",
+      "measure_group": "potentially preventable post-discharge readmission",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 211,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 6468,
+        "unsigned_integer_text": 5941
+      },
+      "number_shaped_rows": 5941,
+      "unresolved_nonnumeric_rows": 6468,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 79,
+      "field": "PPR Denominator",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Eligible stay count for potentially preventable post-discharge readmission",
+      "unit": "stays or events",
+      "measure_group": "potentially preventable post-discharge readmission",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1442,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 3976,
+        "unsigned_integer_text": 8433
+      },
+      "number_shaped_rows": 8433,
+      "unresolved_nonnumeric_rows": 3976,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 80,
+      "field": "PPR Observed Rate",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "observed_rate",
+      "meaning": "Unadjusted reported rate for potentially preventable post-discharge readmission",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "potentially preventable post-discharge readmission",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 817,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 5943,
+        "other_text": 6466
+      },
+      "number_shaped_rows": 5943,
+      "unresolved_nonnumeric_rows": 6466,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 81,
+      "field": "PPR Risk-Standardized Rate",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "risk_standardized_rate",
+      "meaning": "Risk-standardized reported rate for potentially preventable post-discharge readmission",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "potentially preventable post-discharge readmission",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 284,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 5943,
+        "other_text": 6466
+      },
+      "number_shaped_rows": 5943,
+      "unresolved_nonnumeric_rows": 6466,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 82,
+      "field": "PPR Risk-Standardized Rate (Lower Limit)",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "confidence_lower",
+      "meaning": "Lower 95% interval limit for potentially preventable post-discharge readmission",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "potentially preventable post-discharge readmission",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 260,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 5943,
+        "other_text": 6466
+      },
+      "number_shaped_rows": 5943,
+      "unresolved_nonnumeric_rows": 6466,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 83,
+      "field": "PPR Risk-Standardized Rate (Upper Limit)",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "confidence_upper",
+      "meaning": "Upper 95% interval limit for potentially preventable post-discharge readmission",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "potentially preventable post-discharge readmission",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 366,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 5943,
+        "other_text": 6466
+      },
+      "number_shaped_rows": 5943,
+      "unresolved_nonnumeric_rows": 6466,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 84,
+      "field": "PPR Performance Categorization",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "performance_category",
+      "meaning": "Publisher comparison with national rate for potentially preventable post-discharge readmission",
+      "unit": null,
+      "measure_group": "potentially preventable post-discharge readmission",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "four observed tokens including explicit unavailable; exact domain pending",
+      "profile_states": {
+        "not_available": 3167,
+        "other_nonblank": 9242
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 9242
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 85,
+      "field": "Footnote for PPR Risk-Standardized Rate",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Explanation associated with unavailable adjusted rate for potentially preventable post-discharge readmission",
+      "unit": null,
+      "measure_group": "potentially preventable post-discharge readmission",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 86,
+      "field": "PPH Numerator",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "numerator",
+      "meaning": "Observed event count for potentially preventable within-stay hospitalization",
+      "unit": "stays or events",
+      "measure_group": "potentially preventable within-stay hospitalization",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 323,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 4937,
+        "unsigned_integer_text": 7472
+      },
+      "number_shaped_rows": 7472,
+      "unresolved_nonnumeric_rows": 4937,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 87,
+      "field": "PPH Denominator",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "denominator",
+      "meaning": "Eligible stay count for potentially preventable within-stay hospitalization",
+      "unit": "stays or events",
+      "measure_group": "potentially preventable within-stay hospitalization",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1288,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 3345,
+        "unsigned_integer_text": 9064
+      },
+      "number_shaped_rows": 9064,
+      "unresolved_nonnumeric_rows": 3345,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 88,
+      "field": "PPH Observed Rate",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "observed_rate",
+      "meaning": "Unadjusted reported rate for potentially preventable within-stay hospitalization",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "potentially preventable within-stay hospitalization",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1849,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 7474,
+        "other_text": 4935
+      },
+      "number_shaped_rows": 7474,
+      "unresolved_nonnumeric_rows": 4935,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 89,
+      "field": "PPH Risk-Standardized Rate",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "risk_standardized_rate",
+      "meaning": "Risk-standardized reported rate for potentially preventable within-stay hospitalization",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "potentially preventable within-stay hospitalization",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1358,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 7474,
+        "other_text": 4935
+      },
+      "number_shaped_rows": 7474,
+      "unresolved_nonnumeric_rows": 4935,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 90,
+      "field": "PPH Risk-Standardized Rate (Lower Limit)",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "confidence_lower",
+      "meaning": "Lower 95% interval limit for potentially preventable within-stay hospitalization",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "potentially preventable within-stay hospitalization",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1116,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 7474,
+        "other_text": 4935
+      },
+      "number_shaped_rows": 7474,
+      "unresolved_nonnumeric_rows": 4935,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 91,
+      "field": "PPH Risk-Standardized Rate (Upper Limit)",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "confidence_upper",
+      "meaning": "Upper 95% interval limit for potentially preventable within-stay hospitalization",
+      "unit": "reported rate; scale requires release validation",
+      "measure_group": "potentially preventable within-stay hospitalization",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 1797,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 7474,
+        "other_text": 4935
+      },
+      "number_shaped_rows": 7474,
+      "unresolved_nonnumeric_rows": 4935,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 92,
+      "field": "PPH Performance Categorization",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "performance_category",
+      "meaning": "Publisher comparison with national rate for potentially preventable within-stay hospitalization",
+      "unit": null,
+      "measure_group": "potentially preventable within-stay hospitalization",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "four observed tokens including explicit unavailable; exact domain pending",
+      "profile_states": {
+        "not_available": 2095,
+        "other_nonblank": 10314
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 10314
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 93,
+      "field": "Footnote for PPH Risk-Standardized Rate",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "footnote",
+      "meaning": "Explanation associated with unavailable adjusted rate for potentially preventable within-stay hospitalization",
+      "unit": null,
+      "measure_group": "potentially preventable within-stay hospitalization",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 94,
+      "field": "How much Medicare spends on an episode of care at this agency, compared to Medicare spending across all agencies nationally",
+      "dictionary_printed_page": 15,
+      "dictionary_alignment": "reviewed ordinal and matching concept; not byte-pinned dictionary",
+      "kind": "relative_spending",
+      "meaning": "Relative Medicare episode spending versus national benchmark; not agency revenue or cost report dollars",
+      "unit": "relative measure; scale requires release validation",
+      "measure_group": "Medicare spending per beneficiary",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 127,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "decimal_text": 8538,
+        "other_text": 3871
+      },
+      "number_shaped_rows": 8538,
+      "unresolved_nonnumeric_rows": 3871,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 95,
+      "field": "Footnote for how much Medicare spends on an episode of care at this agency, compared to Medicare spending across all agencies nationally",
+      "dictionary_printed_page": 16,
+      "dictionary_alignment": "publisher display wording differs; ordinal candidate only",
+      "kind": "footnote",
+      "meaning": "Explanation associated with unavailable spending measure",
+      "unit": null,
+      "measure_group": "Medicare spending per beneficiary",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "unresolved literal reason/placeholder domain",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "lexical_shapes": {
+        "other_text": 12409
+      },
+      "number_shaped_rows": null,
+      "unresolved_nonnumeric_rows": null,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 96,
+      "field": "No. of episodes to calc how much Medicare spends per episode of care at agency, compared to spending at all agencies (national)",
+      "dictionary_printed_page": 16,
+      "dictionary_alignment": "publisher display wording differs; ordinal candidate only",
+      "kind": "episode_count",
+      "meaning": "Number of episodes included in spending measure",
+      "unit": "episodes",
+      "measure_group": "Medicare spending per beneficiary",
+      "application_disposition": "clinical_context_only",
+      "domain_status": "numeric lexical candidates only; exact range and missing marker validation pending",
+      "profile_states": {
+        "other_nonblank": 12409
+      },
+      "restricted_presence": null,
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "lexical_shapes": {
+        "other_text": 5126,
+        "unsigned_integer_text": 7283
+      },
+      "number_shaped_rows": 7283,
+      "unresolved_nonnumeric_rows": 5126,
+      "existing_service_counts": null,
+      "new_application_approval": false
+    }
+  ]
+}
