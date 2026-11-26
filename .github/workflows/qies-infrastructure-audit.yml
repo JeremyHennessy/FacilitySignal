@@ -1,0 +1,35 @@
+name: FacilitySignal QIES hospital infrastructure and service semantics
+on:
+  push:
+    branches: [research/qies-hospital-infrastructure-1329-20261126]
+    paths:
+      - qies_infrastructure_audit.py
+      - tests/test_qies_infrastructure_audit.py
+      - .github/workflows/qies-infrastructure-audit.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - uses: actions/download-artifact@v4
+        with:
+          name: legacy-layout-crosswalk-qies
+          run-id: 45822686294
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/qies-layout
+      - run: python -m unittest discover -s tests -p test_qies_infrastructure_audit.py -v
+      - run: python qies_infrastructure_audit.py --layout "$RUNNER_TEMP/qies-layout/layout-crosswalk.json" --download --output "$RUNNER_TEMP/qies-infrastructure.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qies-infrastructure-aggregate
+          path: ${{ runner.temp }}/qies-infrastructure.json
+          retention-days: 14
+          if-no-files-found: error

@@ -1604,6 +1604,3326 @@
               }
             ]
           ]
+        },
+        {
+          "id": "qies-hospital-service-subset",
+          "title": "Hospital service provision — matched research subset",
+          "note": "Q3 2026 QIES category 01, 5,362 source rows with program code 00 and exact CCN/state candidate in November Care Compare. Historical 2023 code labels remain provisional. Staff, arrangement, both and not provided are separate reported modes; blank is unknown. Not current operation, confirmed contracts or installed assets.",
+          "run": 45829855217,
+          "source": "https://data.cms.gov/sites/default/files/2023-07/0ca58d5d-7914-4532-b22d-41741d3e6151/P.QWB.POSQ.OTHER.LAYOUT.MAR23.pdf",
+          "columns": [
+            "Reported service",
+            "Staff",
+            "Arrangement",
+            "Both",
+            "Not provided",
+            "Blank"
+          ],
+          "rows": [
+            [
+              "Pharmacy",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PHRMCY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PHRMCY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PHRMCY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PHRMCY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PHRMCY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Clinical laboratory",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CL_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CL_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CL_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CL_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CL_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Acute renal dialysis",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ACUTE_RNL_DLYS_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ACUTE_RNL_DLYS_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ACUTE_RNL_DLYS_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ACUTE_RNL_DLYS_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ACUTE_RNL_DLYS_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Anesthesia",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ANSTHSA_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ANSTHSA_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ANSTHSA_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ANSTHSA_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ANSTHSA_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "CT Scan",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CT_SCAN_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CT_SCAN_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CT_SCAN_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CT_SCAN_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CT_SCAN_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "MRI",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "MGNTC_RSNC_IMG_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "MGNTC_RSNC_IMG_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "MGNTC_RSNC_IMG_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "MGNTC_RSNC_IMG_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "MGNTC_RSNC_IMG_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "PET Scan",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PET_SCAN_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PET_SCAN_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PET_SCAN_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PET_SCAN_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PET_SCAN_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Nuclear Medicine",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NUCLR_MDCN_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NUCLR_MDCN_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NUCLR_MDCN_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NUCLR_MDCN_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NUCLR_MDCN_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Dental",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DNTL_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DNTL_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DNTL_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DNTL_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DNTL_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Dietary",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DTRY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DTRY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DTRY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DTRY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DTRY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Cardiac catheterization lab",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CRDC_CTHRTZTN_LAB_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CRDC_CTHRTZTN_LAB_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CRDC_CTHRTZTN_LAB_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CRDC_CTHRTZTN_LAB_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CRDC_CTHRTZTN_LAB_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Inpatient Surgical",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "IP_SRGCL_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "IP_SRGCL_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "IP_SRGCL_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "IP_SRGCL_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "IP_SRGCL_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Outpatient Surgery",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_SRGRY_UNIT_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_SRGRY_UNIT_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_SRGRY_UNIT_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_SRGRY_UNIT_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_SRGRY_UNIT_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Respiratory Care",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "RSPRTRY_CARE_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "RSPRTRY_CARE_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "RSPRTRY_CARE_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "RSPRTRY_CARE_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "RSPRTRY_CARE_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Adult Inpatient Psychiatric",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PSYCH_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PSYCH_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PSYCH_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PSYCH_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PSYCH_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Alcohol and/or Drug",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ALCHL_DRUG_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ALCHL_DRUG_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ALCHL_DRUG_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ALCHL_DRUG_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ALCHL_DRUG_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Audiology",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "AUDLGY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "AUDLGY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "AUDLGY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "AUDLGY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "AUDLGY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Burn Care Unit",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "BURN_CARE_UNIT_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "BURN_CARE_UNIT_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "BURN_CARE_UNIT_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "BURN_CARE_UNIT_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "BURN_CARE_UNIT_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Cardiac Thoracic Surgery",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPEN_HRT_SRGRY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPEN_HRT_SRGRY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPEN_HRT_SRGRY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPEN_HRT_SRGRY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPEN_HRT_SRGRY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "CARF Inpatient Rehabilitation",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CARF_IP_REHAB_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CARF_IP_REHAB_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CARF_IP_REHAB_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CARF_IP_REHAB_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CARF_IP_REHAB_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Chemotherapy",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHMTHRPY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHMTHRPY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHMTHRPY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHMTHRPY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHMTHRPY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Chiropractic",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHRPRCTIC_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHRPRCTIC_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHRPRCTIC_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHRPRCTIC_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHRPRCTIC_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Coronary Care Unit",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CRNRY_CARE_UNIT_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CRNRY_CARE_UNIT_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CRNRY_CARE_UNIT_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CRNRY_CARE_UNIT_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CRNRY_CARE_UNIT_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Designated Trauma Center",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SHCK_TRMA_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SHCK_TRMA_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SHCK_TRMA_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SHCK_TRMA_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SHCK_TRMA_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Diagnostic Radiology",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DGNSTC_RDLGY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DGNSTC_RDLGY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DGNSTC_RDLGY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DGNSTC_RDLGY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DGNSTC_RDLGY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Emergency Department",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DCTD_ER_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DCTD_ER_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DCTD_ER_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DCTD_ER_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "DCTD_ER_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Emergency Psychiatric",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "EMER_PSYCH_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "EMER_PSYCH_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "EMER_PSYCH_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "EMER_PSYCH_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "EMER_PSYCH_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Extracorporeal shockwave lithotripsy",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Forensic Psychiatric",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "FRNSC_PSYCH_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "FRNSC_PSYCH_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "FRNSC_PSYCH_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "FRNSC_PSYCH_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "FRNSC_PSYCH_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Geriatric Psychiatric",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "GRTRC_PSYCH_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "GRTRC_PSYCH_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "GRTRC_PSYCH_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "GRTRC_PSYCH_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "GRTRC_PSYCH_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Gerontological Specialty",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "GRNTLGCL_SPCLTY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "GRNTLGCL_SPCLTY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "GRNTLGCL_SPCLTY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "GRNTLGCL_SPCLTY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "GRNTLGCL_SPCLTY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Medical Surgical ICU",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ICU_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ICU_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ICU_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ICU_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ICU_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Medicare-certified transplant center",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "MDCR_TRNSPLNT_CNTR_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "MDCR_TRNSPLNT_CNTR_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "MDCR_TRNSPLNT_CNTR_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "MDCR_TRNSPLNT_CNTR_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "MDCR_TRNSPLNT_CNTR_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Neonatal ICU",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NEONTL_ICU_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NEONTL_ICU_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NEONTL_ICU_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NEONTL_ICU_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NEONTL_ICU_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Neonatal Nursery",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NEONTL_NRSRY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NEONTL_NRSRY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NEONTL_NRSRY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NEONTL_NRSRY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NEONTL_NRSRY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Neurosurgical",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NRSRGCL_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NRSRGCL_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NRSRGCL_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NRSRGCL_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "NRSRGCL_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Non-Medicare Organ Transplant",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ORGN_TRNSPLNT_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ORGN_TRNSPLNT_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ORGN_TRNSPLNT_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ORGN_TRNSPLNT_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ORGN_TRNSPLNT_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Obstetrics",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OB_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OB_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OB_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OB_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OB_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Ophthalmic Surgery",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPTHLMC_SRGY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPTHLMC_SRGY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPTHLMC_SRGY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPTHLMC_SRGY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPTHLMC_SRGY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Optometric",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPTMTRC_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPTMTRC_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPTMTRC_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPTMTRC_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPTMTRC_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Operating room services",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPRTG_ROOM_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPRTG_ROOM_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPRTG_ROOM_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPRTG_ROOM_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OPRTG_ROOM_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Orthopedic Surgery",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ORTHPDC_SRGY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ORTHPDC_SRGY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ORTHPDC_SRGY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ORTHPDC_SRGY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "ORTHPDC_SRGY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Occupational therapy",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OT_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OT_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OT_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OT_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OT_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Outpatient",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Outpatient Psychiatric",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_PSYCH_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_PSYCH_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_PSYCH_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_PSYCH_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_PSYCH_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Outpatient Rehabilitation",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_REHAB_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_REHAB_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_REHAB_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_REHAB_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "OP_REHAB_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Pediatric",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PED_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PED_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PED_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PED_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PED_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Pediatric ICU",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PED_ICU_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PED_ICU_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PED_ICU_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PED_ICU_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PED_ICU_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Postoperative Recovery Room",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PSTOPRTV_RCVRY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PSTOPRTV_RCVRY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PSTOPRTV_RCVRY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PSTOPRTV_RCVRY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PSTOPRTV_RCVRY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Child / adolescent psychiatric",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHLD_ADLSCNT_PSYCH_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHLD_ADLSCNT_PSYCH_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHLD_ADLSCNT_PSYCH_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHLD_ADLSCNT_PSYCH_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "CHLD_ADLSCNT_PSYCH_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Physical therapy",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PT_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PT_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PT_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PT_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "PT_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Reconstructive Surgery",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "RCNSTRCTN_SRGY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "RCNSTRCTN_SRGY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "RCNSTRCTN_SRGY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "RCNSTRCTN_SRGY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "RCNSTRCTN_SRGY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Social services",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SCL_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SCL_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SCL_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SCL_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SCL_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Speech Pathology",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SPCH_PTHLGY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SPCH_PTHLGY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SPCH_PTHLGY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SPCH_PTHLGY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SPCH_PTHLGY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Surgical ICU",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SRGCL_ICU_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SRGCL_ICU_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SRGCL_ICU_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SRGCL_ICU_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "SRGCL_ICU_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Therapeutic Radiology",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "THRPTC_RDLGY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "THRPTC_RDLGY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "THRPTC_RDLGY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "THRPTC_RDLGY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "THRPTC_RDLGY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Urgent Care Center",
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "URGNT_CARE_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "URGNT_CARE_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "URGNT_CARE_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "URGNT_CARE_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "service_counts",
+                  "URGNT_CARE_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "qies-hospital-count-subset",
+          "title": "Hospital infrastructure and affiliation count coverage",
+          "note": "Same 5,362-record research subset; cells count source records with positive, explicit zero or other/missing numeric values, not beds, rooms, sites or FTE totals. Historical field meanings remain provisional. Counts can overlap; unresolved operating-room count and unreviewed staffing sums excluded.",
+          "run": 45829855217,
+          "source": "https://data.cms.gov/sites/default/files/2023-07/0ca58d5d-7914-4532-b22d-41741d3e6151/P.QWB.POSQ.OTHER.LAYOUT.MAR23.pdf",
+          "columns": [
+            "Reported count field",
+            "Positive records",
+            "Zero records",
+            "Other / missing"
+          ],
+          "rows": [
+            [
+              "Affiliated Count: Ambulance Services",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_AMBLNC_SRVC_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_AMBLNC_SRVC_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_AMBLNC_SRVC_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: ASC",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_ASC_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_ASC_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_ASC_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: Co-Located Hospital",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_COLCTD_HOSP_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_COLCTD_HOSP_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_COLCTD_HOSP_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: ESRD",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_ESRD_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_ESRD_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_ESRD_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: FQHC",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_FQHC_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_FQHC_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_FQHC_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: HHA",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_HHA_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_HHA_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_HHA_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: Hospice",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_HOSPC_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_HOSPC_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_HOSPC_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: OPO",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_OPO_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_OPO_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_OPO_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: PRTF",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_PRTF_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_PRTF_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_PRTF_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: RHC",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_RHC_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_RHC_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_RHC_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: SNF",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_SNF_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_SNF_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_AFLTD_SNF_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Affiliated Count: Total",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "AFLTD_PRVDR_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "AFLTD_PRVDR_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "AFLTD_PRVDR_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Cancer Hospital Satellites",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_CNCR_HOSP_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_CNCR_HOSP_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_CNCR_HOSP_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Childrens Hospital Satellites",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_CHLDRN_HOSP_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_CHLDRN_HOSP_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_CHLDRN_HOSP_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Emergency Departments",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_EMER_DEPT_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_EMER_DEPT_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_EMER_DEPT_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Inpatient Remote Locations",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_INPTNT_LCTN_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_INPTNT_LCTN_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_INPTNT_LCTN_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: LTC Hospital Satellites",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_LTC_HOSP_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_LTC_HOSP_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_LTC_HOSP_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Ophthalmic Surgery Units",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_OPTHLMC_SRGRY_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_OPTHLMC_SRGRY_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_OPTHLMC_SRGRY_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Other Locations",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_OTHR_LCTN_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_OTHR_LCTN_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_OTHR_LCTN_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Psychiatric Hospitals",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_PSYCH_HOSP_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_PSYCH_HOSP_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_PSYCH_HOSP_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Psychiatric Units",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_PSYCH_UNIT_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_PSYCH_UNIT_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_PSYCH_UNIT_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Rehabilitation Hospitals",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_REHAB_HOSP_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_REHAB_HOSP_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_REHAB_HOSP_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Rehabilitation Units",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_REHAB_UNIT_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_REHAB_UNIT_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_REHAB_UNIT_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Count: Urgent Care Centers",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_URGNT_CARE_CNTR_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_URGNT_CARE_CNTR_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "TOT_OFSITE_URGNT_CARE_CNTR_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Off-Site Location Count",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "OFSITE_LCTN_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "OFSITE_LCTN_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "OFSITE_LCTN_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Bed Count: Certified",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "CRTFD_BED_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "CRTFD_BED_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "CRTFD_BED_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Bed Count: Total",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "BED_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "BED_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "BED_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Cardiac Catheterization Procedure Room Count",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "CRDC_CTHRTZTN_PRCDR_ROOMS_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "CRDC_CTHRTZTN_PRCDR_ROOMS_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "CRDC_CTHRTZTN_PRCDR_ROOMS_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Endoscopy Procedure Room Count",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "ENDSCPY_PRCDR_ROOMS_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "ENDSCPY_PRCDR_ROOMS_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "ENDSCPY_PRCDR_ROOMS_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Psychiatric Unit Bed Count",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "PSYCH_UNIT_BED_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "PSYCH_UNIT_BED_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "PSYCH_UNIT_BED_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Rehabilitation Unit Bed Count",
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "REHAB_UNIT_BED_CNT",
+                  "positive"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "REHAB_UNIT_BED_CNT",
+                  "zero"
+                ]
+              },
+              {
+                "path": [
+                  "qies_infra",
+                  "count_states",
+                  "REHAB_UNIT_BED_CNT",
+                  "other_or_missing"
+                ]
+              }
+            ]
+          ]
         }
       ]
     },
@@ -3545,6 +6865,89 @@
                   "chow",
                   "code_counts",
                   "CO"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "qies-hospital-comparison",
+          "title": "Hospital registry and directory comparison",
+          "note": "Q3 2026 QIES compared to November 12, 2026 Care Compare hospital directory. Exact identifier and state candidates are not unique physical sites; literal address/city/ZIP agreement is corroboration only. Code 00 is historical program status, not current operation.",
+          "run": 45829855217,
+          "source": "https://data.cms.gov/sites/default/files/2023-07/0ca58d5d-7914-4532-b22d-41741d3e6151/P.QWB.POSQ.OTHER.LAYOUT.MAR23.pdf",
+          "columns": [
+            "Evidence measure",
+            "Records / pairs"
+          ],
+          "rows": [
+            [
+              "QIES category 01 records",
+              {
+                "path": [
+                  "qies_infra",
+                  "source_rows"
+                ]
+              }
+            ],
+            [
+              "Care Compare hospital records",
+              {
+                "path": [
+                  "qies_infra",
+                  "comparison",
+                  "records"
+                ]
+              }
+            ],
+            [
+              "Exact identifier and state candidate pairs",
+              {
+                "path": [
+                  "qies_infra",
+                  "comparison",
+                  "candidate_pairs",
+                  "same_state_pairs"
+                ]
+              }
+            ],
+            [
+              "Address, city and ZIP text corroborated",
+              {
+                "path": [
+                  "qies_infra",
+                  "comparison",
+                  "candidate_pairs",
+                  "same_state_address_city_zip_text_corroborated"
+                ]
+              }
+            ],
+            [
+              "Program code 00 with same-state candidate",
+              {
+                "path": [
+                  "qies_infra",
+                  "scope_rows"
+                ]
+              }
+            ],
+            [
+              "Program code 00 without same-state candidate",
+              {
+                "path": [
+                  "qies_infra",
+                  "scope_totals",
+                  "code00_without_same_state_candidate"
+                ]
+              }
+            ],
+            [
+              "Other or unknown program code",
+              {
+                "path": [
+                  "qies_infra",
+                  "scope_totals",
+                  "other_or_unknown_program_code"
                 ]
               }
             ]

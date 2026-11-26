@@ -58,6 +58,36 @@ def build(ledger,cap,spec,data_use=None):
             raise ValueError("Subgroup reconciliation failed")
         ctx["pecos_semantic"]=pecos
         ctx["pecos_followup"]=follow["result"]
+    hospital_path=ROOT/"research/qies_hospital_infrastructure_audit_20261126.json"
+    if hospital_path.exists():
+        hospital=read(hospital_path)
+        pins={s["key"]:s for s in read(ROOT/"research/snapshot_release_20261125.json")["sources"]}
+        if hospital["qualification_run"]!=45829855217 or hospital["source_sha256"]!=pins["qies"]["sha256"] or hospital["source_rows"]!=pins["qies"]["stored_rows"]:
+            raise ValueError("QIES infrastructure source mismatch")
+        if hospital["historical_layout_sha256"]!="08291e4cd5d0221b1201d48be1d58a916af9ea4b608b90c4ebc5ae450ef1f4b7":
+            raise ValueError("Historical layout mismatch")
+        all_rows=hospital["scope_results"]["all"]
+        for f,counts in cap["qies_field_distributions"].items():
+            if all_rows["services"][f]!=counts:raise ValueError("Prior QIES field mismatch")
+        subset=hospital["scope_results"]["code00_same_state_hospital_candidate"]
+        n=subset["rows"]
+        if n!=5362 or len(subset["services"])!=57 or len(subset["counts"])!=31:
+            raise ValueError("QIES infrastructure scope mismatch")
+        service_keys=("code_1","code_2","code_3","code_0","blank")
+        service_counts={}
+        for f,v in subset["services"].items():
+            if set(v)-set(service_keys) or sum(v.values())!=n:raise ValueError("QIES service domain mismatch")
+            service_counts[f]={k:v.get(k,0) for k in service_keys}
+        count_states={}
+        for f,v in subset["counts"].items():
+            states=v["states"]
+            if sum(states.values())!=n:raise ValueError("QIES count reconciliation")
+            positive,zero=states.get("positive",0),states.get("zero",0)
+            count_states[f]={"positive":positive,"zero":zero,"other_or_missing":n-positive-zero}
+        ctx["qies_infra"]={"service_counts":service_counts,"count_states":count_states,
+            "source_rows":hospital["source_rows"],"scope_rows":n,
+            "comparison":hospital["public_hospital_comparison"],
+            "scope_totals":{k:v["rows"] for k,v in hospital["scope_results"].items()}}
     def resolve(cell):
         if isinstance(cell,dict):
             if set(cell)!={"path"}:raise ValueError("unexpected field selector")

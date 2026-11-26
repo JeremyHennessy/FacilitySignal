@@ -1,0 +1,6020 @@
+{
+  "blocked_field": {
+    "field": "OPRTG_ROOM_CNT",
+    "historical_reference": {
+      "codes": {},
+      "definition": "Number of operating rooms in an ambulatory surgical center.",
+      "label": "Operating Room Count",
+      "page": 40,
+      "printed_page": 29
+    },
+    "lexical_numeric_diagnostic": {
+      "decimal_spelling_count": 0,
+      "numeric_sum_diagnostic_only": "27955",
+      "range": {
+        "max": "157",
+        "min": "0"
+      },
+      "states": {
+        "blank": 17,
+        "positive": 3473,
+        "zero": 10108
+      }
+    },
+    "reason": "First hospital section definition explicitly names an ambulatory surgical center. Do not interpret hospital room count from this field until resolved."
+  },
+  "field_counts": {
+    "blocked_count_field": 1,
+    "counts": 31,
+    "fte": 20,
+    "literal_flags": 8,
+    "services": 57,
+    "status_codes": 4
+  },
+  "format_version": 1,
+  "historical_layout_artifact_sha256": "77babffa7f65e903664813f845ff68a182610d2ee9073fda8151241a28a3503d",
+  "historical_layout_sha256": "08291e4cd5d0221b1201d48be1d58a916af9ea4b608b90c4ebc5ae450ef1f4b7",
+  "hospital_layout_scope": "first hospital category 01 section, physical pages 1-59; not other provider sections",
+  "limitations": [
+    "All raw values are aggregate only; source identifiers and individual observations never emitted.",
+    "Historical 2023 dictionary labels are provisional for Q3 2026. Code 00 denotes historical program status, not current physical operation.",
+    "Public comparison matches exact CCN and reported state; text corroboration is not canonical site resolution.",
+    "Numeric sums and component comparisons are diagnostics, not approved market totals, unique sites, occupancy, installed equipment or staffing levels.",
+    "A reported zero, blank, nonnumeric token and positive value remain separate; no service or procurement inference from missing data."
+  ],
+  "public_hospital_comparison": {
+    "candidate_pairs": {
+      "exact_id_candidate_pairs": 5425,
+      "same_state_address_city_zip_text_corroborated": 5021,
+      "same_state_pairs": 5425
+    },
+    "distinct_public_id_state_candidates": 5425,
+    "distinct_public_same_state_candidates": 5425,
+    "public_candidates_with_multiple_qies_rows": 0,
+    "records": 5435,
+    "release": "2026-11-12",
+    "sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a",
+    "source_row_match_states": {
+      "no_exact_public_hospital_id": 8173,
+      "same_state_candidate": 5425
+    }
+  },
+  "source_period": "2026-07-01/2026-09-30",
+  "source_rows": 13598,
+  "source_sha256": "8c83318826efc7de996811c22b67f5422ad639581e94830817645d5c0585bf7c",
+  "as_of": "2026-11-26",
+  "qualification_run": 45829855217,
+  "qualification_job": 139943473013,
+  "qualified_commit": "82ac2093f214104fdeac4d16d272476209785ffd",
+  "catalog": {
+    "PHRMCY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how pharmaceutical services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Pharmacy Code",
+      "page": 35,
+      "printed_page": 25
+    },
+    "ACUTE_RNL_DLYS_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how acute renal dialysis services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Acute Renal Dialysis Code",
+      "page": 43,
+      "printed_page": 31
+    },
+    "PSYCH_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how adult inpatient psychiatric services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Adult Inpatient Psychiatric Code",
+      "page": 43,
+      "printed_page": 31
+    },
+    "ALCHL_DRUG_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how alcohol and/or drug services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Alcohol and/or Drug Code",
+      "page": 44,
+      "printed_page": 31
+    },
+    "ANSTHSA_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how anesthesia services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Anesthesia Code",
+      "page": 44,
+      "printed_page": 32
+    },
+    "AUDLGY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how audiology services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Audiology Code",
+      "page": 44,
+      "printed_page": 32
+    },
+    "BURN_CARE_UNIT_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how burn care unit services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Burn Care Unit Code",
+      "page": 44,
+      "printed_page": 32
+    },
+    "CRDC_CTHRTZTN_LAB_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how cardiac catheterization lab services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Cardiac Catheterization Lab Code",
+      "page": 45,
+      "printed_page": 32
+    },
+    "OPEN_HRT_SRGRY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how cardiac thoracic surgery services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Cardiac Thoracic Surgery Code",
+      "page": 45,
+      "printed_page": 32
+    },
+    "CARF_IP_REHAB_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how Commission on Accreditation of Rehabilitation Facilities inpatient rehabilitation services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: CARF Inpatient Rehabilitation Code",
+      "page": 45,
+      "printed_page": 32
+    },
+    "CHMTHRPY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how chemotherapy services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Chemotherapy Code",
+      "page": 45,
+      "printed_page": 32
+    },
+    "CHRPRCTIC_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how chiropractic services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Chiropractic Code",
+      "page": 45,
+      "printed_page": 33
+    },
+    "CL_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how clinical laboratory services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Clinical Laboratory Code",
+      "page": 46,
+      "printed_page": 33
+    },
+    "CRNRY_CARE_UNIT_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how Coronary Care Unit services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Coronary Care Unit Code",
+      "page": 46,
+      "printed_page": 33
+    },
+    "CT_SCAN_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how CT scan services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: CT Scan Code",
+      "page": 46,
+      "printed_page": 33
+    },
+    "DNTL_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how dental services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Dental Code",
+      "page": 46,
+      "printed_page": 33
+    },
+    "SHCK_TRMA_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how designated trauma center services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Designated Trauma Center Code",
+      "page": 46,
+      "printed_page": 33
+    },
+    "DGNSTC_RDLGY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how diagnostic radiology services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Diagnostic Radiology Code",
+      "page": 47,
+      "printed_page": 33
+    },
+    "DTRY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how dietary services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Dietary Code",
+      "page": 47,
+      "printed_page": 34
+    },
+    "DCTD_ER_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how dedicated emergency department services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Emergency Department Code",
+      "page": 47,
+      "printed_page": 34
+    },
+    "EMER_PSYCH_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how emergency psychiatric services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Emergency Psychiatric Code",
+      "page": 47,
+      "printed_page": 34
+    },
+    "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how extracorporeal shockwave lithotripter services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: ESWL Code",
+      "page": 48,
+      "printed_page": 34
+    },
+    "FRNSC_PSYCH_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how forensic psychiatric services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Forensic Psychiatric Code",
+      "page": 48,
+      "printed_page": 34
+    },
+    "GRTRC_PSYCH_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMEN T"
+      },
+      "definition": "Indicates how geriatric psychiatric services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Geriatric Psychiatric Code",
+      "page": 48,
+      "printed_page": 34
+    },
+    "GRNTLGCL_SPCLTY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how gerontological specialty services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Gerontological Specialty Code",
+      "page": 48,
+      "printed_page": 34
+    },
+    "IP_SRGCL_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how inpatient surgical services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Inpatient Surgical Code",
+      "page": 49,
+      "printed_page": 35
+    },
+    "ICU_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how medical surgical intensive care unit services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Medical Surgical ICU Code",
+      "page": 49,
+      "printed_page": 35
+    },
+    "MDCR_TRNSPLNT_CNTR_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how Medicare certified transplant center services are provided.",
+      "interpretation": "historical service provision code",
+      "label": null,
+      "page": 49,
+      "printed_page": 35
+    },
+    "MGNTC_RSNC_IMG_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how magnetic resonance imaging services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: MRI Code",
+      "page": 49,
+      "printed_page": 35
+    },
+    "NEONTL_ICU_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how neonatal intensive care unit services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Neonatal ICU Code",
+      "page": 49,
+      "printed_page": 35
+    },
+    "NEONTL_NRSRY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how neonatal nursery services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Neonatal Nursery Code",
+      "page": 50,
+      "printed_page": 35
+    },
+    "NRSRGCL_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how neurosurgical services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Neurosurgical Code",
+      "page": 50,
+      "printed_page": 36
+    },
+    "ORGN_TRNSPLNT_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how non-Medicare certified organ transplant services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Non-Medicare Organ Transplant Code",
+      "page": 50,
+      "printed_page": 36
+    },
+    "NUCLR_MDCN_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how nuclear medicine services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Nuclear Medicine Code",
+      "page": 50,
+      "printed_page": 36
+    },
+    "OB_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how obstetrics services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Obstetrics Code",
+      "page": 51,
+      "printed_page": 36
+    },
+    "OPTHLMC_SRGY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how ophthalmic surgery services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Ophthalmic Surgery Code",
+      "page": 51,
+      "printed_page": 36
+    },
+    "OPTMTRC_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how optometric services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Optometric Code",
+      "page": 51,
+      "printed_page": 36
+    },
+    "OPRTG_ROOM_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how operating room services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: OR Code",
+      "page": 51,
+      "printed_page": 36
+    },
+    "ORTHPDC_SRGY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how orthopedic surgery services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Orthopedic Surgery Code",
+      "page": 51,
+      "printed_page": 37
+    },
+    "OT_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how occupational therapy services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: OT Code",
+      "page": 52,
+      "printed_page": 37
+    },
+    "OP_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how outpatient services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Outpatient Code",
+      "page": 52,
+      "printed_page": 37
+    },
+    "OP_PSYCH_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how outpatient psychiatric services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Outpatient Psychiatric Code",
+      "page": 52,
+      "printed_page": 37
+    },
+    "OP_REHAB_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how outpatient rehabilitation services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Outpatient Rehabilitation Code",
+      "page": 52,
+      "printed_page": 37
+    },
+    "OP_SRGRY_UNIT_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how outpatient surgery services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Outpatient Surgery Code",
+      "page": 52,
+      "printed_page": 37
+    },
+    "PED_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVID ED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how pediatric services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Pediatric Code",
+      "page": 53,
+      "printed_page": 37
+    },
+    "PED_ICU_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how pediatric ICU services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Pediatric ICU Code",
+      "page": 53,
+      "printed_page": 38
+    },
+    "PET_SCAN_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how Positron Emissions Tomography scan services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: PET Scan Code",
+      "page": 53,
+      "printed_page": 38
+    },
+    "PSTOPRTV_RCVRY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how postoperative recovery room services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Postoperative Recovery Room Code",
+      "page": 53,
+      "printed_page": 38
+    },
+    "CHLD_ADLSCNT_PSYCH_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how child and/or adolescent psychiatric services are provided.",
+      "interpretation": "historical service provision code",
+      "label": null,
+      "page": 54,
+      "printed_page": 38
+    },
+    "PT_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how physical therapy services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: PT Code",
+      "page": 54,
+      "printed_page": 38
+    },
+    "RCNSTRCTN_SRGY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how reconstructive surgery services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Reconstructive Surgery Code",
+      "page": 54,
+      "printed_page": 38
+    },
+    "RSPRTRY_CARE_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how respiratory care services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Respiratory Care Code",
+      "page": 54,
+      "printed_page": 38
+    },
+    "SCL_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how social services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Social Code",
+      "page": 54,
+      "printed_page": 39
+    },
+    "SPCH_PTHLGY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how speech pathology services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Speech Pathology Code",
+      "page": 55,
+      "printed_page": 39
+    },
+    "SRGCL_ICU_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how surgical intensive care unit services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Surgical ICU Code",
+      "page": 55,
+      "printed_page": 39
+    },
+    "THRPTC_RDLGY_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how therapeutic radiology services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Therapeutic Radiology Code",
+      "page": 55,
+      "printed_page": 39
+    },
+    "URGNT_CARE_SRVC_CD": {
+      "codes": {
+        "0": "NOT PROVIDED",
+        "1": "PROVIDED BY STAFF",
+        "2": "PROVIDED UNDER ARRANGEMENT",
+        "3": "PROVIDED BY STAFF AND UNDER ARRANGEMENT"
+      },
+      "definition": "Indicates how urgent care center services are provided.",
+      "interpretation": "historical service provision code",
+      "label": "Services: Urgent Care Center Code",
+      "page": 55,
+      "printed_page": 39
+    },
+    "TOT_AFLTD_AMBLNC_SRVC_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating ambulance services.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: Ambulance Services",
+      "page": 32,
+      "printed_page": 24
+    },
+    "TOT_AFLTD_ASC_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating ambulatory surgery centers.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: ASC",
+      "page": 32,
+      "printed_page": 24
+    },
+    "TOT_COLCTD_HOSP_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating co-located hospitals.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: Co-Located Hospital",
+      "page": 32,
+      "printed_page": 24
+    },
+    "TOT_AFLTD_ESRD_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating end-stage renal disease units.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: ESRD",
+      "page": 33,
+      "printed_page": 24
+    },
+    "TOT_AFLTD_FQHC_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating federally qualified health centers.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: FQHC",
+      "page": 33,
+      "printed_page": 24
+    },
+    "TOT_AFLTD_HHA_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating home health agencies.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: HHA",
+      "page": 33,
+      "printed_page": 24
+    },
+    "TOT_AFLTD_HOSPC_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating hospices.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: Hospice",
+      "page": 33,
+      "printed_page": 24
+    },
+    "TOT_AFLTD_OPO_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating organ procurement organizations.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: OPO",
+      "page": 33,
+      "printed_page": 25
+    },
+    "TOT_AFLTD_PRTF_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating psychiatric residential treatment facilities.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: PRTF",
+      "page": 33,
+      "printed_page": 25
+    },
+    "TOT_AFLTD_RHC_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating rural health centers.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: RHC",
+      "page": 34,
+      "printed_page": 25
+    },
+    "TOT_AFLTD_SNF_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated Medicare participating skilled nursing facilities.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: SNF",
+      "page": 34,
+      "printed_page": 25
+    },
+    "AFLTD_PRVDR_CNT": {
+      "codes": {},
+      "definition": "Number of affiliated providers.",
+      "interpretation": "historical count",
+      "label": "Affiliated Count: Total",
+      "page": 34,
+      "printed_page": 25
+    },
+    "TOT_OFSITE_CNCR_HOSP_CNT": {
+      "codes": {},
+      "definition": "Number of off-site satellites of a cancer hospital.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Cancer Hospital Satellites",
+      "page": 39,
+      "printed_page": 28
+    },
+    "TOT_OFSITE_CHLDRN_HOSP_CNT": {
+      "codes": {},
+      "definition": "Number of off-site satellites of a children's hospital.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Childrens Hospital Satellites",
+      "page": 39,
+      "printed_page": 28
+    },
+    "TOT_OFSITE_EMER_DEPT_CNT": {
+      "codes": {},
+      "definition": "Number of off-site emergency departments.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Emergency Departments",
+      "page": 39,
+      "printed_page": 28
+    },
+    "TOT_OFSITE_INPTNT_LCTN_CNT": {
+      "codes": {},
+      "definition": "Number of inpatient remote locations.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Inpatient Remote Locations",
+      "page": 39,
+      "printed_page": 28
+    },
+    "TOT_OFSITE_LTC_HOSP_CNT": {
+      "codes": {},
+      "definition": "Number of off-site satellites of a long term care hospital.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: LTC Hospital Satellites",
+      "page": 39,
+      "printed_page": 29
+    },
+    "TOT_OFSITE_OPTHLMC_SRGRY_CNT": {
+      "codes": {},
+      "definition": "Number of off-site ophthalmic surgery units.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Ophthalmic Surgery Units",
+      "page": 40,
+      "printed_page": 29
+    },
+    "TOT_OFSITE_OTHR_LCTN_CNT": {
+      "codes": {},
+      "definition": "Number of other off-site locations.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Other Locations",
+      "page": 40,
+      "printed_page": 29
+    },
+    "TOT_OFSITE_PSYCH_HOSP_CNT": {
+      "codes": {},
+      "definition": "Number of off-site psychiatric hospitals.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Psychiatric Hospitals",
+      "page": 40,
+      "printed_page": 29
+    },
+    "TOT_OFSITE_PSYCH_UNIT_CNT": {
+      "codes": {},
+      "definition": "Number of off-site psychiatric units.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Psychiatric Units",
+      "page": 40,
+      "printed_page": 29
+    },
+    "TOT_OFSITE_REHAB_HOSP_CNT": {
+      "codes": {},
+      "definition": "Number of off-site rehabilitation hospitals.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Rehabilitation Hospitals",
+      "page": 40,
+      "printed_page": 29
+    },
+    "TOT_OFSITE_REHAB_UNIT_CNT": {
+      "codes": {},
+      "definition": "Number of off-site rehabilitation units.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Rehabilitation Units",
+      "page": 40,
+      "printed_page": 29
+    },
+    "TOT_OFSITE_URGNT_CARE_CNTR_CNT": {
+      "codes": {},
+      "definition": "Number of off-site urgent care centers.",
+      "interpretation": "historical count",
+      "label": "Off-Site Count: Urgent Care Centers",
+      "page": 40,
+      "printed_page": 29
+    },
+    "OFSITE_LCTN_CNT": {
+      "codes": {},
+      "definition": "Number of off-site locations.",
+      "interpretation": "historical count",
+      "label": "Off-Site Location Count",
+      "page": 40,
+      "printed_page": 29
+    },
+    "CRTFD_BED_CNT": {
+      "codes": {},
+      "definition": "Number of beds in Medicare and/or Medicaid certified areas within a facility.",
+      "interpretation": "historical count",
+      "label": "Bed Count: Certified",
+      "page": 35,
+      "printed_page": 26
+    },
+    "BED_CNT": {
+      "codes": {},
+      "definition": "Total number of beds in a provider, including those in non-participating or non-licensed areas.",
+      "interpretation": "historical count",
+      "label": "Bed Count: Total",
+      "page": 35,
+      "printed_page": 26
+    },
+    "CRDC_CTHRTZTN_PRCDR_ROOMS_CNT": {
+      "codes": {},
+      "definition": "Number of cardiac catheterization procedure rooms.",
+      "interpretation": "historical count",
+      "label": "Cardiac Catheterization Procedure Room Count",
+      "page": 36,
+      "printed_page": 26
+    },
+    "ENDSCPY_PRCDR_ROOMS_CNT": {
+      "codes": {},
+      "definition": "Number of endoscopy procedure rooms.",
+      "interpretation": "historical count",
+      "label": "Endoscopy Procedure Room Count",
+      "page": 37,
+      "printed_page": 27
+    },
+    "PSYCH_UNIT_BED_CNT": {
+      "codes": {},
+      "definition": "Number of beds in a Prospective Payment System (PPS) -exempt psychiatric unit of a hospital.",
+      "interpretation": "historical count",
+      "label": "Psychiatric Unit Bed Count",
+      "page": 41,
+      "printed_page": 30
+    },
+    "REHAB_UNIT_BED_CNT": {
+      "codes": {},
+      "definition": "Number of beds in a Prospective Payment System (PPS) -exempt rehabilitation unit of a hospital.",
+      "interpretation": "historical count",
+      "label": "Rehabilitation Unit Bed Count",
+      "page": 42,
+      "printed_page": 30
+    },
+    "PRSNEL_OTHR_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent other personnel employed by a provider",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Other Personnel",
+      "page": 56,
+      "printed_page": 39
+    },
+    "CRNA_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent Certified Registered Nurse Anesthetists employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: CRNA",
+      "page": 56,
+      "printed_page": 40
+    },
+    "DIETN_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent dietitians employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Dietitian",
+      "page": 56,
+      "printed_page": 40
+    },
+    "LAB_TCHNCN_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent laboratory technicians employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Lab Technician",
+      "page": 56,
+      "printed_page": 40
+    },
+    "LPN_LVN_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent licensed practical or vocational nurses employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: LPN/LVN - Employee",
+      "page": 56,
+      "printed_page": 40
+    },
+    "MDCL_SCL_WORKR_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent medical social workers employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Medical Social Worker - Employee",
+      "page": 56,
+      "printed_page": 40
+    },
+    "MDCL_TCHNLGST_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent medical technologists employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Medical Technologist",
+      "page": 57,
+      "printed_page": 40
+    },
+    "NUCLR_MDCN_TCHNCN_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent nuclear medicine technicians employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Nuclear Medicine Technician",
+      "page": 57,
+      "printed_page": 40
+    },
+    "NRS_PRCTNR_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent nurse practitioners employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Nurse Practitioner",
+      "page": 57,
+      "printed_page": 40
+    },
+    "OCPTNL_THRPST_CNT": {
+      "codes": {},
+      "definition": "Total number of full-time equivalent occupational therapists employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: OT - Total",
+      "page": 57,
+      "printed_page": 40
+    },
+    "PHYSN_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent physicians employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Physician - Employee",
+      "page": 57,
+      "printed_page": 40
+    },
+    "PHYSN_ASTNT_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent physician assistants employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Physician Assistant",
+      "page": 57,
+      "printed_page": 40
+    },
+    "RSDNT_PHYSN_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent physician - residents employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Physician Resident",
+      "page": 57,
+      "printed_page": 41
+    },
+    "PSYCHLGST_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent psychologists employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Psychologist",
+      "page": 58,
+      "printed_page": 41
+    },
+    "PHYS_THRPST_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent physical therapists employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: PT",
+      "page": 58,
+      "printed_page": 41
+    },
+    "RDLGY_TCHNCN_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent radiology technicians employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Radiology Technician",
+      "page": 58,
+      "printed_page": 41
+    },
+    "REG_PHRMCST_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent registered pharmacists employed by the provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Registered Pharmacist",
+      "page": 58,
+      "printed_page": 41
+    },
+    "INHLTN_THRPST_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent respiratory therapists employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Respiratory Therapist",
+      "page": 58,
+      "printed_page": 41
+    },
+    "RN_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent registered nurses employed by a provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: RN",
+      "page": 58,
+      "printed_page": 41
+    },
+    "SPCH_PTHLGST_AUDLGST_CNT": {
+      "codes": {},
+      "definition": "Number of full-time equivalent speech pathologists or audiologists employed by the provider.",
+      "interpretation": "historical FTE",
+      "label": "Staff Count: Speech Pathologist/Audiologist",
+      "page": 58,
+      "printed_page": 41
+    },
+    "SKLTN_REC_SW": {
+      "codes": {},
+      "definition": "Indicates if the record is a skeleton record. Only a limited set of data is available for this provider; no survey data exists. Only provider categories 01,17,19,21and 22 can have skeleton providers.",
+      "interpretation": "literal flag check, publisher value domain not fully specified",
+      "label": "Skeleton Record Indicator",
+      "page": 18,
+      "printed_page": 13
+    },
+    "COLCTN_STUS_SW": {
+      "codes": {},
+      "definition": "Indicates if the facility shares a location with another hospital.",
+      "interpretation": "literal flag check, publisher value domain not fully specified",
+      "label": "Co-Location Indicator",
+      "page": 37,
+      "printed_page": 27
+    },
+    "LSC_WVR_SW": {
+      "codes": {},
+      "definition": "Indicates if a waiver of any life safety code provision has been recommended for a provider.",
+      "interpretation": "literal flag check, publisher value domain not fully specified",
+      "label": "Compliance: LSC Waiver Indicator",
+      "page": 37,
+      "printed_page": 27
+    },
+    "PSYCH_UNIT_SW": {
+      "codes": {},
+      "definition": "Indicates if a hospital has a Prospective Payment System (PPS) -exempt psychiatric unit.",
+      "interpretation": "literal flag check, publisher value domain not fully specified",
+      "label": "Psychiatric Unit Indicator",
+      "page": 42,
+      "printed_page": 30
+    },
+    "REHAB_UNIT_SW": {
+      "codes": {},
+      "definition": "Indicates if a hospital has a Prospective Payment System (PPS) -exempt rehabilitation unit.",
+      "interpretation": "literal flag check, publisher value domain not fully specified",
+      "label": "Rehabilitation Unit Indicator",
+      "page": 43,
+      "printed_page": 31
+    },
+    "SB_SW": {
+      "codes": {},
+      "definition": "Indicates if a hospital provides swing bed services (beds can be used for either hospital or long term care services).",
+      "interpretation": "literal flag check, publisher value domain not fully specified",
+      "label": "Swing Bed Indicator",
+      "page": 59,
+      "printed_page": 41
+    },
+    "OVRRD_BED_CNT_SW": {
+      "codes": {},
+      "definition": "Indicates if the regional office has approved a significant bed count change from the previous certification.",
+      "interpretation": "literal flag check, publisher value domain not fully specified",
+      "label": "Bed Count Override Indicator",
+      "page": 35,
+      "printed_page": 26
+    },
+    "OVRRD_STFG_SW": {
+      "codes": {},
+      "definition": "Indicates if the regional office has approved a significant staff count change from the previous certification.",
+      "interpretation": "literal flag check, publisher value domain not fully specified",
+      "label": "Staff Count Override Indicator",
+      "page": 55,
+      "printed_page": 39
+    },
+    "PRVDR_CTGRY_SBTYP_CD": {
+      "codes": {
+        "11": "Critical Access Hospitals",
+        "20": "Transplant Hospitals",
+        "22": "Medicaid Only Short-Term Hospitals",
+        "23": "Medicaid Only Childrens Hospitals",
+        "24": "Medicaid Only Children's Psychiatric",
+        "25": "Medicaid Only Psychiatric Hospitals",
+        "26": "Medicaid Only Rehabilitation Hospitals",
+        "27": "Medicaid Only Long-Term Hospitals",
+        "28": "Rural Emergency Hospital",
+        "01": "Short Term",
+        "02": "Long Term",
+        "03": "Religious Non-Medical Health Care Institutions",
+        "04": "Psychiatric",
+        "05": "Rehabilitation",
+        "06": "Childrens Hospitals",
+        "07": "Distinct Part Psychiatric Hospital"
+      },
+      "definition": "Identifies the subtype of the provider, within the primary category. Used in reporting to show the breakdown of provider categories, mainly for hospitals and SNFs.",
+      "interpretation": "historical source code",
+      "label": "Provider Category Subtype Code",
+      "page": 1,
+      "printed_page": 2
+    },
+    "PGM_TRMNTN_CD": {
+      "codes": {
+        "10": "REV/OTHER REASON - CLIA Only",
+        "11": "INCOMPLETE CLIA APPLICATIO N INFORMATION - CLIA Only",
+        "12": "NO LONGER PERFORMING TESTS - CLIA Only",
+        "13": "MULTIPLE TO SINGLE SITE CERTIFICATE - CLIA Only",
+        "14": "SHARED LABORATORY - CLIA Only",
+        "15": "FAILURE TO RENEW WAIVER PPM C ERTIFICATE - CLIA Only",
+        "16": "DUPLICATE CLIA NUMBER - CLIA Only",
+        "17": "MAIL RETURNED NO FORWARD ADDRESS CERT ENDED - CLIA",
+        "20": "NOTIFICATION BANKRUPTCY - CLIA Only",
+        "33": "ACCREDITATION NOT CONFIRMED - CLIA Only",
+        "80": "AWAITING STATE APPROVAL",
+        "99": "OIG ACTION - DO NOT ACTIVATE - CLIA Only",
+        "00": "ACTIVE PROVIDER",
+        "01": "VOLUNTARY-MERGER, CLOSURE",
+        "02": "VOLUNTARY-DISSATISFACTION WITH REIMBURSEMENT",
+        "03": "VOLUNTARY-RISK OF INVOLUNTARY TERMINATION",
+        "04": "VOLUNTARY-OTHER REASON FOR WITHDRAWAL",
+        "05": "INVOLUNTARY-FAILURE TO MEET HEALTH/SAFETY REQ",
+        "06": "INVOLUNTARY-FAILURE TO MEET AGREEMENT",
+        "07": "OTHER-PROVIDER STATUS CHANGE",
+        "08": "NONPAYMENT OF FEES - CLIA Only",
+        "09": "REV/UNSUCCESSFUL PARTICIPATION IN PT - CLIA Only"
+      },
+      "definition": "Indicates the current termination status for the provider.",
+      "interpretation": "historical source code",
+      "label": "Termination Code",
+      "page": 28,
+      "printed_page": 21
+    },
+    "CMPLNC_STUS_CD": {
+      "codes": {
+        "A": "IN COMPLIANCE",
+        "B": "NOT IN COMPLIANCE"
+      },
+      "definition": "Compliance status of a provider at the time of certification survey.",
+      "interpretation": "historical source code",
+      "label": "Compliance: Status",
+      "page": 2,
+      "printed_page": 2
+    },
+    "CRTFCTN_ACTN_TYPE_CD": {
+      "codes": {
+        "1": "INITIAL",
+        "2": "RECERTIFICATION",
+        "3": "TERMINATION",
+        "4": "CHANGE OF OWNERSHIP",
+        "5": "VALIDATION",
+        "8": "FULL SURVEY AFTER COMPLAINT"
+      },
+      "definition": "Identifies the reason for the certification. Type of action from the official survey record, CMS 1539 form.",
+      "interpretation": "historical source code",
+      "label": "Type of Action Code",
+      "page": 29,
+      "printed_page": 22
+    }
+  },
+  "scope_results": {
+    "all": {
+      "rows": 13598,
+      "cross_checks": {
+        "PSYCH_UNIT_SW_vs_beds": {
+          "blank/unknown": 9,
+          "literal_N/zero": 11145,
+          "literal_Y/positive": 2443,
+          "literal_Y/zero": 1
+        },
+        "REHAB_UNIT_SW_vs_beds": {
+          "blank/unknown": 9,
+          "literal_N/zero": 11937,
+          "literal_Y/positive": 1652
+        },
+        "affiliated_component_arithmetic": {
+          "component_sum_below_reported_total": 30,
+          "equal": 13557,
+          "not_comparable": 11
+        },
+        "cath_lab_service_vs_room_count": {
+          "blank/unknown": 17,
+          "blank/zero": 1378,
+          "code_0/positive": 70,
+          "code_0/zero": 10070,
+          "code_1/positive": 1065,
+          "code_1/zero": 507,
+          "code_2/positive": 24,
+          "code_2/zero": 162,
+          "code_3/positive": 237,
+          "code_3/zero": 68
+        },
+        "certified_vs_total_beds": {
+          "certified_at_or_below_total": 13582,
+          "not_comparable": 16
+        },
+        "offsite_component_arithmetic": {
+          "equal": 13587,
+          "not_comparable": 11
+        }
+      },
+      "services": {
+        "PHRMCY_SRVC_CD": {
+          "blank": 1440,
+          "code_0": 456,
+          "code_1": 7862,
+          "code_2": 2439,
+          "code_3": 1401
+        },
+        "ACUTE_RNL_DLYS_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 7781,
+          "code_1": 1229,
+          "code_2": 2790,
+          "code_3": 403
+        },
+        "PSYCH_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 8114,
+          "code_1": 2779,
+          "code_2": 727,
+          "code_3": 583
+        },
+        "ALCHL_DRUG_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 9571,
+          "code_1": 1850,
+          "code_2": 400,
+          "code_3": 382
+        },
+        "ANSTHSA_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 4232,
+          "code_1": 2520,
+          "code_2": 4407,
+          "code_3": 1044
+        },
+        "AUDLGY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10402,
+          "code_1": 792,
+          "code_2": 859,
+          "code_3": 150
+        },
+        "BURN_CARE_UNIT_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 11802,
+          "code_1": 180,
+          "code_2": 182,
+          "code_3": 39
+        },
+        "CRDC_CTHRTZTN_LAB_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10140,
+          "code_1": 1572,
+          "code_2": 186,
+          "code_3": 305
+        },
+        "OPEN_HRT_SRGRY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10378,
+          "code_1": 1257,
+          "code_2": 324,
+          "code_3": 244
+        },
+        "CARF_IP_REHAB_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 8448,
+          "code_1": 2819,
+          "code_2": 507,
+          "code_3": 429
+        },
+        "CHMTHRPY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 9696,
+          "code_1": 1937,
+          "code_2": 168,
+          "code_3": 402
+        },
+        "CHRPRCTIC_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 11835,
+          "code_1": 172,
+          "code_2": 167,
+          "code_3": 29
+        },
+        "CL_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 626,
+          "code_1": 6466,
+          "code_2": 2658,
+          "code_3": 2453
+        },
+        "CRNRY_CARE_UNIT_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 8393,
+          "code_1": 3258,
+          "code_2": 267,
+          "code_3": 285
+        },
+        "CT_SCAN_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 6773,
+          "code_1": 4127,
+          "code_2": 731,
+          "code_3": 572
+        },
+        "DNTL_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 8860,
+          "code_1": 1225,
+          "code_2": 1858,
+          "code_3": 260
+        },
+        "SHCK_TRMA_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10129,
+          "code_1": 1464,
+          "code_2": 192,
+          "code_3": 418
+        },
+        "DGNSTC_RDLGY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 753,
+          "code_1": 6550,
+          "code_2": 2520,
+          "code_3": 2380
+        },
+        "DTRY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 1105,
+          "code_1": 6504,
+          "code_2": 2888,
+          "code_3": 1706
+        },
+        "DCTD_ER_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 3672,
+          "code_1": 5127,
+          "code_2": 915,
+          "code_3": 2489
+        },
+        "EMER_PSYCH_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 9300,
+          "code_1": 1385,
+          "code_2": 768,
+          "code_3": 750
+        },
+        "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10259,
+          "code_1": 495,
+          "code_2": 901,
+          "code_3": 548
+        },
+        "FRNSC_PSYCH_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 11838,
+          "code_1": 210,
+          "code_2": 91,
+          "code_3": 64
+        },
+        "GRTRC_PSYCH_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10560,
+          "code_1": 988,
+          "code_2": 300,
+          "code_3": 355
+        },
+        "GRNTLGCL_SPCLTY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 11443,
+          "code_1": 531,
+          "code_2": 98,
+          "code_3": 131
+        },
+        "IP_SRGCL_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 4646,
+          "code_1": 6230,
+          "code_2": 471,
+          "code_3": 856
+        },
+        "ICU_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 6276,
+          "code_1": 5108,
+          "code_2": 322,
+          "code_3": 497
+        },
+        "MDCR_TRNSPLNT_CNTR_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 11890,
+          "code_1": 209,
+          "code_2": 61,
+          "code_3": 43
+        },
+        "MGNTC_RSNC_IMG_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 7273,
+          "code_1": 2653,
+          "code_2": 1650,
+          "code_3": 627
+        },
+        "NEONTL_ICU_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 11053,
+          "code_1": 804,
+          "code_2": 54,
+          "code_3": 292
+        },
+        "NEONTL_NRSRY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 9096,
+          "code_1": 2588,
+          "code_2": 185,
+          "code_3": 334
+        },
+        "NRSRGCL_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10351,
+          "code_1": 1247,
+          "code_2": 282,
+          "code_3": 323
+        },
+        "ORGN_TRNSPLNT_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10814,
+          "code_1": 251,
+          "code_2": 1033,
+          "code_3": 105
+        },
+        "NUCLR_MDCN_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 5349,
+          "code_1": 4064,
+          "code_2": 2096,
+          "code_3": 694
+        },
+        "OB_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 7296,
+          "code_1": 4156,
+          "code_2": 295,
+          "code_3": 456
+        },
+        "OPTHLMC_SRGY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 9390,
+          "code_1": 1796,
+          "code_2": 410,
+          "code_3": 607
+        },
+        "OPTMTRC_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10666,
+          "code_1": 662,
+          "code_2": 716,
+          "code_3": 159
+        },
+        "OPRTG_ROOM_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 4147,
+          "code_1": 6919,
+          "code_2": 461,
+          "code_3": 676
+        },
+        "ORTHPDC_SRGY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 8357,
+          "code_1": 2701,
+          "code_2": 382,
+          "code_3": 763
+        },
+        "OT_SRVC_CD": {
+          "blank": 1440,
+          "code_0": 3230,
+          "code_1": 5786,
+          "code_2": 2651,
+          "code_3": 491
+        },
+        "OP_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 3082,
+          "code_1": 7447,
+          "code_2": 297,
+          "code_3": 1377
+        },
+        "OP_PSYCH_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10357,
+          "code_1": 1233,
+          "code_2": 284,
+          "code_3": 329
+        },
+        "OP_REHAB_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 8392,
+          "code_1": 3016,
+          "code_2": 454,
+          "code_3": 341
+        },
+        "OP_SRGRY_UNIT_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 5139,
+          "code_1": 5755,
+          "code_2": 345,
+          "code_3": 964
+        },
+        "PED_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 6811,
+          "code_1": 4629,
+          "code_2": 253,
+          "code_3": 510
+        },
+        "PED_ICU_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 11537,
+          "code_1": 512,
+          "code_2": 47,
+          "code_3": 107
+        },
+        "PET_SCAN_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10327,
+          "code_1": 686,
+          "code_2": 921,
+          "code_3": 269
+        },
+        "PSTOPRTV_RCVRY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 4479,
+          "code_1": 7055,
+          "code_2": 399,
+          "code_3": 270
+        },
+        "CHLD_ADLSCNT_PSYCH_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10964,
+          "code_1": 767,
+          "code_2": 256,
+          "code_3": 216
+        },
+        "PT_SRVC_CD": {
+          "blank": 1440,
+          "code_0": 1707,
+          "code_1": 6899,
+          "code_2": 2853,
+          "code_3": 699
+        },
+        "RCNSTRCTN_SRGY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10315,
+          "code_1": 1417,
+          "code_2": 168,
+          "code_3": 303
+        },
+        "RSPRTRY_CARE_SRVC_CD": {
+          "blank": 1440,
+          "code_0": 2563,
+          "code_1": 8163,
+          "code_2": 991,
+          "code_3": 441
+        },
+        "SCL_SRVC_CD": {
+          "blank": 1440,
+          "code_0": 1580,
+          "code_1": 8882,
+          "code_2": 1166,
+          "code_3": 530
+        },
+        "SPCH_PTHLGY_SRVC_CD": {
+          "blank": 1440,
+          "code_0": 3240,
+          "code_1": 4706,
+          "code_2": 3819,
+          "code_3": 393
+        },
+        "SRGCL_ICU_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 10310,
+          "code_1": 1533,
+          "code_2": 93,
+          "code_3": 267
+        },
+        "THRPTC_RDLGY_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 7891,
+          "code_1": 2135,
+          "code_2": 1207,
+          "code_3": 970
+        },
+        "URGNT_CARE_SRVC_CD": {
+          "blank": 1395,
+          "code_0": 11317,
+          "code_1": 658,
+          "code_2": 70,
+          "code_3": 158
+        }
+      },
+      "counts": {
+        "TOT_AFLTD_AMBLNC_SRVC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "116",
+          "range": {
+            "max": "5",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 102,
+            "zero": 13485
+          }
+        },
+        "TOT_AFLTD_ASC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "70",
+          "range": {
+            "max": "3",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 61,
+            "zero": 13526
+          }
+        },
+        "TOT_COLCTD_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "556",
+          "range": {
+            "max": "11",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 323,
+            "zero": 13264
+          }
+        },
+        "TOT_AFLTD_ESRD_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "307",
+          "range": {
+            "max": "8",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 192,
+            "zero": 13395
+          }
+        },
+        "TOT_AFLTD_FQHC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "29",
+          "range": {
+            "max": "7",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 12,
+            "zero": 13575
+          }
+        },
+        "TOT_AFLTD_HHA_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "756",
+          "range": {
+            "max": "4",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 743,
+            "zero": 12844
+          }
+        },
+        "TOT_AFLTD_HOSPC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "453",
+          "range": {
+            "max": "5",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 435,
+            "zero": 13152
+          }
+        },
+        "TOT_AFLTD_OPO_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "18",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 18,
+            "zero": 13569
+          }
+        },
+        "TOT_AFLTD_PRTF_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "12",
+          "range": {
+            "max": "3",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 9,
+            "zero": 13578
+          }
+        },
+        "TOT_AFLTD_RHC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1751",
+          "range": {
+            "max": "12",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 806,
+            "zero": 12781
+          }
+        },
+        "TOT_AFLTD_SNF_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "654",
+          "range": {
+            "max": "12",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 545,
+            "zero": 13042
+          }
+        },
+        "AFLTD_PRVDR_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "4778",
+          "range": {
+            "max": "12",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 2032,
+            "zero": 11555
+          }
+        },
+        "TOT_OFSITE_CNCR_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "35",
+          "range": {
+            "max": "5",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 22,
+            "zero": 13565
+          }
+        },
+        "TOT_OFSITE_CHLDRN_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "84",
+          "range": {
+            "max": "21",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 28,
+            "zero": 13559
+          }
+        },
+        "TOT_OFSITE_EMER_DEPT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "4570",
+          "range": {
+            "max": "65",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 1184,
+            "zero": 12403
+          }
+        },
+        "TOT_OFSITE_INPTNT_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "501",
+          "range": {
+            "max": "14",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 338,
+            "zero": 13249
+          }
+        },
+        "TOT_OFSITE_LTC_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "76",
+          "range": {
+            "max": "6",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 51,
+            "zero": 13536
+          }
+        },
+        "TOT_OFSITE_OPTHLMC_SRGRY_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "386",
+          "range": {
+            "max": "7",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 297,
+            "zero": 13290
+          }
+        },
+        "TOT_OFSITE_OTHR_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "16321",
+          "range": {
+            "max": "98",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 2452,
+            "zero": 11135
+          }
+        },
+        "TOT_OFSITE_PSYCH_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "139",
+          "range": {
+            "max": "13",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 63,
+            "zero": 13524
+          }
+        },
+        "TOT_OFSITE_PSYCH_UNIT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "47",
+          "range": {
+            "max": "7",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 38,
+            "zero": 13549
+          }
+        },
+        "TOT_OFSITE_REHAB_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "155",
+          "range": {
+            "max": "30",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 46,
+            "zero": 13541
+          }
+        },
+        "TOT_OFSITE_REHAB_UNIT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "41",
+          "range": {
+            "max": "3",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 35,
+            "zero": 13552
+          }
+        },
+        "TOT_OFSITE_URGNT_CARE_CNTR_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "313",
+          "range": {
+            "max": "15",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 172,
+            "zero": 13415
+          }
+        },
+        "OFSITE_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "22668",
+          "range": {
+            "max": "147",
+            "min": "0"
+          },
+          "states": {
+            "blank": 11,
+            "positive": 3179,
+            "zero": 10408
+          }
+        },
+        "CRTFD_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1653801",
+          "range": {
+            "max": "5709",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 13264,
+            "zero": 318
+          }
+        },
+        "BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1738998",
+          "range": {
+            "max": "5709",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 13282,
+            "zero": 300
+          }
+        },
+        "CRDC_CTHRTZTN_PRCDR_ROOMS_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "4584",
+          "range": {
+            "max": "598",
+            "min": "0"
+          },
+          "states": {
+            "blank": 17,
+            "positive": 1396,
+            "zero": 12185
+          }
+        },
+        "ENDSCPY_PRCDR_ROOMS_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "7501",
+          "range": {
+            "max": "81",
+            "min": "0"
+          },
+          "states": {
+            "blank": 17,
+            "positive": 2824,
+            "zero": 10757
+          }
+        },
+        "PSYCH_UNIT_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "70547",
+          "range": {
+            "max": "325",
+            "min": "0"
+          },
+          "states": {
+            "blank": 9,
+            "positive": 2443,
+            "zero": 11146
+          }
+        },
+        "REHAB_UNIT_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "37987",
+          "range": {
+            "max": "187",
+            "min": "0"
+          },
+          "states": {
+            "blank": 9,
+            "positive": 1652,
+            "zero": 11937
+          }
+        }
+      },
+      "fte": {
+        "PRSNEL_OTHR_CNT": {
+          "decimal_spelling_count": 5136,
+          "numeric_sum_diagnostic_only": "3321896.20",
+          "range": {
+            "max": "58087.4",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 10697,
+            "zero": 2885
+          }
+        },
+        "CRNA_CNT": {
+          "decimal_spelling_count": 829,
+          "numeric_sum_diagnostic_only": "26115.35",
+          "range": {
+            "max": "772",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 3072,
+            "zero": 10510
+          }
+        },
+        "DIETN_CNT": {
+          "decimal_spelling_count": 3128,
+          "numeric_sum_diagnostic_only": "30992.51",
+          "range": {
+            "max": "7772.87",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 7935,
+            "zero": 5647
+          }
+        },
+        "LAB_TCHNCN_CNT": {
+          "decimal_spelling_count": 1453,
+          "numeric_sum_diagnostic_only": "34813.32",
+          "range": {
+            "max": "3025",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 4043,
+            "zero": 9539
+          }
+        },
+        "LPN_LVN_CNT": {
+          "decimal_spelling_count": 4109,
+          "numeric_sum_diagnostic_only": "152888.42",
+          "range": {
+            "max": "2158",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 9748,
+            "zero": 3834
+          }
+        },
+        "MDCL_SCL_WORKR_CNT": {
+          "decimal_spelling_count": 2873,
+          "numeric_sum_diagnostic_only": "54380.06",
+          "range": {
+            "max": "2115",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 8586,
+            "zero": 4996
+          }
+        },
+        "MDCL_TCHNLGST_CNT": {
+          "decimal_spelling_count": 1715,
+          "numeric_sum_diagnostic_only": "59984.17",
+          "range": {
+            "max": "490.8",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 4257,
+            "zero": 9325
+          }
+        },
+        "NUCLR_MDCN_TCHNCN_CNT": {
+          "decimal_spelling_count": 959,
+          "numeric_sum_diagnostic_only": "9932.59",
+          "range": {
+            "max": "244",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 3009,
+            "zero": 10573
+          }
+        },
+        "NRS_PRCTNR_CNT": {
+          "decimal_spelling_count": 1172,
+          "numeric_sum_diagnostic_only": "48309.69",
+          "range": {
+            "max": "1200",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 3487,
+            "zero": 10095
+          }
+        },
+        "OCPTNL_THRPST_CNT": {
+          "decimal_spelling_count": 2544,
+          "numeric_sum_diagnostic_only": "30115.92",
+          "range": {
+            "max": "181",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 6309,
+            "zero": 7273
+          }
+        },
+        "PHYSN_CNT": {
+          "decimal_spelling_count": 2058,
+          "numeric_sum_diagnostic_only": "175451.74",
+          "range": {
+            "max": "16708",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 6121,
+            "zero": 7461
+          }
+        },
+        "PHYSN_ASTNT_CNT": {
+          "decimal_spelling_count": 920,
+          "numeric_sum_diagnostic_only": "29075.09",
+          "range": {
+            "max": "1291",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 3096,
+            "zero": 10486
+          }
+        },
+        "RSDNT_PHYSN_CNT": {
+          "decimal_spelling_count": 197,
+          "numeric_sum_diagnostic_only": "111535.26",
+          "range": {
+            "max": "1619",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 1388,
+            "zero": 12194
+          }
+        },
+        "PSYCHLGST_CNT": {
+          "decimal_spelling_count": 310,
+          "numeric_sum_diagnostic_only": "6410.92",
+          "range": {
+            "max": "700.5",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 1140,
+            "zero": 12442
+          }
+        },
+        "PHYS_THRPST_CNT": {
+          "decimal_spelling_count": 2898,
+          "numeric_sum_diagnostic_only": "109824.82",
+          "range": {
+            "max": "52900.15",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 7627,
+            "zero": 5955
+          }
+        },
+        "RDLGY_TCHNCN_CNT": {
+          "decimal_spelling_count": 2304,
+          "numeric_sum_diagnostic_only": "134611.73",
+          "range": {
+            "max": "22021",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 5201,
+            "zero": 8381
+          }
+        },
+        "REG_PHRMCST_CNT": {
+          "decimal_spelling_count": 3633,
+          "numeric_sum_diagnostic_only": "72018.08",
+          "range": {
+            "max": "4263",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 8964,
+            "zero": 4618
+          }
+        },
+        "INHLTN_THRPST_CNT": {
+          "decimal_spelling_count": 3616,
+          "numeric_sum_diagnostic_only": "98180.50",
+          "range": {
+            "max": "3625",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 8006,
+            "zero": 5576
+          }
+        },
+        "RN_CNT": {
+          "decimal_spelling_count": 5180,
+          "numeric_sum_diagnostic_only": "1552419.90",
+          "range": {
+            "max": "64782",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 11711,
+            "zero": 1871
+          }
+        },
+        "SPCH_PTHLGST_AUDLGST_CNT": {
+          "decimal_spelling_count": 2206,
+          "numeric_sum_diagnostic_only": "23281.24",
+          "range": {
+            "max": "4000",
+            "min": "0"
+          },
+          "states": {
+            "blank": 16,
+            "positive": 5044,
+            "zero": 8538
+          }
+        }
+      },
+      "literal_flags": {
+        "SKLTN_REC_SW": {
+          "blank": 9,
+          "literal_N": 12576,
+          "literal_Y": 1013
+        },
+        "COLCTN_STUS_SW": {
+          "blank": 11,
+          "literal_N": 13250,
+          "literal_Y": 337
+        },
+        "LSC_WVR_SW": {
+          "blank": 16,
+          "literal_N": 13386,
+          "literal_Y": 196
+        },
+        "PSYCH_UNIT_SW": {
+          "blank": 9,
+          "literal_N": 11145,
+          "literal_Y": 2444
+        },
+        "REHAB_UNIT_SW": {
+          "blank": 9,
+          "literal_N": 11937,
+          "literal_Y": 1652
+        },
+        "SB_SW": {
+          "blank": 16,
+          "literal_N": 10205,
+          "literal_Y": 3377
+        },
+        "OVRRD_BED_CNT_SW": {
+          "blank": 16,
+          "literal_N": 10383,
+          "literal_Y": 3199
+        },
+        "OVRRD_STFG_SW": {
+          "blank": 16,
+          "literal_N": 8981,
+          "literal_Y": 4601
+        }
+      },
+      "status_codes": {
+        "PRVDR_CTGRY_SBTYP_CD": {
+          "blank": 1013,
+          "code_01": 7794,
+          "code_02": 656,
+          "code_03": 23,
+          "code_04": 1434,
+          "code_05": 681,
+          "code_06": 134,
+          "code_11": 1534,
+          "code_20": 266,
+          "code_24": 1,
+          "code_25": 1,
+          "code_28": 61
+        },
+        "PGM_TRMNTN_CD": {
+          "code_00": 7033,
+          "code_01": 3993,
+          "code_02": 17,
+          "code_03": 56,
+          "code_04": 428,
+          "code_05": 170,
+          "code_06": 31,
+          "code_07": 1870
+        },
+        "CMPLNC_STUS_CD": {
+          "blank": 1023,
+          "code_A": 10709,
+          "code_B": 1866
+        },
+        "CRTFCTN_ACTN_TYPE_CD": {
+          "blank": 12,
+          "code_1": 2920,
+          "code_2": 8727,
+          "code_3": 127,
+          "code_4": 14,
+          "code_5": 1284,
+          "code_8": 514
+        }
+      }
+    },
+    "code00_same_state_hospital_candidate": {
+      "rows": 5362,
+      "cross_checks": {
+        "PSYCH_UNIT_SW_vs_beds": {
+          "literal_N/zero": 3773,
+          "literal_Y/positive": 1589
+        },
+        "REHAB_UNIT_SW_vs_beds": {
+          "literal_N/zero": 4200,
+          "literal_Y/positive": 1162
+        },
+        "affiliated_component_arithmetic": {
+          "component_sum_below_reported_total": 8,
+          "equal": 5354
+        },
+        "cath_lab_service_vs_room_count": {
+          "blank/zero": 134,
+          "code_0/positive": 56,
+          "code_0/zero": 3398,
+          "code_1/positive": 1001,
+          "code_1/zero": 419,
+          "code_2/positive": 22,
+          "code_2/zero": 55,
+          "code_3/positive": 220,
+          "code_3/zero": 57
+        },
+        "certified_vs_total_beds": {
+          "certified_at_or_below_total": 5362
+        },
+        "offsite_component_arithmetic": {
+          "equal": 5362
+        }
+      },
+      "services": {
+        "PHRMCY_SRVC_CD": {
+          "blank": 154,
+          "code_0": 123,
+          "code_1": 3754,
+          "code_2": 562,
+          "code_3": 769
+        },
+        "ACUTE_RNL_DLYS_SRVC_CD": {
+          "blank": 134,
+          "code_0": 2903,
+          "code_1": 823,
+          "code_2": 1207,
+          "code_3": 295
+        },
+        "PSYCH_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3307,
+          "code_1": 1390,
+          "code_2": 197,
+          "code_3": 334
+        },
+        "ALCHL_DRUG_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3922,
+          "code_1": 888,
+          "code_2": 186,
+          "code_3": 232
+        },
+        "ANSTHSA_SRVC_CD": {
+          "blank": 134,
+          "code_0": 1063,
+          "code_1": 1245,
+          "code_2": 2229,
+          "code_3": 691
+        },
+        "AUDLGY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3758,
+          "code_1": 693,
+          "code_2": 658,
+          "code_3": 119
+        },
+        "BURN_CARE_UNIT_SRVC_CD": {
+          "blank": 134,
+          "code_0": 4992,
+          "code_1": 141,
+          "code_2": 68,
+          "code_3": 27
+        },
+        "CRDC_CTHRTZTN_LAB_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3454,
+          "code_1": 1420,
+          "code_2": 77,
+          "code_3": 277
+        },
+        "OPEN_HRT_SRGRY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3949,
+          "code_1": 978,
+          "code_2": 90,
+          "code_3": 211
+        },
+        "CARF_IP_REHAB_SRVC_CD": {
+          "blank": 134,
+          "code_0": 2592,
+          "code_1": 1986,
+          "code_2": 317,
+          "code_3": 333
+        },
+        "CHMTHRPY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3084,
+          "code_1": 1700,
+          "code_2": 104,
+          "code_3": 340
+        },
+        "CHRPRCTIC_SRVC_CD": {
+          "blank": 134,
+          "code_0": 5050,
+          "code_1": 113,
+          "code_2": 52,
+          "code_3": 13
+        },
+        "CL_SRVC_CD": {
+          "blank": 134,
+          "code_0": 196,
+          "code_1": 3000,
+          "code_2": 668,
+          "code_3": 1364
+        },
+        "CRNRY_CARE_UNIT_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3210,
+          "code_1": 1725,
+          "code_2": 56,
+          "code_3": 237
+        },
+        "CT_SCAN_SRVC_CD": {
+          "blank": 134,
+          "code_0": 1288,
+          "code_1": 3332,
+          "code_2": 177,
+          "code_3": 431
+        },
+        "DNTL_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3647,
+          "code_1": 673,
+          "code_2": 729,
+          "code_3": 179
+        },
+        "SHCK_TRMA_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3591,
+          "code_1": 1219,
+          "code_2": 46,
+          "code_3": 372
+        },
+        "DGNSTC_RDLGY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 281,
+          "code_1": 3008,
+          "code_2": 556,
+          "code_3": 1383
+        },
+        "DTRY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 257,
+          "code_1": 3073,
+          "code_2": 1085,
+          "code_3": 813
+        },
+        "DCTD_ER_SRVC_CD": {
+          "blank": 134,
+          "code_0": 920,
+          "code_1": 2452,
+          "code_2": 214,
+          "code_3": 1642
+        },
+        "EMER_PSYCH_SRVC_CD": {
+          "blank": 134,
+          "code_0": 2845,
+          "code_1": 1142,
+          "code_2": 607,
+          "code_3": 634
+        },
+        "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3557,
+          "code_1": 443,
+          "code_2": 750,
+          "code_3": 478
+        },
+        "FRNSC_PSYCH_SRVC_CD": {
+          "blank": 134,
+          "code_0": 4933,
+          "code_1": 173,
+          "code_2": 69,
+          "code_3": 53
+        },
+        "GRTRC_PSYCH_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3980,
+          "code_1": 763,
+          "code_2": 205,
+          "code_3": 280
+        },
+        "GRNTLGCL_SPCLTY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 4636,
+          "code_1": 434,
+          "code_2": 56,
+          "code_3": 102
+        },
+        "IP_SRGCL_SRVC_CD": {
+          "blank": 134,
+          "code_0": 1316,
+          "code_1": 3173,
+          "code_2": 73,
+          "code_3": 666
+        },
+        "ICU_SRVC_CD": {
+          "blank": 134,
+          "code_0": 2122,
+          "code_1": 2633,
+          "code_2": 55,
+          "code_3": 418
+        },
+        "MDCR_TRNSPLNT_CNTR_SRVC_CD": {
+          "blank": 134,
+          "code_0": 4952,
+          "code_1": 197,
+          "code_2": 39,
+          "code_3": 40
+        },
+        "MGNTC_RSNC_IMG_SRVC_CD": {
+          "blank": 134,
+          "code_0": 1588,
+          "code_1": 2269,
+          "code_2": 862,
+          "code_3": 509
+        },
+        "NEONTL_ICU_SRVC_CD": {
+          "blank": 134,
+          "code_0": 4154,
+          "code_1": 752,
+          "code_2": 43,
+          "code_3": 279
+        },
+        "NEONTL_NRSRY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3152,
+          "code_1": 1739,
+          "code_2": 49,
+          "code_3": 288
+        },
+        "NRSRGCL_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3692,
+          "code_1": 1106,
+          "code_2": 150,
+          "code_3": 280
+        },
+        "ORGN_TRNSPLNT_SRVC_CD": {
+          "blank": 134,
+          "code_0": 4561,
+          "code_1": 163,
+          "code_2": 429,
+          "code_3": 75
+        },
+        "NUCLR_MDCN_SRVC_CD": {
+          "blank": 134,
+          "code_0": 1648,
+          "code_1": 2529,
+          "code_2": 543,
+          "code_3": 508
+        },
+        "OB_SRVC_CD": {
+          "blank": 134,
+          "code_0": 2415,
+          "code_1": 2345,
+          "code_2": 84,
+          "code_3": 384
+        },
+        "OPTHLMC_SRGY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 2901,
+          "code_1": 1516,
+          "code_2": 284,
+          "code_3": 527
+        },
+        "OPTMTRC_SRVC_CD": {
+          "blank": 134,
+          "code_0": 4447,
+          "code_1": 439,
+          "code_2": 241,
+          "code_3": 101
+        },
+        "OPRTG_ROOM_SRVC_CD": {
+          "blank": 134,
+          "code_0": 1167,
+          "code_1": 3469,
+          "code_2": 58,
+          "code_3": 534
+        },
+        "ORTHPDC_SRGY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 2104,
+          "code_1": 2237,
+          "code_2": 227,
+          "code_3": 660
+        },
+        "OT_SRVC_CD": {
+          "blank": 154,
+          "code_0": 941,
+          "code_1": 3110,
+          "code_2": 903,
+          "code_3": 254
+        },
+        "OP_SRVC_CD": {
+          "blank": 134,
+          "code_0": 644,
+          "code_1": 3560,
+          "code_2": 80,
+          "code_3": 944
+        },
+        "OP_PSYCH_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3682,
+          "code_1": 1037,
+          "code_2": 226,
+          "code_3": 283
+        },
+        "OP_REHAB_SRVC_CD": {
+          "blank": 134,
+          "code_0": 2200,
+          "code_1": 2403,
+          "code_2": 339,
+          "code_3": 286
+        },
+        "OP_SRGRY_UNIT_SRVC_CD": {
+          "blank": 134,
+          "code_0": 1208,
+          "code_1": 3168,
+          "code_2": 92,
+          "code_3": 760
+        },
+        "PED_SRVC_CD": {
+          "blank": 134,
+          "code_0": 2234,
+          "code_1": 2508,
+          "code_2": 78,
+          "code_3": 408
+        },
+        "PED_ICU_SRVC_CD": {
+          "blank": 134,
+          "code_0": 4643,
+          "code_1": 452,
+          "code_2": 36,
+          "code_3": 97
+        },
+        "PET_SCAN_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3696,
+          "code_1": 634,
+          "code_2": 655,
+          "code_3": 243
+        },
+        "PSTOPRTV_RCVRY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 1209,
+          "code_1": 3753,
+          "code_2": 51,
+          "code_3": 215
+        },
+        "CHLD_ADLSCNT_PSYCH_SRVC_CD": {
+          "blank": 134,
+          "code_0": 4183,
+          "code_1": 649,
+          "code_2": 216,
+          "code_3": 180
+        },
+        "PT_SRVC_CD": {
+          "blank": 154,
+          "code_0": 523,
+          "code_1": 3473,
+          "code_2": 861,
+          "code_3": 351
+        },
+        "RCNSTRCTN_SRGY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3639,
+          "code_1": 1228,
+          "code_2": 97,
+          "code_3": 264
+        },
+        "RSPRTRY_CARE_SRVC_CD": {
+          "blank": 154,
+          "code_0": 863,
+          "code_1": 3926,
+          "code_2": 188,
+          "code_3": 231
+        },
+        "SCL_SRVC_CD": {
+          "blank": 154,
+          "code_0": 452,
+          "code_1": 4287,
+          "code_2": 248,
+          "code_3": 221
+        },
+        "SPCH_PTHLGY_SRVC_CD": {
+          "blank": 154,
+          "code_0": 1036,
+          "code_1": 2690,
+          "code_2": 1282,
+          "code_3": 200
+        },
+        "SRGCL_ICU_SRVC_CD": {
+          "blank": 134,
+          "code_0": 3653,
+          "code_1": 1302,
+          "code_2": 38,
+          "code_3": 235
+        },
+        "THRPTC_RDLGY_SRVC_CD": {
+          "blank": 134,
+          "code_0": 2698,
+          "code_1": 1528,
+          "code_2": 261,
+          "code_3": 741
+        },
+        "URGNT_CARE_SRVC_CD": {
+          "blank": 134,
+          "code_0": 4471,
+          "code_1": 563,
+          "code_2": 52,
+          "code_3": 142
+        }
+      },
+      "counts": {
+        "TOT_AFLTD_AMBLNC_SRVC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "100",
+          "range": {
+            "max": "3",
+            "min": "0"
+          },
+          "states": {
+            "positive": 92,
+            "zero": 5270
+          }
+        },
+        "TOT_AFLTD_ASC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "65",
+          "range": {
+            "max": "3",
+            "min": "0"
+          },
+          "states": {
+            "positive": 56,
+            "zero": 5306
+          }
+        },
+        "TOT_COLCTD_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "414",
+          "range": {
+            "max": "11",
+            "min": "0"
+          },
+          "states": {
+            "positive": 208,
+            "zero": 5154
+          }
+        },
+        "TOT_AFLTD_ESRD_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "273",
+          "range": {
+            "max": "8",
+            "min": "0"
+          },
+          "states": {
+            "positive": 171,
+            "zero": 5191
+          }
+        },
+        "TOT_AFLTD_FQHC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "28",
+          "range": {
+            "max": "7",
+            "min": "0"
+          },
+          "states": {
+            "positive": 11,
+            "zero": 5351
+          }
+        },
+        "TOT_AFLTD_HHA_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "635",
+          "range": {
+            "max": "4",
+            "min": "0"
+          },
+          "states": {
+            "positive": 623,
+            "zero": 4739
+          }
+        },
+        "TOT_AFLTD_HOSPC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "395",
+          "range": {
+            "max": "5",
+            "min": "0"
+          },
+          "states": {
+            "positive": 378,
+            "zero": 4984
+          }
+        },
+        "TOT_AFLTD_OPO_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "14",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "positive": 14,
+            "zero": 5348
+          }
+        },
+        "TOT_AFLTD_PRTF_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "11",
+          "range": {
+            "max": "3",
+            "min": "0"
+          },
+          "states": {
+            "positive": 8,
+            "zero": 5354
+          }
+        },
+        "TOT_AFLTD_RHC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1514",
+          "range": {
+            "max": "12",
+            "min": "0"
+          },
+          "states": {
+            "positive": 689,
+            "zero": 4673
+          }
+        },
+        "TOT_AFLTD_SNF_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "501",
+          "range": {
+            "max": "11",
+            "min": "0"
+          },
+          "states": {
+            "positive": 434,
+            "zero": 4928
+          }
+        },
+        "AFLTD_PRVDR_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "3959",
+          "range": {
+            "max": "12",
+            "min": "0"
+          },
+          "states": {
+            "positive": 1608,
+            "zero": 3754
+          }
+        },
+        "TOT_OFSITE_CNCR_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "30",
+          "range": {
+            "max": "5",
+            "min": "0"
+          },
+          "states": {
+            "positive": 18,
+            "zero": 5344
+          }
+        },
+        "TOT_OFSITE_CHLDRN_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "73",
+          "range": {
+            "max": "21",
+            "min": "0"
+          },
+          "states": {
+            "positive": 25,
+            "zero": 5337
+          }
+        },
+        "TOT_OFSITE_EMER_DEPT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "4105",
+          "range": {
+            "max": "65",
+            "min": "0"
+          },
+          "states": {
+            "positive": 1024,
+            "zero": 4338
+          }
+        },
+        "TOT_OFSITE_INPTNT_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "442",
+          "range": {
+            "max": "14",
+            "min": "0"
+          },
+          "states": {
+            "positive": 290,
+            "zero": 5072
+          }
+        },
+        "TOT_OFSITE_LTC_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "35",
+          "range": {
+            "max": "6",
+            "min": "0"
+          },
+          "states": {
+            "positive": 16,
+            "zero": 5346
+          }
+        },
+        "TOT_OFSITE_OPTHLMC_SRGRY_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "355",
+          "range": {
+            "max": "7",
+            "min": "0"
+          },
+          "states": {
+            "positive": 274,
+            "zero": 5088
+          }
+        },
+        "TOT_OFSITE_OTHR_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "14965",
+          "range": {
+            "max": "98",
+            "min": "0"
+          },
+          "states": {
+            "positive": 2114,
+            "zero": 3248
+          }
+        },
+        "TOT_OFSITE_PSYCH_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "120",
+          "range": {
+            "max": "13",
+            "min": "0"
+          },
+          "states": {
+            "positive": 51,
+            "zero": 5311
+          }
+        },
+        "TOT_OFSITE_PSYCH_UNIT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "45",
+          "range": {
+            "max": "7",
+            "min": "0"
+          },
+          "states": {
+            "positive": 36,
+            "zero": 5326
+          }
+        },
+        "TOT_OFSITE_REHAB_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "55",
+          "range": {
+            "max": "30",
+            "min": "0"
+          },
+          "states": {
+            "positive": 18,
+            "zero": 5344
+          }
+        },
+        "TOT_OFSITE_REHAB_UNIT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "35",
+          "range": {
+            "max": "3",
+            "min": "0"
+          },
+          "states": {
+            "positive": 30,
+            "zero": 5332
+          }
+        },
+        "TOT_OFSITE_URGNT_CARE_CNTR_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "287",
+          "range": {
+            "max": "15",
+            "min": "0"
+          },
+          "states": {
+            "positive": 156,
+            "zero": 5206
+          }
+        },
+        "OFSITE_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "20547",
+          "range": {
+            "max": "147",
+            "min": "0"
+          },
+          "states": {
+            "positive": 2638,
+            "zero": 2724
+          }
+        },
+        "CRTFD_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "965179",
+          "range": {
+            "max": "3289",
+            "min": "1"
+          },
+          "states": {
+            "positive": 5362
+          }
+        },
+        "BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1003938",
+          "range": {
+            "max": "3289",
+            "min": "1"
+          },
+          "states": {
+            "positive": 5362
+          }
+        },
+        "CRDC_CTHRTZTN_PRCDR_ROOMS_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "4383",
+          "range": {
+            "max": "598",
+            "min": "0"
+          },
+          "states": {
+            "positive": 1299,
+            "zero": 4063
+          }
+        },
+        "ENDSCPY_PRCDR_ROOMS_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "6804",
+          "range": {
+            "max": "81",
+            "min": "0"
+          },
+          "states": {
+            "positive": 2474,
+            "zero": 2888
+          }
+        },
+        "PSYCH_UNIT_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "48272",
+          "range": {
+            "max": "325",
+            "min": "0"
+          },
+          "states": {
+            "positive": 1589,
+            "zero": 3773
+          }
+        },
+        "REHAB_UNIT_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "27243",
+          "range": {
+            "max": "187",
+            "min": "0"
+          },
+          "states": {
+            "positive": 1162,
+            "zero": 4200
+          }
+        }
+      },
+      "fte": {
+        "PRSNEL_OTHR_CNT": {
+          "decimal_spelling_count": 2288,
+          "numeric_sum_diagnostic_only": "2428039.77",
+          "range": {
+            "max": "58087.4",
+            "min": "0"
+          },
+          "states": {
+            "positive": 4612,
+            "zero": 750
+          }
+        },
+        "CRNA_CNT": {
+          "decimal_spelling_count": 471,
+          "numeric_sum_diagnostic_only": "20721.45",
+          "range": {
+            "max": "772",
+            "min": "0"
+          },
+          "states": {
+            "positive": 1769,
+            "zero": 3593
+          }
+        },
+        "DIETN_CNT": {
+          "decimal_spelling_count": 1390,
+          "numeric_sum_diagnostic_only": "17182.91",
+          "range": {
+            "max": "1115.25",
+            "min": "0"
+          },
+          "states": {
+            "positive": 3614,
+            "zero": 1748
+          }
+        },
+        "LAB_TCHNCN_CNT": {
+          "decimal_spelling_count": 1178,
+          "numeric_sum_diagnostic_only": "31249.37",
+          "range": {
+            "max": "3025",
+            "min": "0"
+          },
+          "states": {
+            "positive": 3126,
+            "zero": 2236
+          }
+        },
+        "LPN_LVN_CNT": {
+          "decimal_spelling_count": 1763,
+          "numeric_sum_diagnostic_only": "83062.82",
+          "range": {
+            "max": "2158",
+            "min": "0"
+          },
+          "states": {
+            "positive": 4083,
+            "zero": 1279
+          }
+        },
+        "MDCL_SCL_WORKR_CNT": {
+          "decimal_spelling_count": 1364,
+          "numeric_sum_diagnostic_only": "39756.52",
+          "range": {
+            "max": "2115",
+            "min": "0"
+          },
+          "states": {
+            "positive": 3938,
+            "zero": 1424
+          }
+        },
+        "MDCL_TCHNLGST_CNT": {
+          "decimal_spelling_count": 1407,
+          "numeric_sum_diagnostic_only": "54398.49",
+          "range": {
+            "max": "490.8",
+            "min": "0"
+          },
+          "states": {
+            "positive": 3320,
+            "zero": 2042
+          }
+        },
+        "NUCLR_MDCN_TCHNCN_CNT": {
+          "decimal_spelling_count": 811,
+          "numeric_sum_diagnostic_only": "8867.54",
+          "range": {
+            "max": "244",
+            "min": "0"
+          },
+          "states": {
+            "positive": 2462,
+            "zero": 2900
+          }
+        },
+        "NRS_PRCTNR_CNT": {
+          "decimal_spelling_count": 1019,
+          "numeric_sum_diagnostic_only": "44445.60",
+          "range": {
+            "max": "1015",
+            "min": "0"
+          },
+          "states": {
+            "positive": 2889,
+            "zero": 2473
+          }
+        },
+        "OCPTNL_THRPST_CNT": {
+          "decimal_spelling_count": 1499,
+          "numeric_sum_diagnostic_only": "19323.97",
+          "range": {
+            "max": "130",
+            "min": "0"
+          },
+          "states": {
+            "positive": 3327,
+            "zero": 2035
+          }
+        },
+        "PHYSN_CNT": {
+          "decimal_spelling_count": 1151,
+          "numeric_sum_diagnostic_only": "150858.63",
+          "range": {
+            "max": "16708",
+            "min": "0"
+          },
+          "states": {
+            "positive": 3324,
+            "zero": 2038
+          }
+        },
+        "PHYSN_ASTNT_CNT": {
+          "decimal_spelling_count": 669,
+          "numeric_sum_diagnostic_only": "25536.24",
+          "range": {
+            "max": "1291",
+            "min": "0"
+          },
+          "states": {
+            "positive": 2087,
+            "zero": 3275
+          }
+        },
+        "RSDNT_PHYSN_CNT": {
+          "decimal_spelling_count": 110,
+          "numeric_sum_diagnostic_only": "96280.50",
+          "range": {
+            "max": "1619",
+            "min": "0"
+          },
+          "states": {
+            "positive": 844,
+            "zero": 4518
+          }
+        },
+        "PSYCHLGST_CNT": {
+          "decimal_spelling_count": 249,
+          "numeric_sum_diagnostic_only": "5523.67",
+          "range": {
+            "max": "700.5",
+            "min": "0"
+          },
+          "states": {
+            "positive": 891,
+            "zero": 4471
+          }
+        },
+        "PHYS_THRPST_CNT": {
+          "decimal_spelling_count": 1616,
+          "numeric_sum_diagnostic_only": "93007.28",
+          "range": {
+            "max": "52900.15",
+            "min": "0"
+          },
+          "states": {
+            "positive": 3769,
+            "zero": 1593
+          }
+        },
+        "RDLGY_TCHNCN_CNT": {
+          "decimal_spelling_count": 1805,
+          "numeric_sum_diagnostic_only": "125785.97",
+          "range": {
+            "max": "22021",
+            "min": "0"
+          },
+          "states": {
+            "positive": 3914,
+            "zero": 1448
+          }
+        },
+        "REG_PHRMCST_CNT": {
+          "decimal_spelling_count": 1782,
+          "numeric_sum_diagnostic_only": "57770.88",
+          "range": {
+            "max": "4263",
+            "min": "0"
+          },
+          "states": {
+            "positive": 4228,
+            "zero": 1134
+          }
+        },
+        "INHLTN_THRPST_CNT": {
+          "decimal_spelling_count": 1890,
+          "numeric_sum_diagnostic_only": "72125.80",
+          "range": {
+            "max": "3625",
+            "min": "0"
+          },
+          "states": {
+            "positive": 3869,
+            "zero": 1493
+          }
+        },
+        "RN_CNT": {
+          "decimal_spelling_count": 2237,
+          "numeric_sum_diagnostic_only": "1235020.99",
+          "range": {
+            "max": "64782",
+            "min": "0"
+          },
+          "states": {
+            "positive": 5034,
+            "zero": 328
+          }
+        },
+        "SPCH_PTHLGST_AUDLGST_CNT": {
+          "decimal_spelling_count": 1295,
+          "numeric_sum_diagnostic_only": "12383.07",
+          "range": {
+            "max": "388.45",
+            "min": "0"
+          },
+          "states": {
+            "positive": 2781,
+            "zero": 2581
+          }
+        }
+      },
+      "literal_flags": {
+        "SKLTN_REC_SW": {
+          "literal_N": 5208,
+          "literal_Y": 154
+        },
+        "COLCTN_STUS_SW": {
+          "literal_N": 5151,
+          "literal_Y": 211
+        },
+        "LSC_WVR_SW": {
+          "literal_N": 5297,
+          "literal_Y": 65
+        },
+        "PSYCH_UNIT_SW": {
+          "literal_N": 3773,
+          "literal_Y": 1589
+        },
+        "REHAB_UNIT_SW": {
+          "literal_N": 4200,
+          "literal_Y": 1162
+        },
+        "SB_SW": {
+          "literal_N": 3638,
+          "literal_Y": 1724
+        },
+        "OVRRD_BED_CNT_SW": {
+          "literal_N": 3301,
+          "literal_Y": 2061
+        },
+        "OVRRD_STFG_SW": {
+          "literal_N": 2811,
+          "literal_Y": 2551
+        }
+      },
+      "status_codes": {
+        "PRVDR_CTGRY_SBTYP_CD": {
+          "blank": 154,
+          "code_01": 3059,
+          "code_02": 5,
+          "code_04": 624,
+          "code_06": 94,
+          "code_11": 1377,
+          "code_28": 49
+        },
+        "PGM_TRMNTN_CD": {
+          "code_00": 5362
+        },
+        "CMPLNC_STUS_CD": {
+          "blank": 154,
+          "code_A": 4132,
+          "code_B": 1076
+        },
+        "CRTFCTN_ACTN_TYPE_CD": {
+          "code_1": 531,
+          "code_2": 3744,
+          "code_3": 2,
+          "code_5": 702,
+          "code_8": 383
+        }
+      }
+    },
+    "code00_without_same_state_candidate": {
+      "rows": 1671,
+      "cross_checks": {
+        "PSYCH_UNIT_SW_vs_beds": {
+          "blank/unknown": 9,
+          "literal_N/zero": 1655,
+          "literal_Y/positive": 7
+        },
+        "REHAB_UNIT_SW_vs_beds": {
+          "blank/unknown": 9,
+          "literal_N/zero": 1613,
+          "literal_Y/positive": 49
+        },
+        "affiliated_component_arithmetic": {
+          "component_sum_below_reported_total": 4,
+          "equal": 1657,
+          "not_comparable": 10
+        },
+        "cath_lab_service_vs_room_count": {
+          "blank/unknown": 12,
+          "blank/zero": 848,
+          "code_0/positive": 1,
+          "code_0/zero": 760,
+          "code_1/positive": 1,
+          "code_1/zero": 2,
+          "code_2/positive": 1,
+          "code_2/zero": 44,
+          "code_3/positive": 1,
+          "code_3/zero": 1
+        },
+        "certified_vs_total_beds": {
+          "certified_at_or_below_total": 1656,
+          "not_comparable": 15
+        },
+        "offsite_component_arithmetic": {
+          "equal": 1661,
+          "not_comparable": 10
+        }
+      },
+      "services": {
+        "PHRMCY_SRVC_CD": {
+          "blank": 867,
+          "code_0": 38,
+          "code_1": 443,
+          "code_2": 186,
+          "code_3": 137
+        },
+        "ACUTE_RNL_DLYS_SRVC_CD": {
+          "blank": 860,
+          "code_0": 274,
+          "code_1": 97,
+          "code_2": 396,
+          "code_3": 44
+        },
+        "PSYCH_SRVC_CD": {
+          "blank": 860,
+          "code_0": 688,
+          "code_1": 44,
+          "code_2": 65,
+          "code_3": 14
+        },
+        "ALCHL_DRUG_SRVC_CD": {
+          "blank": 860,
+          "code_0": 765,
+          "code_1": 18,
+          "code_2": 19,
+          "code_3": 9
+        },
+        "ANSTHSA_SRVC_CD": {
+          "blank": 860,
+          "code_0": 620,
+          "code_1": 36,
+          "code_2": 124,
+          "code_3": 31
+        },
+        "AUDLGY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 747,
+          "code_1": 10,
+          "code_2": 45,
+          "code_3": 9
+        },
+        "BURN_CARE_UNIT_SRVC_CD": {
+          "blank": 860,
+          "code_0": 801,
+          "code_1": 3,
+          "code_2": 6,
+          "code_3": 1
+        },
+        "CRDC_CTHRTZTN_LAB_SRVC_CD": {
+          "blank": 860,
+          "code_0": 761,
+          "code_1": 3,
+          "code_2": 45,
+          "code_3": 2
+        },
+        "OPEN_HRT_SRGRY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 765,
+          "code_1": 6,
+          "code_2": 39,
+          "code_3": 1
+        },
+        "CARF_IP_REHAB_SRVC_CD": {
+          "blank": 860,
+          "code_0": 252,
+          "code_1": 462,
+          "code_2": 61,
+          "code_3": 36
+        },
+        "CHMTHRPY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 764,
+          "code_1": 9,
+          "code_2": 23,
+          "code_3": 15
+        },
+        "CHRPRCTIC_SRVC_CD": {
+          "blank": 860,
+          "code_0": 801,
+          "code_1": 2,
+          "code_2": 7,
+          "code_3": 1
+        },
+        "CL_SRVC_CD": {
+          "blank": 860,
+          "code_0": 82,
+          "code_1": 87,
+          "code_2": 388,
+          "code_3": 254
+        },
+        "CRNRY_CARE_UNIT_SRVC_CD": {
+          "blank": 860,
+          "code_0": 756,
+          "code_1": 34,
+          "code_2": 17,
+          "code_3": 4
+        },
+        "CT_SCAN_SRVC_CD": {
+          "blank": 860,
+          "code_0": 436,
+          "code_1": 72,
+          "code_2": 273,
+          "code_3": 30
+        },
+        "DNTL_SRVC_CD": {
+          "blank": 860,
+          "code_0": 721,
+          "code_1": 12,
+          "code_2": 71,
+          "code_3": 7
+        },
+        "SHCK_TRMA_SRVC_CD": {
+          "blank": 860,
+          "code_0": 793,
+          "code_1": 3,
+          "code_2": 12,
+          "code_3": 3
+        },
+        "DGNSTC_RDLGY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 94,
+          "code_1": 120,
+          "code_2": 473,
+          "code_3": 124
+        },
+        "DTRY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 57,
+          "code_1": 470,
+          "code_2": 187,
+          "code_3": 97
+        },
+        "DCTD_ER_SRVC_CD": {
+          "blank": 860,
+          "code_0": 699,
+          "code_1": 52,
+          "code_2": 42,
+          "code_3": 18
+        },
+        "EMER_PSYCH_SRVC_CD": {
+          "blank": 860,
+          "code_0": 759,
+          "code_1": 21,
+          "code_2": 25,
+          "code_3": 6
+        },
+        "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD": {
+          "blank": 860,
+          "code_0": 791,
+          "code_1": 3,
+          "code_2": 13,
+          "code_3": 4
+        },
+        "FRNSC_PSYCH_SRVC_CD": {
+          "blank": 860,
+          "code_0": 804,
+          "code_1": 3,
+          "code_2": 1,
+          "code_3": 3
+        },
+        "GRTRC_PSYCH_SRVC_CD": {
+          "blank": 860,
+          "code_0": 755,
+          "code_1": 15,
+          "code_2": 34,
+          "code_3": 7
+        },
+        "GRNTLGCL_SPCLTY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 767,
+          "code_1": 18,
+          "code_2": 18,
+          "code_3": 8
+        },
+        "IP_SRGCL_SRVC_CD": {
+          "blank": 860,
+          "code_0": 661,
+          "code_1": 49,
+          "code_2": 81,
+          "code_3": 20
+        },
+        "ICU_SRVC_CD": {
+          "blank": 860,
+          "code_0": 676,
+          "code_1": 100,
+          "code_2": 20,
+          "code_3": 15
+        },
+        "MDCR_TRNSPLNT_CNTR_SRVC_CD": {
+          "blank": 860,
+          "code_0": 806,
+          "code_2": 5
+        },
+        "MGNTC_RSNC_IMG_SRVC_CD": {
+          "blank": 860,
+          "code_0": 450,
+          "code_1": 19,
+          "code_2": 326,
+          "code_3": 16
+        },
+        "NEONTL_ICU_SRVC_CD": {
+          "blank": 860,
+          "code_0": 805,
+          "code_1": 3,
+          "code_2": 2,
+          "code_3": 1
+        },
+        "NEONTL_NRSRY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 797,
+          "code_1": 9,
+          "code_2": 4,
+          "code_3": 1
+        },
+        "NRSRGCL_SRVC_CD": {
+          "blank": 860,
+          "code_0": 754,
+          "code_1": 6,
+          "code_2": 46,
+          "code_3": 5
+        },
+        "ORGN_TRNSPLNT_SRVC_CD": {
+          "blank": 860,
+          "code_0": 716,
+          "code_1": 6,
+          "code_2": 87,
+          "code_3": 2
+        },
+        "NUCLR_MDCN_SRVC_CD": {
+          "blank": 860,
+          "code_0": 594,
+          "code_1": 26,
+          "code_2": 183,
+          "code_3": 8
+        },
+        "OB_SRVC_CD": {
+          "blank": 860,
+          "code_0": 782,
+          "code_1": 14,
+          "code_2": 13,
+          "code_3": 2
+        },
+        "OPTHLMC_SRGY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 771,
+          "code_1": 7,
+          "code_2": 31,
+          "code_3": 2
+        },
+        "OPTMTRC_SRVC_CD": {
+          "blank": 860,
+          "code_0": 746,
+          "code_1": 7,
+          "code_2": 56,
+          "code_3": 2
+        },
+        "OPRTG_ROOM_SRVC_CD": {
+          "blank": 860,
+          "code_0": 676,
+          "code_1": 48,
+          "code_2": 74,
+          "code_3": 13
+        },
+        "ORTHPDC_SRGY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 735,
+          "code_1": 18,
+          "code_2": 51,
+          "code_3": 7
+        },
+        "OT_SRVC_CD": {
+          "blank": 867,
+          "code_0": 88,
+          "code_1": 567,
+          "code_2": 116,
+          "code_3": 33
+        },
+        "OP_SRVC_CD": {
+          "blank": 860,
+          "code_0": 574,
+          "code_1": 181,
+          "code_2": 26,
+          "code_3": 30
+        },
+        "OP_PSYCH_SRVC_CD": {
+          "blank": 860,
+          "code_0": 783,
+          "code_1": 19,
+          "code_2": 5,
+          "code_3": 4
+        },
+        "OP_REHAB_SRVC_CD": {
+          "blank": 860,
+          "code_0": 607,
+          "code_1": 166,
+          "code_2": 23,
+          "code_3": 15
+        },
+        "OP_SRGRY_UNIT_SRVC_CD": {
+          "blank": 860,
+          "code_0": 734,
+          "code_1": 28,
+          "code_2": 39,
+          "code_3": 10
+        },
+        "PED_SRVC_CD": {
+          "blank": 860,
+          "code_0": 725,
+          "code_1": 64,
+          "code_2": 9,
+          "code_3": 13
+        },
+        "PED_ICU_SRVC_CD": {
+          "blank": 860,
+          "code_0": 803,
+          "code_1": 5,
+          "code_2": 1,
+          "code_3": 2
+        },
+        "PET_SCAN_SRVC_CD": {
+          "blank": 860,
+          "code_0": 704,
+          "code_1": 5,
+          "code_2": 100,
+          "code_3": 2
+        },
+        "PSTOPRTV_RCVRY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 686,
+          "code_1": 56,
+          "code_2": 62,
+          "code_3": 7
+        },
+        "CHLD_ADLSCNT_PSYCH_SRVC_CD": {
+          "blank": 860,
+          "code_0": 777,
+          "code_1": 19,
+          "code_2": 6,
+          "code_3": 9
+        },
+        "PT_SRVC_CD": {
+          "blank": 867,
+          "code_0": 64,
+          "code_1": 575,
+          "code_2": 125,
+          "code_3": 40
+        },
+        "RCNSTRCTN_SRGY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 773,
+          "code_1": 8,
+          "code_2": 28,
+          "code_3": 2
+        },
+        "RSPRTRY_CARE_SRVC_CD": {
+          "blank": 867,
+          "code_0": 70,
+          "code_1": 632,
+          "code_2": 64,
+          "code_3": 38
+        },
+        "SCL_SRVC_CD": {
+          "blank": 867,
+          "code_0": 112,
+          "code_1": 567,
+          "code_2": 55,
+          "code_3": 70
+        },
+        "SPCH_PTHLGY_SRVC_CD": {
+          "blank": 867,
+          "code_0": 70,
+          "code_1": 555,
+          "code_2": 146,
+          "code_3": 33
+        },
+        "SRGCL_ICU_SRVC_CD": {
+          "blank": 860,
+          "code_0": 774,
+          "code_1": 15,
+          "code_2": 12,
+          "code_3": 10
+        },
+        "THRPTC_RDLGY_SRVC_CD": {
+          "blank": 860,
+          "code_0": 583,
+          "code_1": 26,
+          "code_2": 173,
+          "code_3": 29
+        },
+        "URGNT_CARE_SRVC_CD": {
+          "blank": 860,
+          "code_0": 802,
+          "code_1": 2,
+          "code_2": 7
+        }
+      },
+      "counts": {
+        "TOT_AFLTD_AMBLNC_SRVC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "10",
+          "range": {
+            "max": "5",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 5,
+            "zero": 1656
+          }
+        },
+        "TOT_AFLTD_ASC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "0",
+          "range": {
+            "max": "0",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "zero": 1661
+          }
+        },
+        "TOT_COLCTD_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "83",
+          "range": {
+            "max": "11",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 64,
+            "zero": 1597
+          }
+        },
+        "TOT_AFLTD_ESRD_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "0",
+          "range": {
+            "max": "0",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "zero": 1661
+          }
+        },
+        "TOT_AFLTD_FQHC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "0",
+          "range": {
+            "max": "0",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "zero": 1661
+          }
+        },
+        "TOT_AFLTD_HHA_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "13",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 13,
+            "zero": 1648
+          }
+        },
+        "TOT_AFLTD_HOSPC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "6",
+          "range": {
+            "max": "2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 5,
+            "zero": 1656
+          }
+        },
+        "TOT_AFLTD_OPO_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 1,
+            "zero": 1660
+          }
+        },
+        "TOT_AFLTD_PRTF_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 1,
+            "zero": 1660
+          }
+        },
+        "TOT_AFLTD_RHC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "17",
+          "range": {
+            "max": "6",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 8,
+            "zero": 1653
+          }
+        },
+        "TOT_AFLTD_SNF_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "44",
+          "range": {
+            "max": "12",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 22,
+            "zero": 1639
+          }
+        },
+        "AFLTD_PRVDR_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "179",
+          "range": {
+            "max": "12",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 107,
+            "zero": 1554
+          }
+        },
+        "TOT_OFSITE_CNCR_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "0",
+          "range": {
+            "max": "0",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "zero": 1661
+          }
+        },
+        "TOT_OFSITE_CHLDRN_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "0",
+          "range": {
+            "max": "0",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "zero": 1661
+          }
+        },
+        "TOT_OFSITE_EMER_DEPT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "42",
+          "range": {
+            "max": "23",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 15,
+            "zero": 1646
+          }
+        },
+        "TOT_OFSITE_INPTNT_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "23",
+          "range": {
+            "max": "2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 19,
+            "zero": 1642
+          }
+        },
+        "TOT_OFSITE_LTC_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "29",
+          "range": {
+            "max": "2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 24,
+            "zero": 1637
+          }
+        },
+        "TOT_OFSITE_OPTHLMC_SRGRY_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 1,
+            "zero": 1660
+          }
+        },
+        "TOT_OFSITE_OTHR_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "441",
+          "range": {
+            "max": "88",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 67,
+            "zero": 1594
+          }
+        },
+        "TOT_OFSITE_PSYCH_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "2",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 2,
+            "zero": 1659
+          }
+        },
+        "TOT_OFSITE_PSYCH_UNIT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "0",
+          "range": {
+            "max": "0",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "zero": 1661
+          }
+        },
+        "TOT_OFSITE_REHAB_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "96",
+          "range": {
+            "max": "19",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 25,
+            "zero": 1636
+          }
+        },
+        "TOT_OFSITE_REHAB_UNIT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "3",
+          "range": {
+            "max": "2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 2,
+            "zero": 1659
+          }
+        },
+        "TOT_OFSITE_URGNT_CARE_CNTR_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 1,
+            "zero": 1660
+          }
+        },
+        "OFSITE_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "638",
+          "range": {
+            "max": "90",
+            "min": "0"
+          },
+          "states": {
+            "blank": 10,
+            "positive": 136,
+            "zero": 1525
+          }
+        },
+        "CRTFD_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "171970",
+          "range": {
+            "max": "2487",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 1393,
+            "zero": 263
+          }
+        },
+        "BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "173679",
+          "range": {
+            "max": "2487",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 1393,
+            "zero": 263
+          }
+        },
+        "CRDC_CTHRTZTN_PRCDR_ROOMS_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "11",
+          "range": {
+            "max": "4",
+            "min": "0"
+          },
+          "states": {
+            "blank": 12,
+            "positive": 4,
+            "zero": 1655
+          }
+        },
+        "ENDSCPY_PRCDR_ROOMS_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "65",
+          "range": {
+            "max": "20",
+            "min": "0"
+          },
+          "states": {
+            "blank": 12,
+            "positive": 30,
+            "zero": 1629
+          }
+        },
+        "PSYCH_UNIT_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "176",
+          "range": {
+            "max": "46",
+            "min": "0"
+          },
+          "states": {
+            "blank": 9,
+            "positive": 7,
+            "zero": 1655
+          }
+        },
+        "REHAB_UNIT_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "996",
+          "range": {
+            "max": "76",
+            "min": "0"
+          },
+          "states": {
+            "blank": 9,
+            "positive": 49,
+            "zero": 1613
+          }
+        }
+      },
+      "fte": {
+        "PRSNEL_OTHR_CNT": {
+          "decimal_spelling_count": 215,
+          "numeric_sum_diagnostic_only": "53877.69",
+          "range": {
+            "max": "1097.44",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 685,
+            "zero": 971
+          }
+        },
+        "CRNA_CNT": {
+          "decimal_spelling_count": 13,
+          "numeric_sum_diagnostic_only": "933.57",
+          "range": {
+            "max": "64",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 81,
+            "zero": 1575
+          }
+        },
+        "DIETN_CNT": {
+          "decimal_spelling_count": 158,
+          "numeric_sum_diagnostic_only": "811.27",
+          "range": {
+            "max": "10",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 581,
+            "zero": 1075
+          }
+        },
+        "LAB_TCHNCN_CNT": {
+          "decimal_spelling_count": 57,
+          "numeric_sum_diagnostic_only": "365.04",
+          "range": {
+            "max": "25",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 167,
+            "zero": 1489
+          }
+        },
+        "LPN_LVN_CNT": {
+          "decimal_spelling_count": 179,
+          "numeric_sum_diagnostic_only": "5363.85",
+          "range": {
+            "max": "247",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 599,
+            "zero": 1057
+          }
+        },
+        "MDCL_SCL_WORKR_CNT": {
+          "decimal_spelling_count": 100,
+          "numeric_sum_diagnostic_only": "1489.77",
+          "range": {
+            "max": "35",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 518,
+            "zero": 1138
+          }
+        },
+        "MDCL_TCHNLGST_CNT": {
+          "decimal_spelling_count": 29,
+          "numeric_sum_diagnostic_only": "322.89",
+          "range": {
+            "max": "22",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 121,
+            "zero": 1535
+          }
+        },
+        "NUCLR_MDCN_TCHNCN_CNT": {
+          "decimal_spelling_count": 11,
+          "numeric_sum_diagnostic_only": "87.22",
+          "range": {
+            "max": "10",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 53,
+            "zero": 1603
+          }
+        },
+        "NRS_PRCTNR_CNT": {
+          "decimal_spelling_count": 17,
+          "numeric_sum_diagnostic_only": "1981.38",
+          "range": {
+            "max": "1200",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 99,
+            "zero": 1557
+          }
+        },
+        "OCPTNL_THRPST_CNT": {
+          "decimal_spelling_count": 184,
+          "numeric_sum_diagnostic_only": "4033.56",
+          "range": {
+            "max": "181",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 626,
+            "zero": 1030
+          }
+        },
+        "PHYSN_CNT": {
+          "decimal_spelling_count": 44,
+          "numeric_sum_diagnostic_only": "1293.41",
+          "range": {
+            "max": "316",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 179,
+            "zero": 1477
+          }
+        },
+        "PHYSN_ASTNT_CNT": {
+          "decimal_spelling_count": 4,
+          "numeric_sum_diagnostic_only": "195.13",
+          "range": {
+            "max": "66",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 49,
+            "zero": 1607
+          }
+        },
+        "RSDNT_PHYSN_CNT": {
+          "decimal_spelling_count": 2,
+          "numeric_sum_diagnostic_only": "196.6",
+          "range": {
+            "max": "46",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 20,
+            "zero": 1636
+          }
+        },
+        "PSYCHLGST_CNT": {
+          "decimal_spelling_count": 19,
+          "numeric_sum_diagnostic_only": "294.30",
+          "range": {
+            "max": "90",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 78,
+            "zero": 1578
+          }
+        },
+        "PHYS_THRPST_CNT": {
+          "decimal_spelling_count": 185,
+          "numeric_sum_diagnostic_only": "5120.82",
+          "range": {
+            "max": "197.2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 637,
+            "zero": 1019
+          }
+        },
+        "RDLGY_TCHNCN_CNT": {
+          "decimal_spelling_count": 82,
+          "numeric_sum_diagnostic_only": "630.35",
+          "range": {
+            "max": "25",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 257,
+            "zero": 1399
+          }
+        },
+        "REG_PHRMCST_CNT": {
+          "decimal_spelling_count": 177,
+          "numeric_sum_diagnostic_only": "1704.27",
+          "range": {
+            "max": "55",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 589,
+            "zero": 1067
+          }
+        },
+        "INHLTN_THRPST_CNT": {
+          "decimal_spelling_count": 190,
+          "numeric_sum_diagnostic_only": "4780.66",
+          "range": {
+            "max": "380",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 632,
+            "zero": 1024
+          }
+        },
+        "RN_CNT": {
+          "decimal_spelling_count": 230,
+          "numeric_sum_diagnostic_only": "23755.00",
+          "range": {
+            "max": "534.9",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 768,
+            "zero": 888
+          }
+        },
+        "SPCH_PTHLGST_AUDLGST_CNT": {
+          "decimal_spelling_count": 176,
+          "numeric_sum_diagnostic_only": "2140.68",
+          "range": {
+            "max": "72",
+            "min": "0"
+          },
+          "states": {
+            "blank": 15,
+            "positive": 599,
+            "zero": 1057
+          }
+        }
+      },
+      "literal_flags": {
+        "SKLTN_REC_SW": {
+          "blank": 9,
+          "literal_N": 1038,
+          "literal_Y": 624
+        },
+        "COLCTN_STUS_SW": {
+          "blank": 10,
+          "literal_N": 1595,
+          "literal_Y": 66
+        },
+        "LSC_WVR_SW": {
+          "blank": 15,
+          "literal_N": 1651,
+          "literal_Y": 5
+        },
+        "PSYCH_UNIT_SW": {
+          "blank": 9,
+          "literal_N": 1655,
+          "literal_Y": 7
+        },
+        "REHAB_UNIT_SW": {
+          "blank": 9,
+          "literal_N": 1613,
+          "literal_Y": 49
+        },
+        "SB_SW": {
+          "blank": 15,
+          "literal_N": 1638,
+          "literal_Y": 18
+        },
+        "OVRRD_BED_CNT_SW": {
+          "blank": 15,
+          "literal_N": 1353,
+          "literal_Y": 303
+        },
+        "OVRRD_STFG_SW": {
+          "blank": 15,
+          "literal_N": 1301,
+          "literal_Y": 355
+        }
+      },
+      "status_codes": {
+        "PRVDR_CTGRY_SBTYP_CD": {
+          "blank": 624,
+          "code_01": 21,
+          "code_02": 301,
+          "code_03": 8,
+          "code_04": 43,
+          "code_05": 422,
+          "code_06": 1,
+          "code_11": 8,
+          "code_20": 233,
+          "code_24": 1,
+          "code_25": 1,
+          "code_28": 8
+        },
+        "PGM_TRMNTN_CD": {
+          "code_00": 1671
+        },
+        "CMPLNC_STUS_CD": {
+          "blank": 634,
+          "code_A": 940,
+          "code_B": 97
+        },
+        "CRTFCTN_ACTN_TYPE_CD": {
+          "blank": 10,
+          "code_1": 854,
+          "code_2": 697,
+          "code_5": 73,
+          "code_8": 37
+        }
+      }
+    },
+    "other_or_unknown_program_code": {
+      "rows": 6565,
+      "cross_checks": {
+        "PSYCH_UNIT_SW_vs_beds": {
+          "literal_N/zero": 5717,
+          "literal_Y/positive": 847,
+          "literal_Y/zero": 1
+        },
+        "REHAB_UNIT_SW_vs_beds": {
+          "literal_N/zero": 6124,
+          "literal_Y/positive": 441
+        },
+        "affiliated_component_arithmetic": {
+          "component_sum_below_reported_total": 18,
+          "equal": 6546,
+          "not_comparable": 1
+        },
+        "cath_lab_service_vs_room_count": {
+          "blank/unknown": 5,
+          "blank/zero": 396,
+          "code_0/positive": 13,
+          "code_0/zero": 5912,
+          "code_1/positive": 63,
+          "code_1/zero": 86,
+          "code_2/positive": 1,
+          "code_2/zero": 63,
+          "code_3/positive": 16,
+          "code_3/zero": 10
+        },
+        "certified_vs_total_beds": {
+          "certified_at_or_below_total": 6564,
+          "not_comparable": 1
+        },
+        "offsite_component_arithmetic": {
+          "equal": 6564,
+          "not_comparable": 1
+        }
+      },
+      "services": {
+        "PHRMCY_SRVC_CD": {
+          "blank": 419,
+          "code_0": 295,
+          "code_1": 3665,
+          "code_2": 1691,
+          "code_3": 495
+        },
+        "ACUTE_RNL_DLYS_SRVC_CD": {
+          "blank": 401,
+          "code_0": 4604,
+          "code_1": 309,
+          "code_2": 1187,
+          "code_3": 64
+        },
+        "PSYCH_SRVC_CD": {
+          "blank": 401,
+          "code_0": 4119,
+          "code_1": 1345,
+          "code_2": 465,
+          "code_3": 235
+        },
+        "ALCHL_DRUG_SRVC_CD": {
+          "blank": 401,
+          "code_0": 4884,
+          "code_1": 944,
+          "code_2": 195,
+          "code_3": 141
+        },
+        "ANSTHSA_SRVC_CD": {
+          "blank": 401,
+          "code_0": 2549,
+          "code_1": 1239,
+          "code_2": 2054,
+          "code_3": 322
+        },
+        "AUDLGY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5897,
+          "code_1": 89,
+          "code_2": 156,
+          "code_3": 22
+        },
+        "BURN_CARE_UNIT_SRVC_CD": {
+          "blank": 401,
+          "code_0": 6009,
+          "code_1": 36,
+          "code_2": 108,
+          "code_3": 11
+        },
+        "CRDC_CTHRTZTN_LAB_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5925,
+          "code_1": 149,
+          "code_2": 64,
+          "code_3": 26
+        },
+        "OPEN_HRT_SRGRY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5664,
+          "code_1": 273,
+          "code_2": 195,
+          "code_3": 32
+        },
+        "CARF_IP_REHAB_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5604,
+          "code_1": 371,
+          "code_2": 129,
+          "code_3": 60
+        },
+        "CHMTHRPY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5848,
+          "code_1": 228,
+          "code_2": 41,
+          "code_3": 47
+        },
+        "CHRPRCTIC_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5984,
+          "code_1": 57,
+          "code_2": 108,
+          "code_3": 15
+        },
+        "CL_SRVC_CD": {
+          "blank": 401,
+          "code_0": 348,
+          "code_1": 3379,
+          "code_2": 1602,
+          "code_3": 835
+        },
+        "CRNRY_CARE_UNIT_SRVC_CD": {
+          "blank": 401,
+          "code_0": 4427,
+          "code_1": 1499,
+          "code_2": 194,
+          "code_3": 44
+        },
+        "CT_SCAN_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5049,
+          "code_1": 723,
+          "code_2": 281,
+          "code_3": 111
+        },
+        "DNTL_SRVC_CD": {
+          "blank": 401,
+          "code_0": 4492,
+          "code_1": 540,
+          "code_2": 1058,
+          "code_3": 74
+        },
+        "SHCK_TRMA_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5745,
+          "code_1": 242,
+          "code_2": 134,
+          "code_3": 43
+        },
+        "DGNSTC_RDLGY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 378,
+          "code_1": 3422,
+          "code_2": 1491,
+          "code_3": 873
+        },
+        "DTRY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 791,
+          "code_1": 2961,
+          "code_2": 1616,
+          "code_3": 796
+        },
+        "DCTD_ER_SRVC_CD": {
+          "blank": 401,
+          "code_0": 2053,
+          "code_1": 2623,
+          "code_2": 659,
+          "code_3": 829
+        },
+        "EMER_PSYCH_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5696,
+          "code_1": 222,
+          "code_2": 136,
+          "code_3": 110
+        },
+        "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5911,
+          "code_1": 49,
+          "code_2": 138,
+          "code_3": 66
+        },
+        "FRNSC_PSYCH_SRVC_CD": {
+          "blank": 401,
+          "code_0": 6101,
+          "code_1": 34,
+          "code_2": 21,
+          "code_3": 8
+        },
+        "GRTRC_PSYCH_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5825,
+          "code_1": 210,
+          "code_2": 61,
+          "code_3": 68
+        },
+        "GRNTLGCL_SPCLTY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 6040,
+          "code_1": 79,
+          "code_2": 24,
+          "code_3": 21
+        },
+        "IP_SRGCL_SRVC_CD": {
+          "blank": 401,
+          "code_0": 2669,
+          "code_1": 3008,
+          "code_2": 317,
+          "code_3": 170
+        },
+        "ICU_SRVC_CD": {
+          "blank": 401,
+          "code_0": 3478,
+          "code_1": 2375,
+          "code_2": 247,
+          "code_3": 64
+        },
+        "MDCR_TRNSPLNT_CNTR_SRVC_CD": {
+          "blank": 401,
+          "code_0": 6132,
+          "code_1": 12,
+          "code_2": 17,
+          "code_3": 3
+        },
+        "MGNTC_RSNC_IMG_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5235,
+          "code_1": 365,
+          "code_2": 462,
+          "code_3": 102
+        },
+        "NEONTL_ICU_SRVC_CD": {
+          "blank": 401,
+          "code_0": 6094,
+          "code_1": 49,
+          "code_2": 9,
+          "code_3": 12
+        },
+        "NEONTL_NRSRY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5147,
+          "code_1": 840,
+          "code_2": 132,
+          "code_3": 45
+        },
+        "NRSRGCL_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5905,
+          "code_1": 135,
+          "code_2": 86,
+          "code_3": 38
+        },
+        "ORGN_TRNSPLNT_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5537,
+          "code_1": 82,
+          "code_2": 517,
+          "code_3": 28
+        },
+        "NUCLR_MDCN_SRVC_CD": {
+          "blank": 401,
+          "code_0": 3107,
+          "code_1": 1509,
+          "code_2": 1370,
+          "code_3": 178
+        },
+        "OB_SRVC_CD": {
+          "blank": 401,
+          "code_0": 4099,
+          "code_1": 1797,
+          "code_2": 198,
+          "code_3": 70
+        },
+        "OPTHLMC_SRGY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5718,
+          "code_1": 273,
+          "code_2": 95,
+          "code_3": 78
+        },
+        "OPTMTRC_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5473,
+          "code_1": 216,
+          "code_2": 419,
+          "code_3": 56
+        },
+        "OPRTG_ROOM_SRVC_CD": {
+          "blank": 401,
+          "code_0": 2304,
+          "code_1": 3402,
+          "code_2": 329,
+          "code_3": 129
+        },
+        "ORTHPDC_SRGY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5518,
+          "code_1": 446,
+          "code_2": 104,
+          "code_3": 96
+        },
+        "OT_SRVC_CD": {
+          "blank": 419,
+          "code_0": 2201,
+          "code_1": 2109,
+          "code_2": 1632,
+          "code_3": 204
+        },
+        "OP_SRVC_CD": {
+          "blank": 401,
+          "code_0": 1864,
+          "code_1": 3706,
+          "code_2": 191,
+          "code_3": 403
+        },
+        "OP_PSYCH_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5892,
+          "code_1": 177,
+          "code_2": 53,
+          "code_3": 42
+        },
+        "OP_REHAB_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5585,
+          "code_1": 447,
+          "code_2": 92,
+          "code_3": 40
+        },
+        "OP_SRGRY_UNIT_SRVC_CD": {
+          "blank": 401,
+          "code_0": 3197,
+          "code_1": 2559,
+          "code_2": 214,
+          "code_3": 194
+        },
+        "PED_SRVC_CD": {
+          "blank": 401,
+          "code_0": 3852,
+          "code_1": 2057,
+          "code_2": 166,
+          "code_3": 89
+        },
+        "PED_ICU_SRVC_CD": {
+          "blank": 401,
+          "code_0": 6091,
+          "code_1": 55,
+          "code_2": 10,
+          "code_3": 8
+        },
+        "PET_SCAN_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5927,
+          "code_1": 47,
+          "code_2": 166,
+          "code_3": 24
+        },
+        "PSTOPRTV_RCVRY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 2584,
+          "code_1": 3246,
+          "code_2": 286,
+          "code_3": 48
+        },
+        "CHLD_ADLSCNT_PSYCH_SRVC_CD": {
+          "blank": 401,
+          "code_0": 6004,
+          "code_1": 99,
+          "code_2": 34,
+          "code_3": 27
+        },
+        "PT_SRVC_CD": {
+          "blank": 419,
+          "code_0": 1120,
+          "code_1": 2851,
+          "code_2": 1867,
+          "code_3": 308
+        },
+        "RCNSTRCTN_SRGY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5903,
+          "code_1": 181,
+          "code_2": 43,
+          "code_3": 37
+        },
+        "RSPRTRY_CARE_SRVC_CD": {
+          "blank": 419,
+          "code_0": 1630,
+          "code_1": 3605,
+          "code_2": 739,
+          "code_3": 172
+        },
+        "SCL_SRVC_CD": {
+          "blank": 419,
+          "code_0": 1016,
+          "code_1": 4028,
+          "code_2": 863,
+          "code_3": 239
+        },
+        "SPCH_PTHLGY_SRVC_CD": {
+          "blank": 419,
+          "code_0": 2134,
+          "code_1": 1461,
+          "code_2": 2391,
+          "code_3": 160
+        },
+        "SRGCL_ICU_SRVC_CD": {
+          "blank": 401,
+          "code_0": 5883,
+          "code_1": 216,
+          "code_2": 43,
+          "code_3": 22
+        },
+        "THRPTC_RDLGY_SRVC_CD": {
+          "blank": 401,
+          "code_0": 4610,
+          "code_1": 581,
+          "code_2": 773,
+          "code_3": 200
+        },
+        "URGNT_CARE_SRVC_CD": {
+          "blank": 401,
+          "code_0": 6044,
+          "code_1": 93,
+          "code_2": 11,
+          "code_3": 16
+        }
+      },
+      "counts": {
+        "TOT_AFLTD_AMBLNC_SRVC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "6",
+          "range": {
+            "max": "2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 5,
+            "zero": 6559
+          }
+        },
+        "TOT_AFLTD_ASC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "5",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 5,
+            "zero": 6559
+          }
+        },
+        "TOT_COLCTD_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "59",
+          "range": {
+            "max": "4",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 51,
+            "zero": 6513
+          }
+        },
+        "TOT_AFLTD_ESRD_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "34",
+          "range": {
+            "max": "6",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 21,
+            "zero": 6543
+          }
+        },
+        "TOT_AFLTD_FQHC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 1,
+            "zero": 6563
+          }
+        },
+        "TOT_AFLTD_HHA_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "108",
+          "range": {
+            "max": "2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 107,
+            "zero": 6457
+          }
+        },
+        "TOT_AFLTD_HOSPC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "52",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 52,
+            "zero": 6512
+          }
+        },
+        "TOT_AFLTD_OPO_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "3",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 3,
+            "zero": 6561
+          }
+        },
+        "TOT_AFLTD_PRTF_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "0",
+          "range": {
+            "max": "0",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "zero": 6564
+          }
+        },
+        "TOT_AFLTD_RHC_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "220",
+          "range": {
+            "max": "10",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 109,
+            "zero": 6455
+          }
+        },
+        "TOT_AFLTD_SNF_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "109",
+          "range": {
+            "max": "12",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 89,
+            "zero": 6475
+          }
+        },
+        "AFLTD_PRVDR_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "640",
+          "range": {
+            "max": "12",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 317,
+            "zero": 6247
+          }
+        },
+        "TOT_OFSITE_CNCR_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "5",
+          "range": {
+            "max": "2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 4,
+            "zero": 6560
+          }
+        },
+        "TOT_OFSITE_CHLDRN_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "11",
+          "range": {
+            "max": "6",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 3,
+            "zero": 6561
+          }
+        },
+        "TOT_OFSITE_EMER_DEPT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "423",
+          "range": {
+            "max": "26",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 145,
+            "zero": 6419
+          }
+        },
+        "TOT_OFSITE_INPTNT_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "36",
+          "range": {
+            "max": "4",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 29,
+            "zero": 6535
+          }
+        },
+        "TOT_OFSITE_LTC_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "12",
+          "range": {
+            "max": "2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 11,
+            "zero": 6553
+          }
+        },
+        "TOT_OFSITE_OPTHLMC_SRGRY_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "30",
+          "range": {
+            "max": "6",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 22,
+            "zero": 6542
+          }
+        },
+        "TOT_OFSITE_OTHR_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "915",
+          "range": {
+            "max": "23",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 271,
+            "zero": 6293
+          }
+        },
+        "TOT_OFSITE_PSYCH_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "17",
+          "range": {
+            "max": "5",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 10,
+            "zero": 6554
+          }
+        },
+        "TOT_OFSITE_PSYCH_UNIT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "2",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 2,
+            "zero": 6562
+          }
+        },
+        "TOT_OFSITE_REHAB_HOSP_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "4",
+          "range": {
+            "max": "2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 3,
+            "zero": 6561
+          }
+        },
+        "TOT_OFSITE_REHAB_UNIT_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "3",
+          "range": {
+            "max": "1",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 3,
+            "zero": 6561
+          }
+        },
+        "TOT_OFSITE_URGNT_CARE_CNTR_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "25",
+          "range": {
+            "max": "6",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 15,
+            "zero": 6549
+          }
+        },
+        "OFSITE_LCTN_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "1483",
+          "range": {
+            "max": "27",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 405,
+            "zero": 6159
+          }
+        },
+        "CRTFD_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "516652",
+          "range": {
+            "max": "5709",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 6509,
+            "zero": 55
+          }
+        },
+        "BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "561381",
+          "range": {
+            "max": "5709",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 6527,
+            "zero": 37
+          }
+        },
+        "CRDC_CTHRTZTN_PRCDR_ROOMS_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "190",
+          "range": {
+            "max": "9",
+            "min": "0"
+          },
+          "states": {
+            "blank": 5,
+            "positive": 93,
+            "zero": 6467
+          }
+        },
+        "ENDSCPY_PRCDR_ROOMS_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "632",
+          "range": {
+            "max": "40",
+            "min": "0"
+          },
+          "states": {
+            "blank": 5,
+            "positive": 320,
+            "zero": 6240
+          }
+        },
+        "PSYCH_UNIT_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "22099",
+          "range": {
+            "max": "205",
+            "min": "0"
+          },
+          "states": {
+            "positive": 847,
+            "zero": 5718
+          }
+        },
+        "REHAB_UNIT_BED_CNT": {
+          "decimal_spelling_count": 0,
+          "numeric_sum_diagnostic_only": "9748",
+          "range": {
+            "max": "155",
+            "min": "0"
+          },
+          "states": {
+            "positive": 441,
+            "zero": 6124
+          }
+        }
+      },
+      "fte": {
+        "PRSNEL_OTHR_CNT": {
+          "decimal_spelling_count": 2633,
+          "numeric_sum_diagnostic_only": "839978.74",
+          "range": {
+            "max": "38000",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 5400,
+            "zero": 1164
+          }
+        },
+        "CRNA_CNT": {
+          "decimal_spelling_count": 345,
+          "numeric_sum_diagnostic_only": "4460.33",
+          "range": {
+            "max": "281",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 1222,
+            "zero": 5342
+          }
+        },
+        "DIETN_CNT": {
+          "decimal_spelling_count": 1580,
+          "numeric_sum_diagnostic_only": "12998.33",
+          "range": {
+            "max": "7772.87",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 3740,
+            "zero": 2824
+          }
+        },
+        "LAB_TCHNCN_CNT": {
+          "decimal_spelling_count": 218,
+          "numeric_sum_diagnostic_only": "3198.91",
+          "range": {
+            "max": "132.2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 750,
+            "zero": 5814
+          }
+        },
+        "LPN_LVN_CNT": {
+          "decimal_spelling_count": 2167,
+          "numeric_sum_diagnostic_only": "64461.75",
+          "range": {
+            "max": "460",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 5066,
+            "zero": 1498
+          }
+        },
+        "MDCL_SCL_WORKR_CNT": {
+          "decimal_spelling_count": 1409,
+          "numeric_sum_diagnostic_only": "13133.77",
+          "range": {
+            "max": "121.3",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 4130,
+            "zero": 2434
+          }
+        },
+        "MDCL_TCHNLGST_CNT": {
+          "decimal_spelling_count": 279,
+          "numeric_sum_diagnostic_only": "5262.79",
+          "range": {
+            "max": "100",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 816,
+            "zero": 5748
+          }
+        },
+        "NUCLR_MDCN_TCHNCN_CNT": {
+          "decimal_spelling_count": 137,
+          "numeric_sum_diagnostic_only": "977.83",
+          "range": {
+            "max": "32.2",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 494,
+            "zero": 6070
+          }
+        },
+        "NRS_PRCTNR_CNT": {
+          "decimal_spelling_count": 136,
+          "numeric_sum_diagnostic_only": "1882.71",
+          "range": {
+            "max": "84",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 499,
+            "zero": 6065
+          }
+        },
+        "OCPTNL_THRPST_CNT": {
+          "decimal_spelling_count": 861,
+          "numeric_sum_diagnostic_only": "6758.39",
+          "range": {
+            "max": "92.25",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 2356,
+            "zero": 4208
+          }
+        },
+        "PHYSN_CNT": {
+          "decimal_spelling_count": 863,
+          "numeric_sum_diagnostic_only": "23299.70",
+          "range": {
+            "max": "2200.75",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 2618,
+            "zero": 3946
+          }
+        },
+        "PHYSN_ASTNT_CNT": {
+          "decimal_spelling_count": 247,
+          "numeric_sum_diagnostic_only": "3343.72",
+          "range": {
+            "max": "142.65",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 960,
+            "zero": 5604
+          }
+        },
+        "RSDNT_PHYSN_CNT": {
+          "decimal_spelling_count": 85,
+          "numeric_sum_diagnostic_only": "15058.16",
+          "range": {
+            "max": "740",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 524,
+            "zero": 6040
+          }
+        },
+        "PSYCHLGST_CNT": {
+          "decimal_spelling_count": 42,
+          "numeric_sum_diagnostic_only": "592.95",
+          "range": {
+            "max": "63",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 171,
+            "zero": 6393
+          }
+        },
+        "PHYS_THRPST_CNT": {
+          "decimal_spelling_count": 1097,
+          "numeric_sum_diagnostic_only": "11696.72",
+          "range": {
+            "max": "162.5",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 3221,
+            "zero": 3343
+          }
+        },
+        "RDLGY_TCHNCN_CNT": {
+          "decimal_spelling_count": 417,
+          "numeric_sum_diagnostic_only": "8195.41",
+          "range": {
+            "max": "92",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 1030,
+            "zero": 5534
+          }
+        },
+        "REG_PHRMCST_CNT": {
+          "decimal_spelling_count": 1674,
+          "numeric_sum_diagnostic_only": "12542.93",
+          "range": {
+            "max": "84",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 4147,
+            "zero": 2417
+          }
+        },
+        "INHLTN_THRPST_CNT": {
+          "decimal_spelling_count": 1536,
+          "numeric_sum_diagnostic_only": "21274.04",
+          "range": {
+            "max": "700",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 3505,
+            "zero": 3059
+          }
+        },
+        "RN_CNT": {
+          "decimal_spelling_count": 2713,
+          "numeric_sum_diagnostic_only": "293643.91",
+          "range": {
+            "max": "6154.56",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 5909,
+            "zero": 655
+          }
+        },
+        "SPCH_PTHLGST_AUDLGST_CNT": {
+          "decimal_spelling_count": 735,
+          "numeric_sum_diagnostic_only": "8757.49",
+          "range": {
+            "max": "4000",
+            "min": "0"
+          },
+          "states": {
+            "blank": 1,
+            "positive": 1664,
+            "zero": 4900
+          }
+        }
+      },
+      "literal_flags": {
+        "SKLTN_REC_SW": {
+          "literal_N": 6330,
+          "literal_Y": 235
+        },
+        "COLCTN_STUS_SW": {
+          "blank": 1,
+          "literal_N": 6504,
+          "literal_Y": 60
+        },
+        "LSC_WVR_SW": {
+          "blank": 1,
+          "literal_N": 6438,
+          "literal_Y": 126
+        },
+        "PSYCH_UNIT_SW": {
+          "literal_N": 5717,
+          "literal_Y": 848
+        },
+        "REHAB_UNIT_SW": {
+          "literal_N": 6124,
+          "literal_Y": 441
+        },
+        "SB_SW": {
+          "blank": 1,
+          "literal_N": 4929,
+          "literal_Y": 1635
+        },
+        "OVRRD_BED_CNT_SW": {
+          "blank": 1,
+          "literal_N": 5729,
+          "literal_Y": 835
+        },
+        "OVRRD_STFG_SW": {
+          "blank": 1,
+          "literal_N": 4869,
+          "literal_Y": 1695
+        }
+      },
+      "status_codes": {
+        "PRVDR_CTGRY_SBTYP_CD": {
+          "blank": 235,
+          "code_01": 4714,
+          "code_02": 350,
+          "code_03": 15,
+          "code_04": 767,
+          "code_05": 259,
+          "code_06": 39,
+          "code_11": 149,
+          "code_20": 33,
+          "code_28": 4
+        },
+        "PGM_TRMNTN_CD": {
+          "code_01": 3993,
+          "code_02": 17,
+          "code_03": 56,
+          "code_04": 428,
+          "code_05": 170,
+          "code_06": 31,
+          "code_07": 1870
+        },
+        "CMPLNC_STUS_CD": {
+          "blank": 235,
+          "code_A": 5637,
+          "code_B": 693
+        },
+        "CRTFCTN_ACTN_TYPE_CD": {
+          "blank": 2,
+          "code_1": 1535,
+          "code_2": 4286,
+          "code_3": 125,
+          "code_4": 14,
+          "code_5": 509,
+          "code_8": 94
+        }
+      }
+    }
+  }
+}
