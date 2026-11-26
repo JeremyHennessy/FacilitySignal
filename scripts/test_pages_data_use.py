@@ -28,6 +28,12 @@ try:
             page.get_by_role("columnheader",name="Total beds",exact=True).wait_for()
             assert page.locator(".metrics .metric strong").all_inner_texts()==["311","21,765","305","6"]
             assert page.locator("select[name=source]").input_value()=="long-term-hospital"
+            result=page.locator(".ltch-capacity-table")
+            assert result.count()==1
+            assert result.locator("tbody tr:first-child td:nth-child(3)").evaluate("(e)=>getComputedStyle(e).whiteSpace")=="nowrap"
+            assert result.evaluate("(e)=>e.scrollWidth>=e.clientWidth")
+            assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+            result.screenshot(path=str(OUT/f"{width}-ltch-results.png"))
             page.screenshot(path=str(OUT/f"{width}-ltch-capacity.png"),full_page=True)
             page.goto(URL+"#capacity?source=long-term-hospital&reported=unknown")
             page.get_by_role("columnheader",name="Total beds",exact=True).wait_for()

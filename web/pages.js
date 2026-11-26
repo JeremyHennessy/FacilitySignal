@@ -58,7 +58,7 @@ async function intelligence(view,signal,epoch){
             evidenceTable.classList.add("intelligence-table");
             evidenceTable.setAttribute("aria-label",g.title+"; scroll horizontally if needed");
             app.append(el("h2",g.title),el("p",g.note,"intro"));
-            if(g.columns.length>3)app.append(el("p","Scroll horizontally to see all columns.","intelligence-scroll-hint"));
+            if(g.columns.length>3||g.id==="clia-certificate")app.append(el("p","Scroll horizontally to see all columns.","intelligence-scroll-hint"));
             app.append(evidenceTable);
             const evidence=el("div",undefined,"links");
             evidence.append(anchor("Qualification run "+g.run,"https://github.com/JeremyHennessy/FacilitySignal/actions/runs/"+g.run,true));
@@ -512,7 +512,9 @@ async function capacityExplorer(p,signal,epoch){
         else{
             const result=filtered.slice((page-1)*pageSize,page*pageSize);
             const cells=result.map(r=>[recordCell(s,r,publicFields),shown([r.address,r.city,r.state,r.zip].filter(Boolean).join(", ")),publicCapacity(r)===null?"Not reported / nonnumeric":N.format(publicCapacity(r)),sourceLink(s)]);
-            app.append(table(["Provider / CCN","Reported address",unit.label,"Evidence"],cells))
+            const resultsTable=table(["Provider / CCN","Reported address",unit.label,"Evidence"],cells);
+            if(s.key==="long-term-hospital"){resultsTable.classList.add("ltch-capacity-table");app.append(el("p","Scroll horizontally to see all columns if needed.","intelligence-scroll-hint"))}
+            app.append(resultsTable)
         }
         const pager=el("div",undefined,"pager");pager.append(el("span","Page "+page+" · "+N.format(totals.records)+" matches"));
         if(page>1)pager.append(anchor("Previous",route("capacity",{...p,page:page-1})));
@@ -524,7 +526,7 @@ async function capacityExplorer(p,signal,epoch){
             for(const row of filtered){if(!grouped.has(row.state))throw Error("Unrecognized jurisdiction in provider shard");grouped.get(row.state).push(row)}
             const regional=[...grouped].map(([state,rows])=>({state,...summarizeCapacity(rows)}));
             regional.sort((a,b)=>b.sum-a.sum||b.records-a.records||a.state.localeCompare(b.state));
-            app.append(table(["Jurisdiction","Matching records","Numeric capacity reported","Missing / nonnumeric",unit.label+" reported total"],regional.map(g=>[anchor(g.state,route("capacity",{...p,state:g.state,page:1})),N.format(g.records),N.format(g.reported),N.format(g.unknown),g.reported?N.format(g.sum):"—"])))
+            const regionalTable=table(["Jurisdiction","Matching records","Numeric capacity reported","Missing / nonnumeric",unit.label+" reported total"],regional.map(g=>[anchor(g.state,route("capacity",{...p,state:g.state,page:1})),N.format(g.records),N.format(g.reported),N.format(g.unknown),g.reported?N.format(g.sum):"—"]));if(s.key==="long-term-hospital")regionalTable.classList.add("ltch-capacity-region");app.append(regionalTable)
         }else app.append(add(el("p"),anchor("View all jurisdictions",route("capacity",{...p,state:"",page:1}))));
         app.append(el("p","Within the selected geography, "+N.format(regionTotals.reported)+" of "+N.format(regionTotals.records)+" provider source records report a nonnegative whole-number capacity before capacity filters. Reported zeros are retained. Blank, nonnumeric and negative values are not interpreted. Capacity is derived only from the existing public Care Compare projection.","intro"))
     }catch(e){if(epoch!==sequence||e.name==="AbortError")return;status.replaceWith(errorBox(s,e))}
