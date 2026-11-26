@@ -99,6 +99,13 @@ try:
             page.goto(URL+"#detail?"+urlencode({"source":"nursing","id":provider["ccn"],"state":provider["state"],"section":"sources"}))
             page.get_by_role("heading",name="Evidence availability for this record").wait_for()
             check()
+            evidence_table=page.locator(".profile-evidence-table")
+            assert evidence_table.count()==1
+            assert evidence_table.evaluate("(e)=>e.tabIndex===0&&getComputedStyle(e).overflowX==='auto'")
+            assert evidence_table.locator("table").evaluate("(e)=>e.getBoundingClientRect().width>=599")
+            if width==390:
+                assert evidence_table.evaluate("(e)=>e.scrollWidth>e.clientWidth")
+                assert evidence_table.evaluate("(e)=>{e.scrollLeft=100;const moved=e.scrollLeft>0;e.scrollLeft=0;return moved}")
             # Public provider projection only, no new restricted data.
             page.screenshot(path=str(OUT/f"{width}-profile-sources.png"),full_page=True)
             checked.append({"width":width,"profile_sections":True,"return_state":True,"capacity_distribution":True})

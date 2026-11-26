@@ -352,11 +352,14 @@ async function profileCompliance(r,s,f,signal,epoch){
     section.append(add(el("p"),anchor("National compliance research",route("compliance-research"))));
     return section
 }
+function profileEvidenceTable(headers,rows){
+    const wrap=table(headers,rows);wrap.classList.add("profile-evidence-table");wrap.setAttribute("aria-label","Evidence availability; scroll horizontally if needed");return wrap
+}
 function profileSources(s,r,f){
     const section=el("section");
     section.append(el("h2","Source and release"),table(["Evidence","Value"],[["Provider source",names[s.key]],["Source identifier (CCN)",shown(value(r,f,"id"))],["Reported state",shown(value(r,f,"state"))],["Published release",s.release],["Public projection",sourceLink(s,"Official source")]]),
         el("h2","Evidence availability for this record"),
-        table(["Evidence area","Public availability","Research link"],[
+        el("p","Scroll horizontally to see all evidence columns.","profile-scroll-hint"),profileEvidenceTable(["Evidence area","Public availability","Research link"],[
             ["Provider identity","Published source record",sourceLink(s)],
             ["Comparable capacity",capacityUnits[s.key]?(publicCapacity(r)===null?"Unknown":"Source-reported "+capacityUnits[s.key].label.toLowerCase()):"No qualified unit",capacityUnits[s.key]?anchor("Capacity explorer",route("capacity",{source:s.key,state:value(r,f,"state")})):"—"],
             ["Nursing citation aggregates",s.key==="nursing"?"Same-CCN/state candidate lookup":"No facility-linked public evidence",s.key==="nursing"?anchor("Compliance section",route("detail",{source:s.key,id:value(r,f,"id"),state:value(r,f,"state"),return:localResearchReturn(read().p.return),section:"compliance"})):anchor("National compliance research",route("compliance-research"))],
