@@ -1,0 +1,102 @@
+{
+  "format_version": 1,
+  "run_id": 45882881556,
+  "job_id": 140126450039,
+  "executed_commit": "233e02049163089537d0d1754a08053338a2173c",
+  "artifact_id": 15149155742,
+  "artifact_digest": "sha256:d73f80fe80cc5d1ef5aec69a9b9eead0c3ee0a5e75729f45be8cb58e0c0686f9",
+  "full_readback": {
+    "mode": "full_sha256",
+    "national_and_extension_pointers_unchanged": true,
+    "payload_sha256_recomputed": true,
+    "public_promotion": false,
+    "scope": "pinned completed archive only",
+    "status": "PASS",
+    "totals": {
+      "aggregate_evidence_releases": 8,
+      "aggregate_source_rows_screened": 40787611,
+      "derived_candidate_observations": 23520,
+      "derived_institutional_observations": 101534,
+      "payload_bytes": 10908812534,
+      "payload_files": 212,
+      "publisher_releases": 56,
+      "repository_data_evidence_files": 73,
+      "repository_supplemental_data_files": 13,
+      "source_observations": 117850722,
+      "supplemental_numeric_archives": 41,
+      "supplemental_numeric_observations": 107619587
+    },
+    "writes": 0
+  },
+  "representative_restore": {
+    "extension": {
+      "citation_ccn_day_crosscheck": 619069,
+      "database_sha256": "4090f140a45bdee990a0669e357d6d8d4672aff829ff0e52fb8f34e2e5d7e9bf",
+      "source_count": 16,
+      "source_lineage_verified": true,
+      "source_records": 865809,
+      "sqlite_integrity": "passed"
+    },
+    "national": {
+      "database_sha256": "138ad57c3719fe63895eeaff702c04b51107fe1cf6dc4daf403a554985a1f033",
+      "source_records": 1904060,
+      "sqlite_integrity": "passed",
+      "table_counts": {
+        "certification_records": 799990,
+        "facilities": 48004,
+        "findings": 619069,
+        "pecos_chow_rows": 6119,
+        "pecos_enrollment_rows": 23521,
+        "pecos_org_role_rows": 122966,
+        "qcor_hospital_rows": 284391
+      }
+    },
+    "public_promotion": false,
+    "publisher_downloads": 0,
+    "scope": "representative pinned private archive restoration only",
+    "status": "PASS",
+    "supplemental": {
+      "hcris-cmhc-2017-index": {
+        "database_bytes": 40960,
+        "database_sha256": "e8585b316df9099bda839d30e42bac00a57df3ca64b75eafd3654478ab5462bd",
+        "source_sha256": "2b52cc74a765737afc779009b6ebf042befefdc24b49fd26db426edabc7f6dbd",
+        "sqlite_integrity": "passed",
+        "table_counts": {
+          "reports": 716
+        }
+      },
+      "hcris-cmhc-2017-numeric": {
+        "database_bytes": 3915776,
+        "database_sha256": "6cf14e8dff2c7c69f53b965fe281fd5a5c5dae03cfad3bd826f348bff16e05b2",
+        "source_sha256": "2b52cc74a765737afc779009b6ebf042befefdc24b49fd26db426edabc7f6dbd",
+        "sqlite_integrity": "passed",
+        "table_counts": {
+          "numeric_cells": 52390
+        }
+      },
+      "hha-organizational-ownership": {
+        "database_bytes": 19591168,
+        "database_sha256": "c24ef49cb070c8e4adce595d68aecee02d060c97e9348fd969c0bac8ba230681",
+        "source_sha256": "75f6de0bde699b85de15f8b206b3c287afc05388400b78e7ee42284f15ebbf02",
+        "sqlite_integrity": "passed",
+        "table_counts": {
+          "pecos_chow_rows": 0,
+          "pecos_enrollment_rows": 0,
+          "pecos_org_role_rows": 21734
+        }
+      },
+      "institutional-field-observations": {
+        "database_bytes": 19152896,
+        "database_sha256": "5c1827bacea3018c493db34a8a5b83cd4b92bb754583aa90efc744066186403a",
+        "source_sha256": "c19f08e7c24abf2469d161105f487cd36ef8fc9e2fa725ef64164e4e90e8736c",
+        "sqlite_integrity": "passed",
+        "table_counts": {
+          "candidate_field": 10,
+          "candidate_observation": 101534,
+          "candidate_provider": 27592
+        }
+      }
+    },
+    "writes": 0
+  }
+}
