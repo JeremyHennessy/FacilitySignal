@@ -12,7 +12,7 @@ class BlobReleasePreviewTests(unittest.TestCase):
         pins,r=self.setup_report()
         self.assertEqual(m.selection(r,pins),({},{}))
         k="home-health";meta={"released":"2026-11-01","url":"https://data.cms.gov/new.csv"}
-        r["sources"][k].update(state="private_candidate_qualified",publisher=meta,api_count=101,candidate={"publisher":meta,"api_count":101,"source_sha256":"b"*64,"import":{"status":"imported","dataset":k,"sha256":"b"*64,"input_rows":101,"stored_rows":101,"duplicate_rows":0}})
+        r["sources"][k].update(state="private_candidate_qualified",publisher=meta,api_count=101,candidate={"publisher":meta,"api_count":101,"source_bytes":1000,"source_sha256":"b"*64,"import":{"status":"imported","dataset":k,"sha256":"b"*64,"input_rows":101,"stored_rows":101,"duplicate_rows":0}})
         selected,blocked=m.selection(r,pins)
         self.assertEqual(set(selected),{k});self.assertEqual(blocked,{})
         self.assertIn("home_health_service_evidence",m.dependency_review(selected))

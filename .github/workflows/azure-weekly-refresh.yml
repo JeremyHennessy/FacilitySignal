@@ -4,12 +4,14 @@ on:
     - cron: '17 11 * * 1'
   workflow_dispatch:
   push:
-    branches: [main, build/azure-weekly-refresh-20261126, build/weekly-nppes-private-refresh-20261126, build/azure-priority-completion-20261126, build/azure-changed-release-preview-20261126, build/azure-frs-healthcare-coverage-20261126]
+    branches: [main, build/azure-weekly-refresh-20261126, build/weekly-nppes-private-refresh-20261126, build/azure-priority-completion-20261126, build/azure-changed-release-preview-20261126, build/azure-frs-healthcare-coverage-20261126, build/azure-dependent-pack-requalification-20261126]
     paths:
       - .github/workflows/azure-weekly-refresh.yml
       - scripts/weekly_azure_refresh.py
       - scripts/weekly_archive_monitor.py
       - scripts/qualify_blob_release_preview.py
+      - scripts/requalify_care_compare_dependencies.py
+      - tests/test_care_compare_dependency_requalification.py
       - tests/test_blob_release_preview.py
       - tests/test_weekly_archive_monitor.py
       - tests/test_weekly_azure_refresh.py
