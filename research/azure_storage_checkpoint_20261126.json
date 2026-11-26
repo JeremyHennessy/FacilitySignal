@@ -1,0 +1,341 @@
+{
+  "as_of": "2026-11-26",
+  "national": {
+    "run": 45847538263,
+    "job": 140005126580,
+    "artifact": {
+      "id": 15132178359,
+      "digest": "sha256:7953f494b17c9554a78eb31fa80848ccdbf1888a17535df5ca4d970cefe1e93e"
+    },
+    "receipt": {
+      "commit": "25ed486112a82a202b3f379adbbb9613b4e54b8d",
+      "database_bytes": 906149888,
+      "database_sha256": "138ad57c3719fe63895eeaff702c04b51107fe1cf6dc4daf403a554985a1f033",
+      "domain": "FACILITYSIGNAL_NATIONAL_ARCHIVE",
+      "exact_inventory": true,
+      "file_count": 63,
+      "format_version": 1,
+      "independent_sqlite_restore_verified": true,
+      "inventory_etag_audit": {
+        "files": 63,
+        "folder_markers": 4,
+        "list_head_etag_relations": {
+          "different": 0,
+          "exact": 0,
+          "quote_only": 63
+        }
+      },
+      "payload_prefix": "CMS Facility Demo/releases/bootstrap-45845760984-1/files",
+      "payload_reuploads": 0,
+      "recovered_failed_bootstrap_run": 45845760984,
+      "recovery_commit": "62245dccf0433a8f733df1401e2ed144a0739d8a",
+      "recovery_run": "bootstrap-45847538263-1",
+      "release": "bootstrap-45845760984-1",
+      "reused_payload_files": 63,
+      "scope": "Qualified processed national SQLite snapshot plus tracked application and research JSON; no excluded raw owner records, no unqualified source originals, no Pages deployment changes.",
+      "sha256_readback": true,
+      "source_lock_sha256": "b830627c44a759d042cc52311f175280e08fd81d5e3079f13b9b60068d298204",
+      "source_records": 1904060,
+      "status": "COMPLETE",
+      "total_bytes": 923646425
+    }
+  },
+  "extension": {
+    "run": 45848914611,
+    "job": 140009881602,
+    "artifact": {
+      "id": 15133255742,
+      "digest": "sha256:6639cb762e9697d77f23ecfcccab6d77a50d2a09ecc86df92ab023ed77396975"
+    },
+    "receipt": {
+      "application_pack_parity": {
+        "byte_parity": true,
+        "bytes": 12589349,
+        "file_count": 15,
+        "pages_paths_unchanged": true
+      },
+      "base_release": "bootstrap-45845760984-1",
+      "citation_ccn_day_crosscheck": 619069,
+      "database_bytes": 107786240,
+      "database_sha256": "4090f140a45bdee990a0669e357d6d8d4672aff829ff0e52fb8f34e2e5d7e9bf",
+      "file_count": 3,
+      "inventory_etag_audit": {
+        "files": 3,
+        "folder_markers": 0,
+        "list_head_etag_relations": {
+          "different": 0,
+          "exact": 0,
+          "quote_only": 3
+        }
+      },
+      "payload_reuploads": 0,
+      "pointer_verified": true,
+      "prior_failed_run": 45847822268,
+      "receipt_sha256": "2b7af17495e67d5ea4cb7854ef4b89d5b95e9c9c17201bc17539776df8dcf83a",
+      "release": "extension-45847822268-1",
+      "source_count": 16,
+      "source_lineage_verified": true,
+      "source_records": 865809,
+      "sqlite_integrity": "passed",
+      "status": "COMPLETE",
+      "total_bytes": 107804429
+    },
+    "source_rows": {
+      "FS-011": 9146,
+      "FS-023": 56226,
+      "FS-024": 6634,
+      "FS-025": 61443,
+      "FS-026": 16481,
+      "FS-027": 875,
+      "FS-028": 751,
+      "FS-029": 3458,
+      "FS-030": 1104,
+      "FS-031": 385312,
+      "FS-032": 95789,
+      "FS-034": 148956,
+      "FS-036": 15007,
+      "FS-037": 43931,
+      "FS-056": 6109,
+      "FS-057": 14587
+    }
+  },
+  "weekly_refresh": {
+    "workflow": ".github/workflows/azure-weekly-refresh.yml",
+    "schedule_utc": "17 11 * * 1",
+    "initial_run": 45848539102,
+    "artifact": {
+      "id": 15131659385,
+      "digest": "sha256:74d18f053475f3edf0206ce1542eff7cc4fb6a4f7fae0100ef73461fc8d4ae9b"
+    },
+    "audit": {
+      "base_release": "bootstrap-45845760984-1",
+      "checked_at": "2026-11-26T15:23:37.571552+00:00",
+      "failed_checks": [],
+      "format_version": 1,
+      "limits": "Care Compare source candidates and NPPES weekly aggregate qualifications only. Nursing supplementary, registry/ownership and monthly NPPES changes detected for separate qualification; not automatic public release. Source metadata equality does not prove unchanged bytes at mutable URLs.",
+      "national_pointer_unchanged": true,
+      "pages_packs_unchanged": true,
+      "policy_version": 1,
+      "public_promotion": false,
+      "sources": {
+        "dialysis": {
+          "api_count": 7471,
+          "published_baseline_release": "2026-10-28",
+          "publisher": {
+            "id": "23ew-n7w9",
+            "modified": "2026-10-22",
+            "released": "2026-10-28",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/610e4ab03db86f9cfac93530c3ba5a7c_1792706819/DFC_FACILITY_2.csv"
+          },
+          "state": "unchanged"
+        },
+        "home-health": {
+          "api_count": 12409,
+          "published_baseline_release": "2026-10-21",
+          "publisher": {
+            "id": "6jpm-sxkc",
+            "modified": "2026-09-21",
+            "released": "2026-10-21",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/92900270a41131976715718c15738673_1791237945/HH_Provider_Oct2026.csv"
+          },
+          "state": "unchanged"
+        },
+        "hospice": {
+          "api_count": 6470,
+          "published_baseline_release": "2026-11-20",
+          "publisher": {
+            "id": "yc9t-dgbk",
+            "modified": "2026-11-05",
+            "released": "2026-11-20",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/a41ea139a065bf901e922147ddda6ff2_1793909115/Hospice_General-Information_Nov2026.csv"
+          },
+          "state": "unchanged"
+        },
+        "hospital": {
+          "api_count": 5435,
+          "published_baseline_release": "2026-11-12",
+          "publisher": {
+            "id": "xubh-q36u",
+            "modified": "2026-10-26",
+            "released": "2026-11-12",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/d3bf87c5505155f549d603688414f3c6_1793059553/Hospital_General_Information_2.csv"
+          },
+          "state": "unchanged"
+        },
+        "long-term-hospital": {
+          "api_count": 311,
+          "published_baseline_release": "2026-09-23",
+          "publisher": {
+            "id": "azum-44iv",
+            "modified": "2026-08-12",
+            "released": "2026-09-23",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/2b538c65447e4897d75b0365b394e49b_1788977190/Long-Term_Care_Hospital-General_Information_Sep2026.csv"
+          },
+          "state": "unchanged"
+        },
+        "nppes": {
+          "monthly": {
+            "label": "NPPES Data Dissemination V.2 (November 09, 2026)",
+            "state": "unchanged",
+            "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_November_2026_V2.zip"
+          },
+          "weeks": [
+            {
+              "end": "2026-11-08",
+              "label": "NPPES Data Dissemination V.2 - Weekly Update - 110226_110826",
+              "start": "2026-11-02",
+              "state": "previously_qualified",
+              "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_110226_110826_Weekly_V2.zip"
+            },
+            {
+              "end": "2026-11-15",
+              "label": "NPPES Data Dissemination V.2 - Weekly Update - 110926_111526",
+              "start": "2026-11-09",
+              "state": "previously_qualified",
+              "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_110926_111526_Weekly_V2.zip"
+            },
+            {
+              "end": "2026-11-22",
+              "label": "NPPES Data Dissemination V.2 - Weekly Update - 111626_112226",
+              "start": "2026-11-16",
+              "state": "previously_qualified",
+              "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_111626_112226_Weekly_V2.zip"
+            }
+          ]
+        },
+        "nursing": {
+          "api_count": 14686,
+          "published_baseline_release": "2026-10-28",
+          "publisher": {
+            "id": "4pq5-n9py",
+            "modified": "2026-10-01",
+            "released": "2026-10-28",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/0970c657767e40f8521187d02ba8d0ed_1792181744/NH_ProviderInfo_Oct2026.csv"
+          },
+          "state": "unchanged"
+        },
+        "nursing-fire": {
+          "api_count": 200387,
+          "published_baseline_release": "2026-10-28",
+          "publisher": {
+            "id": "ifjz-ge4w",
+            "modified": "2026-10-01",
+            "released": "2026-10-28",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/908176fdfb9dcb11451601593513c639_1792181728/NH_FireSafetyCitations_Oct2026.csv"
+          },
+          "state": "unchanged"
+        },
+        "nursing-health": {
+          "api_count": 418682,
+          "published_baseline_release": "2026-10-28",
+          "publisher": {
+            "id": "r5ix-sfxw",
+            "modified": "2026-10-01",
+            "released": "2026-10-28",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/327fc64eff7ccc64fd7d23c853bb1ade_1792181729/NH_HealthCitations_Oct2026.csv"
+          },
+          "state": "unchanged"
+        },
+        "nursing-penalties": {
+          "api_count": 15007,
+          "publisher": {
+            "id": "g6vv-u9sr",
+            "modified": "2026-10-01",
+            "released": "2026-10-28",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/4d0e526b8cf3d0b78294803291483073_1792181741/NH_Penalties_Oct2026.csv"
+          },
+          "state": "unchanged"
+        },
+        "nursing-survey-dates": {
+          "api_count": 148956,
+          "publisher": {
+            "id": "svdt-c123",
+            "modified": "2026-10-01",
+            "released": "2026-10-28",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/ee6ac07919644f7bdce3c31de310f0be_1792181765/NH_SurveyDates_Oct2026.csv"
+          },
+          "state": "unchanged"
+        },
+        "nursing-survey-summary": {
+          "api_count": 43931,
+          "publisher": {
+            "id": "tbry-pc2d",
+            "modified": "2026-10-01",
+            "released": "2026-10-28",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6207d646a217204ae1c5d0e272dcda96_1792181756/NH_SurveySummary_Oct2026.csv"
+          },
+          "state": "unchanged"
+        },
+        "registry_and_ownership": {
+          "clia": {
+            "period": "2026-07-01/2026-09-30",
+            "state": "unchanged",
+            "version_api": "https://data.cms.gov/data-api/v1/dataset/1562f97e-b03b-49a0-8552-d321321b54a3/data"
+          },
+          "hospital-chow": {
+            "period": "2026-07-01/2026-09-30",
+            "state": "unchanged",
+            "version_api": "https://data.cms.gov/data-api/v1/dataset/a78e5b6a-d1ee-4078-98d1-1415c704a028/data"
+          },
+          "hospital-enrollment": {
+            "period": "2026-11-01/2026-11-30",
+            "state": "unchanged",
+            "version_api": "https://data.cms.gov/data-api/v1/dataset/a13f9528-2640-4f67-b716-884abdbe822c/data"
+          },
+          "hospital-owner": {
+            "period": "2026-11-01/2026-11-30",
+            "state": "unchanged",
+            "version_api": "https://data.cms.gov/data-api/v1/dataset/5c50f5b1-90c7-43df-9d5e-8cc22a11a2d0/data"
+          },
+          "iqies": {
+            "period": "2026-07-01/2026-09-30",
+            "state": "unchanged",
+            "version_api": "https://data.cms.gov/data-api/v1/dataset/8b2c0a70-7e47-4b0f-a592-e51eb315cead/data"
+          },
+          "qies": {
+            "period": "2026-07-01/2026-09-30",
+            "state": "unchanged",
+            "version_api": "https://data.cms.gov/data-api/v1/dataset/b1e5b072-5e82-4e37-9bd6-de8708679935/data"
+          },
+          "snf-chow": {
+            "period": "2026-07-01/2026-09-30",
+            "state": "unchanged",
+            "version_api": "https://data.cms.gov/data-api/v1/dataset/e3143536-7a28-41b3-8e29-f3b56047e3cd/data"
+          },
+          "snf-enrollment": {
+            "period": "2026-11-01/2026-11-30",
+            "state": "unchanged",
+            "version_api": "https://data.cms.gov/data-api/v1/dataset/92a8ea7b-7007-451a-90a3-7215c49345e0/data"
+          },
+          "snf-owner": {
+            "period": "2026-11-01/2026-11-30",
+            "state": "unchanged",
+            "version_api": "https://data.cms.gov/data-api/v1/dataset/e910a8eb-3e63-49a3-9586-2c82ee51a2ab/data"
+          }
+        },
+        "rehabilitation": {
+          "api_count": 1222,
+          "published_baseline_release": "2026-09-23",
+          "publisher": {
+            "id": "7t8x-u3ir",
+            "modified": "2026-08-12",
+            "released": "2026-09-23",
+            "url": "https://data.cms.gov/provider-data/sites/default/files/resources/dfc1c2f6b3882096ee5eff28272b1028_1788977188/Inpatient_Rehabilitation_Facility-General_Information_Sep2026.csv"
+          },
+          "state": "unchanged"
+        }
+      }
+    }
+  },
+  "live_pages": {
+    "run": 45848110384,
+    "artifact": {
+      "id": 15132241197,
+      "digest": "sha256:589d548177fa59dc5380726e906c20e4968ee5f83e433041b36b3fe684c678ab"
+    },
+    "url": "https://jeremyhennessy.github.io/FacilitySignal/",
+    "automated_screens_captured": 120,
+    "scope": "ordinary public URL; automated browser assertions and screenshot capture passed; independent manual screenshot review not asserted"
+  },
+  "limits": "Private processed base and extension snapshots only. No unique facility count, raw archive, current-site identity, live private API, automatic public data cutover, or commercial reuse approval. NPPES/HCRIS row-level storage and HRSA screening remain separate. Existing Azure resource charges may apply."
+}

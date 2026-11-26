@@ -100,7 +100,13 @@
       "retained_database_rows": 0,
       "canonical_matches": 0,
       "reuse_review": "pending",
-      "note": "Separate FDA release qualification; not part of integrated national baseline or public directory. No contact fields retained, no stable publisher identifier, no per-site equipment count."
+      "note": "Separate FDA release qualification; not part of integrated national baseline or public directory. No contact fields retained, no stable publisher identifier, no per-site equipment count.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 9146,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-012",
@@ -164,7 +170,13 @@
       "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration."
+      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 56226,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-024",
@@ -175,7 +187,13 @@
       "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration."
+      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 6634,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-025",
@@ -185,7 +203,13 @@
       "ephemeral_projected_rows": 61443,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Aggregate-only source-scoped QCOR workbook projection; historical survey events and tag classes, no public row-level retention or current compliance inference; not included in integrated national baseline."
+      "note": "Aggregate-only source-scoped QCOR workbook projection; historical survey events and tag classes, no public row-level retention or current compliance inference; not included in integrated national baseline.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 61443,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-026",
@@ -196,7 +220,13 @@
       "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Exact prior source bytes requalified after documented CMS alphanumeric state prefix correction; no retained row-level publication or integrated baseline increment."
+      "note": "Exact prior source bytes requalified after documented CMS alphanumeric state prefix correction; no retained row-level publication or integrated baseline increment.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 16481,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-027",
@@ -207,7 +237,13 @@
       "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Exact prior source bytes requalified after documented CMS alphanumeric state prefix correction; no retained row-level publication or integrated baseline increment."
+      "note": "Exact prior source bytes requalified after documented CMS alphanumeric state prefix correction; no retained row-level publication or integrated baseline increment.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 875,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-028",
@@ -217,7 +253,13 @@
       "ephemeral_projected_rows": 751,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Aggregate-only source-scoped QCOR workbook projection; historical survey events and tag classes, no public row-level retention or current compliance inference; not included in integrated national baseline."
+      "note": "Aggregate-only source-scoped QCOR workbook projection; historical survey events and tag classes, no public row-level retention or current compliance inference; not included in integrated national baseline.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 751,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-029",
@@ -228,7 +270,13 @@
       "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration."
+      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 3458,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-030",
@@ -239,7 +287,13 @@
       "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration."
+      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 1104,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-031",
@@ -250,7 +304,13 @@
       "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Exact-release ICF-IID qualification passed after independently validating 639 publisher tag-selector values. No row-level publication, persistent database integration or current compliance inference."
+      "note": "Exact-release ICF-IID qualification passed after independently validating 639 publisher tag-selector values. No row-level publication, persistent database integration or current compliance inference.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 385312,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-032",
@@ -261,7 +321,13 @@
       "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration."
+      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration.",
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 95789,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-033",
@@ -280,7 +346,13 @@
       "reuse_review": "pending",
       "note": "Source-specific historical survey projection qualified against retained CMS baseline; no row-level publication or persistent national integration.",
       "combined_care_compare_qualification_run": 45838315266,
-      "combined_care_compare_qualified_rows": 148956
+      "combined_care_compare_qualified_rows": 148956,
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 148956,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-035",
@@ -298,7 +370,13 @@
       "reuse_review": "pending",
       "note": "Standalone national SQLite projection and exact CCN/state evidence qualified; not included in integrated national baseline or public facility profiles. Historical fines and payment denials, not outstanding liabilities.",
       "combined_care_compare_qualification_run": 45838315266,
-      "combined_care_compare_qualified_rows": 15007
+      "combined_care_compare_qualified_rows": 15007,
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 15007,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-037",
@@ -311,7 +389,13 @@
       "reuse_review": "pending",
       "note": "Source-specific historical survey projection qualified against retained CMS baseline; no row-level publication or persistent national integration.",
       "combined_care_compare_qualification_run": 45838315266,
-      "combined_care_compare_qualified_rows": 43931
+      "combined_care_compare_qualified_rows": 43931,
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 43931,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-038",
@@ -424,7 +508,13 @@
       "reuse_review": "pending",
       "note": "Standalone report-grain projection of 19 selected 2024 measures; 5935 same-state CCN evidence pairs and 174 unmatched reports. No retained row-level records or integrated national baseline increment; dictionary semantics/units and ambiguous dates require review.",
       "combined_care_compare_qualification_run": 45838315266,
-      "combined_care_compare_qualified_rows": 6109
+      "combined_care_compare_qualified_rows": 6109,
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 6109,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-057",
@@ -436,7 +526,13 @@
       "reuse_review": "pending",
       "note": "Report-grain projection of 15 selected 2024 measures; 14416 same-state CCN evidence pairs and 171 unmatched reports. No retained row-level records or integrated national baseline increment; ambiguous and missing dates retained.",
       "combined_care_compare_qualification_run": 45838315266,
-      "combined_care_compare_qualified_rows": 14587
+      "combined_care_compare_qualified_rows": 14587,
+      "current_private_archive": {
+        "release": "extension-45847822268-1",
+        "verified_rows": 14587,
+        "verification_run": 45848914611,
+        "public_row_level_promotion": false
+      }
     },
     {
       "id": "FS-058",
@@ -3847,5 +3943,48 @@
     "reuse_review": "pending",
     "retained_row_level_records": 0,
     "included_in_original_19_source_national_baseline": false
+  },
+  "current_private_storage": {
+    "evidence": "research/azure_storage_checkpoint_20261126.json",
+    "verified": true,
+    "national_release": "bootstrap-45845760984-1",
+    "national_source_records": 1904060,
+    "national_archive_bytes": 923646425,
+    "national_recovery_run": 45847538263,
+    "extension_release": "extension-45847822268-1",
+    "extension_source_records": 865809,
+    "extension_archive_bytes": 107804429,
+    "extension_recovery_run": 45848914611,
+    "distinct_source_release_count": 35,
+    "total_archived_source_records": 2769869,
+    "archive_payload_files": 66,
+    "total_payload_bytes": 1031450854,
+    "public_packs_parity": {
+      "byte_parity": true,
+      "bytes": 12589349,
+      "file_count": 15,
+      "pages_paths_unchanged": true
+    },
+    "scope": "Source-native records across immutable private snapshots, not unique facilities. Historical qualification entries and retained_database_rows fields describe their original CI attempts; current verified private retention is recorded separately here.",
+    "raw_sources_archived": false,
+    "hrsa_screened_rows_archived": 0,
+    "nppes_rows_archived": 0,
+    "hcris_rows_archived": 0,
+    "commercial_reuse_review": "pending",
+    "public_promotion": false
+  },
+  "weekly_refresh_checkpoint": {
+    "workflow": ".github/workflows/azure-weekly-refresh.yml",
+    "schedule_utc": "17 11 * * 1",
+    "initial_live_run": 45848539102,
+    "checked_at": "2026-11-26T15:23:37.571552+00:00",
+    "failed_checks": [],
+    "care_compare_sources_checked": 9,
+    "nursing_supplementary_sources_checked": 3,
+    "registry_and_ownership_sources_checked": 9,
+    "nppes_weeks_previously_qualified": 3,
+    "new_source_candidates": 0,
+    "public_promotion": false,
+    "note": "Scheduled private candidate refresh and metadata discovery; coherent public pack cutover and remaining source-family policies pending. First run matched existing release metadata/counts; no claim of reverified unchanged mutable URL bytes."
   }
 }
