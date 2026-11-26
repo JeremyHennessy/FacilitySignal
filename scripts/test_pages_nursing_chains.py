@@ -39,6 +39,9 @@ try:
             page.goto(URL+"#nursing-portfolios")
             loc=scope(page,612)
             assert loc.locator(".chain-groups tbody tr").count()==25
+            if width<=720:
+                assert loc.locator(".chain-scroll-hint").is_visible()
+                assert loc.locator(".chain-groups").evaluate("(e)=>{const frame=e.getBoundingClientRect(),row=e.querySelector(\"tbody tr\"),a=row.cells[0].getBoundingClientRect(),b=row.cells[1].getBoundingClientRect();return a.left>=frame.left-2&&b.right<=frame.right+2&&b.width>=95}"),"Matching group counts clipped on mobile"
             loc.screenshot(path=str(OUT/f"{width}-group-directory.png"))
             loc.locator("input[name=chain_q]").fill(groups[group][0])
             loc.get_by_role("button",name="Find groups").click()
@@ -52,6 +55,9 @@ try:
             actual=loc.locator(".metrics .metric strong").all_inner_texts()
             known=[int(r["capacity"]) for r in expected if str(r["capacity"]).strip().isdigit()]
             assert actual==[f"{len(members):,}",f"{len(expected):,}",f"{sum(known):,}" if known else "—","1"],actual
+            if width<=720:
+                assert loc.locator(".chain-scroll-hint").is_visible()
+                assert loc.locator(".chain-members").evaluate("(e)=>{const frame=e.getBoundingClientRect(),row=e.querySelector(\"tbody tr\"),a=row.cells[0].getBoundingClientRect(),b=row.cells[1].getBoundingClientRect();return a.left>=frame.left-2&&b.right<=frame.right+2&&b.width>=95}"),"Member bed capacity clipped on mobile"
             loc.screenshot(path=str(OUT/f"{width}-group-detail.png"))
             with page.expect_download() as dl:loc.get_by_role("button",name="Export matching members (CSV)").click()
             records=list(csv.DictReader(io.StringIO(dl.value.path().read_text())))

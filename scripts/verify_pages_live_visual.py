@@ -159,11 +159,17 @@ def run(base,local):
                     assert loc.locator(".chain-status").get_attribute("data-total")=="612"
                     got=[r for r in responses if r.url==base+"web/nursing-chain-evidence.json?v="+HASHES["web/nursing-chain-evidence.json"][:16]]
                     assert got and sha(got[-1].body())==HASHES["web/nursing-chain-evidence.json"],"Stale chain pack"
+                    if width<=720:
+                        assert loc.locator(".chain-scroll-hint").is_visible()
+                        assert loc.locator(".chain-groups").evaluate("(e)=>{const frame=e.getBoundingClientRect(),row=e.querySelector(\"tbody tr\"),a=row.cells[0].getBoundingClientRect(),b=row.cells[1].getBoundingClientRect();return a.left>=frame.left-2&&b.right<=frame.right+2&&b.width>=95}")
                     loc.screenshot(path=str(OUT/f"{width}-chain-directory.png"))
                     loc.locator(".chain-groups tbody tr a").first.click()
                     detail=page.locator(".chain-explorer[data-ready=true]");detail.locator(".chain-members").wait_for()
                     assert int(detail.locator(".chain-status").get_attribute("data-total"))>0
                     assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+                    if width<=720:
+                        assert detail.locator(".chain-scroll-hint").is_visible()
+                        assert detail.locator(".chain-members").evaluate("(e)=>{const frame=e.getBoundingClientRect(),row=e.querySelector(\"tbody tr\"),a=row.cells[0].getBoundingClientRect(),b=row.cells[1].getBoundingClientRect();return a.left>=frame.left-2&&b.right<=frame.right+2&&b.width>=95}")
                     detail.screenshot(path=str(OUT/f"{width}-chain-members.png"))
                     detail.locator(".chain-members tbody tr a").first.click()
                     page.locator(".nursing-chain-profile[data-evidence=assigned]").wait_for()

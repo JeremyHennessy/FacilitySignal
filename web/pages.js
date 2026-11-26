@@ -1154,8 +1154,8 @@ async function nursingChainExplorer(params,signal,epoch){
             const hits=all.map(g=>({g,n:state?g.members.filter(r=>r.state===state).length:g.size})).filter(x=>x.n>0).sort((a,b)=>b.n-a.n||a.g.name.localeCompare(b.g.name)||a.g.id.localeCompare(b.g.id));
             status.textContent=N.format(hits.length)+" matching CMS groups · "+N.format(hits.reduce((n,x)=>n+x.n,0))+" assigned provider records"+(state?" in "+state:"")+".";
             status.dataset.total=String(hits.length);
-            const rows=hits.slice(offset,offset+pageSize).map(({g,n})=>[anchor(g.name,route("nursing-portfolios",{chain:g.id,chain_state:state,chain_q:q})),g.id,N.format(n),N.format(g.size),N.format(new Set(g.members.map(r=>r.state)).size)]);
-            if(rows.length){const t=table(["CMS reported group","Chain ID","Matching members","National members","Jurisdictions"],rows);t.classList.add("chain-groups");section.append(t)}
+            const rows=hits.slice(offset,offset+pageSize).map(({g,n})=>[anchor(g.name,route("nursing-portfolios",{chain:g.id,chain_state:state,chain_q:q})),N.format(n),N.format(g.size),N.format(new Set(g.members.map(r=>r.state)).size),g.id]);
+            if(rows.length){const t=table(["CMS reported group","Matching members","National members","Jurisdictions","Chain ID"],rows);t.classList.add("chain-groups");section.append(el("p","Scroll the table for national membership, jurisdictions and CMS group ID.","chain-scroll-hint intro"),t)}
             else section.append(el("div",hits.length?"Page outside matching groups. Return to the first page.":"No published groups match these filters.","empty"));
             pageLinks(hits.length,{chain_q:q,chain_state:state});
         }else{
@@ -1172,8 +1172,8 @@ async function nursingChainExplorer(params,signal,epoch){
             section.append(grid,el("p","Capacity sums known source-reported certified beds within the selected membership; it is not occupancy, a count of physical properties, or current ownership.","intro"));
             const regions=[...new Set(g.members.map(r=>r.state))].sort().map(st=>[anchor(st,route("nursing-portfolios",{chain:id,chain_state:st})),N.format(g.members.filter(r=>r.state===st).length)]);
             const distribution=el("details",undefined,"location-coverage");distribution.append(el("summary","Group membership by jurisdiction"),table(["Reported jurisdiction","Member records"],regions));section.append(distribution);
-            const rows=members.slice(offset,offset+pageSize).map(r=>[add(el("div"),anchor(r.name,route("detail",{source:"nursing",id:r.ccn,state:r.state,return:localResearchReturn(location.hash)})),el("small",r.ccn)),[r.city,r.state].filter(Boolean).join(", "),publicCapacity(r)===null?"Not reported":N.format(publicCapacity(r)),nursingChainPin.release]);
-            if(rows.length){const t=table(["Member provider / CCN","Reported city / state","Certified beds","Source release"],rows);t.classList.add("chain-members");section.append(t)}
+            const rows=members.slice(offset,offset+pageSize).map(r=>[add(el("div"),anchor(r.name,route("detail",{source:"nursing",id:r.ccn,state:r.state,return:localResearchReturn(location.hash)})),el("small",r.ccn+" · "+[r.city,r.state].filter(Boolean).join(", "))),publicCapacity(r)===null?"Not reported":N.format(publicCapacity(r)),nursingChainPin.release]);
+            if(rows.length){const t=table(["Member provider / CCN / location","Certified beds","Source release"],rows);t.classList.add("chain-members");section.append(el("p","Scroll the table for the source release.","chain-scroll-hint intro"),t)}
             else section.append(el("div",members.length?"Page outside matching members. Return to the first page.":"No members in the selected jurisdiction.","empty"));
             if(members.length){
                 const exp=el("button","Export matching members (CSV)");exp.type="button";exp.addEventListener("click",()=>downloadResearchCsv("facilitysignal-cms-chain-"+id+".csv",[["source","release","cms_chain_id","cms_group_label","ccn","provider_name","city","state","reported_certified_beds","capacity_evidence"],...members.map(r=>["CMS Care Compare nursing",nursingChainPin.release,id,g.name,r.ccn,r.name,r.city,r.state,publicCapacity(r),publicCapacity(r)===null?"not_reported":"reported_numeric"])]));section.append(add(el("div",undefined,"links"),exp))

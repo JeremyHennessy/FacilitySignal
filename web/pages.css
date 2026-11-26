@@ -142,3 +142,14 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 .chain-groups td:not(:first-child),.chain-members td:not(:first-child){white-space:nowrap}
 .nursing-chain-profile a{overflow-wrap:anywhere}
 @media(max-width:720px){.chain-explorer{padding:12px}.chain-form>label{flex-basis:100%}.chain-groups table,.chain-members table{min-width:680px!important}}
+
+/* Prioritize group size and member capacity in the first mobile viewport. */
+.chain-scroll-hint{display:none;font-size:12px;margin:6px 0}
+@media(max-width:720px){
+ .chain-scroll-hint{display:block}
+ .chain-groups table,.chain-members table{table-layout:fixed}
+ .chain-groups th:first-child,.chain-groups td:first-child,.chain-members th:first-child,.chain-members td:first-child{width:175px;min-width:175px!important}
+ .chain-groups th:nth-child(2),.chain-members th:nth-child(2){width:105px;min-width:105px}
+ .chain-members table{min-width:460px!important}
+ .chain-members td:nth-child(2){white-space:normal}
+}
