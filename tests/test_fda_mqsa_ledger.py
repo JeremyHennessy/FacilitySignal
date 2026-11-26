@@ -27,9 +27,16 @@ class MQSALedgerTests(unittest.TestCase):
         self.assertEqual(len(ledger["sources"]),176)
         self.assertEqual(json.loads((ROOT/"snapshot_release_20261125.json").read_text())["source_records_total"],1904060)
 
-    def test_hrsa_remains_unretrieved(self):
+    def test_hrsa_aggregate_screening_is_not_integration(self):
         ledger=json.loads((ROOT/"coverage_status.json").read_text())
         row=next(x for x in ledger["sources"] if x["id"]=="FS-009")
-        self.assertEqual(row["status"],"publisher_documentation_reviewed")
-        self.assertEqual(row["retrieved_rows"],0)
+        b=ledger["hrsa_sites_screening_baseline"];a=b["audit"]
+        self.assertEqual(row["status"],"aggregate_screening_qualified")
+        self.assertEqual(row["retrieved_rows"],18367)
+        self.assertEqual(a["input_rows"],a["privacy_screened_rows"]+a["excluded_protected_or_incomplete_rows"])
+        self.assertEqual((a["privacy_screened_rows"],a["excluded_protected_or_incomplete_rows"]),(16657,1710))
+        self.assertEqual(a["missing_site_id"]+a["duplicate_site_id"],0)
+        self.assertEqual(a["retained_row_level_records"],0)
+        self.assertEqual(row["retained_database_rows"],0)
+        self.assertFalse(b["included_in_integrated_national_baseline"])
         self.assertEqual(row["reuse_review"],"pending")

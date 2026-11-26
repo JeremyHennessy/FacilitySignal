@@ -60,11 +60,14 @@
     },
     {
       "id": "FS-009",
-      "status": "publisher_documentation_reviewed",
-      "evidence": "https://data.hrsa.gov/data/download",
-      "retrieved_rows": 0,
+      "status": "aggregate_screening_qualified",
+      "evidence": "45825457025",
+      "retrieved_rows": 18367,
       "reuse_review": "pending",
-      "note": "Daily HRSA service delivery/look-alike file, catalog usage limitations none; protected shelter address fields suppressed. Exclude shelter records from commercial processing and never reconstruct suppressed locations. Exact download/metadata and ingestion untested."
+      "note": "Aggregate-only schema, privacy screening and distinct BPHC key qualification; no institutional rows, location linkage, or integrated database projection. Metadata semantic and suppression review remain pending.",
+      "privacy_screened_rows": 16657,
+      "excluded_rows": 1710,
+      "retained_database_rows": 0
     },
     {
       "id": "FS-010",
@@ -1380,6 +1383,135 @@
       "reuse_review": "pending",
       "retained_row_level_records": 0,
       "limits": "Reported historical fine amounts are not outstanding liabilities or procurement intent. Exact CCN/state candidates are source evidence, not canonical sites. No row-level publication."
+    },
+    "reuse_review": "pending",
+    "retained_row_level_records": 0,
+    "included_in_integrated_national_baseline": false
+  },
+  "hrsa_sites_screening_baseline": {
+    "commit": "378f34608ee10f227f055798f5b3cae21935cec0",
+    "run": 45825457025,
+    "artifact": 15119897042,
+    "artifact_digest": "sha256:e89f4d14d99224e8519ea92bb9d72810dfa56c72f4acb16b9c051eed943679dc",
+    "audit": {
+      "headers": [
+        "Health Center Type",
+        "Health Center Number",
+        "BHCMIS Organization Identification Number",
+        "BPHC Assigned Number",
+        "Site Name",
+        "Site Address",
+        "Site City",
+        "Site State Abbreviation",
+        "Site Postal Code",
+        "Site Telephone Number",
+        "Site Web Address",
+        "Operating Hours per Week",
+        "Health Center Location Setting Identification Number",
+        "Health Center Service Delivery Site Location Setting Description",
+        "Health Center Status Identification Number",
+        "Site Status Description",
+        "FQHC Site Medicare Billing Number",
+        "FQHC Site NPI Number",
+        "Health Center Location Identification Number",
+        "Health Center Location Type Description",
+        "Health Center Type Identification Number",
+        "Health Center Type Description",
+        "Health Center Operator Identification Number",
+        "Health Center Operator Description",
+        "Health Center Operating Schedule Identification Number",
+        "Health Center Operational Schedule Description",
+        "Health Center Operating Calendar Surrogate Key",
+        "Health Center Operating Calendar",
+        "Site Added to Scope this Date",
+        "Health Center Name",
+        "Health Center Organization Street Address",
+        "Health Center Organization City",
+        "Health Center Organization State",
+        "Health Center Organization ZIP Code",
+        "Grantee Organization Type Description",
+        "Geocoding Artifact Address Primary X Coordinate",
+        "Geocoding Artifact Address Primary Y Coordinate",
+        "U.S. - Mexico Border 100 Kilometer Indicator",
+        "U.S. - Mexico Border County Indicator",
+        "State and County Federal Information Processing Standard Code",
+        "Complete County Name",
+        "County Equivalent Name",
+        "County Description",
+        "HHS Region Code",
+        "HHS Region Name",
+        "State FIPS Code",
+        "State Name",
+        "State FIPS and Congressional District Number Code",
+        "Congressional District Number",
+        "Congressional District Name",
+        "Congressional District Code",
+        "U.S. Congressional Representative Name",
+        "Name of U.S. Senator Number One",
+        "Name of U.S. Senator Number Two",
+        "Data Warehouse Record Create Date"
+      ],
+      "columns": 55,
+      "resolved_candidate_fields": {
+        "site_id": "BPHC Assigned Number",
+        "site_address": "Site Address",
+        "site_zip": "Site Postal Code",
+        "site_type": "Health Center Location Type Description",
+        "location_setting": "Health Center Service Delivery Site Location Setting Description",
+        "site_state": "Site State Abbreviation",
+        "site_status": "Site Status Description",
+        "center_type": "Health Center Type",
+        "record_date": "Data Warehouse Record Create Date"
+      },
+      "header_repair": {
+        "original_columns": 56,
+        "named_columns": 55,
+        "row_width_counts": {
+          "55": 18367
+        },
+        "unexpected_width_or_nonempty_extra_rows": 0,
+        "populated_extra_rows": 0
+      },
+      "header_anchors": 7,
+      "metadata_exact_header_matches": 44,
+      "input_rows": 18367,
+      "mapping_complete": true,
+      "missing_required_mapping": [],
+      "privacy_screened_rows": 16657,
+      "excluded_protected_or_incomplete_rows": 1710,
+      "missing_site_id": 0,
+      "duplicate_site_id": 0,
+      "status_counts": {
+        "active": 16657
+      },
+      "retained_row_level_records": 0,
+      "limits": "Candidate mapping only. No location or identity retained, no protected record linkage, no current operation inference. Metadata semantic and suppression review required before commercial row-level projection.",
+      "source": {
+        "url": "https://data.hrsa.gov/DataDownload/DD_Files/Health_Center_Service_Delivery_and_LookAlike_Sites.csv",
+        "bytes": 13141526,
+        "sha256": "c8b5fa167aa9ec040ac97f0ce0ba4a6d1fe8201032e90d40bc2423c0feba4348",
+        "last_modified": "Wed, 25 Nov 2026 12:04:22 GMT",
+        "etag": "\"93bfa21bd57cdd1:0\"",
+        "retrieved_at": "2026-11-26T13:03:43.692203+00:00"
+      },
+      "dictionary": {
+        "url": "https://data.hrsa.gov/DataDownload/DD_Files/EHB_SITE_DATAMART_METADATA.XLSX",
+        "bytes": 61867,
+        "sha256": "e2e20a25f861147d34a62b636c65b5475264fd0ee6a3f0af18ffe19810d184df",
+        "last_modified": "Thu, 26 Nov 2026 12:11:20 GMT",
+        "etag": "\"5e70593f9f7ddd1:0\"",
+        "retrieved_at": "2026-11-26T13:03:43.232084+00:00"
+      },
+      "metadata_sheets": [
+        {
+          "rows": 296
+        },
+        {
+          "rows": 14
+        }
+      ],
+      "publisher_catalog": "https://catalog.data.gov/dataset/health-center-service-delivery-and-lookalike-sites",
+      "reuse": "Publisher lists public domain/CC0 and no usage limitations; protected records excluded; commercial projection requires semantic review."
     },
     "reuse_review": "pending",
     "retained_row_level_records": 0,
