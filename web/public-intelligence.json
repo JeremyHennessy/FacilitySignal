@@ -1263,6 +1263,64 @@
               1
             ]
           ]
+        },
+        {
+          "id": "cc-nursing-indicators",
+          "title": "Nursing-home source-reported oversight indicators",
+          "note": "October 28, 2026 snapshot. Abuse and inspection-age flags use the publisher's historical survey definitions; not current incidents, outstanding violations, property title or present-day risk scores.",
+          "run": 45833630704,
+          "columns": [
+            "Reported indicator",
+            "Y",
+            "N",
+            "Other / missing"
+          ],
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Abuse Icon",
+              1401,
+              13285,
+              0
+            ],
+            [
+              "Most Recent Health Inspection More Than 2 Years Ago",
+              955,
+              13731,
+              0
+            ],
+            [
+              "Provider Changed Ownership in Last 12 Months",
+              60,
+              14626,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "cc-nursing-focus",
+          "title": "Nursing-home Special Focus source status",
+          "note": "October 28, 2026 snapshot. Program and candidate status differ from individual citations. Blank means no listed status in the source, not a compliance determination.",
+          "run": 45833630704,
+          "columns": [
+            "Reported status",
+            "Source records"
+          ],
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Special Focus Facility",
+              87
+            ],
+            [
+              "Special Focus candidate",
+              440
+            ],
+            [
+              "No listed status (blank)",
+              14159
+            ]
+          ]
         }
       ]
     },
@@ -1375,6 +1433,35 @@
             [
               "Distinct CMS provider source rows in pairs",
               84
+            ]
+          ]
+        },
+        {
+          "id": "cc-nursing-sprinkler",
+          "title": "Nursing-home reported sprinkler coverage",
+          "note": "October 28, 2026 provider release. Source-reported coverage of required areas, not an engineering survey or current fire-code compliance determination. Partial and unavailable are separate. No means an observed source category, not a count of uninspected buildings.",
+          "run": 45833630704,
+          "columns": [
+            "Reported sprinkler coverage",
+            "Source records"
+          ],
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Yes",
+              14599
+            ],
+            [
+              "Partial",
+              36
+            ],
+            [
+              "No",
+              0
+            ],
+            [
+              "Data Not Available",
+              51
             ]
           ]
         }
@@ -2378,6 +2465,207 @@
             [
               "Multisite N with zero site count",
               647247
+            ]
+          ]
+        },
+        {
+          "id": "cc-hospital-categories",
+          "title": "Hospital reported type and ownership classifications",
+          "note": "November 12, 2026 release. Nine type labels and 12 ownership labels independently reconcile to 5,435 records. Two separate classification dimensions; no property title or legal owner inference.",
+          "run": 45833939891,
+          "columns": [
+            "Classification field",
+            "Literal reported label",
+            "Source records"
+          ],
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Hospital Ownership",
+              "Department of Defense",
+              32
+            ],
+            [
+              "Hospital Ownership",
+              "Government - Federal",
+              43
+            ],
+            [
+              "Hospital Ownership",
+              "Government - Hospital District or Authority",
+              512
+            ],
+            [
+              "Hospital Ownership",
+              "Government - Local",
+              391
+            ],
+            [
+              "Hospital Ownership",
+              "Government - State",
+              212
+            ],
+            [
+              "Hospital Ownership",
+              "Physician",
+              80
+            ],
+            [
+              "Hospital Ownership",
+              "Proprietary",
+              1064
+            ],
+            [
+              "Hospital Ownership",
+              "Tribal",
+              17
+            ],
+            [
+              "Hospital Ownership",
+              "Veterans Health Administration",
+              132
+            ],
+            [
+              "Hospital Ownership",
+              "Voluntary non-profit - Church",
+              261
+            ],
+            [
+              "Hospital Ownership",
+              "Voluntary non-profit - Other",
+              350
+            ],
+            [
+              "Hospital Ownership",
+              "Voluntary non-profit - Private",
+              2341
+            ],
+            [
+              "Hospital Type",
+              "Acute Care - Department of Defense",
+              32
+            ],
+            [
+              "Hospital Type",
+              "Acute Care - Veterans Administration",
+              132
+            ],
+            [
+              "Hospital Type",
+              "Acute Care Hospitals",
+              3094
+            ],
+            [
+              "Hospital Type",
+              "Childrens",
+              94
+            ],
+            [
+              "Hospital Type",
+              "Critical Access Hospitals",
+              1386
+            ],
+            [
+              "Hospital Type",
+              "Dedicated Cancer Care",
+              11
+            ],
+            [
+              "Hospital Type",
+              "Long-term",
+              5
+            ],
+            [
+              "Hospital Type",
+              "Psychiatric",
+              632
+            ],
+            [
+              "Hospital Type",
+              "Rural Emergency Hospital",
+              49
+            ]
+          ]
+        },
+        {
+          "id": "cc-hospital-quality-coverage",
+          "title": "Hospital clinical quality measure availability",
+          "note": "November 12, 2026 provider release. Count of records with numeric measure-count fields, not patient counts, violations or clinical performance. Missing measures are not zero; groups may overlap.",
+          "run": 45833630704,
+          "columns": [
+            "CMS quality measure group",
+            "Numeric count present",
+            "Not available",
+            "Other / missing"
+          ],
+          "source": "https://data.cms.gov/provider-data/topics/hospitals/overall-hospital-quality-star-rating",
+          "rows": [
+            [
+              "Mortality",
+              4082,
+              1353,
+              0
+            ],
+            [
+              "Safety of care",
+              3334,
+              2101,
+              0
+            ],
+            [
+              "Readmission",
+              4249,
+              1186,
+              0
+            ],
+            [
+              "Patient experience",
+              3452,
+              1983,
+              0
+            ],
+            [
+              "Timely and effective care",
+              4480,
+              955,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "cc-nursing-location",
+          "title": "Nursing-home location and reporting diagnostics",
+          "note": "October 28, 2026 provider snapshot. Footnote 22 identifies ZIP-based coordinate estimates. Coordinates in range do not verify the street location. Census and certified-bed time bases may differ; comparison is diagnostic only.",
+          "run": 45833630704,
+          "columns": [
+            "Evidence measure",
+            "Source records"
+          ],
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Provider resides in hospital (Y)",
+              608
+            ],
+            [
+              "Continuing care retirement community (Y)",
+              1548
+            ],
+            [
+              "Coordinates in range; footnote 22 (ZIP estimate)",
+              808
+            ],
+            [
+              "Coordinates in range; no geocoding footnote",
+              13878
+            ],
+            [
+              "Average daily resident census above certified beds",
+              122
+            ],
+            [
+              "Census / bed comparison unavailable",
+              66
             ]
           ]
         }
