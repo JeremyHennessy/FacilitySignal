@@ -50,3 +50,17 @@ class HrsaTests(unittest.TestCase):
             a=audit(f.getvalue().encode(),set())
             self.assertFalse(a["mapping_complete"]);self.assertEqual(a["privacy_screened_rows"],0)
             self.assertEqual(a["header_repair"]["unexpected_width_or_nonempty_extra_rows"],1)
+
+    def test_observed_publisher_labels_and_suppression(self):
+        h=["BPHC Assigned Number","Site Address","Site Postal Code","Health Center Location Type Description","Health Center Service Delivery Site Location Setting Description","Site State Abbreviation","Site Status Description"]
+        f=io.StringIO();w=csv.writer(f);w.writerow(h+[""])
+        w.writerows([["1","Example Street","12345","Service","Clinic","NY","Active"],
+                     ["2","Suppressed","12345","Service","Clinic","NY","Active"],
+                     ["3","Example Street","Not Available","Service","Clinic","NY","Active"],
+                     ["4","Example Street","12345","Service","Domestic Violence Shelter","NY","Active"]])
+        a=audit(f.getvalue().encode(),{norm(x) for x in h})
+        self.assertTrue(a["mapping_complete"])
+        self.assertEqual(a["privacy_screened_rows"],1)
+        self.assertEqual(a["excluded_protected_or_incomplete_rows"],3)
+        self.assertEqual(a["header_repair"]["row_width_counts"],{"7":4})
+        self.assertNotIn("Example Street",str(a))

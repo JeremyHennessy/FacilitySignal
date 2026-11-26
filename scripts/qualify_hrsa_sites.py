@@ -56,9 +56,9 @@ def dictionary(data):
 ALIASES={"site_id":{"bphc assigned number","bphc assigned site number","bphc site number"},
          "site_address":{"site address","site street address"},
          "site_zip":{"site postal code","site zip","site zip code"},
-         "site_type":{"site type"},"location_setting":{"location setting","site location setting"},
+         "site_type":{"site type","health center location type description"},"location_setting":{"location setting","site location setting","health center service delivery site location setting description"},
          "site_state":{"site state","site state abbreviation","site state code"},
-         "site_status":{"site status"},"center_type":{"health center type"},
+         "site_status":{"site status","site status description"},"center_type":{"health center type"},
          "record_date":{"data warehouse record create date","record date"}}
 def resolve(headers):
     out={}
@@ -136,8 +136,7 @@ def audit(data,metadata_cells):
         # Conservative suppression: exclude any incomplete site address/ZIP, any
         # shelter or domestic-violence descriptor anywhere in the row, and any
         # missing site type or location setting. Never retain excluded identities.
-        if (not row[mapped["site_address"]].strip() or not row[mapped["site_zip"]].strip()
-            or not row[mapped["site_type"]].strip() or not row[mapped["location_setting"]].strip()
+        if (any(norm(row[mapped[k]]) in {"","na","n a","not available","not applicable","unknown","suppressed","redacted","null","none"} for k in ("site_address","site_zip","site_type","location_setting"))
             or any(re.search(r"shelter|domestic[ _-]*violence|battered",v,re.I) for v in row.values())):
             excluded+=1;continue
         key=row[mapped["site_id"]].strip()
