@@ -1,0 +1,52 @@
+{
+  "source_release": "2026-10-21",
+  "source_sha256": "7adf3e17961949bbd64ef243545aa387224d9837e8c5601476f5b11946e76d22",
+  "public_directory_sha256": "3b244338ff11e39258aa0620a4b3a6f1813c6b8569f0290380f06493e0344d3d",
+  "provider_records": 12409,
+  "exact_identity_fields": [
+    "ccn",
+    "name",
+    "address",
+    "city",
+    "state",
+    "zip"
+  ],
+  "field_states": {
+    "Nursing Care": {
+      "yes": 10208,
+      "dash_marker": 2167,
+      "no": 34
+    },
+    "Physical Therapy": {
+      "yes": 9768,
+      "no": 469,
+      "dash_marker": 2172
+    },
+    "Occupational Therapy": {
+      "yes": 9347,
+      "no": 887,
+      "dash_marker": 2175
+    },
+    "Speech Pathology": {
+      "yes": 8620,
+      "no": 1590,
+      "dash_marker": 2199
+    },
+    "Medical Social": {
+      "yes": 7960,
+      "no": 2243,
+      "dash_marker": 2206
+    },
+    "Home Health Aide": {
+      "yes": 9008,
+      "no": 1230,
+      "dash_marker": 2171
+    }
+  },
+  "payload_sha256": "88dd0b1a9db445c8c5b33ad09225ed86a9a9c516ad6be3c259f035a3e06263e1",
+  "payload_bytes": 2108983,
+  "dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/home_health/HHS_Data_Dictionary.pdf",
+  "reuse": "https://data.cms.gov/provider-data/topics/home-health-services/about-using-government-data",
+  "scope": "Same pinned source and exact public identity fields, six service indicators only. Dash marker is not reported no. Historical offerings are not current availability, staffing, physical property or procurement evidence.",
+  "publication": "candidate_only"
+}
