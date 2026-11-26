@@ -10,11 +10,12 @@
     "derived_candidate_observations": 23520,
     "aggregate_evidence_releases": 8,
     "aggregate_source_rows_screened": 40787611,
-    "payload_files": 212,
-    "payload_bytes": 10908812534,
+    "payload_files": 214,
+    "payload_bytes": 10917820634,
     "derived_institutional_observations": 101534,
     "repository_data_evidence_files": 73,
-    "repository_supplemental_data_files": 13
+    "repository_supplemental_data_files": 13,
+    "derived_enrollment_corroboration_rows": 40709
   },
   "register_entries": 176,
   "additional_national_entries": 6,
@@ -3272,6 +3273,16 @@
         "observations": 0,
         "receipt_run": 45880420262
       }
+    },
+    {
+      "storage": "enrollment_corroboration",
+      "evidence": {
+        "key": "pecos-ppef-enrollment-corroboration",
+        "source_sha256": "5918d959ffd0ccef77de6c4feacf34df4e7e1b814661c70f40991f3b5d19501d",
+        "kind": "enrollment_corroboration",
+        "observations": 40709,
+        "receipt_run": 45886200864
+      }
     }
   ],
   "public_and_research_evidence": {
@@ -3286,11 +3297,11 @@
     },
     "limit": "Historical pack parity and pinned evidence inventory; not an ordinary-live browser check or new publication."
   },
-  "baseline_commit": "55a58686d170c169c1988a615739f57d7461f076",
+  "baseline_commit": "a0b0b8457c31479536b318591cb0f7280e7efe97",
   "input_git_blob_shas": {
     "research/facilitysignal_source_register_v0.2.json": "8d3a5e9992cc4b9d819452cd4050dd19731e0d55",
     "research/coverage_status.json": "243f71fc31ac241ced75cf10a0a55ff15bf6ccfd",
-    "research/azure_archive_inventory_20261126.json": "7cbf0401d50dbe9061ef7ab0a7fffad4bed78317",
+    "research/azure_archive_inventory_20261126.json": "5dab2d792a6d7587472f3516317e774edd0141f1",
     "research/private_source_register_receipt_map_20261126.json": "b459490a2ee60f226e9653acc2e2e8386adb5905",
     "research/snapshot_release_20261125.json": "9162fbdcc3ee591b63429df3279cdf11a8ddf125",
     "research/expanded_source_lock_20261126.json": "70a434e2d5a2102b65005d80884f5841302796fb",
@@ -3306,6 +3317,7 @@
     "altered extension pin rejected",
     "drifting archive totals rejected",
     "unknown overlay rejected",
-    "unmapped core source rejected"
+    "unmapped core source rejected",
+    "append-only archive delta: all 73 prior receipts and two layers unchanged; new corroboration receipt's four input archive hashes, counts and database hashes match; payload bytes and files reconcile; 176 source classifications unchanged"
   ]
 }
