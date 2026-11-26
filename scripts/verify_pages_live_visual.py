@@ -27,6 +27,7 @@ ROUTES=[
     ("search","search",lambda page:page.get_by_role("heading",name="Unified search",exact=True)),
     ("advanced","advanced?source=nursing&state=NY&min=100&max=199&run=1",lambda page:page.locator('.advanced-status[data-complete="true"]')),
     ("industry","industry?state=NY",lambda page:page.get_by_role("heading",name="Water treatment & dialysis")),
+    ("procurement","procurement",lambda page:page.get_by_role("heading",name="Commercial evidence classifications")),
     ("market","geography?source=hospital&state=NY",lambda page:page.locator(".market-region[data-state=NY][aria-current=true]")),
     ("directory","facilities?source=hospital&state=NY",lambda page:page.locator("tbody tr").first),
     ("profile","detail?"+urlencode({"source":"nursing","id":PROVIDER["ccn"],"state":PROVIDER["state"],"section":"sources"}),lambda page:page.get_by_role("heading",name="Evidence availability for this record")),
