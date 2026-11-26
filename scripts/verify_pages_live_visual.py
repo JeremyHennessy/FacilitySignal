@@ -212,13 +212,13 @@ def run(base,local):
                     page.locator(".comparison-table").wait_for()
                     assert "2 exact published records resolved" in page.locator(".comparison-status").inner_text()
                     assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
-                    page.screenshot(path=str(OUT/f"{width}-facility-comparison.png"))
+                    page.screenshot(path=str(OUT/f"{width}-facility-comparison.png"),full_page=True)
                     if width<=720:
                         wrap=page.locator(".comparison-table")
                         assert page.locator(".comparison-scroll-hint").is_visible()
-                        assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;return e.scrollLeft>0}")
+                        assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const frame=e.getBoundingClientRect();return e.scrollLeft>0&&Array.from(e.querySelectorAll(\"tr\")).every(tr=>{const cells=tr.cells,first=cells[0].getBoundingClientRect(),last=cells[cells.length-1].getBoundingClientRect();return last.left>=first.right-2&&last.right<=frame.right+2&&last.width>=100})}"),"Final provider column is obscured by sticky evidence labels"
                         assert wrap.locator("td").first.evaluate("(e)=>getComputedStyle(e).position==='sticky'")
-                        page.screenshot(path=str(OUT/f"{width}-facility-comparison-scrolled.png"))
+                        page.screenshot(path=str(OUT/f"{width}-facility-comparison-scrolled.png"),full_page=True)
                     page.get_by_role("link",name="Back to saved portfolio").click()
                     page.locator(".portfolio-count").wait_for()
                     for _ in range(2):page.get_by_role("button",name="Remove",exact=True).first.click()

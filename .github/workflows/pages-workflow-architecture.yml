@@ -1,7 +1,7 @@
 name: FacilitySignal workflow architecture qualification
 on:
   push:
-    branches: [ui/workflow-architecture-20261126]
+    branches: [ui/workflow-architecture-20261126, fix/comparison-mobile-columns-20261126]
   workflow_dispatch:
 permissions:
   contents: read

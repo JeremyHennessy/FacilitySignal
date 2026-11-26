@@ -11,6 +11,7 @@ OUT=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"workflow-architecture-evidence";
 def shard(k):return json.loads((ROOT/"web/public-directory"/(k+".json")).read_text())["records"]
 nursing=shard("nursing");dialysis=shard("dialysis")
 chosen=[("nursing",nursing[0]),("dialysis",dialysis[0]),("nursing",nursing[1])]
+extra=("dialysis",dialysis[1])
 def citation(key,r):
     found=[c for c in shard(key) if c["ccn"]==r["ccn"] and c["state"]==r["state"]]
     return f'{found[0]["citation_rows"]:,} historical rows' if len(found)==1 else ("Multiple matching source records" if found else "No matching source record")+" (not zero)"
@@ -46,15 +47,25 @@ try:
             assert page.locator("nav .nav-group[open]").count()==1
             assert page.locator("#mobile-route").input_value()=="#procurement"
             page.screenshot(path=str(OUT/f"{width}-navigation.png"))
-            for source,r in chosen:
+            for source,r in chosen+([extra] if width<=720 else []):
                 page.goto(URL+"#detail?"+urlencode({"source":source,"id":r["ccn"],"state":r["state"]}))
                 page.get_by_role("button",name="Save to research portfolio").click()
             page.get_by_role("link",name="Open saved portfolio").click()
             page.locator(".portfolio-count").wait_for()
-            assert "3 saved source records" in page.locator(".portfolio-count").inner_text()
+            assert ("4 saved source records" if width<=720 else "3 saved source records") in page.locator(".portfolio-count").inner_text()
             check=page.locator(".portfolio-provider-cell input")
             check.nth(0).check();assert page.get_by_role("button",name="Compare selected (1 / 4)").is_disabled()
-            check.nth(1).check();check.nth(2).check()
+            check.nth(1).check()
+            if width<=720:
+                page.get_by_role("button",name="Compare selected (2 / 4)").click()
+                two=page.locator(".comparison-table[data-records='2']");two.wait_for()
+                assert "2 exact published records resolved" in page.locator(".comparison-status").inner_text()
+                assert two.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const frame=e.getBoundingClientRect();return e.scrollLeft>0&&Array.from(e.querySelectorAll(\"tr\")).every(tr=>{const cells=tr.cells,first=cells[0].getBoundingClientRect(),last=cells[cells.length-1].getBoundingClientRect();return last.left>=first.right-2&&last.right<=frame.right+2&&last.width>=100})}"),"Two-column comparison clips last provider"
+                page.screenshot(path=str(OUT/f"{width}-comparison-two-scrolled.png"),full_page=True)
+                page.go_back();page.locator(".portfolio-count").wait_for()
+                check=page.locator(".portfolio-provider-cell input")
+                check.nth(0).check();check.nth(1).check()
+            check.nth(2).check()
             page.get_by_role("button",name="Compare selected (3 / 4)").click()
             page.locator(".comparison-table").wait_for()
             assert "3 exact published records resolved" in page.locator(".comparison-status").inner_text()
@@ -70,11 +81,23 @@ try:
             if width<=720:
                 wrap=page.locator(".comparison-table")
                 assert page.locator(".comparison-scroll-hint").is_visible()
-                assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;return e.scrollLeft>0}")
+                assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const frame=e.getBoundingClientRect();return e.scrollLeft>0&&Array.from(e.querySelectorAll(\"tr\")).every(tr=>{const cells=tr.cells,first=cells[0].getBoundingClientRect(),last=cells[cells.length-1].getBoundingClientRect();return last.left>=first.right-2&&last.right<=frame.right+2&&last.width>=100})}"),"Three-column comparison clips last provider"
                 assert wrap.locator("td").first.evaluate("(e)=>getComputedStyle(e).position==='sticky'")
                 page.screenshot(path=str(OUT/f"{width}-comparison-scrolled.png"),full_page=True)
             page.reload();page.locator(".comparison-table").wait_for()
             page.go_back();page.locator(".portfolio-count").wait_for()
+            if width<=720:
+                check=page.locator(".portfolio-provider-cell input")
+                for i in range(4):check.nth(i).check()
+                page.get_by_role("button",name="Compare selected (4 / 4)").click()
+                four=page.locator(".comparison-table[data-records='4']");four.wait_for()
+                assert "4 exact published records resolved" in page.locator(".comparison-status").inner_text()
+                assert four.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const frame=e.getBoundingClientRect();return e.scrollLeft>0&&Array.from(e.querySelectorAll(\"tr\")).every(tr=>{const cells=tr.cells,first=cells[0].getBoundingClientRect(),last=cells[cells.length-1].getBoundingClientRect();return last.left>=first.right-2&&last.right<=frame.right+2&&last.width>=100})}"),"Four-column comparison clips last provider"
+                page.screenshot(path=str(OUT/f"{width}-comparison-four-scrolled.png"),full_page=True)
+                page.set_viewport_size({"width":320,"height":900})
+                assert four.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const frame=e.getBoundingClientRect();return e.scrollLeft>0&&Array.from(e.querySelectorAll(\"tr\")).every(tr=>{const cells=tr.cells,first=cells[0].getBoundingClientRect(),last=cells[cells.length-1].getBoundingClientRect();return last.left>=first.right-2&&last.right<=frame.right+2&&last.width>=100})}"),"Four-column comparison clips at 320px"
+                page.screenshot(path=str(OUT/"320-comparison-four-scrolled.png"),full_page=True)
+                page.set_viewport_size({"width":width,"height":900})
             page.goto(URL+"#compare?records=invalid")
             page.get_by_text("Select 2–4 distinct records from your saved portfolio.",exact=True).wait_for()
             assert not errors,errors
