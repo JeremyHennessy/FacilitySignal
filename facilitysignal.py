@@ -395,6 +395,9 @@ def handler(db_path):
                 with closing(connect(db_path)) as db:
                     if path.startswith("/api/"):
                         kind=path[5:]
+                        if kind=="research-evidence":
+                            from research_evidence import evidence
+                            return self.send(200,json.dumps(evidence(COVERAGE)),"application/json; charset=utf-8")
                         if kind=="iqies-status":
                             from iqies_status_evidence import profile
                             return self.send(200,json.dumps(profile(db,params.get("provider_id",""))),"application/json; charset=utf-8")

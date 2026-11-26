@@ -1055,5 +1055,155 @@
     "correction_dates_after_release": 128,
     "confirmed_opportunities": 0,
     "note": "Aggregate evidence only, not additional source rows, current compliance, purchasing intent or operating status."
+  },
+  "citation_dictionary_qualified_baseline": {
+    "commit": "7947652e083eb6e06fba8f5c358d3e6cc4343585",
+    "run": 45783277977,
+    "artifact": 15099172572,
+    "main_verification": 45783356454,
+    "audit": {
+      "citation_rows": 619069,
+      "citation_source_sha256": "baa78020a2c60df25408421d4491f66f6f260aa25d3c7579c13199aee9e23960",
+      "limits": "Aggregate only. Exact dictionary text agreement is not historical tag-version proof, current compliance, service demand, equipment evidence or a confirmed opportunity. Status candidates are literal comparisons only, not semantic promotion. No raw dictionary rows or provider records retained.",
+      "lookup": {
+        "bytes": 96713,
+        "distinct_keys": 643,
+        "duplicate_normalized_rows": 0,
+        "keys_by_prefix": {
+          "E": 26,
+          "F": 393,
+          "K": 224
+        },
+        "metadata": {
+          "id": "tagd-9999",
+          "modified": "2026-10-01",
+          "released": "2026-10-28",
+          "url": "https://data.cms.gov/provider-data/sites/default/files/resources/47dff8275069c9a6593c5ad8b8ee09e4_1792181760/NH_CitationDescriptions_Oct2026.csv"
+        },
+        "multi_definition_keys": 0,
+        "retrieved_at": "2026-11-26T08:27:31.163204+00:00",
+        "rows": 643,
+        "sha256": "063ad15eeb92aad2d65d44995be5cb6220dab715cc01437e43b694e9c218f6c8"
+      },
+      "sources": {
+        "nursing-fire": {
+          "after_release_correction_dates_by_status": {
+            "source_reports_date_of_correction": 6,
+            "source_reports_plan": 90,
+            "unresolved_other": 23
+          },
+          "correction_status_candidate_counts": {
+            "candidate_no_plan": 724,
+            "source_reports_date_of_correction": 194485,
+            "source_reports_past_noncompliance": 124,
+            "source_reports_plan": 1948,
+            "unresolved_other": 3106
+          },
+          "lookup_match_counts": {
+            "exact_text_single_definition": 192067,
+            "key_missing": 8320
+          },
+          "rows": 200387,
+          "unresolved_other_distinct_normalized_values": 3,
+          "unresolved_other_frequency_distribution": [
+            2546,
+            336,
+            224
+          ]
+        },
+        "nursing-health": {
+          "after_release_correction_dates_by_status": {
+            "source_reports_date_of_correction": 5,
+            "source_reports_plan": 4
+          },
+          "correction_status_candidate_counts": {
+            "candidate_no_plan": 1590,
+            "source_reports_date_of_correction": 407301,
+            "source_reports_past_noncompliance": 6239,
+            "source_reports_plan": 2879,
+            "unresolved_other": 673
+          },
+          "lookup_match_counts": {
+            "exact_text_single_definition": 418682
+          },
+          "rows": 418682,
+          "unresolved_other_distinct_normalized_values": 2,
+          "unresolved_other_frequency_distribution": [
+            343,
+            330
+          ]
+        }
+      }
+    },
+    "reuse_review": "pending",
+    "retained_row_level_records": 0
+  },
+  "service_context_qualified_baseline": {
+    "commit": "69cfa3829b90ba7fcfa4742e2d4204bbece983b4",
+    "run": 45793231904,
+    "artifact": 15102708619,
+    "main_verification": 45793400886,
+    "audit": {
+      "citation_rows": 619069,
+      "confirmed_opportunities": 0,
+      "limits": "National aggregate research contexts only; no individual identifiers, category/status raw text, cross-tab of context with status, equipment, risk, purchasing need, or current deficiency inference. Broad F categories include clinical activities; no claim of outsourced service demand. Tag-version and dispute flags are unavailable. No row-level redistribution.",
+      "source_artifact_id": 15046953633,
+      "source_database_sha256": "baa78020a2c60df25408421d4491f66f6f260aa25d3c7579c13199aee9e23960",
+      "sources": {
+        "nursing-fire": {
+          "date_state_counts": {
+            "on_or_before_release/after_release": 119,
+            "on_or_before_release/blank": 1636,
+            "on_or_before_release/on_or_before_release": 198632
+          },
+          "literal_status_counts": {
+            "candidate_no_plan": 724,
+            "source_reports_date_of_correction": 194485,
+            "source_reports_past_noncompliance": 124,
+            "source_reports_plan": 1948,
+            "unresolved_other": 3106
+          },
+          "research_context_counts": {
+            "broad_life_safety_context": 178762,
+            "broad_preparedness_context": 21625
+          },
+          "rows": 200387
+        },
+        "nursing-health": {
+          "date_state_counts": {
+            "on_or_before_release/after_release": 9,
+            "on_or_before_release/blank": 2610,
+            "on_or_before_release/on_or_before_release": 416063
+          },
+          "literal_status_counts": {
+            "candidate_no_plan": 1590,
+            "source_reports_date_of_correction": 407301,
+            "source_reports_past_noncompliance": 6239,
+            "source_reports_plan": 2879,
+            "unresolved_other": 673
+          },
+          "research_context_counts": {
+            "food_service_context": 37823,
+            "infection_prevention_context": 32088,
+            "other_health_context": 348771
+          },
+          "rows": 418682
+        }
+      },
+      "version": "service-context-v1"
+    },
+    "reuse_review": "pending",
+    "retained_row_level_records": 0
+  },
+  "retention_checkpoint": {
+    "artifact_id": 15046953633,
+    "run": 45665664275,
+    "archive_bytes": 90953835,
+    "archive_digest": "sha256:5be0c301dab546a51c721ddb972e68f964345ee1d558e55feb11dfcecc72c90f",
+    "expires_at": "2026-11-28T17:33:01Z",
+    "expired_at_check": false,
+    "observed_date": "2026-11-26",
+    "durable_private_storage_verified": false,
+    "scope": "Care Compare baseline only; not the combined national database"
   }
 }
