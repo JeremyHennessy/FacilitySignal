@@ -93,7 +93,7 @@ def provider_key(value):
     require(bool(numeric_prefix or alpha_prefix),"provider_key_shape")
     return s
 
-def classify(values,m,source=None):
+def classify(values,m,source=None,tag_domain=None):
     def raw(k):
         i=m[k];return values[i] if i<len(values) else None
     def get(k):
@@ -104,17 +104,19 @@ def classify(values,m,source=None):
     try:day=survey_date(raw("date"))
     except ValueError:raise ValueError("survey_date_shape") from None
     tag=get("tag").upper();kind=get("kind").casefold()
-    # The official ICF-IID reports visibly use KS and KA plus three digits.
-    # Only permit this exact additional shape in ICF-IID; no other source
-    # or tag family is changed and no regulatory meaning is inferred.
-    valid_tag=not tag or re.fullmatch(r"[A-Z][0-9]{4}",tag) is not None or (
-        source=="icf" and re.fullmatch(r"(?:KS|KA)[0-9]{3}",tag) is not None)
+    # ICF two-letter codes are accepted only from observed documented
+    # shapes, or exact membership in the qualified publisher selector.
+    # Do not extrapolate to other sources or infer regulatory semantics.
+    two_letter=re.fullmatch(r"(?:KS|KA|KL)[0-9]{3}",tag) is not None
+    icf_tag=(source=="icf" and two_letter and
+             (tag in tag_domain if tag_domain is not None else tag[:2] in {"KA","KS"}))
+    valid_tag=not tag or re.fullmatch(r"[A-Z][0-9]{4}",tag) is not None or icf_tag
     require(valid_tag,"tag_key_shape")
     require(bool(tag) or not kind,"missing_tag_with_type")
     state="memo" if kind=="memo" or re.fullmatch(r"[A-Z]0000",tag) else "nonmemo_tag" if tag else "no_tag_reported"
     return ccn,event,day,state
 
-def inspect(path,key):
+def inspect(path,key,tag_domain=None):
     book=openpyxl.load_workbook(path,read_only=True,data_only=True,keep_links=False)
     try:
         require(len(book.worksheets)==1,"unexpected sheet count")
@@ -134,7 +136,7 @@ def inspect(path,key):
                 total+=1
                 if not ready:continue
                 if len(values)>len(header):reject["extra_columns"]+=1;continue
-                try:c,e,d,k=classify(values,m,key)
+                try:c,e,d,k=classify(values,m,key,tag_domain)
                 except ValueError as exc:
                     reject[str(exc)]+=1
                     if str(exc)=="tag_key_shape":

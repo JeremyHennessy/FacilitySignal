@@ -1,7 +1,7 @@
-name: QCOR ICF-IID observed tag-format requalification
+name: QCOR ICF-IID exact publisher selector requalification
 on:
   push:
-    branches: [diagnostics/qcor-icf-tag-20261126]
+    branches: [diagnostics/qcor-icf-selector-requal-20261126]
 permissions:
   contents: read
 concurrency:

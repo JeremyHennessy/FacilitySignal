@@ -41,3 +41,13 @@ class QCORExpansionTests(unittest.TestCase):
         for tag in ("ZZ123","KS1234","K123X"):
             with self.assertRaisesRegex(ValueError,"tag_key_shape"):
                 classify((*row[:3],tag,row[4]),m,"icf")
+
+    def test_icf_exact_publisher_domain(self):
+        m={"ccn":0,"event":1,"date":2,"tag":3,"kind":4}
+        row=("01G001","ABCD11","2024-01-01","KL123","Standard")
+        domain={"KL123","KS123","KA123"}
+        self.assertEqual(classify(row,m,"icf",domain)[-1],"nonmemo_tag")
+        for code in ("KL999","KS999","ZZ123"):
+            with self.assertRaisesRegex(ValueError,"tag_key_shape"):classify((*row[:3],code,row[4]),m,"icf",domain)
+        with self.assertRaisesRegex(ValueError,"tag_key_shape"):classify(row,m,"icf")
+        with self.assertRaisesRegex(ValueError,"tag_key_shape"):classify(row,m,"cah",domain)
