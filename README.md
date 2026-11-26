@@ -62,3 +62,7 @@ A CSV import checks the declared row count, required field mappings, identifiers
 
 Original source research and planning are under research/ and docs/. Source discovery is not ingestion. SQLite, Python standard-library server and server-rendered HTML are provisional zero-dependency development choices, not the final production stack. PostgreSQL/PostGIS, authenticated API, React UI, source workers, coverage review, ownership, equipment, environmental and procurement remain planned. No secure dynamic production deployment or additional cloud provisioning. The static public Pages deployment is separate. See docs/PUBLIC_INTELLIGENCE_20261126.md.
 
+
+## Public release verification
+
+Follow [AGENTS.md](AGENTS.md) for every public update. Run `python scripts/stamp_pages_assets.py --write` after changing the public JS or CSS; CI checks the versioned asset URLs. The live visual workflow must verify the normal public URL and its screenshots must be inspected before reporting completion. See [delivery incident and gate](docs/LIVE_VISUAL_RELEASE_20261126.md).
