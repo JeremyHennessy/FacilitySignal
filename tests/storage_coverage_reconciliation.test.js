@@ -1,0 +1,11 @@
+'use strict';
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const {reconcile,load}=require('../scripts/reconcile_storage_coverage.js');
+const root=require('node:path').resolve(__dirname,'..');
+const input=load(root);
+const output=reconcile(input);
+const clone=x=>JSON.parse(JSON.stringify(x));
+test('pinned full register, layers and receipt counts',()=>{assert.equal(output.register_entries,176);assert.equal(output.additional_national_entries,6);assert.equal(output.archive_totals.payload_files,212);assert.equal(output.archive_totals.source_observations,117850722);assert.equal(output.archive_totals.payload_bytes,10908812534);});
+test('ownership and restricted screening states',()=>{assert.equal(output.sources.find(x=>x.id==='FS-049').evidence[0].observations,21734);assert.equal(output.sources.find(x=>x.id==='FS-050').evidence[0].observations,18763);assert.equal(output.sources.find(x=>x.id==='FS-009').evidence.length,0);assert.equal(output.sources.find(x=>x.id==='FS-060').qualification,'bounded_award_page_qualification');});
+for(const [name,mutate] of [['duplicate receipt',d=>d.inventory.receipts.push(d.inventory.receipts[0])],['extension drift',d=>d.extension.source_log_results['FS-036'].rows++],['total drift',d=>d.inventory.totals.payload_bytes++],['unknown overlay',d=>d.overlay.sources['FS-999']={keys:['nppes-monthly']}],['unmapped core',d=>d.coverage.additional_qualified_datasets[0].adapter='nonexistent']])test(name,()=>{const d=clone(input);mutate(d);assert.throws(()=>reconcile(d));});

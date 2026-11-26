@@ -1,0 +1,3311 @@
+{
+  "format_version": 1,
+  "scope": "Reconciliation of pinned repository evidence, not fresh Azure access or publisher/reuse approval. Register entries and receipt references overlap; never sum source-entry observations. No raw retention or public approval inferred.",
+  "archive_evidence_mode": "historical_metadata_inventory_and_prior_upload_sha256",
+  "archive_totals": {
+    "publisher_releases": 56,
+    "source_observations": 117850722,
+    "supplemental_numeric_archives": 41,
+    "supplemental_numeric_observations": 107619587,
+    "derived_candidate_observations": 23520,
+    "aggregate_evidence_releases": 8,
+    "aggregate_source_rows_screened": 40787611,
+    "payload_files": 212,
+    "payload_bytes": 10908812534,
+    "derived_institutional_observations": 101534,
+    "repository_data_evidence_files": 73,
+    "repository_supplemental_data_files": 13
+  },
+  "register_entries": 176,
+  "additional_national_entries": 6,
+  "register_storage_counts": {
+    "national_private_projection": 13,
+    "private_archive_partial": 5,
+    "no_pinned_source_projection": 130,
+    "aggregate_qualification_only": 1,
+    "extension_private_projection": 16,
+    "private_aggregate_archived": 6,
+    "private_aggregate_partial": 3,
+    "private_directory_archived": 1,
+    "private_aggregate_key_review": 1
+  },
+  "discovery_only_entries": 126,
+  "sources": [
+    {
+      "id": "FS-001",
+      "source": "Provider of Services QIES",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "qies",
+          "source_sha256": "8c83318826efc7de996811c22b67f5422ad639581e94830817645d5c0585bf7c",
+          "kind": "qualified_private_projection",
+          "observations": 13598,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-002",
+      "source": "Provider of Services iQIES",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "iqies",
+          "source_sha256": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2",
+          "kind": "qualified_private_projection",
+          "observations": 100334,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-003",
+      "source": "Provider of Services CLIA",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "clia",
+          "source_sha256": "b7b7dce68abec2ad69b6c3378ff14e0b1c4e12f5dda433d12db2cf8eb4c5b1bf",
+          "kind": "qualified_private_projection",
+          "observations": 686058,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-004",
+      "source": "NPPES monthly version 2 and weekly increments",
+      "priority": "P0",
+      "historical_status": "partial_structural_qualification",
+      "qualification": "partial_structural_qualification",
+      "storage": "private_archive_partial",
+      "evidence": [
+        {
+          "key": "nppes-monthly",
+          "source_sha256": "c5a34fba9b2e04bcb87358a1e3f9f4bbfc79b49b71fb37b71f9de43570c18713",
+          "kind": "publisher",
+          "observations": 1990237,
+          "receipt_run": 45850246524
+        },
+        {
+          "key": "nppes-weekly",
+          "source_sha256": "080d7707861576c58d769796c5991904c7bd8a183c2cb7db76159c9a98ca1e5a",
+          "kind": "publisher",
+          "observations": 6417,
+          "receipt_run": 45850246524
+        },
+        {
+          "key": "nppes-weekly",
+          "source_sha256": "cfdac80d3056c24428d8a96dc4b02c5a3cda336c44ea6016e416657cb2e35054",
+          "kind": "publisher",
+          "observations": 6264,
+          "receipt_run": 45850246524
+        },
+        {
+          "key": "nppes-weekly",
+          "source_sha256": "d0e73f9d00ee816d1053d9c1005bd429183b13fce3ebf55bc2fde382274d2897",
+          "kind": "publisher",
+          "observations": 6627,
+          "receipt_run": 45850246524
+        }
+      ],
+      "limit": "Type 2 organization observations only; monthly and weekly releases may overlap. Deactivation, taxonomy semantics and identity review pending.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-005",
+      "source": "Medicare fee-for-service public provider enrollment",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_archive_partial",
+      "evidence": [
+        {
+          "key": "ppef-type2-enrollment",
+          "source_sha256": "c80bda03a8328b838d001aa696d0a26d9113de305fad236fb9eaa182d756ee30",
+          "kind": "publisher",
+          "observations": 380892,
+          "receipt_run": 45856388645
+        }
+      ],
+      "limit": "Type 2 enrollment projection only; no current active-enrollment or physical-site determination.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-006",
+      "source": "Hospital General Information",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "hospital",
+          "source_sha256": "ff2a82a7149975fb86348e7f901aa3bcd9f3701e8b0ecd0ab34702df193ff559",
+          "kind": "qualified_private_projection",
+          "observations": 5435,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-007",
+      "source": "Provider Data Catalog",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-008",
+      "source": "Skilled Nursing Facility Enrollments",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "snf-enrollment",
+          "source_sha256": "21f6b282b07017f2596d9c3cb84dac3eaa100bd2ec637e0d7f03510e0f0acf89",
+          "kind": "qualified_private_projection",
+          "observations": 14401,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-009",
+      "source": "Health Center Service Delivery and Look-Alike Sites",
+      "priority": "P0",
+      "historical_status": "aggregate_screening_qualified",
+      "qualification": "aggregate_screening_qualified",
+      "storage": "aggregate_qualification_only",
+      "evidence": [],
+      "limit": "Aggregate screening evidence; no source-row archive. Protected locations excluded.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-010",
+      "source": "Uniform Data System awardee and look-alike data",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-011",
+      "source": "MQSA certified mammography facility listing",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "fda-mqsa",
+          "source_sha256": "fb0c74333ade998ce28c6b5f342324f5ff4c46d716c45332634513edddf1b33a",
+          "kind": "qualified_private_projection",
+          "observations": 9146,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-012",
+      "source": "VA Facilities API",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-013",
+      "source": "Military hospitals and clinics",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-014",
+      "source": "IHS tribal and urban Indian facilities",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-015",
+      "source": "National Directory of Mental Health Treatment Facilities",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-016",
+      "source": "N-SUMHSS public use files",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-017",
+      "source": "340B OPAIS covered entities and sites",
+      "priority": "P1",
+      "historical_status": "blocked_report_download",
+      "qualification": "blocked_report_download",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": true,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-018",
+      "source": "HIFLD hospital locations",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-019",
+      "source": "National Structures Dataset",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-020",
+      "source": "Hospital Form 2567",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-hospital",
+          "source_sha256": "0827c681005f3fe61b5e46f6448c3128456b5a7b25b0318738ab764d418c4eec",
+          "kind": "qualified_private_projection",
+          "observations": 284391,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-021",
+      "source": "QCOR survey and certification reports",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-022",
+      "source": "Hospital deficiency counts",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-023",
+      "source": "Critical access hospital 2567",
+      "priority": "P0",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-cah",
+          "source_sha256": "ba7884671a35de85271db27693b1440f1086b75c1d57bc539e9a501975820400",
+          "kind": "qualified_private_projection",
+          "observations": 56226,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-024",
+      "source": "Transplant hospital 2567",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-transplant",
+          "source_sha256": "fd21478cc1952c97846dbb131c71d19385cbbff8d5f8ea2bafb3570674737a43",
+          "kind": "qualified_private_projection",
+          "observations": 6634,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-025",
+      "source": "Ambulatory surgical center 2567",
+      "priority": "P0",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-asc",
+          "source_sha256": "87be909585e91ce0c2bf97586944e79eb640fc338dab5b7d54b9bc8c93be9bbb",
+          "kind": "qualified_private_projection",
+          "observations": 61443,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-026",
+      "source": "Rural health clinic 2567",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-rhc",
+          "source_sha256": "6bc5ea259da6149770068d823f8223704e05e6505032d7b0528aa98bc3a66fc1",
+          "kind": "qualified_private_projection",
+          "observations": 16481,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-027",
+      "source": "FQHC 2567",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-fqhc",
+          "source_sha256": "058bd6dbe8dafcb775d1c7eda09fb225197627b4a1a821d3906a65959a63c4ea",
+          "kind": "qualified_private_projection",
+          "observations": 875,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-028",
+      "source": "Portable X-ray supplier 2567",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-xray",
+          "source_sha256": "1993d3954d0df88e8735343f117795fb1355a728b0f872feb37bcd28fe89d17e",
+          "kind": "qualified_private_projection",
+          "observations": 751,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-029",
+      "source": "Psychiatric residential treatment facility 2567",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-prtf",
+          "source_sha256": "a82e78cb58b6e94099190e353dfd7cf2405cf3f204d738eb3acdbc77e304ae9b",
+          "kind": "qualified_private_projection",
+          "observations": 3458,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-030",
+      "source": "Comprehensive outpatient rehabilitation facility 2567",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-corf",
+          "source_sha256": "aa9157fb1c59901ab6a38c41aced4fe79a2093a6b238cb9715f7538904184239",
+          "kind": "qualified_private_projection",
+          "observations": 1104,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-031",
+      "source": "ICF-IID 2567",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-icf",
+          "source_sha256": "4522aff6cf8242a7315814d1629c58729c2a17971038b51a3e717780ca8e4dda",
+          "kind": "qualified_private_projection",
+          "observations": 385312,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-032",
+      "source": "Home health agency 2567",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "qcor-hha",
+          "source_sha256": "a494dbdc6b25d3e96eceb3267494b950a3093ae6cc2d3fa37e700d37c1513ef9",
+          "kind": "qualified_private_projection",
+          "observations": 95789,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-033",
+      "source": "Nursing home Health Deficiencies",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "nursing-health",
+          "source_sha256": "15185c61678f9bcc663076de666d5054a0ca34249c97206cf9e0e3f4ae922473",
+          "kind": "qualified_private_projection",
+          "observations": 418682,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-034",
+      "source": "Nursing home Inspection Dates",
+      "priority": "P0",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "nursing-dates",
+          "source_sha256": "f4997d4adbbc155e3e6472a3d12fc1f278766f9f815c300d48f35ea35a813d20",
+          "kind": "qualified_private_projection",
+          "observations": 148956,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-035",
+      "source": "Nursing home Fire Safety Deficiencies",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "nursing-fire",
+          "source_sha256": "54a18c6409013e2bdcac2da315ddc4557430a993fd324abecd34d7d071c70cb7",
+          "kind": "qualified_private_projection",
+          "observations": 200387,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-036",
+      "source": "Nursing home Penalties",
+      "priority": "P0",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "cms-penalties",
+          "source_sha256": "5b2be235e7cfbba04d3a6fb6441b2634aa43d309f4cb61cd247410211207cd01",
+          "kind": "qualified_private_projection",
+          "observations": 15007,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-037",
+      "source": "Nursing home Survey Summary",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "nursing-summary",
+          "source_sha256": "2aefb25a631161fc060af82bd3fa10923356e08b93d8521f4061051e8271f687",
+          "kind": "qualified_private_projection",
+          "observations": 43931,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-038",
+      "source": "Nursing home Provider Information",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "nursing",
+          "source_sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2",
+          "kind": "qualified_private_projection",
+          "observations": 14686,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-039",
+      "source": "Nursing home Ownership",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-040",
+      "source": "Hospital healthcare-associated infections",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-041",
+      "source": "Ambulatory surgical center quality reporting",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-042",
+      "source": "Long-term care hospital measures",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-043",
+      "source": "Dialysis, hospice, home health, inpatient rehab quality",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-044",
+      "source": "NHSN national and state HAI progress reports",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-045",
+      "source": "Hospital All Owners",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "hospital-owner",
+          "source_sha256": "4886fc907dd67d56d2c45057a13288b5e74a220f11cd6ba32b908a81728038f0",
+          "kind": "qualified_private_projection",
+          "observations": 22735,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-046",
+      "source": "Hospital Change of Ownership",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "hospital-chow",
+          "source_sha256": "a8cb5111dee64780f2c5bd9b10fdd304140848eeeee2e4b2c5012c7421533648",
+          "kind": "qualified_private_projection",
+          "observations": 779,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-047",
+      "source": "Skilled Nursing Facility All Owners",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "snf-owner",
+          "source_sha256": "538b02368085b57139619c643ef5bad19c1c855cc6643e4a7eb2e6f098f46657",
+          "kind": "qualified_private_projection",
+          "observations": 100231,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-048",
+      "source": "Skilled Nursing Facility Change of Ownership",
+      "priority": "P0",
+      "historical_status": "snapshot_qualified",
+      "qualification": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "snf-chow",
+          "source_sha256": "8214fe65ec7c9b291bf579bd9fcdd281fbf9bd8a593613e9db93b6f0d8bdbcb5",
+          "kind": "qualified_private_projection",
+          "observations": 5340,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ],
+      "limit": "Pinned source-native projection; not raw original or public row clearance.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-049",
+      "source": "Home Health Agency All Owners",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_archive_partial",
+      "evidence": [
+        {
+          "key": "hha-organizational-ownership",
+          "source_sha256": "75f6de0bde699b85de15f8b206b3c287afc05388400b78e7ee42284f15ebbf02",
+          "kind": "publisher",
+          "observations": 21734,
+          "receipt_run": 45850540913
+        }
+      ],
+      "limit": "Organizational role rows only; excludes individual owners; no legal title or current operational control.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-050",
+      "source": "Hospice All Owners",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_archive_partial",
+      "evidence": [
+        {
+          "key": "hospice-organizational-ownership",
+          "source_sha256": "23de741ded45d49bb889fb2df3d8330d0884bf241c876d42cd47d93cf1ba208f",
+          "kind": "publisher",
+          "observations": 18763,
+          "receipt_run": 45851139665
+        }
+      ],
+      "limit": "Organizational role rows only; excludes individual owners; no legal title or current operational control.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-051",
+      "source": "Compendium of US Health Systems",
+      "priority": "P0",
+      "historical_status": "blocked_access",
+      "qualification": "blocked_access",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": true,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-052",
+      "source": "Form 990 and Schedule H",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-053",
+      "source": "Exempt Organization Business Master File",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-054",
+      "source": "EDGAR submissions and XBRL",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-055",
+      "source": "HCRIS cost reports all provider forms",
+      "priority": "P0",
+      "historical_status": "partial_structural_qualification",
+      "qualification": "partial_structural_qualification",
+      "storage": "private_archive_partial",
+      "evidence": [
+        {
+          "key": "hcris-hha-2024",
+          "source_sha256": "d3bf63b5d6293aa98f5a1cee096858c5d32d322f3cbe8471d9b6d410b37182d6",
+          "kind": "publisher",
+          "observations": 4791697,
+          "receipt_run": 45850246524
+        },
+        {
+          "key": "hcris-snf-2024-index",
+          "source_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+          "kind": "publisher",
+          "observations": 14622,
+          "receipt_run": 45855006051
+        },
+        {
+          "key": "hcris-cmhc-2017-index",
+          "source_sha256": "2b52cc74a765737afc779009b6ebf042befefdc24b49fd26db426edabc7f6dbd",
+          "kind": "publisher",
+          "observations": 716,
+          "receipt_run": 45856388462
+        },
+        {
+          "key": "hcris-fqhc-2014-index",
+          "source_sha256": "92bb395dd7eb3e82859bb506d83e04d8e5510ae3e4cdaf40315bedafc3e07e4c",
+          "kind": "publisher",
+          "observations": 31727,
+          "receipt_run": 45856388462
+        },
+        {
+          "key": "hcris-rhc-2017-index",
+          "source_sha256": "2a333c852896ea58118d409b7e2e556f0e87961f8c96e002d355445a266bc40d",
+          "kind": "publisher",
+          "observations": 11617,
+          "receipt_run": 45856388462
+        },
+        {
+          "key": "hcris-hospital-2024-index",
+          "source_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+          "kind": "publisher",
+          "observations": 6113,
+          "receipt_run": 45856388462
+        },
+        {
+          "key": "hcris-hospice-2014-index",
+          "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+          "kind": "publisher",
+          "observations": 44027,
+          "receipt_run": 45856388462
+        },
+        {
+          "key": "hcris-renal-2011-index",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "publisher",
+          "observations": 100988,
+          "receipt_run": 45856912767
+        },
+        {
+          "key": "hcris-fqhc-2024-numeric",
+          "source_sha256": "92bb395dd7eb3e82859bb506d83e04d8e5510ae3e4cdaf40315bedafc3e07e4c",
+          "kind": "supplemental_numeric",
+          "observations": 778379,
+          "receipt_run": 45859089095
+        },
+        {
+          "key": "hcris-hospice-2024-numeric",
+          "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+          "kind": "supplemental_numeric",
+          "observations": 2195406,
+          "receipt_run": 45859089095
+        },
+        {
+          "key": "hcris-renal-2024-numeric",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 3400969,
+          "receipt_run": 45859089095
+        },
+        {
+          "key": "hcris-rhc-2017-numeric",
+          "source_sha256": "2a333c852896ea58118d409b7e2e556f0e87961f8c96e002d355445a266bc40d",
+          "kind": "supplemental_numeric",
+          "observations": 2606486,
+          "receipt_run": 45859089095
+        },
+        {
+          "key": "hcris-cmhc-2017-numeric",
+          "source_sha256": "2b52cc74a765737afc779009b6ebf042befefdc24b49fd26db426edabc7f6dbd",
+          "kind": "supplemental_numeric",
+          "observations": 52390,
+          "receipt_run": 45859089095
+        },
+        {
+          "key": "hcris-snf-2024-numeric-00000001-03000000",
+          "source_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+          "kind": "supplemental_numeric",
+          "observations": 3000000,
+          "receipt_run": 45861770583
+        },
+        {
+          "key": "hcris-snf-2024-numeric-03000001-06000000",
+          "source_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+          "kind": "supplemental_numeric",
+          "observations": 3000000,
+          "receipt_run": 45861770583
+        },
+        {
+          "key": "hcris-snf-2024-numeric-06000001-09000000",
+          "source_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+          "kind": "supplemental_numeric",
+          "observations": 2999992,
+          "receipt_run": 45861770583
+        },
+        {
+          "key": "hcris-snf-2024-numeric-09000001-12000000",
+          "source_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+          "kind": "supplemental_numeric",
+          "observations": 3000000,
+          "receipt_run": 45861770583
+        },
+        {
+          "key": "hcris-snf-2024-numeric-12000001-13769223",
+          "source_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+          "kind": "supplemental_numeric",
+          "observations": 1769223,
+          "receipt_run": 45861770583
+        },
+        {
+          "key": "hcris-fqhc-numeric-years-2014-2019",
+          "source_sha256": "92bb395dd7eb3e82859bb506d83e04d8e5510ae3e4cdaf40315bedafc3e07e4c",
+          "kind": "supplemental_numeric",
+          "observations": 3217409,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-fqhc-numeric-years-2020-2026",
+          "source_sha256": "92bb395dd7eb3e82859bb506d83e04d8e5510ae3e4cdaf40315bedafc3e07e4c",
+          "kind": "supplemental_numeric",
+          "observations": 3431853,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-hospital-2024-numeric-00000001-03000000",
+          "source_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+          "kind": "supplemental_numeric",
+          "observations": 3000000,
+          "receipt_run": 45862301518
+        },
+        {
+          "key": "hcris-hospital-2024-numeric-03000001-06000000",
+          "source_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+          "kind": "supplemental_numeric",
+          "observations": 3000000,
+          "receipt_run": 45862301518
+        },
+        {
+          "key": "hcris-hospital-2024-numeric-06000001-09000000",
+          "source_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+          "kind": "supplemental_numeric",
+          "observations": 3000000,
+          "receipt_run": 45862301518
+        },
+        {
+          "key": "hcris-hospital-2024-numeric-09000001-12000000",
+          "source_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+          "kind": "supplemental_numeric",
+          "observations": 3000000,
+          "receipt_run": 45862301518
+        },
+        {
+          "key": "hcris-hospital-2024-numeric-12000001-15000000",
+          "source_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+          "kind": "supplemental_numeric",
+          "observations": 3000000,
+          "receipt_run": 45862301518
+        },
+        {
+          "key": "hcris-hospital-2024-numeric-15000001-18000000",
+          "source_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+          "kind": "supplemental_numeric",
+          "observations": 3000000,
+          "receipt_run": 45862301518
+        },
+        {
+          "key": "hcris-hospital-2024-numeric-18000001-19440697",
+          "source_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+          "kind": "supplemental_numeric",
+          "observations": 1440697,
+          "receipt_run": 45862301518
+        },
+        {
+          "key": "hcris-hospice-numeric-years-2015-2016",
+          "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+          "kind": "supplemental_numeric",
+          "observations": 3005519,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-hospice-numeric-years-2017-2018",
+          "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+          "kind": "supplemental_numeric",
+          "observations": 3227591,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-hospice-numeric-years-2019-2019",
+          "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+          "kind": "supplemental_numeric",
+          "observations": 1745035,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-hospice-numeric-years-2020-2020",
+          "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+          "kind": "supplemental_numeric",
+          "observations": 1801649,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-hospice-numeric-years-2021-2021",
+          "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+          "kind": "supplemental_numeric",
+          "observations": 1882551,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-hospice-numeric-years-2022-2022",
+          "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+          "kind": "supplemental_numeric",
+          "observations": 1952284,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-hospice-numeric-years-2023-2023",
+          "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+          "kind": "supplemental_numeric",
+          "observations": 2091946,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-hospice-numeric-years-2025-2026",
+          "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+          "kind": "supplemental_numeric",
+          "observations": 1935690,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2011-2011",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 2198638,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2012-2012",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 2327356,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2013-2013",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 2434205,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2014-2014",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 2568122,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2015-2015",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 2658729,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2016-2016",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 2818244,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2017-2017",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 2961082,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2018-2018",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 3087380,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2019-2019",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 3195180,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2020-2020",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 3260608,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2021-2021",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 3339812,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2022-2022",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 3322528,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2023-2023",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 3471017,
+          "receipt_run": 45861965422
+        },
+        {
+          "key": "hcris-renal-numeric-years-2025-2026",
+          "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+          "kind": "supplemental_numeric",
+          "observations": 3441617,
+          "receipt_run": 45861965422
+        }
+      ],
+      "limit": "Eight modern provider-form scopes; report indexes, numeric cells and limited HHA alpha structures, not every form/year. No facility financial attribution; 17 direct hospital/SNF mappings qualified on matching report keys.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-056",
+      "source": "Hospital Provider Cost Report selected measures",
+      "priority": "P0",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "hospital-cost-2024",
+          "source_sha256": "bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782",
+          "kind": "qualified_private_projection",
+          "observations": 6109,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-057",
+      "source": "Skilled Nursing Facility Cost Report selected measures",
+      "priority": "P1",
+      "historical_status": "ephemeral_projection_qualified",
+      "qualification": "ephemeral_projection_qualified",
+      "storage": "extension_private_projection",
+      "evidence": [
+        {
+          "key": "snf-cost-2024",
+          "source_sha256": "adcef64de8d15b772aa37ca03bba162e78f781d22198b8fbb478810685e6c05c",
+          "kind": "qualified_private_projection",
+          "observations": 14587,
+          "layer": "extension",
+          "receipt_run": 45848914611
+        }
+      ],
+      "limit": "Pinned private extension; prior ephemeral label is historical.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-058",
+      "source": "SAM.gov contract opportunities",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-059",
+      "source": "SAM.gov contract awards",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-060",
+      "source": "USAspending awards and subawards",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "bounded_award_page_qualification",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": "100-row diagnostic page; no retained award rows, site linkage, or active opportunity. No source archive pin.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-061",
+      "source": "HRSA grant records",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-062",
+      "source": "Facility Registry Service",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_aggregate_archived",
+      "evidence": [
+        {
+          "key": "epa-frs-healthcare-aggregate",
+          "source_sha256": "ba245b37de34bce4d6b2ca9a42e3342c928f330b436addd40d69436e43815f30",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 10148395,
+          "receipt_run": 45859977557
+        }
+      ],
+      "limit": "Healthcare-sector aggregate evidence, not the complete FRS register or healthcare-site identity.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-063",
+      "source": "ECHO data downloads",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_aggregate_partial",
+      "evidence": [
+        {
+          "key": "epa-sdwa-aggregate",
+          "source_sha256": "cad153417ac7f22726bd4b5ebe1cb4aca6088b45910a0b343324fc82cf78ce21",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 434757,
+          "receipt_run": 45855530267
+        },
+        {
+          "key": "epa-frs-healthcare-aggregate",
+          "source_sha256": "ba245b37de34bce4d6b2ca9a42e3342c928f330b436addd40d69436e43815f30",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 10148395,
+          "receipt_run": 45859977557
+        },
+        {
+          "key": "epa-npdes-part1-healthcare-aggregate",
+          "source_sha256": "a1d9d9b9ba2a43c6bc61a0dfe1079b04e4a9a43919d5a539a4a53f9fcd35b03e",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 7116755,
+          "receipt_run": 45862337827
+        },
+        {
+          "key": "epa-rcra-healthcare-aggregate",
+          "source_sha256": "faba1c79e5c21486adfd7f9e046c3891ec2b86070d27f5517e1f620b4d6cad59",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 4347789,
+          "receipt_run": 45862337827
+        }
+      ],
+      "limit": "Selected program/sector aggregates only; not all ECHO datasets.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-064",
+      "source": "SDWIS drinking water systems",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_aggregate_partial",
+      "evidence": [
+        {
+          "key": "epa-sdwa-aggregate",
+          "source_sha256": "cad153417ac7f22726bd4b5ebe1cb4aca6088b45910a0b343324fc82cf78ce21",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 434757,
+          "receipt_run": 45855530267
+        }
+      ],
+      "limit": "Drinking-water search extract only; not all SDWIS systems, violations or enforcement.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-065",
+      "source": "RCRA evaluations, violations and enforcement",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_aggregate_archived",
+      "evidence": [
+        {
+          "key": "epa-rcra-healthcare-aggregate",
+          "source_sha256": "faba1c79e5c21486adfd7f9e046c3891ec2b86070d27f5517e1f620b4d6cad59",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 4347789,
+          "receipt_run": 45862337827
+        }
+      ],
+      "limit": "Healthcare-sector RCRA program aggregates; no facility-level violation or enforcement records retained.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-066",
+      "source": "ICIS-NPDES wastewater",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_aggregate_partial",
+      "evidence": [
+        {
+          "key": "epa-npdes-part1-healthcare-aggregate",
+          "source_sha256": "a1d9d9b9ba2a43c6bc61a0dfe1079b04e4a9a43919d5a539a4a53f9fcd35b03e",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 7116755,
+          "receipt_run": 45862337827
+        }
+      ],
+      "limit": "NPDES Part 1 selected sector aggregates; other parts, monitoring and facility attribution pending.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-067",
+      "source": "ICIS-Air",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-068",
+      "source": "ICIS federal enforcement and compliance monitoring",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-069",
+      "source": "Toxics Release Inventory",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-070",
+      "source": "Establishment inspections and citations",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_aggregate_archived",
+      "evidence": [
+        {
+          "key": "osha-enforcement-healthcare-aggregate",
+          "source_sha256": "8aff0f1394e6d67ed303b5571a75ef1d27374d592e1d22a96f11ab697ac1b8cb",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 18509801,
+          "receipt_run": 45864494699
+        }
+      ],
+      "limit": "Inspection and violation source aggregates; activity identifiers not facility IDs, dates unresolved, no row-level inspection records retained.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-071",
+      "source": "Injury Tracking Application",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-072",
+      "source": "Severe Injury Reports",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-073",
+      "source": "Chemical Exposure Health Data",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-074",
+      "source": "Medical licensee inspections and ADAMS",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-075",
+      "source": "Significant enforcement actions for material licensees",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-076",
+      "source": "Inspection classification dashboard",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-077",
+      "source": "Registered 503B outsourcing facilities",
+      "priority": "P1",
+      "historical_status": "blocked_publisher_access",
+      "qualification": "blocked_publisher_access",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": true,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-078",
+      "source": "LEIE exclusions",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-079",
+      "source": "Certified Buildings and Plants Registry",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-080",
+      "source": "Census Geocoding Services",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-081",
+      "source": "Building Performance Database",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-082",
+      "source": "Commercial Buildings Energy Consumption Survey",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-083",
+      "source": "National Flood Hazard Layer",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-084",
+      "source": "National Risk Index",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-085",
+      "source": "NFIRS public data release",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-086",
+      "source": "Cal Health Find",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-087",
+      "source": "Hospital Building Data",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-088",
+      "source": "Seismic Deadline Extensions Granted for California Hospitals",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-089",
+      "source": "Total Construction Cost of Healthcare Projects",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-090",
+      "source": "FloridaHealthFinder",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-091",
+      "source": "Facility Report Card",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-092",
+      "source": "Health Facility General Information",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-093",
+      "source": "Cooling Tower Registry Weekly Extract",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-094",
+      "source": "Cooling Tower Registrations",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-095",
+      "source": "Cooling Tower Inspection Results",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-096",
+      "source": "Health Care Facilities Regulation",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-097",
+      "source": "Acute and Ambulatory Inspection Results",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-098",
+      "source": "Hospital Reports and record-level files",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-099",
+      "source": "Acute Care Facility Search",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-100",
+      "source": "Agency Decisions and Enforcement Actions",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-101",
+      "source": "Licensed or Certified Healthcare Facility Lists",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-102",
+      "source": "Hospital Locations",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-103",
+      "source": "Facilities Inspections and Investigations",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-104",
+      "source": "Provider Credential or Facility Search and Open Data route",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-105",
+      "source": "Boiler and pressure vessel register",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_aggregate_archived",
+      "evidence": [
+        {
+          "key": "mn-boiler-aggregate",
+          "source_sha256": "a9b6054c1b19e65931135cb3a72a8c3e6829ba36e7cfa10a070040cb6e0b6b49",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 171503,
+          "receipt_run": 45866627645
+        }
+      ],
+      "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-106",
+      "source": "Boiler data search",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-107",
+      "source": "Iowa Elevator Permits",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-108",
+      "source": "Radiation-generating equipment registrants",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-109",
+      "source": "X-Ray Facility List",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_aggregate_archived",
+      "evidence": [
+        {
+          "key": "wa-xray-aggregate",
+          "source_sha256": "eec10fcf396ed921ba35b2b55b4f4766f77e32470ed466acb29c7d4ba447b0c7",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 6661,
+          "receipt_run": 45855530267
+        }
+      ],
+      "limit": "Source registry aggregate; freshness and reuse review pending.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-110",
+      "source": "Radiation machine registration lookup",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-111",
+      "source": "Radiation Producing Equipment",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-112",
+      "source": "Elevator equipment data file",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-113",
+      "source": "Elevator inspection extracts",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-114",
+      "source": "Elevator active licensure files",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-115",
+      "source": "Elevator company and inspector license files",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-116",
+      "source": "Elevator asset data",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_aggregate_archived",
+      "evidence": [
+        {
+          "key": "mn-elevator-aggregate",
+          "source_sha256": "81014bada07b0ebcf841b83a571d1cbdaf33d74beea859a748b9bd5b81b21aff",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 51950,
+          "receipt_run": 45866627645
+        }
+      ],
+      "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-117",
+      "source": "Pressure vessel registration database",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-118",
+      "source": "Facility Fire Safety and Construction Survey Results",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-119",
+      "source": "CON equipment utilization reports",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-120",
+      "source": "Certificate of Need applications and decisions",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-121",
+      "source": "AZ Care Check",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-122",
+      "source": "Health Facility Search Site",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-123",
+      "source": "Health Care Facility Licensing and Investigations",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-124",
+      "source": "Health Care Facility Regulatory Action Reports",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-125",
+      "source": "GaMap2Care",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-126",
+      "source": "Hospital provider list and survey results",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-127",
+      "source": "Hospital Consumer Reports",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-128",
+      "source": "Health Facility Database",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-129",
+      "source": "Verify a License and recent inspection reports",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-130",
+      "source": "State licensed and federally certified provider directories",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-131",
+      "source": "Biannual health facility inspection reports",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-132",
+      "source": "Health Care Provider Directory",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-133",
+      "source": "Health Facilities Directory",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-134",
+      "source": "Nursing home and ICF-IID inspection records",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-135",
+      "source": "Health facility licensee search",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-136",
+      "source": "Adult care inspections ratings and penalties",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-137",
+      "source": "Healthcare Provider Real-Time Information database",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-138",
+      "source": "Healthcare inspections and disciplinary actions",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-139",
+      "source": "Find a regulated program",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-140",
+      "source": "General and outpatient surgical hospital directories",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-141",
+      "source": "Nursing Home Informational Portal",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-142",
+      "source": "Provider Search export",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-143",
+      "source": "Provider Search Survey History",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-144",
+      "source": "Healthcare Facility Inspection Reports",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-145",
+      "source": "Health Care Facility Inspection Reports",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-146",
+      "source": "Health Care Facilities Directory",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-147",
+      "source": "Health Care Facility Deficiencies",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-148",
+      "source": "Health Facilities Licensing and Certification list",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-149",
+      "source": "Health Facility Services",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-150",
+      "source": "Licensed Illinois Hospitals Directory",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "private_directory_archived",
+      "evidence": [
+        {
+          "key": "il-idph-hospital-directory",
+          "source_sha256": "a4f5bc44dd64b998d0ec92eaff6408318d1b7635d00de12514e138b302123ee4",
+          "kind": "publisher",
+          "observations": 207,
+          "receipt_run": 45866627645
+        }
+      ],
+      "limit": "207 directory observations; license/CCN/site and current operating-status joins unresolved.",
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-151",
+      "source": "Health Facilities Inventories and Data",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-152",
+      "source": "CON authorized bed and capacity changes tracker",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-153",
+      "source": "Licensee Directories",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-154",
+      "source": "State Survey Agency Directory",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-155",
+      "source": "HospitalInspections.org historical complaint inspection search",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-156",
+      "source": "State inspection portal links",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-157",
+      "source": "Drinking Water System Search Download",
+      "priority": "P0",
+      "historical_status": "blocked_key_format_review",
+      "qualification": "blocked_key_format_review",
+      "storage": "private_aggregate_key_review",
+      "evidence": [
+        {
+          "key": "epa-sdwa-aggregate",
+          "source_sha256": "cad153417ac7f22726bd4b5ebe1cb4aca6088b45910a0b343324fc82cf78ce21",
+          "kind": "aggregate",
+          "observations": 0,
+          "screened_observations": 434757,
+          "receipt_run": 45855530267
+        }
+      ],
+      "limit": "Medical-area aggregate archived; unresolved publisher identifier formats and facility relationships remain blocked.",
+      "blocked": true,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-158",
+      "source": "UCMR 5 analytical results",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-159",
+      "source": "UCMR historical occurrence data",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-160",
+      "source": "State certified drinking water laboratory program directory",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-161",
+      "source": "Drinking Water Watch",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-162",
+      "source": "Drinking Water Watch",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-163",
+      "source": "Drinking Water Viewer",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-164",
+      "source": "Water Quality Monitoring and Reports",
+      "priority": "P0",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-165",
+      "source": "Directive 1061 water safety requirements",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-166",
+      "source": "Medical waste transporter registration",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-167",
+      "source": "Medical waste generator local enforcement agencies",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-168",
+      "source": "Biomedical Waste Regulation",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-169",
+      "source": "Hospital price transparency civil monetary penalties",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-170",
+      "source": "Hospital price transparency machine-readable files",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-171",
+      "source": "Opioid Treatment Program Directory",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-172",
+      "source": "OPTN Membership database",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-173",
+      "source": "Health facility public records request route",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-174",
+      "source": "Certificate of Need state law inventory",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-175",
+      "source": "Certificate of Need Panel Database",
+      "priority": "P2",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    },
+    {
+      "id": "FS-176",
+      "source": "Hospital water treatment and hyperchlorination tender example",
+      "priority": "P1",
+      "historical_status": "discovered_not_tested",
+      "qualification": "discovered_not_tested",
+      "storage": "no_pinned_source_projection",
+      "evidence": [],
+      "limit": null,
+      "blocked": false,
+      "raw_original_retention": "not_established_by_this_ledger",
+      "public_row_redistribution": "not_granted_by_private_archive"
+    }
+  ],
+  "additional_national_sources": [
+    {
+      "key": "dialysis",
+      "historical_status": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "dialysis",
+          "source_sha256": "9b0232d73b8aa9628b51bc76b7246b8590daa0393ec9dfd3126171ce571469ed",
+          "kind": "qualified_private_projection",
+          "observations": 7471,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ]
+    },
+    {
+      "key": "home-health",
+      "historical_status": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "home-health",
+          "source_sha256": "7adf3e17961949bbd64ef243545aa387224d9837e8c5601476f5b11946e76d22",
+          "kind": "qualified_private_projection",
+          "observations": 12409,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ]
+    },
+    {
+      "key": "hospice",
+      "historical_status": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "hospice",
+          "source_sha256": "9ff0f8e60a0864f51faf9d5668b1a5b7a644f15eefc1fecd66a771783722700f",
+          "kind": "qualified_private_projection",
+          "observations": 6470,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ]
+    },
+    {
+      "key": "rehabilitation",
+      "historical_status": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "rehabilitation",
+          "source_sha256": "18f89d14e22355b3ae2bcf02b2db93e7e54341f679ad380a2d741ce58002e214",
+          "kind": "qualified_private_projection",
+          "observations": 1222,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ]
+    },
+    {
+      "key": "long-term-hospital",
+      "historical_status": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "long-term-hospital",
+          "source_sha256": "176b1fae71a5ac97bf89f9d3404b98c6d3135b184f079baec939bcb2e016ba2e",
+          "kind": "qualified_private_projection",
+          "observations": 311,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ]
+    },
+    {
+      "key": "hospital-enrollment",
+      "historical_status": "snapshot_qualified",
+      "storage": "national_private_projection",
+      "evidence": [
+        {
+          "key": "hospital-enrollment",
+          "source_sha256": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e",
+          "kind": "qualified_private_projection",
+          "observations": 9120,
+          "layer": "national",
+          "receipt_run": 45847538263
+        }
+      ]
+    }
+  ],
+  "additional_or_derived_receipts": [
+    {
+      "storage": "additional_private_publisher_projection",
+      "evidence": {
+        "key": "hha-enrollment-organizations",
+        "source_sha256": "d76ecbb2b50a7047cf913ba819cd9187bc344aaa357ee2c3ea584e663303cbb4",
+        "kind": "publisher",
+        "observations": 11505,
+        "receipt_run": 45854293234
+      }
+    },
+    {
+      "storage": "additional_private_publisher_projection",
+      "evidence": {
+        "key": "hha-selected-cost-2024",
+        "source_sha256": "3e864b52252b587aae6509449c657321c155b47eafd063016ea3ca458de77a74",
+        "kind": "publisher",
+        "observations": 10970,
+        "receipt_run": 45851139665
+      }
+    },
+    {
+      "storage": "additional_private_publisher_projection",
+      "evidence": {
+        "key": "hospice-enrollment-organizations",
+        "source_sha256": "cedea131bb00cc14ccc77440176574796bce5222817a301fe1c7cc00d121850b",
+        "kind": "publisher",
+        "observations": 5684,
+        "receipt_run": 45854293234
+      }
+    },
+    {
+      "storage": "derived",
+      "evidence": {
+        "key": "pecos-nppes-identity-candidates",
+        "source_sha256": "faf0318d9f32b87c1b1801ed5b00a3f9c97d567881f9a710467b9719ec1e6141",
+        "kind": "derived",
+        "observations": 23520,
+        "receipt_run": 45851929487
+      }
+    },
+    {
+      "storage": "additional_private_publisher_projection",
+      "evidence": {
+        "key": "il-reportcard-ascs",
+        "source_sha256": "1f6545c8d698ac517aacc6354b2daef3855f763a1c9125c0c905686f0cab0d26",
+        "kind": "publisher",
+        "observations": 187,
+        "receipt_run": 45855530267
+      }
+    },
+    {
+      "storage": "additional_private_publisher_projection",
+      "evidence": {
+        "key": "il-reportcard-hospitals",
+        "source_sha256": "522c8d54ad3890a1afdb9d7e10b58929ec91742a69d6a0fe4da0d59b382974f6",
+        "kind": "publisher",
+        "observations": 272,
+        "receipt_run": 45856912912
+      }
+    },
+    {
+      "storage": "institutional_fields",
+      "evidence": {
+        "key": "institutional-field-observations",
+        "source_sha256": "c19f08e7c24abf2469d161105f487cd36ef8fc9e2fa725ef64164e4e90e8736c",
+        "kind": "institutional_fields",
+        "observations": 101534,
+        "receipt_run": 45880420262
+      }
+    },
+    {
+      "storage": "evidence_bundle",
+      "evidence": {
+        "key": "repository-data-evidence",
+        "source_sha256": "d99a4a943482a3611048ac037e9181a83c9a4250640bf592e3e3877134522844",
+        "kind": "evidence_bundle",
+        "observations": 0,
+        "receipt_run": 45880420262
+      }
+    }
+  ],
+  "public_and_research_evidence": {
+    "pinned_commit": "3b2a59b2fc8970ce97b2334a0653611c415231ff",
+    "tracked_data_json_files": 73,
+    "supplemental_json_files": 13,
+    "extension_pack_byte_parity": {
+      "byte_parity": true,
+      "bytes": 12589349,
+      "file_count": 15,
+      "pages_paths_unchanged": true
+    },
+    "limit": "Historical pack parity and pinned evidence inventory; not an ordinary-live browser check or new publication."
+  },
+  "baseline_commit": "55a58686d170c169c1988a615739f57d7461f076",
+  "input_git_blob_shas": {
+    "research/facilitysignal_source_register_v0.2.json": "8d3a5e9992cc4b9d819452cd4050dd19731e0d55",
+    "research/coverage_status.json": "243f71fc31ac241ced75cf10a0a55ff15bf6ccfd",
+    "research/azure_archive_inventory_20261126.json": "7cbf0401d50dbe9061ef7ab0a7fffad4bed78317",
+    "research/private_source_register_receipt_map_20261126.json": "b459490a2ee60f226e9653acc2e2e8386adb5905",
+    "research/snapshot_release_20261125.json": "9162fbdcc3ee591b63429df3279cdf11a8ddf125",
+    "research/expanded_source_lock_20261126.json": "70a434e2d5a2102b65005d80884f5841302796fb",
+    "research/azure_extension_recovery_pin_20261126.json": "1ffce7f894fae7589b4072e6c234292295ffd342",
+    "research/procurement_awards_audit_20261126.json": "6542d9c74741b26d402c8f2bcfabdf609e290b4f"
+  },
+  "offline_validation_checks": [
+    "all registered and additional national sources",
+    "pinned totals",
+    "new ownership archive overlays",
+    "aggregate-only HRSA and bounded procurement",
+    "duplicate receipt rejected",
+    "altered extension pin rejected",
+    "drifting archive totals rejected",
+    "unknown overlay rejected",
+    "unmapped core source rejected"
+  ]
+}
