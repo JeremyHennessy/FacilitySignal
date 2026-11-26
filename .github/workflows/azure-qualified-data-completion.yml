@@ -1,0 +1,60 @@
+name: FacilitySignal qualified data storage completion
+on:
+  push:
+    branches: [main, build/azure-qualified-data-completion-20261126]
+    paths:
+      - .github/workflows/azure-qualified-data-completion.yml
+      - scripts/archive_qualified_data.py
+      - tests/test_archive_qualified_data.py
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-qualified-data-storage
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  archive:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: azure-production
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [institutional, evidence]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Archive verified data with full SHA-256 readback
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.archive_qualified_data --scope ${{ matrix.scope }} --receipt "$RUNNER_TEMP/qualified-data-receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: private-qualified-${{ matrix.scope }}-receipt
+          path: ${{ runner.temp }}/qualified-data-receipt.json
+          retention-days: 30
+          if-no-files-found: error
