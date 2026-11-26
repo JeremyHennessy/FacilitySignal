@@ -36,6 +36,13 @@ try:
                     actual=[r.locator("td").all_inner_texts() for r in tables.nth(i).locator("tbody tr").all()]
                     expected=[["—" if v is None else f"{v:,}" if type(v) is int else v for v in row] for row in g["rows"]]
                     assert actual==expected,(section["id"],i,actual,expected)
+                    table=tables.nth(i)
+                    assert table.evaluate("(e)=>e.classList.contains('intelligence-table')&&e.tabIndex===0")
+                    assert table.evaluate("(e)=>[...e.querySelectorAll('th:not(:first-child),td:not(:first-child)')].every(c=>getComputedStyle(c).whiteSpace==='nowrap')")
+                    assert table.locator("th").first.evaluate("(e)=>e.getBoundingClientRect().width>=159")
+                    if width==390 and len(g["columns"])>3:
+                        assert table.evaluate("(e)=>e.scrollWidth>e.clientWidth&&getComputedStyle(e).overflowX==='auto'")
+                        assert table.evaluate("(e)=>{e.scrollLeft=100;const moved=e.scrollLeft>0;e.scrollLeft=0;return moved}")
                     assert page.get_by_role("link",name="Qualification run "+str(g["run"]),exact=True).count()>=1
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,section["id"])
                 assert not errors,errors

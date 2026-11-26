@@ -54,7 +54,12 @@ async function intelligence(view,signal,epoch){
         for(const g of section.groups){
             if(!Number.isSafeInteger(g.run)||g.run<=0||!Array.isArray(g.columns)||!Array.isArray(g.rows)||g.rows.some(r=>!Array.isArray(r)||r.length!==g.columns.length||r.some(x=>x!==null&&typeof x!=="string"&&!(Number.isSafeInteger(x)&&x>=0))))throw Error("Invalid evidence group");
             const src=safeExternal(g.source);
-            app.append(el("h2",g.title),el("p",g.note,"intro"),table(g.columns,g.rows.map(r=>r.map(x=>x===null?"—":typeof x==="number"?N.format(x):x))));
+            const evidenceTable=table(g.columns,g.rows.map(r=>r.map(x=>x===null?"—":typeof x==="number"?N.format(x):x)));
+            evidenceTable.classList.add("intelligence-table");
+            evidenceTable.setAttribute("aria-label",g.title+"; scroll horizontally if needed");
+            app.append(el("h2",g.title),el("p",g.note,"intro"));
+            if(g.columns.length>3)app.append(el("p","Scroll horizontally to see all columns.","intelligence-scroll-hint"));
+            app.append(evidenceTable);
             const evidence=el("div",undefined,"links");
             evidence.append(anchor("Qualification run "+g.run,"https://github.com/JeremyHennessy/FacilitySignal/actions/runs/"+g.run,true));
             if(src)evidence.append(anchor("Official documentation / evidence",src,true));
