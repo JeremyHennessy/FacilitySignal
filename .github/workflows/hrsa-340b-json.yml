@@ -1,0 +1,29 @@
+name: HRSA 340B documented public JSON export qualification
+on:
+  push:
+    branches: [diagnostics/hrsa-340b-json-20261126]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-hrsa-340b-entities
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0 ijson==3.3.0
+      - run: python -m unittest discover -s tests -p 'test_340b_json.py' -v
+      - run: python -m playwright install --with-deps chromium
+      - run: python -m scripts.qualify_340b_json --audit "$RUNNER_TEMP/340b-json.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hrsa-340b-json-aggregate-only
+          path: ${{ runner.temp }}/340b-json.json
+          retention-days: 14
+          if-no-files-found: warn
