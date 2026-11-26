@@ -1,5 +1,5 @@
 import sqlite3,unittest
-from iqies_status_evidence import DDL,termination,survey,parsed_date,parse_domain,profile
+from iqies_status_evidence import DDL,termination,survey,parsed_date,parse_domain,profile,AUDITED_SLASH_RELEASE
 
 class StatusEvidenceTests(unittest.TestCase):
     def test_code_not_operation(self):
@@ -14,6 +14,15 @@ class StatusEvidenceTests(unittest.TestCase):
         self.assertEqual(parsed_date("2026-09-30"),("2026-09-30","reported"))
         self.assertEqual(parsed_date("2026-02-30"),(None,"unknown"))
         self.assertEqual(parsed_date(""),(None,"blank"))
+    def test_pinned_date_evidence(self):
+        cases={"12/31/2024":("2024-12-31","reported"),"2/2/2024":("2024-02-02","reported"),
+               "1/2/2024":(None,"ambiguous"),"2/29/2024":("2024-02-29","reported"),
+               "2/29/2023":(None,"unknown"),"31/12/2024":(None,"unknown"),
+               "Not Available":(None,"not_available"),"":(None,"blank")}
+        for raw,expected in cases.items():
+            with self.subTest(raw=raw):self.assertEqual(parsed_date(raw,AUDITED_SLASH_RELEASE),expected)
+        self.assertEqual(parsed_date("12/31/2024"),(None,"unknown"))
+        self.assertEqual(parsed_date("12/31/2024","different-release"),(None,"unknown"))
     def test_domain_rejects_duplicates_and_incomplete(self):
         with self.assertRaises(ValueError):parse_domain([("00","Active"),("0","Other")])
         with self.assertRaises(ValueError):parse_domain([("00","Active")])

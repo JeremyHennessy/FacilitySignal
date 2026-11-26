@@ -17,6 +17,9 @@ from build_combined import require,check_integrity,sha,readonly
 from restore_snapshot import LOCK,load_lock,materialize,verify_raw
 from probe_pos_fields import INVENTORY
 
+# Release-specific audit 45723058734: 14,648 MDY-only, 1,155 same either
+# way, 9,765 ambiguous and 74,766 Not Available. The dictionary says ISO.
+AUDITED_SLASH_RELEASE="50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2"
 FIELDS={"pgm_trmntn_cd":(102,"Termination Code","M2"),"fed_crtfctn_stus_id":(100,"Federal Certification Status ID",None),
 "fed_crtfctn_stus_name":(101,"Federal Certification Status Name",None),
 "cmplnc_stus_cd":(27,"Compliance Status Code",None),"trmntn_exprtn_dt":(14,"Termination or Expiration Date",None)}
@@ -34,7 +37,7 @@ CREATE TABLE IF NOT EXISTS iqies_status_observations(
  termination_code TEXT,termination_value_state TEXT NOT NULL CHECK(termination_value_state IN ('recognized','blank','unknown')),
  federal_status_id TEXT,federal_status_name TEXT,
  survey_compliance_raw TEXT,survey_compliance_value_state TEXT NOT NULL CHECK(survey_compliance_value_state IN ('reported_yes','reported_no','blank','unknown')),
- termination_date TEXT,termination_date_state TEXT NOT NULL CHECK(termination_date_state IN ('reported','blank','unknown')),
+ termination_date TEXT,termination_date_state TEXT NOT NULL CHECK(termination_date_state IN ('reported','blank','unknown','not_available','ambiguous')),
  PRIMARY KEY(registry,row_number),
  FOREIGN KEY(registry,row_number) REFERENCES certification_records(registry,row_number),
  FOREIGN KEY(termination_code) REFERENCES iqies_termination_dictionary(code),
@@ -85,12 +88,26 @@ def termination(raw,domain):
 def survey(raw):
     return {"yes":"reported_yes","no":"reported_no","":"blank"}.get(raw.strip().casefold(),"unknown")
 
-def parsed_date(raw):
+def parsed_date(raw,source_sha256=None):
     s=raw.strip()
     if not s:return None,"blank"
+    if s.casefold()=="not available":return None,"not_available"
     if re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}",s):
         try:return date.fromisoformat(s).isoformat(),"reported"
         except ValueError:pass
+    # For the exact audited release, accept dates with only one valid
+    # interpretation (MDY), or both interpretations identical. Do not infer
+    # a particular date where both are valid but differ.
+    if source_sha256==AUDITED_SLASH_RELEASE:
+        m=re.fullmatch(r"([0-9]{1,2})/([0-9]{1,2})/([0-9]{4})",s)
+        if m:
+            a,b,y=map(int,m.groups())
+            try:mdy=date(y,a,b)
+            except ValueError:return None,"unknown"
+            try:dmy=date(y,b,a)
+            except ValueError:dmy=None
+            if dmy is not None and dmy!=mdy:return None,"ambiguous"
+            return mdy.isoformat(),"reported"
     return None,"unknown"
 
 def project(db,source,item,dictionary_path):
@@ -117,7 +134,7 @@ def project(db,source,item,dictionary_path):
             status_name=row["fed_crtfctn_stus_name"].strip() or None
             survey_raw=row["cmplnc_stus_cd"].strip() or None
             compliance=survey(survey_raw or "")
-            dt,dt_state=parsed_date(row["trmntn_exprtn_dt"])
+            dt,dt_state=parsed_date(row["trmntn_exprtn_dt"],item["sha256"])
             states["termination_"+term_state]+=1;states["date_"+dt_state]+=1;states["survey_"+compliance]+=1
             codes[code if code is not None else term_state]+=1
             cross[(code if code is not None else term_state,dt_state)]+=1
@@ -139,7 +156,7 @@ def project(db,source,item,dictionary_path):
             "termination_code_by_date_state":{k:{s:v for (c,s),v in cross.items() if c==k} for k in codes},
             "value_state_counts":dict(states),"federal_status_id_counts":dict(fed),
             "federal_status_distinct_nonblank_names":db.execute("SELECT count(DISTINCT federal_status_name) FROM iqies_status_observations").fetchone()[0],
-            "limitations":["M2 'Active' describes program termination code only; not a verified current operating facility or even a canonical active certificate.","Federal status ID/name are source-native; no authoritative crosswalk claimed. Survey compliance refers to certification survey, not present compliance.","Date state is syntactic validity only; no timeline or physical-site inference. Unknown and blank remain distinct.","Local qualification, aggregate-only evidence; derived records not additional provider records."]}
+            "limitations":["M2 'Active' describes program termination code only; not a verified current operating facility or even a canonical active certificate.","Federal status ID/name are source-native; no authoritative crosswalk claimed. Survey compliance refers to certification survey, not present compliance.","ISO and unambiguous slash dates are source date observations, not a timeline or operation claim. Slash rules apply only to audited release; ambiguous, Not Available, blank and unknown remain distinct.","Local qualification, aggregate-only evidence; derived records not additional provider records."]}
 
 def profile(db,provider_id):
     if not re.fullmatch(r"[A-Za-z0-9]{6,10}",provider_id):return {"status":"invalid_identifier","rows":[]}
@@ -154,7 +171,7 @@ def profile(db,provider_id):
     cur=db.execute(sql,(provider_id,));names=[x[0] for x in cur.description];rows=[dict(zip(names,row)) for row in cur]
     return {"status":"source_observations" if rows else "no_qualified_observations","rows":rows,
             "release":dict(zip(("source_sha256","dictionary_sha256","source_period","dictionary_url"),rel)),
-            "note":"Source-native program termination status, federal certification status, certification-survey compliance, and date are separate evidence. No current operation inferred."}
+            "note":"Source-native program termination status, federal certification status, certification-survey compliance, and date are separate evidence. Date ambiguity and Not Available remain explicit; raw date stays in the source registry. No current operation inferred."}
 
 def build(output,raw_dir,dictionary_path,base_db,allow_download):
     item=next(s for s in load_lock(LOCK)["sources"] if s["family"]=="registry" and s["key"]=="iqies")

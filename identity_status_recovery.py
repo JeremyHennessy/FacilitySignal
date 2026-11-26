@@ -115,7 +115,7 @@ def audit_date_formats(db):
         shape=date_shape(value);counts[shape]+=1;cross[(shape,state)]+=1;n+=1
     require(n==100334 and sum(counts.values())==n,"date shape audit reconciliation")
     return {"rows":n,"raw_shape_counts":dict(counts),"shape_by_existing_parse_state":{k:{s:v for (shape,s),v in cross.items() if shape==k} for k in counts},
-            "note":"No date values or identifiers in audit; no parser change. Date shape and dictionary semantics must be reviewed before interpreting alternate formats or missing tokens."}
+            "note":"No date values or identifiers in audit. Raw shapes remain unchanged. Audited release permits only unambiguous MDY or identical interpretations; differing interpretations remain unresolved."}
 
 def project_status(db_path,item,path,document):
     with closing(sqlite3.connect(db_path)) as db:
@@ -125,13 +125,20 @@ def project_status(db_path,item,path,document):
 def finish(db_path,projection):
     require(projection["status_observations"]==projection["source_records_verified"]==100334,"status projection baseline mismatch")
     require(projection["termination_code_counts"]=={"00":74762,"01":21557,"02":146,"03":303,"04":1565,"05":725,"06":834,"07":157,"unknown":285},"termination domain baseline mismatch")
-    require(projection["value_state_counts"]=={"termination_recognized":100049,"termination_unknown":285,"date_unknown":100334,"survey_reported_no":35797,"survey_reported_yes":51409,"survey_unknown":13128,"federal_name_present":100334},"status state baseline mismatch")
+    require(projection["value_state_counts"]=={"termination_recognized":100049,"termination_unknown":285,"date_reported":15803,"date_ambiguous":9765,"date_not_available":74766,"survey_reported_no":35797,"survey_reported_yes":51409,"survey_unknown":13128,"federal_name_present":100334},"status state baseline mismatch")
     with closing(sqlite3.connect(db_path)) as db:
         db.execute("PRAGMA foreign_keys=ON")
         row=db.execute("SELECT source_sha256,dictionary_sha256,source_rows FROM iqies_status_release").fetchone()
         require(row is not None and tuple(row)==(db.execute("SELECT source_sha256 FROM certification_releases WHERE registry='iqies'").fetchone()[0],DICT_SHA,100334),"status release lineage")
         require(db.execute("SELECT count(*) FROM iqies_status_observations").fetchone()[0]==100334,"stored status count")
         dates=audit_date_formats(db)
+        require(dates["raw_shape_counts"]=={"slash_date_uninterpreted":25568,"not_available":74766},"date raw shape baseline mismatch")
+        require(dates["shape_by_existing_parse_state"]=={"slash_date_uninterpreted":{"reported":15803,"ambiguous":9765},"not_available":{"not_available":74766}},"date state reconciliation")
+        # Compare every projected value with the unchanged source field.
+        for raw_date,projected,parse_state in db.execute("""SELECT c.termination_date,s.termination_date,s.termination_date_state
+                FROM certification_records c JOIN iqies_status_observations s ON c.registry=s.registry AND c.row_number=s.row_number
+                WHERE c.registry='iqies'"""):
+            require((projected,parse_state)==status.parsed_date(raw_date,status.AUDITED_SLASH_RELEASE),"date projection mismatch")
         candidates=build_candidates(db)
         check_integrity(db)
     return {"status_observations":100334,"status_domain_counts":projection["termination_code_counts"],
