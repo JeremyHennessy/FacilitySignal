@@ -46,7 +46,7 @@ async function intelligence(view,signal,epoch){
         if(!section||!Array.isArray(section.groups))throw Error("Missing evidence section");
         title(section.title,section.intro);
         const nav=el("div",undefined,"links");
-        if(view==="services")nav.append(anchor("Search reported public capacity",route("capacity")),anchor("Browse facility directory",route("facilities")),dialysisResearchLink());
+        if(view==="services")nav.append(anchor("Search reported public capacity",route("capacity")),anchor("Browse facility directory",route("facilities")),dialysisResearchLink(),hhaResearchLink());
         if(view==="compliance-research")nav.append(anchor("Search public nursing citation aggregates",route("citations")),anchor("Hospital survey coverage",route("hospital-surveys")));
         if(view==="equipment-environment")nav.append(anchor("Review source register",route("sources")));
         if(view==="data-evidence")nav.append(anchor("Source inventory",route("sources")),anchor("Certification registry coverage",route("certifications")));
@@ -210,7 +210,7 @@ function exportAdvancedPage(rows){
 async function advancedResearch(p,signal,epoch){
     title("Advanced facility search","Combine published provider category, jurisdiction, exact or text search, and source-specific capacity evidence. Results are reported program records, not unique buildings or a list of confirmed service opportunities.");
     const sources=providerSources(),form=advancedForm(p,sources);
-    app.append(form,add(el("div",undefined,"links"),anchor("Service research coverage",route("services")),anchor("Industry research pathways",route("industry",{state:p.state})),dialysisResearchLink(p.state)));
+    app.append(form,add(el("div",undefined,"links"),anchor("Service research coverage",route("services")),anchor("Industry research pathways",route("industry",{state:p.state})),dialysisResearchLink(p.state),hhaResearchLink(p.state)));
     let params;
     try{params=advancedParameters(p,sources)}catch(e){app.append(el("div",e.message,"error"));return}
     if(!p.run&&!p.q&&!p.state&&!p.source&&!p.reported&&!p.min&&!p.max){app.append(el("div","Select filters and apply the search. Searching all categories without text is allowed; results are paginated.","empty"));return}
@@ -247,7 +247,7 @@ async function advancedResearch(p,signal,epoch){
     const safe={source:params.source,state:params.state,field:params.field,q:params.q,reported:params.reported,min:p.min,max:p.max,run:1};
     if(page>1)pager.append(anchor("First page",route("advanced",{...safe,page:1})),anchor("Previous",route("advanced",{...safe,page:page-1})));
     if(page*pageSize<total&&!failed)pager.append(anchor("Next",route("advanced",{...safe,page:page+1})));
-    app.append(pager,el("p","This search uses existing public provider records and capacity fields. Selected dialysis service observations are searchable in the separate Dialysis service research workspace. Other individual clinical service, equipment, ownership and regulatory relationships remain subject to qualification and publication review.","intro"))
+    app.append(pager,el("p","This search uses existing public provider records and capacity fields. Selected dialysis and home health service observations are searchable in their separate service research workspaces. Other individual clinical service, equipment, ownership and regulatory relationships remain subject to qualification and publication review.","intro"))
 }
 function industryResearch(p){
     title("Industry research","Start a documented healthcare-market research workflow. Each pathway links to available public provider or national aggregate evidence; these are not confirmed leads, equipment inventories or findings of noncompliance.");
@@ -262,7 +262,7 @@ function industryResearch(p){
         ["Sterilization & infection prevention","Research hospital and nursing-home markets alongside national surgical-capability and infection-prevention context. Facility-level sterilization service or critical-water evidence is not published.",[["Hospital providers",search("hospital")],["Nursing home capacity",cap("nursing")],["National service evidence",route("services")],["National compliance research",route("compliance-research")]]],
         ["Medical imaging & equipment","Research provider markets and the national FDA mammography and QIES service-code evidence. There is no qualified individual installed-unit filter.",[["Hospital providers",search("hospital")],["Mammography source coverage",route("equipment-environment")],["National imaging service evidence",route("services")]]],
         ["Fire protection & emergency preparedness","Research nursing provider markets and historical citation aggregates. National life-safety context is not a current finding or a facility vulnerability assessment.",[["Nursing providers",search("nursing")],["Historical nursing fire citations",route("citations",{source:"nursing-fire",state})],["National compliance research",route("compliance-research")]]],
-        ["Laboratory & clinical services","Research the provider directory and national certification/laboratory coverage. Individual CLIA relationships remain unpublished; selected dialysis service evidence has a separate qualified research view.",[["Public provider search",search("all")],["Registry and laboratory coverage",route("certifications")],["National service evidence",route("services")]]],
+        ["Laboratory & clinical services","Research the provider directory and national certification/laboratory coverage. Individual CLIA relationships remain unpublished; selected dialysis and home health service evidence have separate qualified research views.",[["Public provider search",search("all")],["Registry and laboratory coverage",route("certifications")],["National service evidence",route("services")],["Home health service research",route("hha-services",{state})]]],
         ["Property management & infrastructure","Research market scale and reported provider addresses. Physical sites, ownership, contractors and procurement relationships are not inferred.",[["Regional market explorer",route("geography",{state})],["Public provider search",search("all")],["Ownership source coverage",route("ownership")]]]
     ];
     const grid=el("div",undefined,"industry-grid");
@@ -557,7 +557,7 @@ function certificationCoverage(){title("Certifications & laboratories","Qualifie
 
 const profileSections=[["summary","Summary"],["services","Services & capacity"],["compliance","Compliance evidence"],["sources","Sources & coverage"]];
 function localResearchReturn(hash){
-    if(typeof hash!=="string"||hash.length>1600||!/^#(?:facilities|citations|capacity|search|advanced|dialysis-services)(?:\?|$)/.test(hash))return "";
+    if(typeof hash!=="string"||hash.length>1600||!/^#(?:facilities|citations|capacity|search|advanced|dialysis-services|hha-services)(?:\?|$)/.test(hash))return "";
     return hash
 }
 function profileHref(s,r,f){
@@ -590,6 +590,7 @@ async function profileService(r,s,f,signal,epoch){
             add(el("p"),anchor("Explore reported capacity in this jurisdiction",route("capacity",{source:s.key,state:value(r,f,"state")}))));
     }else section.append(el("div","No qualified, comparable numeric capacity unit is published for this provider category. Any original reported capacity text in Summary is not interpreted as a standardized measurement.","notice"));
     if(s.key==="dialysis"){const evidence=await dialysisProfile(r,signal,epoch);if(!evidence||epoch!==sequence)return null;section.append(evidence)}
+    else if(s.key==="home-health"){const evidence=await hhaProfile(r,signal,epoch);if(!evidence||epoch!==sequence)return null;section.append(evidence)}
     else section.append(el("h2","Other service capabilities"),el("div","Individual QIES and iQIES service observations are not published for this source record. National aggregate evidence is available separately; it is not evidence of a particular service at this facility.","notice"),add(el("p"),anchor("National service evidence",route("services"))));
     return section
 }
@@ -763,6 +764,91 @@ async function dialysisProfile(r,signal,epoch){
     return section
 }
 
+
+const hhaRelease=Object.freeze({release:"2026-10-21",payload:"88dd0b1a9db445c8c5b33ad09225ed86a9a9c516ad6be3c259f035a3e06263e1",provider:"3b244338ff11e39258aa0620a4b3a6f1813c6b8569f0290380f06493e0344d3d",source:"7adf3e17961949bbd64ef243545aa387224d9837e8c5601476f5b11946e76d22",rows:12409,run:45828532285});
+const hhaFields=Object.freeze(["Nursing Care","Physical Therapy","Occupational Therapy","Speech Pathology","Medical Social","Home Health Aide"]);
+const hhaStates=Object.freeze({yes:"Reported yes",no:"Reported no",dash_marker:"Unknown (source dash)"});
+const hhaKey=r=>r.state+":"+r.ccn;
+async function hhaEvidence(signal){
+    const d=hhaRelease;
+    const [directory,payload]=await Promise.all([exactJson("web/public-directory/home-health.json",d.provider,signal),exactJson("web/hha-service-evidence.json?v="+d.payload.slice(0,16),d.payload,signal)]);
+    if(directory.source!=="home-health"||directory.release!==d.release||!Array.isArray(directory.records)||directory.row_count!==d.rows||directory.records.length!==d.rows||publicManifest.sources["home-health"]?.published_records!==d.rows)throw Error("Home health directory baseline mismatch");
+    const byId=new Map(directory.records.map(r=>[hhaKey(r),r]));
+    if(byId.size!==d.rows||!dialysisKeys(payload,["format_version","scope","source","release","source_sha256","public_directory_sha256","fields","records"])||payload.format_version!==1||payload.source!=="care-compare-home-health"||payload.release!==d.release||payload.source_sha256!==d.source||payload.public_directory_sha256!==d.provider||!Array.isArray(payload.fields)||payload.fields.join("|")!==hhaFields.join("|")||!payload.records||Object.keys(payload.records).length!==d.rows)throw Error("Qualified home health metadata mismatch");
+    for(const [id,obs] of Object.entries(payload.records))if(!byId.has(id)||!dialysisKeys(obs,hhaFields)||Object.values(obs).some(v=>!Object.hasOwn(hhaStates,v)))throw Error("Invalid home health observation");
+    return {directory,byId,records:payload.records}
+}
+function hhaResearchLink(state=""){return anchor("Search home health service evidence",route("hha-services",{state}))}
+function hhaParams(p){
+    const field=p.field||"Nursing Care",evidence=p.evidence||"all",state=p.state||"",q=(p.q||"").trim(),required=p.required?p.required.split("|"):[];
+    if(!hhaFields.includes(field)||!["all",...Object.keys(hhaStates)].includes(evidence)||state&&!states.includes(state)||q.length>100||required.length>hhaFields.length||new Set(required).size!==required.length||required.some(v=>!hhaFields.includes(v)))throw Error("Invalid home health service filter");
+    if(p.page&&!/^\d{1,6}$/.test(p.page))throw Error("Invalid page");
+    return {field,evidence,state,q,required,page:Math.max(1,Math.min(100000,Number(p.page)||1))}
+}
+function hhaForm(v){
+    const f=el("form",undefined,"toolbar hha-service-form");
+    const field=options("Service to examine","field",hhaFields.map(x=>[x,x]),v.field),state=options("State / territory","state",[["","All jurisdictions"],...states.slice().sort().map(s=>[s,s])],v.state);
+    const ev=options("Source evidence","evidence",[["all","All evidence states"],...Object.entries(hhaStates)],v.evidence),q=input("Provider name contains","q",v.q);
+    const checks=el("fieldset",undefined,"hha-required");
+    checks.append(el("legend","Require additional services reported yes"));
+    for(const service of hhaFields){const l=el("label"),c=el("input");c.type="checkbox";c.name="required";c.value=service;c.checked=v.required.includes(service);l.append(c,document.createTextNode(service));checks.append(l)}
+    const hint=el("p","Multiple required services use AND logic; unknown and reported no never satisfy a required-yes filter.","hha-filter-hint");
+    const button=el("button","Apply service filters");button.type="submit";
+    f.append(state,field,ev,q,checks,hint,button,anchor("Reset",route("hha-services")));
+    f.addEventListener("submit",e=>{e.preventDefault();const fd=new FormData(f),params=Object.fromEntries(fd);params.required=fd.getAll("required").join("|");location.hash=route("hha-services",params)});
+    return f
+}
+function hhaExport(rows,records){
+    const header=["source","release","ccn","reported_name","reported_address","city","state","zip",...hhaFields.map(f=>"Offers "+f+" Services")];
+    const values=rows.map(r=>["CMS Care Compare home-health",hhaRelease.release,r.ccn,r.name,r.address,r.city,r.state,r.zip,...hhaFields.map(f=>records[hhaKey(r)][f])]);
+    const text=[header,...values].map(row=>row.map(safeCsvCell).join(",")).join("\r\n")+"\r\n";
+    const url=URL.createObjectURL(new Blob([text],{type:"text/csv;charset=utf-8"})),a=el("a");a.href=url;a.download="facilitysignal-home-health-search-page.csv";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)
+}
+async function hhaServices(p,signal,epoch){
+    title("Home health service research","Explore six source-reported service offerings on the October 2026 CMS Care Compare home health release. Evidence is historical, not current availability, staff capacity or purchasing intent.");
+    let v;try{v=hhaParams(p)}catch(e){app.append(el("div",e.message,"error"),anchor("Reset filters",route("hha-services")));return}
+    app.append(hhaForm(v),add(el("div",undefined,"links"),anchor("Home health provider directory",route("facilities",{source:"home-health",state:v.state})),anchor("National service evidence",route("services")),anchor("Qualification run "+hhaRelease.run,"https://github.com/JeremyHennessy/FacilitySignal/actions/runs/"+hhaRelease.run,true)));
+    const status=el("div","Verifying exact source checksums…","notice");app.append(status);
+    try{
+        const d=await hhaEvidence(signal);if(epoch!==sequence)return;
+        const regional=d.directory.records.filter(r=>!v.state||r.state===v.state),tally={yes:0,no:0,dash_marker:0};
+        for(const r of regional)tally[d.records[hhaKey(r)][v.field]]++;
+        const matched=regional.filter(r=>{
+            const obs=d.records[hhaKey(r)];
+            return (!v.q||r.name.toLowerCase().includes(v.q.toLowerCase()))&&(v.evidence==="all"||obs[v.field]===v.evidence)&&v.required.every(f=>obs[f]==="yes")
+        }).sort((a,b)=>a.name.localeCompare(b.name,"en",{sensitivity:"base"})||a.state.localeCompare(b.state)||a.ccn.localeCompare(b.ccn));
+        status.textContent=N.format(matched.length)+" matching provider source records · CMS release "+hhaRelease.release+".";
+        status.classList.add("hha-status");status.dataset.ready="true";status.dataset.total=String(matched.length);
+        const metrics=el("div",undefined,"metrics hha-metrics");
+        metrics.append(capacityMetric("Provider records in geography",regional.length,"All source records before other filters"),capacityMetric(v.field+" · yes",tally.yes,"Reported yes before other filters"),capacityMetric(v.field+" · no",tally.no,"Reported no before other filters"),capacityMetric(v.field+" · unknown",tally.dash_marker,"Source dash, not reported no"));
+        app.append(metrics,el("h2","Matching home health records"));
+        const slice=matched.slice((v.page-1)*pageSize,v.page*pageSize);
+        if(slice.length){
+            const rows=slice.map(r=>{const cell=el("div");cell.append(anchor(r.name,route("detail",{source:"home-health",id:r.ccn,state:r.state,section:"services",return:localResearchReturn(location.hash)})),el("small",r.ccn));return [cell,[r.city,r.state].filter(Boolean).join(", "),...hhaFields.map(f=>hhaStates[d.records[hhaKey(r)][f]])]});
+            const wrap=table(["Provider / CCN","Reported city / state",...hhaFields],rows);wrap.classList.add("hha-results");wrap.setAttribute("aria-label","Home health service observations; scroll horizontally if needed");app.append(wrap);
+            const exp=el("button","Export current page (CSV)");exp.type="button";exp.addEventListener("click",()=>hhaExport(slice,d.records));app.append(add(el("div",undefined,"links"),exp))
+        }else app.append(el("div",matched.length?"Page outside matching results. Return to the first page.":"No provider records match these filters.","empty"));
+        const pager=el("div",undefined,"pager"),safe={state:v.state,field:v.field,evidence:v.evidence,q:v.q,required:v.required.join("|")};
+        pager.append(el("span","Page "+v.page+" · "+N.format(matched.length)+" matches"));
+        if(v.page>1)pager.append(anchor("First page",route("hha-services",{...safe,page:1})),anchor("Previous",route("hha-services",{...safe,page:v.page-1})));
+        if(v.page*pageSize<matched.length)pager.append(anchor("Next",route("hha-services",{...safe,page:v.page+1})));
+        app.append(pager,el("p","All 12,409 existing public home health provider records reconcile to the same pinned CMS release and exact institutional identity fields. A reported dash is unknown, not no. No new identity/contact or patient data are published.","intro"),anchor("Official CMS home health provider source","https://data.cms.gov/provider-data/dataset/6jpm-sxkc",true))
+    }catch(e){if(epoch!==sequence||e.name==="AbortError")return;status.replaceWith(el("div","Home health service evidence unavailable: "+e.message+". No values inferred.","error"))}
+}
+async function hhaProfile(r,signal,epoch){
+    const section=el("section",undefined,"hha-profile");section.append(el("h2","Home health reported service offerings"));
+    try{
+        const data=await hhaEvidence(signal);if(epoch!==sequence)return null;
+        const ref=data.byId.get(hhaKey(r));
+        if(!ref||["ccn","name","state","address","city","zip"].some(k=>ref[k]!==r[k]))throw Error("Profile directory record differs from qualified source");
+        const obs=data.records[hhaKey(r)],grid=el("dl",undefined,"detail-grid hha-profile-grid");
+        for(const field of hhaFields){const cell=add(el("div"),el("dt",field),el("dd",hhaStates[obs[field]]));cell.dataset.field=field;grid.append(cell)}
+        section.append(el("p","CMS release "+hhaRelease.release+". Same source record, exact CCN/state and reported identity fields. Historical reported offerings do not establish current service availability or staffing.","intro"),grid);section.dataset.evidence="qualified"
+    }catch(e){if(epoch!==sequence||e.name==="AbortError")return null;section.dataset.evidence="unavailable";section.append(el("div","Home health service evidence unavailable: "+e.message+". No values inferred.","error"))}
+    section.append(add(el("div",undefined,"links"),hhaResearchLink(r.state),anchor("Official CMS source","https://data.cms.gov/provider-data/dataset/6jpm-sxkc",true),anchor("Qualification evidence","https://github.com/JeremyHennessy/FacilitySignal/actions/runs/"+hhaRelease.run,true)));
+    return section
+}
+
 function profileSources(s,r,f){
     const section=el("section");
     section.append(el("h2","Source and release"),table(["Evidence","Value"],[["Provider source",names[s.key]],["Source identifier (CCN)",shown(value(r,f,"id"))],["Reported state",shown(value(r,f,"state"))],["Published release",s.release],["Public projection",sourceLink(s,"Official source")]]),
@@ -772,7 +858,7 @@ function profileSources(s,r,f){
             ["Comparable capacity",capacityUnits[s.key]?(publicCapacity(r)===null?"Unknown":"Source-reported "+capacityUnits[s.key].label.toLowerCase()):"No qualified unit",capacityUnits[s.key]?anchor("Capacity explorer",route("capacity",{source:s.key,state:value(r,f,"state")})):"—"],
             ["Nursing citation aggregates",s.key==="nursing"?"Same-CCN/state candidate lookup":"No facility-linked public evidence",s.key==="nursing"?anchor("Compliance section",route("detail",{source:s.key,id:value(r,f,"id"),state:value(r,f,"state"),return:localResearchReturn(read().p.return),section:"compliance"})):anchor("National compliance research",route("compliance-research"))],
             ["Certification registry evidence","Individual relationships not published",anchor("Certification registry coverage",route("certifications"))],
-            ["Clinical service capability",s.key==="dialysis"?"Selected iQIES observations; check record-specific evidence":"Individual observations not published",s.key==="dialysis"?anchor("Services & capacity section",route("detail",{source:s.key,id:r.ccn,state:r.state,section:"services",return:localResearchReturn(read().p.return)})):anchor("National service evidence",route("services"))],
+            ["Clinical service capability",s.key==="dialysis"?"Selected iQIES observations; check record-specific evidence":s.key==="home-health"?"Six same-source Care Compare service indicators":"Individual observations not published",["dialysis","home-health"].includes(s.key)?anchor("Services & capacity section",route("detail",{source:s.key,id:r.ccn,state:r.state,section:"services",return:localResearchReturn(read().p.return)})):anchor("National service evidence",route("services"))],
             ["Organizational relationships","Individual relationships not published",anchor("Ownership evidence coverage",route("ownership"))],
             ["Equipment and environment","Individual relationships not published",anchor("National equipment and environmental research",route("equipment-environment"))],
             ["Property / procurement","No qualified public facility relationships",anchor("Procurement research",route("procurement"))]
@@ -852,7 +938,7 @@ async function procurementResearch(signal,epoch){
 
 function coverageView(view){const own=view==="ownership",items=byFamily(own?"pecos":"qcor");title(own?"Ownership evidence coverage":"Hospital survey coverage",own?"Aggregate PECOS qualification only. Individual ownership records and organizational projections are not published on this public site.":"QCOR survey rows include tags, memos, repeated projections and historical evidence. Correction status is unknown; narrative and row-level workbook data are not published here.");app.append(historicalNote());if(own){const group=el("div",undefined,"metrics");for(const [label,prefix] of [["Hospital enrollment evidence","hospital"],["Skilled nursing enrollment evidence","snf"]]){const family=items.filter(s=>s.key.startsWith(prefix+"-"));const enroll=family.filter(s=>s.key.endsWith("-enrollment")),roles=family.filter(s=>s.key.endsWith("-owner")),changes=family.filter(s=>s.key.endsWith("-chow"));group.append(capacityMetric(label,aggregate(enroll),"Historical source enrollment rows"),capacityMetric(prefix==="hospital"?"Hospital organizational roles":"SNF organizational roles",aggregate(roles),"Organization role source rows; not unique owners"),capacityMetric(prefix==="hospital"?"Hospital ownership changes":"SNF ownership changes",aggregate(changes),"Historical CHOW source rows"))}app.append(group,el("p","Organization research requires a source-family enrollment ID and provider PAC ID relationship, with separate CCN/state corroboration. Individual source relationships remain local-only; no public portfolio can be inferred from these aggregate counts.","intro"))}app.append(table(["Source","Release period","Historical retained rows","Evidence"],sourceRows(items)),el("div",own?"Exact CCN and state candidates do not establish controlling ownership, physical property title, complete portfolios or current operational responsibility.":"Use the official QCOR report for source research. This site does not publish or infer active hospital violations.","notice"))}
 function sourceRegister(p){title("Source register","Discovered sources, historical qualification, and reuse review are separate. A listed source is not necessarily loaded or publicly searchable.");const f=el("form",undefined,"toolbar");f.append(input("Filter source names, publishers or jurisdiction","q",p.q),el("button","Filter"));f.addEventListener("submit",e=>{e.preventDefault();location.hash=route("sources",Object.fromEntries(new FormData(f)))});app.append(f);let overlay=new Map(coverage.sources.map(s=>[s.id,s]));let q=(p.q||"").toLowerCase();let rows=register.sources.filter(s=>!q||[s.id,s.source,s.publisher,s.jurisdiction,s.category].some(x=>String(x).toLowerCase().includes(q)));let page=Math.max(1,Math.min(Math.ceil(rows.length/pageSize)||1,Number(p.page)||1));app.append(el("p",N.format(rows.length)+" source entries · original register preserved"));app.append(table(["Source","Jurisdiction","Qualification","Reuse review","Evidence"],rows.slice((page-1)*pageSize,page*pageSize).map(s=>[s.id+" · "+s.source,s.jurisdiction,overlay.get(s.id)?.status||"Discovered / not tested",overlay.get(s.id)?.reuse_review||s.reuse_review,safeExternal(s.source_url)?anchor("Publisher source",safeExternal(s.source_url),true):"See register"])));const pager=el("div",undefined,"pager");if(page>1)pager.append(anchor("Previous",route("sources",{...p,page:page-1})));if(page*pageSize<rows.length)pager.append(anchor("Next",route("sources",{...p,page:page+1})));app.append(pager)}
-async function render(){if(!lock)return;if(active)active.abort();active=new AbortController();const {view,p}=read(),epoch=++sequence;for(const a of document.querySelectorAll("nav a")){if(a.getAttribute("href")==="#"+view)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")}if(view==="overview")overview();else if(view==="search")await unifiedSearch(p,active.signal,epoch);else if(view==="advanced")await advancedResearch(p,active.signal,epoch);else if(view==="industry")industryResearch(p);else if(view==="procurement")await procurementResearch(active.signal,epoch);else if(view==="geography")await geography(p,active.signal,epoch);else if(view==="capacity")await capacityExplorer(p,active.signal,epoch);else if(view==="dialysis-services")await dialysisServices(p,active.signal,epoch);else if(["services","compliance-research","equipment-environment","data-evidence"].includes(view))await intelligence(view,active.signal,epoch);else if(["facilities","citations"].includes(view))await directory(view,p,active.signal,epoch);else if(view==="certifications")certificationCoverage();else if(view==="detail")await detail(p,active.signal,epoch);else if(["ownership","hospital-surveys"].includes(view))coverageView(view);else if(view==="sources")sourceRegister(p);else title("Page not found","Choose an available workspace from navigation.");}
+async function render(){if(!lock)return;if(active)active.abort();active=new AbortController();const {view,p}=read(),epoch=++sequence;for(const a of document.querySelectorAll("nav a")){if(a.getAttribute("href")==="#"+view)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")}if(view==="overview")overview();else if(view==="search")await unifiedSearch(p,active.signal,epoch);else if(view==="advanced")await advancedResearch(p,active.signal,epoch);else if(view==="industry")industryResearch(p);else if(view==="procurement")await procurementResearch(active.signal,epoch);else if(view==="geography")await geography(p,active.signal,epoch);else if(view==="capacity")await capacityExplorer(p,active.signal,epoch);else if(view==="dialysis-services")await dialysisServices(p,active.signal,epoch);else if(view==="hha-services")await hhaServices(p,active.signal,epoch);else if(["services","compliance-research","equipment-environment","data-evidence"].includes(view))await intelligence(view,active.signal,epoch);else if(["facilities","citations"].includes(view))await directory(view,p,active.signal,epoch);else if(view==="certifications")certificationCoverage();else if(view==="detail")await detail(p,active.signal,epoch);else if(["ownership","hospital-surveys"].includes(view))coverageView(view);else if(view==="sources")sourceRegister(p);else title("Page not found","Choose an available workspace from navigation.");}
 $("global-search").addEventListener("submit",e=>{e.preventDefault();let q=$("global-q").value.trim();location.hash=route("search",{field:/^\d{5}$/.test(q)?"zip":/^(?=.*[0-9])[A-Za-z0-9]{6}$/.test(q)?"id":"name",q})});
 document.querySelector(".skip").addEventListener("click",e=>{e.preventDefault();$("workspace").focus()});
 const mobileSelect=$("mobile-route"),primaryNav=document.querySelector("nav[aria-label='Primary navigation']");

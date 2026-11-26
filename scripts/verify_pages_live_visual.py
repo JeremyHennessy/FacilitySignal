@@ -16,7 +16,7 @@ OUT=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"pages-live-visual-evidence"
 OUT.mkdir(exist_ok=True)
 def sha(data):return hashlib.sha256(data).hexdigest()
 ASSETS=("web/pages.js","web/pages.css")
-HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json","web/public-directory/manifest.json","web/public-directory/long-term-hospital.json","web/public-intelligence.json","web/dialysis-service-evidence.json","web/public-directory/dialysis.json")}
+HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json","web/public-directory/manifest.json","web/public-directory/long-term-hospital.json","web/public-intelligence.json","web/dialysis-service-evidence.json","web/public-directory/dialysis.json","web/hha-service-evidence.json","web/public-directory/home-health.json")}
 VERSIONS={x:x+"?v="+HASHES[x][:16] for x in ASSETS}
 MANIFEST=json.loads((ROOT/"web/public-directory/manifest.json").read_text())
 TOTAL=MANIFEST["provider_rows"]
@@ -28,6 +28,9 @@ DIALYSIS_OBS=json.loads((ROOT/"web/dialysis-service-evidence.json").read_text())
 DIALYSIS_ROWS=json.loads((ROOT/"web/public-directory/dialysis.json").read_text())["records"]
 DIALYSIS_LINKED=next(r for r in DIALYSIS_ROWS if r["ccn"] in DIALYSIS_OBS)
 DIALYSIS_UNLINKED=next(r for r in DIALYSIS_ROWS if r["ccn"] not in DIALYSIS_OBS)
+HHA_OBS=json.loads((ROOT/"web/hha-service-evidence.json").read_text())["records"]
+HHA_ROWS=json.loads((ROOT/"web/public-directory/home-health.json").read_text())["records"]
+HHA_PROFILE=next(r for r in HHA_ROWS if HHA_OBS[r["state"]+":"+r["ccn"]]["Nursing Care"]=="dash_marker")
 ROUTES=[
     ("overview","overview",lambda page:page.get_by_text(f"{TOTAL:,}",exact=True)),
     ("search","search",lambda page:page.get_by_role("heading",name="Unified search",exact=True)),
@@ -44,6 +47,8 @@ ROUTES=[
     ("ltch-profile","detail?"+urlencode({"source":"long-term-hospital","id":LTCH["ccn"],"state":LTCH["state"],"section":"services"}),lambda page:page.get_by_role("heading",name="Reported capacity and service evidence")),
     ("services","services",lambda page:page.get_by_role("heading",name="ASC service provision arrangements")),
     ("dialysis-services","dialysis-services?field=hmdlys_srvc_sw&evidence=reported_yes",lambda page:page.locator(".dialysis-status[data-ready=true]")),
+    ("hha-services","hha-services?field=Nursing+Care&evidence=yes",lambda page:page.locator(".hha-status[data-ready=true]")),
+    ("hha-profile","detail?"+urlencode({"source":"home-health","id":HHA_PROFILE["ccn"],"state":HHA_PROFILE["state"],"section":"services"}),lambda page:page.locator(".hha-profile[data-evidence=qualified]")),
     ("dialysis-linked","detail?"+urlencode({"source":"dialysis","id":DIALYSIS_LINKED["ccn"],"state":DIALYSIS_LINKED["state"],"section":"services"}),lambda page:page.locator(".dialysis-profile[data-evidence=corroborated]")),
     ("dialysis-unlinked","detail?"+urlencode({"source":"dialysis","id":DIALYSIS_UNLINKED["ccn"],"state":DIALYSIS_UNLINKED["state"],"section":"services"}),lambda page:page.locator(".dialysis-profile[data-evidence=unlinked]")),
     ("compliance","compliance-research",lambda page:page.get_by_role("heading",name="Nursing inspection and dispute flags")),
@@ -111,6 +116,15 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="hha-services":
+                    assert page.locator(".hha-status").get_attribute("data-total")=="10208"
+                    received=[r for r in responses if r.url==base+"web/hha-service-evidence.json?v="+HASHES["web/hha-service-evidence.json"][:16]]
+                    assert received and sha(received[-1].body())==HASHES["web/hha-service-evidence.json"],"Stale home health evidence"
+                    page.locator(".hha-service-form").screenshot(path=str(OUT/f"{width}-hha-filters.png"))
+                    page.locator(".hha-results").screenshot(path=str(OUT/f"{width}-hha-results.png"))
+                if name=="hha-profile":
+                    assert page.locator('.hha-profile [data-field="Nursing Care"] dd').inner_text()=="Unknown (source dash)"
+                    page.locator(".hha-profile").screenshot(path=str(OUT/f"{width}-hha-profile-evidence.png"))
                 if name=="dialysis-services":
                     assert page.locator(".dialysis-status").get_attribute("data-total")=="2043"
                     received=[r for r in responses if r.url==base+"web/dialysis-service-evidence.json?v="+HASHES["web/dialysis-service-evidence.json"][:16]]
