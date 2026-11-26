@@ -125,3 +125,6 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 #app .portfolio-results td:nth-child(3),#app .portfolio-results td button{white-space:nowrap}
 .portfolio-scroll-hint{display:none;font-size:12px;margin:6px 0}
 @media(max-width:1200px){.portfolio-scroll-hint{display:block}}
+
+/* Institutional field labels need enough room at every advanced-search breakpoint. */
+.advanced-form>label:has(>select[name="institutional_field"]){grid-column:span 2}@media(max-width:1200px){.advanced-form>label:has(>select[name="institutional_field"]){grid-column:1/-1}}

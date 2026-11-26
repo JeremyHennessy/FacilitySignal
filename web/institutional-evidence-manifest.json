@@ -1,0 +1,42 @@
+{
+  "candidate_bytes": 3009206,
+  "candidate_sha256": "7e5c5afa86a535c1acf753b39a5f1ad97dc3ecb925cded12e64a4dd703dd567d",
+  "format_version": 1,
+  "observations": 57476,
+  "provider_records": 27592,
+  "public_promotion": false,
+  "publisher": "Centers for Medicare & Medicaid Services",
+  "qualification_run": 45884421720,
+  "scope": "Qualified public candidate for historical institutional flags; not production release.",
+  "source_attribution": "CMS Provider Data Catalog; independent FacilitySignal research, no government endorsement.",
+  "source_pins": {
+    "dialysis": {
+      "directory_sha256": "e8343f678ec1780ac49047f162754657f60eaa3f61b1d4f48ea4b55d39d4008a",
+      "fields": [
+        "chain_owned_or_managed",
+        "late_shift",
+        "in_center_hemodialysis",
+        "peritoneal_dialysis",
+        "home_hemodialysis_training"
+      ],
+      "release": "2026-10-28",
+      "source_sha256": "9b0232d73b8aa9628b51bc76b7246b8590daa0393ec9dfd3126171ce571469ed"
+    },
+    "hospital": {
+      "directory_sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a",
+      "fields": [
+        "emergency_services"
+      ],
+      "release": "2026-11-12",
+      "source_sha256": "ff2a82a7149975fb86348e7f901aa3bcd9f3701e8b0ecd0ab34702df193ff559"
+    },
+    "nursing": {
+      "directory_sha256": "36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce",
+      "fields": [
+        "ownership_change_12_months"
+      ],
+      "release": "2026-10-28",
+      "source_sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2"
+    }
+  }
+}

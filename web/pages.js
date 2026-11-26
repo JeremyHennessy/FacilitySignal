@@ -203,6 +203,58 @@ async function unifiedSearch(p,signal,epoch){
 }
 
 
+
+const institutionalPin=Object.freeze({payload:"7e5c5afa86a535c1acf753b39a5f1ad97dc3ecb925cded12e64a4dd703dd567d",scope:"Candidate public CMS reported institutional flags; historical release, not live service, legal title, risk or compliance.",sources:{"dialysis":{"directory_sha256":"e8343f678ec1780ac49047f162754657f60eaa3f61b1d4f48ea4b55d39d4008a","fields":["chain_owned_or_managed","late_shift","in_center_hemodialysis","peritoneal_dialysis","home_hemodialysis_training"],"release":"2026-10-28","source_sha256":"9b0232d73b8aa9628b51bc76b7246b8590daa0393ec9dfd3126171ce571469ed","rows":7471,"yes":{"chain_owned_or_managed":6734,"late_shift":1136,"in_center_hemodialysis":6959,"peritoneal_dialysis":4067,"home_hemodialysis_training":2411}},"hospital":{"directory_sha256":"222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a","fields":["emergency_services"],"release":"2026-11-12","source_sha256":"ff2a82a7149975fb86348e7f901aa3bcd9f3701e8b0ecd0ab34702df193ff559","rows":5435,"yes":{"emergency_services":4501}},"nursing":{"directory_sha256":"36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce","fields":["ownership_change_12_months"],"release":"2026-10-28","source_sha256":"ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2","rows":14686,"yes":{"ownership_change_12_months":60}}}});
+const institutionalLabels=Object.freeze({emergency_services:"Emergency services",chain_owned_or_managed:"Chain owned or managed",late_shift:"Shift starting at 5 p.m. or later",in_center_hemodialysis:"In-center hemodialysis",peritoneal_dialysis:"Peritoneal dialysis",home_hemodialysis_training:"Home hemodialysis training",ownership_change_12_months:"Ownership change in preceding 12 months"});
+const institutionalValues=Object.freeze({reported_yes:"Reported yes",reported_no:"Reported no"});
+const institutionalKey=r=>r.state+":"+r.ccn;
+function institutionalFilter(p,source){
+    const field=p.institutional_field||"",value=p.institutional_value||"";
+    if(!field&&!value)return null;
+    if(!Object.hasOwn(institutionalPin.sources,source)||!institutionalPin.sources[source].fields.includes(field)||!Object.hasOwn(institutionalValues,value))throw Error("Choose an institutional characteristic and reported value for its applicable provider category.");
+    return {field,value}
+}
+async function institutionalEvidence(s,signal){
+    const pin=institutionalPin.sources[s.key];
+    if(!pin||s.release!==pin.release||s.sha256!==pin.source_sha256||s.stored_rows!==pin.rows||publicManifest.sources[s.key]?.published_records!==pin.rows)throw Error("Institutional source release requires requalification");
+    const [directory,pack]=await Promise.all([
+        exactJson("web/public-directory/"+s.key+".json?v="+pin.directory_sha256.slice(0,16),pin.directory_sha256,signal),
+        exactJson("web/institutional-evidence.json?v="+institutionalPin.payload.slice(0,16),institutionalPin.payload,signal)
+    ]);
+    if(directory.source!==s.key||directory.release!==pin.release||directory.row_count!==pin.rows||!Array.isArray(directory.records)||directory.records.length!==pin.rows)throw Error("Institutional directory scope mismatch");
+    if(!dialysisKeys(pack,["format_version","scope","sources"])||pack.format_version!==1||pack.scope!==institutionalPin.scope||!dialysisKeys(pack.sources,Object.keys(institutionalPin.sources)))throw Error("Institutional pack scope mismatch");
+    const part=pack.sources[s.key];
+    if(!dialysisKeys(part,["release","source_sha256","directory_sha256","fields","records"])||part.release!==pin.release||part.source_sha256!==pin.source_sha256||part.directory_sha256!==pin.directory_sha256||!Array.isArray(part.fields)||part.fields.join("|")!==pin.fields.join("|")||!Array.isArray(part.records)||part.records.length!==pin.rows)throw Error("Institutional evidence pin mismatch");
+    const keys=new Set(directory.records.map(institutionalKey)),records=new Map(),counts=Object.fromEntries(pin.fields.map(f=>[f,0]));
+    if(keys.size!==pin.rows)throw Error("Duplicate directory key");
+    for(const row of part.records){
+        if(!Array.isArray(row)||row.length!==2+pin.fields.length||typeof row[0]!=="string"||!/^[A-Z0-9]{6}$/.test(row[0])||!states.includes(row[1]))throw Error("Invalid institutional key");
+        const key=row[1]+":"+row[0];
+        if(!keys.has(key)||records.has(key))throw Error("Institutional membership mismatch");
+        const obs={};
+        for(let i=0;i<pin.fields.length;i++){const f=pin.fields[i],v=row[i+2];if(!Object.hasOwn(institutionalValues,v))throw Error("Invalid institutional value");obs[f]=v;if(v==="reported_yes")counts[f]++}
+        records.set(key,obs);
+    }
+    if(records.size!==keys.size||pin.fields.some(f=>counts[f]!==pin.yes[f]))throw Error("Institutional evidence counts mismatch");
+    return {directory,records,release:pin.release}
+}
+async function institutionalProfile(r,s,signal,epoch){
+    const section=el("section",undefined,"institutional-profile");
+    section.append(el("h2","Care Compare reported characteristics"),el("p","Historical CMS publisher-reported flags from "+s.release+". Distinct from current availability, equipment, legal title and clinical or property risk.","intro"));
+    try{
+        const data=await institutionalEvidence(s,signal);if(epoch!==sequence)return null;
+        const obs=data.records.get(institutionalKey(r));if(!obs)throw Error("No exact provider evidence");
+        const grid=el("dl",undefined,"detail-grid");
+        for(const field of institutionalPin.sources[s.key].fields){
+            const cell=add(el("div"),el("dt",institutionalLabels[field]),el("dd",institutionalValues[obs[field]]));
+            cell.dataset.field=field;cell.dataset.value=obs[field];grid.append(cell)
+        }
+        section.append(grid,add(el("div",undefined,"links"),sourceLink(s,"Official CMS source"),anchor("Search these reported characteristics",route("advanced",{source:s.key,state:r.state,institutional_field:institutionalPin.sources[s.key].fields[0],institutional_value:obs[institutionalPin.sources[s.key].fields[0]],run:1}))));
+        section.dataset.evidence="qualified";
+    }catch(e){if(epoch!==sequence||signal.aborted||e.name==="AbortError")return null;section.dataset.evidence="unavailable";section.append(el("div","Qualified institutional evidence unavailable. No reported yes/no value has been inferred.","error"),sourceLink(s))}
+    return section
+}
+
 function advancedParameters(p,sources){
     const source=p.source||"all",field=p.field||"name",reported=p.reported||"all";
     if(source!=="all"&&!sources.some(s=>s.key===source))throw Error("Invalid provider category");
@@ -222,7 +274,7 @@ function advancedParameters(p,sources){
     if(reported==="unknown"&&(bounds.min!==null||bounds.max!==null))throw Error("Capacity bounds cannot be combined with missing capacity");
     if(p.page&&!/^\d{1,6}$/.test(p.page))throw Error("Invalid page");
     const page=Math.max(1,Math.min(100000,Number(p.page)||1));
-    return {...p,source,field,reported,q:(p.q||"").trim(),state:p.state||"",page,bounds,filteredCapacity}
+    return {...p,source,field,reported,q:(p.q||"").trim(),state:p.state||"",page,bounds,filteredCapacity,institutional:institutionalFilter(p,source)}
 }
 function advancedForm(p,sources){
     const f=el("form",undefined,"toolbar advanced-form");
@@ -237,8 +289,20 @@ function advancedForm(p,sources){
     hint.id="advanced-capacity-hint";
     const apply=el("button","Apply search filters");apply.type="submit";
     const reset=anchor("Reset filters",route("advanced"));reset.className="advanced-reset";
-    f.append(category,state,field,q,evidence,min,max,hint,apply,reset);
+    const institutionalField=options("Institutional characteristic","institutional_field",[["","Any characteristic"]],"");
+    const institutionalValue=options("Reported value","institutional_value",Object.entries(institutionalValues),p.institutional_value);
+    f.append(category,state,field,q,evidence,min,max,hint,institutionalField,institutionalValue,apply,reset);
     const selector=category.querySelector("select"),ev=evidence.querySelector("select"),lo=min.querySelector("input"),hi=max.querySelector("input");
+    const ifield=institutionalField.querySelector("select"),ivalue=institutionalValue.querySelector("select");
+    function syncInstitutional(selected){
+        const pin=institutionalPin.sources[selector.value];
+        ifield.replaceChildren(...[["","Any characteristic"],...(pin?pin.fields.map(k=>[k,k==="ownership_change_12_months"?"Ownership change (past year)":institutionalLabels[k]]):[])].map(([v,t])=>{const o=el("option",t);o.value=v;return o}));
+        ifield.value=pin?.fields.includes(selected)?selected:"";
+        ifield.disabled=!pin;ivalue.disabled=!pin||!ifield.value;
+        institutionalField.hidden=!pin;institutionalValue.hidden=!pin;
+    }
+    ifield.addEventListener("change",()=>{ivalue.disabled=!ifield.value;if(!ivalue.disabled)ivalue.value="reported_yes"});
+    syncInstitutional(p.institutional_field);
     function sync(){
         const unit=capacityUnits[selector.value],available=!!unit;
         for(const c of [ev,lo,hi]){c.disabled=!available;c.setAttribute("aria-describedby",hint.id)}
@@ -249,7 +313,7 @@ function advancedForm(p,sources){
             if(missing){lo.value="";hi.value=""}
         }
     }
-    selector.addEventListener("change",()=>{ev.value="all";lo.value="";hi.value="";sync()});
+    selector.addEventListener("change",()=>{ev.value="all";lo.value="";hi.value="";sync();syncInstitutional("")});
     ev.addEventListener("change",sync);sync();
     f.addEventListener("submit",e=>{e.preventDefault();const params=Object.fromEntries(new FormData(f));params.run="1";location.hash=route("advanced",params)});
     return f
@@ -272,18 +336,20 @@ function safeCsvCell(v){
 }
 function exportAdvancedPage(rows){
     const header=["source","release","ccn","reported_name","reported_address","city","state","zip","reported_numeric_capacity","capacity_unit","capacity_evidence"];
-    const records=rows.map(({s,r})=>{const unit=capacityUnits[s.key],n=unit?publicCapacity(r):null;return [s.key,s.release,r.ccn,r.name,r.address,r.city,r.state,r.zip,n,unit?unit.label:"",unit?(n===null?"missing_or_nonnumeric":"numeric_reported"):"no_qualified_public_unit"]});
+    const include=rows.some(x=>x.institutional);
+    if(include)header.push("institutional_field","institutional_value","institutional_release");
+    const records=rows.map(({s,r,institutional})=>{const unit=capacityUnits[s.key],n=unit?publicCapacity(r):null;return [s.key,s.release,r.ccn,r.name,r.address,r.city,r.state,r.zip,n,unit?unit.label:"",unit?(n===null?"missing_or_nonnumeric":"numeric_reported"):"no_qualified_public_unit",...(include?[institutional?.field||"",institutional?.value||"",institutional?s.release:""]:[])]});
     const content=[header,...records].map(row=>row.map(safeCsvCell).join(",")).join("\r\n")+"\r\n";
     const url=URL.createObjectURL(new Blob([content],{type:"text/csv;charset=utf-8"})),a=el("a");
     a.href=url;a.download="facilitysignal-public-search-page.csv";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)
 }
 async function advancedResearch(p,signal,epoch){
-    title("Advanced facility search","Combine published provider category, jurisdiction, exact or text search, and source-specific capacity evidence. Results are reported program records, not unique buildings or a list of confirmed service opportunities.");
+    title("Advanced facility search","Combine provider category, jurisdiction, text or identifier search, source-specific capacity and selected reported institutional characteristics. Results are program records, not unique buildings or confirmed service opportunities.");
     const sources=providerSources(),form=advancedForm(p,sources);
     app.append(form,add(el("div",undefined,"links"),anchor("Service research coverage",route("services")),anchor("Industry research pathways",route("industry",{state:p.state})),dialysisResearchLink(p.state),hhaResearchLink(p.state)));
     let params;
     try{params=advancedParameters(p,sources)}catch(e){app.append(el("div",e.message,"error"));return}
-    if(!p.run&&!p.q&&!p.state&&!p.source&&!p.reported&&!p.min&&!p.max){app.append(el("div","Select filters and apply the search. Searching all categories without text is allowed; results are paginated.","empty"));return}
+    if(!p.run&&!p.q&&!p.state&&!p.source&&!p.reported&&!p.min&&!p.max&&!p.institutional_field){app.append(el("div","Select filters and apply the search. Searching all categories without text is allowed; results are paginated.","empty"));return}
     const chosen=sources.filter(s=>params.source==="all"||params.source===s.key);
     const status=el("div","Searching qualified public provider projections…","notice");status.classList.add("advanced-status");app.append(status);
     const page= params.page,offset=(page-1)*pageSize,items=[],counts=[];
@@ -291,10 +357,11 @@ async function advancedResearch(p,signal,epoch){
     const cmp=(a,b)=>String(a.name||"").localeCompare(String(b.name||""),"en",{sensitivity:"base"})||String(a.state).localeCompare(String(b.state))||String(a.ccn).localeCompare(String(b.ccn));
     for(const s of chosen){
         try{
-            const data=await loadShard(s,signal);if(epoch!==sequence)return;
-            const matches=data.records.filter(row=>matchesPublic(row,params)&&advancedCapacityMatch(row,params)).sort(cmp);
+            const inst=params.institutional?await institutionalEvidence(s,signal):null;
+            const data=inst?inst.directory:await loadShard(s,signal);if(epoch!==sequence)return;
+            const matches=data.records.filter(row=>matchesPublic(row,params)&&advancedCapacityMatch(row,params)&&(!params.institutional||inst.records.get(institutionalKey(row))?.[params.institutional.field]===params.institutional.value)).sort(cmp);
             const start=Math.max(0,offset-total),end=Math.min(matches.length,offset+pageSize-total);
-            if(end>start)for(const row of matches.slice(start,end))items.push({s,r:row});
+            if(end>start)for(const row of matches.slice(start,end))items.push({s,r:row,institutional:params.institutional});
             total+=matches.length;completed++;counts.push([s.key,matches.length,s.release]);
         }catch(e){if(epoch!==sequence||e.name==="AbortError")return;failed++;counts.push([s.key,null,s.release]);app.append(errorBox(s,e))}
     }
@@ -303,9 +370,10 @@ async function advancedResearch(p,signal,epoch){
     status.dataset.total=String(total);status.dataset.complete=String(failed===0);
     const breakdown=el("div",undefined,"advanced-breakdown");
     for(const [key,n,release] of counts){const card=el("div",undefined,"advanced-source-count");card.append(el("strong",n===null?"Unavailable":N.format(n)),el("span",names[key]),el("small","Release "+release));breakdown.append(card)}
+    if(params.institutional)app.append(el("p",institutionalLabels[params.institutional.field]+" · "+institutionalValues[params.institutional.value]+" · CMS snapshot","intro"));
     app.append(breakdown,el("h2","Matching source records"));
     if(items.length){
-        const wrapper=table(["Provider / CCN","Provider category","Reported address","Capacity evidence","Source release"],items.map(({s,r})=>[recordCell(s,r,publicFields),names[s.key],shown([r.address,r.city,r.state,r.zip].filter(Boolean).join(", ")),advancedCapacityText(s,r),add(el("div"),el("span",s.release),el("small",sourceLink(s,"Official source").textContent))]));
+        const wrapper=table(["Provider / CCN","Provider category","Reported address","Capacity evidence",...(params.institutional?["Institutional evidence"]:[]),"Source release"],items.map(({s,r,institutional})=>[recordCell(s,r,publicFields),names[s.key],shown([r.address,r.city,r.state,r.zip].filter(Boolean).join(", ")),advancedCapacityText(s,r),...(institutional?[institutionalValues[institutional.value]]:[]),add(el("div"),el("span",s.release),el("small",sourceLink(s,"Official source").textContent))]));
         // Keep actual source links, not plain text.
         for(let i=0;i<items.length;i++){const td=wrapper.querySelectorAll("tbody tr")[i].lastElementChild;td.replaceChildren(el("span",items[i].s.release),el("small"));td.lastChild.append(sourceLink(items[i].s))}
         wrapper.classList.add("advanced-results");wrapper.setAttribute("aria-label","Matching provider records; scroll horizontally if needed");
@@ -314,10 +382,10 @@ async function advancedResearch(p,signal,epoch){
     }else app.append(el("div",total?"This page is outside the available matches. Return to the first page.":failed?"No matches were returned from available sources; unavailable sources were not searched.":"No published source records match these filters.","empty"));
     const pager=el("div",undefined,"pager");
     pager.append(el("span","Page "+page+" · "+N.format(total)+" matches"+(failed?" (partial)":"")));
-    const safe={source:params.source,state:params.state,field:params.field,q:params.q,reported:params.reported,min:p.min,max:p.max,run:1};
+    const safe={source:params.source,state:params.state,field:params.field,q:params.q,reported:params.reported,min:p.min,max:p.max,institutional_field:params.institutional?.field,institutional_value:params.institutional?.value,run:1};
     if(page>1)pager.append(anchor("First page",route("advanced",{...safe,page:1})),anchor("Previous",route("advanced",{...safe,page:page-1})));
     if(page*pageSize<total&&!failed)pager.append(anchor("Next",route("advanced",{...safe,page:page+1})));
-    app.append(pager,el("p","This search uses existing public provider records and capacity fields. Selected dialysis and home health service observations are searchable in their separate service research workspaces. Other individual clinical service, equipment, ownership and regulatory relationships remain subject to qualification and publication review.","intro"))
+    app.append(pager,el("p","Institutional filters apply only to the selected provider category and exact pinned CMS snapshot. Reported yes/no does not establish current service availability, installed equipment, legal title or procurement intent. Other iQIES and home health service evidence remains in its separate research workspaces.","intro"))
 }
 function industryResearch(p){
     title("Industry research","Start a documented healthcare-market research workflow. Each pathway links to available public provider or national aggregate evidence; these are not confirmed leads, equipment inventories or findings of noncompliance.");
@@ -714,6 +782,7 @@ async function profileService(r,s,f,signal,epoch){
     if(s.key==="dialysis"){const evidence=await dialysisProfile(r,signal,epoch);if(!evidence||epoch!==sequence)return null;section.append(evidence)}
     else if(s.key==="home-health"){const evidence=await hhaProfile(r,signal,epoch);if(!evidence||epoch!==sequence)return null;section.append(evidence)}
     else section.append(el("h2","Other service capabilities"),el("div","Individual QIES and iQIES service observations are not published for this source record. National aggregate evidence is available separately; it is not evidence of a particular service at this facility.","notice"),add(el("p"),anchor("National service evidence",route("services"))));
+    if(["hospital","dialysis"].includes(s.key)){const inst=await institutionalProfile(r,s,signal,epoch);if(!inst||epoch!==sequence)return null;section.append(inst)}
     return section
 }
 async function profileCompliance(r,s,f,signal,epoch){
@@ -1040,7 +1109,7 @@ function profileSources(s,r,f){
             ...(historicalCapacityPins[s.key]?[["Historical cost-report capacity","FY2024 selected CMS report subset; check exact record",historicalCapacityLink(s,r,read().p)]]:[]),
             ["Nursing citation aggregates",s.key==="nursing"?"Same-CCN/state candidate lookup":"No facility-linked public evidence",s.key==="nursing"?anchor("Compliance section",route("detail",{source:s.key,id:value(r,f,"id"),state:value(r,f,"state"),return:localResearchReturn(read().p.return),section:"compliance"})):anchor("National compliance research",route("compliance-research"))],
             ["Certification registry evidence","Individual relationships not published",anchor("Certification registry coverage",route("certifications"))],
-            ["Clinical service capability",s.key==="dialysis"?"Selected iQIES observations; check record-specific evidence":s.key==="home-health"?"Six same-source Care Compare service indicators":"Individual observations not published",["dialysis","home-health"].includes(s.key)?anchor("Services & capacity section",route("detail",{source:s.key,id:r.ccn,state:r.state,section:"services",return:localResearchReturn(read().p.return)})):anchor("National service evidence",route("services"))],
+            ["Clinical service capability",s.key==="dialysis"?"Selected iQIES and Care Compare observations; separate source releases":s.key==="home-health"?"Six same-source Care Compare service indicators":s.key==="hospital"?"Same-source emergency-services flag":"Individual observations not published",["hospital","dialysis","home-health"].includes(s.key)?anchor("Services & capacity section",route("detail",{source:s.key,id:r.ccn,state:r.state,section:"services",return:localResearchReturn(read().p.return)})):anchor("National service evidence",route("services"))],
             ["Organizational relationships","Individual relationships not published",anchor("Ownership evidence coverage",route("ownership"))],
             ["Equipment and environment","Individual relationships not published",anchor("National equipment and environmental research",route("equipment-environment"))],
             ["Property / procurement","No qualified public facility relationships",anchor("Procurement research",route("procurement"))]
@@ -1083,7 +1152,8 @@ async function detail(p,signal,epoch){
                 if(s.key==="nursing"){const c=await profileCompliance(r,s,f,signal,epoch);if(!c||epoch!==sequence)return;evidence.append(c)}
                 else if(s.key==="dialysis"){const c=await dialysisProfile(r,signal,epoch);if(!c||epoch!==sequence)return;evidence.append(c)}
                 else if(s.key==="home-health"){const c=await hhaProfile(r,signal,epoch);if(!c||epoch!==sequence)return;evidence.append(c)}
-                else evidence.append(el("p","Additional individual service, inspection or infrastructure observations are not currently published for this category.","notice"));
+                else if(!Object.hasOwn(institutionalPin.sources,s.key))evidence.append(el("p","Additional individual service, inspection or infrastructure observations are not currently published for this category.","notice"));
+                if(Object.hasOwn(institutionalPin.sources,s.key)){const inst=await institutionalProfile(r,s,signal,epoch);if(!inst||epoch!==sequence)return;evidence.append(inst)}
                 evidence.dataset.ready="true";
                 const base={source:s.key,id:r.ccn,state:r.state,return:localResearchReturn(p.return)};
                 app.append(profileResearchActions(s,r,f),add(el("div",undefined,"links"),anchor("Investigate reported address and peers",route("detail",{...base,section:"location"})),anchor("View sources and coverage",route("detail",{...base,section:"sources"}))));

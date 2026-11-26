@@ -35,14 +35,23 @@ def validate_stage(stage,receipt,root):
 def build(stage,stage_receipt,out,manifest,root=ROOT):
     require(not out.exists() and not manifest.exists(),"new bundle output required")
     receipt=read(stage_receipt);validate_stage(stage,receipt,root)
+    runtime=set(RUNTIME)
+    supplement={"web/institutional-evidence.json","web/institutional-evidence-manifest.json"}
+    present={key for key in supplement if (root/key).exists()}
+    if present:
+        require(present==supplement,"incomplete institutional public candidate bundle")
+        from scripts.stage_institutional_public_candidate import manifest_for
+        require(root.resolve()==ROOT.resolve(),"institutional candidate requires exact repository inputs")
+        require(read(root/"web/institutional-evidence-manifest.json")==manifest_for(root/"web"),"institutional candidate qualification drift")
+        runtime.update(supplement)
     out.mkdir(parents=True)
     records=[]
-    for key in sorted(RUNTIME):
+    for key in sorted(runtime):
         source=(stage if key in PACKS else root)/key
         pin=record(source,key);dest=out/key;dest.parent.mkdir(parents=True,exist_ok=True)
         shutil.copyfile(source,dest);require(record(dest,key)==pin,"public bundle copy mismatch")
         records.append(pin)
-    require(inventory(out)==RUNTIME,"bundle file scope")
+    require(inventory(out)==runtime,"bundle file scope")
     html=(out/"index.html").read_text()
     for key in ("web/pages.js","web/pages.css"):
         require(key+"?v="+sha(out/key)[:16] in html,"approved versioned runtime asset mismatch")
