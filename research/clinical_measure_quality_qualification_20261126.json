@@ -1,0 +1,793 @@
+{
+  "as_of": "2026-11-26",
+  "qualification_run": 45841298990,
+  "qualification_job": 139983360338,
+  "qualified_commit": "bde1fbb9f5664e0d4a74d5d04ba54e2e423c29f2",
+  "tests_passed": 4,
+  "limits": "Code spellings retained exactly. Footnotes presence/shape only; no free-text retention. Count relationships and interval containment are diagnostics, not universal quality rules or proof of erroneous source values. No risk score or production approval.",
+  "sources": {
+    "dialysis": {
+      "cross_checks": {
+        "First Year Standardized Kidney Transplant Waitlist Ratio | availability": {
+          "001 | numeric": 4463,
+          "199 | blank": 2835,
+          "201 | blank": 85,
+          "258 | blank": 88
+        },
+        "First Year Standardized Kidney Transplant Waitlist Ratio | confidence interval": {
+          "incomplete_or_nonnumeric": 3008,
+          "ordered_and_contains_estimate": 4463
+        },
+        "Fistula Rate (Facility) | availability": {
+          "001 | numeric": 6993,
+          "199 | blank": 233,
+          "201 | blank": 65,
+          "256 | blank": 121,
+          "258 | blank": 59
+        },
+        "Fistula Rate (Facility) | confidence interval": {
+          "incomplete_or_nonnumeric": 478,
+          "ordered_and_contains_estimate": 6993
+        },
+        "Five Star | availability": {
+          "001 | numeric": 4324,
+          "201 | blank": 5,
+          "258 | blank": 28,
+          "260 | blank": 331,
+          "261 | blank": 2,
+          "281 | blank": 86,
+          "281 | numeric": 2695
+        },
+        "Healthcare worker COVID-19 vaccination adherence percentage | availability": {
+          "001 | numeric": 6335,
+          "199 | blank": 626,
+          "201 | blank": 434,
+          "258 | blank": 76
+        },
+        "Hospitalization Rate (Facility) | availability": {
+          "001 | numeric": 7267,
+          "199 | blank": 109,
+          "201 | blank": 19,
+          "258 | blank": 76
+        },
+        "Hospitalization Rate (Facility) | confidence interval": {
+          "incomplete_or_nonnumeric": 205,
+          "ordered_and_contains_estimate": 7266
+        },
+        "Mortality Rate (Facility) | availability": {
+          "001 | numeric": 7221,
+          "199 | blank": 158,
+          "201 | blank": 5,
+          "258 | blank": 87
+        },
+        "Mortality Rate (Facility) | confidence interval": {
+          "incomplete_or_nonnumeric": 250,
+          "ordered_and_contains_estimate": 7221
+        },
+        "Percent of Adult HD patients with Kt/V >= 1.2 | availability": {
+          "001 | numeric": 4180,
+          "199 | blank": 203,
+          "201 | blank": 156,
+          "255 | blank": 2,
+          "256 | blank": 87,
+          "258 | blank": 62,
+          "280 | blank": 2781
+        },
+        "Percentage of Adult PD PTS with Kt/V >= 1.7 | availability": {
+          "001 | numeric": 1481,
+          "199 | blank": 705,
+          "201 | blank": 527,
+          "255 | blank": 1,
+          "257 | blank": 1928,
+          "258 | blank": 48,
+          "280 | blank": 2781
+        },
+        "Percentage of Adult patients with long term catheter in use | availability": {
+          "001 | numeric": 6993,
+          "199 | blank": 233,
+          "201 | blank": 65,
+          "256 | blank": 123,
+          "258 | blank": 57
+        },
+        "Percentage of Adult patients with serum phosphorus between 3.5-4.5 mg/dL | availability": {
+          "001 | numeric": 4495,
+          "199 | blank": 107,
+          "201 | blank": 32,
+          "258 | blank": 56,
+          "280 | blank": 2781
+        },
+        "Percentage of Adult patients with serum phosphorus between 4.6-5.5 mg/dL | availability": {
+          "001 | numeric": 4495,
+          "199 | blank": 107,
+          "201 | blank": 32,
+          "258 | blank": 56,
+          "280 | blank": 2781
+        },
+        "Percentage of Adult patients with serum phosphorus between 5.6-7.0 mg/dL | availability": {
+          "001 | numeric": 4495,
+          "199 | blank": 107,
+          "201 | blank": 32,
+          "258 | blank": 56,
+          "280 | blank": 2781
+        },
+        "Percentage of Adult patients with serum phosphorus greater than 7.0 mg/dL | availability": {
+          "001 | numeric": 4495,
+          "199 | blank": 107,
+          "201 | blank": 32,
+          "258 | blank": 56,
+          "280 | blank": 2781
+        },
+        "Percentage of Adult patients with serum phosphorus less than 3.5 mg/dL | availability": {
+          "001 | numeric": 4495,
+          "199 | blank": 107,
+          "201 | blank": 32,
+          "258 | blank": 56,
+          "280 | blank": 2781
+        },
+        "Percentage of Medicare patients with Hgb<10 g/dL | availability": {
+          "001 | numeric": 5177,
+          "199 | blank": 2052,
+          "201 | blank": 155,
+          "258 | blank": 87
+        },
+        "Percentage of Medicare patients with Hgb>12 g/dL | availability": {
+          "001 | numeric": 5177,
+          "199 | blank": 2052,
+          "201 | blank": 155,
+          "258 | blank": 87
+        },
+        "Percentage of Pediatric HD patients with Kt/V >= 1.2 | availability": {
+          "001 | numeric": 20,
+          "199 | blank": 116,
+          "201 | blank": 151,
+          "255 | blank": 1,
+          "258 | blank": 19,
+          "259 | blank": 4383,
+          "280 | blank": 2781
+        },
+        "Percentage of Prevalent Patients Waitlisted for Kidney Transplant | availability": {
+          "001 | numeric": 7251,
+          "199 | blank": 150,
+          "201 | blank": 13,
+          "258 | blank": 57
+        },
+        "Percentage of Prevalent Patients Waitlisted for Kidney Transplant | confidence interval": {
+          "incomplete_or_nonnumeric": 220,
+          "ordered_and_contains_estimate": 7251
+        },
+        "Percentage of adult patients with hypercalcemia (serum calcium greater than 10.2 mg/dL) | availability": {
+          "001 | numeric": 4505,
+          "199 | blank": 112,
+          "201 | blank": 15,
+          "255 | blank": 1,
+          "258 | blank": 57,
+          "280 | blank": 2781
+        },
+        "Percentage of adult patients with hyperphosphatemia (phosphorus at least 6.5 mg/dL) | availability": {
+          "001 | numeric": 4419,
+          "199 | blank": 159,
+          "201 | blank": 29,
+          "258 | blank": 83,
+          "280 | blank": 2781
+        },
+        "Percentage of pediatric HD patients with nPCR | availability": {
+          "001 | numeric": 31,
+          "199 | blank": 115,
+          "201 | blank": 155,
+          "258 | blank": 19,
+          "259 | blank": 4370,
+          "280 | blank": 2781
+        },
+        "Percentage of pediatric PD patients with Kt/V>=1.8 | availability": {
+          "001 | numeric": 23,
+          "199 | blank": 81,
+          "201 | blank": 119,
+          "255 | blank": 1,
+          "258 | blank": 19,
+          "259 | blank": 4447,
+          "280 | blank": 2781
+        },
+        "Readmission Rate (Facility) | availability": {
+          "001 | numeric": 7113,
+          "199 | blank": 283,
+          "201 | blank": 5,
+          "258 | blank": 70
+        },
+        "Readmission Rate (Facility) | confidence interval": {
+          "incomplete_or_nonnumeric": 358,
+          "ordered_and_contains_estimate": 7113
+        },
+        "SMoSR: Standardized Modality Switch Ratio (FACILITY) | availability": {
+          "001 | numeric": 6530,
+          "199 | blank": 354,
+          "201 | blank": 499,
+          "258 | blank": 88
+        },
+        "SMoSR: Standardized Modality Switch Ratio (FACILITY) | confidence interval": {
+          "incomplete_or_nonnumeric": 941,
+          "ordered_and_contains_estimate": 6530
+        },
+        "Standard Infection Ratio | availability": {
+          "001 | numeric": 6402,
+          "199 | blank": 100,
+          "201 | blank": 885,
+          "258 | blank": 84
+        },
+        "Standard Infection Ratio | confidence interval": {
+          "incomplete_or_nonnumeric": 3202,
+          "ordered_and_contains_estimate": 4269
+        },
+        "Standardized ED visits ratio (Facility) | availability": {
+          "001 | numeric": 6806,
+          "199 | blank": 536,
+          "201 | blank": 44,
+          "258 | blank": 85
+        },
+        "Standardized ED visits ratio (Facility) | confidence interval": {
+          "incomplete_or_nonnumeric": 665,
+          "ordered_and_contains_estimate": 6806
+        },
+        "Standardized ED visits within 30 days of hospital discharge ratio (Facility) | availability": {
+          "001 | numeric": 6846,
+          "199 | blank": 539,
+          "201 | blank": 5,
+          "258 | blank": 81
+        },
+        "Standardized ED visits within 30 days of hospital discharge ratio (Facility) | confidence interval": {
+          "incomplete_or_nonnumeric": 625,
+          "ordered_and_contains_estimate": 6846
+        },
+        "Transfusion Rate (Facility) | availability": {
+          "001 | numeric": 4286,
+          "199 | blank": 3050,
+          "201 | blank": 47,
+          "258 | blank": 88
+        },
+        "Transfusion Rate (Facility) | confidence interval": {
+          "incomplete_or_nonnumeric": 3185,
+          "ordered_and_contains_estimate": 4286
+        }
+      },
+      "field_counts": {
+        "Adult HD Kt/V data availability code": {
+          "199": 203,
+          "201": 156,
+          "255": 2,
+          "256": 87,
+          "258": 62,
+          "280": 2781,
+          "001": 4180
+        },
+        "Adult PD Kt/V data availability code": {
+          "199": 705,
+          "201": 527,
+          "255": 1,
+          "257": 1928,
+          "258": 48,
+          "280": 2781,
+          "001": 1481
+        },
+        "Emergency Department Encounter Ratio Occurring within 30 Days of Hospital Discharge data availability Code": {
+          "199": 539,
+          "201": 5,
+          "258": 81,
+          "001": 6846
+        },
+        "Emergency Department Encounter data availability Code": {
+          "199": 536,
+          "201": 44,
+          "258": 85,
+          "001": 6806
+        },
+        "Fistula data availability code": {
+          "199": 233,
+          "201": 65,
+          "256": 121,
+          "258": 59,
+          "001": 6993
+        },
+        "Five Star Data Availability Code": {
+          "201": 5,
+          "258": 28,
+          "260": 331,
+          "261": 2,
+          "281": 2781,
+          "001": 4324
+        },
+        "HCP Vaccination Data Availability Code": {
+          "199": 626,
+          "201": 434,
+          "258": 76,
+          "001": 6335
+        },
+        "HGB<10 data availability code": {
+          "199": 2052,
+          "201": 155,
+          "258": 87,
+          "001": 5177
+        },
+        "Hgb > 12 data availability code": {
+          "199": 2052,
+          "201": 155,
+          "258": 87,
+          "001": 5177
+        },
+        "Hypercalcemia Data Availability Code": {
+          "199": 112,
+          "201": 15,
+          "255": 1,
+          "258": 57,
+          "280": 2781,
+          "001": 4505
+        },
+        "Hyperphosphatemia Data Availability Code": {
+          "199": 159,
+          "201": 29,
+          "258": 83,
+          "280": 2781,
+          "001": 4419
+        },
+        "Long term catheter Data Availability Code": {
+          "199": 233,
+          "201": 65,
+          "256": 123,
+          "258": 57,
+          "001": 6993
+        },
+        "Modality Switch Data Availability Code": {
+          "199": 354,
+          "201": 499,
+          "258": 88,
+          "001": 6530
+        },
+        "Patient Hospital Readmission data availability Code": {
+          "199": 283,
+          "201": 5,
+          "258": 70,
+          "001": 7113
+        },
+        "Patient Hospitalization data availability Code": {
+          "199": 109,
+          "201": 19,
+          "258": 76,
+          "001": 7267
+        },
+        "Patient Infection Data Availability Code": {
+          "199": 100,
+          "201": 885,
+          "258": 84,
+          "001": 6402
+        },
+        "Patient Survival data availability code": {
+          "199": 158,
+          "201": 5,
+          "258": 87,
+          "001": 7221
+        },
+        "Patient Transfusion data availability Code": {
+          "199": 3050,
+          "201": 47,
+          "258": 88,
+          "001": 4286
+        },
+        "Patient prevalent transplant waitlist data availability code": {
+          "199": 150,
+          "201": 13,
+          "258": 57,
+          "001": 7251
+        },
+        "Patient transplant waitlist data availability code": {
+          "199": 2835,
+          "201": 85,
+          "258": 88,
+          "001": 4463
+        },
+        "Pediatric HD Kt/V Data Availability Code": {
+          "199": 116,
+          "201": 151,
+          "255": 1,
+          "258": 19,
+          "259": 4383,
+          "280": 2781,
+          "001": 20
+        },
+        "Pediatric PD Kt/V Data Availability Code": {
+          "199": 81,
+          "201": 119,
+          "255": 1,
+          "258": 19,
+          "259": 4447,
+          "280": 2781,
+          "001": 23
+        },
+        "Serum phosphorus Data Availability Code": {
+          "199": 107,
+          "201": 32,
+          "258": 56,
+          "280": 2781,
+          "001": 4495
+        },
+        "nPCR Data Availability Code": {
+          "199": 115,
+          "201": 155,
+          "258": 19,
+          "259": 4370,
+          "280": 2781,
+          "001": 31
+        }
+      },
+      "release": "2026-10-28",
+      "rows": 7471,
+      "sha256": "9b0232d73b8aa9628b51bc76b7246b8590daa0393ec9dfd3126171ce571469ed"
+    },
+    "home-health": {
+      "cross_checks": {
+        "Changes in skin integrity post-acute care: pressure ulcer/injury | denominator check": {
+          "incomplete_or_nonnumeric": 5604,
+          "nonnegative_numerator_within_positive_denominator": 6805
+        },
+        "Changes in skin integrity post-acute care: pressure ulcer/injury | reporting": {
+          "numeric | text_or_other": 8283,
+          "other_nonblank | text_or_other": 4126
+        },
+        "DTC Risk-Standardized Rate | confidence interval": {
+          "incomplete_or_nonnumeric": 4229,
+          "ordered_and_contains_estimate": 8180
+        },
+        "DTC Risk-Standardized Rate | denominator check": {
+          "incomplete_or_nonnumeric": 5461,
+          "nonnegative_numerator_within_positive_denominator": 6948
+        },
+        "DTC Risk-Standardized Rate | reporting": {
+          "numeric | text_or_other": 8180,
+          "other_nonblank | text_or_other": 4229
+        },
+        "Discharge Function Score | denominator check": {
+          "incomplete_or_nonnumeric": 5582,
+          "nonnegative_numerator_within_positive_denominator": 6827
+        },
+        "Discharge Function Score | reporting": {
+          "numeric | text_or_other": 8245,
+          "other_nonblank | text_or_other": 4164
+        },
+        "How often patients got better at bathing | denominator check": {
+          "incomplete_or_nonnumeric": 5611,
+          "nonnegative_numerator_within_positive_denominator": 6798
+        },
+        "How often patients got better at bathing | reporting": {
+          "numeric | text_or_other": 8212,
+          "other_nonblank | text_or_other": 4197
+        },
+        "How often patients got better at getting in and out of bed | denominator check": {
+          "incomplete_or_nonnumeric": 5650,
+          "nonnegative_numerator_within_positive_denominator": 6759
+        },
+        "How often patients got better at getting in and out of bed | reporting": {
+          "numeric | text_or_other": 8167,
+          "other_nonblank | text_or_other": 4242
+        },
+        "How often patients got better at taking their drugs correctly by mouth | denominator check": {
+          "incomplete_or_nonnumeric": 5699,
+          "nonnegative_numerator_within_positive_denominator": 6710
+        },
+        "How often patients got better at taking their drugs correctly by mouth | reporting": {
+          "numeric | text_or_other": 8085,
+          "other_nonblank | text_or_other": 4324
+        },
+        "How often patients got better at walking or moving around | denominator check": {
+          "incomplete_or_nonnumeric": 5623,
+          "nonnegative_numerator_within_positive_denominator": 6786
+        },
+        "How often patients got better at walking or moving around | reporting": {
+          "numeric | text_or_other": 8198,
+          "other_nonblank | text_or_other": 4211
+        },
+        "How often patients' breathing improved | denominator check": {
+          "incomplete_or_nonnumeric": 5685,
+          "nonnegative_numerator_within_positive_denominator": 6724
+        },
+        "How often patients' breathing improved | reporting": {
+          "numeric | text_or_other": 7966,
+          "other_nonblank | text_or_other": 4443
+        },
+        "How often physician-recommended actions to address medication issues were completely timely | denominator check": {
+          "incomplete_or_nonnumeric": 5610,
+          "nonnegative_numerator_within_positive_denominator": 6799
+        },
+        "How often physician-recommended actions to address medication issues were completely timely | reporting": {
+          "numeric | text_or_other": 8780,
+          "other_nonblank | text_or_other": 3629
+        },
+        "How often the home health team began their patients' care in a timely manner | denominator check": {
+          "incomplete_or_nonnumeric": 5610,
+          "nonnegative_numerator_within_positive_denominator": 6799
+        },
+        "How often the home health team began their patients' care in a timely manner | reporting": {
+          "numeric | text_or_other": 8775,
+          "other_nonblank | text_or_other": 3634
+        },
+        "How often the home health team determined whether patients received a flu shot for the current flu season | denominator check": {
+          "incomplete_or_nonnumeric": 5172,
+          "nonnegative_numerator_within_positive_denominator": 7237
+        },
+        "How often the home health team determined whether patients received a flu shot for the current flu season | reporting": {
+          "numeric | text_or_other": 8481,
+          "other_nonblank | text_or_other": 3928
+        },
+        "PPH Risk-Standardized Rate | confidence interval": {
+          "incomplete_or_nonnumeric": 4935,
+          "ordered_and_contains_estimate": 7474
+        },
+        "PPH Risk-Standardized Rate | denominator check": {
+          "incomplete_or_nonnumeric": 5440,
+          "nonnegative_numerator_within_positive_denominator": 6969
+        },
+        "PPH Risk-Standardized Rate | reporting": {
+          "numeric | text_or_other": 7474,
+          "other_nonblank | text_or_other": 4935
+        },
+        "PPR Risk-Standardized Rate | confidence interval": {
+          "incomplete_or_nonnumeric": 6466,
+          "ordered_and_contains_estimate": 5943
+        },
+        "PPR Risk-Standardized Rate | denominator check": {
+          "incomplete_or_nonnumeric": 7143,
+          "nonnegative_numerator_within_positive_denominator": 5266
+        },
+        "PPR Risk-Standardized Rate | reporting": {
+          "numeric | text_or_other": 5943,
+          "other_nonblank | text_or_other": 6466
+        },
+        "Percent of Residents Experiencing One or More Falls with Major Injury | denominator check": {
+          "incomplete_or_nonnumeric": 5611,
+          "nonnegative_numerator_within_positive_denominator": 6798
+        },
+        "Percent of Residents Experiencing One or More Falls with Major Injury | reporting": {
+          "numeric | text_or_other": 8762,
+          "other_nonblank | text_or_other": 3647
+        },
+        "Transfer of Health Information to the Patient | denominator check": {
+          "incomplete_or_nonnumeric": 5811,
+          "nonnegative_numerator_within_positive_denominator": 6598
+        },
+        "Transfer of Health Information to the Patient | reporting": {
+          "numeric | text_or_other": 7981,
+          "other_nonblank | text_or_other": 4428
+        },
+        "Transfer of Health Information to the Provider | denominator check": {
+          "incomplete_or_nonnumeric": 5516,
+          "nonnegative_numerator_within_positive_denominator": 6893
+        },
+        "Transfer of Health Information to the Provider | reporting": {
+          "numeric | text_or_other": 7356,
+          "other_nonblank | text_or_other": 5053
+        }
+      },
+      "field_counts": {
+        "Footnote Changes in skin integrity post-acute care: pressure ulcer/injury": {
+          "text_or_other": 12409
+        },
+        "Footnote for DTC Risk-Standardized Rate": {
+          "text_or_other": 12409
+        },
+        "Footnote for Discharge Function Score": {
+          "text_or_other": 12409
+        },
+        "Footnote for PPH Risk-Standardized Rate": {
+          "text_or_other": 12409
+        },
+        "Footnote for PPR Risk-Standardized Rate": {
+          "text_or_other": 12409
+        },
+        "Footnote for Percent of Residents Experiencing One or More Falls with Major Injury": {
+          "text_or_other": 12409
+        },
+        "Footnote for Transfer of Health Information to the Patient": {
+          "text_or_other": 12409
+        },
+        "Footnote for Transfer of Health Information to the Provider": {
+          "text_or_other": 12409
+        },
+        "Footnote for how much Medicare spends on an episode of care at this agency, compared to Medicare spending across all agencies nationally": {
+          "text_or_other": 12409
+        },
+        "Footnote for how often patients got better at bathing": {
+          "text_or_other": 12409
+        },
+        "Footnote for how often patients got better at getting in and out of bed": {
+          "text_or_other": 12409
+        },
+        "Footnote for how often patients got better at taking their drugs correctly by mouth": {
+          "text_or_other": 12409
+        },
+        "Footnote for how often patients got better at walking or moving around": {
+          "text_or_other": 12409
+        },
+        "Footnote for how often patients' breathing improved": {
+          "text_or_other": 12409
+        },
+        "Footnote for how often physician-recommended actions to address medication issues were completely timely": {
+          "text_or_other": 12409
+        },
+        "Footnote for how often the home health team began their patients' care in a timely manner": {
+          "text_or_other": 12409
+        },
+        "Footnote for how often the home health team determined whether patients received a flu shot for the current flu season": {
+          "text_or_other": 12409
+        },
+        "Footnote for quality of patient care star rating": {
+          "text_or_other": 12409
+        }
+      },
+      "release": "2026-10-21",
+      "rows": 12409,
+      "sha256": "7adf3e17961949bbd64ef243545aa387224d9837e8c5601476f5b11946e76d22"
+    },
+    "hospital": {
+      "cross_checks": {
+        "MORT Group Measure Count | component comparison": {
+          "components_equal_facility_count": 4082,
+          "incomplete_or_nonnumeric": 1353
+        },
+        "MORT Group Measure Count | count comparison": {
+          "facility_count_within_group": 4082,
+          "incomplete_or_nonnumeric": 1353
+        },
+        "Overall rating | reporting": {
+          "numeric | blank": 3095,
+          "numeric | numeric_code_or_sequence": 71,
+          "other_nonblank | numeric_code_or_sequence": 2269
+        },
+        "Pt Exp Group Measure Count | count comparison": {
+          "facility_count_within_group": 3452,
+          "incomplete_or_nonnumeric": 1983
+        },
+        "READM Group Measure Count | component comparison": {
+          "components_equal_facility_count": 4249,
+          "incomplete_or_nonnumeric": 1186
+        },
+        "READM Group Measure Count | count comparison": {
+          "facility_count_within_group": 4249,
+          "incomplete_or_nonnumeric": 1186
+        },
+        "Safety Group Measure Count | component comparison": {
+          "components_equal_facility_count": 3334,
+          "incomplete_or_nonnumeric": 2101
+        },
+        "Safety Group Measure Count | count comparison": {
+          "facility_count_within_group": 3334,
+          "incomplete_or_nonnumeric": 2101
+        },
+        "TE Group Measure Count | count comparison": {
+          "facility_count_within_group": 4480,
+          "incomplete_or_nonnumeric": 955
+        }
+      },
+      "field_counts": {
+        "Hospital overall rating footnote": {
+          "blank": 3095,
+          "numeric_code_or_sequence": 2340
+        },
+        "MORT Group Footnote": {
+          "blank": 4009,
+          "numeric_code_or_sequence": 1426
+        },
+        "Pt Exp Group Footnote": {
+          "blank": 3391,
+          "numeric_code_or_sequence": 2044
+        },
+        "READM Group Footnote": {
+          "blank": 4181,
+          "numeric_code_or_sequence": 1254
+        },
+        "Safety Group Footnote": {
+          "blank": 3260,
+          "numeric_code_or_sequence": 2175
+        },
+        "TE Group Footnote": {
+          "blank": 4392,
+          "numeric_code_or_sequence": 1043
+        }
+      },
+      "release": "2026-11-12",
+      "rows": 5435,
+      "sha256": "ff2a82a7149975fb86348e7f901aa3bcd9f3701e8b0ecd0ab34702df193ff559"
+    },
+    "nursing": {
+      "cross_checks": {
+        "Health Inspection Rating | reporting": {
+          "blank | numeric_code_or_sequence": 126,
+          "numeric | blank": 14560
+        },
+        "Long-Stay QM Rating | reporting": {
+          "blank | numeric_code_or_sequence": 544,
+          "numeric | blank": 14077,
+          "numeric | numeric_code_or_sequence": 65
+        },
+        "Overall Rating | reporting": {
+          "blank | numeric_code_or_sequence": 126,
+          "numeric | blank": 14560
+        },
+        "QM Rating | reporting": {
+          "blank | numeric_code_or_sequence": 198,
+          "numeric | blank": 14423,
+          "numeric | numeric_code_or_sequence": 65
+        },
+        "Short-Stay QM Rating | reporting": {
+          "blank | numeric_code_or_sequence": 2924,
+          "numeric | blank": 11762
+        },
+        "Staffing Rating | reporting": {
+          "blank | numeric_code_or_sequence": 203,
+          "numeric | blank": 13954,
+          "numeric | numeric_code_or_sequence": 529
+        }
+      },
+      "field_counts": {
+        "Administrator turnover footnote": {
+          "blank": 13033,
+          "numeric_code_or_sequence": 1653
+        },
+        "Average Number of Residents per Day Footnote": {
+          "blank": 14628,
+          "numeric_code_or_sequence": 58
+        },
+        "Geocoding Footnote": {
+          "blank": 13878,
+          "numeric_code_or_sequence": 808
+        },
+        "Health Inspection Rating Footnote": {
+          "blank": 14560,
+          "numeric_code_or_sequence": 126
+        },
+        "Long-Stay QM Rating Footnote": {
+          "blank": 14077,
+          "numeric_code_or_sequence": 609
+        },
+        "Overall Rating Footnote": {
+          "blank": 14560,
+          "numeric_code_or_sequence": 126
+        },
+        "Physical Therapist Staffing Footnote": {
+          "blank": 14318,
+          "numeric_code_or_sequence": 368
+        },
+        "QM Rating Footnote": {
+          "blank": 14423,
+          "numeric_code_or_sequence": 263
+        },
+        "Rating Cycle 1 Standard Survey Footnote": {
+          "blank": 14557,
+          "numeric_code_or_sequence": 129
+        },
+        "Rating Cycle 2 Standard Survey Footnote": {
+          "blank": 14682,
+          "numeric_code_or_sequence": 4
+        },
+        "Registered Nurse turnover footnote": {
+          "blank": 12810,
+          "numeric_code_or_sequence": 1876
+        },
+        "Reported Staffing Footnote": {
+          "blank": 14319,
+          "numeric_code_or_sequence": 367
+        },
+        "Short-Stay QM Rating Footnote": {
+          "blank": 11762,
+          "numeric_code_or_sequence": 2924
+        },
+        "Staffing Rating Footnote": {
+          "blank": 13954,
+          "numeric_code_or_sequence": 732
+        },
+        "Total nursing staff turnover footnote": {
+          "blank": 13587,
+          "numeric_code_or_sequence": 1099
+        }
+      },
+      "release": "2026-10-28",
+      "rows": 14686,
+      "sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2"
+    }
+  }
+}
