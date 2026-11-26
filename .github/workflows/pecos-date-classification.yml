@@ -1,0 +1,28 @@
+name: PECOS date and classification qualification
+on:
+  push:
+    branches: [research/pecos-date-classification-20261126]
+    paths:
+      - pecos_date_classification.py
+      - tests/test_pecos_date_classification.py
+      - .github/workflows/pecos-date-classification.yml
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_pecos_date_classification.py -v
+      - run: python pecos_date_classification.py --download --output "$RUNNER_TEMP/pecos-date-classification.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pecos-date-classification
+          path: ${{ runner.temp }}/pecos-date-classification.json
+          retention-days: 14
+          if-no-files-found: error
