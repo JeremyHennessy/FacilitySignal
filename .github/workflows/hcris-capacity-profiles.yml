@@ -22,21 +22,14 @@ jobs:
   qualify:
     runs-on: ubuntu-24.04
     timeout-minutes: 35
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0
-      - name: Build exact rehearsed public projection only on isolated candidate branch
-        if: github.ref == 'refs/heads/build/historical-capacity-profiles-20261126'
-        run: |
-          set -euo pipefail
-          if [ ! -d web/hcris-capacity ]; then
-            python -m scripts.build_public_hcris_capacity --build
-          fi
       - run: python -m scripts.build_public_hcris_capacity --check
       - run: python scripts/stamp_pages_assets.py --check
       - run: node --check web/pages.js
@@ -46,18 +39,6 @@ jobs:
       - run: python scripts/test_pages_profiles.py
       - run: python scripts/test_pages_integrated_dossiers.py
       - run: python scripts/test_pages_workflow_architecture.py
-      - name: Retain qualified public-only packs on isolated branch
-        if: github.ref == 'refs/heads/build/historical-capacity-profiles-20261126'
-        run: |
-          set -euo pipefail
-          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
-          if [ -n "$(git status --porcelain -- web/hcris-capacity)" ]; then
-            git config user.name 'FacilitySignal qualification'
-            git config user.email 'github-actions[bot]@users.noreply.github.com'
-            git add -- web/hcris-capacity/hospital.json web/hcris-capacity/snf.json
-            git commit -m 'Retain exact rehearsed historical capacity public PUF projections'
-            git push origin HEAD:refs/heads/build/historical-capacity-profiles-20261126
-          fi
       - name: Ordinary live URL after main promotion
         if: github.ref == 'refs/heads/main'
         run: |
