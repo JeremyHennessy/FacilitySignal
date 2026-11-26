@@ -1,0 +1,26 @@
+name: FacilitySignal local service and portfolio qualification
+on:
+  push:
+    branches: [build/local-service-portfolio-20261126]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0
+      - run: python -m unittest discover -s tests -v
+      - run: python -m playwright install --with-deps chromium
+      - run: PYTHONPATH=. python scripts/test_local_research_browser.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: local-research-synthetic-fixture-evidence
+          path: ${{ runner.temp }}/local-research-fixture-evidence/
+          retention-days: 7

@@ -1,0 +1,78 @@
+{
+  "qualification_run": 45824522674,
+  "qualification_commit": "47e85b59fa4892c2c16b97c25cf620e15539444b",
+  "artifact": 15119056891,
+  "audit": {
+    "sample_rows": 100,
+    "unique_generated_award_ids": 100,
+    "additional_pages_reported": true,
+    "amount_value_states": {
+      "positive": 100
+    },
+    "start_date_states": {
+      "iso_date": 100
+    },
+    "end_date_states": {
+      "iso_date": 100
+    },
+    "performance_state_scope_counts": {
+      "us_jurisdiction": 100
+    },
+    "award_id_present_count": 100,
+    "contract_type_present_count": 100,
+    "uei_format_present_count": 100,
+    "confirmed_facility_relationships": 0,
+    "confirmed_active_opportunities": 0,
+    "retained_row_level_records": 0,
+    "scope": "One bounded award-search result page; VA awarding department only; all contract types A/B/C/D; October 2026 source search window, not necessarily award start dates; not all healthcare purchases or an award total for that period.",
+    "limits": "No recipient, award identifier, address, description or amount values retained. Place of performance is source geography, not a site match. Award amounts are not active opportunity or spend-in-window totals. UEI syntax does not establish an organization or supplier relationship. Commercial reuse and linkage review pending.",
+    "publisher": "USAspending.gov",
+    "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+    "request": {
+      "filters": {
+        "award_type_codes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "agencies": [
+          {
+            "type": "awarding",
+            "tier": "toptier",
+            "name": "Department of Veterans Affairs"
+          }
+        ],
+        "time_period": [
+          {
+            "start_date": "2026-10-01",
+            "end_date": "2026-10-31"
+          }
+        ]
+      },
+      "fields": [
+        "Award ID",
+        "generated_internal_id",
+        "Awarding Agency",
+        "Awarding Sub Agency",
+        "Start Date",
+        "End Date",
+        "Award Amount",
+        "Contract Award Type",
+        "Place of Performance State Code",
+        "Place of Performance Country Code",
+        "Recipient UEI"
+      ],
+      "limit": 100,
+      "page": 1,
+      "sort": "Award Amount",
+      "order": "desc",
+      "spending_level": "awards"
+    },
+    "response_sha256": "3f955a47641b8c6bf196704b08b0d4ae8cb0c4668dbd0c2e559400c4efa76658",
+    "response_bytes": 53773,
+    "retrieved_at": "2026-11-26T12:57:57.909297+00:00",
+    "reuse_review": "pending",
+    "qualification": "bounded_award_page_schema_and_grain"
+  }
+}

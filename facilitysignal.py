@@ -228,7 +228,7 @@ def table(headers, body):
     return '<div class="table-wrap"><table><thead><tr>'+''.join('<th>'+esc(x)+'</th>' for x in headers)+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+x+'</td>' for x in r)+'</tr>' for r in body)+'</tbody></table></div>'
 
 def layout(title, path, body):
-    nav = [("/","Overview"),("/facilities","Facilities"),("/findings","Inspections"),("/hospital-surveys","Hospital surveys"),("/certifications","Certifications"),("/sources","Data sources")]
+    nav = [("/","Overview"),("/facilities","Facilities"),("/findings","Inspections"),("/hospital-surveys","Hospital surveys"),("/certifications","Certifications"),("/service-research","Service research"),("/organization-research","Organizations"),("/sources","Data sources")]
     links = "".join('<a href="'+p+'"'+(' aria-current="page"' if path==p else '')+'>'+t+'</a>' for p,t in nav)
     return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>'+esc(title)+' | FacilitySignal</title><link rel="stylesheet" href="/styles.css"></head><body><aside><a class="brand" href="/">Facility<span>Signal</span><small>PHARM3R</small></a><div class="nav-label">NATIONAL INTELLIGENCE</div><nav>'+links+'</nav><div class="aside-foot">Development alpha<br>United States · local data</div></aside><main><header><span>Healthcare facility intelligence</span><span class="status">LOCAL WORKSPACE</span></header><section class="content"><h1>'+esc(title)+'</h1>'+body+'</section><footer>Source-backed intelligence · Missing records do not establish compliance.</footer></main></body></html>'
 
@@ -373,6 +373,60 @@ def render_hospital_surveys(db,params):
     body+=table(["Provider / CCN","Survey / event","Tag","Description / record type","Correction"],[[esc(r["name"])+'<small>'+esc(r["ccn"]+" · "+r["city"]+", "+r["state"])+'</small>',esc(r["survey_date"])+'<small>'+esc(r["event_id"]+" · "+r["survey_type"])+'</small>',esc(r["tag"] or "Not reported"),esc(r["description"] or "Not reported")+'<small>'+esc(r["tag_type"]+" · "+r["row_kind"])+'</small>',"Unknown"] for r in result["rows"]])
     return layout("Hospital survey evidence","/hospital-surveys",body+pager("/hospital-surveys",params,result))
 
+
+def render_local_research(db,path,params):
+    from local_research import service_search,portfolio_search,I_STATES,Q_STATES
+    from iqies_capabilities import RULES
+    from qies_hospital_services import FIELDS
+    service=path=="/service-research"
+    result=service_search(db,params) if service else portfolio_search(db,params)
+    title_text="Service capability research" if service else "Organization role research"
+    def input_field(name,label,kind="text"):
+        return '<label>'+esc(label)+'<input type="'+kind+'" name="'+name+'" value="'+esc(params.get(name,""))+'"></label>'
+    form='<form class="filters" method="get" action="'+path+'">'
+    if service:
+        reg=result["registry"];fields=[(k,v[2]) for k,v in RULES.items()] if reg=="iqies" else list(FIELDS.items())
+        form+='<input type="hidden" name="registry" value="'+esc(reg)+'">'
+        form+='<label>Registry<strong>'+esc("iQIES (ASC / ESRD)" if reg=="iqies" else "QIES hospital (provisional codes)")+'</strong></label>'
+        form+=select("field","Source field",fields,{"field":result["field"]}).replace('<option value="">All</option>','',1)
+        # A source field may be a count or a yes/no field. Label incompatible
+        # filters and preserve strict query validation rather than guessing.
+        states=sorted(I_STATES if reg=="iqies" else Q_STATES)
+        form+=select("value_state","Exact source value state",[(x,x.replace("_"," ")) for x in states],params)
+        if reg=="qies":
+            form+=select("code","QIES literal code",[(x,x) for x in ("0","1","2","3")],params)
+        else:
+            form+=input_field("min","Minimum count (count fields only)","number")+input_field("max","Maximum count (count fields only)","number")
+    else:
+        form+=select("family","Source family",[("hospital","Hospital"),("snf","Skilled nursing")],{"family":result["family"]})
+        form+=input_field("owner_pac_id","Exact organization PAC ID")
+    form+=select("state","Reported state",[(s,s) for s in STATES],params)+input_field("q","Name / source search")+'<button type="submit">Search evidence</button></form>'
+    body='<p class="intro">'+esc(result["note"])+'</p><p>Private local development only. No individual source rows are published to GitHub Pages.</p>'
+    if service:
+        body+='<div class="links"><a href="/service-research?registry=iqies&amp;field=oprtg_room_cnt">iQIES capability fields</a> · <a href="/service-research?registry=qies&amp;field=CT_SCAN_SRVC_CD">QIES literal hospital codes</a></div>'
+    body+=form
+    if result["total"] is None:return layout(title_text,path,body+'<div class="empty">Qualified source data unavailable: '+esc(result["status"])+'. No zero or compliance conclusion.</div>')
+    body+='<h2>'+fmt(result["total"])+' matching source observations</h2>'
+    if service:
+        body+='<p>Source period: '+esc(result["release"]["source_period"])+' · '+esc(result["semantic_status"])+'</p>'
+        lines=[]
+        for row in result["rows"]:
+            links=[] if row["provider_candidates"] is None else [ '<a href="'+link("/facility",{"dataset":x["dataset"],"ccn":x["ccn"]})+'">'+esc(x["dataset"]+" "+x["ccn"])+'</a>' for x in row["provider_candidates"]]
+            val=row["count_value"] if row["count_value"] is not None else row["literal_code"]
+            lines.append([esc(row["name"]),esc(row["provider_id"]),esc(row["state"]),esc(row["provider_scope"]),esc(row["value_state"]),esc("Not reported" if val is None else str(val))," · ".join(links) or ("Candidate data not loaded" if row["provider_candidates"] is None else "No same-state/type candidate")])
+        body+=table(["Provider source name","Source ID","State","Scope","Value state","Reported value / code","Provider candidates"],lines)
+    else:
+        lines=[]
+        for row in result["rows"]:
+            links=[]
+            for entry in row["enrollment_candidates"]:
+                for x in entry["provider_candidates"]:
+                    links.append('<a href="'+link("/facility",{"dataset":x["dataset"],"ccn":x["ccn"]})+'">'+esc(x["dataset"]+" "+x["ccn"])+'</a>')
+            lines.append([esc(row["owner_name"]),esc(row["owner_pac_id"]),esc(row["role_text"]),esc(row["role_code"]),esc(row["enrollment_id"]),fmt(row["enrollment_candidate_count"])," · ".join(dict.fromkeys(links)) or "No same-state provider candidate"])
+        body+=table(["Organization source name","Organization PAC ID","Source role","Role code","Enrollment ID","Enrollment candidate rows","Provider candidates"],lines)
+    body+=pager(path,params,result)
+    return layout(title_text,path,body)
+
 def handler(db_path):
     class Handler(BaseHTTPRequestHandler):
         def send(self, status, data, content_type):
@@ -395,6 +449,10 @@ def handler(db_path):
                 with closing(connect(db_path)) as db:
                     if path.startswith("/api/"):
                         kind=path[5:]
+                        if kind in ("service-research","organization-research"):
+                            from local_research import service_search,portfolio_search
+                            result=service_search(db,params) if kind=="service-research" else portfolio_search(db,params)
+                            return self.send(200,json.dumps(result),"application/json; charset=utf-8")
                         if kind=="research-evidence":
                             from research_evidence import evidence
                             return self.send(200,json.dumps(evidence(COVERAGE)),"application/json; charset=utf-8")
@@ -420,6 +478,8 @@ def handler(db_path):
                         body=render_certifications(db,params)
                     elif path=="/hospital-surveys":
                         body=render_hospital_surveys(db,params)
+                    elif path in ("/service-research","/organization-research"):
+                        body=render_local_research(db,path,params)
                     elif path=="/facility":
                         body=render_detail(db,params)
                     else:
