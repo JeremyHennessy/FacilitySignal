@@ -1,0 +1,56 @@
+name: FacilitySignal private postacute enrollment sources
+on:
+  push:
+    branches: [main, build/azure-postacute-enrollment-20261126]
+    paths:
+      - .github/workflows/azure-postacute-enrollments.yml
+      - scripts/archive_postacute_enrollments.py
+      - tests/test_postacute_enrollments.py
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-postacute-enrollment
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  archive:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: azure-production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Qualify official enrollment releases and verify private archival
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.archive_postacute_enrollments --receipt "$RUNNER_TEMP/postacute-enrollment-receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: private-postacute-enrollment-receipt
+          path: ${{ runner.temp }}/postacute-enrollment-receipt.json
+          retention-days: 30
+          if-no-files-found: error
