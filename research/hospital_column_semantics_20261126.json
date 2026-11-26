@@ -1,0 +1,1029 @@
+{
+  "as_of": "2026-11-26",
+  "source": "hospital",
+  "source_sha256": "ff2a82a7149975fb86348e7f901aa3bcd9f3701e8b0ecd0ab34702df193ff559",
+  "release": "2026-11-12",
+  "rows": 5435,
+  "profile_path": "research/care_compare_directory_raw_field_profiles_20261126.json",
+  "profile_blob": "fffcab3246603538d4a3ff5be13e571aa868e744",
+  "prior_clinical_evidence_path": "research/clinical_measure_quality_qualification_20261126.json",
+  "prior_clinical_evidence_blob": "c7098b6ac0ae6525a959655a4a6095e67a95d2bb",
+  "prior_clinical_run": 45841298990,
+  "catalog": "https://data.cms.gov/provider-data/dataset/xubh-q36u",
+  "dictionary": {
+    "url": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+    "extracted_version": "October 2026, 100 pages",
+    "rendered_version": "April 2026, 105 pages",
+    "visually_reviewed_printed_pages": [
+      8,
+      20,
+      21
+    ],
+    "sha256": null,
+    "scope": "All exact names verified in both render and extraction; Safety Group Measure Count starts on different page. Exact current-version equivalence unverified."
+  },
+  "methodology": {
+    "url": "https://data.cms.gov/provider-data/topics/hospitals/overall-hospital-quality-star-rating",
+    "scope": "April 2026 calculation uses October 2025 input; 52 measures, five groups, variable collection periods; not automatically the calculation date for November file.",
+    "group_sizes": {
+      "mortality": 8,
+      "safety of care": 8,
+      "readmission": 11,
+      "patient experience": 15,
+      "timely and effective care": 10
+    }
+  },
+  "birthing_designation_reference": "https://qualitynet.cms.gov/inpatient/iqr/measures",
+  "footnote_catalog": "https://data.cms.gov/provider-data/dataset/y9us-9xdf",
+  "reuse_reference": "https://data.cms.gov/provider-data/topics/hospitals/about-data",
+  "totals": {
+    "reviewed_fields": 38,
+    "clinical_context_fields": 26,
+    "restricted_presence_fields": 1,
+    "existing_identity_context_fields": 7,
+    "candidate_institutional_fields": 4,
+    "new_domain_qualified_fields": 0,
+    "new_application_approved_fields": 0,
+    "new_downloads": 0
+  },
+  "fields": [
+    {
+      "ordinal": 1,
+      "field": "Facility ID",
+      "kind": "identity",
+      "meaning": "Source-native Medicare provider identifier; not a parcel or legal entity.",
+      "unit": "text",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "other_nonblank": 5435
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 164,
+        "unsigned_integer_text": 5271
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "existing_identity_context",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 2,
+      "field": "Facility Name",
+      "kind": "identity",
+      "meaning": "Reported hospital name, not independently verified owner.",
+      "unit": "text",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "other_nonblank": 5435
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 5435
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "existing_identity_context",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 3,
+      "field": "Address",
+      "kind": "geography",
+      "meaning": "Reported provider address, not a verified campus boundary.",
+      "unit": "text",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "other_nonblank": 5435
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 5435
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "existing_identity_context",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 4,
+      "field": "City/Town",
+      "kind": "geography",
+      "meaning": "Reported municipality or locality.",
+      "unit": "text",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "other_nonblank": 5435
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 5435
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "existing_identity_context",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 5,
+      "field": "State",
+      "kind": "geography",
+      "meaning": "Reported postal jurisdiction.",
+      "unit": "text",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "other_nonblank": 5435
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 5435
+      },
+      "distinct_nonmissing": {
+        "count": 56,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "existing_identity_context",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 6,
+      "field": "ZIP Code",
+      "kind": "geography",
+      "meaning": "Postal routing identifier; preserve leading zeros.",
+      "unit": "text",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "other_nonblank": 5435
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 5435
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "existing_identity_context",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 7,
+      "field": "County/Parish",
+      "kind": "geography",
+      "meaning": "Reported county or parish text; not a FIPS code.",
+      "unit": "text",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "other_nonblank": 5435
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 5435
+      },
+      "distinct_nonmissing": {
+        "count": 1558,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "existing_identity_context",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 8,
+      "field": "Telephone Number",
+      "kind": "restricted_presence",
+      "meaning": "Reported institutional telephone field; only presence retained.",
+      "unit": "text",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": null,
+      "presence_only": {
+        "nonblank": 5435
+      },
+      "lexical_shapes": null,
+      "distinct_nonmissing": null,
+      "literal_yes_no_counts": null,
+      "application_disposition": "restricted_presence_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 9,
+      "field": "Hospital Type",
+      "kind": "institutional_category",
+      "meaning": "Publisher hospital type classification; exact nine observed categories remain to be mapped.",
+      "unit": "category",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "other_nonblank": 5435
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 5435
+      },
+      "distinct_nonmissing": {
+        "count": 9,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "institutional_candidate_requires_projection_review",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 10,
+      "field": "Hospital Ownership",
+      "kind": "institutional_category",
+      "meaning": "Publisher ownership/control classification; twelve observed categories; not property title.",
+      "unit": "category",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "other_nonblank": 5435
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 5435
+      },
+      "distinct_nonmissing": {
+        "count": 12,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "institutional_candidate_requires_projection_review",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 11,
+      "field": "Emergency Services",
+      "kind": "service_indicator",
+      "meaning": "Reported emergency-service flag; not live hours, operating capacity or security readiness.",
+      "unit": "category",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "other_nonblank": 5435
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 5435
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": {
+        "no": 934,
+        "yes": 4501
+      },
+      "application_disposition": "institutional_candidate_requires_projection_review",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 12,
+      "field": "Meets criteria for birthing friendly designation",
+      "kind": "designation",
+      "meaning": "CMS maternal morbidity structural-measure attestation designation; not proof of delivery capacity, clinical outcomes or absence of maternity services when blank.",
+      "unit": "category",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "blank": 3193,
+        "other_nonblank": 2242
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 2242
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "institutional_candidate_requires_projection_review",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 13,
+      "field": "Hospital overall rating",
+      "kind": "clinical_rating",
+      "meaning": "Overall CMS quality rating; one to five stars when thresholds met; not infrastructure risk.",
+      "unit": "stars",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "not_available": 2269,
+        "other_nonblank": 3166
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 3166
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 14,
+      "field": "Hospital overall rating footnote",
+      "kind": "clinical_footnote",
+      "meaning": "Reporting qualification for overall rating; exact codes and scope remain to be joined to release crosswalk.",
+      "unit": "code",
+      "measure_group": null,
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "blank": 3095,
+        "other_nonblank": 2340
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 3,
+        "unsigned_integer_text": 2337
+      },
+      "distinct_nonmissing": {
+        "count": 8,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 15,
+      "field": "MORT Group Measure Count",
+      "kind": "clinical_group_count",
+      "meaning": "Number of measures in the mortality group; April 2026 methodology lists 8. Exact November source numeric values not retained in lexical profile.",
+      "unit": "measures",
+      "measure_group": "mortality",
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "not_available": 880,
+        "other_nonblank": 4555
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4555
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 16,
+      "field": "Count of Facility MORT Measures",
+      "kind": "clinical_facility_count",
+      "meaning": "Number of reported facility measures in the mortality group, not patients or events.",
+      "unit": "measures",
+      "measure_group": "mortality",
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "not_available": 1353,
+        "other_nonblank": 4082
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4082
+      },
+      "distinct_nonmissing": {
+        "count": 8,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 17,
+      "field": "Count of MORT Measures Better",
+      "kind": "clinical_comparison_count",
+      "meaning": "Number of facility mortality measures in the better comparison category; reference and measure-specific direction require methodology, not an event count.",
+      "unit": "measures",
+      "measure_group": "mortality",
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "not_available": 1353,
+        "other_nonblank": 4082
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4082
+      },
+      "distinct_nonmissing": {
+        "count": 9,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 18,
+      "field": "Count of MORT Measures No Different",
+      "kind": "clinical_comparison_count",
+      "meaning": "Number of facility mortality measures in the not detectably different comparison category; reference and measure-specific direction require methodology, not an event count.",
+      "unit": "measures",
+      "measure_group": "mortality",
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "not_available": 1353,
+        "other_nonblank": 4082
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4082
+      },
+      "distinct_nonmissing": {
+        "count": 9,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 19,
+      "field": "Count of MORT Measures Worse",
+      "kind": "clinical_comparison_count",
+      "meaning": "Number of facility mortality measures in the worse comparison category; reference and measure-specific direction require methodology, not an event count.",
+      "unit": "measures",
+      "measure_group": "mortality",
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "not_available": 1353,
+        "other_nonblank": 4082
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4082
+      },
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 20,
+      "field": "MORT Group Footnote",
+      "kind": "clinical_footnote",
+      "meaning": "Reporting qualification for the mortality group; exact codes and applicability remain unqualified.",
+      "unit": "code",
+      "measure_group": "mortality",
+      "rendered_dictionary_page": 20,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "blank": 4009,
+        "other_nonblank": 1426
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1426
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 21,
+      "field": "Safety Group Measure Count",
+      "kind": "clinical_group_count",
+      "meaning": "Number of measures in the safety of care group; April 2026 methodology lists 8. Exact November source numeric values not retained in lexical profile.",
+      "unit": "measures",
+      "measure_group": "safety of care",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 20,
+      "profile_states": {
+        "not_available": 880,
+        "other_nonblank": 4555
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4555
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 22,
+      "field": "Count of Facility Safety Measures",
+      "kind": "clinical_facility_count",
+      "meaning": "Number of reported facility measures in the safety of care group, not patients or events.",
+      "unit": "measures",
+      "measure_group": "safety of care",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 2101,
+        "other_nonblank": 3334
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 3334
+      },
+      "distinct_nonmissing": {
+        "count": 8,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 23,
+      "field": "Count of Safety Measures Better",
+      "kind": "clinical_comparison_count",
+      "meaning": "Number of facility safety of care measures in the better comparison category; reference and measure-specific direction require methodology, not an event count.",
+      "unit": "measures",
+      "measure_group": "safety of care",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 2101,
+        "other_nonblank": 3334
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 3334
+      },
+      "distinct_nonmissing": {
+        "count": 7,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 24,
+      "field": "Count of Safety Measures No Different",
+      "kind": "clinical_comparison_count",
+      "meaning": "Number of facility safety of care measures in the not detectably different comparison category; reference and measure-specific direction require methodology, not an event count.",
+      "unit": "measures",
+      "measure_group": "safety of care",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 2101,
+        "other_nonblank": 3334
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 3334
+      },
+      "distinct_nonmissing": {
+        "count": 9,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 25,
+      "field": "Count of Safety Measures Worse",
+      "kind": "clinical_comparison_count",
+      "meaning": "Number of facility safety of care measures in the worse comparison category; reference and measure-specific direction require methodology, not an event count.",
+      "unit": "measures",
+      "measure_group": "safety of care",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 2101,
+        "other_nonblank": 3334
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 3334
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 26,
+      "field": "Safety Group Footnote",
+      "kind": "clinical_footnote",
+      "meaning": "Reporting qualification for the safety of care group; exact codes and applicability remain unqualified.",
+      "unit": "code",
+      "measure_group": "safety of care",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "blank": 3260,
+        "other_nonblank": 2175
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 2175
+      },
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 27,
+      "field": "READM Group Measure Count",
+      "kind": "clinical_group_count",
+      "meaning": "Number of measures in the readmission group; April 2026 methodology lists 11. Exact November source numeric values not retained in lexical profile.",
+      "unit": "measures",
+      "measure_group": "readmission",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 880,
+        "other_nonblank": 4555
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4555
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 28,
+      "field": "Count of Facility READM Measures",
+      "kind": "clinical_facility_count",
+      "meaning": "Number of reported facility measures in the readmission group, not patients or events.",
+      "unit": "measures",
+      "measure_group": "readmission",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 1186,
+        "other_nonblank": 4249
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4249
+      },
+      "distinct_nonmissing": {
+        "count": 11,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 29,
+      "field": "Count of READM Measures Better",
+      "kind": "clinical_comparison_count",
+      "meaning": "Number of facility readmission measures in the better comparison category; reference and measure-specific direction require methodology, not an event count.",
+      "unit": "measures",
+      "measure_group": "readmission",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 1186,
+        "other_nonblank": 4249
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4249
+      },
+      "distinct_nonmissing": {
+        "count": 7,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 30,
+      "field": "Count of READM Measures No Different",
+      "kind": "clinical_comparison_count",
+      "meaning": "Number of facility readmission measures in the not detectably different comparison category; reference and measure-specific direction require methodology, not an event count.",
+      "unit": "measures",
+      "measure_group": "readmission",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 1186,
+        "other_nonblank": 4249
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4249
+      },
+      "distinct_nonmissing": {
+        "count": 12,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 31,
+      "field": "Count of READM Measures Worse",
+      "kind": "clinical_comparison_count",
+      "meaning": "Number of facility readmission measures in the worse comparison category; reference and measure-specific direction require methodology, not an event count.",
+      "unit": "measures",
+      "measure_group": "readmission",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 1186,
+        "other_nonblank": 4249
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4249
+      },
+      "distinct_nonmissing": {
+        "count": 8,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 32,
+      "field": "READM Group Footnote",
+      "kind": "clinical_footnote",
+      "meaning": "Reporting qualification for the readmission group; exact codes and applicability remain unqualified.",
+      "unit": "code",
+      "measure_group": "readmission",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "blank": 4181,
+        "other_nonblank": 1254
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1254
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 33,
+      "field": "Pt Exp Group Measure Count",
+      "kind": "clinical_group_count",
+      "meaning": "Number of measures in the patient experience group; April 2026 methodology lists 15. Exact November source numeric values not retained in lexical profile.",
+      "unit": "measures",
+      "measure_group": "patient experience",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 880,
+        "other_nonblank": 4555
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4555
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 34,
+      "field": "Count of Facility Pt Exp Measures",
+      "kind": "clinical_facility_count",
+      "meaning": "Number of reported facility measures in the patient experience group, not patients or events.",
+      "unit": "measures",
+      "measure_group": "patient experience",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 1983,
+        "other_nonblank": 3452
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 3452
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 35,
+      "field": "Pt Exp Group Footnote",
+      "kind": "clinical_footnote",
+      "meaning": "Reporting qualification for the patient experience group; exact codes and applicability remain unqualified.",
+      "unit": "code",
+      "measure_group": "patient experience",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "blank": 3391,
+        "other_nonblank": 2044
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 2044
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 36,
+      "field": "TE Group Measure Count",
+      "kind": "clinical_group_count",
+      "meaning": "Number of measures in the timely and effective care group; April 2026 methodology lists 10. Exact November source numeric values not retained in lexical profile.",
+      "unit": "measures",
+      "measure_group": "timely and effective care",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 880,
+        "other_nonblank": 4555
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4555
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 37,
+      "field": "Count of Facility TE Measures",
+      "kind": "clinical_facility_count",
+      "meaning": "Number of reported facility measures in the timely and effective care group, not patients or events.",
+      "unit": "measures",
+      "measure_group": "timely and effective care",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "not_available": 955,
+        "other_nonblank": 4480
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4480
+      },
+      "distinct_nonmissing": {
+        "count": 10,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 38,
+      "field": "TE Group Footnote",
+      "kind": "clinical_footnote",
+      "meaning": "Reporting qualification for the timely and effective care group; exact codes and applicability remain unqualified.",
+      "unit": "code",
+      "measure_group": "timely and effective care",
+      "rendered_dictionary_page": 21,
+      "extracted_dictionary_page": 21,
+      "profile_states": {
+        "blank": 4392,
+        "other_nonblank": 1043
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1043
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "application_disposition": "clinical_context_only",
+      "new_application_approval": false
+    }
+  ],
+  "retained_clinical_cross_checks": {
+    "MORT Group Measure Count | component comparison": {
+      "components_equal_facility_count": 4082,
+      "incomplete_or_nonnumeric": 1353
+    },
+    "MORT Group Measure Count | count comparison": {
+      "facility_count_within_group": 4082,
+      "incomplete_or_nonnumeric": 1353
+    },
+    "Overall rating | reporting": {
+      "numeric | blank": 3095,
+      "numeric | numeric_code_or_sequence": 71,
+      "other_nonblank | numeric_code_or_sequence": 2269
+    },
+    "Pt Exp Group Measure Count | count comparison": {
+      "facility_count_within_group": 3452,
+      "incomplete_or_nonnumeric": 1983
+    },
+    "READM Group Measure Count | component comparison": {
+      "components_equal_facility_count": 4249,
+      "incomplete_or_nonnumeric": 1186
+    },
+    "READM Group Measure Count | count comparison": {
+      "facility_count_within_group": 4249,
+      "incomplete_or_nonnumeric": 1186
+    },
+    "Safety Group Measure Count | component comparison": {
+      "components_equal_facility_count": 3334,
+      "incomplete_or_nonnumeric": 2101
+    },
+    "Safety Group Measure Count | count comparison": {
+      "facility_count_within_group": 3334,
+      "incomplete_or_nonnumeric": 2101
+    },
+    "TE Group Measure Count | count comparison": {
+      "facility_count_within_group": 4480,
+      "incomplete_or_nonnumeric": 955
+    }
+  }
+}
