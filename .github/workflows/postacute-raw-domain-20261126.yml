@@ -1,0 +1,36 @@
+name: FacilitySignal pinned postacute raw domain qualification
+on:
+  push:
+    branches: [research/postacute-raw-domain-20261126]
+    paths:
+      - 'scripts/postacute_raw_domain_audit.py'
+      - 'tests/test_postacute_raw_domain_audit.py'
+      - '.github/workflows/postacute-raw-domain-20261126.yml'
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-postacute-raw-domain-20261126
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_postacute_raw_domain_audit.py -v
+      - name: Bounded checksum-pinned aggregate audit
+        run: |
+          umask 077
+          python -m scripts.postacute_raw_domain_audit --download --receipt "$RUNNER_TEMP/postacute-raw-domain.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: postacute-raw-domain-aggregate-only
+          path: ${{ runner.temp }}/postacute-raw-domain.json
+          if-no-files-found: error
+          retention-days: 30
