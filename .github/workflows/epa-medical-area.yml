@@ -1,0 +1,28 @@
+name: EPA medical service area aggregate audit
+on:
+  push:
+    branches: [diagnostics/epa-medical-area]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-epa-sdwa-source
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - name: New medical service-area evidence against previously pinned bytes
+        run: python scripts/audit_epa_medical_area.py --download --audit "$RUNNER_TEMP/epa-medical-area.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: epa-medical-area-aggregate-only
+          path: ${{ runner.temp }}/epa-medical-area.json
+          retention-days: 14
+          if-no-files-found: error
