@@ -1267,6 +1267,386 @@
       ]
     },
     {
+      "id": "financial-research",
+      "title": "Financial report research",
+      "intro": "Historical Medicare cost-report qualification. Explore source-report coverage and selected measure availability without interpreting unresolved units, combining fiscal periods, or attributing financial records to individual sites.",
+      "groups": [
+        {
+          "id": "hospital-cost-report-coverage",
+          "title": "Hospital FY2024 cost-report coverage",
+          "note": "CMS selected cost reports, published October 2026. Counts are reports or source CCNs, not unique physical sites. Multiple reports per CCN and unresolved dates remain separate. Individual financial values are not published.",
+          "run": 45825853982,
+          "columns": [
+            "Measure",
+            "Count"
+          ],
+          "source": "https://data.cms.gov/provider-compliance/cost-reports/hospital-provider-cost-report",
+          "rows": [
+            [
+              "Qualified report rows",
+              6109
+            ],
+            [
+              "Distinct source CCNs",
+              6026
+            ],
+            [
+              "CCNs with multiple reports",
+              81
+            ],
+            [
+              "Same-state CCN candidate report rows",
+              5935
+            ],
+            [
+              "Unmatched report rows",
+              174
+            ],
+            [
+              "Retained individual report rows",
+              0
+            ]
+          ]
+        },
+        {
+          "id": "hospital-cost-measure-quality",
+          "title": "Hospital selected cost-report measure coverage",
+          "note": "Counts of report rows by original measure value state. Zero is an explicit numeric zero; blank is not zero. Negative values are retained, not treated as errors or losses. No monetary totals, equipment counts, operating capacity, or vendor payments are inferred. Measure semantics and units still require review.",
+          "run": 45825853982,
+          "columns": [
+            "Source measure",
+            "Positive",
+            "Negative",
+            "Zero",
+            "Blank"
+          ],
+          "source": "https://data.cms.gov/provider-compliance/cost-reports/hospital-provider-cost-report",
+          "rows": [
+            [
+              "Number of Beds",
+              5987,
+              0,
+              0,
+              122
+            ],
+            [
+              "Total Costs",
+              6030,
+              0,
+              0,
+              79
+            ],
+            [
+              "Overhead Non-Salary Costs",
+              6028,
+              2,
+              0,
+              79
+            ],
+            [
+              "Depreciation Cost",
+              5921,
+              38,
+              0,
+              150
+            ],
+            [
+              "Land",
+              4193,
+              7,
+              0,
+              1909
+            ],
+            [
+              "Land Improvements",
+              3815,
+              25,
+              0,
+              2269
+            ],
+            [
+              "Buildings",
+              5070,
+              6,
+              0,
+              1033
+            ],
+            [
+              "Leasehold Improvements",
+              2959,
+              23,
+              0,
+              3127
+            ],
+            [
+              "Fixed Equipment",
+              3392,
+              12,
+              0,
+              2705
+            ],
+            [
+              "Major Movable Equipment",
+              5220,
+              10,
+              0,
+              879
+            ],
+            [
+              "Minor Equipment Depreciable",
+              906,
+              16,
+              0,
+              5187
+            ],
+            [
+              "Total Fixed Assets",
+              5728,
+              17,
+              0,
+              364
+            ],
+            [
+              "Total Assets",
+              5723,
+              88,
+              0,
+              298
+            ],
+            [
+              "Less Total Operating Expense",
+              6027,
+              1,
+              0,
+              81
+            ],
+            [
+              "Net Patient Revenue",
+              5866,
+              8,
+              0,
+              235
+            ],
+            [
+              "Total Patient Revenue",
+              5872,
+              0,
+              0,
+              237
+            ],
+            [
+              "Net Income",
+              4093,
+              1928,
+              0,
+              88
+            ],
+            [
+              "Total Salaries From Worksheet A",
+              6026,
+              0,
+              0,
+              83
+            ],
+            [
+              "Contract Labor: Direct Patient Care",
+              3021,
+              0,
+              0,
+              3088
+            ]
+          ]
+        },
+        {
+          "id": "snf-cost-report-coverage",
+          "title": "Skilled nursing FY2024 cost-report coverage",
+          "note": "CMS selected cost reports, published October 2026. Counts are reports or source CCNs, not unique physical sites. Multiple reports per CCN and unresolved dates remain separate. Individual financial values are not published.",
+          "run": 45826492063,
+          "columns": [
+            "Measure",
+            "Count"
+          ],
+          "source": "https://data.cms.gov/provider-compliance/cost-reports/skilled-nursing-facility-cost-report",
+          "rows": [
+            [
+              "Qualified report rows",
+              14587
+            ],
+            [
+              "Distinct source CCNs",
+              13988
+            ],
+            [
+              "CCNs with multiple reports",
+              565
+            ],
+            [
+              "Same-state CCN candidate report rows",
+              14416
+            ],
+            [
+              "Unmatched report rows",
+              171
+            ],
+            [
+              "Retained individual report rows",
+              0
+            ]
+          ]
+        },
+        {
+          "id": "snf-cost-measure-quality",
+          "title": "Skilled nursing selected cost-report measure coverage",
+          "note": "Counts of report rows by original measure value state. Zero is an explicit numeric zero; blank is not zero. Negative values are retained, not treated as errors or losses. No monetary totals, equipment counts, operating capacity, or vendor payments are inferred. Measure semantics and units still require review.",
+          "run": 45826492063,
+          "columns": [
+            "Source measure",
+            "Positive",
+            "Negative",
+            "Zero",
+            "Blank"
+          ],
+          "source": "https://data.cms.gov/provider-compliance/cost-reports/skilled-nursing-facility-cost-report",
+          "rows": [
+            [
+              "Number of Beds",
+              14355,
+              0,
+              0,
+              232
+            ],
+            [
+              "Total Bed Days Available",
+              14352,
+              0,
+              0,
+              235
+            ],
+            [
+              "Total Days Total",
+              14361,
+              0,
+              0,
+              226
+            ],
+            [
+              "Total Costs",
+              14360,
+              0,
+              0,
+              227
+            ],
+            [
+              "Total Charges",
+              14359,
+              0,
+              0,
+              228
+            ],
+            [
+              "Overhead Non-Salary Costs",
+              14361,
+              0,
+              0,
+              226
+            ],
+            [
+              "Total Salaries From Worksheet A",
+              14361,
+              0,
+              0,
+              226
+            ],
+            [
+              "Contract Labor",
+              10674,
+              0,
+              0,
+              3913
+            ],
+            [
+              "Land",
+              3024,
+              0,
+              0,
+              11563
+            ],
+            [
+              "Land Improvements",
+              4403,
+              8,
+              0,
+              10176
+            ],
+            [
+              "Buildings",
+              4902,
+              6,
+              0,
+              9679
+            ],
+            [
+              "Leasehold Improvements",
+              9167,
+              11,
+              0,
+              5409
+            ],
+            [
+              "Fixed Equipment",
+              6417,
+              4,
+              0,
+              8166
+            ],
+            [
+              "Major Movable Equipment",
+              10373,
+              4,
+              0,
+              4210
+            ],
+            [
+              "Total Current Assets",
+              13756,
+              515,
+              0,
+              316
+            ]
+          ]
+        },
+        {
+          "id": "hha-cost-structure",
+          "title": "Home health FY2024 cost-report structure",
+          "note": "CMS-1728-20 structural qualification only. Worksheet numeric and alpha cells are not financial measures or additional facilities; semantic and unit crosswalk remains outstanding.",
+          "run": 45831729611,
+          "columns": [
+            "Source grain",
+            "Qualified rows"
+          ],
+          "source": "https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year/hha20-fy-2024-data-files",
+          "rows": [
+            [
+              "Parent reports",
+              11009
+            ],
+            [
+              "Numeric worksheet cells",
+              3558558
+            ],
+            [
+              "Alpha worksheet cells",
+              1222130
+            ],
+            [
+              "Retained row-level records",
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "id": "equipment-environment",
       "title": "Equipment & environmental research",
       "intro": "Source qualification and candidate evidence only. Individual mammography and water system records are not published here. No confirmed installed equipment, water-system connection, current compliance or sales opportunity is inferred.",
@@ -1375,6 +1755,93 @@
             [
               "Distinct CMS provider source rows in pairs",
               84
+            ]
+          ]
+        },
+        {
+          "id": "nursing-sprinkler-coverage",
+          "title": "Nursing-home reported sprinkler coverage",
+          "note": "October 28 Care Compare provider snapshot. Literal source responses; Yes is not an independent current inspection, Partial is not an inferred open violation, and Data Not Available is unknown. Dictionary revision mismatch remains documented.",
+          "run": 45835796014,
+          "columns": [
+            "Source response",
+            "Provider records"
+          ],
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Yes",
+              14599
+            ],
+            [
+              "Partial",
+              36
+            ],
+            [
+              "Data Not Available",
+              51
+            ]
+          ]
+        },
+        {
+          "id": "nursing-survey-age-coverage",
+          "title": "Nursing-home reported health survey age",
+          "note": "Source snapshot indicator only. A reported survey age exceeding two years is not proof of an overdue legal obligation.",
+          "run": 45835796014,
+          "columns": [
+            "Most recent health inspection more than 2 years ago",
+            "Provider records"
+          ],
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Reported Y",
+              955
+            ],
+            [
+              "Reported N",
+              13731
+            ]
+          ]
+        },
+        {
+          "id": "hospital-laboratory-corroboration",
+          "title": "Hospital laboratory reference corroboration",
+          "note": "Q3 2026 QIES and CLIA, program code 00 with same-state Care Compare candidate only. Address categories count reference pairs, not unique labs or sites. No installed equipment, legal identity or certificate validity inferred.",
+          "run": 45839078040,
+          "columns": [
+            "Evidence category",
+            "Source rows / pairs"
+          ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities",
+          "rows": [
+            [
+              "Hospital source rows in subset",
+              5362
+            ],
+            [
+              "Hospital rows with laboratory references",
+              3319
+            ],
+            [
+              "Reference occurrences",
+              4494
+            ],
+            [
+              "Street, city, ZIP and state text agree",
+              1387
+            ],
+            [
+              "City, ZIP and state agree; street differs",
+              2334
+            ],
+            [
+              "Other same-state address difference",
+              762
+            ],
+            [
+              "State conflict",
+              11
             ]
           ]
         }

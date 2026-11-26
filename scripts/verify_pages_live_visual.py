@@ -51,6 +51,8 @@ ROUTES=[
     ("hha-profile","detail?"+urlencode({"source":"home-health","id":HHA_PROFILE["ccn"],"state":HHA_PROFILE["state"],"section":"services"}),lambda page:page.locator(".hha-profile[data-evidence=qualified]")),
     ("dialysis-linked","detail?"+urlencode({"source":"dialysis","id":DIALYSIS_LINKED["ccn"],"state":DIALYSIS_LINKED["state"],"section":"services"}),lambda page:page.locator(".dialysis-profile[data-evidence=corroborated]")),
     ("dialysis-unlinked","detail?"+urlencode({"source":"dialysis","id":DIALYSIS_UNLINKED["ccn"],"state":DIALYSIS_UNLINKED["state"],"section":"services"}),lambda page:page.locator(".dialysis-profile[data-evidence=unlinked]")),
+    ("financial-research","financial-research",lambda page:page.get_by_role("heading",name="Home health FY2024 cost-report structure")),
+    ("saved-portfolio","saved-portfolio",lambda page:page.locator(".portfolio-count")),
     ("hospital-infrastructure","hospital-infrastructure",lambda page:page.get_by_role("heading",name="Hospital infrastructure and affiliation count coverage")),
     ("nursing-portfolios","nursing-portfolios",lambda page:page.get_by_role("heading",name="Nursing cross-source group corroboration")),
     ("compliance","compliance-research",lambda page:page.get_by_role("heading",name="Nursing inspection and dispute flags")),
@@ -118,6 +120,17 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="financial-research":
+                    assert page.locator("#app .intelligence-table").count()==5
+                    seen=[r for r in responses if r.url==base+"web/public-intelligence.json"]
+                    assert seen and sha(seen[-1].body())==HASHES["web/public-intelligence.json"]
+                    page.locator("#app").screenshot(path=str(OUT/f"{width}-finance-full.png"))
+                if name=="equipment":
+                    page.get_by_role("heading",name="Hospital laboratory reference corroboration").wait_for()
+                    assert page.locator("#app .intelligence-table").count()==6
+                    page.locator("#app").screenshot(path=str(OUT/f"{width}-environment-full.png"))
+                if name=="saved-portfolio":
+                    assert "0 saved source records" in page.locator(".portfolio-count").inner_text()
                 if name=="hospital-infrastructure":
                     assert page.locator("#app .intelligence-table").count()==4
                     seen=[r for r in responses if r.url==base+"web/public-intelligence.json"]
@@ -164,6 +177,15 @@ def run(base,local):
                 if name=="profile-summary":
                     page.locator(".profile-research-actions").screenshot(path=str(OUT/f"{width}-profile-actions.png"))
                     assert page.get_by_role("link",name="All provider records in reported city").count()==1
+                    page.get_by_role("button",name="Save to research portfolio").click()
+                    page.get_by_role("link",name="Open saved portfolio").click()
+                    page.locator(".portfolio-count").wait_for()
+                    assert "1 saved source records" in page.locator(".portfolio-count").inner_text()
+                    page.reload();page.locator(".portfolio-count").wait_for()
+                    assert "1 saved source records" in page.locator(".portfolio-count").inner_text()
+                    page.screenshot(path=str(OUT/f"{width}-saved-portfolio-populated.png"))
+                    page.get_by_role("button",name="Remove",exact=True).click()
+                    assert "0 saved source records" in page.locator(".portfolio-count").inner_text()
                 if name=="procurement":
                     assert page.locator(".procurement-pilot .metric strong").all_inner_texts()==["100","100"]
                     page.locator(".procurement-pilot").screenshot(path=str(OUT/f"{width}-procurement-pilot.png"))
