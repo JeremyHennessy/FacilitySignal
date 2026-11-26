@@ -106,7 +106,7 @@ def date_state(s):
     except ValueError:return "invalid"
     return "reported"
 def present(s):return "present" if s.strip() else "blank"
-def main_rows(reader,header,db,limit):
+def main_rows(reader,header,db,limit,*,organization_observer=None):
     require(0<len(header)<=500 and len(set(header))==len(header),"header uniqueness/bound")
     require(all(h in header for h in REQUIRED),"required organization header absent")
     m={h:header.index(h) for h in REQUIRED}
@@ -136,6 +136,7 @@ def main_rows(reader,header,db,limit):
         if len(batch)>=10000:flush()
         counts["valid_organization_npi"]+=1
         def get(k):return row[m[k]]
+        if organization_observer is not None:organization_observer(db,npi,total,get,tuple(row[i] for i in tax))
         states["legal_name"][present(get("Provider Organization Name (Legal Business Name)"))]+=1
         for key,field in (("enumeration","Provider Enumeration Date"),("updated","Last Update Date"),("deactivation","NPI Deactivation Date"),("reactivation","NPI Reactivation Date")):
             states[key][date_state(get(field))]+=1
@@ -166,7 +167,7 @@ def ref_rows(reader,header,db,limit):
     require(total==sum(counts.values()),"reference reconciliation")
     return {"input_rows":total,"columns":len(header),"key_counts":dict(counts),"distinct_matched_type2_npis":len(matched),
             "limits":"Reference membership only; no address, alternative name or individual/endpoint value retained. Outside scope is not an orphan or invalid registration."}
-def inspect(path,db_path,kind):
+def inspect(path,db_path,kind,*,organization_observer=None):
     csv.field_size_limit(1_000_000)
     with zipfile.ZipFile(path) as z,closing(sqlite3.connect(db_path)) as db:
         found=members(z,kind)
@@ -176,7 +177,7 @@ def inspect(path,db_path,kind):
         with z.open(found["main"]) as raw,io.TextIOWrapper(raw,encoding="utf-8-sig",newline="",errors="strict") as f:
             reader=csv.reader(f,strict=True);header=next(reader,[])
             require(header==h[0],"separate header disagreement")
-            result=main_rows(reader,header,db,MAX_ROWS[kind])
+            result=main_rows(reader,header,db,MAX_ROWS[kind],organization_observer=organization_observer)
         refs={}
         for role in ("other_name","practice_location"):
             with z.open(found[role]) as raw,io.TextIOWrapper(raw,encoding="utf-8-sig",newline="",errors="strict") as f:
