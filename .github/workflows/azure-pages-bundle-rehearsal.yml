@@ -1,0 +1,70 @@
+name: FacilitySignal Blob-to-Pages approved bundle browser rehearsal
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, build/azure-pages-bundle-rehearsal-20261126]
+    paths:
+      - scripts/build_pages_bundle_from_blob.py
+      - tests/test_pages_bundle_from_blob.py
+      - .github/workflows/azure-pages-bundle-rehearsal.yml
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-blob-pages-bundle-rehearsal
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  rehearse:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: azure-production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1 playwright==1.51.0
+      - name: Restore exact approved public data packs
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.stage_blob_public_packs --output "$RUNNER_TEMP/approved-public-packs" --receipt "$RUNNER_TEMP/public-pack-stage-receipt.json"
+      - name: Assemble minimal approved runtime bundle and run existing browser gate
+        run: |
+          umask 077
+          python -m scripts.build_pages_bundle_from_blob --stage "$RUNNER_TEMP/approved-public-packs" --stage-receipt "$RUNNER_TEMP/public-pack-stage-receipt.json" --out "$RUNNER_TEMP/pages-bundle" --manifest "$RUNNER_TEMP/pages-bundle-manifest.json"
+          mkdir "$RUNNER_TEMP/pages-bundle/scripts"
+          cp scripts/verify_pages_live_visual.py "$RUNNER_TEMP/pages-bundle/scripts/"
+          python -m playwright install --with-deps chromium
+          python "$RUNNER_TEMP/pages-bundle/scripts/verify_pages_live_visual.py" --local
+          rm -r "$RUNNER_TEMP/pages-bundle/scripts"
+          python -c 'import json,os;from pathlib import Path;from scripts.build_pages_bundle_from_blob import inventory,RUNTIME,record;root=Path(os.environ["RUNNER_TEMP"]);bundle=root/"pages-bundle";manifest=json.loads((root/"pages-bundle-manifest.json").read_text());assert inventory(bundle)==RUNTIME;assert all(record(bundle/r["path"],r["path"])==r for r in manifest["files"]);report=json.loads((root/"pages-live-visual-evidence/report.json").read_text());assert report["scope"]=="local candidate";print("FACILITYSIGNAL_BLOB_PAGES_BROWSER_REHEARSAL_PASS",json.dumps({"runtime_files":len(manifest["files"]),"screens":len(report["screens"]),"widths":sorted(set(r["width"] for r in report["screens"])),"public_promotion":False,"azure_writes":0,"actual_screenshot_review_required":True},sort_keys=True))'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: approved-blob-pages-bundle-rehearsal-evidence
+          path: |
+            ${{ runner.temp }}/pages-bundle-manifest.json
+            ${{ runner.temp }}/public-pack-stage-receipt.json
+            ${{ runner.temp }}/pages-live-visual-evidence/report.json
+            ${{ runner.temp }}/pages-live-visual-evidence/*.png
+          retention-days: 14
+          if-no-files-found: error
