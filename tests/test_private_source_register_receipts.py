@@ -11,10 +11,10 @@ class PrivateSourceRegisterReceiptTest(unittest.TestCase):
         self.assertEqual(len(plan["sources"]),14)
         for ident,rule in plan["sources"].items():
             with self.subTest(ident=ident):
-                self.assertIn(ident,original);row=overlay[ident];self.assertEqual(row["status"],rule["status"])
+                self.assertIn(ident,original);row=overlay[ident];self.assertEqual(row["status"],row["historical_qualification_status"])
                 self.assertIn("historical_qualification_status",row)
-                e=row["private_archive_evidence"]
-                pins=[x for x in ledger["receipts"] if x["key"].startswith(rule["prefix"]) if "prefix" in rule] if "prefix" in rule else [x for x in ledger["receipts"] if x["key"] in rule["keys"]]
+                e=row["private_archive_evidence"];self.assertEqual(e["status"],rule["status"]);self.assertEqual(e["display_status"],rule["display_status"])
+                pins=[x for x in ledger["receipts"] if x["key"].startswith(rule["prefix"])] if "prefix" in rule else [x for x in ledger["receipts"] if x["key"] in rule["keys"]]
                 self.assertTrue(pins)
                 self.assertEqual(e["receipt_keys"],sorted({x["key"] for x in pins}))
                 self.assertEqual(e["release_observations"],sum(x["observations"] for x in pins if x["kind"] in ("publisher","supplemental_numeric")))

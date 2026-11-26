@@ -8,26 +8,30 @@
         "nppes-monthly",
         "nppes-weekly"
       ],
-      "limit": "Type 2 organization observations only; monthly and weekly releases may overlap. Deactivation, taxonomy semantics and identity review pending."
+      "limit": "Type 2 organization observations only; monthly and weekly releases may overlap. Deactivation, taxonomy semantics and identity review pending.",
+      "display_status": "Private archive (partial)"
     },
     "FS-005": {
       "status": "private_archive_partial",
       "keys": [
         "ppef-type2-enrollment"
       ],
-      "limit": "Type 2 enrollment projection only; no current active-enrollment or physical-site determination."
+      "limit": "Type 2 enrollment projection only; no current active-enrollment or physical-site determination.",
+      "display_status": "Private archive (partial)"
     },
     "FS-055": {
       "status": "private_archive_partial",
       "prefix": "hcris-",
-      "limit": "Eight modern provider-form scopes; report indexes, numeric cells and limited HHA alpha structures, not every form/year. No facility financial attribution; 17 direct hospital/SNF mappings qualified on matching report keys."
+      "limit": "Eight modern provider-form scopes; report indexes, numeric cells and limited HHA alpha structures, not every form/year. No facility financial attribution; 17 direct hospital/SNF mappings qualified on matching report keys.",
+      "display_status": "Private archive (partial)"
     },
     "FS-062": {
       "status": "private_aggregate_archived",
       "keys": [
         "epa-frs-healthcare-aggregate"
       ],
-      "limit": "Healthcare-sector aggregate evidence, not the complete FRS register or healthcare-site identity."
+      "limit": "Healthcare-sector aggregate evidence, not the complete FRS register or healthcare-site identity.",
+      "display_status": "Private aggregate archived"
     },
     "FS-063": {
       "status": "private_aggregate_partial",
@@ -37,70 +41,80 @@
         "epa-rcra-healthcare-aggregate",
         "epa-npdes-part1-healthcare-aggregate"
       ],
-      "limit": "Selected program/sector aggregates only; not all ECHO datasets."
+      "limit": "Selected program/sector aggregates only; not all ECHO datasets.",
+      "display_status": "Private aggregates (partial)"
     },
     "FS-064": {
       "status": "private_aggregate_partial",
       "keys": [
         "epa-sdwa-aggregate"
       ],
-      "limit": "Drinking-water search extract only; not all SDWIS systems, violations or enforcement."
+      "limit": "Drinking-water search extract only; not all SDWIS systems, violations or enforcement.",
+      "display_status": "Private aggregates (partial)"
     },
     "FS-065": {
       "status": "private_aggregate_archived",
       "keys": [
         "epa-rcra-healthcare-aggregate"
       ],
-      "limit": "Healthcare-sector RCRA program aggregates; no facility-level violation or enforcement records retained."
+      "limit": "Healthcare-sector RCRA program aggregates; no facility-level violation or enforcement records retained.",
+      "display_status": "Private aggregate archived"
     },
     "FS-066": {
       "status": "private_aggregate_partial",
       "keys": [
         "epa-npdes-part1-healthcare-aggregate"
       ],
-      "limit": "NPDES Part 1 selected sector aggregates; other parts, monitoring and facility attribution pending."
+      "limit": "NPDES Part 1 selected sector aggregates; other parts, monitoring and facility attribution pending.",
+      "display_status": "Private aggregates (partial)"
     },
     "FS-070": {
       "status": "private_aggregate_archived",
       "keys": [
         "osha-enforcement-healthcare-aggregate"
       ],
-      "limit": "Inspection and violation source aggregates; activity identifiers not facility IDs, dates unresolved, no row-level inspection records retained."
+      "limit": "Inspection and violation source aggregates; activity identifiers not facility IDs, dates unresolved, no row-level inspection records retained.",
+      "display_status": "Private aggregate archived"
     },
     "FS-105": {
       "status": "private_aggregate_archived",
       "keys": [
         "mn-boiler-aggregate"
       ],
-      "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained."
+      "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained.",
+      "display_status": "Private aggregate archived"
     },
     "FS-109": {
       "status": "private_aggregate_archived",
       "keys": [
         "wa-xray-aggregate"
       ],
-      "limit": "Source registry aggregate; freshness and reuse review pending."
+      "limit": "Source registry aggregate; freshness and reuse review pending.",
+      "display_status": "Private aggregate archived"
     },
     "FS-116": {
       "status": "private_aggregate_archived",
       "keys": [
         "mn-elevator-aggregate"
       ],
-      "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained."
+      "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained.",
+      "display_status": "Private aggregate archived"
     },
     "FS-150": {
       "status": "private_directory_archived",
       "keys": [
         "il-idph-hospital-directory"
       ],
-      "limit": "207 directory observations; license/CCN/site and current operating-status joins unresolved."
+      "limit": "207 directory observations; license/CCN/site and current operating-status joins unresolved.",
+      "display_status": "Private directory archived"
     },
     "FS-157": {
       "status": "private_aggregate_key_review",
       "keys": [
         "epa-sdwa-aggregate"
       ],
-      "limit": "Medical-area aggregate archived; unresolved publisher identifier formats and facility relationships remain blocked."
+      "limit": "Medical-area aggregate archived; unresolved publisher identifier formats and facility relationships remain blocked.",
+      "display_status": "Private aggregate; key review"
     }
   }
 }

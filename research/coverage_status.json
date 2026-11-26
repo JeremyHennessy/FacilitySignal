@@ -34,7 +34,7 @@
     },
     {
       "id": "FS-004",
-      "status": "private_archive_partial",
+      "status": "partial_structural_qualification",
       "evidence": "45832460359",
       "weekly_scope": "2026-11-16/2026-11-22",
       "weekly_source_rows": 31024,
@@ -70,12 +70,14 @@
         ],
         "limit": "Type 2 organization observations only; monthly and weekly releases may overlap. Deactivation, taxonomy semantics and identity review pending.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_archive_partial",
+        "display_status": "Private archive (partial)"
       }
     },
     {
       "id": "FS-005",
-      "status": "private_archive_partial",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -93,7 +95,9 @@
         ],
         "limit": "Type 2 enrollment projection only; no current active-enrollment or physical-site determination.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_archive_partial",
+        "display_status": "Private archive (partial)"
       }
     },
     {
@@ -526,7 +530,7 @@
     },
     {
       "id": "FS-055",
-      "status": "private_archive_partial",
+      "status": "partial_structural_qualification",
       "evidence": "45831729611",
       "qualified_form": "CMS-1728-20",
       "qualified_fiscal_year": 2024,
@@ -608,7 +612,9 @@
         ],
         "limit": "Eight modern provider-form scopes; report indexes, numeric cells and limited HHA alpha structures, not every form/year. No facility financial attribution; 17 direct hospital/SNF mappings qualified on matching report keys.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_archive_partial",
+        "display_status": "Private archive (partial)"
       }
     },
     {
@@ -665,7 +671,7 @@
     },
     {
       "id": "FS-062",
-      "status": "private_aggregate_archived",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -683,12 +689,14 @@
         ],
         "limit": "Healthcare-sector aggregate evidence, not the complete FRS register or healthcare-site identity.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_aggregate_archived",
+        "display_status": "Private aggregate archived"
       }
     },
     {
       "id": "FS-063",
-      "status": "private_aggregate_partial",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -711,12 +719,14 @@
         ],
         "limit": "Selected program/sector aggregates only; not all ECHO datasets.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_aggregate_partial",
+        "display_status": "Private aggregates (partial)"
       }
     },
     {
       "id": "FS-064",
-      "status": "private_aggregate_partial",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -734,12 +744,14 @@
         ],
         "limit": "Drinking-water search extract only; not all SDWIS systems, violations or enforcement.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_aggregate_partial",
+        "display_status": "Private aggregates (partial)"
       }
     },
     {
       "id": "FS-065",
-      "status": "private_aggregate_archived",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -757,12 +769,14 @@
         ],
         "limit": "Healthcare-sector RCRA program aggregates; no facility-level violation or enforcement records retained.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_aggregate_archived",
+        "display_status": "Private aggregate archived"
       }
     },
     {
       "id": "FS-066",
-      "status": "private_aggregate_partial",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -780,7 +794,9 @@
         ],
         "limit": "NPDES Part 1 selected sector aggregates; other parts, monitoring and facility attribution pending.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_aggregate_partial",
+        "display_status": "Private aggregates (partial)"
       }
     },
     {
@@ -797,7 +813,7 @@
     },
     {
       "id": "FS-070",
-      "status": "private_aggregate_archived",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -815,7 +831,9 @@
         ],
         "limit": "Inspection and violation source aggregates; activity identifiers not facility IDs, dates unresolved, no row-level inspection records retained.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_aggregate_archived",
+        "display_status": "Private aggregate archived"
       }
     },
     {
@@ -961,7 +979,7 @@
     },
     {
       "id": "FS-105",
-      "status": "private_aggregate_archived",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -979,7 +997,9 @@
         ],
         "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_aggregate_archived",
+        "display_status": "Private aggregate archived"
       }
     },
     {
@@ -996,7 +1016,7 @@
     },
     {
       "id": "FS-109",
-      "status": "private_aggregate_archived",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -1014,7 +1034,9 @@
         ],
         "limit": "Source registry aggregate; freshness and reuse review pending.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_aggregate_archived",
+        "display_status": "Private aggregate archived"
       }
     },
     {
@@ -1043,7 +1065,7 @@
     },
     {
       "id": "FS-116",
-      "status": "private_aggregate_archived",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -1061,7 +1083,9 @@
         ],
         "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_aggregate_archived",
+        "display_status": "Private aggregate archived"
       }
     },
     {
@@ -1198,7 +1222,7 @@
     },
     {
       "id": "FS-150",
-      "status": "private_directory_archived",
+      "status": "discovered_not_tested",
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
@@ -1216,7 +1240,9 @@
         ],
         "limit": "207 directory observations; license/CCN/site and current operating-status joins unresolved.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_directory_archived",
+        "display_status": "Private directory archived"
       }
     },
     {
@@ -1245,7 +1271,7 @@
     },
     {
       "id": "FS-157",
-      "status": "private_aggregate_key_review",
+      "status": "blocked_key_format_review",
       "adapter": "epa-sdwa-search",
       "evidence": "45742515823",
       "publisher": "US EPA ECHO",
@@ -1394,7 +1420,9 @@
         ],
         "limit": "Medical-area aggregate archived; unresolved publisher identifier formats and facility relationships remain blocked.",
         "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
-        "public_promotion": false
+        "public_promotion": false,
+        "status": "private_aggregate_key_review",
+        "display_status": "Private aggregate; key review"
       }
     },
     {

@@ -24,11 +24,11 @@ def run(base):
                 page.goto(base+"#sources?"+urlencode({"q":ident}))
                 row=page.locator("tbody tr").filter(has_text=ident);row.wait_for()
                 assert row.count()==1
-                assert row.locator("td").nth(2).inner_text()==rule["status"],ident
+                assert row.locator("td").nth(2).inner_text()==rule["display_status"],ident
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),ident
                 if ident in ("FS-004","FS-055","FS-070","FS-105","FS-150","FS-157"):
                     page.screenshot(path=str(OUT/f"{width}-{ident}.png"),full_page=True)
-                seen.append({"width":width,"source":ident,"status":rule["status"]})
+                seen.append({"width":width,"source":ident,"status":rule["display_status"]})
             ctx.close()
         browser.close()
     result={"status":"PASS","route_checks":len(seen),"widths":[390,768,1024,1440],"coverage_sha256":hashlib.sha256(raw).hexdigest(),"checks":seen,"scope":"local candidate" if base.startswith("http://127.") else "ordinary public URL","revision":os.environ.get("GITHUB_SHA","local")}
