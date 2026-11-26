@@ -2,7 +2,7 @@ name: FacilitySignal private FRS healthcare sector coverage
 on:
   workflow_dispatch:
   push:
-    branches: [main, build/azure-frs-healthcare-coverage-20261126]
+    branches: [main, build/azure-frs-healthcare-coverage-20261126, build/azure-frs-schema-recovery-20261126]
     paths:
       - scripts/archive_epa_frs_healthcare.py
       - tests/test_epa_frs_healthcare.py

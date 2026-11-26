@@ -7,7 +7,7 @@ class FRSHealthcareTests(unittest.TestCase):
             root=Path(d);p=root/"source.zip"
             with zipfile.ZipFile(p,"w") as z:
                 z.writestr("FRS_FACILITIES.csv","REGISTRY_ID,FAC_STATE,FAC_NAME\n110000000001,NY,private name\n110000000002,CA,private name\n110000000003,TX,private name\n")
-                z.writestr("FRS_NAICS_CODES.csv","REGISTRY_ID,NAICS_CODE,PGM_SYS_ACRNM,PGM_SYS_ID\n110000000001,622110,TEST,A\n110000000001,621111,TEST,A\n110000000002,624120,TEST,B\n110000000004,623110,TEST,C\n110000000003,111110,TEST,D\n")
+                z.writestr("FRS_NAICS_CODES.csv","REGISTRY_ID,NAICS_CODE,PGM_SYS_ACNRM,PGM_SYS_ID\n110000000001,622110,TEST,A\n110000000001,621111,TEST,A\n110000000002,624120,TEST,B\n110000000004,623110,TEST,C\n110000000003,111110,TEST,D\n")
                 z.writestr("FRS_PROGRAM_LINKS.csv","REGISTRY_ID,PGM_SYS_ACRNM,PGM_SYS_ID\n110000000001,TEST,A\n110000000001,TEST,B\n110000000002,TEST,C\n110000000003,TEST,D\n")
             r=m.qualify(p,root/"scratch.sqlite3")
             self.assertEqual(r["source_rows_screened"],12)

@@ -22,7 +22,7 @@ KEY="epa-frs-healthcare-aggregate"
 MAX_DOWNLOAD=500_000_000
 MAX_EXPANDED=4_500_000_000
 MAX_ROWS=25_000_000
-REQUIRED={"FRS_FACILITIES.csv":{"REGISTRY_ID","FAC_STATE"},"FRS_NAICS_CODES.csv":{"REGISTRY_ID","NAICS_CODE","PGM_SYS_ACRNM","PGM_SYS_ID"},"FRS_PROGRAM_LINKS.csv":{"REGISTRY_ID","PGM_SYS_ACRNM","PGM_SYS_ID"}}
+REQUIRED={"FRS_FACILITIES.csv":{"REGISTRY_ID","FAC_STATE"},"FRS_NAICS_CODES.csv":{"REGISTRY_ID","NAICS_CODE","PGM_SYS_ACNRM","PGM_SYS_ID"},"FRS_PROGRAM_LINKS.csv":{"REGISTRY_ID","PGM_SYS_ACRNM","PGM_SYS_ID"}}
 SECTORS={"621":"ambulatory_healthcare_services","622":"hospitals","623":"nursing_and_residential_care","624":"social_assistance"}
 class Redirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self,req,fp,code,msg,headers,newurl):
