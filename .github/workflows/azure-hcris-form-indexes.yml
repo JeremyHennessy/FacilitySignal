@@ -1,7 +1,7 @@
 name: FacilitySignal private HCRIS modern form indexes
 on:
   push:
-    branches: [main, build/azure-hcris-forms-20261126, build/azure-priority-completion-20261126]
+    branches: [main, build/azure-hcris-forms-20261126, build/azure-priority-completion-20261126, build/azure-state-date-exceptions-20261126]
     paths:
       - .github/workflows/azure-hcris-form-indexes.yml
       - scripts/archive_hcris_form_indexes.py

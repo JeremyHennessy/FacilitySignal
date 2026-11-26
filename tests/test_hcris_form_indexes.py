@@ -39,3 +39,17 @@ class FormIndexTests(unittest.TestCase):
             self.assertEqual(s["screened_child_rows"],2)
             self.assertEqual(set(s["annual_partitions"]),{"2024","2025"})
             with sqlite3.connect(db) as con:self.assertEqual(con.execute("SELECT source_year,report_key FROM reports ORDER BY source_year").fetchall(),[("2024","1"),("2025","1")])
+
+    def test_unmatched_annual_children_counted_not_linked(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);z=p/"source.zip";db=p/"output.db"
+            with zipfile.ZipFile(z,"w") as f:
+                f.writestr("FORM_2024_rpt.csv","1,private header\n")
+                f.writestr("FORM_2024_nmrc.csv","1,A000000,1,1,12.3\n2,A000000,1,1,9\n")
+                f.writestr("FORM_2024_alpha.csv","")
+            s=m.project(z,db)
+            self.assertEqual(s["screened_child_rows"],2)
+            self.assertEqual(s["matched_child_rows"],1)
+            self.assertEqual(s["unresolved_child_rows"],1)
+            self.assertEqual(s["annual_partitions"]["2024"]["child_tables"]["numeric"]["parent_linkage"],{"matched_parent":1,"unmatched_parent_key":1})
+            with sqlite3.connect(db) as con:self.assertEqual(con.execute("SELECT numeric_rows FROM reports").fetchone(),(1,))
