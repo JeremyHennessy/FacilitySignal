@@ -1,0 +1,43 @@
+{
+  "as_of": "2026-11-26",
+  "qualification_run": 45839634409,
+  "qualification_job": 139977587258,
+  "qualified_commit": "08e37cc3592aaec560b38cdff2fc473ad78c275e",
+  "tests_passed": 4,
+  "esrd_rows": 8659,
+  "limits": "Diagnostic only. Normalized equality does not establish same physical site. No candidate promotion, address values, identifiers, or production mapping changes.",
+  "normalization_diagnostic": {
+    "existing_strict_corroboration": 2194,
+    "formatting_candidate_punctuation_only": 161,
+    "formatting_candidate_suffix_or_terminal_direction": 1046,
+    "unresolved_unique_candidate": 4055
+  },
+  "prior_dispositions": {
+    "address_evidence_disagrees": 5262,
+    "corroborated": 2194,
+    "no_esrd_identifier_candidate": 15
+  },
+  "public_rows": 7471,
+  "public_sha256": "e8343f678ec1780ac49047f162754657f60eaa3f61b1d4f48ea4b55d39d4008a",
+  "registry_rows": 100334,
+  "source_period": "2026-07-01/2026-09-30",
+  "source_sha256": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2",
+  "unique_candidate_joint_agreement": {
+    "equal|differs|differs|equal": 4,
+    "equal|differs|differs|punctuation_only": 1,
+    "equal|differs|differs|suffix_or_terminal_direction": 3,
+    "equal|differs|differs|unresolved_street": 12,
+    "equal|differs|equal|equal": 72,
+    "equal|differs|equal|punctuation_only": 2,
+    "equal|differs|equal|suffix_or_terminal_direction": 35,
+    "equal|differs|equal|unresolved_street": 112,
+    "equal|equal|differs|equal": 41,
+    "equal|equal|differs|punctuation_only": 2,
+    "equal|equal|differs|suffix_or_terminal_direction": 25,
+    "equal|equal|differs|unresolved_street": 120,
+    "equal|equal|equal|equal": 2194,
+    "equal|equal|equal|punctuation_only": 161,
+    "equal|equal|equal|suffix_or_terminal_direction": 1046,
+    "equal|equal|equal|unresolved_street": 3626
+  }
+}
