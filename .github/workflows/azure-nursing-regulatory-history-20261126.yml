@@ -1,0 +1,60 @@
+name: FacilitySignal private nursing regulatory history qualification
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/nursing_regulatory_history.py'
+      - 'tests/test_nursing_regulatory_history.py'
+      - '.github/workflows/azure-nursing-regulatory-history-20261126.yml'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/azure-nursing-regulatory-history-20261126.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  verify-archive:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: azure-production
+    concurrency:
+      group: facilitysignal-nursing-regulatory-history
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Qualify exact archived regulatory search without downloading publisher files
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.nursing_regulatory_history qualify --receipt "$RUNNER_TEMP/nursing-regulatory-history-receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nursing-regulatory-history-aggregate-receipt
+          path: ${{ runner.temp }}/nursing-regulatory-history-receipt.json
+          if-no-files-found: error
+          retention-days: 30
