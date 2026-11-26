@@ -6,9 +6,13 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def read(path):
     return json.loads(path.read_text(encoding="utf-8"))
-def build(ledger,cap,spec):
+def build(ledger,cap,spec,data_use=None):
     epa=next(x for x in ledger["sources"] if x["id"]=="FS-157")
     ctx={"ledger":ledger,"cap":cap,"epa":epa}
+    if data_use is None:
+        path=ROOT/"research/qualified_data_use_20261126.json"
+        if path.exists():data_use=read(path)
+    if data_use is not None:ctx["data_use"]=data_use
     def resolve(cell):
         if isinstance(cell,dict):
             if set(cell)!={"path"}:raise ValueError("unexpected field selector")
