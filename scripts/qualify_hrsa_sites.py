@@ -74,8 +74,33 @@ def audit(data,metadata_cells):
     # Publisher labels can contain Unicode punctuation or formatting whitespace.
     # Require bounded, nonempty labels and unique normalized names. Confirm
     # multiple institutional field anchors before retaining any header text.
-    require(all(0<len(h)<=150 and norm(h) and all(c.isprintable() or c in "\t\r\n" for c in h) for h in headers),"invalid header characters or length")
-    require(len({norm(h) for h in headers})==len(headers),"ambiguous normalized headers")
+    # Preserve structural failure evidence even when no data can be screened.
+    # Empty, malformed and unverified columns are never accepted or printed.
+    invalid=[]
+    for i,h in enumerate(headers):
+        reasons=[]
+        if not norm(h):reasons.append("empty_or_no_ascii_alphanumeric")
+        if len(h)>150:reasons.append("length_bound")
+        if any(not c.isprintable() and c not in "\t\r\n" for c in h):reasons.append("nonprinting")
+        if reasons:invalid.append({"column_ordinal":i+1,"length":len(h),"reasons":reasons})
+    normalized_unique=len({norm(h) for h in headers})==len(headers)
+    if invalid or not normalized_unique:
+        count=0;shape_errors=0;nonblank_invalid=Counter()
+        for row in reader:
+            count+=1
+            require(count<=100000,"row count bound")
+            if None in row or any(v is None for v in row.values()):
+                shape_errors+=1;continue
+            for col in invalid:
+                i=col["column_ordinal"]-1
+                if row[headers[i]].strip():nonblank_invalid[str(i+1)]+=1
+        return {"headers":[],"columns":len(headers),"resolved_candidate_fields":{},
+                "metadata_exact_header_matches":sum(norm(h) in metadata_cells for h in headers),
+                "header_structure":{"invalid_columns":invalid,"normalized_unique":normalized_unique,
+                    "row_shape_errors":shape_errors,"invalid_column_nonblank_counts":dict(nonblank_invalid)},
+                "input_rows":count,"mapping_complete":False,"privacy_screened_rows":0,
+                "excluded_protected_or_incomplete_rows":0,"missing_site_id":0,"duplicate_site_id":0,
+                "retained_row_level_records":0,"limits":"Structural failure diagnostic only; no source headers or row values retained."}
     mapped=resolve(headers)
     anchors=sum(k in mapped for k in ("site_id","site_address","site_zip","site_type","site_state","site_status","location_setting"))
     report={"headers":headers if anchors>=3 else [],"columns":len(headers),"resolved_candidate_fields":mapped if anchors>=3 else {},

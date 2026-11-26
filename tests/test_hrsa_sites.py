@@ -27,3 +27,13 @@ class HrsaTests(unittest.TestCase):
         self.assertEqual(a["metadata_exact_header_matches"],8)
         b=audit(b"Unverified label,Another label\nExample,Other\n",set())
         self.assertFalse(b["mapping_complete"]);self.assertEqual(b["headers"],[])
+
+    def test_invalid_header_structural_evidence_only(self):
+        f=io.StringIO();w=csv.writer(f)
+        w.writerow(["Site Name","Site State",""]);w.writerow(["Example","NY",""]);w.writerow(["Other","CA",""])
+        a=audit(f.getvalue().encode(),set())
+        self.assertFalse(a["mapping_complete"]);self.assertEqual(a["input_rows"],2)
+        self.assertEqual(a["headers"],[]);self.assertEqual(a["header_structure"]["invalid_columns"],[{"column_ordinal":3,"length":0,"reasons":["empty_or_no_ascii_alphanumeric"]}])
+        self.assertEqual(a["header_structure"]["invalid_column_nonblank_counts"],{})
+        self.assertEqual(a["privacy_screened_rows"],0)
+        self.assertNotIn("Example",str(a))
