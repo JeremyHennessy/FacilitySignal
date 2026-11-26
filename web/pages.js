@@ -1068,6 +1068,11 @@ function portfolioSavePanel(s,r,f){
     button.addEventListener("click",()=>{try{const rows=readPortfolio();if(!rows.some(x=>portfolioKey(x)===portfolioKey(record))){if(rows.length>=portfolioLimit)throw Error("Portfolio full");writePortfolio([...rows,record])}refresh()}catch(e){status.textContent="Unable to save; existing records were not intentionally changed."}});
     refresh();return panel
 }
+function downloadResearchCsv(filename,rows){
+    const content=rows.map(row=>row.map(safeCsvCell).join(",")).join("\r\n")+"\r\n";
+    const url=URL.createObjectURL(new Blob([content],{type:"text/csv;charset=utf-8"})),a=el("a");
+    a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)
+}
 function savedPortfolio(p){
     title("Saved facility portfolio","A personal research list of exact public provider source records, not an inferred company or property portfolio. Stored only in this browser; other applications on the same origin may access browser storage. Do not store confidential information here.");
     app.append(add(el("div",undefined,"links"),anchor("Find facilities",route("advanced")),anchor("Nursing chain evidence",route("nursing-portfolios")),anchor("Hospital infrastructure",route("hospital-infrastructure")),anchor("Financial report research",route("financial-research")),anchor("Procurement research",route("procurement"))));
@@ -1081,7 +1086,12 @@ function savedPortfolio(p){
     const compareStatus=el("span","Select 2–4 saved records to compare source-reported evidence.","intro");
     const update=()=>{compare.disabled=picked.size<2;compare.textContent="Compare selected ("+picked.size+" / 4)";for(const c of checks)c.disabled=!c.checked&&picked.size>=4};
     compare.addEventListener("click",()=>{if(picked.size>=2&&picked.size<=4)location.hash=route("compare",{records:[...picked].join("|")})});
-    app.append(add(el("div",undefined,"links portfolio-compare-controls"),compare,compareStatus));
+    const exportList=el("button","Export filtered portfolio CSV");exportList.type="button";
+    exportList.addEventListener("click",()=>downloadResearchCsv("facilitysignal-saved-portfolio.csv",[
+        ["source","source_identifier","reported_name_at_save","reported_state","saved_source_release","current_published_release","evidence_scope"],
+        ...filtered.map(r=>[r.source,r.ccn,r.name,r.state,r.release,providerSources().find(s=>s.key===r.source)?.release||"Unavailable","Saved public source record; not a unique property or an inferred ownership relationship"])
+    ]));
+    app.append(add(el("div",undefined,"links portfolio-compare-controls"),compare,compareStatus,exportList));
     const grid=el("div",undefined,"metrics"),groups=new Map();
     for(const r of filtered)groups.set(r.source,(groups.get(r.source)||0)+1);
     for(const [source,n] of groups)grid.append(capacityMetric(names[source],n,"Saved source records (not unique sites)"));
@@ -1144,7 +1154,14 @@ async function compareFacilities(p,signal,epoch){
     ];
     const wrapper=table(["Evidence field",...selected.map(r=>r.name+" · "+r.ccn)],rows);wrapper.classList.add("comparison-table");wrapper.dataset.records=String(selected.length);wrapper.setAttribute("aria-label","Saved facility evidence comparison; scroll horizontally");
     status.replaceWith(el("p",N.format(selected.length)+" selected source records · "+N.format(obs.filter(o=>o.record).length)+" exact published records resolved","intro comparison-status"));
-    app.append(el("p","On narrow screens, scroll the table horizontally to see all selected facilities. Evidence field labels stay visible.","comparison-scroll-hint intro"),wrapper,el("div","Historical nursing citation rows are not current findings or counts of inspections. Missing or unresolved evidence does not establish compliance. No portfolio ownership or shared property is inferred.","notice"))
+    const exportComparison=el("button","Export comparison CSV");exportComparison.type="button";
+    exportComparison.addEventListener("click",()=>downloadResearchCsv("facilitysignal-facility-comparison.csv",[
+        ["Evidence field",...selected.map(r=>r.name+" · "+r.ccn)],
+        ...rows.slice(0,-1),
+        ["Facility evidence profile",...selected.map(r=>new URL(route("detail",{source:r.source,id:r.ccn,state:r.state}),location.href).href)],
+        ["Evidence limitations",...selected.map(()=>"Historical nursing citation rows are not current findings or counts of inspections. Missing or unresolved evidence does not establish compliance. No portfolio ownership or shared property is inferred.")]
+    ]));
+    app.append(add(el("div",undefined,"links"),exportComparison),el("p","On narrow screens, scroll the table horizontally to see all selected facilities. Evidence field labels stay visible.","comparison-scroll-hint intro"),wrapper,el("div","Historical nursing citation rows are not current findings or counts of inspections. Missing or unresolved evidence does not establish compliance. No portfolio ownership or shared property is inferred.","notice"))
 }
 
 async function procurementResearch(signal,epoch){
