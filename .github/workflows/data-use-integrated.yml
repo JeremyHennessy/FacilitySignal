@@ -22,6 +22,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0
+      - run: python scripts/build_public_intelligence.py
       - run: python scripts/stamp_pages_assets.py --write
       - run: python scripts/stamp_pages_assets.py --check && python scripts/build_public_intelligence.py --check && python scripts/build_market_summary.py --check && node --check web/pages.js
       - run: python -m unittest discover -s tests -v
@@ -39,7 +40,7 @@ jobs:
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           git config user.name 'FacilitySignal qualification'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -- index.html
+          git add -- index.html web/public-intelligence.json
           if ! git diff --cached --quiet; then
             git commit -m "Retain exact integrated qualified entry point"
             git push origin HEAD:refs/heads/build/data-use-integrated-20261126

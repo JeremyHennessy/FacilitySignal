@@ -39,7 +39,7 @@ ROUTES=[
     ("ltch-capacity","capacity?source=long-term-hospital",lambda page:page.locator(".ltch-capacity-table")),
     ("ltch-profile","detail?"+urlencode({"source":"long-term-hospital","id":LTCH["ccn"],"state":LTCH["state"],"section":"services"}),lambda page:page.get_by_role("heading",name="Reported capacity and service evidence")),
     ("services","services",lambda page:page.get_by_role("heading",name="ASC service provision arrangements")),
-    ("compliance","compliance-research",lambda page:page.get_by_role("heading",name="Literal correction wording")),
+    ("compliance","compliance-research",lambda page:page.get_by_role("heading",name="Nursing inspection and dispute flags")),
     ("citations","citations?source=nursing-health&state=NY",lambda page:page.get_by_role("columnheader",name="Historical citation rows")),
     ("hospital-surveys","hospital-surveys",lambda page:page.get_by_role("heading",name="Hospital survey coverage",exact=True)),
     ("equipment","equipment-environment",lambda page:page.get_by_role("heading",name="FDA mammography directory")),
@@ -114,10 +114,10 @@ def run(base,local):
                 if name=="ltch-profile":
                     assert page.get_by_text("Total beds",exact=True).count()==1
                     assert page.get_by_text(f'{int(LTCH["capacity"]):,}',exact=True).count()>=1
-                if name in ("services","data"):
+                if name in ("services","data","compliance"):
                     seen=[r for r in responses if r.url==base+"web/public-intelligence.json"]
                     assert seen and sha(seen[-1].body())==HASHES["web/public-intelligence.json"],"Browser loaded wrong aggregate evidence"
-                    groups=("ASC service provision arrangements","Home health reported services") if name=="services" else ("CLIA certificate code distribution","Hospital-to-laboratory reference evidence","National field audit coverage")
+                    groups=("ASC service provision arrangements","Home health reported services") if name=="services" else ("Nursing inspection and dispute flags",) if name=="compliance" else ("CLIA certificate code distribution","Hospital-to-laboratory reference evidence","National field audit coverage","Reported nursing-home chain membership","Nursing cross-source group corroboration")
                     for n,g in enumerate(groups):page.locator(f'[aria-label^="{g}"]').screenshot(path=str(OUT/f"{width}-{name}-group-{n}.png"))
                 if name=="profile-summary":
                     page.locator(".profile-research-actions").screenshot(path=str(OUT/f"{width}-profile-actions.png"))
