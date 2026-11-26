@@ -4,3 +4,7 @@ Use the exact completed FQHC, hospice and renal multi-year indexes. The frozen p
 ## Verified FQHC completion
 
 Run 45861965422, job 140055169008: all two historical groups passed readback; 6,649,262 retained numeric observations, zero parent, coordinate or syntax exceptions, 533,940,191 payload bytes. FY2024 separately archived. The 2014 annual member had zero numeric source rows. Hospice and renal are not counted until verified. The updated ledger includes completed individual scopes only and awaits a separate consolidated live audit.
+
+## Verified hospice completion
+
+Run 45861965422, job 140055169173: eight historical groups passed SHA readback; 17,642,265 retained numeric observations, no parent, coordinate or numeric syntax exceptions, 1,416,380,054 payload bytes. FY2024 was separately archived. Renal remains excluded from these totals until completed. The updated ledger includes only verified receipts and awaits its own consolidated audit.

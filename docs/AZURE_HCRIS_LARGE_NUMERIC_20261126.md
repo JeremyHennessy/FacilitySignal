@@ -7,3 +7,7 @@ Observed live source shape: hospital initial run 45861770583 failed before uploa
 ## Verified SNF completion
 
 Run 45861770583, job 140054511175 passed all five shard SHA readbacks: 13,769,223 screened, 13,769,215 retained, eight coordinate exceptions excluded, no parent or numeric syntax exceptions. 1,182,690,816 payload bytes. Hospital annual-layout retry remains a separate run; do not claim its completion from SNF evidence.
+
+## Verified hospital completion
+
+Corrected run 45862301518, job 140056581197 passed all seven shard SHA readbacks: 19,440,697 screened and retained; no parent, coordinate or syntax exceptions; 1,646,231,454 payload bytes. SNF prior complete shards were also successfully recovered. All twelve FY2024 hospital and SNF scopes are individually verified. Consolidated ledger verification is separate.
