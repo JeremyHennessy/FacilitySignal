@@ -61,6 +61,14 @@ try:
             expected=chosen+([extra] if width<=720 else [])
             assert [(r["source"],r["source_identifier"],r["reported_state"]) for r in exported]==[(s,r["ccn"],r["state"]) for s,r in expected]
             assert all(r["saved_source_release"] and r["current_published_release"] and "not a unique property" in r["evidence_scope"] for r in exported)
+            wrap=page.locator(".portfolio-results")
+            assert wrap.evaluate("(e)=>Array.from(e.querySelectorAll('td button')).every(b=>getComputedStyle(b).whiteSpace==='nowrap'&&b.scrollWidth<=b.clientWidth+1)")
+            assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+            if width<=768:
+                assert page.locator(".portfolio-scroll-hint").is_visible()
+                assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const t=e.querySelector('tbody tr td:last-child');return e.scrollLeft>0&&t.getBoundingClientRect().right<=e.getBoundingClientRect().right+2}")
+                page.screenshot(path=str(OUT/f"{width}-portfolio-export-scrolled.png"),full_page=True)
+                wrap.evaluate("(e)=>{e.scrollLeft=0}")
             page.screenshot(path=str(OUT/f"{width}-portfolio-export.png"),full_page=True)
             page.goto(URL+"#saved-portfolio?source=nursing")
             page.get_by_role("button",name="Export filtered portfolio CSV").wait_for()
