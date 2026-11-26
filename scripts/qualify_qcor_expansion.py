@@ -93,7 +93,7 @@ def provider_key(value):
     require(bool(numeric_prefix or alpha_prefix),"provider_key_shape")
     return s
 
-def classify(values,m):
+def classify(values,m,source=None,tag_domain=None):
     def raw(k):
         i=m[k];return values[i] if i<len(values) else None
     def get(k):
@@ -104,12 +104,19 @@ def classify(values,m):
     try:day=survey_date(raw("date"))
     except ValueError:raise ValueError("survey_date_shape") from None
     tag=get("tag").upper();kind=get("kind").casefold()
-    require(not tag or re.fullmatch(r"[A-Z][0-9]{4}",tag) is not None,"tag_key_shape")
+    # ICF two-letter codes are accepted only from observed documented
+    # shapes, or exact membership in the qualified publisher selector.
+    # Do not extrapolate to other sources or infer regulatory semantics.
+    two_letter=re.fullmatch(r"(?:KS|KA|KL)[0-9]{3}",tag) is not None
+    icf_tag=(source=="icf" and two_letter and
+             (tag in tag_domain if tag_domain is not None else tag[:2] in {"KA","KS"}))
+    valid_tag=not tag or re.fullmatch(r"[A-Z][0-9]{4}",tag) is not None or icf_tag
+    require(valid_tag,"tag_key_shape")
     require(bool(tag) or not kind,"missing_tag_with_type")
     state="memo" if kind=="memo" or re.fullmatch(r"[A-Z]0000",tag) else "nonmemo_tag" if tag else "no_tag_reported"
     return ccn,event,day,state
 
-def inspect(path,key):
+def inspect(path,key,tag_domain=None):
     book=openpyxl.load_workbook(path,read_only=True,data_only=True,keep_links=False)
     try:
         require(len(book.worksheets)==1,"unexpected sheet count")
@@ -118,7 +125,7 @@ def inspect(path,key):
         require(header_candidate(header),"unrecognized header")
         require(all(isinstance(x,str) and 0<len(x)<=150 and "\n" not in x and "\r" not in x for x in header),"header shape")
         m=map_header(header);ready=set(m)==set(ALIASES)
-        kinds=Counter();reject=Counter();total=blank=0
+        kinds=Counter();reject=Counter();tag_shapes=Counter();total=blank=0
         with closing(sqlite3.connect(":memory:")) as db:
             db.execute("CREATE TABLE survey(ordinal INTEGER PRIMARY KEY,ccn TEXT NOT NULL,event TEXT NOT NULL,day TEXT NOT NULL,kind TEXT NOT NULL)")
             batch=[]
@@ -129,8 +136,16 @@ def inspect(path,key):
                 total+=1
                 if not ready:continue
                 if len(values)>len(header):reject["extra_columns"]+=1;continue
-                try:c,e,d,k=classify(values,m)
-                except ValueError as exc:reject[str(exc)]+=1;continue
+                try:c,e,d,k=classify(values,m,key,tag_domain)
+                except ValueError as exc:
+                    reject[str(exc)]+=1
+                    if str(exc)=="tag_key_shape":
+                        i=m["tag"];v=values[i] if i<len(values) else None
+                        raw="" if v is None else str(v).strip().upper()
+                        shape=("".join("A" if "A"<=c<="Z" else "9" if "0"<=c<="9" else "S" if c.isspace() else "P" for c in raw)
+                               if len(raw)<=24 else "over_24")
+                        tag_shapes[shape]+=1
+                    continue
                 batch.append((ordinal,c,e,d,k));kinds[k]+=1
                 if len(batch)>=5000:
                     db.executemany("INSERT INTO survey VALUES(?,?,?,?,?)",batch);batch.clear()
@@ -145,7 +160,7 @@ def inspect(path,key):
             return {"source_id":SOURCES[key][0],"report_url":ROOT+SOURCES[key][1],"header":list(header),"columns":len(header),
                     "field_mapping":{k:header[i] for k,i in m.items()},"mapping_complete":ready,
                     "input_rows":total,"blank_rows":blank,"stored_rows":stored,"rejected_rows":sum(reject.values()),
-                    "reject_reasons":dict(reject),"row_kinds":dict(kinds),"distinct_provider_keys":providers,
+                    "reject_reasons":dict(reject),"rejected_tag_shapes":dict(tag_shapes),"row_kinds":dict(kinds),"distinct_provider_keys":providers,
                     "distinct_survey_event_keys":events,"events_with_nonmemo_tag":with_tag,
                     "events_without_nonmemo_tag":events-with_tag,"retained_row_level_records":0,
                     "limits":"Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available."}

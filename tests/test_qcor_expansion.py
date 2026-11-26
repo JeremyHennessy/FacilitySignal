@@ -1,7 +1,7 @@
 import tempfile,unittest
 from pathlib import Path
 import openpyxl
-from scripts.qualify_qcor_expansion import resolve_download,provider_key,inspect
+from scripts.qualify_qcor_expansion import resolve_download,provider_key,inspect,classify
 
 class QCORExpansionTests(unittest.TestCase):
     def test_publisher_link_scope(self):
@@ -30,3 +30,24 @@ class QCORExpansionTests(unittest.TestCase):
             self.assertEqual(a["row_kinds"],{"memo":1,"nonmemo_tag":1,"no_tag_reported":1})
             self.assertEqual((a["distinct_survey_event_keys"],a["events_without_nonmemo_tag"]),(2,1))
             for v in ("Synthetic Site","Not retained","011300","ABCD-H1"):self.assertNotIn(v,str(a))
+
+    def test_icf_only_documented_tag_shape(self):
+        m={"ccn":0,"event":1,"date":2,"tag":3,"kind":4}
+        row=("01G001","ABCD11","2024-01-01","KS123","Standard")
+        self.assertEqual(classify(row,m,"icf")[-1],"nonmemo_tag")
+        self.assertEqual(classify((*row[:3],"KA123",row[4]),m,"icf")[-1],"nonmemo_tag")
+        with self.assertRaisesRegex(ValueError,"tag_key_shape"):classify((*row[:3],"KA123",row[4]),m,"cah")
+        with self.assertRaisesRegex(ValueError,"tag_key_shape"):classify(row,m,"cah")
+        for tag in ("ZZ123","KS1234","K123X"):
+            with self.assertRaisesRegex(ValueError,"tag_key_shape"):
+                classify((*row[:3],tag,row[4]),m,"icf")
+
+    def test_icf_exact_publisher_domain(self):
+        m={"ccn":0,"event":1,"date":2,"tag":3,"kind":4}
+        row=("01G001","ABCD11","2024-01-01","KL123","Standard")
+        domain={"KL123","KS123","KA123"}
+        self.assertEqual(classify(row,m,"icf",domain)[-1],"nonmemo_tag")
+        for code in ("KL999","KS999","ZZ123"):
+            with self.assertRaisesRegex(ValueError,"tag_key_shape"):classify((*row[:3],code,row[4]),m,"icf",domain)
+        with self.assertRaisesRegex(ValueError,"tag_key_shape"):classify(row,m,"icf")
+        with self.assertRaisesRegex(ValueError,"tag_key_shape"):classify(row,m,"cah",domain)

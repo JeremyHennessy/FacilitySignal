@@ -26,5 +26,22 @@ class QCORExpansionLedgerTests(unittest.TestCase):
             self.assertTrue(a["same_release_verified"])
             self.assertEqual(a["source"]["sha256"],old["source"]["sha256"])
             self.assertEqual((a["stored_rows"],a["rejected_rows"],old["rejected_rows"]),(rows,0,rejects))
-        self.assertEqual(entries["icf"]["audit"]["rejected_rows"],50674)
-        self.assertEqual(entries["icf"]["job_conclusion"],"failure")
+        b=entries["icf"];a=b["audit"]
+        self.assertEqual(b["prior_attempt"]["audit"]["rejected_rows"],50674)
+        self.assertEqual(a["stored_rows"],385312)
+        self.assertEqual(a["rejected_rows"],0)
+        self.assertEqual(a["publisher_code_domain_size"],639)
+        self.assertEqual(b["job_conclusion"],"success")
+        self.assertTrue(a["same_release_verified"])
+    def test_nursing_survey_qualifications_remain_separate(self):
+        l=json.loads((ROOT/"coverage_status.json").read_text())
+        for key,sid,n in (("summary","FS-037",43931),("dates","FS-034",148956)):
+            b=l["nursing_survey_qualified_baselines"][key];a=b["audit"]
+            row=next(s for s in l["sources"] if s["id"]==sid)
+            self.assertEqual((a["input_rows"],a["stored_rows"],a["rejected_rows"]),(n,n,0))
+            self.assertEqual(row["status"],"ephemeral_projection_qualified")
+            self.assertEqual(sum(a["link_counts"].values()),n)
+            self.assertEqual(a["distinct_ccns"],14686)
+            self.assertEqual(row["retained_database_rows"],0)
+            self.assertFalse(b["included_in_integrated_national_baseline"])
+        self.assertEqual(l["nursing_survey_qualified_baselines"]["dates"]["citation_ccn_day_crosscheck"],{"same_ccn_day":619069})

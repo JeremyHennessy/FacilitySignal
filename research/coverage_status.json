@@ -221,14 +221,14 @@
     },
     {
       "id": "FS-031",
-      "status": "blocked_key_format_review",
-      "evidence": "45827150713",
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45829896464",
       "retrieved_rows": 385312,
-      "ephemeral_projected_rows": 334638,
-      "rejected_rows": 50674,
+      "ephemeral_projected_rows": 385312,
+      "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "QCOR workbook schema mapped; 50,674 tag-format exceptions, not fully qualified or integrated. Official report displays KS three-digit tags; actual remaining variant distribution requires targeted review."
+      "note": "Exact-release ICF-IID qualification passed after independently validating 639 publisher tag-selector values. No row-level publication, persistent database integration or current compliance inference."
     },
     {
       "id": "FS-032",
@@ -249,7 +249,14 @@
     },
     {
       "id": "FS-034",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45830147045",
+      "retrieved_rows": 148956,
+      "ephemeral_projected_rows": 148956,
+      "rejected_rows": 0,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Source-specific historical survey projection qualified against retained CMS baseline; no row-level publication or persistent national integration."
     },
     {
       "id": "FS-035",
@@ -269,7 +276,14 @@
     },
     {
       "id": "FS-037",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45829569072",
+      "retrieved_rows": 43931,
+      "ephemeral_projected_rows": 43931,
+      "rejected_rows": 0,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Source-specific historical survey projection qualified against retained CMS baseline; no row-level publication or persistent national integration."
     },
     {
       "id": "FS-038",
@@ -2592,12 +2606,11 @@
       "included_in_integrated_national_baseline": false
     },
     "icf": {
-      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
-      "run": 45827150713,
-      "job_id": 139934133544,
-      "job_conclusion": "failure",
-      "artifact": 15119534698,
-      "artifact_digest": "sha256:7ccd0a62765d0f0a39f4e5bc289399f91a3a7e29da10be1ad28f76d7e380b235",
+      "commit": "2ba86acc34baec5e3bc28733415eaa48019f17ee",
+      "run": 45829896464,
+      "job_id": 139943611405,
+      "job_conclusion": "success",
+      "artifact": 15122336913,
       "audit": {
         "source_id": "FS-031",
         "report_url": "https://qcor.cms.gov/ICF-IID_2567_Reports",
@@ -2631,19 +2644,18 @@
         "mapping_complete": true,
         "input_rows": 385312,
         "blank_rows": 0,
-        "stored_rows": 334638,
-        "rejected_rows": 50674,
-        "reject_reasons": {
-          "tag_key_shape": 50674
-        },
+        "stored_rows": 385312,
+        "rejected_rows": 0,
+        "reject_reasons": {},
+        "rejected_tag_shapes": {},
         "row_kinds": {
           "memo": 143667,
-          "nonmemo_tag": 190971
+          "nonmemo_tag": 241645
         },
         "distinct_provider_keys": 6239,
-        "distinct_survey_event_keys": 113013,
-        "events_with_nonmemo_tag": 47838,
-        "events_without_nonmemo_tag": 65175,
+        "distinct_survey_event_keys": 113034,
+        "events_with_nonmemo_tag": 60806,
+        "events_without_nonmemo_tag": 52228,
         "retained_row_level_records": 0,
         "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
         "source": {
@@ -2652,9 +2664,371 @@
           "sha256": "4522aff6cf8242a7315814d1629c58729c2a17971038b51a3e717780ca8e4dda",
           "last_modified": null,
           "etag": null,
-          "retrieved_at": "2026-11-26T13:15:26.009879+00:00"
+          "retrieved_at": "2026-11-26T13:31:38.243816+00:00"
         },
+        "reuse_review": "pending",
+        "prior_run": 45827150713,
+        "same_release_verified": true,
+        "publisher_selector": {
+          "selector_count": 8,
+          "tag_named_selectors": [
+            {
+              "option_count": 2,
+              "distinct_exact_code_values": 0,
+              "blank_options": 0,
+              "other_option_count": 2,
+              "code_family_counts": {}
+            },
+            {
+              "option_count": 639,
+              "distinct_exact_code_values": 639,
+              "blank_options": 0,
+              "other_option_count": 0,
+              "code_family_counts": {
+                "E": 25,
+                "K": 118,
+                "KA": 31,
+                "KL": 46,
+                "KS": 47,
+                "W": 372
+              }
+            }
+          ],
+          "qualified_selector_candidates": 1,
+          "url": "https://qcor.cms.gov/ICF-IID_2567_Reports",
+          "html_bytes": 276669,
+          "html_sha256": "7f997ad84da37dc308f8bcdbe54e27e0d151605ce4656cf619adaa0c4bfb6733",
+          "limits": "Selector metadata only; no HTML, descriptions, facility records or row-level findings retained. Code membership is syntax/domain evidence, not current compliance or a semantic crosswalk."
+        },
+        "publisher_code_domain_sha256": "e6c5b63e6f7696ee6b0b82e7c757e7544bdcd4edc6675550342af06de4cd2aa2",
+        "publisher_code_domain_size": 639,
+        "domain_probe_run": 45829724547,
+        "tag_format_reference": [
+          "https://qcor.cms.gov/ICF-IID_2567_Reports?page=6116",
+          "https://qcor.cms.gov/ICF-IID_2567_Reports?page=1"
+        ]
+      },
+      "prior_attempt": {
+        "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+        "run": 45827150713,
+        "job_id": 139934133544,
+        "job_conclusion": "failure",
+        "artifact": 15119534698,
+        "artifact_digest": "sha256:7ccd0a62765d0f0a39f4e5bc289399f91a3a7e29da10be1ad28f76d7e380b235",
+        "audit": {
+          "source_id": "FS-031",
+          "report_url": "https://qcor.cms.gov/ICF-IID_2567_Reports",
+          "header": [
+            "CCN",
+            "Facility Name",
+            "Street Address",
+            "City",
+            "State/Territory",
+            "ZIP",
+            "CMS Region",
+            "Survey Event ID",
+            "Survey Date",
+            "Survey Type",
+            "Deficiency Tag",
+            "Deficiency Description",
+            "Deficiency Tag Type",
+            "Statement of Deficiency Text (Part 1)",
+            "Statement of Deficiency Text (Part 2)",
+            "Statement of Deficiency Text (Part 3)",
+            "Statement of Deficiency Text (Part 4)"
+          ],
+          "columns": 17,
+          "field_mapping": {
+            "ccn": "CCN",
+            "event": "Survey Event ID",
+            "date": "Survey Date",
+            "tag": "Deficiency Tag",
+            "kind": "Deficiency Tag Type"
+          },
+          "mapping_complete": true,
+          "input_rows": 385312,
+          "blank_rows": 0,
+          "stored_rows": 334638,
+          "rejected_rows": 50674,
+          "reject_reasons": {
+            "tag_key_shape": 50674
+          },
+          "row_kinds": {
+            "memo": 143667,
+            "nonmemo_tag": 190971
+          },
+          "distinct_provider_keys": 6239,
+          "distinct_survey_event_keys": 113013,
+          "events_with_nonmemo_tag": 47838,
+          "events_without_nonmemo_tag": 65175,
+          "retained_row_level_records": 0,
+          "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+          "source": {
+            "url": "https://qcor.cms.gov/downloadICFIID2567",
+            "bytes": 254561490,
+            "sha256": "4522aff6cf8242a7315814d1629c58729c2a17971038b51a3e717780ca8e4dda",
+            "last_modified": null,
+            "etag": null,
+            "retrieved_at": "2026-11-26T13:15:26.009879+00:00"
+          },
+          "reuse_review": "pending"
+        },
+        "reuse_review": "pending",
+        "retained_row_level_records": 0,
+        "included_in_integrated_national_baseline": false
+      },
+      "intermediate_attempts": [
+        {
+          "run": 45828160243,
+          "artifact": 15120544319,
+          "projected": 384195,
+          "rejected": 1117
+        },
+        {
+          "run": 45829355099,
+          "artifact": 15121396799,
+          "projected": 384669,
+          "rejected": 643
+        }
+      ],
+      "domain_probe": {
+        "run": 45829724547,
+        "artifact": 15122476154
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    }
+  },
+  "nursing_survey_qualified_baselines": {
+    "summary": {
+      "commit": "ef90ae59d1abda05f612df1f4f31059953815b35",
+      "run": 45829569072,
+      "artifact": 15121037128,
+      "audit": {
+        "source_id": "FS-037",
+        "dataset": "tbry-pc2d",
+        "columns": 42,
+        "input_rows": 43931,
+        "stored_rows": 43931,
+        "rejected_rows": 0,
+        "reject_reasons": {},
+        "exact_duplicate_source_rows": 0,
+        "repeated_candidate_key_rows": 0,
+        "distinct_ccns": 14686,
+        "link_counts": {
+          "same_state": 43931
+        },
+        "source_classes": {
+          "source_summary": 43931
+        },
+        "cycle_counts": {
+          "1": 14686,
+          "2": 14650,
+          "3": 14595
+        },
+        "count_field_value_states": {
+          "Total Number of Health Deficiencies": {
+            "positive": 41885,
+            "zero": 2046
+          },
+          "Total Number of Fire Safety Deficiencies": {
+            "positive": 36437,
+            "zero": 7475,
+            "blank": 19
+          },
+          "Count of Freedom from Abuse and Neglect and Exploitation Deficiencies": {
+            "zero": 27988,
+            "positive": 15943
+          },
+          "Count of Quality of Life and Care Deficiencies": {
+            "positive": 33210,
+            "zero": 10721
+          },
+          "Count of Resident Assessment and Care Planning Deficiencies": {
+            "positive": 27264,
+            "zero": 16667
+          },
+          "Count of Nursing and Physician Services Deficiencies": {
+            "zero": 33472,
+            "positive": 10459
+          },
+          "Count of Resident Rights Deficiencies": {
+            "zero": 16716,
+            "positive": 27215
+          },
+          "Count of Nutrition and Dietary Deficiencies": {
+            "zero": 21009,
+            "positive": 22922
+          },
+          "Count of Pharmacy Service Deficiencies": {
+            "zero": 19638,
+            "positive": 24293
+          },
+          "Count of Environmental Deficiencies": {
+            "zero": 35229,
+            "positive": 8702
+          },
+          "Count of Administration Deficiencies": {
+            "positive": 8933,
+            "zero": 34998
+          },
+          "Count of Infection Control Deficiencies": {
+            "positive": 23403,
+            "zero": 20528
+          },
+          "Count of Emergency Preparedness Deficiencies": {
+            "zero": 34116,
+            "positive": 9796,
+            "blank": 19
+          },
+          "Count of Automatic Sprinkler Systems Deficiencies": {
+            "zero": 43912,
+            "blank": 19
+          },
+          "Count of Construction Deficiencies": {
+            "zero": 39895,
+            "positive": 4017,
+            "blank": 19
+          },
+          "Count of Services Deficiencies": {
+            "positive": 10655,
+            "zero": 33257,
+            "blank": 19
+          },
+          "Count of Corridor Walls and Doors Deficiencies": {
+            "zero": 43912,
+            "blank": 19
+          },
+          "Count of Egress Deficiencies": {
+            "positive": 16550,
+            "zero": 27362,
+            "blank": 19
+          },
+          "Count of Electrical Deficiencies": {
+            "zero": 43638,
+            "positive": 274,
+            "blank": 19
+          },
+          "Count of Emergency Plans and Fire Drills Deficiencies": {
+            "zero": 43912,
+            "blank": 19
+          },
+          "Count of Fire Alarm Systems Deficiencies": {
+            "zero": 43912,
+            "blank": 19
+          },
+          "Count of Smoke Deficiencies": {
+            "positive": 30527,
+            "zero": 13385,
+            "blank": 19
+          },
+          "Count of Interior Deficiencies": {
+            "zero": 43911,
+            "blank": 19,
+            "positive": 1
+          },
+          "Count of Gas and Vacuum and Electrical Systems Deficiencies": {
+            "zero": 22412,
+            "positive": 21500,
+            "blank": 19
+          },
+          "Count of Hazardous Area Deficiencies": {
+            "zero": 43912,
+            "blank": 19
+          },
+          "Count of Illumination and Emergency Power Deficiencies": {
+            "zero": 43912,
+            "blank": 19
+          },
+          "Count of Laboratories Deficiencies": {
+            "zero": 43912,
+            "blank": 19
+          },
+          "Count of Medical Gases and Anaesthetizing Areas Deficiencies": {
+            "zero": 43912,
+            "blank": 19
+          },
+          "Count of Smoking Regulations Deficiencies": {
+            "zero": 43912,
+            "blank": 19
+          },
+          "Count of Miscellaneous Deficiencies": {
+            "zero": 28741,
+            "positive": 15171,
+            "blank": 19
+          }
+        },
+        "retained_public_row_level_records": 0,
+        "limits": "Historical report-grain source observations; repeated candidate keys are not collapsed. Blank counts remain unknown. No compliance, vulnerability, equipment, procurement or current-operation inference.",
+        "publisher": {
+          "id": "tbry-pc2d",
+          "released": "2026-10-28",
+          "modified": "2026-10-01",
+          "url": "https://data.cms.gov/provider-data/sites/default/files/resources/6207d646a217204ae1c5d0e272dcda96_1792181756/NH_SurveySummary_Oct2026.csv"
+        },
+        "source_sha256": "2aefb25a631161fc060af82bd3fa10923356e08b93d8521f4061051e8271f687",
+        "bytes": 9971572,
+        "retrieved_at": "2026-11-26T13:29:30.762298+00:00",
         "reuse_review": "pending"
+      },
+      "qualification_scope": "independently successful source in mixed-result workflow",
+      "citation_ccn_day_crosscheck": null,
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    },
+    "dates": {
+      "commit": "3a046300376a383bb56368617c0dc7f35aef7442",
+      "run": 45830147045,
+      "artifact": 15120997772,
+      "audit": {
+        "source_id": "FS-034",
+        "dataset": "svdt-c123",
+        "columns": 6,
+        "input_rows": 148956,
+        "stored_rows": 148956,
+        "rejected_rows": 0,
+        "reject_reasons": {},
+        "exact_duplicate_source_rows": 0,
+        "repeated_candidate_key_rows": 0,
+        "distinct_ccns": 14686,
+        "link_counts": {
+          "ccn_present": 148956
+        },
+        "source_classes": {
+          "Fire Safety Standard": 43912,
+          "Health Standard": 43919,
+          "Health Complaint": 59088,
+          "Fire Safety Complaint": 798,
+          "Infection Control": 1239
+        },
+        "cycle_counts": {
+          "1": 47508,
+          "2": 49933,
+          "3": 51515
+        },
+        "count_field_value_states": {},
+        "survey_footnote_value_states": {
+          "blank": 148818,
+          "positive": 138
+        },
+        "retained_public_row_level_records": 0,
+        "limits": "Historical report-grain source observations; repeated candidate keys are not collapsed. Blank counts remain unknown. No compliance, vulnerability, equipment, procurement or current-operation inference.",
+        "publisher": {
+          "id": "svdt-c123",
+          "released": "2026-10-28",
+          "modified": "2026-10-01",
+          "url": "https://data.cms.gov/provider-data/sites/default/files/resources/ee6ac07919644f7bdce3c31de310f0be_1792181765/NH_SurveyDates_Oct2026.csv"
+        },
+        "source_sha256": "f4997d4adbbc155e3e6472a3d12fc1f278766f9f815c300d48f35ea35a813d20",
+        "bytes": 7883062,
+        "retrieved_at": "2026-11-26T13:32:56.211560+00:00",
+        "reuse_review": "pending"
+      },
+      "qualification_scope": "successful targeted workflow",
+      "citation_ccn_day_crosscheck": {
+        "same_ccn_day": 619069
       },
       "reuse_review": "pending",
       "retained_row_level_records": 0,
