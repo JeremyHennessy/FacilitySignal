@@ -44,6 +44,10 @@ def monitor(store,national):
             elif key=="ppef-type2-enrollment":
                 from scripts.archive_ppef_enrollment import discover
                 results[ident]={"state":compare_metadata(old,discover(),("catalog_version","modified","main_file","url","resource_name"))}
+            elif key=="osha-enforcement-healthcare-aggregate":
+                from scripts.archive_osha_enforcement_coverage import head,URLS
+                checks={k:compare_metadata(old["sources"][k],head(k),("etag","last_modified","bytes")) for k in URLS}
+                results[ident]={"state":"new_version_review" if "new_version_review" in checks.values() else "metadata_unchanged" if set(checks.values())=={"metadata_unchanged"} else "metadata_review","components":checks}
             elif key=="wa-xray-aggregate":
                 new=state.wa_metadata();results[ident]={"state":compare_metadata(old,new,("rows_updated_at","view_last_modified","count","fields")),"publisher_count":new["count"]}
             elif key.startswith("il-reportcard-"):

@@ -1,0 +1,56 @@
+name: FacilitySignal private OSHA enforcement aggregate coverage
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, build/azure-osha-enforcement-coverage-20261126]
+    paths:
+      - scripts/archive_osha_enforcement_coverage.py
+      - tests/test_osha_enforcement_coverage.py
+      - .github/workflows/azure-osha-enforcement-coverage.yml
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-osha-enforcement-coverage
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  archive:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    environment: azure-production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Qualify official inspection and citation archive aggregates
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.archive_osha_enforcement_coverage --receipt "$RUNNER_TEMP/osha-receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: private-osha-enforcement-aggregate-receipt
+          path: ${{ runner.temp }}/osha-receipt.json
+          retention-days: 30
+          if-no-files-found: error
