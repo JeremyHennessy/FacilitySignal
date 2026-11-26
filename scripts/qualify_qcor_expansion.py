@@ -104,11 +104,11 @@ def classify(values,m,source=None):
     try:day=survey_date(raw("date"))
     except ValueError:raise ValueError("survey_date_shape") from None
     tag=get("tag").upper();kind=get("kind").casefold()
-    # The official ICF-IID report visibly uses KS plus three digits.
+    # The official ICF-IID reports visibly use KS and KA plus three digits.
     # Only permit this exact additional shape in ICF-IID; no other source
     # or tag family is changed and no regulatory meaning is inferred.
     valid_tag=not tag or re.fullmatch(r"[A-Z][0-9]{4}",tag) is not None or (
-        source=="icf" and re.fullmatch(r"KS[0-9]{3}",tag) is not None)
+        source=="icf" and re.fullmatch(r"(?:KS|KA)[0-9]{3}",tag) is not None)
     require(valid_tag,"tag_key_shape")
     require(bool(tag) or not kind,"missing_tag_with_type")
     state="memo" if kind=="memo" or re.fullmatch(r"[A-Z]0000",tag) else "nonmemo_tag" if tag else "no_tag_reported"

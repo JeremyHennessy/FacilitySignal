@@ -13,7 +13,7 @@ def main():
         require(meta["sha256"]==PIN,"source changed; review new release")
         result=inspect(path,"icf")
     result.update({"source":meta,"reuse_review":"pending","prior_run":45827150713,
-                   "same_release_verified":True,"tag_format_reference":"https://qcor.cms.gov/ICF-IID_2567_Reports?page=6116"})
+                   "same_release_verified":True,"tag_format_reference":["https://qcor.cms.gov/ICF-IID_2567_Reports?page=6116","https://qcor.cms.gov/ICF-IID_2567_Reports?page=1"]})
     with a.audit.open("x") as f:json.dump(result,f,indent=2);f.write("\n")
     print("QCOR_ICF_REQUALIFICATION",json.dumps(result),flush=True)
     require(result["mapping_complete"] and result["input_rows"]==ROWS==result["stored_rows"] and result["rejected_rows"]==0,"remaining source anomalies")

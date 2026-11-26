@@ -35,6 +35,8 @@ class QCORExpansionTests(unittest.TestCase):
         m={"ccn":0,"event":1,"date":2,"tag":3,"kind":4}
         row=("01G001","ABCD11","2024-01-01","KS123","Standard")
         self.assertEqual(classify(row,m,"icf")[-1],"nonmemo_tag")
+        self.assertEqual(classify((*row[:3],"KA123",row[4]),m,"icf")[-1],"nonmemo_tag")
+        with self.assertRaisesRegex(ValueError,"tag_key_shape"):classify((*row[:3],"KA123",row[4]),m,"cah")
         with self.assertRaisesRegex(ValueError,"tag_key_shape"):classify(row,m,"cah")
         for tag in ("ZZ123","KS1234","K123X"):
             with self.assertRaisesRegex(ValueError,"tag_key_shape"):
