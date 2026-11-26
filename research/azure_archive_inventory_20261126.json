@@ -1,0 +1,223 @@
+{
+  "format_version": 1,
+  "scope": "Pinned completed archive layers and publisher releases, not a live container-wide listing; observations are source-specific, not unique facilities. Derived records counted separately. Payload bytes exclude pointers, receipts and other unlisted objects.",
+  "evidence_commit": "05609b333c653ded35babb76684ea5e5aedb5229",
+  "layers": [
+    {
+      "key": "national",
+      "release": "bootstrap-45845760984-1",
+      "source_releases": 19,
+      "observations": 1904060,
+      "files": 63,
+      "payload_bytes": 923646425,
+      "run": 45847538263
+    },
+    {
+      "key": "extension",
+      "release": "extension-45847822268-1",
+      "source_releases": 16,
+      "observations": 865809,
+      "files": 3,
+      "payload_bytes": 107804429,
+      "run": 45848914611
+    }
+  ],
+  "receipts": [
+    {
+      "key": "hcris-hha-2024",
+      "source_sha256": "d3bf63b5d6293aa98f5a1cee096858c5d32d322f3cbe8471d9b6d410b37182d6",
+      "kind": "publisher",
+      "observations": 4791697,
+      "run": 45850246524,
+      "job": 140014524747,
+      "files": [
+        {
+          "bytes": 401960960,
+          "path": "projection.sqlite3",
+          "sha256": "8315c2f2b443abe2a20e57424fe8aab57b68079a3c504748edcef3a08c7327f7"
+        },
+        {
+          "bytes": 1035,
+          "path": "audit.json",
+          "sha256": "1f79b8b5b291c95281e1541c28dc96798aa3355e05394c4eb71d76b4cc67428b"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hha-organizational-ownership",
+      "source_sha256": "75f6de0bde699b85de15f8b206b3c287afc05388400b78e7ee42284f15ebbf02",
+      "kind": "publisher",
+      "observations": 21734,
+      "run": 45850540913,
+      "job": 140015646754,
+      "files": [
+        {
+          "bytes": 19591168,
+          "path": "projection.sqlite3",
+          "sha256": "c24ef49cb070c8e4adce595d68aecee02d060c97e9348fd969c0bac8ba230681"
+        },
+        {
+          "bytes": 1821,
+          "path": "audit.json",
+          "sha256": "7f02f27205620e63215fba77220c586ffa45ad08a55cbf9d9629e96026c71493"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hha-selected-cost-2024",
+      "source_sha256": "3e864b52252b587aae6509449c657321c155b47eafd063016ea3ca458de77a74",
+      "kind": "publisher",
+      "observations": 10970,
+      "run": 45851139665,
+      "job": 140017590258,
+      "files": [
+        {
+          "bytes": 4988928,
+          "path": "projection.sqlite3",
+          "sha256": "80bda4eda79b24199e34b4befc886f67f889793875dff0dbbef29d4bd847197a"
+        },
+        {
+          "bytes": 2993,
+          "path": "audit.json",
+          "sha256": "5360486d57514e4016323d960587986d64860f3e51c66cb4373f09c054a9830b"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hospice-organizational-ownership",
+      "source_sha256": "23de741ded45d49bb889fb2df3d8330d0884bf241c876d42cd47d93cf1ba208f",
+      "kind": "publisher",
+      "observations": 18763,
+      "run": 45851139665,
+      "job": 140017590334,
+      "files": [
+        {
+          "bytes": 17256448,
+          "path": "projection.sqlite3",
+          "sha256": "440fb9e042220f35712c0386a0302cb049dc2eb19e725539e4d024b73d7c8e1f"
+        },
+        {
+          "bytes": 1706,
+          "path": "audit.json",
+          "sha256": "e6aa7df3eb00285102d1936c704b0f3c590f30ec5900690f5e1a409e715bb255"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "nppes-monthly",
+      "source_sha256": "c5a34fba9b2e04bcb87358a1e3f9f4bbfc79b49b71fb37b71f9de43570c18713",
+      "kind": "publisher",
+      "observations": 1990237,
+      "run": 45850246524,
+      "job": 140014524795,
+      "files": [
+        {
+          "bytes": 443944960,
+          "path": "projection.sqlite3",
+          "sha256": "5a96956900039839bcf31017cf54d4f4e4f4388128281e6c98ba0d7e072d7bf7"
+        },
+        {
+          "bytes": 1382,
+          "path": "audit.json",
+          "sha256": "9ec05d853f63d51014c3397b0e14f41c3640d4776e2660af2408d96cea9c758a"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "nppes-weekly",
+      "source_sha256": "080d7707861576c58d769796c5991904c7bd8a183c2cb7db76159c9a98ca1e5a",
+      "kind": "publisher",
+      "observations": 6417,
+      "run": 45850246524,
+      "job": 140014524694,
+      "files": [
+        {
+          "bytes": 1355776,
+          "path": "projection.sqlite3",
+          "sha256": "1dd61ae2b294de0ce35e9a326506e397c979923ddd3c15028e5b15fc111eab6e"
+        },
+        {
+          "bytes": 1361,
+          "path": "audit.json",
+          "sha256": "33c3baa69bdd011d17826c96b0a873e5e18ffc8364db41a719b8fa1509db4229"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "nppes-weekly",
+      "source_sha256": "cfdac80d3056c24428d8a96dc4b02c5a3cda336c44ea6016e416657cb2e35054",
+      "kind": "publisher",
+      "observations": 6264,
+      "run": 45850246524,
+      "job": 140014524694,
+      "files": [
+        {
+          "bytes": 1294336,
+          "path": "projection.sqlite3",
+          "sha256": "dac062d8021ff9d81c230ab52af12bbc98cad604325a38e00ff70c6d4aeefbd9"
+        },
+        {
+          "bytes": 1360,
+          "path": "audit.json",
+          "sha256": "ff568ec74da8fee7ddbd11ab2e4a83e324f60e8b06896ca35331ad9609b7ed70"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "nppes-weekly",
+      "source_sha256": "d0e73f9d00ee816d1053d9c1005bd429183b13fce3ebf55bc2fde382274d2897",
+      "kind": "publisher",
+      "observations": 6627,
+      "run": 45850246524,
+      "job": 140014524694,
+      "files": [
+        {
+          "bytes": 1355776,
+          "path": "projection.sqlite3",
+          "sha256": "f62455966ccdee1f7656a5a3e8b1643b5b048770325adff6f5c4f6e5d7959e20"
+        },
+        {
+          "bytes": 1356,
+          "path": "audit.json",
+          "sha256": "39037a82e04b49217c90fee585948caa1d809f20f7b9a828ef70bddc0234ed79"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "pecos-nppes-identity-candidates",
+      "source_sha256": "faf0318d9f32b87c1b1801ed5b00a3f9c97d567881f9a710467b9719ec1e6141",
+      "kind": "derived",
+      "observations": 23520,
+      "run": 45851929487,
+      "job": 140020318991,
+      "files": [
+        {
+          "bytes": 3682304,
+          "path": "projection.sqlite3",
+          "sha256": "110dd0fa5fcf608119744f3012ca34767bba0dfbb6703749aea370002f2b4898"
+        },
+        {
+          "bytes": 1708,
+          "path": "audit.json",
+          "sha256": "f40c7c6e350d50759a969cb783846eee05972c4deec8027447df7efcc07343f8"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    }
+  ],
+  "totals": {
+    "publisher_releases": 43,
+    "source_observations": 9622578,
+    "derived_candidate_observations": 23520,
+    "payload_files": 84,
+    "payload_bytes": 1926896232
+  }
+}
