@@ -10,7 +10,7 @@ from scripts.azure_verified_extension import national_manifest,unchanged,read_sm
 from scripts.azure_inventory import verify_inventory
 from build_combined import require,sha
 PREFIX=a.PREFIX+"/source-releases"
-KEYS={"hcris-hha-2024","nppes-monthly","nppes-weekly","hha-organizational-ownership","hospice-organizational-ownership","hha-selected-cost-2024","pecos-nppes-identity-candidates","hha-enrollment-organizations","hospice-enrollment-organizations","hcris-hospital-2024-index","hcris-snf-2024-index","hcris-hospice-2014-index","hcris-renal-2011-index","hcris-fqhc-2014-index","hcris-rhc-2017-index","hcris-cmhc-2017-index","ppef-type2-enrollment"}
+KEYS={"hcris-hha-2024","nppes-monthly","nppes-weekly","hha-organizational-ownership","hospice-organizational-ownership","hha-selected-cost-2024","pecos-nppes-identity-candidates","hha-enrollment-organizations","hospice-enrollment-organizations","hcris-hospital-2024-index","hcris-snf-2024-index","hcris-hospice-2014-index","hcris-renal-2011-index","hcris-fqhc-2014-index","hcris-rhc-2017-index","hcris-cmhc-2017-index","ppef-type2-enrollment","epa-sdwa-aggregate","wa-xray-aggregate","il-reportcard-hospitals","il-reportcard-ascs"}
 MAX_DB=1_500_000_000
 def prefix_for(key,digest):
     require(key in KEYS and re.fullmatch(r"[a-f0-9]{64}",digest),"source release identity")
