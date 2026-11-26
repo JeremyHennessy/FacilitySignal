@@ -1,0 +1,117 @@
+{
+  "format_version": 1,
+  "verified_commit": "4d725b2331371e13e4a90cad47ff13e16120719e",
+  "scope": "Historical FY2024 report-header identity and period candidate audit; only exact pinned report-key overlap, no individual financial attribution or publication.",
+  "forms": {
+    "hospital": {
+      "archive_only_report_keys": 1774,
+      "archive_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+      "azure_writes": 0,
+      "candidate_layout": "ResDAC ordered RPT fields, positions 1,3,6,7; SNF candidate independently tested",
+      "candidate_providers": 1498,
+      "candidate_reports_in_period_conflicts": 0,
+      "ccn_comparisons": {
+        "equal": 4339
+      },
+      "date_comparisons": {
+        "begin_equal": 1778,
+        "begin_unresolved": 2561,
+        "end_equal": 4323,
+        "end_unresolved": 16
+      },
+      "directory": {
+        "release": "2026-11-12",
+        "rows": 5435,
+        "sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a",
+        "source": "hospital"
+      },
+      "directory_link_states": {
+        "exact_ccn_state_unique": 3618,
+        "unmatched_ccn": 721
+      },
+      "duplicate_period_pairs": 0,
+      "facility_financial_attribution": false,
+      "form": "hospital",
+      "individual_values_retained": false,
+      "joint_eligibility_states": {
+        "candidate_exact_report_provider_period": 1502,
+        "provider_link_unmatched_ccn": 269,
+        "unresolved_fiscal_dates": 2568
+      },
+      "monetary_scale_qualified": false,
+      "nonconflicting_candidate_reports": 1502,
+      "overlapping_distinct_period_pairs": 0,
+      "provider_shape_counts": {
+        "six_character_provider": 6113
+      },
+      "providers_with_multiple_candidate_reports": 4,
+      "public_promotion": false,
+      "puf_only_report_keys": 1770,
+      "puf_sha256": "bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782",
+      "report_key_intersection": 4339,
+      "report_width_counts": {
+        "18": 6113
+      },
+      "status": "COMPLETE_CANDIDATE_AUDIT",
+      "run": 45870156209,
+      "job": 140083172343,
+      "artifact": 15143140949
+    },
+    "snf": {
+      "archive_only_report_keys": 850,
+      "archive_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+      "azure_writes": 0,
+      "candidate_layout": "ResDAC ordered RPT fields, positions 1,3,6,7; SNF candidate independently tested",
+      "candidate_providers": 9715,
+      "candidate_reports_in_period_conflicts": 0,
+      "ccn_comparisons": {
+        "equal": 13772
+      },
+      "date_comparisons": {
+        "begin_equal": 9909,
+        "begin_unresolved": 3863,
+        "end_equal": 13490,
+        "end_unresolved": 282
+      },
+      "directory": {
+        "release": "2026-10-28",
+        "rows": 14686,
+        "sha256": "36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce",
+        "source": "nursing"
+      },
+      "directory_link_states": {
+        "exact_ccn_state_unique": 13605,
+        "unmatched_ccn": 167
+      },
+      "duplicate_period_pairs": 0,
+      "facility_financial_attribution": false,
+      "form": "snf",
+      "individual_values_retained": false,
+      "joint_eligibility_states": {
+        "candidate_exact_report_provider_period": 9784,
+        "provider_link_unmatched_ccn": 84,
+        "unresolved_fiscal_dates": 3904
+      },
+      "monetary_scale_qualified": false,
+      "nonconflicting_candidate_reports": 9784,
+      "overlapping_distinct_period_pairs": 0,
+      "provider_shape_counts": {
+        "six_character_provider": 14622
+      },
+      "providers_with_multiple_candidate_reports": 69,
+      "public_promotion": false,
+      "puf_only_report_keys": 815,
+      "puf_sha256": "adcef64de8d15b772aa37ca03bba162e78f781d22198b8fbb478810685e6c05c",
+      "report_key_intersection": 13772,
+      "report_width_counts": {
+        "18": 14622
+      },
+      "status": "COMPLETE_CANDIDATE_AUDIT",
+      "run": 45870156209,
+      "job": 140083171970,
+      "artifact": 15142222155
+    }
+  },
+  "public_promotion": false,
+  "monetary_scale_qualified": false
+}

@@ -1,0 +1,38 @@
+name: FacilitySignal HCRIS three-way period and measure audit
+on:
+  push:
+    branches: [build/hcris-provider-period-qualification-20261126]
+    paths:
+      - scripts/qualify_hcris_three_way.py
+      - tests/test_hcris_three_way.py
+      - .github/workflows/hcris-three-way-candidate.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        form: [hospital, snf]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_hcris_three_way.py -v
+      - name: Compare pinned report header, worksheet S2 and selected PUF, audit numeric shape
+        run: |
+          umask 077
+          python -m scripts.qualify_hcris_three_way --form ${{ matrix.form }} --receipt "$RUNNER_TEMP/three-way.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hcris-three-way-${{ matrix.form }}-aggregate
+          path: ${{ runner.temp }}/three-way.json
+          retention-days: 14
+          if-no-files-found: error

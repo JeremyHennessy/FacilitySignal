@@ -1,0 +1,80 @@
+{
+  "format_version": 1,
+  "verified_commit": "b2562b48ec886f92070b78523e93a1fa639716c6",
+  "scope": "Historical available beds and SNF available bed-days, selected CMS PUF field allowlist; ephemeral exact cohort rehearsal, no row-level data publication",
+  "forms": {
+    "hospital": {
+      "archive_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+      "azure_writes": 0,
+      "candidate_providers": 3508,
+      "candidate_reports": 3561,
+      "directory": {
+        "release": "2026-11-12",
+        "rows": 5435,
+        "sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a",
+        "source": "hospital"
+      },
+      "ephemeral_candidate_bytes": 546382,
+      "ephemeral_candidate_sha256": "48691c4574b372eed3dd50b17b75b04cbeb48b4c1e03f4789d57c4ce8554e3d5",
+      "field_value_states": {
+        "available_beds_at_period_end": {
+          "missing": 34,
+          "reported_positive": 3527
+        }
+      },
+      "fields": {
+        "Number of Beds": "available_beds_at_period_end"
+      },
+      "form": "hospital",
+      "measure_dictionary": "https://data.cms.gov/sites/default/files/2024-03/9756088d-5280-4090-80b9-449d31ef25a3/Cost%20Report%20Data%20Dictionary%20Update.pdf",
+      "monetary_values_included": false,
+      "public_promotion": false,
+      "publisher_license": "https://www.usa.gov/government-works",
+      "row_level_output_retained": false,
+      "source_sha256": "bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782",
+      "status": "COMPLETE_CANDIDATE_REHEARSAL",
+      "run": 45872218782,
+      "job": 140090276410,
+      "artifact": 15142793334
+    },
+    "snf": {
+      "archive_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+      "azure_writes": 0,
+      "candidate_providers": 12894,
+      "candidate_reports": 13408,
+      "directory": {
+        "release": "2026-10-28",
+        "rows": 14686,
+        "sha256": "36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce",
+        "source": "nursing"
+      },
+      "ephemeral_candidate_bytes": 2434448,
+      "ephemeral_candidate_sha256": "fb710c1ad8d8bdc94f0d42717c91b2a5ad7285bcb1cb6e2de9055faf5de3035f",
+      "field_value_states": {
+        "available_bed_days": {
+          "missing": 6,
+          "reported_positive": 13402
+        },
+        "available_beds_at_period_end": {
+          "missing": 3,
+          "reported_positive": 13405
+        }
+      },
+      "fields": {
+        "Number of Beds": "available_beds_at_period_end",
+        "Total Bed Days Available": "available_bed_days"
+      },
+      "form": "snf",
+      "measure_dictionary": "https://data.cms.gov/sites/default/files/2023-12/Skilled%20Nursing%20Facility%20Cost%20Report%20Data%20Dictionary_508.pdf",
+      "monetary_values_included": false,
+      "public_promotion": false,
+      "publisher_license": "https://www.usa.gov/government-works",
+      "row_level_output_retained": false,
+      "source_sha256": "adcef64de8d15b772aa37ca03bba162e78f781d22198b8fbb478810685e6c05c",
+      "status": "COMPLETE_CANDIDATE_REHEARSAL",
+      "run": 45872218782,
+      "job": 140090276731,
+      "artifact": 15142768887
+    }
+  }
+}

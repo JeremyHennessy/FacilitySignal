@@ -1,0 +1,38 @@
+name: FacilitySignal HCRIS provider-period candidate audit
+on:
+  push:
+    branches: [build/hcris-provider-period-qualification-20261126]
+    paths:
+      - scripts/qualify_hcris_provider_period.py
+      - tests/test_hcris_provider_period.py
+      - .github/workflows/hcris-provider-period-candidate.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        form: [hospital, snf]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_hcris_provider_period.py -v
+      - name: Reconcile only pinned public sources; no Azure secrets or row-level output
+        run: |
+          umask 077
+          python -m scripts.qualify_hcris_provider_period --form ${{ matrix.form }} --receipt "$RUNNER_TEMP/provider-period.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hcris-provider-period-${{ matrix.form }}-aggregate
+          path: ${{ runner.temp }}/provider-period.json
+          retention-days: 14
+          if-no-files-found: error
