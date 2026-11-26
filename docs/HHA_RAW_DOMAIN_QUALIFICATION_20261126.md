@@ -23,3 +23,13 @@ The audit tests integer count bounds, percentage candidate bounds, rating step, 
 ## Gate
 
 Candidate only. Inspect actual CI receipt and reconcile against previous lexical counts; adjudicate unexpected ownership, missing markers, date anomalies, footnotes and arithmetic before production promotion. Keep full raw values private and avoid further downloads unless a specific confirmed gap requires them.
+
+## Actual qualification result
+
+[Run 45910250093](https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45910250093), job 140216613363, exact candidate 460c6a1d82f62d4de821b9e0d9b396a2b90ee933. Six tests passed; one pinned publisher retrieval and audit succeeded. Aggregate-only artifact 15159498474, digest sha256:762b8344e9bca8a057606cfe39b95582b15ca12e16467afb7d0abd876e07ac48, expires 2026-12-26T23:19:38Z. [Durable log summary](../research/hha_raw_domain_log_summary_20261126.json).
+
+- All 12,409 records and 96 headers reconciled with the source SHA. Ratings: 8,126 valid half-star values and 4,283 dashes. Certification date: 12,408 calendar dates at or before release, one dash.
+- Ownership: 2,167 dashes and 10,242 rows with three distinct labels outside the exact case-sensitive dictionary allowlist. Do not call the labels invalid or presume the cause; exact labels and applicability still require review. No new ownership mapping or filter approved.
+- Across sixteen relationships, 107716 jointly numeric numerator/denominator observations, 6908 numerator-only, 6972 denominator-only, 76948 neither. No jointly numeric numerator exceeds its denominator. These are measure-row observations, not unique agencies; do not reconstruct missing counts or compute clinical rates from incomplete rows.
+- Across the three claims interval groups, 21597 complete numeric interval triples were ordered and 15630 were incomplete. This is an order check, not validation of confidence coverage or rate scale.
+- No new UI/clinical scoring approval, Blob writes, or national rebuild. Full per-field artifact retained; durable summary contains exact emitted log values, not an independent extraction of every field. Next: resolve source ownership labels against dictionary without another full download if feasible; examine detailed receipt, scale and footnote semantics; then review next unqualified Care Compare source.

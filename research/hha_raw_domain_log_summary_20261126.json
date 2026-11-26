@@ -1,0 +1,164 @@
+{
+  "as_of": "2026-11-26",
+  "qualified_commit": "460c6a1d82f62d4de821b9e0d9b396a2b90ee933",
+  "run": 45910250093,
+  "job": 140216613363,
+  "artifact": {
+    "id": 15159498474,
+    "name": "hha-raw-domain-aggregate-only",
+    "digest": "sha256:762b8344e9bca8a057606cfe39b95582b15ca12e16467afb7d0abd876e07ac48",
+    "expires_at": "2026-12-26T23:19:38Z"
+  },
+  "source_sha256": "7adf3e17961949bbd64ef243545aa387224d9837e8c5601476f5b11946e76d22",
+  "source_bytes": 12508977,
+  "release": "2026-10-21",
+  "publisher_downloads": 1,
+  "tests_passed": 6,
+  "scope": "Exact CI log summary from full 96-field aggregate receipt; full per-field artifact retained separately; no source values or canonical match claims.",
+  "observations": {
+    "date": {
+      "calendar_date": 12408,
+      "dash": 1
+    },
+    "fields": 96,
+    "ownership": {
+      "dash": 2167,
+      "unmapped_category": 10242
+    },
+    "ownership_unmapped_distinct": 3,
+    "pairs": {
+      "18": {
+        "both_counts_numeric": 6799,
+        "neither_count_numeric": 5572,
+        "numerator_le_denominator": 6799,
+        "numerator_only": 38
+      },
+      "22": {
+        "both_counts_numeric": 7237,
+        "neither_count_numeric": 4648,
+        "numerator_le_denominator": 7237,
+        "numerator_only": 524
+      },
+      "26": {
+        "both_counts_numeric": 6786,
+        "neither_count_numeric": 5466,
+        "numerator_le_denominator": 6786,
+        "numerator_only": 157
+      },
+      "30": {
+        "both_counts_numeric": 6759,
+        "neither_count_numeric": 5515,
+        "numerator_le_denominator": 6759,
+        "numerator_only": 135
+      },
+      "34": {
+        "both_counts_numeric": 6798,
+        "neither_count_numeric": 5481,
+        "numerator_le_denominator": 6798,
+        "numerator_only": 130
+      },
+      "38": {
+        "both_counts_numeric": 6724,
+        "neither_count_numeric": 5591,
+        "numerator_le_denominator": 6724,
+        "numerator_only": 94
+      },
+      "42": {
+        "both_counts_numeric": 6710,
+        "neither_count_numeric": 5550,
+        "numerator_le_denominator": 6710,
+        "numerator_only": 149
+      },
+      "46": {
+        "both_counts_numeric": 6805,
+        "neither_count_numeric": 4126,
+        "numerator_le_denominator": 6805,
+        "numerator_only": 1478
+      },
+      "50": {
+        "both_counts_numeric": 6799,
+        "neither_count_numeric": 5520,
+        "numerator_le_denominator": 6799,
+        "numerator_only": 90
+      },
+      "54": {
+        "both_counts_numeric": 6798,
+        "neither_count_numeric": 3647,
+        "numerator_le_denominator": 6798,
+        "numerator_only": 1964
+      },
+      "58": {
+        "both_counts_numeric": 6827,
+        "neither_count_numeric": 5167,
+        "numerator_le_denominator": 6827,
+        "numerator_only": 415
+      },
+      "62": {
+        "both_counts_numeric": 6893,
+        "neither_count_numeric": 5395,
+        "numerator_le_denominator": 6893,
+        "numerator_only": 121
+      },
+      "66": {
+        "both_counts_numeric": 6598,
+        "neither_count_numeric": 5700,
+        "numerator_le_denominator": 6598,
+        "numerator_only": 111
+      },
+      "70": {
+        "both_counts_numeric": 6948,
+        "denominator_only": 1710,
+        "interval_all_numeric": 8180,
+        "interval_incomplete": 4229,
+        "interval_ordered": 8180,
+        "neither_count_numeric": 3427,
+        "numerator_le_denominator": 6948,
+        "numerator_only": 324
+      },
+      "78": {
+        "both_counts_numeric": 5266,
+        "denominator_only": 3167,
+        "interval_all_numeric": 5943,
+        "interval_incomplete": 6466,
+        "interval_ordered": 5943,
+        "neither_count_numeric": 3301,
+        "numerator_le_denominator": 5266,
+        "numerator_only": 675
+      },
+      "86": {
+        "both_counts_numeric": 6969,
+        "denominator_only": 2095,
+        "interval_all_numeric": 7474,
+        "interval_incomplete": 4935,
+        "interval_ordered": 7474,
+        "neither_count_numeric": 2842,
+        "numerator_le_denominator": 6969,
+        "numerator_only": 503
+      }
+    },
+    "rating": {
+      "dash": 4283,
+      "numeric_in_candidate_domain": 8126
+    },
+    "rows": 12409
+  },
+  "pair_totals": {
+    "both_counts_numeric": 107716,
+    "numerator_only": 6908,
+    "denominator_only": 6972,
+    "neither_count_numeric": 76948,
+    "numerator_gt_denominator": 0,
+    "numerator_le_denominator": 107716,
+    "interval_all_numeric": 21597,
+    "interval_incomplete": 15630,
+    "interval_ordered": 21597,
+    "interval_order_review": 0
+  },
+  "new_application_approved_fields": 0,
+  "new_public_row_fields": 0,
+  "unresolved": [
+    "Three distinct non-dash ownership labels did not equal the current dictionary's exact case-sensitive labels; no mapping inferred.",
+    "Rate and spending scales and detailed footnote applicability not qualified.",
+    "Full field receipt artifact contents not independently extracted into this summary."
+  ]
+}
