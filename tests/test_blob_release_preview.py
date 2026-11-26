@@ -35,7 +35,7 @@ class BlobReleasePreviewTests(unittest.TestCase):
                 conn.execute("INSERT INTO releases VALUES(?,?,?,?,?,?,?,?,?)",(rid,key,day,"test",digest,n,n,0,"https://data.cms.gov/test.csv"))
                 conn.execute("INSERT INTO current_release VALUES(?,?)",(key,rid))
                 if key in fs.FINDING_DATASETS:
-                    conn.execute("INSERT INTO findings VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",(key,"a"*64,"000001","OLD CITATION NAME","NY","2026-10-01","","X","","","","",rid))
+                    conn.execute("INSERT INTO findings(dataset,row_hash,ccn,provider_name,state,survey_date,survey_type,tag,category,description,severity,correction_status,correction_date,release_id) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",(key,"a"*64,"000001","OLD CITATION NAME","NY","2026-10-01","","X","","","","","",rid))
                 else:
                     for i,state in enumerate(states,1):
                         conn.execute("INSERT INTO facilities VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",(key,f"{i:06}",name,"Address","City",state,"00000","","","","","","",rid))
