@@ -79,7 +79,7 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 .comparison-table th,.comparison-table td{overflow-wrap:anywhere;white-space:normal}
 .comparison-table td:first-child{font-weight:650}
 @media(max-width:1100px){.home-discovery-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:720px){aside nav>.nav-group{display:none}.home-discovery{padding:14px}.home-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.home-metrics .metric:last-child{grid-column:1/-1}.home-metrics .metric{padding:10px}.home-workflow{padding:13px}.home-workflows{grid-template-columns:1fr}.home-coverage{padding:12px}.comparison-table table{min-width:760px!important}.comparison-table th,.comparison-table td{overflow-wrap:anywhere!important}}
+@media(max-width:720px){aside nav>.nav-group{display:none}.home-discovery{padding:14px}.home-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.home-metrics .metric:last-child{grid-column:1/-1}.home-metrics .metric{padding:10px}.home-workflow{padding:13px}.home-workflows{grid-template-columns:1fr}.home-coverage{padding:12px}.comparison-table th,.comparison-table td{overflow-wrap:anywhere!important}}
 @media(max-width:420px){.home-discovery-form{grid-template-columns:1fr}.home-discovery-form button{width:100%}}
 
 /* Keep the comparison's row labels readable while navigating narrow tables. */
@@ -87,4 +87,14 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 @media(max-width:720px){
  .comparison-table th:first-child,.comparison-table td:first-child{position:sticky;left:0;z-index:1;width:140px;min-width:140px;background:#fff;box-shadow:1px 0 0 var(--border);overflow-wrap:anywhere}
  .comparison-table th:first-child{background:#edf3f6;z-index:2}
+}
+
+/* A provider column must fit beside the sticky evidence label at either scroll end. */
+@media(max-width:720px){
+ .comparison-table{--compare-col:clamp(120px,calc(100vw - 176px),260px);--compare-count:2}
+ .comparison-table[data-records="3"]{--compare-count:3}
+ .comparison-table[data-records="4"]{--compare-count:4}
+ .comparison-table table{width:calc(140px + var(--compare-count) * var(--compare-col));min-width:0!important;max-width:none;table-layout:fixed}
+ .comparison-table th:not(:first-child){width:var(--compare-col)}
+ .comparison-table th:first-child,.comparison-table td:first-child{box-sizing:border-box;min-width:140px;width:140px}
 }
