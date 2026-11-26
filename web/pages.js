@@ -82,13 +82,16 @@ async function intelligence(view,signal,epoch){
         const ids=nursingPortfolio?["nursing-chain-coverage","nursing-affiliation-corroboration","nursing-inspection-disputes"]:hospitalInfra?["qies-hospital-comparison","qies-hospital-service-subset","qies-hospital-count-subset","hospital-enrollment-subgroups"]:[];
         const allGroups=ids.length?data.sections.flatMap(s=>s.groups):[];
         if(ids.some(id=>allGroups.filter(g=>g.id===id).length!==1))throw Error("Missing or ambiguous qualification group");
-        const section=ids.length?{title:labels[view],intro:nursingPortfolio?"Explore qualified national nursing-home affiliation evidence and separately research individual providers, reported beds and historical citations. Named chain memberships are not published; this is not a legal ownership or property portfolio directory.":"Research historical national service-provision and infrastructure evidence. QIES historical code labels are provisional; these aggregates are not installed equipment inventories, current operations, staffing totals or facility-level relationships.",groups:ids.map(id=>allGroups.find(g=>g.id===id))}:data.sections.find(x=>x.id===view);
+        const section=ids.length?{title:labels[view],intro:nursingPortfolio?"Research CMS-reported nursing-home groups, their member records and reported capacity by geography. Publisher-defined affiliations are not legal ownership or physical property portfolios.":"Research historical national service-provision and infrastructure evidence. QIES historical code labels are provisional; these aggregates are not installed equipment inventories, current operations, staffing totals or facility-level relationships.",groups:ids.map(id=>allGroups.find(g=>g.id===id))}:data.sections.find(x=>x.id===view);
         if(!section||!Array.isArray(section.groups))throw Error("Missing evidence section");
         title(section.title,section.intro);
         const nav=el("div",undefined,"links");
         if(view==="services")nav.append(anchor("Search reported public capacity",route("capacity")),anchor("Browse facility directory",route("facilities")),dialysisResearchLink(),hhaResearchLink(),anchor("Hospital infrastructure research",route("hospital-infrastructure")));
         if(view==="compliance-research")nav.append(anchor("Search public nursing citation aggregates",route("citations")),anchor("Hospital survey coverage",route("hospital-surveys")),anchor("Nursing portfolio research",route("nursing-portfolios")));
         if(nursingPortfolio){
+            const waiting=el("div","Loading exact nursing chain membership evidence…","notice");app.append(waiting);
+            const explorer=await nursingChainExplorer(read().p,signal,epoch);if(!explorer||epoch!==sequence)return;
+            waiting.replaceWith(explorer);
             const form=el("form",undefined,"toolbar");
             const state=options("Research jurisdiction","state",[["","All jurisdictions"],...states.slice().sort().map(s=>[s,s])],"");
             const select=options("Research pathway","path",[["facilities","Nursing provider directory"],["capacity","Reported certified beds"],["nursing-health","Historical health citations"],["nursing-fire","Historical fire citations"]],"facilities");
@@ -120,7 +123,8 @@ async function intelligence(view,signal,epoch){
             const evidenceTable=table(g.columns,g.rows.map(r=>r.map(x=>x===null?"—":typeof x==="number"?N.format(x):x)));
             evidenceTable.classList.add("intelligence-table");
             evidenceTable.setAttribute("aria-label",g.title+"; scroll horizontally if needed");
-            app.append(el("h2",g.title),el("p",g.note,"intro"));
+            const note=g.id==="nursing-chain-coverage"?g.note.replace("names and identifiers are not published.","the original aggregate audit does not contain names or identifiers. The separate nursing portfolio membership projection is qualified independently."):g.note;
+            app.append(el("h2",g.title),el("p",note,"intro"));
             if(g.columns.length>3||g.id==="clia-certificate")app.append(el("p","Scroll horizontally to see all columns.","intelligence-scroll-hint"));
             if((hospitalInfra&&["qies-hospital-service-subset","qies-hospital-count-subset"].includes(g.id))||(view==="financial-research"&&g.id.endsWith("-cost-measure-quality"))){
                 const filter=el("div",undefined,"toolbar"),field=input("Filter "+(g.id.endsWith("service-subset")?"service names":g.id.endsWith("-cost-measure-quality")?"measure names":"infrastructure field names"),"q","");
@@ -695,7 +699,7 @@ function certificationCoverage(){title("Certifications & laboratories","Qualifie
 
 const profileSections=[["summary","Summary"],["services","Services & capacity"],["compliance","Compliance evidence"],["location","Location & peers"],["sources","Sources & coverage"]];
 function localResearchReturn(hash){
-    if(typeof hash!=="string"||hash.length>1600||!/^#(?:facilities|citations|capacity|search|advanced|dialysis-services|hha-services)(?:\?|$)/.test(hash))return "";
+    if(typeof hash!=="string"||hash.length>1600||!/^#(?:facilities|citations|capacity|search|advanced|dialysis-services|hha-services|nursing-portfolios)(?:\?|$)/.test(hash))return "";
     return hash
 }
 function profileHref(s,r,f){
@@ -1099,6 +1103,100 @@ async function profileLocation(r,s,signal,epoch,p){
     section.append(evidence);
     section.dataset.ready="true";return section
 }
+// Source-scoped CMS group identifiers never become legal owner IDs.
+const nursingChainPin=Object.freeze({payload:"93c9c581f78511e79a22255524c14f2b34a62545598a8633eea6bb6efab22322",directory:"36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce",source:"ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2",release:"2026-10-28",rows:14686,groups:612,assigned:10227,unassigned:4459,scope:"CMS nursing-home chain affiliation; publisher-defined historical group, not legal ownership."});
+const chainToken=v=>typeof v==="string"&&/^[0-9]{1,8}$/.test(v);
+async function nursingChainEvidence(signal){
+    const p=nursingChainPin,s=providerSources().find(x=>x.key==="nursing");
+    if(!s||s.release!==p.release||s.sha256!==p.source||s.stored_rows!==p.rows||publicManifest.sources.nursing?.published_records!==p.rows)throw Error("Nursing source release requires chain requalification");
+    const [directory,pack]=await Promise.all([exactJson("web/public-directory/nursing.json?v="+p.directory.slice(0,16),p.directory,signal),exactJson("web/nursing-chain-evidence.json?v="+p.payload.slice(0,16),p.payload,signal)]);
+    if(directory.source!=="nursing"||directory.release!==p.release||directory.row_count!==p.rows||!Array.isArray(directory.records)||directory.records.length!==p.rows)throw Error("Nursing directory scope mismatch");
+    if(!dialysisKeys(pack,["format_version","scope","source","release","source_sha256","directory_sha256","groups","members"])||pack.format_version!==1||pack.source!=="nursing"||pack.scope!==p.scope||pack.release!==p.release||pack.source_sha256!==p.source||pack.directory_sha256!==p.directory||!Array.isArray(pack.groups)||pack.groups.length!==p.groups||!Array.isArray(pack.members)||pack.members.length!==p.rows)throw Error("Chain projection scope mismatch");
+    const groups=new Map(),labels=new Set(),directoryByKey=new Map(directory.records.map(r=>[institutionalKey(r),r])),membership=new Map();
+    if(directoryByKey.size!==p.rows)throw Error("Duplicate public directory key");
+    for(const item of pack.groups){
+        if(!Array.isArray(item)||item.length!==3||!chainToken(item[0])||typeof item[1]!=="string"||!item[1].trim()||item[1].length>300||!Number.isSafeInteger(item[2])||item[2]<2||item[2]>p.assigned||groups.has(item[0])||labels.has(item[1]))throw Error("Invalid CMS group");
+        groups.set(item[0],{id:item[0],name:item[1],size:item[2],members:[]});labels.add(item[1]);
+    }
+    let assigned=0,unassigned=0;
+    for(const item of pack.members){
+        if(!Array.isArray(item)||item.length!==3||typeof item[0]!=="string"||!/^[A-Z0-9]{6}$/.test(item[0])||!states.includes(item[1])||(item[2]!==null&&!groups.has(item[2])))throw Error("Invalid chain member");
+        const key=item[1]+":"+item[0],r=directoryByKey.get(key);
+        if(!r||membership.has(key))throw Error("Chain membership identity mismatch");
+        membership.set(key,item[2]);
+        if(item[2]===null)unassigned++;else{assigned++;groups.get(item[2]).members.push(r)}
+    }
+    if(membership.size!==p.rows||assigned!==p.assigned||unassigned!==p.unassigned||[...groups.values()].some(g=>g.members.length!==g.size))throw Error("Chain membership reconciliation failed");
+    return {groups,membership,directoryByKey}
+}
+function chainSourceLinks(){return add(el("div",undefined,"links"),anchor("CMS Provider Information","https://data.cms.gov/provider-data/dataset/4pq5-n9py",true),anchor("CMS chain methodology","https://data.cms.gov/sites/default/files/2025-06/97e4c3cd-4104-408e-8bef-24dfab14bf07/UPDATE_Methodology_Nursing_Home_Chain_Performance.pdf",true),anchor("Qualification evidence","https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45886406286",true))}
+async function nursingChainExplorer(params,signal,epoch){
+    const section=el("section",undefined,"chain-explorer");
+    section.append(el("h2","CMS reported chain directory"),el("p","October 28, 2026 source release. Group names are CMS-published labels, not verified parent corporations. Missing group assignment is not proof of independence.","intro"));
+    try{
+        const d=await nursingChainEvidence(signal);if(epoch!==sequence||signal.aborted)return null;
+        const q=(params.chain_q||"").trim(),state=params.chain_state||"",id=params.chain||"",raw=params.chain_page||"1";
+        if(q.length>100||(state&&!states.includes(state))||(id&&!chainToken(id))||!/^\d{1,6}$/.test(raw))throw Error("Invalid group research filter");
+        const page=Math.max(1,Number(raw)),offset=(page-1)*pageSize;
+        const form=el("form",undefined,"toolbar chain-form");
+        if(!id)form.append(input("Group name or CMS chain ID","chain_q",q));
+        form.append(options("Group research jurisdiction","chain_state",[["","All jurisdictions"],...states.slice().sort().map(s=>[s,s])],state));
+        const go=el("button",id?"Filter members":"Find groups");go.type="submit";form.append(go,anchor(id?"All group members":"Reset group filters",route("nursing-portfolios",id?{chain:id}:{})));
+        form.addEventListener("submit",e=>{e.preventDefault();const p=Object.fromEntries(new FormData(form));location.hash=route("nursing-portfolios",{...p,chain:id||""})});
+        const status=el("p","","intro chain-status");section.append(form,status);
+        const pageLinks=(total,base)=>{const pager=el("div",undefined,"pager");
+            if(page>1)pager.append(anchor("First page",route("nursing-portfolios",{...base,chain_page:1})),anchor("Previous groups or members",route("nursing-portfolios",{...base,chain_page:page-1})));
+            if(offset+pageSize<total)pager.append(anchor("Next groups or members",route("nursing-portfolios",{...base,chain_page:page+1})));
+            if(pager.childNodes.length)section.append(pager)
+        };
+        if(!id){
+            const all=[...d.groups.values()].filter(g=>!q||g.name.toLowerCase().includes(q.toLowerCase())||g.id===q);
+            const hits=all.map(g=>({g,n:state?g.members.filter(r=>r.state===state).length:g.size})).filter(x=>x.n>0).sort((a,b)=>b.n-a.n||a.g.name.localeCompare(b.g.name)||a.g.id.localeCompare(b.g.id));
+            status.textContent=N.format(hits.length)+" matching CMS groups · "+N.format(hits.reduce((n,x)=>n+x.n,0))+" assigned provider records"+(state?" in "+state:"")+".";
+            status.dataset.total=String(hits.length);
+            const rows=hits.slice(offset,offset+pageSize).map(({g,n})=>[anchor(g.name,route("nursing-portfolios",{chain:g.id,chain_state:state,chain_q:q})),N.format(n),N.format(g.size),N.format(new Set(g.members.map(r=>r.state)).size),g.id]);
+            if(rows.length){const t=table(["CMS reported group","Matching members","National members","Jurisdictions","Chain ID"],rows);t.classList.add("chain-groups");section.append(el("p","Scroll the table for national membership, jurisdictions and CMS group ID.","chain-scroll-hint intro"),t)}
+            else section.append(el("div",hits.length?"Page outside matching groups. Return to the first page.":"No published groups match these filters.","empty"));
+            pageLinks(hits.length,{chain_q:q,chain_state:state});
+        }else{
+            const g=d.groups.get(id);
+            if(!g){status.textContent="CMS group ID not present in this pinned release.";status.dataset.total="0";section.append(anchor("Back to group directory",route("nursing-portfolios")));section.dataset.ready="true";return section}
+            section.insertBefore(el("h3",g.name,"chain-group-title"),form);
+            section.insertBefore(add(el("div",undefined,"links"),anchor("Back to group directory",route("nursing-portfolios",{chain_q:q,chain_state:state}))),form);
+            const members=g.members.filter(r=>!state||r.state===state).sort((a,b)=>a.state.localeCompare(b.state)||a.name.localeCompare(b.name)||a.ccn.localeCompare(b.ccn));
+            const known=members.map(publicCapacity).filter(x=>x!==null);
+            status.textContent=N.format(members.length)+" matching member records · CMS chain ID "+id+" · "+nursingChainPin.release+".";
+            status.dataset.total=String(members.length);
+            const grid=el("div",undefined,"metrics");
+            grid.append(capacityMetric("National group membership",g.size,"CMS reported size; reconciled"),capacityMetric("Matching member records",members.length,state||"All jurisdictions"),capacityMetric("Known certified beds",known.length?known.reduce((n,v)=>n+v,0):null,N.format(known.length)+" numeric reports; "+N.format(members.length-known.length)+" unknown"),capacityMetric("Matching jurisdictions",new Set(members.map(r=>r.state)).size,"Reported member states / territories"));
+            section.append(grid,el("p","Capacity sums known source-reported certified beds within the selected membership; it is not occupancy, a count of physical properties, or current ownership.","intro"));
+            const regions=[...new Set(g.members.map(r=>r.state))].sort().map(st=>[anchor(st,route("nursing-portfolios",{chain:id,chain_state:st})),N.format(g.members.filter(r=>r.state===st).length)]);
+            const distribution=el("details",undefined,"location-coverage");distribution.append(el("summary","Group membership by jurisdiction"),table(["Reported jurisdiction","Member records"],regions));section.append(distribution);
+            const rows=members.slice(offset,offset+pageSize).map(r=>[add(el("div"),anchor(r.name,route("detail",{source:"nursing",id:r.ccn,state:r.state,return:localResearchReturn(location.hash)})),el("small",r.ccn+" · "+[r.city,r.state].filter(Boolean).join(", "))),publicCapacity(r)===null?"Not reported":N.format(publicCapacity(r)),nursingChainPin.release]);
+            if(rows.length){const t=table(["Member provider / CCN / location","Certified beds","Source release"],rows);t.classList.add("chain-members");section.append(el("p","Scroll the table for the source release.","chain-scroll-hint intro"),t)}
+            else section.append(el("div",members.length?"Page outside matching members. Return to the first page.":"No members in the selected jurisdiction.","empty"));
+            if(members.length){
+                const exp=el("button","Export matching members (CSV)");exp.type="button";exp.addEventListener("click",()=>downloadResearchCsv("facilitysignal-cms-chain-"+id+".csv",[["source","release","cms_chain_id","cms_group_label","ccn","provider_name","city","state","reported_certified_beds","capacity_evidence"],...members.map(r=>["CMS Care Compare nursing",nursingChainPin.release,id,g.name,r.ccn,r.name,r.city,r.state,publicCapacity(r),publicCapacity(r)===null?"not_reported":"reported_numeric"])]));section.append(add(el("div",undefined,"links"),exp))
+            }
+            pageLinks(members.length,{chain:id,chain_state:state,chain_q:q});
+        }
+        section.append(chainSourceLinks());section.dataset.ready="true";
+    }catch(e){if(epoch!==sequence||signal.aborted||e.name==="AbortError")return null;section.append(el("div","CMS chain evidence unavailable: "+e.message+". No membership inferred.","error"));section.dataset.ready="false"}
+    return section
+}
+async function nursingChainProfile(r,signal,epoch){
+    const section=el("section",undefined,"nursing-chain-profile");section.append(el("h2","CMS reported chain affiliation"));
+    try{
+        const d=await nursingChainEvidence(signal);if(epoch!==sequence||signal.aborted)return null;
+        const key=institutionalKey(r),reference=d.directoryByKey.get(key);
+        if(!reference||["ccn","name","state","address","city","zip"].some(k=>reference[k]!==r[k])||!d.membership.has(key))throw Error("Profile record differs from qualified directory");
+        const id=d.membership.get(key);
+        if(id===null){section.append(el("p","No group ID reported in this CMS release. This does not establish that the facility is independent.","notice"));section.dataset.evidence="unassigned"}
+        else{const g=d.groups.get(id);section.append(add(el("p"),anchor(g.name,route("nursing-portfolios",{chain:id}))),el("p",N.format(g.size)+" reported member records · CMS group ID "+id+" · release "+nursingChainPin.release,"intro"));section.dataset.evidence="assigned"}
+        section.append(el("p","Publisher-defined group membership is not proof of controlling or property ownership.","intro"));
+    }catch(e){if(epoch!==sequence||signal.aborted||e.name==="AbortError")return null;section.dataset.evidence="unavailable";section.append(el("div","Chain affiliation evidence unavailable; no membership inferred.","error"))}
+    section.append(chainSourceLinks());return section
+}
 function profileSources(s,r,f){
     const section=el("section");
     section.append(el("h2","Source and release"),table(["Evidence","Value"],[["Provider source",names[s.key]],["Source identifier (CCN)",shown(value(r,f,"id"))],["Reported state",shown(value(r,f,"state"))],["Published release",s.release],["Public projection",sourceLink(s,"Official source")]]),
@@ -1110,7 +1208,8 @@ function profileSources(s,r,f){
             ["Nursing citation aggregates",s.key==="nursing"?"Same-CCN/state candidate lookup":"No facility-linked public evidence",s.key==="nursing"?anchor("Compliance section",route("detail",{source:s.key,id:value(r,f,"id"),state:value(r,f,"state"),return:localResearchReturn(read().p.return),section:"compliance"})):anchor("National compliance research",route("compliance-research"))],
             ["Certification registry evidence","Individual relationships not published",anchor("Certification registry coverage",route("certifications"))],
             ["Clinical service capability",s.key==="dialysis"?"Selected iQIES and Care Compare observations; separate source releases":s.key==="home-health"?"Six same-source Care Compare service indicators":s.key==="hospital"?"Same-source emergency-services flag":"Individual observations not published",["hospital","dialysis","home-health"].includes(s.key)?anchor("Services & capacity section",route("detail",{source:s.key,id:r.ccn,state:r.state,section:"services",return:localResearchReturn(read().p.return)})):anchor("National service evidence",route("services"))],
-            ["Organizational relationships","Individual relationships not published",anchor("Ownership evidence coverage",route("ownership"))],
+            ["PECOS organizational roles","Individual relationships not published",anchor("Ownership evidence coverage",route("ownership"))],
+            ...(s.key==="nursing"?[["CMS nursing chain membership","Published source-scoped affiliation; check Summary for the exact record",anchor("Nursing portfolio research",route("nursing-portfolios"))]]:[]),
             ["Equipment and environment","Individual relationships not published",anchor("National equipment and environmental research",route("equipment-environment"))],
             ["Property / procurement","No qualified public facility relationships",anchor("Procurement research",route("procurement"))]
         ]),el("div","The coverage links describe national source-family research, not resolved links for this facility. Exact source identifiers are not canonical physical-site or property ownership determinations.","notice"));
@@ -1154,6 +1253,7 @@ async function detail(p,signal,epoch){
                 else if(s.key==="home-health"){const c=await hhaProfile(r,signal,epoch);if(!c||epoch!==sequence)return;evidence.append(c)}
                 else if(!Object.hasOwn(institutionalPin.sources,s.key))evidence.append(el("p","Additional individual service, inspection or infrastructure observations are not currently published for this category.","notice"));
                 if(Object.hasOwn(institutionalPin.sources,s.key)){const inst=await institutionalProfile(r,s,signal,epoch);if(!inst||epoch!==sequence)return;evidence.append(inst)}
+                if(s.key==="nursing"){const chain=await nursingChainProfile(r,signal,epoch);if(!chain||epoch!==sequence)return;evidence.append(chain)}
                 evidence.dataset.ready="true";
                 const base={source:s.key,id:r.ccn,state:r.state,return:localResearchReturn(p.return)};
                 app.append(profileResearchActions(s,r,f),add(el("div",undefined,"links"),anchor("Investigate reported address and peers",route("detail",{...base,section:"location"})),anchor("View sources and coverage",route("detail",{...base,section:"sources"}))));
