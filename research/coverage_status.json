@@ -3986,5 +3986,36 @@
     "new_source_candidates": 0,
     "public_promotion": false,
     "note": "Scheduled private candidate refresh and metadata discovery; coherent public pack cutover and remaining source-family policies pending. First run matched existing release metadata/counts; no claim of reverified unchanged mutable URL bytes."
+  },
+  "latest_consolidated_private_checkpoint": {
+    "scope": "Pinned publisher releases and separate derived candidates, not unique facilities",
+    "evidence_commit": "2d5c04f366ffe46226306ab268b7e82b3ad43417",
+    "ledger": "research/azure_archive_inventory_20261126.json",
+    "totals": {
+      "publisher_releases": 45,
+      "source_observations": 9639767,
+      "derived_candidate_observations": 23520,
+      "payload_files": 88,
+      "payload_bytes": 1929870223
+    },
+    "prior_consolidated_audit_run": 45854005035,
+    "new_enrollment_run": 45854293234,
+    "source_receipts": [
+      {
+        "key": "hha-enrollment-organizations",
+        "source_sha256": "d76ecbb2b50a7047cf913ba819cd9187bc344aaa357ee2c3ea584e663303cbb4",
+        "stored_rows": 11505,
+        "owner_exact_enrollment_pac": 4575,
+        "sha256_readback": true
+      },
+      {
+        "key": "hospice-enrollment-organizations",
+        "source_sha256": "cedea131bb00cc14ccc77440176574796bce5222817a301fe1c7cc00d121850b",
+        "stored_rows": 5684,
+        "owner_exact_enrollment_pac": 3081,
+        "sha256_readback": true
+      }
+    ],
+    "public_promotion": false
   }
 }

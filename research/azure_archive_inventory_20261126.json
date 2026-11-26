@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "scope": "Pinned completed archive layers and publisher releases, not a live container-wide listing; observations are source-specific, not unique facilities. Derived records counted separately. Payload bytes exclude pointers, receipts and other unlisted objects.",
-  "evidence_commit": "05609b333c653ded35babb76684ea5e5aedb5229",
+  "evidence_commit": "2d5c04f366ffe46226306ab268b7e82b3ad43417",
   "layers": [
     {
       "key": "national",
@@ -45,6 +45,27 @@
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     },
     {
+      "key": "hha-enrollment-organizations",
+      "source_sha256": "d76ecbb2b50a7047cf913ba819cd9187bc344aaa357ee2c3ea584e663303cbb4",
+      "kind": "publisher",
+      "observations": 11505,
+      "run": 45854293234,
+      "job": 140028610102,
+      "files": [
+        {
+          "bytes": 1982464,
+          "path": "projection.sqlite3",
+          "sha256": "1035977f806a114e37ad0384fb2a822b4e475ab71ca741888160b77eae7f091a"
+        },
+        {
+          "bytes": 2176,
+          "path": "audit.json",
+          "sha256": "fca3d017bf1c80a05a65b7b50ad20191bc5bb234503b2693e3d202906a152c16"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
       "key": "hha-organizational-ownership",
       "source_sha256": "75f6de0bde699b85de15f8b206b3c287afc05388400b78e7ee42284f15ebbf02",
       "kind": "publisher",
@@ -82,6 +103,27 @@
           "bytes": 2993,
           "path": "audit.json",
           "sha256": "5360486d57514e4016323d960587986d64860f3e51c66cb4373f09c054a9830b"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hospice-enrollment-organizations",
+      "source_sha256": "cedea131bb00cc14ccc77440176574796bce5222817a301fe1c7cc00d121850b",
+      "kind": "publisher",
+      "observations": 5684,
+      "run": 45854293234,
+      "job": 140028610102,
+      "files": [
+        {
+          "bytes": 987136,
+          "path": "projection.sqlite3",
+          "sha256": "7f7c371753c058c8793aaf1ae548758ea1de960cc103a08369015befd71ab0fa"
+        },
+        {
+          "bytes": 2215,
+          "path": "audit.json",
+          "sha256": "fa7d40c97cb9a94ca35983e05189ebaf031827ee6e95dbd10289e87b1fbe5791"
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
@@ -214,10 +256,10 @@
     }
   ],
   "totals": {
-    "publisher_releases": 43,
-    "source_observations": 9622578,
+    "publisher_releases": 45,
+    "source_observations": 9639767,
     "derived_candidate_observations": 23520,
-    "payload_files": 84,
-    "payload_bytes": 1926896232
+    "payload_files": 88,
+    "payload_bytes": 1929870223
   }
 }
