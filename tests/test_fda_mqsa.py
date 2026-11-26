@@ -24,7 +24,7 @@ class MQSATests(unittest.TestCase):
             self.assertEqual(a["jurisdiction_counts"],{"NY":2})
             self.assertNotIn("Synthetic Center",str(a))
             self.assertNotIn("not retained",str(list(db.execute("SELECT * FROM mqsa_projection"))))
-            self.assertEqual(len(list(db.execute("PRAGMA table_info(mqsa_projection)"))),8)
+            self.assertEqual(len(list(db.execute("PRAGMA table_info(mqsa_projection)"))),9)
 
     def test_delimited_projection(self):
         buf=io.StringIO()
@@ -50,6 +50,25 @@ class MQSATests(unittest.TestCase):
             self.assertEqual(a["layout_valid_row_counts"]["pipe"],1)
             self.assertEqual(a["stored_rows"],0)
             self.assertNotIn("Clinic",str(a))
+
+    def test_explicit_width_exception_preserves_full_address_and_flags(self):
+        good="Clinic|Street|||City|PR|00901|phone|fax"
+        address="A"*51
+        wide="Clinic|"+address+"|||City|PR|00901|phone|fax"
+        with tempfile.TemporaryDirectory() as tmp,sqlite3.connect(":memory:") as db:
+            p=self.source(tmp,good+"\n"+wide+"\n")
+            self.assertEqual(audit_archive(db,p)["stored_rows"],0)
+            a=audit_archive(db,p,allow_pinned_width_exception=True)
+            self.assertEqual((a["stored_rows"],a["schema_exception_rows"]),(2,1))
+            self.assertEqual(db.execute("SELECT address1,schema_exception FROM mqsa_projection WHERE ordinal=2").fetchone(),(address,"width_address1"))
+            self.assertIsNone(db.execute("SELECT schema_exception FROM mqsa_projection WHERE ordinal=1").fetchone()[0])
+            self.assertNotIn(address,str(a))
+
+    def test_width_exception_does_not_accept_other_reasons(self):
+        with tempfile.TemporaryDirectory() as tmp,sqlite3.connect(":memory:") as db:
+            p=self.source(tmp,"Clinic|Street|||City|PR|00901|phone|fax\nClinic|Street||||PR|00901|phone|fax")
+            with self.assertRaises(ValueError):
+                audit_archive(db,p,allow_pinned_width_exception=True)
 
     def test_archive_boundary(self):
         with tempfile.TemporaryDirectory() as tmp,sqlite3.connect(":memory:") as db:

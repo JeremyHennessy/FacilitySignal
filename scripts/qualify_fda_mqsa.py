@@ -103,7 +103,7 @@ def parse_line(line, layout):
         return fixed(line)
     return next(csv.reader([line], delimiter={"tab":"\t", "pipe":"|", "comma":","}[layout], strict=True))
 
-def audit_archive(db, path):
+def audit_archive(db, path, allow_pinned_width_exception=False):
     raw = archive_bytes(path)
     try:
         txt = raw.decode("utf-8-sig")
@@ -143,22 +143,38 @@ def audit_archive(db, path):
     base = {"pipe_rejected_rows":pipe_rejected, "pipe_rejection_reason_counts":dict(sorted(pipe_reasons.items())), "expanded_bytes": len(raw), "encoding": encoding, "physical_lines":len(lines),
             "blank_lines": len(lines)-len(nonblank), "input_rows":len(nonblank),
             "layout_valid_row_counts":candidates, "field_widths":dict(zip(FIELDS,WIDTHS))}
-    if len(parsed) != 1:
+    exception_ordinals = set()
+    if allow_pinned_width_exception:
+        require(not parsed and candidates["pipe"] > 0 and all(candidates[k] == 0 for k in ("fixed","tab","comma"))
+                and pipe_rejected > 0 and dict(pipe_reasons) == {"width_address1":pipe_rejected},
+                "unexpected schema exception")
+        rows = []
+        for ordinal, line in enumerate(nonblank, 1):
+            row = parse_line(line, "pipe")
+            reasons = rejection_reasons(row)
+            if reasons:
+                require(reasons == ["width_address1"] and len(row[1]) <= 200, "unapproved width exception")
+                exception_ordinals.add(ordinal)
+            rows.append((ordinal,row))
+        require(len(exception_ordinals) == pipe_rejected, "exception reconciliation")
+        layout = "pipe"
+    elif len(parsed) != 1:
         return dict(base, qualification="schema_review_required", stored_rows=0,
                     unresolved_rows=len(nonblank), unique_layout=False)
-    layout, rows = next(iter(parsed.items()))
+    else:
+        layout, rows = next(iter(parsed.items()))
     states, missing = Counter(), Counter()
     duplicates = 0
     seen = set()
     with db:
-        db.execute("CREATE TABLE mqsa_projection(ordinal INTEGER PRIMARY KEY,name TEXT,address1 TEXT,address2 TEXT,address3 TEXT,city TEXT,state TEXT,zip TEXT)")
+        db.execute("CREATE TABLE mqsa_projection(ordinal INTEGER PRIMARY KEY,name TEXT,address1 TEXT,address2 TEXT,address3 TEXT,city TEXT,state TEXT,zip TEXT, schema_exception TEXT)")
         for ordinal, original in rows:
             row = tuple(v.strip() for v in original)
             # Contact fields are never stored or retained; exact duplicate count includes them.
             digest = hashlib.sha256(json.dumps(original, ensure_ascii=False).encode()).digest()
             duplicates += int(digest in seen)
             seen.add(digest)
-            db.execute("INSERT INTO mqsa_projection VALUES(?,?,?,?,?,?,?,?)", (ordinal,*row[:7]))
+            db.execute("INSERT INTO mqsa_projection VALUES(?,?,?,?,?,?,?,?,?)", (ordinal,*row[:7],"width_address1" if ordinal in exception_ordinals else None))
             state = row[5]
             states[state if state in JURISDICTIONS else "military_mail" if state in MILITARY_MAIL else "other"] += 1
             for field, value in zip(FIELDS[:7], row[:7]):
@@ -168,7 +184,7 @@ def audit_archive(db, path):
         unique = db.execute("SELECT count(*) FROM (SELECT DISTINCT name,address1,address2,address3,city,state,zip FROM mqsa_projection)").fetchone()[0]
         require(stored == len(nonblank) == sum(states.values()), "row reconciliation")
         require(db.execute("PRAGMA integrity_check").fetchone()[0] == "ok", "SQLite integrity")
-    return dict(base, qualification="ephemeral_projection_qualified", layout=layout, unique_layout=True,
+    return dict(base, qualification="ephemeral_projection_qualified_with_pinned_width_exception" if exception_ordinals else "ephemeral_projection_qualified", layout=layout, unique_layout=True, schema_exception_rows=len(exception_ordinals),
                 stored_rows=stored, unresolved_rows=0, exact_parsed_row_duplicates=duplicates,
                 repeated_projected_name_address_rows=stored-unique, jurisdiction_counts=dict(sorted(states.items())),
                 represented_us_jurisdictions=len(set(states)&JURISDICTIONS), missing_fields=dict(missing),
@@ -180,7 +196,9 @@ def main():
     p.add_argument("--audit", type=Path, required=True)
     p.add_argument("--local-archive", type=Path, help="Use an existing authorized local copy; no network")
     p.add_argument("--diagnose-pinned-pipe", action="store_true", help="Qualify aggregate reject diagnostics only for the exact previously observed FDA release")
+    p.add_argument("--qualify-pinned-width-exception", action="store_true", help="Allow only the six previously diagnosed address1 width deviations, retaining full field values")
     a=p.parse_args()
+    require(not (a.diagnose_pinned_pipe and a.qualify_pinned_width_exception), "choose one mode")
     require(not a.audit.exists(), "audit exists")
     with tempfile.TemporaryDirectory(prefix="mqsa-") as tmp:
         path=a.local_archive or Path(tmp)/"source.zip"
@@ -190,10 +208,10 @@ def main():
                 meta={"url":URL,"documentation":DOC,"bytes":path.stat().st_size,"sha256":hashlib.file_digest(f,"sha256").hexdigest(),"retrieved_at":None}
         else:
             meta=download(path)
-        if a.diagnose_pinned_pipe:
+        if a.diagnose_pinned_pipe or a.qualify_pinned_width_exception:
             require(meta["sha256"] == "fb0c74333ade998ce28c6b5f342324f5ff4c46d716c45332634513edddf1b33a", "FDA release changed; stop pinned diagnosis")
         with closing(sqlite3.connect(":memory:")) as db:
-            meta.update(audit_archive(db,path))
+            meta.update(audit_archive(db,path,allow_pinned_width_exception=a.qualify_pinned_width_exception))
         with path.open("rb") as f:
             require(hashlib.file_digest(f,"sha256").hexdigest()==meta["sha256"],"archive changed")
         if a.diagnose_pinned_pipe:
@@ -202,10 +220,15 @@ def main():
                     and meta["pipe_rejected_rows"] == 6 and meta["stored_rows"] == 0
                     and sum(meta["pipe_rejection_reason_counts"].values()) >= 6, "pinned diagnostic changed")
             meta["diagnostic_qualification"] = "passed_aggregate_only"
+        if a.qualify_pinned_width_exception:
+            require(meta["qualification"] == "ephemeral_projection_qualified_with_pinned_width_exception"
+                    and meta["input_rows"] == meta["stored_rows"] == 9146 and meta["unresolved_rows"] == 0
+                    and meta["schema_exception_rows"] == 6 and meta["pipe_rejection_reason_counts"] == {"width_address1":6},
+                    "pinned projection changed")
         with a.audit.open("x", encoding="utf-8") as f:
             json.dump(meta,f,indent=2,sort_keys=True)
         print(json.dumps(meta,sort_keys=True))
-    if not a.diagnose_pinned_pipe and meta["qualification"] != "ephemeral_projection_qualified":
+    if not (a.diagnose_pinned_pipe or a.qualify_pinned_width_exception) and meta["qualification"] != "ephemeral_projection_qualified":
         raise SystemExit("source schema needs review")
 
 if __name__ == "__main__":
