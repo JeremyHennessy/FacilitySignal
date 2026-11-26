@@ -34,7 +34,14 @@
     },
     {
       "id": "FS-004",
-      "status": "discovered_not_tested"
+      "status": "partial_structural_qualification",
+      "evidence": "45832460359",
+      "weekly_scope": "2026-11-16/2026-11-22",
+      "weekly_source_rows": 31024,
+      "weekly_organization_rows": 6627,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Latest weekly V2 increment independently qualified. Full replacement monthly processing is separate; do not infer new facilities, unique national organization count or current licensing. Other weekly increments/deactivation update and ordered reconciliation remain pending."
     },
     {
       "id": "FS-005",
@@ -3172,5 +3179,129 @@
     "source_url": "https://www.fda.gov/drugs/human-drug-compounding/registered-outsourcing-facilities",
     "retained_row_level_records": 0,
     "qualified": false
+  },
+  "nppes_v2_qualified_baselines": {
+    "weekly": {
+      "commit": "0baac6db4fbf13d087e1631427ced9c0de86b411",
+      "run": 45832460359,
+      "job_id": 139952481462,
+      "job_conclusion": "success",
+      "artifact": 15123002720,
+      "artifact_digest": "sha256:b611f1d51b1e5a10be2512cf657128105c28d65a68db71f5d151c3e545fa4a76",
+      "audit": {
+        "input_rows": 31024,
+        "columns": 330,
+        "entity_classes": {
+          "individual_excluded": 23616,
+          "organization": 6627,
+          "untyped_with_deactivation": 781
+        },
+        "organization_key_counts": {
+          "valid_organization_npi": 6627
+        },
+        "distinct_valid_organization_npis": 6627,
+        "duplicate_valid_organization_rows": 0,
+        "organization_field_states": {
+          "legal_name": {
+            "present": 6627
+          },
+          "enumeration": {
+            "reported": 6627
+          },
+          "updated": {
+            "reported": 6627
+          },
+          "deactivation": {
+            "blank": 6617,
+            "reported": 10
+          },
+          "reactivation": {
+            "blank": 6617,
+            "reported": 10
+          },
+          "primary_taxonomy_switch": {
+            "Y": 5676,
+            "N": 951
+          },
+          "taxonomy_presence": {
+            "present": 6627
+          },
+          "practice_state_presence": {
+            "present": 6627
+          },
+          "practice_country_presence": {
+            "present": 6627
+          }
+        },
+        "reference_files": {
+          "other_name": {
+            "input_rows": 3247,
+            "columns": 4,
+            "key_counts": {
+              "type2_key_match": 3146,
+              "outside_qualified_type2_scope": 101
+            },
+            "distinct_matched_type2_npis": 1938,
+            "limits": "Reference membership only; no address, alternative name or individual/endpoint value retained. Outside scope is not an orphan or invalid registration."
+          },
+          "practice_location": {
+            "input_rows": 10227,
+            "columns": 10,
+            "key_counts": {
+              "outside_qualified_type2_scope": 8480,
+              "type2_key_match": 1747
+            },
+            "distinct_matched_type2_npis": 518,
+            "limits": "Reference membership only; no address, alternative name or individual/endpoint value retained. Outside scope is not an orphan or invalid registration."
+          }
+        },
+        "archive_members": {
+          "endpoint": {
+            "uncompressed_bytes": 471334,
+            "crc32": "ccca5eaa",
+            "parsed": false
+          },
+          "practice_location": {
+            "uncompressed_bytes": 986741,
+            "crc32": "7f9da6b2",
+            "parsed": true
+          },
+          "other_name": {
+            "uncompressed_bytes": 201159,
+            "crc32": "ae30c449",
+            "parsed": true
+          },
+          "main": {
+            "uncompressed_bytes": 37196001,
+            "crc32": "fb56b3ee",
+            "parsed": true
+          },
+          "header": {
+            "uncompressed_bytes": 12267,
+            "crc32": "09b8631b",
+            "parsed": true
+          }
+        },
+        "endpoint_values_parsed": false,
+        "source_id": "FS-004",
+        "scope": "weekly",
+        "publisher_label": "NPPES Data Dissemination V.2 - Weekly Update - 111626_112226",
+        "publisher": {
+          "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_111626_112226_Weekly_V2.zip",
+          "bytes": 6373117,
+          "sha256": "d0e73f9d00ee816d1053d9c1005bd429183b13fce3ebf55bc2fde382274d2897",
+          "last_modified": "Mon, 23 Nov 2026 07:07:23 GMT",
+          "etag": "\"21967220060d2cecd1d2fff0e94fc6d4:1795417642.55267\"",
+          "retrieved_at": "2026-11-26T13:46:55.344646+00:00"
+        },
+        "retained_row_level_records": 0,
+        "reuse_review": "pending",
+        "limits": "NPPES registration-level structural qualification only. Weekly is incremental, not national baseline. Type 1 excluded; untyped deactivated rows not inferred as Type 2. Endpoint values not parsed. No site identity or license/compliance inference. No persistent projection."
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false,
+      "included_in_expanded_projection_total": false
+    }
   }
 }
