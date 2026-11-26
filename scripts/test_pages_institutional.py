@@ -98,11 +98,12 @@ def run(base,live):
             page.get_by_role("link",name="Back to results").click();results(page,len(want))
             assert urlsplit(page.url).fragment==origin
             for source,fields in FIELDS.items():
-                for field in (fields if width==1440 else fields[:1]):
+                for field in fields:
                     value="reported_yes"
                     url=base+"#advanced?"+urlencode({"source":source,"institutional_field":field,"institutional_value":value,"run":1})
                     page.goto(url);results(page,len(expected(source,field,value)))
                     assert page.locator("select[name=institutional_field]").input_value()==field
+                    assert page.locator("select[name=institutional_field]").evaluate("""e=>{const c=getComputedStyle(e),x=document.createElement('canvas').getContext('2d');x.font=c.font;return x.measureText(e.selectedOptions[0].text).width+parseFloat(c.paddingLeft)+parseFloat(c.paddingRight)+24<=e.clientWidth+1}"""),(width,source,field)
             page.goto(base+"#advanced?source=dialysis&institutional_field=late_shift&institutional_value=reported_no&run=1");results(page,6335)
             page.goto(base+"#advanced?source=nursing&institutional_field=sprinklers&institutional_value=reported_yes&run=1")
             page.get_by_text("Choose an institutional characteristic",exact=False).wait_for()
