@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "qualification": {
+    "run_id": 45883417646,
+    "job_id": 140128086158,
+    "commit": "c75831b49dd166ccda684e2c3b50edc39d56a9bb",
+    "python_tests": 325,
+    "conclusion": "success"
+  },
+  "canonical_merges": 0,
+  "classification_counts": {
+    "ltch_terminal_hyphen_only": 5
+  },
+  "hospital_rows": 5435,
+  "ltch_rows": 311,
+  "scope": "Same exact CCN within pinned hospital and LTCH sources only; formatting evidence, not physical-site verification or entity merge.",
+  "shared_ccn_pairs": 5,
+  "source_pins": {
+    "hospital": {
+      "release": "2026-11-12",
+      "rows": 5435,
+      "sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a"
+    },
+    "long-term-hospital": {
+      "release": "2026-09-23",
+      "rows": 311,
+      "sha256": "e062c2a3c57be0e47f473c48be2c0c8aa1f77d456091c5a041fe1bf2569894d9"
+    }
+  }
+}
