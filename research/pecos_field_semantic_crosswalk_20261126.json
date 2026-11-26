@@ -6,7 +6,9 @@
     "raw_header_blob": "77cb8affea343d0285fbdec648888a42d2018618",
     "aggregate_audit_blob": "4dd4b6fd1e2c17232f9119a1da51f9645da6f344",
     "raw_profile_blob": "971c37613bcf823fbdebae68c20fad7941e03764",
-    "baseline_catalog_blob": "c129ee2845fc9439af2928e64777e1454bc17f19"
+    "baseline_catalog_blob": "c129ee2845fc9439af2928e64777e1454bc17f19",
+    "followup_qualification_run": 45828422101,
+    "followup_path": "research/pecos_semantic_followup_20261126.json"
   },
   "field_count": 186,
   "sources": [
@@ -333,7 +335,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -347,7 +349,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -361,7 +363,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -375,7 +377,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -389,7 +391,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -403,7 +405,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -417,7 +419,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -431,7 +433,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -445,7 +447,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -459,7 +461,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -473,7 +475,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -487,7 +489,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -501,7 +503,7 @@
           "domain": "Y/N/blank",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -529,7 +531,7 @@
           "domain": "Y/N",
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -543,7 +545,7 @@
           "domain": null,
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -557,7 +559,7 @@
           "domain": null,
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "lexical_profile_only",
+          "value_review": "actual_targeted_flag_date_or_reference_presence_check",
           "prior_projection_retained": false,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -1269,11 +1271,11 @@
           "field": "CHOW TYPE TEXT",
           "meaning": "Reported description of the change type.",
           "kind": "label",
-          "usage": "Check actual source wording against dictionary; CH wording discrepancy unresolved at first audit.",
+          "usage": "Actual source wording matches either current July dictionary or documented January hospital dictionary CH label; same CH code and meaning in both source families. No unknown description remains in pinned files.",
           "domain": null,
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/Hospital_CHOW_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "actual_value_states_profiled_code_text_and_date_review_open",
+          "value_review": "actual_code_text_variant_reconciled",
           "prior_projection_retained": true,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
@@ -2497,11 +2499,11 @@
           "field": "CHOW TYPE TEXT",
           "meaning": "Reported description of the change type.",
           "kind": "label",
-          "usage": "Check actual source wording against dictionary; CH wording discrepancy unresolved at first audit.",
+          "usage": "Actual source wording matches either current July dictionary or documented January hospital dictionary CH label; same CH code and meaning in both source families. No unknown description remains in pinned files.",
           "domain": null,
           "publisher_dictionary": "https://data.cms.gov/sites/default/files/2026-07/SNF_CHOW_Data_Dictionary.pdf",
           "semantic_status": "publisher_definition_reviewed",
-          "value_review": "actual_value_states_profiled_code_text_and_date_review_open",
+          "value_review": "actual_code_text_variant_reconciled",
           "prior_projection_retained": true,
           "raw_profile_status": "aggregate_lexical_profile",
           "application_approval": "no_new_row_level_approval"
