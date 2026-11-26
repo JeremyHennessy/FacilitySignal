@@ -1,7 +1,7 @@
 name: FacilitySignal private PPEF institutional enrollment
 on:
   push:
-    branches: [main, build/azure-ppef-enrollment-20261126]
+    branches: [main, build/azure-ppef-enrollment-20261126, build/azure-priority-completion-20261126]
     paths:
       - .github/workflows/azure-ppef-enrollment.yml
       - scripts/archive_ppef_enrollment.py

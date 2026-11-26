@@ -100,10 +100,11 @@ def il_records(kind,get=get_json):
     require(cr==rows[:len(cr)] and cp==last and ct==total,"IL first page changed")
     return rows,hashes
 
-def identifier(value):
+def identifier(value,kind="entity"):
     if value is None or value=="":return None
     s=str(value)
-    require(re.fullmatch(r"[0-9]{1,20}",s) is not None,"IL identifier shape")
+    patterns={"entity":r"[0-9]{1,20}","license":r"(?:[0-9]{1,20}|[0-9]{4}-[0-9]|[0-9]{2}-[0-9]{4})","mpn":r"(?:[0-9]{1,20}|[0-9]{5}[A-Za-z])"}
+    require(kind in patterns and re.fullmatch(patterns[kind],s) is not None,"IL identifier shape")
     return s
 def field(value):
     if value is None:return None
@@ -116,7 +117,7 @@ def illinois(kind,root):
         count=Counter();keys=[]
         for row in records:
             require(isinstance(row,dict) and required<=set(row),"IL source fields")
-            eid=identifier(row["entity_id"]);lic=identifier(row["local_id"]);mpn=identifier(row["mpn_id"]);name=field(row["name"])
+            eid=identifier(row["entity_id"]);lic=identifier(row["local_id"],"license");mpn=identifier(row["mpn_id"],"mpn");name=field(row["name"])
             closed=field(row["closed_date"])
             if closed:date.fromisoformat(closed)
             require(eid is not None and name is not None,"IL institutional identity")

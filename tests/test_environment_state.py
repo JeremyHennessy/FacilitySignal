@@ -13,3 +13,9 @@ class StateArchiveTests(unittest.TestCase):
     def test_source_host_boundary(self):
         self.assertEqual(m.allowed(m.IL+"/api/hospitals"),m.IL+"/api/hospitals")
         with self.assertRaises(Exception):m.allowed("https://example.com/api/hospitals")
+
+    def test_source_native_hospital_identifiers(self):
+        self.assertEqual(m.identifier("1234-5","license"),"1234-5")
+        self.assertEqual(m.identifier("12-3456","license"),"12-3456")
+        self.assertEqual(m.identifier("12345A","mpn"),"12345A")
+        with self.assertRaises(ValueError):m.identifier("12345A","entity")

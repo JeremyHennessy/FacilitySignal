@@ -25,3 +25,14 @@ class PPEFTests(unittest.TestCase):
             s=m.project(src,False,reg,out)
             self.assertEqual(s["input_rows"],3);self.assertEqual(s["stored_rows"],1);self.assertEqual(s["institutional_key_or_code_review"],1)
             self.assertNotIn(b"do not retain",out.read_bytes())
+
+    def test_actual_quarterly_catalog_resource_shape(self):
+        a="https://data.cms.gov/data-api/v1/dataset-resources/main"
+        b="https://data.cms.gov/data-api/v1/dataset-resources/file"
+        f="https://data.cms.gov/sites/default/files/PPEF_Enrollment_Extract_2026.09.29.csv"
+        cat={"datasetSeries":[{"title":m.TITLE,"last":{"@id":"version"}}],"dataset":[{"@id":"version","accessLevel":"public","distribution":[{"format":"API","description":"latest","resourcesAPI":a},{"format":"CSV","resourcesAPI":b,"downloadURL":f}]}]}
+        selected=m.catalog_selection(cat)
+        self.assertEqual(selected["resource_api"],a)
+        self.assertEqual(selected["main_file"],f)
+        rows={"data":[{"name":"Medicare FFS Public Provider Enrollment Q4 2026","downloadURL":f},{"name":"Additional NPIs Sub-File Q4 2026","downloadURL":"https://data.cms.gov/other.csv"}]}
+        self.assertEqual(m.resource_selection(rows,f)["url"],f)

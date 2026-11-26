@@ -41,6 +41,9 @@ def monitor(store,national):
                 expected=rec["summary"].get("input_rows")
                 if expected is not None and expected!=n:outcome="new_version_review"
                 results[ident]={"state":outcome,"api_count":n,"publisher_period":new["period"]}
+            elif key=="ppef-type2-enrollment":
+                from scripts.archive_ppef_enrollment import discover
+                results[ident]={"state":compare_metadata(old,discover(),("catalog_version","modified","main_file","url","resource_name"))}
             elif key=="wa-xray-aggregate":
                 new=state.wa_metadata();results[ident]={"state":compare_metadata(old,new,("rows_updated_at","view_last_modified","count","fields")),"publisher_count":new["count"]}
             elif key.startswith("il-reportcard-"):

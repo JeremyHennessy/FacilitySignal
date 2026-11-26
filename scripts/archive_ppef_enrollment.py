@@ -28,6 +28,8 @@ def catalog_selection(catalog):
         datasets=[d for d in catalog["dataset"] if d.get("@id")==version]
         require(len(datasets)==1,"PPEF version dataset ambiguity")
         d=datasets[0];distributions=[x for x in d.get("distribution",[]) if x.get("resourcesAPI")]
+        latest=[x for x in distributions if x.get("description")=="latest" and x.get("format")=="API"]
+        if latest:distributions=latest
         # Several distributions may repeat the same resourcesAPI; require one distinct URL.
     else:
         datasets=[d for d in catalog["dataset"] if d.get("title")==TITLE]
@@ -37,15 +39,20 @@ def catalog_selection(catalog):
     require(d.get("accessLevel")=="public","PPEF public resource")
     urls={registry.allowed(x["resourcesAPI"]) for x in distributions}
     require(len(urls)==1 and isinstance(version,str) and version,"PPEF version resource API")
-    return {"catalog_version":version,"title":TITLE,"modified":d.get("modified"),"resource_api":urls.pop(),"landing":d.get("landingPage"),"license":d.get("license")}
+    main_files=[registry.allowed(x["downloadURL"]) for x in d.get("distribution",[]) if x.get("format")=="CSV" and x.get("downloadURL") and re.fullmatch(r"PPEF_Enrollment_Extract_\d{4}\.\d{2}\.\d{2}\.csv",urlsplit(x["downloadURL"]).path.split("/")[-1],re.I)]
+    require(len(set(main_files))<=1,"PPEF enrollment distribution ambiguity")
+    return {"catalog_version":version,"title":TITLE,"modified":d.get("modified"),"resource_api":urls.pop(),"landing":d.get("landingPage"),"license":d.get("license"),"main_file":main_files[0] if main_files else None}
 
-def resource_selection(resources):
+def resource_selection(resources,main_file=None):
     rows=resources.get("data") if isinstance(resources,dict) else None
     require(isinstance(rows,list) and 0<len(rows)<=100,"PPEF resource metadata")
     candidates=[]
     for x in rows:
         require(isinstance(x,dict),"PPEF resource shape")
         name=x.get("name","")
+        if main_file:
+            if x.get("downloadURL")==main_file and isinstance(name,str) and re.fullmatch(r"Medicare FFS Public Provider Enrollment Q[1-4] 20[0-9]{2}",name,re.I):candidates.append(x)
+            continue
         if isinstance(name,str) and re.search(r"\benrollment\s+sub[- ]file\b",name,re.I) and not re.search(r"\b(data dictionary|methodology|reassignment|additional|location|secondary)\b",name,re.I):
             candidates.append(x)
     require(len(candidates)==1,"missing/ambiguous PPEF Enrollment Sub-File")
@@ -55,8 +62,9 @@ def resource_selection(resources):
     return {"resource_name":x["name"],"url":url,"zipped":path.endswith(".zip"),"resource_id":x.get("id") or x.get("identifier") or x.get("@id")}
 
 def discover():
-    result=catalog_selection(registry.get_json(registry.CATALOG))
-    return {**result,**resource_selection(registry.get_json(result["resource_api"]))}
+    result=catalog_selection(registry.get_json("https://data.cms.gov/data.json"))
+    require(result["main_file"] is not None,"PPEF versioned main CSV distribution missing")
+    return {**result,**resource_selection(registry.get_json(result["resource_api"]),result["main_file"])}
 
 def download(meta,path):
     h=hashlib.sha256();n=0
