@@ -648,6 +648,57 @@ function profileGrid(r,s,f){
     for(const [label,k] of [["CCN","id"],["Address","address"],["City","city"],["State","state"],["ZIP","zip"],[capacityUnits[s.key]?.label||"Reported capacity","capacity"]])grid.append(add(el("div"),el("dt",label),el("dd",shown(v(k)))));
     return grid
 }
+const historicalCapacityPins=Object.freeze({"hospital":{"form":"hospital","payload":"48691c4574b372eed3dd50b17b75b04cbeb48b4c1e03f4789d57c4ce8554e3d5","rows":3561,"providers":3508,"directory":"222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a","release":"2026-11-12","directoryRows":5435,"fields":["available_beds_at_period_end"],"source":"bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782","run":45872218782,"official":"https://data.cms.gov/provider-compliance/cost-reports/hospital-provider-cost-report"},"nursing":{"form":"snf","payload":"fb710c1ad8d8bdc94f0d42717c91b2a5ad7285bcb1cb6e2de9055faf5de3035f","rows":13408,"providers":12894,"directory":"36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce","release":"2026-10-28","directoryRows":14686,"fields":["available_beds_at_period_end","available_bed_days"],"source":"adcef64de8d15b772aa37ca03bba162e78f781d22198b8fbb478810685e6c05c","run":45872218782,"official":"https://data.cms.gov/provider-compliance/cost-reports/skilled-nursing-facility-cost-report"}});
+function historicalCapacityLink(s,r,p){
+    return anchor("Historical FY2024 cost-report capacity",route("detail",{source:s.key,id:r.ccn,state:r.state,return:localResearchReturn(p?.return),section:"services"}))
+}
+async function historicalCapacityProfile(r,s,signal,epoch){
+    const pin=historicalCapacityPins[s.key],section=el("section",undefined,"historical-capacity-profile");
+    section.dataset.evidence="loading";section.dataset.form=pin.form;
+    section.append(el("h2","Historical cost-report capacity"),el("p","FY2024 selected CMS cost reports, published October 5, 2026. Historical available beds at period end are separate from the directory's reported capacity. Reports are not summed or interpreted as current occupancy.","intro"));
+    const evidence=el("div",undefined,"links");
+    evidence.append(anchor("Official CMS cost-report data",pin.official,true),anchor("Source qualification run "+pin.run,"https://github.com/JeremyHennessy/FacilitySignal/actions/runs/"+pin.run,true),anchor("Financial report research",route("financial-research")));
+    try{
+        if(s.release!==pin.release)throw Error("Provider source release changed; requalification required");
+        const [pack,directory]=await Promise.all([exactJson("web/hcris-capacity/"+pin.form+".json?v="+pin.payload.slice(0,16),pin.payload,signal),exactJson("web/public-directory/"+s.key+".json",pin.directory,signal)]);
+        if(epoch!==sequence||signal.aborted)return null;
+        if(!dialysisKeys(pack,["version","scope","form","records"])||pack.version!==1||pack.scope!=="FY2024 selected CMS PUF historical report capacity; exact matched candidate cohort, not current certified capacity"||pack.form!==pin.form||!Array.isArray(pack.records)||pack.records.length!==pin.rows)throw Error("Historical capacity envelope mismatch");
+        if(directory.source!==s.key||directory.release!==pin.release||!Array.isArray(directory.records)||directory.records.length!==pin.directoryRows)throw Error("Directory envelope mismatch");
+        const matches=directory.records.filter(x=>x.ccn===r.ccn);
+        if(matches.length!==1||matches[0].state!==r.state||["name","address","city","zip","capacity"].some(k=>matches[0][k]!==r[k]))throw Error("Unique exact directory record not corroborated");
+        const seen=new Set(),providers=new Set();
+        for(const x of pack.records){
+            if(!dialysisKeys(x,["report_key","ccn","state","period_begin","period_end","measures"])||typeof x.report_key!=="string"||!/^[0-9]{1,20}$/.test(x.report_key)||seen.has(x.report_key)||typeof x.ccn!=="string"||!/^[A-Z0-9]{6}$/.test(x.ccn)||!states.includes(x.state)||!/^\d{4}-\d{2}-\d{2}$/.test(x.period_begin)||!/^\d{4}-\d{2}-\d{2}$/.test(x.period_end)||x.period_begin<"2023-10-01"||x.period_begin>"2024-09-30"||x.period_end<x.period_begin||!dialysisKeys(x.measures,pin.fields)||Object.values(x.measures).some(v=>v!==null&&(!Number.isSafeInteger(v)||v<0)))throw Error("Historical report schema mismatch");
+            seen.add(x.report_key);providers.add(x.state+":"+x.ccn)
+        }
+        if(providers.size!==pin.providers)throw Error("Historical provider count mismatch");
+        const records=pack.records.filter(x=>x.ccn===r.ccn&&x.state===r.state).sort((a,b)=>b.period_begin.localeCompare(a.period_begin)||b.period_end.localeCompare(a.period_end)||a.report_key.localeCompare(b.report_key));
+        if(records.some((x,i)=>records.slice(0,i).some(y=>x.period_begin<=y.period_end&&y.period_begin<=x.period_end)))throw Error("Conflicting reporting periods");
+        section.dataset.evidence=records.length?"qualified":"unlinked";
+        section.dataset.reports=String(records.length);
+        if(!records.length)section.append(el("div","No qualified FY2024 report matches this exact provider record. This does not establish zero historical capacity or absence of a cost report.","notice"));
+        else{
+            section.append(el("p",N.format(records.length)+" qualified historical report(s) · exact CCN and state · separate fiscal periods","intro"));
+            for(const x of records){
+                const item=el("article",undefined,"historical-capacity-report");item.dataset.reportKey=x.report_key;
+                item.append(el("h3","Fiscal period "+x.period_begin+" – "+x.period_end));
+                const grid=el("dl",undefined,"detail-grid");
+                for(const [field,label] of [["available_beds_at_period_end","Available beds at period end"],["available_bed_days","Available bed-days"]]){
+                    if(!pin.fields.includes(field))continue;
+                    const v=x.measures[field],cell=add(el("div"),el("dt",label),el("dd",v===null?"Not reported":N.format(v)));
+                    cell.dataset.field=field;cell.dataset.state=v===null?"missing":v===0?"reported_zero":"reported_positive";grid.append(cell)
+                }
+                grid.append(add(el("div"),el("dt","CMS report record number"),el("dd",x.report_key)));
+                item.append(grid);section.append(item)
+            }
+        }
+        section.append(el("p","Matched report subset only. Monetary values, asset purchases and current certified beds are not inferred from these reports.","intro"),evidence);
+    }catch(e){
+        if(epoch!==sequence||signal.aborted||e.name==="AbortError")return null;
+        section.dataset.evidence="unavailable";section.append(el("div","Qualified historical capacity evidence unavailable. No values inferred; source version or validation may require requalification.","error"),evidence);
+    }
+    return section
+}
 async function profileService(r,s,f,signal,epoch){
     const unit=capacityUnits[s.key];
     const section=el("section");
@@ -659,6 +710,7 @@ async function profileService(r,s,f,signal,epoch){
         section.append(d,el("p","Capacity describes the reported source field. It does not establish occupancy, current operations, installed equipment or purchase demand.","intro"),
             add(el("p"),anchor("Explore reported capacity in this jurisdiction",route("capacity",{source:s.key,state:value(r,f,"state")}))));
     }else section.append(el("div","No qualified, comparable numeric capacity unit is published for this provider category. Any original reported capacity text in Summary is not interpreted as a standardized measurement.","notice"));
+    if(historicalCapacityPins[s.key]){const historical=await historicalCapacityProfile(r,s,signal,epoch);if(!historical||epoch!==sequence)return null;section.append(historical)}
     if(s.key==="dialysis"){const evidence=await dialysisProfile(r,signal,epoch);if(!evidence||epoch!==sequence)return null;section.append(evidence)}
     else if(s.key==="home-health"){const evidence=await hhaProfile(r,signal,epoch);if(!evidence||epoch!==sequence)return null;section.append(evidence)}
     else section.append(el("h2","Other service capabilities"),el("div","Individual QIES and iQIES service observations are not published for this source record. National aggregate evidence is available separately; it is not evidence of a particular service at this facility.","notice"),add(el("p"),anchor("National service evidence",route("services"))));
@@ -985,6 +1037,7 @@ function profileSources(s,r,f){
         el("p","Scroll horizontally to see all evidence columns.","profile-scroll-hint"),profileEvidenceTable(["Evidence area","Public availability","Research link"],[
             ["Provider identity","Published source record",sourceLink(s)],
             ["Comparable capacity",capacityUnits[s.key]?(publicCapacity(r)===null?"Unknown":"Source-reported "+capacityUnits[s.key].label.toLowerCase()):"No qualified unit",capacityUnits[s.key]?anchor("Capacity explorer",route("capacity",{source:s.key,state:value(r,f,"state")})):"—"],
+            ...(historicalCapacityPins[s.key]?[["Historical cost-report capacity","FY2024 selected CMS report subset; check exact record",historicalCapacityLink(s,r,read().p)]]:[]),
             ["Nursing citation aggregates",s.key==="nursing"?"Same-CCN/state candidate lookup":"No facility-linked public evidence",s.key==="nursing"?anchor("Compliance section",route("detail",{source:s.key,id:value(r,f,"id"),state:value(r,f,"state"),return:localResearchReturn(read().p.return),section:"compliance"})):anchor("National compliance research",route("compliance-research"))],
             ["Certification registry evidence","Individual relationships not published",anchor("Certification registry coverage",route("certifications"))],
             ["Clinical service capability",s.key==="dialysis"?"Selected iQIES observations; check record-specific evidence":s.key==="home-health"?"Six same-source Care Compare service indicators":"Individual observations not published",["dialysis","home-health"].includes(s.key)?anchor("Services & capacity section",route("detail",{source:s.key,id:r.ccn,state:r.state,section:"services",return:localResearchReturn(read().p.return)})):anchor("National service evidence",route("services"))],
@@ -1025,6 +1078,7 @@ async function detail(p,signal,epoch){
                     const unit=capacityUnits[s.key],v=publicCapacity(r);
                     evidence.append(add(el("div",undefined,"dossier-capacity"),el("strong",v===null?"Not reported / nonnumeric":N.format(v)+" "+unit.label.toLowerCase()),el("span",v===null?"Unknown capacity":v===0?"Explicit reported zero":"Source-reported capacity"),anchor("Explore comparable records",route("capacity",{source:s.key,state:r.state}))));
                 }
+                if(historicalCapacityPins[s.key])evidence.append(add(el("p"),historicalCapacityLink(s,r,p)));
                 app.append(evidence);
                 if(s.key==="nursing"){const c=await profileCompliance(r,s,f,signal,epoch);if(!c||epoch!==sequence)return;evidence.append(c)}
                 else if(s.key==="dialysis"){const c=await dialysisProfile(r,signal,epoch);if(!c||epoch!==sequence)return;evidence.append(c)}
@@ -1034,7 +1088,7 @@ async function detail(p,signal,epoch){
                 const base={source:s.key,id:r.ccn,state:r.state,return:localResearchReturn(p.return)};
                 app.append(profileResearchActions(s,r,f),add(el("div",undefined,"links"),anchor("Investigate reported address and peers",route("detail",{...base,section:"location"})),anchor("View sources and coverage",route("detail",{...base,section:"sources"}))));
                 const related=el("details",undefined,"dossier-coverage");
-                related.append(el("summary","National research and evidence limitations"),el("p","Individual-level equipment, environmental, property, financial and ownership relationships are not inferred or published here. National coverage links do not establish relationships for this facility.","intro"),add(el("div",undefined,"links"),anchor("Certification registry coverage",route("certifications")),anchor("Hospital survey coverage",route("hospital-surveys")),anchor("Ownership evidence coverage",route("ownership")),anchor("National service evidence",route("services")),anchor("National equipment and environmental research",route("equipment-environment")),anchor("Financial report research",route("financial-research"))));app.append(related);
+                related.append(el("summary","National research and evidence limitations"),el("p","Monetary financial measures and individual-level equipment, environmental, property and ownership relationships are not inferred or published here. National coverage links do not establish relationships for this facility.","intro"),add(el("div",undefined,"links"),anchor("Certification registry coverage",route("certifications")),anchor("Hospital survey coverage",route("hospital-surveys")),anchor("Ownership evidence coverage",route("ownership")),anchor("National service evidence",route("services")),anchor("National equipment and environmental research",route("equipment-environment")),anchor("Financial report research",route("financial-research"))));app.append(related);
             }else if(section==="services"){const services=await profileService(r,s,f,signal,epoch);if(!services||epoch!==sequence)return;app.append(services)}
             else if(section==="compliance"){const c=await profileCompliance(r,s,f,signal,epoch);if(!c||epoch!==sequence)return;app.append(c)}
             else if(section==="location"){const waiting=el("div","Loading source-scoped location evidence…","notice");app.append(waiting);const c=await profileLocation(r,s,signal,epoch,p);if(!c||epoch!==sequence)return;waiting.replaceWith(c)}
