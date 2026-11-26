@@ -1,4 +1,4 @@
-import copy,sqlite3,tempfile,unittest
+import copy,hashlib,sqlite3,tempfile,unittest
 from pathlib import Path
 import facilitysignal as fs
 from scripts import qualify_blob_release_preview as m
@@ -58,3 +58,34 @@ class BlobReleasePreviewTests(unittest.TestCase):
             self.assertIn("nursing_citation_name_join",m.dependency_review({"nursing"}))
     def test_changed_ltch_drops_stale_enrichment(self):
         self.assertIn("long_term_hospital_capacity_enrichment",m.dependency_review({"long-term-hospital"}))
+
+    def test_candidate_receipt_and_exact_payload_readback(self):
+        class MemoryStore:
+            def __init__(self,files):self.files=files
+            def head(self,name):
+                return {"bytes":len(self.files[name]),"etag":hashlib.sha256(self.files[name]).hexdigest()}
+            def chunks(self,name,etag):
+                if self.head(name)["etag"]!=etag:raise ValueError("ETag drift")
+                yield self.files[name]
+            def list(self,prefix):
+                for name in sorted(self.files):
+                    if name.startswith(prefix+"/"):yield {"name":name,**self.head(name),"folder":False}
+        key="hospital";ident="b"*64;prefix=m.weekly.PREFIX+"/care-compare/"+key+"/"+ident
+        db_bytes=b"synthetic candidate database bytes";digest=hashlib.sha256(db_bytes).hexdigest()
+        result={"candidate_database_bytes":len(db_bytes),"candidate_database_sha256":digest}
+        audit=m.archive.encode(result)
+        rec={"status":"COMPLETE","domain":"FACILITYSIGNAL_WEEKLY_CANDIDATE","policy_version":m.weekly.POLICY_VERSION,"key":key,"identity":ident,"public_promotion":False,"base_release":"bootstrap-1-1","base_receipt_sha256":"c"*64,"result":result,"files":[m.archive.bytes_record("audit.json",audit),m.archive.bytes_record("candidate.sqlite3",db_bytes)]}
+        files={prefix+"/complete.json":m.archive.encode(rec),prefix+"/audit.json":audit,prefix+"/candidate.sqlite3":db_bytes}
+        national={"pointer":{"release":"bootstrap-1-1"},"receipt_sha256":"c"*64};item={"identity":ident,"result":result}
+        with tempfile.TemporaryDirectory() as d:
+            p=m.read_candidate(MemoryStore(files),national,key,item,Path(d))
+            self.assertEqual(p.read_bytes(),db_bytes)
+        with tempfile.TemporaryDirectory() as d:
+            tampered={**files,prefix+"/candidate.sqlite3":b"X"+db_bytes[1:]}
+            with self.assertRaises(ValueError):m.read_candidate(MemoryStore(tampered),national,key,item,Path(d))
+        with tempfile.TemporaryDirectory() as d:
+            tampered={**files,prefix+"/unexpected.json":b"{}"}
+            with self.assertRaises(ValueError):m.read_candidate(MemoryStore(tampered),national,key,item,Path(d))
+        with tempfile.TemporaryDirectory() as d:
+            wrong_base={**national,"receipt_sha256":"d"*64}
+            with self.assertRaises(ValueError):m.read_candidate(MemoryStore(files),wrong_base,key,item,Path(d))
