@@ -47,7 +47,13 @@ try:
             assert page.locator("tbody tr").count()==min(25,len(expected))
             assert all(100<=int(x.split()[0].replace(",",""))<=199 for x in page.locator("tbody tr td:nth-child(4)").all_inner_texts())
             assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+            page.evaluate("window.scrollTo(0,0)")
             page.screenshot(path=str(OUT/f"{width}-advanced.png"),full_page=False)
+            page.locator(".advanced-form").screenshot(path=str(OUT/f"{width}-advanced-filters.png"))
+            page.locator(".advanced-results").screenshot(path=str(OUT/f"{width}-advanced-results.png"))
+            if width==1440:
+                assert page.locator("select[name=field]").evaluate("(e)=>e.getBoundingClientRect().width>=220")
+                assert page.locator("input[name=max]").evaluate("(e)=>e.getBoundingClientRect().width<400")
             if width==390:
                 assert page.locator(".advanced-results").evaluate("(e)=>e.scrollWidth>e.clientWidth")
             with page.expect_download() as info:page.get_by_role("button",name="Export current page (CSV)").click()

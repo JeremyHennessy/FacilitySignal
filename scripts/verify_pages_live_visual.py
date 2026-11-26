@@ -94,6 +94,9 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="advanced":
+                    page.locator(".advanced-form").screenshot(path=str(OUT/f"{width}-advanced-filters.png"))
+                    page.locator(".advanced-results").screenshot(path=str(OUT/f"{width}-advanced-results.png"))
                 if name=="market":
                     assert page.locator(".market-region").count()==56
                     actual={x.get_attribute("data-state"):int(x.get_attribute("data-count")) for x in page.locator(".market-region").all()}
