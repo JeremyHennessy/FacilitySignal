@@ -1,0 +1,58 @@
+name: Private Azure verified national extension migration
+on:
+  push:
+    branches: [main, build/azure-verified-extension-20261126]
+    paths:
+      - .github/workflows/azure-verified-extension.yml
+      - scripts/azure_verified_extension.py
+      - tests/test_azure_verified_extension.py
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-private-azure-extension
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - run: python -m py_compile scripts/azure_verified_extension.py
+  migrate:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    environment: azure-production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Restore verified private base and create extension release
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.azure_verified_extension --receipt "$RUNNER_TEMP/azure-extension-receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: facilitysignal-azure-extension-receipt
+          path: ${{ runner.temp }}/azure-extension-receipt.json
+          retention-days: 30
+          if-no-files-found: error
