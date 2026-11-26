@@ -3989,22 +3989,23 @@
   },
   "latest_consolidated_private_checkpoint": {
     "scope": "Pinned publisher observations, supplementary numeric children, derived candidates and aggregate-only screened rows; not unique facilities",
-    "evidence_commit": "7081a26977d12f63f91dc117155aee7493792e6e",
+    "evidence_commit": "de99c9831c771d19d8fa79f0821c6f42ca8de0a2",
     "ledger": "research/azure_archive_inventory_20261126.json",
     "totals": {
       "publisher_releases": 55,
-      "source_observations": 19264558,
-      "supplemental_numeric_archives": 5,
-      "supplemental_numeric_observations": 9033630,
+      "source_observations": 39683035,
+      "supplemental_numeric_archives": 12,
+      "supplemental_numeric_observations": 29452107,
       "derived_candidate_observations": 23520,
       "aggregate_evidence_releases": 3,
       "aggregate_source_rows_screened": 10589813,
-      "payload_files": 124,
-      "payload_bytes": 2721012758
+      "payload_files": 138,
+      "payload_bytes": 4437643765
     },
-    "prior_consolidated_audit_run": 45859570668,
+    "prior_consolidated_audit_run": 45861965477,
     "new_source_runs": [
-      45859977557
+      45861770583,
+      45861965422
     ],
     "public_promotion": false
   }

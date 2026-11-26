@@ -6,11 +6,11 @@ class ArchiveInventoryTests(unittest.TestCase):
     def test_counts_and_grain(self):
         t=audit.totals(self.ledger)
         self.assertEqual(t["publisher_releases"],55)
-        self.assertEqual(t["source_observations"],19264558)
+        self.assertEqual(t["source_observations"],39683035)
         self.assertEqual(t["derived_candidate_observations"],23520)
-        self.assertEqual(t["payload_files"],124)
-        self.assertEqual(t["supplemental_numeric_archives"],5)
-        self.assertEqual(t["supplemental_numeric_observations"],9033630)
+        self.assertEqual(t["payload_files"],138)
+        self.assertEqual(t["supplemental_numeric_archives"],12)
+        self.assertEqual(t["supplemental_numeric_observations"],29452107)
         self.assertEqual(t["aggregate_evidence_releases"],3)
         self.assertEqual(t["aggregate_source_rows_screened"],10589813)
     def test_reject_duplicate_release(self):
