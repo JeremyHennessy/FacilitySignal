@@ -1,0 +1,3028 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-26",
+  "field_count": 140,
+  "source_rows": 20121,
+  "qualification_run": 45833630704,
+  "qualification_job": 139956597727,
+  "qualified_commit": "f2bc19b535ad13aae32a31103a418ea001a8cbd1",
+  "sources": [
+    {
+      "columns": 38,
+      "cross_checks": {
+        "MORT_availability_vs_footnote": {
+          "not_available/footnote_present": 1353,
+          "positive/footnote_blank": 4009,
+          "positive/footnote_present": 73
+        },
+        "MORT_comparison_count_arithmetic": {
+          "equal": 4082,
+          "not_comparable": 1353
+        },
+        "MORT_facility_count_vs_group": {
+          "not_comparable": 1353,
+          "within_group": 4082
+        },
+        "MORT_group_size": {
+          "expected": 4555,
+          "unknown": 880
+        },
+        "Pt Exp_availability_vs_footnote": {
+          "not_available/footnote_present": 1983,
+          "positive/footnote_blank": 3391,
+          "positive/footnote_present": 61
+        },
+        "Pt Exp_facility_count_vs_group": {
+          "not_comparable": 1983,
+          "within_group": 3452
+        },
+        "Pt Exp_group_size": {
+          "expected": 4555,
+          "unknown": 880
+        },
+        "READM_availability_vs_footnote": {
+          "not_available/footnote_present": 1186,
+          "positive/footnote_blank": 4181,
+          "positive/footnote_present": 68
+        },
+        "READM_comparison_count_arithmetic": {
+          "equal": 4249,
+          "not_comparable": 1186
+        },
+        "READM_facility_count_vs_group": {
+          "not_comparable": 1186,
+          "within_group": 4249
+        },
+        "READM_group_size": {
+          "expected": 4555,
+          "unknown": 880
+        },
+        "Safety_availability_vs_footnote": {
+          "not_available/footnote_present": 2101,
+          "positive/footnote_blank": 3260,
+          "positive/footnote_present": 74
+        },
+        "Safety_comparison_count_arithmetic": {
+          "equal": 3334,
+          "not_comparable": 2101
+        },
+        "Safety_facility_count_vs_group": {
+          "not_comparable": 2101,
+          "within_group": 3334
+        },
+        "Safety_group_size": {
+          "expected": 4555,
+          "unknown": 880
+        },
+        "TE_availability_vs_footnote": {
+          "not_available/footnote_present": 955,
+          "positive/footnote_blank": 4392,
+          "positive/footnote_present": 88
+        },
+        "TE_facility_count_vs_group": {
+          "not_comparable": 955,
+          "within_group": 4480
+        },
+        "TE_group_size": {
+          "expected": 4555,
+          "unknown": 880
+        }
+      },
+      "distributions": {
+        "Address": {
+          "present": 5435
+        },
+        "City/Town": {
+          "present": 5435
+        },
+        "Count of Facility MORT Measures": {
+          "not_available": 1353,
+          "positive": 4082
+        },
+        "Count of Facility Pt Exp Measures": {
+          "not_available": 1983,
+          "positive": 3452
+        },
+        "Count of Facility READM Measures": {
+          "not_available": 1186,
+          "positive": 4249
+        },
+        "Count of Facility Safety Measures": {
+          "not_available": 2101,
+          "positive": 3334
+        },
+        "Count of Facility TE Measures": {
+          "not_available": 955,
+          "positive": 4480
+        },
+        "Count of MORT Measures Better": {
+          "not_available": 1353,
+          "positive": 590,
+          "zero": 3492
+        },
+        "Count of MORT Measures No Different": {
+          "not_available": 1353,
+          "positive": 4065,
+          "zero": 17
+        },
+        "Count of MORT Measures Worse": {
+          "not_available": 1353,
+          "positive": 479,
+          "zero": 3603
+        },
+        "Count of READM Measures Better": {
+          "not_available": 1186,
+          "positive": 1675,
+          "zero": 2574
+        },
+        "Count of READM Measures No Different": {
+          "not_available": 1186,
+          "positive": 4243,
+          "zero": 6
+        },
+        "Count of READM Measures Worse": {
+          "not_available": 1186,
+          "positive": 2064,
+          "zero": 2185
+        },
+        "Count of Safety Measures Better": {
+          "not_available": 2101,
+          "positive": 1849,
+          "zero": 1485
+        },
+        "Count of Safety Measures No Different": {
+          "not_available": 2101,
+          "positive": 3313,
+          "zero": 21
+        },
+        "Count of Safety Measures Worse": {
+          "not_available": 2101,
+          "positive": 350,
+          "zero": 2984
+        },
+        "County/Parish": {
+          "present": 5435
+        },
+        "Emergency Services": {
+          "No": 934,
+          "Yes": 4501
+        },
+        "Facility ID": {
+          "present": 5435
+        },
+        "Facility Name": {
+          "present": 5435
+        },
+        "Hospital Ownership": {
+          "Government - Federal": 43,
+          "Government - Hospital District or Authority": 512,
+          "Government - Local": 391,
+          "Government - State": 212,
+          "Physician": 80,
+          "Proprietary": 1064,
+          "Tribal": 17,
+          "Voluntary non-profit - Church": 261,
+          "Voluntary non-profit - Other": 350,
+          "Voluntary non-profit - Private": 2341,
+          "unrecognized": 164
+        },
+        "Hospital Type": {
+          "Acute Care - Veterans Administration": 132,
+          "Acute Care Hospitals": 3094,
+          "Childrens": 94,
+          "Critical Access Hospitals": 1386,
+          "Psychiatric": 632,
+          "unrecognized": 97
+        },
+        "Hospital overall rating": {
+          "not_available": 2269,
+          "rating_1": 198,
+          "rating_2": 659,
+          "rating_3": 981,
+          "rating_4": 944,
+          "rating_5": 384
+        },
+        "Hospital overall rating footnote": {
+          "blank": 3095,
+          "code_11": 1,
+          "code_16": 1327,
+          "code_16,23": 3,
+          "code_19": 809,
+          "code_22": 32,
+          "code_23": 11,
+          "code_29": 60,
+          "code_5": 97
+        },
+        "MORT Group Footnote": {
+          "blank": 4009,
+          "code_19": 809,
+          "code_22": 32,
+          "code_23": 7,
+          "code_29": 66,
+          "code_5": 512
+        },
+        "MORT Group Measure Count": {
+          "not_available": 880,
+          "positive": 4555
+        },
+        "Meets criteria for birthing friendly designation": {
+          "Y": 2242,
+          "blank": 3193
+        },
+        "Pt Exp Group Footnote": {
+          "blank": 3391,
+          "code_19": 809,
+          "code_22": 32,
+          "code_29": 58,
+          "code_5": 1145
+        },
+        "Pt Exp Group Measure Count": {
+          "not_available": 880,
+          "positive": 4555
+        },
+        "READM Group Footnote": {
+          "blank": 4181,
+          "code_19": 809,
+          "code_22": 32,
+          "code_23": 1,
+          "code_29": 67,
+          "code_5": 345
+        },
+        "READM Group Measure Count": {
+          "not_available": 880,
+          "positive": 4555
+        },
+        "Safety Group Footnote": {
+          "blank": 3260,
+          "code_11": 1,
+          "code_19": 809,
+          "code_22": 32,
+          "code_23": 13,
+          "code_29": 60,
+          "code_5": 1260
+        },
+        "Safety Group Measure Count": {
+          "not_available": 880,
+          "positive": 4555
+        },
+        "State": {
+          "present": 5435
+        },
+        "TE Group Footnote": {
+          "blank": 4392,
+          "code_16": 43,
+          "code_19": 809,
+          "code_22": 32,
+          "code_29": 68,
+          "code_5": 91
+        },
+        "TE Group Measure Count": {
+          "not_available": 880,
+          "positive": 4555
+        },
+        "Telephone Number": {
+          "present": 5435
+        },
+        "ZIP Code": {
+          "present": 5435
+        }
+      },
+      "documentation": {
+        "dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+        "revision_limit": "Extracted text states October 2026; hospital image footer April 2026 and nursing image footer June/May 2026. New nursing fields and footnote 29 have text/revision-table support, not agreement with rendered older pages.",
+        "visual_pages_reviewed": [
+          20,
+          21
+        ]
+      },
+      "hospital_rating_footnote_joint": {
+        "not_available": {
+          "code_11": 1,
+          "code_16": 1327,
+          "code_16,23": 3,
+          "code_19": 809,
+          "code_22": 32,
+          "code_5": 97
+        },
+        "rating_1": {
+          "blank": 195,
+          "code_29": 3
+        },
+        "rating_2": {
+          "blank": 649,
+          "code_23": 4,
+          "code_29": 6
+        },
+        "rating_3": {
+          "blank": 946,
+          "code_23": 5,
+          "code_29": 30
+        },
+        "rating_4": {
+          "blank": 925,
+          "code_23": 2,
+          "code_29": 17
+        },
+        "rating_5": {
+          "blank": 380,
+          "code_29": 4
+        }
+      },
+      "limitations": [
+        "Source snapshots, not live operations, verified physical sites, property risk, or purchase intent.",
+        "No new individual rows, addresses, contact values, exact coordinates or dates published.",
+        "Clinical ratings are distinct from physical infrastructure, current compliance and safety risk. Counts and staff-hours cannot be summed across overlapping components. Arithmetic checks are diagnostics, not proven errors.",
+        "Footnote codes are source scoped. Hospital numeric tokens remain literal; nursing known code domain includes text-only revision 29. Blank is not zero."
+      ],
+      "period": "2026-11-12",
+      "rows": 5435,
+      "source": "hospital",
+      "source_sha256": "ff2a82a7149975fb86348e7f901aa3bcd9f3701e8b0ecd0ab34702df193ff559",
+      "catalog": [
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "identity",
+          "field": "Facility ID",
+          "meaning": "Source identifier or reported institutional name, not a canonical property or legal owner.",
+          "ordinal": 1,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "identity",
+          "field": "Facility Name",
+          "meaning": "Source identifier or reported institutional name, not a canonical property or legal owner.",
+          "ordinal": 2,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "Address",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 3,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "City/Town",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 4,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "State",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 5,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "ZIP Code",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 6,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "County/Parish",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 7,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "restricted_contact",
+          "field": "Telephone Number",
+          "meaning": "Telephone presence only; no contact values published.",
+          "ordinal": 8,
+          "prior_profile_status": "contact_or_personal_presence_only",
+          "prior_value_states": {
+            "nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "presence"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_classification",
+          "field": "Hospital Type",
+          "meaning": "Reported hospital classification; not current operation or service inventory.",
+          "ordinal": 9,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "enum"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_classification",
+          "field": "Hospital Ownership",
+          "meaning": "Reported ownership category, not legal property title.",
+          "ordinal": 10,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "enum"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_classification",
+          "field": "Emergency Services",
+          "meaning": "Reported emergency service availability, not real-time operation.",
+          "ordinal": 11,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 5435
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "enum"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_classification",
+          "field": "Meets criteria for birthing friendly designation",
+          "meaning": "Reported CMS designation indicator, not a count of obstetric units.",
+          "ordinal": 12,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 3193,
+            "other_nonblank": 2242
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "enum"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_rating",
+          "field": "Hospital overall rating",
+          "meaning": "CMS composite/domain quality rating on a 1–5 scale; not a property-risk or current-compliance score.",
+          "ordinal": 13,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 2269,
+            "other_nonblank": 3166
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Hospital overall rating footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 14,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 3095,
+            "other_nonblank": 2340
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "MORT Group Measure Count",
+          "meaning": "Number of measures in named overall-star quality group; not count of facilities or violations.",
+          "ordinal": 15,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 880,
+            "other_nonblank": 4555
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of Facility MORT Measures",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 16,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 1353,
+            "other_nonblank": 4082
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of MORT Measures Better",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 17,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 1353,
+            "other_nonblank": 4082
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of MORT Measures No Different",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 18,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 1353,
+            "other_nonblank": 4082
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of MORT Measures Worse",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 19,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 1353,
+            "other_nonblank": 4082
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "MORT Group Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 20,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 4009,
+            "other_nonblank": 1426
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Safety Group Measure Count",
+          "meaning": "Number of measures in named overall-star quality group; not count of facilities or violations.",
+          "ordinal": 21,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 880,
+            "other_nonblank": 4555
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of Facility Safety Measures",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 22,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 2101,
+            "other_nonblank": 3334
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of Safety Measures Better",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 23,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 2101,
+            "other_nonblank": 3334
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of Safety Measures No Different",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 24,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 2101,
+            "other_nonblank": 3334
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of Safety Measures Worse",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 25,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 2101,
+            "other_nonblank": 3334
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Safety Group Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 26,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 3260,
+            "other_nonblank": 2175
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "READM Group Measure Count",
+          "meaning": "Number of measures in named overall-star quality group; not count of facilities or violations.",
+          "ordinal": 27,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 880,
+            "other_nonblank": 4555
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of Facility READM Measures",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 28,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 1186,
+            "other_nonblank": 4249
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of READM Measures Better",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 29,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 1186,
+            "other_nonblank": 4249
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of READM Measures No Different",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 30,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 1186,
+            "other_nonblank": 4249
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of READM Measures Worse",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 31,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 1186,
+            "other_nonblank": 4249
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "READM Group Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 32,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 4181,
+            "other_nonblank": 1254
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Pt Exp Group Measure Count",
+          "meaning": "Number of measures in named overall-star quality group; not count of facilities or violations.",
+          "ordinal": 33,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 880,
+            "other_nonblank": 4555
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of Facility Pt Exp Measures",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 34,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 1983,
+            "other_nonblank": 3452
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Pt Exp Group Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 35,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 3391,
+            "other_nonblank": 2044
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "TE Group Measure Count",
+          "meaning": "Number of measures in named overall-star quality group; not count of facilities or violations.",
+          "ordinal": 36,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 880,
+            "other_nonblank": 4555
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_coverage",
+          "field": "Count of Facility TE Measures",
+          "meaning": "Reported count of applicable or comparison-classified measures in named clinical group; not patient or event count.",
+          "ordinal": 37,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "not_available": 955,
+            "other_nonblank": 4480
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "TE Group Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 38,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 4392,
+            "other_nonblank": 1043
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospital/HOSPITAL_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        }
+      ]
+    },
+    {
+      "columns": 102,
+      "cross_checks": {
+        "Adjusted_staffing_arithmetic": {
+          "equal": 9526,
+          "not_comparable": 389,
+          "within_display_precision": 4771
+        },
+        "Case-Mix_staffing_arithmetic": {
+          "equal": 9587,
+          "not_comparable": 367,
+          "within_display_precision": 4732
+        },
+        "Health Inspection Rating_vs_footnote": {
+          "blank/code_1": 39,
+          "blank/code_18": 87,
+          "rating_1/blank": 2724,
+          "rating_2/blank": 3643,
+          "rating_3/blank": 3226,
+          "rating_4/blank": 3382,
+          "rating_5/blank": 1585
+        },
+        "Long-Stay QM Rating_vs_footnote": {
+          "blank/code_1": 39,
+          "blank/code_18": 87,
+          "blank/code_2": 400,
+          "blank/code_20": 18,
+          "rating_1/blank": 792,
+          "rating_1/code_20": 65,
+          "rating_2/blank": 1682,
+          "rating_3/blank": 1991,
+          "rating_4/blank": 3352,
+          "rating_5/blank": 6260
+        },
+        "Overall Rating_vs_footnote": {
+          "blank/code_1": 39,
+          "blank/code_18": 87,
+          "rating_1/blank": 2753,
+          "rating_2/blank": 2947,
+          "rating_3/blank": 2878,
+          "rating_4/blank": 2828,
+          "rating_5/blank": 3154
+        },
+        "QM Rating_vs_footnote": {
+          "blank/code_1": 39,
+          "blank/code_18": 87,
+          "blank/code_2": 54,
+          "blank/code_20": 18,
+          "rating_1/blank": 767,
+          "rating_1/code_20": 65,
+          "rating_2/blank": 1909,
+          "rating_3/blank": 2878,
+          "rating_4/blank": 4003,
+          "rating_5/blank": 4866
+        },
+        "Reported_staffing_arithmetic": {
+          "equal": 9534,
+          "not_comparable": 367,
+          "within_display_precision": 4785
+        },
+        "Short-Stay QM Rating_vs_footnote": {
+          "blank/code_1": 39,
+          "blank/code_18": 87,
+          "blank/code_2": 2733,
+          "blank/code_20": 65,
+          "rating_1/blank": 1603,
+          "rating_2/blank": 1709,
+          "rating_3/blank": 2548,
+          "rating_4/blank": 2693,
+          "rating_5/blank": 3209
+        },
+        "Staffing Rating_vs_footnote": {
+          "blank/code_1": 39,
+          "blank/code_18": 87,
+          "blank/code_2": 77,
+          "rating_1/blank": 1881,
+          "rating_1/code_23": 119,
+          "rating_1/code_24": 274,
+          "rating_1/code_25": 136,
+          "rating_2/blank": 3107,
+          "rating_3/blank": 3544,
+          "rating_4/blank": 3468,
+          "rating_5/blank": 1954
+        },
+        "coordinate_pair_vs_geocoding_footnote": {
+          "in_range/in_range/blank": 13878,
+          "in_range/in_range/code_22": 808
+        },
+        "cycle_1_score_arithmetic": {
+          "equal": 14647,
+          "not_comparable": 39
+        },
+        "cycle_2/3_score_arithmetic": {
+          "equal": 14647,
+          "not_comparable": 39
+        },
+        "overall_rating_vs_special_focus": {
+          "blank/SFF": 87,
+          "blank/blank": 39,
+          "rating_1/SFF Candidate": 359,
+          "rating_1/blank": 2394,
+          "rating_2/SFF Candidate": 80,
+          "rating_2/blank": 2867,
+          "rating_3/SFF Candidate": 1,
+          "rating_3/blank": 2877,
+          "rating_4/blank": 2828,
+          "rating_5/blank": 3154
+        },
+        "penalty_component_arithmetic": {
+          "equal": 14686
+        },
+        "reported_licensed_staffing_arithmetic": {
+          "equal": 10792,
+          "not_comparable": 367,
+          "within_display_precision": 3527
+        },
+        "resident_census_vs_certified_beds": {
+          "equal": 8,
+          "first_above_second": 122,
+          "first_below_second": 14490,
+          "not_comparable": 66
+        },
+        "survey_cycle_date_order": {
+          "cycle1_on_or_after_cycle2": 14647,
+          "not_comparable": 39
+        },
+        "survey_recency_vs_reported_flag": {
+          "survey_before_two_year_boundary/Y": 955,
+          "survey_on_or_after_boundary/N": 13731
+        }
+      },
+      "distributions": {
+        "Abuse Icon": {
+          "N": 13285,
+          "Y": 1401
+        },
+        "Adjusted LPN Staffing Hours per Resident per Day": {
+          "blank": 389,
+          "positive": 14252,
+          "zero": 45
+        },
+        "Adjusted Nurse Aide Staffing Hours per Resident per Day": {
+          "blank": 389,
+          "positive": 14282,
+          "zero": 15
+        },
+        "Adjusted RN Staffing Hours per Resident per Day": {
+          "blank": 389,
+          "positive": 14295,
+          "zero": 2
+        },
+        "Adjusted Total Nurse Staffing Hours per Resident per Day": {
+          "blank": 389,
+          "positive": 14297
+        },
+        "Adjusted Weekend Total Nurse Staffing Hours per Resident per Day": {
+          "blank": 389,
+          "positive": 14297
+        },
+        "Administrator turnover footnote": {
+          "blank": 13033,
+          "code_26": 1379,
+          "code_27": 274
+        },
+        "Automatic Sprinkler Systems in All Required Areas": {
+          "Data Not Available": 51,
+          "Partial": 36,
+          "Yes": 14599
+        },
+        "Average Number of Residents per Day": {
+          "blank": 58,
+          "positive": 14628
+        },
+        "Average Number of Residents per Day Footnote": {
+          "blank": 14628,
+          "code_10": 58
+        },
+        "CMS Certification Number (CCN)": {
+          "present": 14686
+        },
+        "Case-Mix LPN Staffing Hours per Resident per Day": {
+          "blank": 367,
+          "positive": 14319
+        },
+        "Case-Mix Nurse Aide Staffing Hours per Resident per Day": {
+          "blank": 367,
+          "positive": 14319
+        },
+        "Case-Mix RN Staffing Hours per Resident per Day": {
+          "blank": 367,
+          "positive": 14319
+        },
+        "Case-Mix Total Nurse Staffing Hours per Resident per Day": {
+          "blank": 367,
+          "positive": 14319
+        },
+        "Case-Mix Weekend Total Nurse Staffing Hours per Resident per Day": {
+          "blank": 367,
+          "positive": 14319
+        },
+        "Chain Average Health Inspection Rating": {
+          "blank": 4459,
+          "positive": 10227
+        },
+        "Chain Average Overall 5-star Rating": {
+          "blank": 4459,
+          "positive": 10227
+        },
+        "Chain Average QM Rating": {
+          "blank": 4459,
+          "positive": 10227
+        },
+        "Chain Average Staffing Rating": {
+          "blank": 4459,
+          "positive": 10227
+        },
+        "Chain ID": {
+          "blank": 4459,
+          "present": 10227
+        },
+        "Chain Name": {
+          "blank": 4459,
+          "present": 10227
+        },
+        "City/Town": {
+          "present": 14686
+        },
+        "Continuing Care Retirement Community": {
+          "N": 13138,
+          "Y": 1548
+        },
+        "County/Parish": {
+          "present": 14686
+        },
+        "Date First Approved to Provide Medicare and Medicaid Services": {
+          "iso": 14686
+        },
+        "Geocoding Footnote": {
+          "blank": 13878,
+          "code_22": 808
+        },
+        "Health Inspection Rating": {
+          "blank": 126,
+          "rating_1": 2724,
+          "rating_2": 3643,
+          "rating_3": 3226,
+          "rating_4": 3382,
+          "rating_5": 1585
+        },
+        "Health Inspection Rating Footnote": {
+          "blank": 14560,
+          "code_1": 39,
+          "code_18": 87
+        },
+        "High Performing Icon": {
+          "N": 12974,
+          "Y": 1712
+        },
+        "Latitude": {
+          "in_range": 14686
+        },
+        "Legal Business Name": {
+          "present": 14686
+        },
+        "Location": {
+          "present": 14686
+        },
+        "Long-Stay QM Rating": {
+          "blank": 544,
+          "rating_1": 857,
+          "rating_2": 1682,
+          "rating_3": 1991,
+          "rating_4": 3352,
+          "rating_5": 6260
+        },
+        "Long-Stay QM Rating Footnote": {
+          "blank": 14077,
+          "code_1": 39,
+          "code_18": 87,
+          "code_2": 400,
+          "code_20": 83
+        },
+        "Longitude": {
+          "in_range": 14686
+        },
+        "Most Recent Health Inspection More Than 2 Years Ago": {
+          "N": 13731,
+          "Y": 955
+        },
+        "Number of Certified Beds": {
+          "blank": 11,
+          "positive": 14675
+        },
+        "Number of Citations from Infection Control Inspections": {
+          "blank": 13685,
+          "positive": 288,
+          "zero": 713
+        },
+        "Number of Facilities in Chain": {
+          "blank": 4459,
+          "positive": 10227
+        },
+        "Number of Fines": {
+          "positive": 6468,
+          "zero": 8218
+        },
+        "Number of Payment Denials": {
+          "positive": 1848,
+          "zero": 12838
+        },
+        "Number of administrators who have left the nursing home": {
+          "blank": 1653,
+          "positive": 4842,
+          "zero": 8191
+        },
+        "Nursing Case-Mix Index": {
+          "blank": 367,
+          "positive": 14319
+        },
+        "Nursing Case-Mix Index Ratio": {
+          "blank": 367,
+          "positive": 14319
+        },
+        "Overall Rating": {
+          "blank": 126,
+          "rating_1": 2753,
+          "rating_2": 2947,
+          "rating_3": 2878,
+          "rating_4": 2828,
+          "rating_5": 3154
+        },
+        "Overall Rating Footnote": {
+          "blank": 14560,
+          "code_1": 39,
+          "code_18": 87
+        },
+        "Ownership Type": {
+          "present": 14686
+        },
+        "Physical Therapist Staffing Footnote": {
+          "blank": 14318,
+          "code_23": 122,
+          "code_6": 246
+        },
+        "Processing Date": {
+          "iso": 14686
+        },
+        "Provider Address": {
+          "present": 14686
+        },
+        "Provider Changed Ownership in Last 12 Months": {
+          "N": 14626,
+          "Y": 60
+        },
+        "Provider Name": {
+          "present": 14686
+        },
+        "Provider Resides in Hospital": {
+          "N": 14078,
+          "Y": 608
+        },
+        "Provider SSA County Code": {
+          "present": 14686
+        },
+        "Provider Type": {
+          "present": 14686
+        },
+        "QM Rating": {
+          "blank": 198,
+          "rating_1": 832,
+          "rating_2": 1909,
+          "rating_3": 2878,
+          "rating_4": 4003,
+          "rating_5": 4866
+        },
+        "QM Rating Footnote": {
+          "blank": 14423,
+          "code_1": 39,
+          "code_18": 87,
+          "code_2": 54,
+          "code_20": 83
+        },
+        "Rating Cycle 1 Health Deficiency Score": {
+          "blank": 39,
+          "positive": 13875,
+          "zero": 772
+        },
+        "Rating Cycle 1 Health Revisit Score": {
+          "blank": 39,
+          "positive": 460,
+          "zero": 14187
+        },
+        "Rating Cycle 1 Number of Complaint Health Deficiencies": {
+          "blank": 39,
+          "positive": 8897,
+          "zero": 5750
+        },
+        "Rating Cycle 1 Number of Health Revisits": {
+          "blank": 39,
+          "positive": 13402,
+          "zero": 1245
+        },
+        "Rating Cycle 1 Number of Standard Health Deficiencies": {
+          "blank": 39,
+          "positive": 13734,
+          "zero": 913
+        },
+        "Rating Cycle 1 Standard Survey Footnote": {
+          "blank": 14557,
+          "code_29": 129
+        },
+        "Rating Cycle 1 Standard Survey Health Date": {
+          "iso": 14686
+        },
+        "Rating Cycle 1 Total Health Score": {
+          "blank": 39,
+          "positive": 13875,
+          "zero": 772
+        },
+        "Rating Cycle 1 Total Number of Health Deficiencies": {
+          "blank": 39,
+          "positive": 13906,
+          "zero": 741
+        },
+        "Rating Cycle 2 Number of Standard Health Deficiencies": {
+          "blank": 39,
+          "positive": 13818,
+          "zero": 829
+        },
+        "Rating Cycle 2 Standard Health Survey Date": {
+          "blank": 39,
+          "iso": 14647
+        },
+        "Rating Cycle 2 Standard Survey Footnote": {
+          "blank": 14682,
+          "code_29": 4
+        },
+        "Rating Cycle 2/3 Health Deficiency Score": {
+          "blank": 39,
+          "positive": 14154,
+          "zero": 493
+        },
+        "Rating Cycle 2/3 Health Revisit Score": {
+          "blank": 39,
+          "positive": 532,
+          "zero": 14115
+        },
+        "Rating Cycle 2/3 Number of Complaint Health Deficiencies": {
+          "blank": 39,
+          "positive": 11044,
+          "zero": 3603
+        },
+        "Rating Cycle 2/3 Number of Health Revisits": {
+          "blank": 39,
+          "positive": 13746,
+          "zero": 901
+        },
+        "Rating Cycle 2/3 Total Health Score": {
+          "blank": 39,
+          "positive": 14154,
+          "zero": 493
+        },
+        "Rating Cycle 2/3 Total Number of Health Deficiencies": {
+          "blank": 39,
+          "positive": 14175,
+          "zero": 472
+        },
+        "Registered Nurse hours per resident per day on the weekend": {
+          "blank": 367,
+          "positive": 14310,
+          "zero": 9
+        },
+        "Registered Nurse turnover": {
+          "blank": 1876,
+          "positive": 12523,
+          "zero": 287
+        },
+        "Registered Nurse turnover footnote": {
+          "blank": 12810,
+          "code_26": 879,
+          "code_27": 997
+        },
+        "Reported LPN Staffing Hours per Resident per Day": {
+          "blank": 367,
+          "positive": 14274,
+          "zero": 45
+        },
+        "Reported Licensed Staffing Hours per Resident per Day": {
+          "blank": 367,
+          "positive": 14319
+        },
+        "Reported Nurse Aide Staffing Hours per Resident per Day": {
+          "blank": 367,
+          "positive": 14304,
+          "zero": 15
+        },
+        "Reported Physical Therapist Staffing Hours per Resident Per Day": {
+          "blank": 368,
+          "positive": 13502,
+          "zero": 816
+        },
+        "Reported RN Staffing Hours per Resident per Day": {
+          "blank": 367,
+          "positive": 14317,
+          "zero": 2
+        },
+        "Reported Staffing Footnote": {
+          "blank": 14319,
+          "code_23": 122,
+          "code_25": 160,
+          "code_6": 85
+        },
+        "Reported Total Nurse Staffing Hours per Resident per Day": {
+          "blank": 367,
+          "positive": 14319
+        },
+        "Short-Stay QM Rating": {
+          "blank": 2924,
+          "rating_1": 1603,
+          "rating_2": 1709,
+          "rating_3": 2548,
+          "rating_4": 2693,
+          "rating_5": 3209
+        },
+        "Short-Stay QM Rating Footnote": {
+          "blank": 11762,
+          "code_1": 39,
+          "code_18": 87,
+          "code_2": 2733,
+          "code_20": 65
+        },
+        "Special Focus Status": {
+          "SFF": 87,
+          "SFF Candidate": 440,
+          "blank": 14159
+        },
+        "Staffing Rating": {
+          "blank": 203,
+          "rating_1": 2410,
+          "rating_2": 3107,
+          "rating_3": 3544,
+          "rating_4": 3468,
+          "rating_5": 1954
+        },
+        "Staffing Rating Footnote": {
+          "blank": 13954,
+          "code_1": 39,
+          "code_18": 87,
+          "code_2": 77,
+          "code_23": 119,
+          "code_24": 274,
+          "code_25": 136
+        },
+        "State": {
+          "present": 14686
+        },
+        "Telephone Number": {
+          "present": 14686
+        },
+        "Total Amount of Fines in Dollars": {
+          "positive": 6468,
+          "zero": 8218
+        },
+        "Total Number of Penalties": {
+          "positive": 6725,
+          "zero": 7961
+        },
+        "Total Weighted Health Survey Score": {
+          "blank": 39,
+          "positive": 14530,
+          "zero": 117
+        },
+        "Total number of nurse staff hours per resident per day on the weekend": {
+          "blank": 367,
+          "positive": 14319
+        },
+        "Total nursing staff turnover": {
+          "blank": 1099,
+          "positive": 13586,
+          "zero": 1
+        },
+        "Total nursing staff turnover footnote": {
+          "blank": 13587,
+          "code_26": 892,
+          "code_27": 207
+        },
+        "Urban": {
+          "N": 4005,
+          "Y": 10681
+        },
+        "With a Resident and Family Council": {
+          "Both": 1786,
+          "None": 759,
+          "Resident": 12141
+        },
+        "ZIP Code": {
+          "present": 14686
+        }
+      },
+      "documentation": {
+        "dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+        "revision_limit": "Extracted text states October 2026; hospital image footer April 2026 and nursing image footer June/May 2026. New nursing fields and footnote 29 have text/revision-table support, not agreement with rendered older pages.",
+        "visual_pages_reviewed": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          25
+        ]
+      },
+      "hospital_rating_footnote_joint": {},
+      "limitations": [
+        "Source snapshots, not live operations, verified physical sites, property risk, or purchase intent.",
+        "No new individual rows, addresses, contact values, exact coordinates or dates published.",
+        "Clinical ratings are distinct from physical infrastructure, current compliance and safety risk. Counts and staff-hours cannot be summed across overlapping components. Arithmetic checks are diagnostics, not proven errors.",
+        "Footnote codes are source scoped. Hospital numeric tokens remain literal; nursing known code domain includes text-only revision 29. Blank is not zero."
+      ],
+      "period": "2026-10-28",
+      "rows": 14686,
+      "source": "nursing",
+      "source_sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2",
+      "catalog": [
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "identity",
+          "field": "CMS Certification Number (CCN)",
+          "meaning": "Source identifier or reported institutional name, not a canonical property or legal owner.",
+          "ordinal": 1,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "identity",
+          "field": "Provider Name",
+          "meaning": "Source identifier or reported institutional name, not a canonical property or legal owner.",
+          "ordinal": 2,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "Provider Address",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 3,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "City/Town",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 4,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "State",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 5,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "ZIP Code",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 6,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "restricted_contact",
+          "field": "Telephone Number",
+          "meaning": "Telephone presence only; no contact values published.",
+          "ordinal": 7,
+          "prior_profile_status": "contact_or_personal_presence_only",
+          "prior_value_states": {
+            "nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "presence"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "Provider SSA County Code",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 8,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "County/Parish",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 9,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_flag",
+          "field": "Urban",
+          "meaning": "Publisher urban/rural classification; not building density.",
+          "ordinal": 10,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "yn"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_classification",
+          "field": "Ownership Type",
+          "meaning": "Provider's reported operator or program classification; not title ownership.",
+          "ordinal": 11,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "capacity",
+          "field": "Number of Certified Beds",
+          "meaning": "Reported federally certified bed count, not current occupancy or licensed total beds.",
+          "ordinal": 12,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 11,
+            "other_nonblank": 14675
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "resident_census",
+          "field": "Average Number of Residents per Day",
+          "meaning": "Average daily resident census, not point-in-time occupancy; time bases may differ from beds.",
+          "ordinal": 13,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 58,
+            "other_nonblank": 14628
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Average Number of Residents per Day Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 14,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 14628,
+            "other_nonblank": 58
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_classification",
+          "field": "Provider Type",
+          "meaning": "Provider's reported operator or program classification; not title ownership.",
+          "ordinal": 15,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_flag",
+          "field": "Provider Resides in Hospital",
+          "meaning": "Reported nursing provider located in a hospital; not an exact hospital identity link.",
+          "ordinal": 16,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "yn"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "identity",
+          "field": "Legal Business Name",
+          "meaning": "Source identifier or reported institutional name, not a canonical property or legal owner.",
+          "ordinal": 17,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "program_or_release_date",
+          "field": "Date First Approved to Provide Medicare and Medicaid Services",
+          "meaning": "Reported program first-approval or file processing date, not proof of current operation.",
+          "ordinal": 18,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "date"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "affiliation",
+          "field": "Chain Name",
+          "meaning": "CMS reported affiliation grouping or membership count; not verified controlling entity.",
+          "ordinal": 19,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 4459,
+            "other_nonblank": 10227
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "affiliation",
+          "field": "Chain ID",
+          "meaning": "CMS reported affiliation grouping or membership count; not verified controlling entity.",
+          "ordinal": 20,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 4459,
+            "other_nonblank": 10227
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "affiliation",
+          "field": "Number of Facilities in Chain",
+          "meaning": "CMS reported affiliation grouping or membership count; not verified controlling entity.",
+          "ordinal": 21,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 4459,
+            "other_nonblank": 10227
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "chain_quality_context",
+          "field": "Chain Average Overall 5-star Rating",
+          "meaning": "Source-reported average rating across affiliated group; repeated values are not independent facility ratings.",
+          "ordinal": 22,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 4459,
+            "other_nonblank": 10227
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "chain_rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "chain_quality_context",
+          "field": "Chain Average Health Inspection Rating",
+          "meaning": "Source-reported average rating across affiliated group; repeated values are not independent facility ratings.",
+          "ordinal": 23,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 4459,
+            "other_nonblank": 10227
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "chain_rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "chain_quality_context",
+          "field": "Chain Average Staffing Rating",
+          "meaning": "Source-reported average rating across affiliated group; repeated values are not independent facility ratings.",
+          "ordinal": 24,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 4459,
+            "other_nonblank": 10227
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "chain_rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "chain_quality_context",
+          "field": "Chain Average QM Rating",
+          "meaning": "Source-reported average rating across affiliated group; repeated values are not independent facility ratings.",
+          "ordinal": 25,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 4459,
+            "other_nonblank": 10227
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "chain_rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_flag",
+          "field": "Continuing Care Retirement Community",
+          "meaning": "Reported continuing-care retirement community indicator; not verified ownership.",
+          "ordinal": 26,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "yn"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_classification",
+          "field": "Special Focus Status",
+          "meaning": "Publisher special focus program/candidate status; blank is no listed status in this source, not proof of compliance.",
+          "ordinal": 27,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 14159,
+            "other_nonblank": 527
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "enum"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_flag",
+          "field": "Abuse Icon",
+          "meaning": "Publisher threshold-based indicator of abuse/neglect citations in specified survey cycles; not proof of a current incident.",
+          "ordinal": 28,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "yn"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_flag",
+          "field": "High Performing Icon",
+          "meaning": "Newer publisher text describes an indicator for higher-performing nursing homes; image revision lacks this field.",
+          "ordinal": 29,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_text_only_revision_disagreement",
+          "value_kind": "yn"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_flag",
+          "field": "Most Recent Health Inspection More Than 2 Years Ago",
+          "meaning": "Publisher inspection-age flag at snapshot; not a present-day overdue determination.",
+          "ordinal": 30,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "yn"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_flag",
+          "field": "Provider Changed Ownership in Last 12 Months",
+          "meaning": "Publisher retrospective change indicator; not a property transfer or verified current owner.",
+          "ordinal": 31,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "yn"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_classification",
+          "field": "With a Resident and Family Council",
+          "meaning": "Reported resident and/or family council type.",
+          "ordinal": 32,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "enum"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "reported_classification",
+          "field": "Automatic Sprinkler Systems in All Required Areas",
+          "meaning": "Source-reported sprinkler coverage of required areas; not a fire inspection verdict.",
+          "ordinal": 33,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "enum"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_rating",
+          "field": "Overall Rating",
+          "meaning": "CMS composite/domain quality rating on a 1–5 scale; not a property-risk or current-compliance score.",
+          "ordinal": 34,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 126,
+            "other_nonblank": 14560
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Overall Rating Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 35,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 14560,
+            "other_nonblank": 126
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_rating",
+          "field": "Health Inspection Rating",
+          "meaning": "CMS composite/domain quality rating on a 1–5 scale; not a property-risk or current-compliance score.",
+          "ordinal": 36,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 126,
+            "other_nonblank": 14560
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Health Inspection Rating Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 37,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 14560,
+            "other_nonblank": 126
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_rating",
+          "field": "QM Rating",
+          "meaning": "CMS composite/domain quality rating on a 1–5 scale; not a property-risk or current-compliance score.",
+          "ordinal": 38,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 198,
+            "other_nonblank": 14488
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "QM Rating Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 39,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 14423,
+            "other_nonblank": 263
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_rating",
+          "field": "Long-Stay QM Rating",
+          "meaning": "CMS composite/domain quality rating on a 1–5 scale; not a property-risk or current-compliance score.",
+          "ordinal": 40,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 544,
+            "other_nonblank": 14142
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Long-Stay QM Rating Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 41,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 14077,
+            "other_nonblank": 609
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_rating",
+          "field": "Short-Stay QM Rating",
+          "meaning": "CMS composite/domain quality rating on a 1–5 scale; not a property-risk or current-compliance score.",
+          "ordinal": 42,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 2924,
+            "other_nonblank": 11762
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Short-Stay QM Rating Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 43,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 11762,
+            "other_nonblank": 2924
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "clinical_quality_rating",
+          "field": "Staffing Rating",
+          "meaning": "CMS composite/domain quality rating on a 1–5 scale; not a property-risk or current-compliance score.",
+          "ordinal": 44,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 203,
+            "other_nonblank": 14483
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "rating"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Staffing Rating Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 45,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 13954,
+            "other_nonblank": 732
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Reported Staffing Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 46,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 14319,
+            "other_nonblank": 367
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Physical Therapist Staffing Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 47,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 14318,
+            "other_nonblank": 368
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Reported Nurse Aide Staffing Hours per Resident per Day",
+          "meaning": "Reported staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 48,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Reported LPN Staffing Hours per Resident per Day",
+          "meaning": "Reported staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 49,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Reported RN Staffing Hours per Resident per Day",
+          "meaning": "Reported staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 50,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Reported Licensed Staffing Hours per Resident per Day",
+          "meaning": "Reported staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 51,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Reported Total Nurse Staffing Hours per Resident per Day",
+          "meaning": "Reported staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 52,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Total number of nurse staff hours per resident per day on the weekend",
+          "meaning": "Reported staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 53,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Registered Nurse hours per resident per day on the weekend",
+          "meaning": "Reported staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 54,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Reported Physical Therapist Staffing Hours per Resident Per Day",
+          "meaning": "Reported staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 55,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 368,
+            "other_nonblank": 14318
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_turnover",
+          "field": "Total nursing staff turnover",
+          "meaning": "Source-reported annual turnover percentage for the named nursing staff population.",
+          "ordinal": 56,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 1099,
+            "other_nonblank": 13587
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "percentage"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Total nursing staff turnover footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 57,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 13587,
+            "other_nonblank": 1099
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_turnover",
+          "field": "Registered Nurse turnover",
+          "meaning": "Source-reported annual turnover percentage for the named nursing staff population.",
+          "ordinal": 58,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 1876,
+            "other_nonblank": 12810
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "percentage"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Registered Nurse turnover footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 59,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 12810,
+            "other_nonblank": 1876
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_turnover",
+          "field": "Number of administrators who have left the nursing home",
+          "meaning": "Reported administrators departing during the defined annual interval; not total staff.",
+          "ordinal": 60,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 1653,
+            "other_nonblank": 13033
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Administrator turnover footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 61,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 13033,
+            "other_nonblank": 1653
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_adjustment",
+          "field": "Nursing Case-Mix Index",
+          "meaning": "Resident acuity adjustment index or ratio to national index; not staffing headcount.",
+          "ordinal": 62,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_adjustment",
+          "field": "Nursing Case-Mix Index Ratio",
+          "meaning": "Resident acuity adjustment index or ratio to national index; not staffing headcount.",
+          "ordinal": 63,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Case-Mix Nurse Aide Staffing Hours per Resident per Day",
+          "meaning": "Case-mix reference staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 64,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Case-Mix LPN Staffing Hours per Resident per Day",
+          "meaning": "Case-mix reference staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 65,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Case-Mix RN Staffing Hours per Resident per Day",
+          "meaning": "Case-mix reference staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 66,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Case-Mix Total Nurse Staffing Hours per Resident per Day",
+          "meaning": "Case-mix reference staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 67,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Case-Mix Weekend Total Nurse Staffing Hours per Resident per Day",
+          "meaning": "Case-mix reference staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 68,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 367,
+            "other_nonblank": 14319
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Adjusted Nurse Aide Staffing Hours per Resident per Day",
+          "meaning": "Case-mix adjusted staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 69,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 389,
+            "other_nonblank": 14297
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Adjusted LPN Staffing Hours per Resident per Day",
+          "meaning": "Case-mix adjusted staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 70,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 389,
+            "other_nonblank": 14297
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Adjusted RN Staffing Hours per Resident per Day",
+          "meaning": "Case-mix adjusted staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 71,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 389,
+            "other_nonblank": 14297
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Adjusted Total Nurse Staffing Hours per Resident per Day",
+          "meaning": "Case-mix adjusted staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 72,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 389,
+            "other_nonblank": 14297
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "staffing_hours",
+          "field": "Adjusted Weekend Total Nurse Staffing Hours per Resident per Day",
+          "meaning": "Case-mix adjusted staff hours per resident per day for the named staff group/period; not headcount, FTE or an independent additive component.",
+          "ordinal": 73,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 389,
+            "other_nonblank": 14297
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Rating Cycle 1 Standard Survey Health Date",
+          "meaning": "Reported standard survey date for the named rating cycle; not a live inspection.",
+          "ordinal": 74,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "date"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Rating Cycle 1 Standard Survey Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 75,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 14557,
+            "other_nonblank": 129
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_text_only_revision_disagreement",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Rating Cycle 1 Total Number of Health Deficiencies",
+          "meaning": "Reported count for named inspection type and rating cycle; windows and flags may overlap.",
+          "ordinal": 76,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Rating Cycle 1 Number of Standard Health Deficiencies",
+          "meaning": "Reported count for named inspection type and rating cycle; windows and flags may overlap.",
+          "ordinal": 77,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Rating Cycle 1 Number of Complaint Health Deficiencies",
+          "meaning": "Reported count for named inspection type and rating cycle; windows and flags may overlap.",
+          "ordinal": 78,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_score",
+          "field": "Rating Cycle 1 Health Deficiency Score",
+          "meaning": "CMS survey severity/revisit scoring for named cycle; not the number of violations or a property-risk score.",
+          "ordinal": 79,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Rating Cycle 1 Number of Health Revisits",
+          "meaning": "Reported count for named inspection type and rating cycle; windows and flags may overlap.",
+          "ordinal": 80,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_score",
+          "field": "Rating Cycle 1 Health Revisit Score",
+          "meaning": "CMS survey severity/revisit scoring for named cycle; not the number of violations or a property-risk score.",
+          "ordinal": 81,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_score",
+          "field": "Rating Cycle 1 Total Health Score",
+          "meaning": "CMS survey severity/revisit scoring for named cycle; not the number of violations or a property-risk score.",
+          "ordinal": 82,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Rating Cycle 2 Standard Health Survey Date",
+          "meaning": "Reported standard survey date for the named rating cycle; not a live inspection.",
+          "ordinal": 83,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "date"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Rating Cycle 2 Standard Survey Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 84,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 14682,
+            "other_nonblank": 4
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_text_only_revision_disagreement",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Rating Cycle 2/3 Total Number of Health Deficiencies",
+          "meaning": "Reported count for named inspection type and rating cycle; windows and flags may overlap.",
+          "ordinal": 85,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Rating Cycle 2 Number of Standard Health Deficiencies",
+          "meaning": "Reported count for named inspection type and rating cycle; windows and flags may overlap.",
+          "ordinal": 86,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Rating Cycle 2/3 Number of Complaint Health Deficiencies",
+          "meaning": "Reported count for named inspection type and rating cycle; windows and flags may overlap.",
+          "ordinal": 87,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_score",
+          "field": "Rating Cycle 2/3 Health Deficiency Score",
+          "meaning": "CMS survey severity/revisit scoring for named cycle; not the number of violations or a property-risk score.",
+          "ordinal": 88,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Rating Cycle 2/3 Number of Health Revisits",
+          "meaning": "Reported count for named inspection type and rating cycle; windows and flags may overlap.",
+          "ordinal": 89,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_score",
+          "field": "Rating Cycle 2/3 Health Revisit Score",
+          "meaning": "CMS survey severity/revisit scoring for named cycle; not the number of violations or a property-risk score.",
+          "ordinal": 90,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_score",
+          "field": "Rating Cycle 2/3 Total Health Score",
+          "meaning": "CMS survey severity/revisit scoring for named cycle; not the number of violations or a property-risk score.",
+          "ordinal": 91,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_score",
+          "field": "Total Weighted Health Survey Score",
+          "meaning": "CMS survey severity/revisit scoring for named cycle; not the number of violations or a property-risk score.",
+          "ordinal": 92,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 39,
+            "other_nonblank": 14647
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "inspection_history",
+          "field": "Number of Citations from Infection Control Inspections",
+          "meaning": "Reported infection-control citation count over publisher's three-year interval; not current infection count.",
+          "ordinal": 93,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 13685,
+            "other_nonblank": 1001
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "penalty_history",
+          "field": "Number of Fines",
+          "meaning": "Publisher historical count of named enforcement category; not current outstanding penalty.",
+          "ordinal": 94,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "penalty_history",
+          "field": "Total Amount of Fines in Dollars",
+          "meaning": "Reported historical fine amount in USD; not outstanding debt or current liability.",
+          "ordinal": 95,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "decimal"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "penalty_history",
+          "field": "Number of Payment Denials",
+          "meaning": "Publisher historical count of named enforcement category; not current outstanding penalty.",
+          "ordinal": 96,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "penalty_history",
+          "field": "Total Number of Penalties",
+          "meaning": "Publisher historical count of named enforcement category; not current outstanding penalty.",
+          "ordinal": 97,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "count"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "Location",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 98,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "existing_profile"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "Latitude",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 99,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "coordinate"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "geography",
+          "field": "Longitude",
+          "meaning": "Reported location field; preserve identifier strings, estimated coordinates and geocoding limits.",
+          "ordinal": 100,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "coordinate"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "footnote",
+          "field": "Geocoding Footnote",
+          "meaning": "Publisher explanation or reporting qualification for the accompanying measure; not a score or adverse event.",
+          "ordinal": 101,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "blank": 13878,
+            "other_nonblank": 808
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "footnote"
+        },
+        {
+          "application_approval": "no_new_row_level_publication",
+          "category": "program_or_release_date",
+          "field": "Processing Date",
+          "meaning": "Reported program first-approval or file processing date, not proof of current operation.",
+          "ordinal": 102,
+          "prior_profile_status": "aggregate_lexical_profile",
+          "prior_value_states": {
+            "other_nonblank": 14686
+          },
+          "publisher_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "semantic_status": "publisher_schema_and_methodology_reviewed",
+          "value_kind": "date"
+        }
+      ]
+    }
+  ]
+}
