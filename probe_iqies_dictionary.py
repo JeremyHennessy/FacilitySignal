@@ -10,6 +10,7 @@ import zipfile
 import openpyxl
 from collect_registry import response
 from probe_pos_fields import INVENTORY,verify_inventory
+from iqies_full_dictionary import extract as extract_full_dictionary
 
 URL="https://data.cms.gov/sites/default/files/2026-11/dd404bad-f893-4c80-b472-ab600bee1405/iQIES%20POS%20Data%20Dictionary%20Oct2026.xlsx"
 MAX_BYTES=20_000_000
@@ -77,11 +78,18 @@ def main():
     with tempfile.TemporaryDirectory(prefix="iqies-dictionary-") as tmp:
         path=Path(tmp)/"dictionary.xlsx"; meta=download(path)
         audit=inspect(path,fields)
+        full=extract_full_dictionary(path,fields)
     result={"source":meta,"schema_audit":45686866946,"inventory_source":inv["registries"]["iqies"]["version_api"],**audit}
+    result["full_dictionary_metadata"]=full
     a.audit.parent.mkdir(parents=True,exist_ok=True);a.audit.write_text(json.dumps(result,indent=2)+"\n")
-    print("IQIES_DICTIONARY_SUMMARY",json.dumps({k:v for k,v in result.items() if k!="field_locations"}),flush=True)
+    print("IQIES_DICTIONARY_SUMMARY",json.dumps({k:v for k,v in result.items() if k not in ("field_locations","full_dictionary_metadata")}),flush=True)
     for field in sorted(PRIORITY):
         locations=audit["field_locations"].get(field,[])
         if locations: print("IQIES_DICTIONARY_FIELD",field,json.dumps(locations),flush=True)
+    print("IQIES_FULL_SUMMARY",json.dumps({k:v for k,v in full.items() if k not in ("fields","mapping_sheets")}),flush=True)
+    for field in full["fields"]:
+        print("IQIES_FULL_FIELD",json.dumps(field),flush=True)
+    for key,table in full["mapping_sheets"].items():
+        print("IQIES_FULL_MAPPING",key,json.dumps(table),flush=True)
     need(audit["matched_fields"]>0,"no exact dictionary matches")
 if __name__=="__main__":main()
