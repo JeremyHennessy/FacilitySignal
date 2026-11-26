@@ -216,6 +216,12 @@ def run(base,local):
                     page.get_by_role("link",name="Open saved portfolio").click()
                     page.locator(".portfolio-count").wait_for()
                     assert "2 saved source records" in page.locator(".portfolio-count").inner_text()
+                    with page.expect_download() as dl:
+                        page.get_by_role("button",name="Export filtered portfolio CSV").click()
+                    with dl.value.path().open(encoding="utf-8",newline="") as f:
+                        saved=list(csv.DictReader(f))
+                    assert len(saved)==2 and all(r["saved_source_release"] and r["source_identifier"] for r in saved)
+                    page.screenshot(path=str(OUT/f"{width}-portfolio-export.png"),full_page=True)
                     page.locator(".portfolio-provider-cell input").nth(0).check()
                     page.locator(".portfolio-provider-cell input").nth(1).check()
                     page.get_by_role("button",name="Compare selected (2 / 4)").click()
