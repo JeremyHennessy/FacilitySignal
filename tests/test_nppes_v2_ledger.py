@@ -44,3 +44,26 @@ class NPPESLedgerTests(unittest.TestCase):
         self.assertEqual(b["retained_row_level_records"],0)
         self.assertNotEqual(a["publisher"]["sha256"],entries["weekly"]["audit"]["publisher"]["sha256"])
         self.assertEqual(json.loads((ROOT/"expanded_source_lock_20261126.json").read_text())["source_count"],17)
+
+    def test_remaining_weekly_evidence_and_deactivation_boundary(self):
+        l=json.loads((ROOT/"coverage_status.json").read_text())
+        entries=l["nppes_v2_qualified_baselines"]
+        counts={"weekly":(31024,6627),"week_1102":(31562,6417),"week_1109":(29288,6264)}
+        for key,(rows,orgs) in counts.items():
+            b=entries[key];a=b["audit"]
+            self.assertEqual(a["input_rows"],rows)
+            self.assertEqual(a["distinct_valid_organization_npis"],orgs)
+            self.assertEqual(sum(a["entity_classes"].values()),rows)
+            self.assertEqual(a["duplicate_valid_organization_rows"],0)
+            self.assertEqual(a["organization_key_counts"],{"valid_organization_npi":orgs})
+            self.assertEqual(b["retained_row_level_records"],0)
+            self.assertFalse(b["included_in_integrated_national_baseline"])
+            self.assertFalse(a["endpoint_values_parsed"])
+        r=next(x for x in l["sources"] if x["id"]=="FS-004")
+        self.assertEqual(r["posted_weekly_files_qualified"],3)
+        self.assertEqual(r["posted_weekly_observation_rows"],91874)
+        self.assertEqual(r["posted_weekly_organization_observations"],19308)
+        self.assertEqual(r["monthly_organization_npis"],1990237)
+        self.assertEqual(r["deactivation_qualification"],"blocked_schema_review")
+        self.assertFalse(l["nppes_deactivation_blocker"]["qualified"])
+        self.assertEqual(l["nppes_deactivation_blocker"]["source_rows_qualified"],0)

@@ -41,12 +41,17 @@
       "weekly_organization_rows": 6627,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Full November V2 primary file plus type-2-filtered reference membership structurally qualified, and Nov 16–22 weekly increment independently qualified. No union/ordered application of increments, deactivation-file review, taxonomy semantics, canonical site matches, endpoint processing or persistent integration. Registration does not establish licensure, site count or active operation.",
+      "note": "Full November V2 primary file and all three posted weekly increments structurally qualified independently. Weekly observations may overlap; no ordered union or current national count. Monthly deactivation workbook downloaded but header qualification blocked; no deactivation rows processed or former identities linked. Taxonomy semantics, canonical site matching, persistent storage and reuse review pending.",
       "monthly_release": "2026-11-09",
       "monthly_source_rows": 9891116,
       "monthly_organization_npis": 1990237,
       "monthly_untyped_deactivation_rows": 360013,
-      "monthly_individual_rows_excluded": 7540866
+      "monthly_individual_rows_excluded": 7540866,
+      "posted_weekly_files_qualified": 3,
+      "posted_weekly_observation_rows": 91874,
+      "posted_weekly_organization_observations": 19308,
+      "latest_supplement_evidence": "45837634635",
+      "deactivation_qualification": "blocked_schema_review"
     },
     {
       "id": "FS-005",
@@ -119,7 +124,12 @@
     },
     {
       "id": "FS-017",
-      "status": "discovered_not_tested"
+      "status": "blocked_report_download",
+      "evidence": "45837734646",
+      "retrieved_rows": 0,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Official Excel and JSON public report controls attempted in separate fresh sessions. Both timed out waiting for downloadable file; JSON diagnostic observed successful public page and POST response but no completed download. Cause unresolved; do not repeat unattended or bypass controls."
     },
     {
       "id": "FS-018",
@@ -268,7 +278,9 @@
       "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Source-specific historical survey projection qualified against retained CMS baseline; no row-level publication or persistent national integration."
+      "note": "Source-specific historical survey projection qualified against retained CMS baseline; no row-level publication or persistent national integration.",
+      "combined_care_compare_qualification_run": 45838315266,
+      "combined_care_compare_qualified_rows": 148956
     },
     {
       "id": "FS-035",
@@ -284,7 +296,9 @@
       "ephemeral_projected_rows": 15007,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Standalone national SQLite projection and exact CCN/state evidence qualified; not included in integrated national baseline or public facility profiles. Historical fines and payment denials, not outstanding liabilities."
+      "note": "Standalone national SQLite projection and exact CCN/state evidence qualified; not included in integrated national baseline or public facility profiles. Historical fines and payment denials, not outstanding liabilities.",
+      "combined_care_compare_qualification_run": 45838315266,
+      "combined_care_compare_qualified_rows": 15007
     },
     {
       "id": "FS-037",
@@ -295,7 +309,9 @@
       "rejected_rows": 0,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Source-specific historical survey projection qualified against retained CMS baseline; no row-level publication or persistent national integration."
+      "note": "Source-specific historical survey projection qualified against retained CMS baseline; no row-level publication or persistent national integration.",
+      "combined_care_compare_qualification_run": 45838315266,
+      "combined_care_compare_qualified_rows": 43931
     },
     {
       "id": "FS-038",
@@ -406,7 +422,9 @@
       "ephemeral_projected_rows": 6109,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Standalone report-grain projection of 19 selected 2024 measures; 5935 same-state CCN evidence pairs and 174 unmatched reports. No retained row-level records or integrated national baseline increment; dictionary semantics/units and ambiguous dates require review."
+      "note": "Standalone report-grain projection of 19 selected 2024 measures; 5935 same-state CCN evidence pairs and 174 unmatched reports. No retained row-level records or integrated national baseline increment; dictionary semantics/units and ambiguous dates require review.",
+      "combined_care_compare_qualification_run": 45838315266,
+      "combined_care_compare_qualified_rows": 6109
     },
     {
       "id": "FS-057",
@@ -416,7 +434,9 @@
       "ephemeral_projected_rows": 14587,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Report-grain projection of 15 selected 2024 measures; 14416 same-state CCN evidence pairs and 171 unmatched reports. No retained row-level records or integrated national baseline increment; ambiguous and missing dates retained."
+      "note": "Report-grain projection of 15 selected 2024 measures; 14416 same-state CCN evidence pairs and 171 unmatched reports. No retained row-level records or integrated national baseline increment; ambiguous and missing dates retained.",
+      "combined_care_compare_qualification_run": 45838315266,
+      "combined_care_compare_qualified_rows": 14587
     },
     {
       "id": "FS-058",
@@ -3430,6 +3450,402 @@
       "retained_row_level_records": 0,
       "included_in_integrated_national_baseline": false,
       "included_in_expanded_projection_total": false
+    },
+    "week_1102": {
+      "commit": "8dd428100fb050d7d439ac3ec61c4fd0bc8855d2",
+      "run": 45837634635,
+      "job_id": 139970613581,
+      "qualification_scope": "successful source in mixed-result workflow",
+      "artifact": 15126081853,
+      "artifact_digest": "sha256:c1e1fcb346dca8f9c436b1795134bf39067fc1e45ee88be87427121a590befc8",
+      "audit": {
+        "archive_members": {
+          "endpoint": {
+            "crc32": "850b4eef",
+            "parsed": false,
+            "uncompressed_bytes": 402463
+          },
+          "header": {
+            "crc32": "09b8631b",
+            "parsed": true,
+            "uncompressed_bytes": 12267
+          },
+          "main": {
+            "crc32": "1c665e30",
+            "parsed": true,
+            "uncompressed_bytes": 37864480
+          },
+          "other_name": {
+            "crc32": "76a6275a",
+            "parsed": true,
+            "uncompressed_bytes": 162894
+          },
+          "practice_location": {
+            "crc32": "695a5d11",
+            "parsed": true,
+            "uncompressed_bytes": 1161649
+          }
+        },
+        "columns": 330,
+        "distinct_valid_organization_npis": 6417,
+        "duplicate_valid_organization_rows": 0,
+        "endpoint_values_parsed": false,
+        "entity_classes": {
+          "individual_excluded": 24434,
+          "organization": 6417,
+          "untyped_with_deactivation": 711
+        },
+        "input_rows": 31562,
+        "organization_field_states": {
+          "deactivation": {
+            "blank": 6408,
+            "reported": 9
+          },
+          "enumeration": {
+            "reported": 6417
+          },
+          "legal_name": {
+            "present": 6417
+          },
+          "practice_country_presence": {
+            "present": 6417
+          },
+          "practice_state_presence": {
+            "present": 6417
+          },
+          "primary_taxonomy_switch": {
+            "N": 1098,
+            "Y": 5319
+          },
+          "reactivation": {
+            "blank": 6408,
+            "reported": 9
+          },
+          "taxonomy_presence": {
+            "present": 6417
+          },
+          "updated": {
+            "reported": 6417
+          }
+        },
+        "organization_key_counts": {
+          "valid_organization_npi": 6417
+        },
+        "publisher": {
+          "bytes": 6490692,
+          "etag": "\"82642bf5063178831548c67ee48ed6d2:1794208076.311807\"",
+          "last_modified": "Mon, 09 Nov 2026 07:07:56 GMT",
+          "retrieved_at": "2026-11-26T14:18:24.233211+00:00",
+          "sha256": "080d7707861576c58d769796c5991904c7bd8a183c2cb7db76159c9a98ca1e5a",
+          "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_110226_110826_Weekly_V2.zip"
+        },
+        "publisher_label": "NPPES Data Dissemination V.2 - Weekly Update - 110226_110826",
+        "qualification": "passed",
+        "reference_files": {
+          "other_name": {
+            "columns": 4,
+            "distinct_matched_type2_npis": 1840,
+            "input_rows": 2871,
+            "key_counts": {
+              "outside_qualified_type2_scope": 56,
+              "type2_key_match": 2815
+            },
+            "limits": "Reference membership only; no address, alternative name or individual/endpoint value retained. Outside scope is not an orphan or invalid registration."
+          },
+          "practice_location": {
+            "columns": 10,
+            "distinct_matched_type2_npis": 559,
+            "input_rows": 12136,
+            "key_counts": {
+              "outside_qualified_type2_scope": 10145,
+              "type2_key_match": 1991
+            },
+            "limits": "Reference membership only; no address, alternative name or individual/endpoint value retained. Outside scope is not an orphan or invalid registration."
+          }
+        },
+        "retained_row_level_records": 0,
+        "reuse_review": "pending",
+        "scope": "week_1102",
+        "source_id": "FS-004"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false,
+      "included_in_expanded_projection_total": false
+    },
+    "week_1109": {
+      "commit": "8dd428100fb050d7d439ac3ec61c4fd0bc8855d2",
+      "run": 45837634635,
+      "job_id": 139970613581,
+      "qualification_scope": "successful source in mixed-result workflow",
+      "artifact": 15126081853,
+      "artifact_digest": "sha256:c1e1fcb346dca8f9c436b1795134bf39067fc1e45ee88be87427121a590befc8",
+      "audit": {
+        "archive_members": {
+          "endpoint": {
+            "crc32": "a34c53d6",
+            "parsed": false,
+            "uncompressed_bytes": 448839
+          },
+          "header": {
+            "crc32": "09b8631b",
+            "parsed": true,
+            "uncompressed_bytes": 12267
+          },
+          "main": {
+            "crc32": "dbf0ee3d",
+            "parsed": true,
+            "uncompressed_bytes": 35174523
+          },
+          "other_name": {
+            "crc32": "ef455cbe",
+            "parsed": true,
+            "uncompressed_bytes": 165223
+          },
+          "practice_location": {
+            "crc32": "a9bb65ce",
+            "parsed": true,
+            "uncompressed_bytes": 1190309
+          }
+        },
+        "columns": 330,
+        "distinct_valid_organization_npis": 6264,
+        "duplicate_valid_organization_rows": 0,
+        "endpoint_values_parsed": false,
+        "entity_classes": {
+          "individual_excluded": 22349,
+          "organization": 6264,
+          "untyped_with_deactivation": 675
+        },
+        "input_rows": 29288,
+        "organization_field_states": {
+          "deactivation": {
+            "blank": 6259,
+            "reported": 5
+          },
+          "enumeration": {
+            "reported": 6264
+          },
+          "legal_name": {
+            "present": 6264
+          },
+          "practice_country_presence": {
+            "present": 6264
+          },
+          "practice_state_presence": {
+            "present": 6264
+          },
+          "primary_taxonomy_switch": {
+            "N": 942,
+            "Y": 5322
+          },
+          "reactivation": {
+            "blank": 6259,
+            "reported": 5
+          },
+          "taxonomy_presence": {
+            "present": 6264
+          },
+          "updated": {
+            "reported": 6264
+          }
+        },
+        "organization_key_counts": {
+          "valid_organization_npi": 6264
+        },
+        "publisher": {
+          "bytes": 6274061,
+          "etag": "\"c846aec7ec3c07f6446db19670748b4f:1794936667.022531\"",
+          "last_modified": "Tue, 17 Nov 2026 17:31:07 GMT",
+          "retrieved_at": "2026-11-26T14:18:25.031968+00:00",
+          "sha256": "cfdac80d3056c24428d8a96dc4b02c5a3cda336c44ea6016e416657cb2e35054",
+          "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_110926_111526_Weekly_V2.zip"
+        },
+        "publisher_label": "NPPES Data Dissemination V.2 - Weekly Update - 110926_111526",
+        "qualification": "passed",
+        "reference_files": {
+          "other_name": {
+            "columns": 4,
+            "distinct_matched_type2_npis": 1796,
+            "input_rows": 2773,
+            "key_counts": {
+              "outside_qualified_type2_scope": 59,
+              "type2_key_match": 2714
+            },
+            "limits": "Reference membership only; no address, alternative name or individual/endpoint value retained. Outside scope is not an orphan or invalid registration."
+          },
+          "practice_location": {
+            "columns": 10,
+            "distinct_matched_type2_npis": 589,
+            "input_rows": 12410,
+            "key_counts": {
+              "outside_qualified_type2_scope": 10114,
+              "type2_key_match": 2296
+            },
+            "limits": "Reference membership only; no address, alternative name or individual/endpoint value retained. Outside scope is not an orphan or invalid registration."
+          }
+        },
+        "retained_row_level_records": 0,
+        "reuse_review": "pending",
+        "scope": "week_1109",
+        "source_id": "FS-004"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false,
+      "included_in_expanded_projection_total": false
     }
+  },
+  "nppes_deactivation_blocker": {
+    "source_id": "FS-004",
+    "latest_commit": "e025eaf8cb119088c92d33a84cc3ab3f4ea8a0dd",
+    "run": 45838428031,
+    "artifact": 15125349172,
+    "artifact_digest": "sha256:8afc03d8abc9689cc34794ac0348d4ba2f5c5e0fdb1614efc7da63520c62e15e",
+    "audit": {
+      "error_type": "ValueError",
+      "publisher": {
+        "bytes": 2693475,
+        "etag": "\"2295fac33e4ff438783f6b892d6389ed:1794207666.35764\"",
+        "last_modified": "Mon, 09 Nov 2026 07:01:06 GMT",
+        "retrieved_at": "2026-11-26T14:23:03.474110+00:00",
+        "sha256": "3bc64ebb331b72d2fc80a15c4b4a89d57810c69991b33985c5bc31b763504190",
+        "url": "https://download.cms.gov/nppes/NPPES_Deactivated_NPI_Report_110926_V2.zip"
+      },
+      "publisher_label": "NPPES Data Dissemination V.2 - Monthly Deactivation Update - November 09, 2026",
+      "qualification": "failed",
+      "reason": "deactivation header not recognized",
+      "retained_row_level_records": 0,
+      "scope": "deactivation"
+    },
+    "prior_attempt_runs": [
+      45837634635,
+      45837840458,
+      45837974641,
+      45838181320
+    ],
+    "source_rows_qualified": 0,
+    "retained_row_level_records": 0,
+    "qualified": false
+  },
+  "hrsa_340b_report_blocker": {
+    "commit": "c221db35388d1251ec8d1a62214bc13f961d9fce",
+    "run": 45837734646,
+    "job_id": 139970960818,
+    "artifact": 15127177260,
+    "artifact_digest": "sha256:a15063916b2f9df54ffe8a3f1cc09e7aed11bab400d33a95a460969ffecfc5de",
+    "audit": {
+      "source_id": "FS-017",
+      "publisher": null,
+      "diagnostic": {
+        "landing_status": 200,
+        "visible_report_controls": 1,
+        "official_response_classes": {
+          "GET:200:text/html": 1,
+          "GET:200:other": 24,
+          "GET:200:application/json": 1,
+          "POST:200:application/json": 1
+        }
+      },
+      "result": {},
+      "failure": {
+        "type": "ValueError",
+        "reason": "public report download timed out"
+      },
+      "retained_row_level_records": 0,
+      "reuse_review": "pending",
+      "limits": "Fresh public UI session only. No nested data or source rows retained, no current licensing or property identity inference. If unsuccessful, do not repeat unattended."
+    },
+    "prior_excel_run": 45832674232,
+    "qualified": false,
+    "retained_row_level_records": 0
+  },
+  "expanded_cms_integration_baseline": {
+    "commit": "77c1e1d04035759aeaeaf8c589e5924825eeefc0",
+    "run": 45838315266,
+    "job_id": 139972963997,
+    "artifact": 15126497722,
+    "artifact_digest": "sha256:9a8c347a6565f96c97f35375767a4a8fd25f93e68c3f19434d006ff4176790b9",
+    "audit": {
+      "baseline_scope": "nine Care Compare releases only",
+      "baseline_sha256": "baa78020a2c60df25408421d4491f66f6f260aa25d3c7579c13199aee9e23960",
+      "candidate_database_bytes": 386719744,
+      "candidate_database_sha256": "845565f51a8e6d06f4ef453cfc4796baa04ea09cf04eeb9bd2374a3b0178cfba",
+      "citation_ccn_day_crosscheck": {
+        "same_ccn_day": 619069
+      },
+      "combined_primary_source_rows": 895663,
+      "extension_source_rows": 228590,
+      "included_in_original_19_source_national_baseline": false,
+      "integrity_check": "passed",
+      "limits": "Temporary combined Care Compare extension, not the full 19-source national database, live API, current compliance, procurement or approved commercial reuse. No source rows or candidate database retained or uploaded.",
+      "original_primary_source_rows": 667073,
+      "original_table_rows": {
+        "current_release": 9,
+        "facilities": 48004,
+        "findings": 619069,
+        "releases": 9
+      },
+      "original_tables_content_verified": true,
+      "retained_row_level_records": 0,
+      "sources": {
+        "FS-034": {
+          "link_counts": {
+            "ccn_present": 148956
+          },
+          "original_qualification_run": 45830147045,
+          "rows": 148956,
+          "source_sha256": "f4997d4adbbc155e3e6472a3d12fc1f278766f9f815c300d48f35ea35a813d20",
+          "stable_audit_fields_compared": 15,
+          "table": "inspection_dates"
+        },
+        "FS-036": {
+          "link_counts": {
+            "same_state": 15007
+          },
+          "original_qualification_run": 45821686668,
+          "rows": 15007,
+          "source_sha256": "5b2be235e7cfbba04d3a6fb6441b2634aa43d309f4cb61cd247410211207cd01",
+          "stable_audit_fields_compared": 13,
+          "table": "penalty"
+        },
+        "FS-037": {
+          "link_counts": {
+            "same_state": 43931
+          },
+          "original_qualification_run": 45829569072,
+          "rows": 43931,
+          "source_sha256": "2aefb25a631161fc060af82bd3fa10923356e08b93d8521f4061051e8271f687",
+          "stable_audit_fields_compared": 14,
+          "table": "survey_summary"
+        },
+        "FS-056": {
+          "link_counts": {
+            "same_state": 5935,
+            "unmatched_ccn": 174
+          },
+          "original_qualification_run": 45825853982,
+          "rows": 6109,
+          "source_sha256": "bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782",
+          "stable_audit_fields_compared": 13,
+          "table": "hospital_cost_report"
+        },
+        "FS-057": {
+          "link_counts": {
+            "same_state": 14416,
+            "unmatched_ccn": 171
+          },
+          "original_qualification_run": 45826492063,
+          "rows": 14587,
+          "source_sha256": "adcef64de8d15b772aa37ca03bba162e78f781d22198b8fbb478810685e6c05c",
+          "stable_audit_fields_compared": 13,
+          "table": "snf_cost_report"
+        }
+      }
+    },
+    "scope": "temporary nine-source Care Compare baseline plus five independently qualified source projections",
+    "reuse_review": "pending",
+    "retained_row_level_records": 0,
+    "included_in_original_19_source_national_baseline": false
   }
 }
