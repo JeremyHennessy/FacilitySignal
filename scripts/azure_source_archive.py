@@ -27,6 +27,7 @@ SUPPLEMENTAL_NUMERIC_PARENTS.update({"hcris-fqhc-numeric-years-2014-2019":"hcris
 KEYS.update(SUPPLEMENTAL_NUMERIC_PARENTS)
 KEYS.update({"epa-frs-healthcare-aggregate","epa-rcra-healthcare-aggregate","epa-npdes-part1-healthcare-aggregate","osha-enforcement-healthcare-aggregate","mn-boiler-aggregate","mn-elevator-aggregate","il-idph-hospital-directory"})
 KEYS.update({"institutional-field-observations","repository-data-evidence","pecos-ppef-enrollment-corroboration"})
+KEYS.add("cms-nursing-ownership-organizations")
 MAX_DB=1_500_000_000
 def prefix_for(key,digest):
     require(key in KEYS and re.fullmatch(r"[a-f0-9]{64}",digest),"source release identity")
