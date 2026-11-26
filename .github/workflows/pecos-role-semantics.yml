@@ -1,0 +1,28 @@
+name: FacilitySignal PECOS organizational role semantics
+on:
+  push:
+    branches: [research/pecos-role-semantics-20261126]
+    paths:
+      - pecos_role_semantic_audit.py
+      - tests/test_pecos_role_semantic_audit.py
+      - .github/workflows/pecos-role-semantics.yml
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_pecos_role_semantic_audit.py -v
+      - run: python pecos_role_semantic_audit.py --download --output "$RUNNER_TEMP/pecos-role-audit.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pecos-role-semantics-aggregate
+          path: ${{ runner.temp }}/pecos-role-audit.json
+          retention-days: 14
+          if-no-files-found: error

@@ -330,6 +330,85 @@
               21765
             ]
           ]
+        },
+        {
+          "id": "hospital-enrollment-subgroups",
+          "title": "Hospital enrollment subgroup classifications",
+          "note": "November 2026 hospital enrollment release, 9,120 rows. The publisher's 13 independent flags all matched the Y/N domain. Categories overlap; not unique facilities, operational capacity or installed equipment.",
+          "run": 45828422101,
+          "columns": [
+            "Reported subgroup or unit",
+            "Yes",
+            "No"
+          ],
+          "source": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "General",
+              1517,
+              7603
+            ],
+            [
+              "Acute care",
+              3006,
+              6114
+            ],
+            [
+              "Alcohol / drug",
+              21,
+              9099
+            ],
+            [
+              "Children's hospital",
+              108,
+              9012
+            ],
+            [
+              "Long-term",
+              317,
+              8803
+            ],
+            [
+              "Psychiatric",
+              814,
+              8306
+            ],
+            [
+              "Rehabilitation",
+              670,
+              8450
+            ],
+            [
+              "Short-term",
+              129,
+              8991
+            ],
+            [
+              "Swing-bed approved",
+              402,
+              8718
+            ],
+            [
+              "Psychiatric unit",
+              912,
+              8208
+            ],
+            [
+              "Rehabilitation unit",
+              840,
+              8280
+            ],
+            [
+              "Specialty hospital",
+              75,
+              9045
+            ],
+            [
+              "Other",
+              253,
+              8867
+            ]
+          ]
         }
       ]
     },
@@ -948,6 +1027,160 @@
             [
               "Both groups missing or invalid",
               4050
+            ]
+          ]
+        },
+        {
+          "id": "pecos-role-classes",
+          "title": "Reported PECOS organizational relationship classes",
+          "note": "November 2026 organization-only source rows. Codes are mapped using the applicable July publisher dictionary; all observed code/text pairs agree. Role records are not unique organizations or sites. Direct, indirect, management and financial relationships must remain distinct; dash means not applicable in this source.",
+          "run": 45828076053,
+          "columns": [
+            "Relationship",
+            "Observed role codes",
+            "Hospital rows",
+            "SNF rows"
+          ],
+          "source": "https://data.cms.gov/sites/default/files/2026-07/SNF_All_Owners_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Direct ownership",
+              "34 / 85 (SNF)",
+              6305,
+              14224
+            ],
+            [
+              "Indirect ownership",
+              "35 / 86 (SNF)",
+              10500,
+              25318
+            ],
+            [
+              "Operational / managerial control",
+              "43",
+              4342,
+              12696
+            ],
+            [
+              "Financial interests",
+              "36 / 37",
+              385,
+              3224
+            ],
+            [
+              "Partnership",
+              "38 / 39",
+              516,
+              753
+            ],
+            [
+              "Additional disclosable party",
+              "72 (SNF)",
+              null,
+              43100
+            ],
+            [
+              "Trustee",
+              "71 (SNF)",
+              null,
+              515
+            ],
+            [
+              "Other",
+              "44",
+              687,
+              401
+            ]
+          ]
+        },
+        {
+          "id": "pecos-org-flags",
+          "title": "Organization classification agreement and conflicts",
+          "note": "Distinct valid organization PAC tokens within each source family, not role rows. Yes means at least one affirmative report. Conflict means both Y and N for the same PAC in that source. Flags can overlap and do not establish legal property ownership or a verified vendor relationship.",
+          "run": 45828076053,
+          "columns": [
+            "Reported type",
+            "Hospital Yes",
+            "Hospital conflicts",
+            "SNF Yes",
+            "SNF conflicts"
+          ],
+          "source": "https://data.cms.gov/sites/default/files/2026-07/SNF_All_Owners_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Management services",
+              107,
+              55,
+              1453,
+              331
+            ],
+            [
+              "Medical staffing",
+              5,
+              5,
+              848,
+              64
+            ],
+            [
+              "Consulting",
+              5,
+              3,
+              2345,
+              265
+            ],
+            [
+              "Private equity",
+              23,
+              20,
+              108,
+              25
+            ],
+            [
+              "REIT",
+              3,
+              0,
+              417,
+              40
+            ],
+            [
+              "Chain home office",
+              215,
+              189,
+              340,
+              180
+            ]
+          ]
+        },
+        {
+          "id": "pecos-chow-types",
+          "title": "Reported ownership-change types",
+          "note": "Q3 2026 source release containing historical changes since 2016. Current July and documented earlier CH wording were reconciled in the targeted qualification. Counts are source rows, not unique transactions or title transfers. Ambiguous dates have not been coerced.",
+          "run": 45828422101,
+          "columns": [
+            "Code",
+            "Reported change type",
+            "Hospital rows",
+            "SNF rows"
+          ],
+          "source": "https://data.cms.gov/sites/default/files/2026-07/Hospital_CHOW_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "AM",
+              "Acquisition / merger",
+              116,
+              2
+            ],
+            [
+              "CH",
+              "Change of ownership",
+              663,
+              5338
+            ],
+            [
+              "CO",
+              "Consolidation",
+              0,
+              0
             ]
           ]
         }
