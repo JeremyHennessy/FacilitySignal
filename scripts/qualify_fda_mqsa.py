@@ -81,6 +81,23 @@ def row_valid(row):
             and bool(row[0].strip()) and bool(row[4].strip()) and bool(re.fullmatch(r"[A-Z]{2}", row[5].strip()))
             and all(not any(ord(c) < 32 or ord(c) == 127 for c in v) for v in row))
 
+def rejection_reasons(row):
+    if len(row) != len(WIDTHS):
+        return ["field_count"]
+    reasons = []
+    for field, value, width in zip(FIELDS, row, WIDTHS):
+        if len(value) > width:
+            reasons.append("width_" + field)
+        if any(ord(c) < 32 or ord(c) == 127 for c in value):
+            reasons.append("control_" + field)
+    if not row[0].strip():
+        reasons.append("missing_name")
+    if not row[4].strip():
+        reasons.append("missing_city")
+    if not re.fullmatch(r"[A-Z]{2}", row[5].strip()):
+        reasons.append("state_format")
+    return reasons
+
 def parse_line(line, layout):
     if layout == "fixed":
         return fixed(line)
@@ -101,6 +118,8 @@ def audit_archive(db, path):
     require(nonblank, "empty source")
     candidates = {}
     parsed = {}
+    pipe_reasons = Counter()
+    pipe_rejected = 0
     for layout in ("fixed", "tab", "pipe", "comma"):
         rows = []
         for ordinal, line in enumerate(nonblank, 1):
@@ -108,12 +127,20 @@ def audit_archive(db, path):
                 row = parse_line(line, layout)
                 if row_valid(row):
                     rows.append((ordinal, row))
+                elif layout == "pipe":
+                    pipe_rejected += 1
+                    reasons = rejection_reasons(row)
+                    require(reasons, "unclassified invalid row")
+                    pipe_reasons.update(set(reasons))
             except (ValueError, csv.Error):
-                pass
+                if layout == "pipe":
+                    pipe_rejected += 1
+                    pipe_reasons["parse_error"] += 1
         candidates[layout] = len(rows)
         if len(rows) == len(nonblank):
             parsed[layout] = rows
-    base = {"expanded_bytes": len(raw), "encoding": encoding, "physical_lines":len(lines),
+    require(candidates["pipe"] + pipe_rejected == len(nonblank), "pipe diagnostic reconciliation")
+    base = {"pipe_rejected_rows":pipe_rejected, "pipe_rejection_reason_counts":dict(sorted(pipe_reasons.items())), "expanded_bytes": len(raw), "encoding": encoding, "physical_lines":len(lines),
             "blank_lines": len(lines)-len(nonblank), "input_rows":len(nonblank),
             "layout_valid_row_counts":candidates, "field_widths":dict(zip(FIELDS,WIDTHS))}
     if len(parsed) != 1:
@@ -152,6 +179,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--audit", type=Path, required=True)
     p.add_argument("--local-archive", type=Path, help="Use an existing authorized local copy; no network")
+    p.add_argument("--diagnose-pinned-pipe", action="store_true", help="Qualify aggregate reject diagnostics only for the exact previously observed FDA release")
     a=p.parse_args()
     require(not a.audit.exists(), "audit exists")
     with tempfile.TemporaryDirectory(prefix="mqsa-") as tmp:
@@ -162,14 +190,22 @@ def main():
                 meta={"url":URL,"documentation":DOC,"bytes":path.stat().st_size,"sha256":hashlib.file_digest(f,"sha256").hexdigest(),"retrieved_at":None}
         else:
             meta=download(path)
+        if a.diagnose_pinned_pipe:
+            require(meta["sha256"] == "fb0c74333ade998ce28c6b5f342324f5ff4c46d716c45332634513edddf1b33a", "FDA release changed; stop pinned diagnosis")
         with closing(sqlite3.connect(":memory:")) as db:
             meta.update(audit_archive(db,path))
         with path.open("rb") as f:
             require(hashlib.file_digest(f,"sha256").hexdigest()==meta["sha256"],"archive changed")
+        if a.diagnose_pinned_pipe:
+            require(meta["qualification"] == "schema_review_required" and meta["input_rows"] == 9146
+                    and meta["layout_valid_row_counts"] == {"fixed":0,"tab":0,"pipe":9140,"comma":0}
+                    and meta["pipe_rejected_rows"] == 6 and meta["stored_rows"] == 0
+                    and sum(meta["pipe_rejection_reason_counts"].values()) >= 6, "pinned diagnostic changed")
+            meta["diagnostic_qualification"] = "passed_aggregate_only"
         with a.audit.open("x", encoding="utf-8") as f:
             json.dump(meta,f,indent=2,sort_keys=True)
         print(json.dumps(meta,sort_keys=True))
-    if meta["qualification"] != "ephemeral_projection_qualified":
+    if not a.diagnose_pinned_pipe and meta["qualification"] != "ephemeral_projection_qualified":
         raise SystemExit("source schema needs review")
 
 if __name__ == "__main__":

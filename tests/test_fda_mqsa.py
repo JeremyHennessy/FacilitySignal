@@ -39,6 +39,18 @@ class MQSATests(unittest.TestCase):
             self.assertEqual((a["qualification"],a["unresolved_rows"],a["stored_rows"]),("schema_review_required",1,0))
             self.assertEqual(db.execute("SELECT count(*) FROM sqlite_master").fetchone()[0],0)
 
+    def test_pipe_rejection_reasons_without_rows(self):
+        good="Clinic|Street|||City|PR|00901|phone|fax"
+        bad="Clinic|Street||||PR|00901|phone|fax"
+        wide="X"*76+"|Street|||City|PR|00901|phone|fax"
+        with tempfile.TemporaryDirectory() as tmp,sqlite3.connect(":memory:") as db:
+            a=audit_archive(db,self.source(tmp,"\n".join([good,bad,wide])))
+            self.assertEqual(a["pipe_rejected_rows"],2)
+            self.assertEqual(a["pipe_rejection_reason_counts"],{"missing_city":1,"width_name":1})
+            self.assertEqual(a["layout_valid_row_counts"]["pipe"],1)
+            self.assertEqual(a["stored_rows"],0)
+            self.assertNotIn("Clinic",str(a))
+
     def test_archive_boundary(self):
         with tempfile.TemporaryDirectory() as tmp,sqlite3.connect(":memory:") as db:
             with self.assertRaises(ValueError):
