@@ -9,6 +9,7 @@ import azure_national_archive as a
 from scripts import azure_verified_extension as ext, azure_source_archive as src
 from scripts.recover_azure_extension import validate_receipt,load_pin
 from scripts.azure_inventory import verify_inventory
+from scripts.archive_qualified_data import DATA_PATH
 from build_combined import require
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -107,7 +108,7 @@ def source_matches(rec,pin,national):
         s=rec["summary"];p=rec["publisher"];m=s["complete_manifest"]
         require(p["kind"]=="repository_data_evidence_snapshot" and p["inputs"]["base_receipt_sha256"]==national["receipt_sha256"] and p["inputs"]["tracked_data_files"]==m and hashlib.sha256(a.encode(p["inputs"])).hexdigest()==pin["source_sha256"],"evidence bundle lineage")
         require(s["new_publisher_release"] is False and pin["observations"]==0 and len(m)==len({r["path"] for r in m})==s["tracked_data_file_count"]==pin["tracked_data_file_count"],"evidence manifest count")
-        for r in m:require(re.fullmatch(r"(?:research|web|web/public-directory|web/hcris-capacity)/[A-Za-z0-9_.-]+\\.json",r["path"]) and type(r["bytes"]) is int and r["bytes"]>0 and re.fullmatch(r"[a-f0-9]{64}",r["sha256"]),"evidence manifest file")
+        for r in m:require(DATA_PATH.fullmatch(r["path"]) and type(r["bytes"]) is int and r["bytes"]>0 and re.fullmatch(r"[a-f0-9]{64}",r["sha256"]),"evidence manifest file")
         changed=[r for r in m if national["files"].get(r["path"])!=r]
         require(len(changed)==s["supplemental_file_count"]==pin["supplemental_file_count"] and s["base_file_count"]+len(changed)==len(m) and s["supplemental_paths"]==[r["path"] for r in changed] and s["supplemental_data_bytes"]==sum(r["bytes"] for r in changed) and s["tracked_data_bytes"]==sum(r["bytes"] for r in m),"evidence supplement coverage")
     else:

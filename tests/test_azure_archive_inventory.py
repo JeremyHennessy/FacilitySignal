@@ -1,4 +1,4 @@
-import copy,json,unittest
+import copy,hashlib,json,unittest
 from scripts import audit_azure_archive_inventory as audit
 
 class ArchiveInventoryTests(unittest.TestCase):
@@ -48,3 +48,16 @@ class ArchiveInventoryTests(unittest.TestCase):
             altered=copy.deepcopy(self.ledger)
             next(x for x in altered["receipts"] if x["kind"]==kind)["kind"]="publisher"
             with self.assertRaises(ValueError):audit.totals(altered)
+
+    def test_evidence_receipt_path_and_manifest_reconciliation(self):
+        pin=copy.deepcopy(next(x for x in self.ledger["receipts"] if x["kind"]=="evidence_bundle"))
+        manifest=[{"path":"research/old.json","bytes":3,"sha256":"a"*64},{"path":"web/hcris-capacity/hospital.json","bytes":5,"sha256":"b"*64}]
+        national={"receipt_sha256":pin["base_receipt_sha256"],"pointer":{"release":"bootstrap-1-1"},"files":{manifest[0]["path"]:manifest[0]}}
+        inputs={"base_receipt_sha256":national["receipt_sha256"],"policy_version":1,"tracked_data_files":manifest}
+        pin.update(source_sha256=hashlib.sha256(audit.a.encode(inputs)).hexdigest(),tracked_data_file_count=2,supplemental_file_count=1)
+        receipt={"status":"COMPLETE","domain":"FACILITYSIGNAL_PRIVATE_SOURCE","format_version":1,"projector_version":1,"key":pin["key"],"source_sha256":pin["source_sha256"],"payload_prefix":audit.src.prefix_for(pin["key"],pin["source_sha256"])+"/files","base_receipt_sha256":pin["base_receipt_sha256"],"base_release":"bootstrap-1-1","files":pin["files"],"total_bytes":sum(f["bytes"] for f in pin["files"]),"sha256_readback":True,"public_promotion":False,"publisher":{"kind":"repository_data_evidence_snapshot","inputs":inputs,"sha256":pin["source_sha256"]},"summary":{"complete_manifest":manifest,"new_publisher_release":False,"tracked_data_file_count":2,"supplemental_file_count":1,"base_file_count":1,"supplemental_paths":[manifest[1]["path"]],"supplemental_data_bytes":5,"tracked_data_bytes":8}}
+        audit.source_matches(receipt,pin,national)
+        manifest[1]["path"]="web/../secret.json"
+        pin["source_sha256"]=hashlib.sha256(audit.a.encode(inputs)).hexdigest()
+        receipt.update(source_sha256=pin["source_sha256"],payload_prefix=audit.src.prefix_for(pin["key"],pin["source_sha256"])+"/files")
+        with self.assertRaisesRegex(ValueError,"evidence manifest file"):audit.source_matches(receipt,pin,national)
