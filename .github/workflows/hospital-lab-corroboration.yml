@@ -1,0 +1,28 @@
+name: Hospital laboratory corroboration qualification
+on:
+  push:
+    branches: [research/hospital-lab-corroboration-20261126]
+    paths:
+      - hospital_lab_corroboration.py
+      - tests/test_hospital_lab_corroboration.py
+      - .github/workflows/hospital-lab-corroboration.yml
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_hospital_lab_corroboration.py -v
+      - run: python hospital_lab_corroboration.py --download --output "$RUNNER_TEMP/hospital-lab.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hospital-lab-corroboration
+          path: ${{ runner.temp }}/hospital-lab.json
+          retention-days: 14
+          if-no-files-found: error
