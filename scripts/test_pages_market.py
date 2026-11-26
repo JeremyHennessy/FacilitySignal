@@ -44,6 +44,10 @@ try:
             assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
             assert not errors,errors
             page.screenshot(path=str(OUT/f"{width}-national-market.png"),full_page=False)
+            page.locator(".market-map-frame").screenshot(path=str(OUT/f"{width}-map-only.png"))
+            if width==390:
+                assert page.locator(".market-toolbar select").first.evaluate("(e)=>e.getBoundingClientRect().width>=280")
+                assert page.locator(".market-toolbar select").nth(1).evaluate("(e)=>e.getBoundingClientRect().width>=280")
             elapsed=round((time.perf_counter()-start)*1000,1)
             page.locator("select[name=source]").select_option("hospital")
             page.locator("select[name=state]").select_option("NY")
@@ -53,6 +57,7 @@ try:
             observed={x.get_attribute("data-state"):int(x.get_attribute("data-count")) for x in page.locator(".market-region").all()}
             assert observed=={st:source_counts["hospital"][st] for st in states}
             assert page.locator(".market-selected-count").inner_text()==f"Hospitals · {source_counts['hospital']['NY']:,} source records"
+            page.locator(".market-selection").screenshot(path=str(OUT/f"{width}-selected-market.png"))
             # Keyboard activation of a geographic region (small polygons also selectable in form).
             page.locator(".market-region[data-state=VT]").focus()
             page.keyboard.press("Enter")
