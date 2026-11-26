@@ -1,0 +1,210 @@
+{
+  "as_of": "2026-11-26",
+  "qualification_run": 45839078040,
+  "qualification_job": 139975619704,
+  "qualified_commit": "4443bbfc5f57ebca3f9f5e75521a679fba93d693",
+  "tests_passed": 2,
+  "limits": "Source rows and literal reference pairs only. Same address text is not physical-site proof. Program and certificate status literals are not current operation or validity. No new row-level publication.",
+  "public_hospital": {
+    "records": 5435,
+    "release": "2026-11-12",
+    "sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a"
+  },
+  "result": {
+    "distinct_reference_tokens": 6567,
+    "hospital_cohorts": {
+      "code00_no_same_state_public_candidate": 1671,
+      "code00_same_state_public_candidate": 5362,
+      "other_program_code": 6565
+    },
+    "hospital_rows_with_matches": {
+      "code00_no_same_state_public_candidate": 414,
+      "code00_same_state_public_candidate": 3319,
+      "other_program_code": 2399
+    },
+    "hospital_rows_with_references": {
+      "code00_no_same_state_public_candidate": 414,
+      "code00_same_state_public_candidate": 3319,
+      "other_program_code": 2400
+    },
+    "lab_rows": 686058,
+    "matched_reference_tokens": 6566,
+    "pairs_by_address_evidence": {
+      "code00_no_same_state_public_candidate": {
+        "same_state_city_zip_agree_street_differs": 217,
+        "same_state_other_address_difference": 64,
+        "same_state_street_city_zip_agree": 154,
+        "state_conflict": 1
+      },
+      "code00_same_state_public_candidate": {
+        "same_state_city_zip_agree_street_differs": 2334,
+        "same_state_other_address_difference": 762,
+        "same_state_street_city_zip_agree": 1387,
+        "state_conflict": 11
+      },
+      "other_program_code": {
+        "same_state_city_zip_agree_street_differs": 1775,
+        "same_state_other_address_difference": 358,
+        "same_state_street_city_zip_agree": 639,
+        "state_conflict": 13
+      }
+    },
+    "pairs_by_certificate_literal": {
+      "code00_no_same_state_public_candidate": {
+        "1": 15,
+        "2": 279,
+        "3": 137,
+        "9": 5
+      },
+      "code00_same_state_public_candidate": {
+        "1": 850,
+        "2": 886,
+        "3": 2601,
+        "4": 134,
+        "9": 23
+      },
+      "other_program_code": {
+        "1": 766,
+        "2": 618,
+        "3": 1297,
+        "4": 64,
+        "9": 40
+      }
+    },
+    "pairs_by_general_facility_type_literal": {
+      "code00_no_same_state_public_candidate": {
+        "10": 2,
+        "14": 387,
+        "15": 1,
+        "22": 1,
+        "25": 1,
+        "27": 7,
+        "29": 30,
+        "03": 5,
+        "06": 1,
+        "07": 1
+      },
+      "code00_same_state_public_candidate": {
+        "10": 6,
+        "11": 8,
+        "12": 22,
+        "13": 11,
+        "14": 3540,
+        "15": 63,
+        "16": 2,
+        "18": 1,
+        "19": 7,
+        "20": 3,
+        "21": 171,
+        "22": 6,
+        "24": 4,
+        "25": 76,
+        "26": 4,
+        "27": 20,
+        "28": 2,
+        "29": 196,
+        "01": 6,
+        "02": 35,
+        "03": 195,
+        "05": 4,
+        "06": 99,
+        "07": 3,
+        "08": 4,
+        "09": 6
+      },
+      "other_program_code": {
+        "10": 1,
+        "11": 2,
+        "12": 16,
+        "13": 4,
+        "14": 2247,
+        "15": 63,
+        "18": 2,
+        "19": 2,
+        "21": 84,
+        "22": 2,
+        "24": 1,
+        "25": 28,
+        "26": 1,
+        "27": 39,
+        "29": 134,
+        "02": 25,
+        "03": 72,
+        "05": 2,
+        "06": 44,
+        "07": 3,
+        "08": 5,
+        "09": 8
+      }
+    },
+    "pairs_by_lab_status_literal": {
+      "code00_no_same_state_public_candidate": {
+        "12": 2,
+        "13": 1,
+        "33": 3,
+        "99": 1,
+        "00": 403,
+        "01": 17,
+        "08": 9
+      },
+      "code00_same_state_public_candidate": {
+        "10": 3,
+        "12": 24,
+        "13": 6,
+        "15": 6,
+        "33": 9,
+        "99": 1,
+        "00": 4130,
+        "01": 217,
+        "04": 3,
+        "08": 94,
+        "unrecognized": 1
+      },
+      "other_program_code": {
+        "10": 6,
+        "12": 109,
+        "13": 5,
+        "15": 5,
+        "16": 5,
+        "17": 5,
+        "20": 5,
+        "33": 49,
+        "99": 19,
+        "00": 1690,
+        "01": 615,
+        "03": 1,
+        "04": 12,
+        "05": 2,
+        "08": 256,
+        "unrecognized": 1
+      }
+    },
+    "pairs_by_multisite_exception_literal": {
+      "code00_no_same_state_public_candidate": {
+        "N": 417,
+        "Y": 19
+      },
+      "code00_same_state_public_candidate": {
+        "N": 3631,
+        "Y": 863
+      },
+      "other_program_code": {
+        "N": 2426,
+        "Y": 359
+      }
+    },
+    "reference_dispositions": {
+      "code00_no_same_state_public_candidate|reference_occurrences": 436,
+      "code00_no_same_state_public_candidate|unique_candidate": 436,
+      "code00_same_state_public_candidate|reference_occurrences": 4494,
+      "code00_same_state_public_candidate|unique_candidate": 4494,
+      "other_program_code|reference_occurrences": 2786,
+      "other_program_code|unique_candidate": 2785,
+      "other_program_code|unmatched": 1
+    }
+  },
+  "source_hashes": {
+    "clia": "b7b7dce68abec2ad69b6c3378ff14e0b1c4e12f5dda433d12db2cf8eb4c5b1bf",
+    "qies": "8c83318826efc7de996811c22b67f5422ad639581e94830817645d5c0585bf7c"
+  }
+}
