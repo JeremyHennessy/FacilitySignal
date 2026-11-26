@@ -51,7 +51,7 @@ class AzureExtensionTests(unittest.TestCase):
         s=ExtensionStore();seed(s);n=e.national_manifest(s);old=s.data[a.POINTER]
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);db=root/"extension.sqlite3";db.write_bytes(b"synthetic extension")
-            audit={"database_sha256":a.sha(db),"database_bytes":db.stat().st_size,"base_database_sha256":n["receipt"]["database_sha256"],"source_records":e.EXPECTED_ROWS,"scope":"synthetic"}
+            audit={"database_sha256":a.sha(db),"database_bytes":db.stat().st_size,"base_database_sha256":n["receipt"]["database_sha256"],"source_records":e.EXPECTED_ROWS,"scope":"synthetic","application_pack_parity":{"byte_parity":True,"pages_paths_unchanged":True}}
             receipt=e.publish(s,"extension-123-1","b"*40,n,db,audit,root)
             self.assertTrue(receipt["sha256_readback"])
             self.assertTrue(s.exists(e.EXT_POINTER));self.assertEqual(s.data[a.POINTER],old)
@@ -64,3 +64,18 @@ class AzureExtensionTests(unittest.TestCase):
             root=Path(d);e.fetch_verified(s,name,pin,root/"good")
             s.corrupt=True
             with self.assertRaises(ValueError):e.fetch_verified(s,name,pin,root/"bad")
+
+    def test_private_application_pack_byte_parity(self):
+        s=ExtensionStore();seed(s);n=e.national_manifest(s)
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            for key in ("web/public-directory/manifest.json","web/public-intelligence.json"):
+                path=root/key;path.parent.mkdir(parents=True,exist_ok=True)
+                data=b"synthetic public pack";path.write_bytes(data)
+                pin=a.bytes_record(key,data);n["files"][key]=pin
+                name=n["receipt"]["payload_prefix"]+"/"+key
+                s.create(name,io.BytesIO(data),len(data),"application/json")
+            with patch.object(e,"ROOT",root):
+                self.assertEqual(e.verify_application_packs(s,n)["file_count"],2)
+                (root/"web/public-intelligence.json").write_bytes(b"modified")
+                with self.assertRaises(ValueError):e.verify_application_packs(s,n)

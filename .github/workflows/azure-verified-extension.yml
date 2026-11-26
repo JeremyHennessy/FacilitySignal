@@ -1,11 +1,12 @@
 name: Private Azure verified national extension migration
 on:
   push:
-    branches: [build/azure-verified-extension-20261126]
+    branches: [main, build/azure-verified-extension-20261126]
+    paths:
+      - .github/workflows/azure-verified-extension.yml
+      - scripts/azure_verified_extension.py
+      - tests/test_azure_verified_extension.py
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Private Azure national archive bootstrap"]
-    types: [completed]
 permissions:
   contents: read
 concurrency:
@@ -13,7 +14,6 @@ concurrency:
   cancel-in-progress: false
 jobs:
   qualify:
-    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.head_repository.full_name == github.repository)
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -28,7 +28,7 @@ jobs:
       - run: python -m py_compile scripts/azure_verified_extension.py
   migrate:
     needs: qualify
-    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main' && github.event_name != 'push'
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     environment: azure-production

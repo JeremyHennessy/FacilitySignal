@@ -105,6 +105,22 @@ def fetch_verified(store,name,pin,path):
     require(n==pin["bytes"] and h.hexdigest()==pin["sha256"] and store.head(name)==before,"archive payload checksum or ETag mismatch")
     require(sha(path)==pin["sha256"],"local readback hash mismatch")
 
+def verify_application_packs(store,national):
+    # The current frontend still reads its existing Pages files. Prove those
+    # approved files have an exact private Azure copy, not an alternate URL
+    # or a new public projection. No private blob is copied into web/.
+    packs={k:v for k,v in national["files"].items() if k.startswith("web/")}
+    require("web/public-directory/manifest.json" in packs and "web/public-intelligence.json" in packs,"required app packs absent")
+    result={"file_count":0,"bytes":0}
+    for key,pin in sorted(packs.items()):
+        local=ROOT/key
+        require(local.is_file() and not local.is_symlink() and local.stat().st_size==pin["bytes"] and sha(local)==pin["sha256"],"approved application pack differs from national archive: "+key)
+        archive.verify(store,national["receipt"]["payload_prefix"]+"/"+key,pin)
+        require(sha(local)==pin["sha256"],"application pack changed during verification")
+        result["file_count"]+=1;result["bytes"]+=pin["bytes"]
+    unchanged(store,national)
+    return {**result,"byte_parity":True,"pages_paths_unchanged":True}
+
 def restore_national(store,national,root):
     receipt=national["receipt"];payload=receipt["payload_prefix"]
     root.mkdir(mode=0o700)
@@ -250,6 +266,7 @@ def publish(store,release,commit,national,db_path,db_audit,root):
     require(re.fullmatch(r"extension-[0-9]+-[0-9]+",release) and re.fullmatch(r"[a-f0-9]{40}",commit),"extension lineage")
     unchanged(store,national)
     require(not store.exists(EXT_POINTER),"extension pointer exists; no overwrite")
+    require(db_audit["application_pack_parity"]["byte_parity"] is True and db_audit["application_pack_parity"]["pages_paths_unchanged"] is True,"app pack parity required")
     require(db_audit["database_sha256"]==sha(db_path) and db_audit["database_bytes"]==db_path.stat().st_size<=MAX_DB and db_audit["base_database_sha256"]==national["receipt"]["database_sha256"] and db_audit["source_records"]==EXPECTED_ROWS,"extension audit mismatch")
     audit_path=root/"extension-audit.json"
     audit_path.write_bytes(archive.encode(db_audit))
@@ -265,7 +282,7 @@ def publish(store,release,commit,national,db_path,db_audit,root):
         etags[name]=archive.verify(store,name,r)
         require(sha(files[r["path"]])==r["sha256"],"local payload mutated")
     archive.check_inventory(store,payload,records,etags)
-    receipt={"format_version":1,"status":"COMPLETE","domain":EXT_DOMAIN,"release":release,"commit":commit,"base_release":national["pointer"]["release"],"base_receipt_sha256":national["receipt_sha256"],"base_pointer_sha256":national["pointer_sha256"],"payload_prefix":payload,"source_records":EXPECTED_ROWS,"base_source_records":1904060,"source_count":16,"database_sha256":db_audit["database_sha256"],"database_bytes":db_audit["database_bytes"],"files":records,"file_count":len(records),"total_bytes":sum(r["bytes"] for r in records),"sha256_readback":True,"exact_inventory":True,"scope":db_audit["scope"]}
+    receipt={"format_version":1,"status":"COMPLETE","domain":EXT_DOMAIN,"release":release,"commit":commit,"base_release":national["pointer"]["release"],"base_receipt_sha256":national["receipt_sha256"],"base_pointer_sha256":national["pointer_sha256"],"payload_prefix":payload,"source_records":EXPECTED_ROWS,"base_source_records":1904060,"source_count":16,"database_sha256":db_audit["database_sha256"],"database_bytes":db_audit["database_bytes"],"files":records,"file_count":len(records),"total_bytes":sum(r["bytes"] for r in records),"sha256_readback":True,"exact_inventory":True,"scope":db_audit["scope"],"application_pack_parity":db_audit["application_pack_parity"]}
     data=archive.encode(receipt);name=prefix+"/complete.json";archive.put_bytes(store,name,data)
     archive.check_inventory(store,payload,records,etags);unchanged(store,national)
     pointer={"format_version":1,"domain":EXT_DOMAIN,"release":release,"commit":commit,"base_release":receipt["base_release"],"base_receipt_sha256":receipt["base_receipt_sha256"],"receipt":name,"receipt_sha256":hashlib.sha256(data).hexdigest(),"source_records":EXPECTED_ROWS}
@@ -285,7 +302,10 @@ def main():
         with tempfile.TemporaryDirectory(prefix="azure-extension-") as d:
             root=Path(d);base,audit=restore_national(store,national,root/"national")
             print("AZURE_NATIONAL_RESTORE_VERIFIED",json.dumps({"release":national["pointer"]["release"],"source_records":audit["source_records_total"],"database_sha256":audit["database_sha256"]}),flush=True)
+            packs=verify_application_packs(store,national)
+            print("AZURE_APPLICATION_PACK_PARITY",json.dumps(packs,sort_keys=True),flush=True)
             path=root/"extension.sqlite3";result=build_extension(base,path)
+            result["application_pack_parity"]=packs
             receipt=publish(store,release,commit,national,path,result,root)
         a.receipt.write_bytes(archive.encode(receipt))
         print("FACILITYSIGNAL_AZURE_EXTENSION_COMPLETE",json.dumps({k:v for k,v in receipt.items() if k!="files"},sort_keys=True),flush=True)
