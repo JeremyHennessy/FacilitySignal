@@ -486,15 +486,36 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-renal-2011-index",
+      "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+      "kind": "publisher",
+      "observations": 100988,
+      "run": 45856912767,
+      "job": 140038079985,
+      "files": [
+        {
+          "bytes": 5087232,
+          "path": "projection.sqlite3",
+          "sha256": "a1fe1fddbb13fd2d14ae540a4a2b24c0450a9f39cae3e7bf3662a88f7a358c41"
+        },
+        {
+          "bytes": 18787,
+          "path": "audit.json",
+          "sha256": "5a98203a1f7428d8ad6504df727965a5b05ec9d0d7abab5d00832a17a333b18c"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
-    "publisher_releases": 54,
-    "source_observations": 10129940,
+    "publisher_releases": 55,
+    "source_observations": 10230928,
     "derived_candidate_observations": 23520,
     "aggregate_evidence_releases": 2,
     "aggregate_source_rows_screened": 441418,
-    "payload_files": 110,
-    "payload_bytes": 1985828126
+    "payload_files": 112,
+    "payload_bytes": 1990934145
   }
 }

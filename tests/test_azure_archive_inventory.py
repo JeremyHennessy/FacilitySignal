@@ -5,10 +5,10 @@ class ArchiveInventoryTests(unittest.TestCase):
     def setUp(self): self.ledger=json.loads(audit.LEDGER.read_text())
     def test_counts_and_grain(self):
         t=audit.totals(self.ledger)
-        self.assertEqual(t["publisher_releases"],54)
-        self.assertEqual(t["source_observations"],10129940)
+        self.assertEqual(t["publisher_releases"],55)
+        self.assertEqual(t["source_observations"],10230928)
         self.assertEqual(t["derived_candidate_observations"],23520)
-        self.assertEqual(t["payload_files"],110)
+        self.assertEqual(t["payload_files"],112)
         self.assertEqual(t["aggregate_evidence_releases"],2)
         self.assertEqual(t["aggregate_source_rows_screened"],441418)
     def test_reject_duplicate_release(self):
