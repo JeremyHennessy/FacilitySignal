@@ -1,0 +1,28 @@
+name: Infrastructure outlier qualification
+on:
+  push:
+    branches: [research/infrastructure-outliers-20261126]
+    paths:
+      - infrastructure_outliers.py
+      - tests/test_infrastructure_outliers.py
+      - .github/workflows/infrastructure-outliers.yml
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_infrastructure_outliers.py -v
+      - run: python infrastructure_outliers.py --download --output "$RUNNER_TEMP/outliers.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: infrastructure-outliers
+          path: ${{ runner.temp }}/outliers.json
+          retention-days: 14
+          if-no-files-found: error
