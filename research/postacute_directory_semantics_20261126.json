@@ -1,0 +1,901 @@
+{
+  "as_of": "2026-11-26",
+  "base_commit": "5bd959dbfed139cb27efa81c46dd03577bf6c96f",
+  "profile_path": "research/care_compare_directory_raw_field_profiles_20261126.json",
+  "profile_blob": "fffcab3246603538d4a3ff5be13e571aa868e744",
+  "totals": {
+    "sources": 3,
+    "rows": 8003,
+    "dictionary_reviewed_fields": 37,
+    "restricted_presence_fields": 3,
+    "new_domain_qualified_fields": 0,
+    "new_application_approved_fields": 0,
+    "new_raw_downloads": 0
+  },
+  "sources": [
+    {
+      "source": "hospice",
+      "source_sha256": "9ff0f8e60a0864f51faf9d5668b1a5b7a644f15eefc1fecd66a771783722700f",
+      "release": "2026-11-20",
+      "rows": 6470,
+      "catalog": "https://data.cms.gov/provider-data/dataset/yc9t-dgbk",
+      "dictionary": {
+        "url": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/hospice/HOSPICE_Data_Dictionary.pdf",
+        "version": "14.3",
+        "table": 3,
+        "printed_pages": [
+          9
+        ],
+        "sha256": null
+      },
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "dictionary_printed_page": 9,
+          "meaning": "CMS program certification identifier, preserve leading zeros; not a property ID",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 1432,
+            "unsigned_integer_text": 5038
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "application_disposition": "existing identity evidence",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 2,
+          "field": "Facility Name",
+          "dictionary_printed_page": 9,
+          "meaning": "Publisher-reported provider name, not verified legal owner",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 6470
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "application_disposition": "existing name evidence",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 3,
+          "field": "Address Line 1",
+          "dictionary_printed_page": 9,
+          "meaning": "Reported primary address component",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 6470
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "application_disposition": "existing address evidence",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 4,
+          "field": "Address Line 2",
+          "dictionary_printed_page": 9,
+          "meaning": "Reported secondary address component; dash not a suite",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 6470
+          },
+          "distinct_nonmissing": {
+            "count": 371,
+            "method": "exact"
+          },
+          "application_disposition": "address context only",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 5,
+          "field": "City/Town",
+          "dictionary_printed_page": 9,
+          "meaning": "Reported locality",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 6470
+          },
+          "distinct_nonmissing": {
+            "count": 1997,
+            "method": "exact"
+          },
+          "application_disposition": "existing geographic context",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 6,
+          "field": "State",
+          "dictionary_printed_page": 9,
+          "meaning": "Reported postal jurisdiction",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 6470
+          },
+          "distinct_nonmissing": {
+            "count": 55,
+            "method": "exact"
+          },
+          "application_disposition": "existing geographic context",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 7,
+          "field": "ZIP Code",
+          "dictionary_printed_page": 9,
+          "meaning": "Postal routing identifier; store as text",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "unsigned_integer_text": 6470
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "application_disposition": "existing geographic context",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 8,
+          "field": "County/Parish",
+          "dictionary_printed_page": 9,
+          "meaning": "Reported county or parish label, not a FIPS code",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 6470
+          },
+          "distinct_nonmissing": {
+            "count": 998,
+            "method": "exact"
+          },
+          "application_disposition": "county candidate; resolve FIPS separately",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 9,
+          "field": "Telephone Number",
+          "dictionary_printed_page": 9,
+          "meaning": "Provider telephone field; presence only retained",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": null,
+          "restricted_presence": {
+            "nonblank": 6470
+          },
+          "lexical_shapes": null,
+          "distinct_nonmissing": null,
+          "application_disposition": "restricted presence only",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 10,
+          "field": "CMS Region",
+          "dictionary_printed_page": 9,
+          "meaning": "CMS administrative region, not service territory",
+          "unit": null,
+          "documented_domain": {
+            "integer_min": 1,
+            "integer_max": 10
+          },
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "unsigned_integer_text": 6470
+          },
+          "distinct_nonmissing": {
+            "count": 10,
+            "method": "exact"
+          },
+          "application_disposition": "candidate administrative filter; verify state-region concordance",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 11,
+          "field": "Ownership Type",
+          "dictionary_printed_page": 9,
+          "meaning": "Reported ownership classification, not legal property ownership",
+          "unit": null,
+          "documented_domain": [
+            "For Profit",
+            "Non-Profit",
+            "Government",
+            "Combination Government & Non-Profit",
+            "Other"
+          ],
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 6470
+          },
+          "distinct_nonmissing": {
+            "count": 5,
+            "method": "exact"
+          },
+          "application_disposition": "candidate category filter; confirm exact observed tokens",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 12,
+          "field": "Certification Date",
+          "dictionary_printed_page": 9,
+          "meaning": "Initial Medicare certification date, not opening date or active status",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 6470
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "slash_date_shape": 6470
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "application_disposition": "candidate historical certification context; validate calendar and release cutoff",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        }
+      ]
+    },
+    {
+      "source": "long-term-hospital",
+      "source_sha256": "176b1fae71a5ac97bf89f9d3404b98c6d3135b184f079baec939bcb2e016ba2e",
+      "release": "2026-09-23",
+      "rows": 311,
+      "catalog": "https://data.cms.gov/provider-data/dataset/azum-44iv",
+      "dictionary": {
+        "url": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/long_term_care_hospital/LTCH_Data_Dictionary.pdf",
+        "version": "8.0 September 2026; reviewed page footers December 2025 / June 2026",
+        "table": 4,
+        "printed_pages": [
+          7,
+          8
+        ],
+        "sha256": null
+      },
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "dictionary_printed_page": 7,
+          "meaning": "CMS program certification identifier, preserve leading zeros; not a property ID",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "unsigned_integer_text": 311
+          },
+          "distinct_nonmissing": {
+            "count": 311,
+            "method": "exact"
+          },
+          "application_disposition": "existing identity evidence",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 2,
+          "field": "Provider Name",
+          "dictionary_printed_page": 7,
+          "meaning": "Publisher-reported provider name, not verified legal owner",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 311
+          },
+          "distinct_nonmissing": {
+            "count": 311,
+            "method": "exact"
+          },
+          "application_disposition": "existing name evidence",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 3,
+          "field": "Address Line 1",
+          "dictionary_printed_page": 7,
+          "meaning": "Reported primary address component",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 311
+          },
+          "distinct_nonmissing": {
+            "count": 311,
+            "method": "exact"
+          },
+          "application_disposition": "existing address evidence",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 4,
+          "field": "Address Line 2",
+          "dictionary_printed_page": 7,
+          "meaning": "Reported secondary address component; dash not a suite",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 311
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "application_disposition": "address context only",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 5,
+          "field": "City/Town",
+          "dictionary_printed_page": 7,
+          "meaning": "Reported locality",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 311
+          },
+          "distinct_nonmissing": {
+            "count": 265,
+            "method": "exact"
+          },
+          "application_disposition": "existing geographic context",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 6,
+          "field": "State",
+          "dictionary_printed_page": 7,
+          "meaning": "Reported postal jurisdiction",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 311
+          },
+          "distinct_nonmissing": {
+            "count": 47,
+            "method": "exact"
+          },
+          "application_disposition": "existing geographic context",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 7,
+          "field": "ZIP Code",
+          "dictionary_printed_page": 7,
+          "meaning": "Postal routing identifier; store as text",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "unsigned_integer_text": 311
+          },
+          "distinct_nonmissing": {
+            "count": 307,
+            "method": "exact"
+          },
+          "application_disposition": "existing geographic context",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 8,
+          "field": "County/Parish",
+          "dictionary_printed_page": 7,
+          "meaning": "Reported county or parish label, not a FIPS code",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 311
+          },
+          "distinct_nonmissing": {
+            "count": 225,
+            "method": "exact"
+          },
+          "application_disposition": "county candidate; resolve FIPS separately",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 9,
+          "field": "Telephone Number",
+          "dictionary_printed_page": 7,
+          "meaning": "Provider telephone field; presence only retained",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": null,
+          "restricted_presence": {
+            "nonblank": 311
+          },
+          "lexical_shapes": null,
+          "distinct_nonmissing": null,
+          "application_disposition": "restricted presence only",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 10,
+          "field": "CMS Region",
+          "dictionary_printed_page": 8,
+          "meaning": "CMS administrative region, not service territory",
+          "unit": null,
+          "documented_domain": {
+            "integer_min": 1,
+            "integer_max": 10
+          },
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "unsigned_integer_text": 311
+          },
+          "distinct_nonmissing": {
+            "count": 10,
+            "method": "exact"
+          },
+          "application_disposition": "candidate administrative filter; verify state-region concordance",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 11,
+          "field": "Ownership Type",
+          "dictionary_printed_page": 8,
+          "meaning": "Reported ownership classification, not legal property ownership",
+          "unit": null,
+          "documented_domain": [
+            "For Profit",
+            "Non-profit",
+            "Government",
+            "Physician",
+            "Tribal"
+          ],
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 311
+          },
+          "distinct_nonmissing": {
+            "count": 5,
+            "method": "exact"
+          },
+          "application_disposition": "candidate category filter; confirm exact observed tokens",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 12,
+          "field": "Certification Date",
+          "dictionary_printed_page": 8,
+          "meaning": "Initial Medicare certification date, not opening date or active status",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "slash_date_shape": 311
+          },
+          "distinct_nonmissing": {
+            "count": 215,
+            "method": "exact"
+          },
+          "application_disposition": "candidate historical certification context; validate calendar and release cutoff",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 13,
+          "field": "Total Number of Beds",
+          "dictionary_printed_page": 8,
+          "meaning": "Reported total beds, not certified, staffed or available beds",
+          "unit": "beds",
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 311
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 6,
+            "unsigned_integer_text": 305
+          },
+          "distinct_nonmissing": {
+            "count": 119,
+            "method": "exact"
+          },
+          "application_disposition": "candidate reported total-bed measure; do not combine different capacity units",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        }
+      ]
+    },
+    {
+      "source": "rehabilitation",
+      "source_sha256": "18f89d14e22355b3ae2bcf02b2db93e7e54341f679ad380a2d741ce58002e214",
+      "release": "2026-09-23",
+      "rows": 1222,
+      "catalog": "https://data.cms.gov/provider-data/dataset/7t8x-u3ir",
+      "dictionary": {
+        "url": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/inpatient/IRF_Data_Dictionary.pdf",
+        "version": "7.0 September 2026; reviewed page footers June / March 2026",
+        "table": 4,
+        "printed_pages": [
+          7,
+          8
+        ],
+        "sha256": null
+      },
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "dictionary_printed_page": 7,
+          "meaning": "CMS program certification identifier, preserve leading zeros; not a property ID",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 810,
+            "unsigned_integer_text": 412
+          },
+          "distinct_nonmissing": {
+            "count": 1222,
+            "method": "exact"
+          },
+          "application_disposition": "existing identity evidence",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 2,
+          "field": "Provider Name",
+          "dictionary_printed_page": 7,
+          "meaning": "Publisher-reported provider name, not verified legal owner",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 1222
+          },
+          "distinct_nonmissing": {
+            "count": 1207,
+            "method": "exact"
+          },
+          "application_disposition": "existing name evidence",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 3,
+          "field": "Address Line 1",
+          "dictionary_printed_page": 7,
+          "meaning": "Reported primary address component",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 1222
+          },
+          "distinct_nonmissing": {
+            "count": 1220,
+            "method": "exact"
+          },
+          "application_disposition": "existing address evidence",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 4,
+          "field": "Address Line 2",
+          "dictionary_printed_page": 7,
+          "meaning": "Reported secondary address component; dash not a suite",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 1222
+          },
+          "distinct_nonmissing": {
+            "count": 68,
+            "method": "exact"
+          },
+          "application_disposition": "address context only",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 5,
+          "field": "City/Town",
+          "dictionary_printed_page": 7,
+          "meaning": "Reported locality",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 1222
+          },
+          "distinct_nonmissing": {
+            "count": 830,
+            "method": "exact"
+          },
+          "application_disposition": "existing geographic context",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 6,
+          "field": "State",
+          "dictionary_printed_page": 7,
+          "meaning": "Reported postal jurisdiction",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 1222
+          },
+          "distinct_nonmissing": {
+            "count": 52,
+            "method": "exact"
+          },
+          "application_disposition": "existing geographic context",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 7,
+          "field": "ZIP Code",
+          "dictionary_printed_page": 7,
+          "meaning": "Postal routing identifier; store as text",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "unsigned_integer_text": 1222
+          },
+          "distinct_nonmissing": {
+            "count": 1126,
+            "method": "exact"
+          },
+          "application_disposition": "existing geographic context",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 8,
+          "field": "County/Parish",
+          "dictionary_printed_page": 7,
+          "meaning": "Reported county or parish label, not a FIPS code",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 1222
+          },
+          "distinct_nonmissing": {
+            "count": 537,
+            "method": "exact"
+          },
+          "application_disposition": "county candidate; resolve FIPS separately",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 9,
+          "field": "Telephone Number",
+          "dictionary_printed_page": 7,
+          "meaning": "Provider telephone field; presence only retained",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": null,
+          "restricted_presence": {
+            "nonblank": 1222
+          },
+          "lexical_shapes": null,
+          "distinct_nonmissing": null,
+          "application_disposition": "restricted presence only",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 10,
+          "field": "CMS Region",
+          "dictionary_printed_page": 8,
+          "meaning": "CMS administrative region, not service territory",
+          "unit": null,
+          "documented_domain": {
+            "integer_min": 1,
+            "integer_max": 10
+          },
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "unsigned_integer_text": 1222
+          },
+          "distinct_nonmissing": {
+            "count": 10,
+            "method": "exact"
+          },
+          "application_disposition": "candidate administrative filter; verify state-region concordance",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 11,
+          "field": "Ownership Type",
+          "dictionary_printed_page": 8,
+          "meaning": "Reported ownership classification, not legal property ownership",
+          "unit": null,
+          "documented_domain": [
+            "For Profit",
+            "Non-profit",
+            "Government",
+            "Physician"
+          ],
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "other_text": 1222
+          },
+          "distinct_nonmissing": {
+            "count": 4,
+            "method": "exact"
+          },
+          "application_disposition": "candidate category filter; confirm exact observed tokens",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 12,
+          "field": "Certification Date",
+          "dictionary_printed_page": 8,
+          "meaning": "Initial Medicare certification date, not opening date or active status",
+          "unit": null,
+          "documented_domain": null,
+          "profile_states": {
+            "other_nonblank": 1222
+          },
+          "restricted_presence": null,
+          "lexical_shapes": {
+            "slash_date_shape": 1222
+          },
+          "distinct_nonmissing": {
+            "count": 685,
+            "method": "exact"
+          },
+          "application_disposition": "candidate historical certification context; validate calendar and release cutoff",
+          "domain_status": "documented_definition_only; complete actual token validation not performed",
+          "new_application_approval": false
+        }
+      ]
+    }
+  ]
+}
