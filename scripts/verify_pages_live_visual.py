@@ -4,7 +4,7 @@ Local candidate mode uses the identical route checks. The live mode deliberately
 does not append a cache-busting revision to the page or asset requests. Review
 the uploaded screenshots before reporting any public release complete.
 """
-import argparse,hashlib,json,os,subprocess,time
+import argparse,csv,hashlib,json,os,subprocess,time
 from pathlib import Path
 from urllib.parse import urlencode,urlsplit
 from urllib.request import urlopen
@@ -221,6 +221,14 @@ def run(base,local):
                     page.get_by_role("button",name="Compare selected (2 / 4)").click()
                     page.locator(".comparison-table").wait_for()
                     assert "2 exact published records resolved" in page.locator(".comparison-status").inner_text()
+                    with page.expect_download() as dl:
+                        page.get_by_role("button",name="Export comparison CSV").click()
+                    with dl.value.path().open(encoding="utf-8",newline="") as f:
+                        exported=list(csv.reader(f))
+                    report={r[0]:r[1:] for r in exported[1:]}
+                    assert len(exported[0])==3 and all(len(r)==3 for r in exported)
+                    assert report["Source identifier"]==page.locator(".comparison-table tbody tr").filter(has_text="Source identifier").locator("td").all_inner_texts()[1:]
+                    assert all("does not establish compliance" in v for v in report["Evidence limitations"])
                     assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
                     page.screenshot(path=str(OUT/f"{width}-facility-comparison.png"),full_page=True)
                     if width<=720:
