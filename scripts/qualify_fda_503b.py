@@ -9,6 +9,7 @@ from contextlib import closing
 from datetime import date,datetime,timezone
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit
 from build_combined import require
 
 URL="https://www.fda.gov/drugs/human-drug-compounding/registered-outsourcing-facilities"
@@ -80,15 +81,25 @@ def audit(data):
             "rejected_rows":sum(anomalies.values()),"reject_reasons":dict(anomalies),"duplicate_normalized_labels":duplicate,
             "registration_year_counts":dict(sorted(counts.items())),"columns":len(HEAD),"retained_row_level_records":0,
             "limits":"FDA-listed registration table observations only; distinct labels not verified physical sites. No contacts, addresses, inspection outcomes or row values retained. Registration is not FDA approval or verified current compliance."}
+def same_page(url):
+    p=urlsplit(url);target=urlsplit(URL)
+    return (p.scheme=="https" and p.hostname in {"fda.gov","www.fda.gov"} and
+            p.port in (None,443) and not p.username and not p.password and
+            p.path.rstrip("/")==target.path and not p.query and not p.fragment)
+
 class Redirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self,req,fp,code,msg,headers,newurl):
-        require(newurl==URL,"unexpected redirect");return super().redirect_request(req,fp,code,msg,headers,newurl)
+        p=urlsplit(newurl)
+        safe_path=p.path if p.hostname in {"www.fda.gov","fda.gov"} and re.fullmatch(r"/[A-Za-z0-9/_-]{1,200}",p.path) else "other_or_unverified"
+        print("FDA_REDIRECT",json.dumps({"status":code,"official_host":p.hostname in {"www.fda.gov","fda.gov"},"path":safe_path,"query_present":bool(p.query),"same_page":same_page(newurl)}),flush=True)
+        require(same_page(newurl),"unexpected redirect")
+        return super().redirect_request(req,fp,code,msg,headers,newurl)
 def main():
     p=argparse.ArgumentParser();p.add_argument("--audit",type=Path,required=True);a=p.parse_args()
     require(not a.audit.exists(),"audit exists")
     req=urllib.request.Request(URL,headers={"User-Agent":"FacilitySignal institutional source qualification","Accept":"text/html"})
     with urllib.request.build_opener(Redirect()).open(req,timeout=60) as res:
-        require(res.geturl()==URL,"unexpected response URL");data=res.read(MAX_BYTES+1)
+        require(same_page(res.geturl()),"unexpected response URL");data=res.read(MAX_BYTES+1)
     require(0<len(data)<=MAX_BYTES,"page bound")
     result=audit(data)
     result.update({"publisher_url":URL,"html_sha256":hashlib.sha256(data).hexdigest(),"bytes":len(data),"retrieved_at":datetime.now(timezone.utc).isoformat(),"reuse_review":"pending"})

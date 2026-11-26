@@ -1,0 +1,3 @@
+# FDA canonical URL qualification
+
+Initial FDA job 139947836000 (run 45831121202, commit 9eee42b3fa7a298d712b6acac76e18f7433ba5d9) passed 174 tests and stopped at the strict redirect gate. The destination was not retained; exact cause is not yet known. Allow only the original FDA page's HTTPS canonical host and optional trailing slash; emit sanitized public path evidence for blocked redirects. No query strings, external redirect destinations or report rows emitted. Target FDA only; leave HCRIS job unchanged. No change to source schema or registration validation. Do not bypass publisher access controls.
