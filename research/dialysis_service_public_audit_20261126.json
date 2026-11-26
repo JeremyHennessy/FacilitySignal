@@ -1,0 +1,63 @@
+{
+  "registry_rows": 100334,
+  "esrd_source_rows": 8659,
+  "public_dialysis_rows": 7471,
+  "match_dispositions": {
+    "corroborated": 2194,
+    "address_evidence_disagrees": 5262,
+    "no_esrd_identifier_candidate": 15
+  },
+  "published_candidate_rows": 2194,
+  "all_esrd_field_states": {
+    "dlys_stn_cnt": {
+      "reported_count": 8447,
+      "not_available": 212
+    },
+    "hmdlys_srvc_sw": {
+      "reported_yes": 7746,
+      "not_available": 212,
+      "reported_no": 701
+    },
+    "prtnl_dlys_srvc_sw": {
+      "reported_no": 7941,
+      "not_available": 212,
+      "reported_yes": 506
+    },
+    "home_trng_sprt_only_srvc_sw": {
+      "reported_yes": 3087,
+      "not_available": 212,
+      "reported_no": 5360
+    }
+  },
+  "corroborated_field_states": {
+    "dlys_stn_cnt": {
+      "reported_count": 2178,
+      "not_available": 16
+    },
+    "hmdlys_srvc_sw": {
+      "reported_yes": 2043,
+      "reported_no": 135,
+      "not_available": 16
+    },
+    "prtnl_dlys_srvc_sw": {
+      "reported_yes": 126,
+      "reported_no": 2052,
+      "not_available": 16
+    },
+    "home_trng_sprt_only_srvc_sw": {
+      "reported_yes": 802,
+      "reported_no": 1376,
+      "not_available": 16
+    }
+  },
+  "all_esrd_approved_station_count_sum": 134626,
+  "payload_bytes": 451056,
+  "payload_sha256": "9617a05946fc165416c1c69c937eaeb4d82f29871bd7f04a88413664c80cb738",
+  "source_sha256": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2",
+  "source_period": "2026-07-01/2026-09-30",
+  "dictionary": "https://data.cms.gov/sites/default/files/2026-11/dd404bad-f893-4c80-b472-ab600bee1405/iQIES%20POS%20Data%20Dictionary%20Oct2026.xlsx",
+  "public_dialysis_sha256": "e8343f678ec1780ac49047f162754657f60eaa3f61b1d4f48ea4b55d39d4008a",
+  "reuse_evidence": "Q3 2026 CMS POS public use file; version catalog government works license; selected institutional service fields only. No new identity/contact fields.",
+  "status": "candidate_qualified_not_deployed",
+  "limits": "Exact CCN + single ESRD candidate + state/address/city/ZIP text corroboration; not canonical site, equipment or current operation. Missing candidate not zero/no. Approved in-center stations differ from Care Compare station counts; never add."
+}
