@@ -35,7 +35,7 @@ function reconcile(d){
  const referenced=new Set(),usedNational=new Set(),usedExtension=new Set();
  const addReceipt=x=>{referenced.add(x.key+"/"+x.source_sha256);return {key:x.key,source_sha256:x.source_sha256,kind:x.kind,observations:x.observations,...(x.kind==="aggregate"?{screened_observations:x.screened_observations}:{}),receipt_run:x.run};};
  const core=(x,l,rows)=>({key:x.key,source_sha256:x.sha256,kind:"qualified_private_projection",observations:rows,layer:l.key,receipt_run:l.run});
- const overlays={...d.overlay.sources,"FS-049":{status:"private_archive_partial",keys:["hha-organizational-ownership"],limit:"Organizational role rows only; excludes individual owners; no legal title or current operational control."},"FS-050":{status:"private_archive_partial",keys:["hospice-organizational-ownership"],limit:"Organizational role rows only; excludes individual owners; no legal title or current operational control."}};
+ const overlays=d.overlay.sources;
  for(const id of Object.keys(overlays))check(reg.has(id),"unknown overlay source "+id);
  const sources=[...reg.values()].map(s=>{
    const h=hist.get(s.id),e=exp.get(s.id),o=overlays[s.id],n=nat.get(h.adapter);let storage="no_pinned_source_projection",evidence=[],limit=null,qualification=h.status;

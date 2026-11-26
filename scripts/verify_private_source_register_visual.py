@@ -26,7 +26,7 @@ def run(base):
                 assert row.count()==1
                 assert row.locator("td").nth(2).inner_text()==rule["display_status"],ident
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),ident
-                if ident in ("FS-004","FS-055","FS-070","FS-105","FS-150","FS-157"):
+                if ident in ("FS-004","FS-049","FS-050","FS-055","FS-070","FS-105","FS-150","FS-157"):
                     page.screenshot(path=str(OUT/f"{width}-{ident}.png"),full_page=True)
                 seen.append({"width":width,"source":ident,"status":rule["display_status"]})
             ctx.close()

@@ -55,7 +55,7 @@
       "historical_qualification_status": "partial_structural_qualification",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "nppes-monthly",
           "nppes-weekly"
@@ -81,7 +81,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "ppef-type2-enrollment"
         ],
@@ -452,7 +452,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": null,
+        "consolidated_audit_run": 45900897912,
         "archive_readback_run": 45900550088,
         "receipt_keys": [
           "cms-nursing-ownership-organizations"
@@ -540,11 +540,53 @@
     },
     {
       "id": "FS-049",
-      "status": "discovered_not_tested"
+      "status": "discovered_not_tested",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45900897912,
+        "receipt_keys": [
+          "hha-organizational-ownership"
+        ],
+        "release_observations": 21734,
+        "aggregate_source_rows_screened": 0,
+        "publisher_release_count": 1,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 0,
+        "qualification_run_ids": [
+          45850540913
+        ],
+        "limit": "Organizational role rows only; excludes individual owners; no legal title or current operational control.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false,
+        "status": "private_archive_partial",
+        "display_status": "Private archive (partial)"
+      }
     },
     {
       "id": "FS-050",
-      "status": "discovered_not_tested"
+      "status": "discovered_not_tested",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45900897912,
+        "receipt_keys": [
+          "hospice-organizational-ownership"
+        ],
+        "release_observations": 18763,
+        "aggregate_source_rows_screened": 0,
+        "publisher_release_count": 1,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 0,
+        "qualification_run_ids": [
+          45851139665
+        ],
+        "limit": "Organizational role rows only; excludes individual owners; no legal title or current operational control.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false,
+        "status": "private_archive_partial",
+        "display_status": "Private archive (partial)"
+      }
     },
     {
       "id": "FS-051",
@@ -579,7 +621,7 @@
       "historical_qualification_status": "partial_structural_qualification",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "hcris-cmhc-2017-index",
           "hcris-cmhc-2017-numeric",
@@ -711,7 +753,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "epa-frs-healthcare-aggregate"
         ],
@@ -736,7 +778,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "epa-frs-healthcare-aggregate",
           "epa-npdes-part1-healthcare-aggregate",
@@ -766,7 +808,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "epa-sdwa-aggregate"
         ],
@@ -791,7 +833,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "epa-rcra-healthcare-aggregate"
         ],
@@ -816,7 +858,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "epa-npdes-part1-healthcare-aggregate"
         ],
@@ -853,7 +895,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "osha-enforcement-healthcare-aggregate"
         ],
@@ -1019,7 +1061,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "mn-boiler-aggregate"
         ],
@@ -1056,7 +1098,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "wa-xray-aggregate"
         ],
@@ -1105,7 +1147,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "mn-elevator-aggregate"
         ],
@@ -1262,7 +1304,7 @@
       "historical_qualification_status": "discovered_not_tested",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "il-idph-hospital-directory"
         ],
@@ -1442,7 +1484,7 @@
       "historical_qualification_status": "blocked_key_format_review",
       "private_archive_evidence": {
         "ledger": "research/azure_archive_inventory_20261126.json",
-        "consolidated_audit_run": 45867832962,
+        "consolidated_audit_run": 45900897912,
         "receipt_keys": [
           "epa-sdwa-aggregate"
         ],
@@ -4380,24 +4422,34 @@
   },
   "latest_consolidated_private_checkpoint": {
     "candidate_ledger": "research/azure_archive_inventory_20261126.json",
-    "prior_consolidated_audit_run": 45866627687,
-    "new_source_runs": [
-      45866627645
-    ],
+    "prior_consolidated_audit_run": 45867832962,
     "totals": {
-      "publisher_releases": 56,
-      "source_observations": 117850722,
+      "publisher_releases": 57,
+      "source_observations": 117921992,
       "supplemental_numeric_archives": 41,
       "supplemental_numeric_observations": 107619587,
       "derived_candidate_observations": 23520,
       "aggregate_evidence_releases": 8,
       "aggregate_source_rows_screened": 40787611,
-      "payload_files": 208,
-      "payload_bytes": 10886303843
+      "payload_files": 216,
+      "payload_bytes": 10931163793,
+      "derived_institutional_observations": 101534,
+      "repository_data_evidence_files": 73,
+      "repository_supplemental_data_files": 13,
+      "derived_enrollment_corroboration_rows": 40709
     },
-    "qualification": "PASS: all 208 pinned payloads reconciled by metadata inventory audit; individual completion receipts include payload SHA-256 readback. Not a full consolidated SHA recomputation.",
+    "qualification": "PASS: all 216 pinned payloads reconciled by metadata inventory audit; pointers unchanged and no writes. This run did not recompute payload hashes. Separate earlier full SHA-256 readback covered 212 files.",
     "public_promotion": false,
-    "consolidated_audit_run": 45867832962
+    "consolidated_audit_run": 45900897912,
+    "consolidated_audit_job": 140186184879,
+    "artifact_id": 15156565232,
+    "artifact_digest": "sha256:4622be66b2cfa78d6b1758210f3d7ee16e7bae203a086cb0a2746a310c8664e2",
+    "metadata_inventory_ledger_git_blob": "420b6591d6b75dc10f8c4f564f5143c346611e0b",
+    "prior_full_readback": {
+      "run": 45882881556,
+      "payload_files": 212,
+      "scope": "earlier pinned inventory only"
+    }
   },
   "hcris_direct_measure_crosswalk": {
     "evidence": "research/hcris_direct_measure_crosswalk_20261126.json",

@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "consolidated_audit_run": 45867832962,
+  "consolidated_audit_run": 45900897912,
   "sources": {
     "FS-004": {
       "status": "private_archive_partial",
@@ -125,7 +125,23 @@
       "display_status": "Private archive (partial)",
       "qualification": "private_organizational_projection_qualified",
       "archive_readback_run": 45900550088,
-      "consolidated_audit_run": null
+      "consolidated_audit_run": 45900897912
+    },
+    "FS-049": {
+      "status": "private_archive_partial",
+      "keys": [
+        "hha-organizational-ownership"
+      ],
+      "limit": "Organizational role rows only; excludes individual owners; no legal title or current operational control.",
+      "display_status": "Private archive (partial)"
+    },
+    "FS-050": {
+      "status": "private_archive_partial",
+      "keys": [
+        "hospice-organizational-ownership"
+      ],
+      "limit": "Organizational role rows only; excludes individual owners; no legal title or current operational control.",
+      "display_status": "Private archive (partial)"
     }
   }
 }

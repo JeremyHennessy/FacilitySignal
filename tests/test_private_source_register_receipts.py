@@ -8,7 +8,7 @@ class PrivateSourceRegisterReceiptTest(unittest.TestCase):
         plan=read("private_source_register_receipt_map_20261126.json");ledger=read("azure_archive_inventory_20261126.json")
         cov=read("coverage_status.json");overlay={x["id"]:x for x in cov["sources"]}
         original={x["id"] for x in read("facilitysignal_source_register_v0.2.json")["sources"]}
-        self.assertEqual(len(plan["sources"]),15)
+        self.assertEqual(len(plan["sources"]),17)
         for ident,rule in plan["sources"].items():
             with self.subTest(ident=ident):
                 self.assertIn(ident,original);row=overlay[ident];self.assertEqual(row["status"],row["historical_qualification_status"])
@@ -21,6 +21,24 @@ class PrivateSourceRegisterReceiptTest(unittest.TestCase):
                 self.assertEqual(e["aggregate_source_rows_screened"],sum(x["screened_observations"] for x in pins if x["kind"]=="aggregate"))
                 self.assertFalse(e["public_promotion"]);self.assertEqual(e["consolidated_audit_run"],rule.get("consolidated_audit_run",plan["consolidated_audit_run"]))
                 if "archive_readback_run" in rule:self.assertEqual(e["archive_readback_run"],rule["archive_readback_run"]);self.assertIn(e["archive_readback_run"],[p["run"] for p in pins])
+    def test_latest_metadata_audit_and_ownership_status(self):
+        cov=read("coverage_status.json")
+        ledger=read("azure_archive_inventory_20261126.json")
+        plan=read("private_source_register_receipt_map_20261126.json")
+        latest=cov["latest_consolidated_private_checkpoint"]
+        self.assertEqual(latest["consolidated_audit_run"],45900897912)
+        self.assertEqual(latest["totals"],ledger["totals"])
+        self.assertEqual(latest["prior_full_readback"]["payload_files"],212)
+        self.assertEqual(latest["totals"]["payload_files"],216)
+        self.assertEqual(plan["consolidated_audit_run"],latest["consolidated_audit_run"])
+        rows={r["id"]:r for r in cov["sources"]}
+        for ident,count in (("FS-049",21734),("FS-050",18763)):
+            r=rows[ident]
+            self.assertEqual(r["status"],"discovered_not_tested")
+            self.assertEqual(r["private_archive_evidence"]["release_observations"],count)
+            self.assertEqual(r["private_archive_evidence"]["display_status"],"Private archive (partial)")
+            self.assertFalse(r["private_archive_evidence"]["public_promotion"])
+        self.assertEqual(rows["FS-039"]["private_archive_evidence"]["consolidated_audit_run"],45900897912)
     def test_crosswalk_receipt_scope(self):
         q=read("hcris_direct_measure_crosswalk_20261126.json")
         self.assertEqual(set(q["forms"]),{"hospital","snf"})

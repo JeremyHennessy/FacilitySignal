@@ -3305,12 +3305,12 @@
     },
     "limit": "Historical pack parity and pinned evidence inventory; not an ordinary-live browser check or new publication."
   },
-  "baseline_commit": "7aed5a59029503ffab94671435c0b40ae3a72e6d",
+  "baseline_commit": "ee7cdfa1ffec443c25255de90c39c92ec806274a",
   "input_git_blob_shas": {
     "research/facilitysignal_source_register_v0.2.json": "8d3a5e9992cc4b9d819452cd4050dd19731e0d55",
-    "research/coverage_status.json": "f183e231565b4ff732ae54f8419e129833ff208e",
+    "research/coverage_status.json": "4805dc2b971e000efaddd1f3e0935a8c4056f30c",
     "research/azure_archive_inventory_20261126.json": "420b6591d6b75dc10f8c4f564f5143c346611e0b",
-    "research/private_source_register_receipt_map_20261126.json": "24a232cbad1049a1b06cab1902ab36a5fef98f54",
+    "research/private_source_register_receipt_map_20261126.json": "42e416efcb2973bbd219c12d444d747adf3a13ae",
     "research/snapshot_release_20261125.json": "9162fbdcc3ee591b63429df3279cdf11a8ddf125",
     "research/expanded_source_lock_20261126.json": "70a434e2d5a2102b65005d80884f5841302796fb",
     "research/azure_extension_recovery_pin_20261126.json": "1ffce7f894fae7589b4072e6c234292295ffd342",
@@ -3327,6 +3327,7 @@
     "unknown overlay rejected",
     "unmapped core source rejected",
     "append-only archive delta: all 73 prior receipts and two layers unchanged; new corroboration receipt's four input archive hashes, counts and database hashes match; payload bytes and files reconcile; 176 source classifications unchanged",
-    "FS-039 append-only: exact completed private receipt, two payload hashes, 71,270 organizational role rows, unchanged preceding archive receipts and historical source states; source-specific readback, not yet included in a new consolidated audit."
+    "FS-039 append-only: exact completed private receipt, two payload hashes, 71,270 organizational role rows, unchanged preceding archive receipts and historical source states; source-specific readback, not yet included in a new consolidated audit.",
+    "Latest 216-file metadata audit 45900897912: exact totals and unchanged pointers; prior 212-file full readback scope separate. FS-049/050 now mapped in authoritative coverage metadata; original historical statuses preserved."
   ]
 }
