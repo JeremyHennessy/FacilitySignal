@@ -1,0 +1,495 @@
+{
+  "as_of": "2026-11-26",
+  "qualification_run": 45841007363,
+  "qualification_job": 139982316108,
+  "qualified_commit": "bdefa032af65c21bd065acd59670dc1ecc163def",
+  "tests_passed": 4,
+  "iqies": {
+    "cohort_rows": 8492,
+    "fields": {
+      "oprtg_room_cnt": {
+        "maximum": "5112",
+        "maximum_share_of_positive_sum": "18.1386",
+        "positive_above_10x_p99": 1,
+        "positive_count": 7905,
+        "positive_p50": "2",
+        "positive_p95": "6",
+        "positive_p99": "10",
+        "states": {
+          "not_available": 452,
+          "positive": 7905,
+          "unrecognized": 4,
+          "zero": 131
+        }
+      },
+      "procedure_room_cnt": {
+        "maximum": "12",
+        "maximum_share_of_positive_sum": "0.7653",
+        "positive_above_10x_p99": 0,
+        "positive_count": 739,
+        "positive_p50": "2",
+        "positive_p95": "5",
+        "positive_p99": "8",
+        "states": {
+          "not_available": 452,
+          "positive": 739,
+          "zero": 7301
+        }
+      }
+    },
+    "source_rows": 100334
+  },
+  "limits": "Nearest rank percentiles among positive values only. 10x p99 and FTE/bed >10 are exploratory screens, not error or staffing benchmarks. No records discarded or changed; all counts retain their original source scope. No individual identifiers or market sums emitted.",
+  "public_hospital": {
+    "records": 5435,
+    "release": "2026-11-12",
+    "sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a"
+  },
+  "qies": {
+    "blocked_hospital_operating_room_field": "First hospital section definition explicitly names an ambulatory surgical center. Do not interpret hospital room count from this field until resolved.",
+    "cohort_rows": 5362,
+    "fields": {
+      "BED_CNT": {
+        "maximum": "3289",
+        "maximum_share_of_positive_sum": "0.3276",
+        "positive_above_10x_p99": 0,
+        "positive_count": 5362,
+        "positive_p50": "99",
+        "positive_p95": "632",
+        "positive_p99": "1106",
+        "states": {
+          "positive": 5362
+        }
+      },
+      "CRDC_CTHRTZTN_PRCDR_ROOMS_CNT": {
+        "maximum": "598",
+        "maximum_share_of_positive_sum": "13.6436",
+        "positive_above_10x_p99": 1,
+        "positive_count": 1299,
+        "positive_p50": "2",
+        "positive_p95": "7",
+        "positive_p99": "11",
+        "states": {
+          "positive": 1299,
+          "zero": 4063
+        }
+      },
+      "CRNA_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.8800",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "772",
+        "maximum_share_of_positive_sum": "3.7256",
+        "positive_above_10x_p99": 0,
+        "positive_count": 1769,
+        "positive_p50": "3",
+        "positive_p95": "50",
+        "positive_p99": "123",
+        "states": {
+          "positive": 1769,
+          "zero": 3593
+        }
+      },
+      "CRTFD_BED_CNT": {
+        "maximum": "3289",
+        "maximum_share_of_positive_sum": "0.3408",
+        "positive_above_10x_p99": 0,
+        "positive_count": 5362,
+        "positive_p50": "95",
+        "positive_p95": "615",
+        "positive_p99": "1069",
+        "states": {
+          "positive": 5362
+        }
+      },
+      "DIETN_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.2500",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "1115.25",
+        "maximum_share_of_positive_sum": "6.4905",
+        "positive_above_10x_p99": 3,
+        "positive_count": 3614,
+        "positive_p50": "2",
+        "positive_p95": "14.6",
+        "positive_p99": "36.3",
+        "states": {
+          "positive": 3614,
+          "zero": 1748
+        }
+      },
+      "ENDSCPY_PRCDR_ROOMS_CNT": {
+        "maximum": "81",
+        "maximum_share_of_positive_sum": "1.1905",
+        "positive_above_10x_p99": 0,
+        "positive_count": 2474,
+        "positive_p50": "2",
+        "positive_p95": "8",
+        "positive_p99": "14",
+        "states": {
+          "positive": 2474,
+          "zero": 2888
+        }
+      },
+      "INHLTN_THRPST_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.5000",
+          "rows_ratio_over_10": 1
+        },
+        "maximum": "3625",
+        "maximum_share_of_positive_sum": "5.0259",
+        "positive_above_10x_p99": 1,
+        "positive_count": 3869,
+        "positive_p50": "9",
+        "positive_p95": "61.1",
+        "positive_p99": "128.5",
+        "states": {
+          "positive": 3869,
+          "zero": 1493
+        }
+      },
+      "LAB_TCHNCN_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.9000",
+          "rows_ratio_over_10": 1
+        },
+        "maximum": "3025",
+        "maximum_share_of_positive_sum": "9.6802",
+        "positive_above_10x_p99": 1,
+        "positive_count": 3126,
+        "positive_p50": "4",
+        "positive_p95": "33",
+        "positive_p99": "93.5",
+        "states": {
+          "positive": 3126,
+          "zero": 2236
+        }
+      },
+      "LPN_LVN_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "1.2000",
+          "rows_ratio_over_10": 1
+        },
+        "maximum": "2158",
+        "maximum_share_of_positive_sum": "2.5980",
+        "positive_above_10x_p99": 2,
+        "positive_count": 4083,
+        "positive_p50": "9",
+        "positive_p95": "71",
+        "positive_p99": "161",
+        "states": {
+          "positive": 4083,
+          "zero": 1279
+        }
+      },
+      "MDCL_SCL_WORKR_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.3750",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "2115",
+        "maximum_share_of_positive_sum": "5.3199",
+        "positive_above_10x_p99": 3,
+        "positive_count": 3938,
+        "positive_p50": "3",
+        "positive_p95": "34.47",
+        "positive_p99": "81.07",
+        "states": {
+          "positive": 3938,
+          "zero": 1424
+        }
+      },
+      "MDCL_TCHNLGST_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.7200",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "490.8",
+        "maximum_share_of_positive_sum": "0.9022",
+        "positive_above_10x_p99": 0,
+        "positive_count": 3320,
+        "positive_p50": "6.8",
+        "positive_p95": "59",
+        "positive_p99": "167",
+        "states": {
+          "positive": 3320,
+          "zero": 2042
+        }
+      },
+      "NRS_PRCTNR_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.8560",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "1015",
+        "maximum_share_of_positive_sum": "2.2837",
+        "positive_above_10x_p99": 0,
+        "positive_count": 2889,
+        "positive_p50": "4",
+        "positive_p95": "65",
+        "positive_p99": "208",
+        "states": {
+          "positive": 2889,
+          "zero": 2473
+        }
+      },
+      "NUCLR_MDCN_TCHNCN_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.1385",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "244",
+        "maximum_share_of_positive_sum": "2.7516",
+        "positive_above_10x_p99": 0,
+        "positive_count": 2462,
+        "positive_p50": "2",
+        "positive_p95": "10.9",
+        "positive_p99": "24.7",
+        "states": {
+          "positive": 2462,
+          "zero": 2900
+        }
+      },
+      "OCPTNL_THRPST_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.2416",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "130",
+        "maximum_share_of_positive_sum": "0.6727",
+        "positive_above_10x_p99": 0,
+        "positive_count": 3327,
+        "positive_p50": "2.6",
+        "positive_p95": "21.38",
+        "positive_p99": "44.4",
+        "states": {
+          "positive": 3327,
+          "zero": 2035
+        }
+      },
+      "PHYSN_ASTNT_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.7040",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "1291",
+        "maximum_share_of_positive_sum": "5.0556",
+        "positive_above_10x_p99": 0,
+        "positive_count": 2087,
+        "positive_p50": "3",
+        "positive_p95": "46.4",
+        "positive_p99": "150.9",
+        "states": {
+          "positive": 2087,
+          "zero": 3275
+        }
+      },
+      "PHYSN_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "2.1250",
+          "rows_ratio_over_10": 6
+        },
+        "maximum": "16708",
+        "maximum_share_of_positive_sum": "11.0753",
+        "positive_above_10x_p99": 1,
+        "positive_count": 3324,
+        "positive_p50": "6",
+        "positive_p95": "157.07",
+        "positive_p99": "669",
+        "states": {
+          "positive": 3324,
+          "zero": 2038
+        }
+      },
+      "PHYS_THRPST_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.5556",
+          "rows_ratio_over_10": 1
+        },
+        "maximum": "52900.15",
+        "maximum_share_of_positive_sum": "56.8774",
+        "positive_above_10x_p99": 1,
+        "positive_count": 3769,
+        "positive_p50": "5",
+        "positive_p95": "37.04",
+        "positive_p99": "82.39",
+        "states": {
+          "positive": 3769,
+          "zero": 1593
+        }
+      },
+      "PRSNEL_OTHR_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "15.6868",
+          "rows_ratio_over_10": 124
+        },
+        "maximum": "58087.4",
+        "maximum_share_of_positive_sum": "2.3924",
+        "positive_above_10x_p99": 1,
+        "positive_count": 4612,
+        "positive_p50": "193.17",
+        "positive_p95": "2024.6",
+        "positive_p99": "4361",
+        "states": {
+          "positive": 4612,
+          "zero": 750
+        }
+      },
+      "PSYCHLGST_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.2456",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "700.5",
+        "maximum_share_of_positive_sum": "12.6818",
+        "positive_above_10x_p99": 1,
+        "positive_count": 891,
+        "positive_p50": "2",
+        "positive_p95": "21",
+        "positive_p99": "55",
+        "states": {
+          "positive": 891,
+          "zero": 4471
+        }
+      },
+      "PSYCH_UNIT_BED_CNT": {
+        "maximum": "325",
+        "maximum_share_of_positive_sum": "0.6733",
+        "positive_above_10x_p99": 0,
+        "positive_count": 1589,
+        "positive_p50": "21",
+        "positive_p95": "81",
+        "positive_p99": "149",
+        "states": {
+          "positive": 1589,
+          "zero": 3773
+        }
+      },
+      "RDLGY_TCHNCN_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "1.2000",
+          "rows_ratio_over_10": 4
+        },
+        "maximum": "22021",
+        "maximum_share_of_positive_sum": "17.5067",
+        "positive_above_10x_p99": 3,
+        "positive_count": 3914,
+        "positive_p50": "10",
+        "positive_p95": "71",
+        "positive_p99": "176.14",
+        "states": {
+          "positive": 3914,
+          "zero": 1448
+        }
+      },
+      "REG_PHRMCST_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.4815",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "4263",
+        "maximum_share_of_positive_sum": "7.3792",
+        "positive_above_10x_p99": 1,
+        "positive_count": 4228,
+        "positive_p50": "5",
+        "positive_p95": "49.6",
+        "positive_p99": "119",
+        "states": {
+          "positive": 4228,
+          "zero": 1134
+        }
+      },
+      "REHAB_UNIT_BED_CNT": {
+        "maximum": "187",
+        "maximum_share_of_positive_sum": "0.6864",
+        "positive_above_10x_p99": 0,
+        "positive_count": 1162,
+        "positive_p50": "20",
+        "positive_p95": "58",
+        "positive_p99": "90",
+        "states": {
+          "positive": 1162,
+          "zero": 4200
+        }
+      },
+      "RN_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "5.1200",
+          "rows_ratio_over_10": 20
+        },
+        "maximum": "64782",
+        "maximum_share_of_positive_sum": "5.2454",
+        "positive_above_10x_p99": 1,
+        "positive_count": 5034,
+        "positive_p50": "75",
+        "positive_p95": "943.64",
+        "positive_p99": "2288.7",
+        "states": {
+          "positive": 5034,
+          "zero": 328
+        }
+      },
+      "RSDNT_PHYSN_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "1.3840",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "1619",
+        "maximum_share_of_positive_sum": "1.6815",
+        "positive_above_10x_p99": 0,
+        "positive_count": 844,
+        "positive_p50": "29",
+        "positive_p95": "565",
+        "positive_p99": "1073.5",
+        "states": {
+          "positive": 844,
+          "zero": 4518
+        }
+      },
+      "SPCH_PTHLGST_AUDLGST_CNT": {
+        "fte_to_reported_total_beds_diagnostic": {
+          "comparable_rows": 5362,
+          "positive_ratio_p99": "0.2200",
+          "rows_ratio_over_10": 0
+        },
+        "maximum": "388.45",
+        "maximum_share_of_positive_sum": "3.1369",
+        "positive_above_10x_p99": 1,
+        "positive_count": 2781,
+        "positive_p50": "2",
+        "positive_p95": "14",
+        "positive_p99": "34.5",
+        "states": {
+          "positive": 2781,
+          "zero": 2581
+        }
+      }
+    },
+    "source_rows": 13598
+  },
+  "source_hashes": {
+    "iqies": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2",
+    "qies": "8c83318826efc7de996811c22b67f5422ad639581e94830817645d5c0585bf7c"
+  }
+}
