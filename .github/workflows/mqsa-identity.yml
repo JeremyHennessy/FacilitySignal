@@ -1,0 +1,25 @@
+name: FacilitySignal MQSA institutional identity evidence
+on:
+  push:
+    branches: [diagnostics/mqsa-identity-20261126]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/audit_mqsa_identity.py --download --audit "$RUNNER_TEMP/mqsa-identity-audit.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mqsa-identity-aggregate-only
+          path: ${{ runner.temp }}/mqsa-identity-audit.json
+          retention-days: 7
