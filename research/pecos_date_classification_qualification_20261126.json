@@ -1,0 +1,209 @@
+{
+  "as_of": "2026-11-26",
+  "qualification_run": 45838449075,
+  "qualification_job": 139973429889,
+  "qualified_commit": "facb22388a73898e39d8f26a0057a83b9f827e12",
+  "tests_passed": 3,
+  "scope": "Aggregate-only exact release empirical date convention evidence and candidate label comparisons. No publisher date-format confirmation, no production parser approval. Label differences are unresolved; organization structure grouping is preliminary.",
+  "sources": {
+    "hospital-chow": {
+      "candidate_date_bounds": {
+        "EFFECTIVE DATE": {
+          "dmy|2016_through_asof": 655,
+          "dmy|future": 1,
+          "mdy|2016_through_asof": 779
+        }
+      },
+      "date_format_states": {
+        "EFFECTIVE DATE": {
+          "ambiguous_slash": 544,
+          "mdy_only": 123,
+          "same_date_multiple_formats": 112
+        }
+      },
+      "excluded_individual": 0,
+      "organization_structure_candidates": {},
+      "provider_code_label_states": {
+        " - BUYER": {
+          "00-09|matches": 607,
+          "00-24|label_differs": 3,
+          "00-85|matches": 169
+        },
+        " - SELLER": {
+          "00-06|matches": 2,
+          "00-09|matches": 601,
+          "00-14|matches": 1,
+          "00-19|matches": 7,
+          "00-24|label_differs": 2,
+          "00-85|matches": 166
+        }
+      },
+      "release": "2026-07-01/2026-09-30",
+      "retained": 779,
+      "sha256": "a8cb5111dee64780f2c5bd9b10fdd304140848eeeee2e4b2c5012c7421533648"
+    },
+    "hospital-enrollment": {
+      "candidate_date_bounds": {
+        "INCORPORATION DATE": {
+          "dmy|2016_through_asof": 264,
+          "dmy|before_2016": 2312,
+          "mdy|2016_through_asof": 567,
+          "mdy|before_2016": 5101
+        },
+        "REH CONVERSION DATE": {
+          "dmy|2016_through_asof": 20,
+          "mdy|2016_through_asof": 51
+        }
+      },
+      "date_format_states": {
+        "INCORPORATION DATE": {
+          "ambiguous_slash": 2180,
+          "blank": 3452,
+          "mdy_only": 3092,
+          "same_date_multiple_formats": 396
+        },
+        "REH CONVERSION DATE": {
+          "ambiguous_slash": 19,
+          "blank": 9069,
+          "mdy_only": 31,
+          "same_date_multiple_formats": 1
+        }
+      },
+      "excluded_individual": 0,
+      "organization_structure_candidates": {
+        "CORPORATION": 5185,
+        "OTHER": 1388,
+        "PARTNERSHIP": 167,
+        "SOLE PROPRIETOR": 1,
+        "other_unreviewed": 2379
+      },
+      "provider_code_label_states": {
+        "": {
+          "00-09|matches": 6321,
+          "00-24|label_differs": 57,
+          "00-85|matches": 2742
+        }
+      },
+      "release": "2026-11-01/2026-11-30",
+      "retained": 9120,
+      "sha256": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e"
+    },
+    "hospital-owner": {
+      "candidate_date_bounds": {
+        "ASSOCIATION DATE - OWNER": {
+          "dmy|2016_through_asof": 7399,
+          "dmy|before_2016": 6373,
+          "dmy|future": 3,
+          "mdy|2016_through_asof": 11284,
+          "mdy|before_2016": 11451
+        }
+      },
+      "date_format_states": {
+        "ASSOCIATION DATE - OWNER": {
+          "ambiguous_slash": 11185,
+          "mdy_only": 8960,
+          "same_date_multiple_formats": 2590
+        }
+      },
+      "excluded_individual": 124294,
+      "organization_structure_candidates": {},
+      "provider_code_label_states": {},
+      "release": "2026-11-01/2026-11-30",
+      "retained": 22735,
+      "sha256": "4886fc907dd67d56d2c45057a13288b5e74a220f11cd6ba32b908a81728038f0"
+    },
+    "snf-chow": {
+      "candidate_date_bounds": {
+        "EFFECTIVE DATE": {
+          "dmy|2016_through_asof": 4238,
+          "mdy|2016_through_asof": 5340
+        }
+      },
+      "date_format_states": {
+        "EFFECTIVE DATE": {
+          "ambiguous_slash": 3832,
+          "mdy_only": 1102,
+          "same_date_multiple_formats": 406
+        }
+      },
+      "excluded_individual": 0,
+      "organization_structure_candidates": {},
+      "provider_code_label_states": {
+        " - BUYER": {
+          "00-18|matches": 5340
+        },
+        " - SELLER": {
+          "00-04|matches": 2,
+          "00-09|matches": 1,
+          "00-10|matches": 1,
+          "00-14|matches": 1,
+          "00-17|matches": 1,
+          "00-18|matches": 5332,
+          "00-85|matches": 2
+        }
+      },
+      "release": "2026-07-01/2026-09-30",
+      "retained": 5340,
+      "sha256": "8214fe65ec7c9b291bf579bd9fcdd281fbf9bd8a593613e9db93b6f0d8bdbcb5"
+    },
+    "snf-enrollment": {
+      "candidate_date_bounds": {
+        "INCORPORATION DATE": {
+          "dmy|2016_through_asof": 1143,
+          "dmy|before_2016": 2314,
+          "mdy|2016_through_asof": 2834,
+          "mdy|before_2016": 5462
+        }
+      },
+      "date_format_states": {
+        "INCORPORATION DATE": {
+          "ambiguous_slash": 3115,
+          "blank": 6105,
+          "mdy_only": 4839,
+          "same_date_multiple_formats": 342
+        }
+      },
+      "excluded_individual": 0,
+      "organization_structure_candidates": {
+        "CORPORATION": 3939,
+        "OTHER": 913,
+        "PARTNERSHIP": 182,
+        "SOLE PROPRIETOR": 1,
+        "other_unreviewed": 9366
+      },
+      "provider_code_label_states": {
+        "": {
+          "00-18|matches": 14401
+        }
+      },
+      "release": "2026-11-01/2026-11-30",
+      "retained": 14401,
+      "sha256": "21f6b282b07017f2596d9c3cb84dac3eaa100bd2ec637e0d7f03510e0f0acf89"
+    },
+    "snf-owner": {
+      "candidate_date_bounds": {
+        "ASSOCIATION DATE - OWNER": {
+          "dmy|2016_through_asof": 49390,
+          "dmy|before_2016": 14811,
+          "dmy|future": 51,
+          "mdy|2016_through_asof": 78296,
+          "mdy|before_2016": 21925,
+          "mdy|future": 10
+        }
+      },
+      "date_format_states": {
+        "ASSOCIATION DATE - OWNER": {
+          "ambiguous_slash": 52108,
+          "mdy_only": 35979,
+          "same_date_multiple_formats": 12144
+        }
+      },
+      "excluded_individual": 202487,
+      "organization_structure_candidates": {},
+      "provider_code_label_states": {},
+      "release": "2026-11-01/2026-11-30",
+      "retained": 100231,
+      "sha256": "538b02368085b57139619c643ef5bad19c1c855cc6643e4a7eb2e6f098f46657"
+    }
+  }
+}
