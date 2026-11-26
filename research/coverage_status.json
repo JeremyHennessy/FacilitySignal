@@ -702,7 +702,48 @@
       "artifact": 15080819158,
       "reuse_review": "pending",
       "ui_status": "source register only; no EPA rows",
-      "note": "Exact same source bytes across three diagnostic runs. All keys unique and nonblank; 3,287 source IDs have undocumented formats. No format waiver, no production ingestion, no canonical matches or healthcare relationship claims. Aggregate evidence only."
+      "note": "Exact same source bytes across three diagnostic runs. All keys unique and nonblank; 3,287 source IDs have undocumented formats. No format waiver, no production ingestion, no canonical matches or healthcare relationship claims. Aggregate evidence only.",
+      "medical_area_aggregate": {
+        "evidence": "45756151226",
+        "artifact": 15088086120,
+        "commit": "92b9d3619a44d34506fc7b27272e22a0f78699d0",
+        "source_rows": 434757,
+        "area_counts": {
+          "other_code": 315166,
+          "missing_code": 117879,
+          "exact_code_and_description": 1712
+        },
+        "area_by_identifier_state": {
+          "documented_format": {
+            "other_code": 312001,
+            "missing_code": 117768,
+            "exact_code_and_description": 1701
+          },
+          "unresolved_format": {
+            "other_code": 3165,
+            "exact_code_and_description": 11,
+            "missing_code": 111
+          }
+        },
+        "exact_medical_area_activity_raw_code_counts": {
+          "I": 713,
+          "A": 855,
+          "N": 144
+        },
+        "qualification": "aggregate_service_area_only",
+        "limits": "Source-reported primary service area classification, not a healthcare site, ownership, equipment, compliance, or procurement match. Unresolved identifiers stay unresolved; no individual records retained.",
+        "source_sha256": "cad153417ac7f22726bd4b5ebe1cb4aca6088b45910a0b343324fc82cf78ce21",
+        "publisher_definition": "https://echo.epa.gov/help/facility-search/drinking-water-search-results-help",
+        "reuse_review": "pending",
+        "retrieval": {
+          "url": "https://echo.epa.gov/files/echodownloads/SDWA_system_search_download.zip",
+          "sha256": "cad153417ac7f22726bd4b5ebe1cb4aca6088b45910a0b343324fc82cf78ce21",
+          "bytes": 34972222,
+          "retrieved_at": "2026-11-26T04:35:20.179752+00:00",
+          "last_modified": "Fri, 23 Oct 2026 13:49:31 GMT",
+          "etag": "\"215a23e-65e823ff2a078\""
+        }
+      }
     },
     {
       "id": "FS-158",
