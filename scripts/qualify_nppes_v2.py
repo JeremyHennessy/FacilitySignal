@@ -56,17 +56,17 @@ class Links(HTMLParser):
     def handle_endtag(self,tag):
         if tag=="a" and self.href is not None:
             self.links.append((self.href," ".join("".join(self.parts).split())));self.href=None
-def resolve(html,kind):
+def resolve(html,kind,*,publisher_label=None):
     p=Links();p.feed(html);p.close()
-    urls={allowed(urljoin(PAGE,href)) for href,label in p.links if label==LABELS[kind]}
+    urls={allowed(urljoin(PAGE,href)) for href,label in p.links if label==(publisher_label or LABELS[kind])}
     require(len(urls)==1,"exact V2 publisher release link absent or ambiguous")
     url=urls.pop();require(urlsplit(url).path.lower().endswith(".zip"),"release link not ZIP")
     return url
-def download(path,kind):
+def download(path,kind,*,publisher_label=None):
     require(shutil.disk_usage(path.parent).free>=MAX_BYTES[kind]+1_000_000_000,"insufficient temporary disk")
     with response(PAGE) as res:
         page=res.read(5_000_001);require(0<len(page)<=5_000_000,"publisher index bound")
-    url=resolve(page.decode("utf-8",errors="strict"),kind)
+    url=resolve(page.decode("utf-8",errors="strict"),kind,publisher_label=publisher_label)
     h=hashlib.sha256();size=0
     with response(url) as res,path.open("xb") as out:
         final=allowed(res.geturl());require(urlsplit(final).path.lower().endswith(".zip"),"unexpected archive response")
