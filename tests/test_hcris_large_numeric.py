@@ -33,3 +33,17 @@ class LargeNumericTests(unittest.TestCase):
             prior=idx.project(p,i)
             with sqlite3.connect(i) as db:db.execute("UPDATE reports SET numeric_rows=2")
             with self.assertRaises(ValueError):m.project(p,i,prior,[("p1",1,1)],root)
+
+    def test_hospital_annual_index_shape(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);p=root/"source.zip";i=root/"index.sqlite3"
+            with zipfile.ZipFile(p,"w") as z:
+                z.writestr("FORM_2024_rpt.csv","1,private header\n")
+                z.writestr("FORM_2024_nmrc.csv","1,A000000,00100,00100,12.30\n")
+                z.writestr("FORM_2024_alpha.csv","1,A000000,00100,00100,secret alpha\n")
+            prior=idx.project(p,i)
+            self.assertEqual(set(prior["annual_partitions"]),{"2024"})
+            result=m.project(p,i,prior,[("p1",1,1)],root)
+            self.assertEqual(result[0]["summary"]["stored_rows"],1)
+            with sqlite3.connect(result[0]["path"]) as db:
+                self.assertEqual(db.execute("SELECT source_year,ordinal,value_text FROM numeric_cells").fetchall(),[("2024",1,"12.30")])

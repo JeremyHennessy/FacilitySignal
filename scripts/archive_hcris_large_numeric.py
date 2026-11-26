@@ -27,10 +27,21 @@ def validate_plan(plan,total):
         last=end
     require(last==total,"incomplete ordinal coverage")
 
+def year_scope(prior):
+    annual=prior.get("annual_partitions")
+    if annual is None:return prior,False
+    require(set(annual)=={"2024"} and annual["2024"]["report_rows"]==prior["stored_rows"],"single FY2024 annual index scope")
+    return annual["2024"],True
+
 def load_parents(z,roles,index_db,prior):
     with closing(readonly(index_db)) as idx:
         check_integrity(idx)
-        index={key:(ordinal,numeric,alpha) for key,ordinal,numeric,alpha in idx.execute("SELECT report_key,ordinal,numeric_rows,alpha_rows FROM reports")}
+        year,annual=year_scope(prior)
+        sql="SELECT report_key,ordinal,numeric_rows,alpha_rows FROM reports"
+        if annual:
+            require(idx.execute("SELECT DISTINCT source_year FROM reports").fetchall()==[("2024",)],"annual index year")
+            sql+=" WHERE source_year='2024'"
+        index={key:(ordinal,numeric,alpha) for key,ordinal,numeric,alpha in idx.execute(sql)}
     require(len(index)==prior["stored_rows"],"report index count")
     seen=set();widths=Counter()
     with z.open(roles["report"]) as raw,io.TextIOWrapper(raw,encoding="latin-1",newline="") as f:
@@ -39,7 +50,7 @@ def load_parents(z,roles,index_db,prior):
             key=h.report_key(row[0])
             require(key in index and key not in seen and index[key][0]==ordinal,"report key or ordinal drift")
             seen.add(key);widths[str(len(row))]+=1
-    require(seen==set(index) and dict(widths)==prior["report_width_counts"],"report source/index mismatch")
+    require(seen==set(index) and dict(widths)==year["report_width_counts"],"report source/index mismatch")
     return index
 
 def build_shard(root,key,start,end,reader,index,global_counts,year="2024"):
@@ -81,9 +92,11 @@ def build_shard(root,key,start,end,reader,index,global_counts,year="2024"):
     return {"path":path,"key":key,"summary":{"stored_rows":stats["retained"],"supplemental_numeric_rows":stats["retained"],"source_year":year,"ordinal_start":start,"ordinal_end":end,"input_numeric_rows":end-start+1,"unresolved_parent_rows":stats["unresolved_parent"],"coordinate_review_rows":stats["coordinate_review"],"numeric_syntax_review_rows":stats["numeric_syntax_review"],"source_coordinate_shapes":dict(shapes),"source_value_states":dict(values),"retained_value_states":dict(states),"report_references_not_counted":len(parents),"alpha_values_retained":0,"new_publisher_release":False,"units_interpreted":False,"public_promotion":False}}
 
 def project(source,index_db,prior,plan,root):
-    num=prior["child_tables"]["numeric"];total=num["rows"];validate_plan(plan,total)
+    year,annual=year_scope(prior);num=year["child_tables"]["numeric"];total=num["rows"];validate_plan(plan,total)
     with zipfile.ZipFile(source) as z:
-        roles=forms.members(z)
+        if annual:
+            groups=forms.annual_groups(z);require(set(groups)=={"2024"},"annual ZIP year scope");roles=groups["2024"]
+        else:roles=forms.members(z)
         require(roles["numeric"].file_size==num["uncompressed_bytes"] and format(roles["numeric"].CRC,"08x")==num["zip_crc32"],"numeric member pin")
         index=load_parents(z,roles,index_db,prior)
         global_counts=Counter();shapes=Counter();values=Counter();results=[]
@@ -111,7 +124,7 @@ def main():
     try:
         national=storage.national_manifest(store);rec=storage.existing(store,parent,pin["source_sha256"]);require(rec is not None,"parent absent")
         inventory.source_matches(rec,pin,national);prior=rec["summary"];publisher=rec["publisher"]
-        require(prior["child_tables"]["numeric"]["rows"]==storage.LARGE_NUMERIC_ROWS[form],"approved whole-member count")
+        require(year_scope(prior)[0]["child_tables"]["numeric"]["rows"]==storage.LARGE_NUMERIC_ROWS[form],"approved whole-member count")
         db_pin=next(f for f in pin["files"] if f["path"]=="projection.sqlite3")
         existing={key:storage.existing(store,key,pin["source_sha256"]) for key,_,_ in plan}
         results=[]

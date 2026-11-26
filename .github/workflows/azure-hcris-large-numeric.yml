@@ -2,7 +2,7 @@ name: FacilitySignal private large HCRIS numeric forms
 on:
   workflow_dispatch:
   push:
-    branches: [main, build/azure-hcris-large-form-numeric-20261126]
+    branches: [main, build/azure-hcris-large-form-numeric-20261126, build/azure-hospital-annual-index-adapter-20261126]
     paths:
       - scripts/archive_hcris_large_numeric.py
       - tests/test_hcris_large_numeric.py
