@@ -3988,23 +3988,23 @@
     "note": "Scheduled private candidate refresh and metadata discovery; coherent public pack cutover and remaining source-family policies pending. First run matched existing release metadata/counts; no claim of reverified unchanged mutable URL bytes."
   },
   "latest_consolidated_private_checkpoint": {
-    "scope": "Pinned publisher projections, separate derived candidates and aggregate-only screened rows; not unique facilities",
-    "evidence_commit": "bf8f8ea469ae80b9334937ae97199cb8b2d261c3",
+    "scope": "Pinned publisher observations, supplementary numeric children, derived candidates and aggregate-only screened rows; not unique facilities",
+    "evidence_commit": "3778716a152a5b0c1083d42795a1945c42038531",
     "ledger": "research/azure_archive_inventory_20261126.json",
     "totals": {
       "publisher_releases": 55,
-      "source_observations": 10230928,
+      "source_observations": 19264558,
+      "supplemental_numeric_archives": 5,
+      "supplemental_numeric_observations": 9033630,
       "derived_candidate_observations": 23520,
       "aggregate_evidence_releases": 2,
       "aggregate_source_rows_screened": 441418,
-      "payload_files": 112,
-      "payload_bytes": 1990934145,
-      "supplemental_numeric_archives": 0,
-      "supplemental_numeric_observations": 0
+      "payload_files": 122,
+      "payload_bytes": 2721000783
     },
-    "prior_consolidated_audit_run": 45857191692,
+    "prior_consolidated_audit_run": 45859088930,
     "new_source_runs": [
-      45856912767
+      45859089095
     ],
     "public_promotion": false
   }

@@ -507,17 +507,127 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-fqhc-2024-numeric",
+      "source_sha256": "92bb395dd7eb3e82859bb506d83e04d8e5510ae3e4cdaf40315bedafc3e07e4c",
+      "kind": "supplemental_numeric",
+      "observations": 778379,
+      "parent_database_sha256": "4b81494898250813bf2d59e8582ee7ba2c588fd2319f69938a356867d72fa89e",
+      "run": 45859089095,
+      "job": 140045191988,
+      "files": [
+        {
+          "bytes": 62881792,
+          "path": "projection.sqlite3",
+          "sha256": "da2dd439c94f91092d2e8ac748f3f38b34c1acdb081eb2069ca178c47a678a3b"
+        },
+        {
+          "bytes": 2268,
+          "path": "audit.json",
+          "sha256": "521c3202915dda5f0350d24259a1c05d8fd9e7dafaadc09f39803081c93ed4fe"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-hospice-2024-numeric",
+      "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+      "kind": "supplemental_numeric",
+      "observations": 2195406,
+      "parent_database_sha256": "9a88ca0559afb8b0524f1716d5f693179b711a150887787d1b9110cae1797766",
+      "run": 45859089095,
+      "job": 140045192050,
+      "files": [
+        {
+          "bytes": 176455680,
+          "path": "projection.sqlite3",
+          "sha256": "55d51eb140b854180ff6b974fc31cb3909f4665cdb76e7c5922316b517091a44"
+        },
+        {
+          "bytes": 2292,
+          "path": "audit.json",
+          "sha256": "7a15b834fd9e62f6e99beccee20b837b6d4df631ef118764399a9e1eb122b05b"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-renal-2024-numeric",
+      "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+      "kind": "supplemental_numeric",
+      "observations": 3400969,
+      "parent_database_sha256": "a1fe1fddbb13fd2d14ae540a4a2b24c0450a9f39cae3e7bf3662a88f7a358c41",
+      "run": 45859089095,
+      "job": 140045192073,
+      "files": [
+        {
+          "bytes": 280453120,
+          "path": "projection.sqlite3",
+          "sha256": "7ea41c3fb37f0cb307f8d935e8d03de8e43da2b458072188e534f44f69c0c39b"
+        },
+        {
+          "bytes": 2291,
+          "path": "audit.json",
+          "sha256": "fc1873ff98e04cbb060733a0480fd739355eb51394c8603b7e20beaf5ad6b798"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-rhc-2017-numeric",
+      "source_sha256": "2a333c852896ea58118d409b7e2e556f0e87961f8c96e002d355445a266bc40d",
+      "kind": "supplemental_numeric",
+      "observations": 2606486,
+      "parent_database_sha256": "5793617e9944912f703723b75c6c51844c5d84d26ebce28318a793dea66fb9c5",
+      "run": 45859089095,
+      "job": 140045192194,
+      "files": [
+        {
+          "bytes": 206340096,
+          "path": "projection.sqlite3",
+          "sha256": "49204d3fc1601b0f3f4468a481fd75014b35f141d2db21e3cc7340b1d7644d45"
+        },
+        {
+          "bytes": 7032,
+          "path": "audit.json",
+          "sha256": "a9020c1b9521c573de8d0a718d81ca35535947bdf1be486503d685767b79c057"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-cmhc-2017-numeric",
+      "source_sha256": "2b52cc74a765737afc779009b6ebf042befefdc24b49fd26db426edabc7f6dbd",
+      "kind": "supplemental_numeric",
+      "observations": 52390,
+      "parent_database_sha256": "e8585b316df9099bda839d30e42bac00a57df3ca64b75eafd3654478ab5462bd",
+      "run": 45859089095,
+      "job": 140045192204,
+      "files": [
+        {
+          "bytes": 3915776,
+          "path": "projection.sqlite3",
+          "sha256": "6cf14e8dff2c7c69f53b965fe281fd5a5c5dae03cfad3bd826f348bff16e05b2"
+        },
+        {
+          "bytes": 6291,
+          "path": "audit.json",
+          "sha256": "bce297f4833456ce72710648d4a6afeab5f599565adf6b56053ecd8d0fcca41f"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
     "publisher_releases": 55,
-    "source_observations": 10230928,
+    "source_observations": 19264558,
+    "supplemental_numeric_archives": 5,
+    "supplemental_numeric_observations": 9033630,
     "derived_candidate_observations": 23520,
     "aggregate_evidence_releases": 2,
     "aggregate_source_rows_screened": 441418,
-    "payload_files": 112,
-    "payload_bytes": 1990934145,
-    "supplemental_numeric_archives": 0,
-    "supplemental_numeric_observations": 0
+    "payload_files": 122,
+    "payload_bytes": 2721000783
   }
 }

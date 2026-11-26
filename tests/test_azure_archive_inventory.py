@@ -6,9 +6,11 @@ class ArchiveInventoryTests(unittest.TestCase):
     def test_counts_and_grain(self):
         t=audit.totals(self.ledger)
         self.assertEqual(t["publisher_releases"],55)
-        self.assertEqual(t["source_observations"],10230928)
+        self.assertEqual(t["source_observations"],19264558)
         self.assertEqual(t["derived_candidate_observations"],23520)
-        self.assertEqual(t["payload_files"],112)
+        self.assertEqual(t["payload_files"],122)
+        self.assertEqual(t["supplemental_numeric_archives"],5)
+        self.assertEqual(t["supplemental_numeric_observations"],9033630)
         self.assertEqual(t["aggregate_evidence_releases"],2)
         self.assertEqual(t["aggregate_source_rows_screened"],441418)
     def test_reject_duplicate_release(self):
@@ -27,6 +29,10 @@ class ArchiveInventoryTests(unittest.TestCase):
 
     def test_supplemental_projection_requires_parent_and_not_new_publisher(self):
         parent=next(x for x in self.ledger["receipts"] if x["key"]=="hcris-cmhc-2017-index")
+        existing=next((x for x in self.ledger["receipts"] if x["key"]=="hcris-cmhc-2017-numeric"),None)
+        if existing:
+            self.ledger["receipts"].remove(existing)
+            t=self.ledger["totals"];t["source_observations"]-=existing["observations"];t["supplemental_numeric_archives"]-=1;t["supplemental_numeric_observations"]-=existing["observations"];t["payload_files"]-=len(existing["files"]);t["payload_bytes"]-=sum(f["bytes"] for f in existing["files"])
         p=copy.deepcopy(parent);p.update(key="hcris-cmhc-2017-numeric",kind="supplemental_numeric",observations=2,parent_database_sha256=next(f["sha256"] for f in parent["files"] if f["path"]=="projection.sqlite3"))
         self.ledger["receipts"].append(p)
         t=self.ledger["totals"];t["source_observations"]+=2;t["supplemental_numeric_archives"]+=1;t["supplemental_numeric_observations"]+=2;t["payload_files"]+=2;t["payload_bytes"]+=sum(f["bytes"] for f in p["files"])
