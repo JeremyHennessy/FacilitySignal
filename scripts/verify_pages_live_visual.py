@@ -117,7 +117,7 @@ def run(base,local):
                 if name in ("services","data","compliance"):
                     seen=[r for r in responses if r.url==base+"web/public-intelligence.json"]
                     assert seen and sha(seen[-1].body())==HASHES["web/public-intelligence.json"],"Browser loaded wrong aggregate evidence"
-                    groups=("ASC service provision arrangements","Home health reported services") if name=="services" else ("Nursing inspection and dispute flags",) if name=="compliance" else ("CLIA certificate code distribution","Hospital-to-laboratory reference evidence","National field audit coverage","Reported nursing-home chain membership","Nursing cross-source group corroboration")
+                    groups=("ASC service provision arrangements","Home health reported services","Hospital enrollment subgroup classifications") if name=="services" else ("Nursing inspection and dispute flags",) if name=="compliance" else ("CLIA certificate code distribution","Hospital-to-laboratory reference evidence","National field audit coverage","Reported nursing-home chain membership","Nursing cross-source group corroboration","Reported PECOS organizational relationship classes","Organization classification agreement and conflicts","Reported ownership-change types")
                     for n,g in enumerate(groups):page.locator(f'[aria-label^="{g}"]').screenshot(path=str(OUT/f"{width}-{name}-group-{n}.png"))
                 if name=="profile-summary":
                     page.locator(".profile-research-actions").screenshot(path=str(OUT/f"{width}-profile-actions.png"))

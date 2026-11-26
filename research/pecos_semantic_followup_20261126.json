@@ -1,0 +1,136 @@
+{
+  "dictionary_evidence": {
+    "current_hospital": "https://data.cms.gov/sites/default/files/2026-07/Hospital_CHOW_Data_Dictionary.pdf",
+    "current_snf": "https://data.cms.gov/sites/default/files/2026-07/SNF_CHOW_Data_Dictionary.pdf",
+    "earlier_hospital": "https://data.cms.gov/sites/default/files/2026-01/Hospital_CHOW_Data_Dictionary.pdf",
+    "subgroups": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf"
+  },
+  "format_version": 1,
+  "limits": [
+    "Known wording variants only, source code preserved, no guessed aliases. No date coercion, current operations, property ownership or individual records.",
+    "Subgroups are self-reported enrollment flags; counts can overlap. REH predecessor reference presence does not establish a canonical site link."
+  ],
+  "result": {
+    "hospital-chow": {
+      "by_code": {
+        "AM": {
+          "current_dictionary": 116
+        },
+        "CH": {
+          "documented_earlier_dictionary_variant": 663
+        },
+        "CO": {}
+      },
+      "counts": {
+        "current_dictionary": 116,
+        "documented_earlier_dictionary_variant": 663,
+        "rows": 779
+      }
+    },
+    "hospital-enrollment": {
+      "affirmative_subgroup_count_distribution": {
+        "0": 2792,
+        "1": 4484,
+        "2": 1195,
+        "3": 461,
+        "4": 148,
+        "5": 30,
+        "6": 5,
+        "7": 5
+      },
+      "reh_conversion_date_states": {
+        "ambiguous_slash": 19,
+        "blank": 9069,
+        "parsed_as_of_or_before": 32
+      },
+      "reh_conversion_flag": {
+        "no": 9063,
+        "yes": 57
+      },
+      "reh_conversion_reference_presence": {
+        "no/reference_blank": 9063,
+        "yes/reference_blank": 6,
+        "yes/reference_present": 51
+      },
+      "rows": 9120,
+      "subgroup_flag_counts": {
+        "ACUTE CARE": {
+          "no": 6114,
+          "yes": 3006
+        },
+        "ALCOHOL DRUG": {
+          "no": 9099,
+          "yes": 21
+        },
+        "CHILDRENS": {
+          "no": 9012,
+          "yes": 108
+        },
+        "GENERAL": {
+          "no": 7603,
+          "yes": 1517
+        },
+        "LONG-TERM": {
+          "no": 8803,
+          "yes": 317
+        },
+        "OTHER": {
+          "no": 8867,
+          "yes": 253
+        },
+        "PSYCHIATRIC": {
+          "no": 8306,
+          "yes": 814
+        },
+        "PSYCHIATRIC UNIT": {
+          "no": 8208,
+          "yes": 912
+        },
+        "REHABILITATION": {
+          "no": 8450,
+          "yes": 670
+        },
+        "REHABILITATION UNIT": {
+          "no": 8280,
+          "yes": 840
+        },
+        "SHORT-TERM": {
+          "no": 8991,
+          "yes": 129
+        },
+        "SPECIALTY HOSPITAL": {
+          "no": 9045,
+          "yes": 75
+        },
+        "SWING-BED APPROVED": {
+          "no": 8718,
+          "yes": 402
+        }
+      }
+    },
+    "snf-chow": {
+      "by_code": {
+        "AM": {
+          "current_dictionary": 2
+        },
+        "CH": {
+          "documented_earlier_dictionary_variant": 5338
+        },
+        "CO": {}
+      },
+      "counts": {
+        "current_dictionary": 2,
+        "documented_earlier_dictionary_variant": 5338,
+        "rows": 5340
+      }
+    }
+  },
+  "source_hashes": {
+    "hospital-chow": "a8cb5111dee64780f2c5bd9b10fdd304140848eeeee2e4b2c5012c7421533648",
+    "hospital-enrollment": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e",
+    "snf-chow": "8214fe65ec7c9b291bf579bd9fcdd281fbf9bd8a593613e9db93b6f0d8bdbcb5"
+  },
+  "qualification_run": 45828422101,
+  "qualification_job": 139938512758,
+  "qualified_commit": "e251e1f703b45a903ebfc5ec41ab1564997e31bd"
+}

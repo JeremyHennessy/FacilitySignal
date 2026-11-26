@@ -1317,6 +1317,293 @@
               }
             ]
           ]
+        },
+        {
+          "id": "hospital-enrollment-subgroups",
+          "title": "Hospital enrollment subgroup classifications",
+          "note": "November 2026 hospital enrollment release, 9,120 rows. The publisher's 13 independent flags all matched the Y/N domain. Categories overlap; not unique facilities, operational capacity or installed equipment.",
+          "run": 45828422101,
+          "source": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
+          "columns": [
+            "Reported subgroup or unit",
+            "Yes",
+            "No"
+          ],
+          "rows": [
+            [
+              "General",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "GENERAL",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "GENERAL",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Acute care",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "ACUTE CARE",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "ACUTE CARE",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Alcohol / drug",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "ALCOHOL DRUG",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "ALCOHOL DRUG",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Children's hospital",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "CHILDRENS",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "CHILDRENS",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Long-term",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "LONG-TERM",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "LONG-TERM",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Psychiatric",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "PSYCHIATRIC",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "PSYCHIATRIC",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Rehabilitation",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "REHABILITATION",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "REHABILITATION",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Short-term",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "SHORT-TERM",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "SHORT-TERM",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Swing-bed approved",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "SWING-BED APPROVED",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "SWING-BED APPROVED",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Psychiatric unit",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "PSYCHIATRIC UNIT",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "PSYCHIATRIC UNIT",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Rehabilitation unit",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "REHABILITATION UNIT",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "REHABILITATION UNIT",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Specialty hospital",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "SPECIALTY HOSPITAL",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "SPECIALTY HOSPITAL",
+                  "no"
+                ]
+              }
+            ],
+            [
+              "Other",
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "OTHER",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_followup",
+                  "hospital-enrollment",
+                  "subgroup_flag_counts",
+                  "OTHER",
+                  "no"
+                ]
+              }
+            ]
+          ]
         }
       ]
     },
@@ -2666,6 +2953,598 @@
                   "chains",
                   "cross_source_exact_ccn_state",
                   "both_missing_or_invalid"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "pecos-role-classes",
+          "title": "Reported PECOS organizational relationship classes",
+          "note": "November 2026 organization-only source rows. Codes are mapped using the applicable July publisher dictionary; all observed code/text pairs agree. Role records are not unique organizations or sites. Direct, indirect, management and financial relationships must remain distinct; dash means not applicable in this source.",
+          "run": 45828076053,
+          "source": "https://data.cms.gov/sites/default/files/2026-07/SNF_All_Owners_Data_Dictionary.pdf",
+          "columns": [
+            "Relationship",
+            "Observed role codes",
+            "Hospital rows",
+            "SNF rows"
+          ],
+          "rows": [
+            [
+              "Direct ownership",
+              "34 / 85 (SNF)",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "role_class_counts",
+                  "direct_ownership"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "role_class_counts",
+                  "direct_ownership"
+                ]
+              }
+            ],
+            [
+              "Indirect ownership",
+              "35 / 86 (SNF)",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "role_class_counts",
+                  "indirect_ownership"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "role_class_counts",
+                  "indirect_ownership"
+                ]
+              }
+            ],
+            [
+              "Operational / managerial control",
+              "43",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "role_class_counts",
+                  "management"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "role_class_counts",
+                  "management"
+                ]
+              }
+            ],
+            [
+              "Financial interests",
+              "36 / 37",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "role_class_counts",
+                  "financial_interest"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "role_class_counts",
+                  "financial_interest"
+                ]
+              }
+            ],
+            [
+              "Partnership",
+              "38 / 39",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "role_class_counts",
+                  "partnership"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "role_class_counts",
+                  "partnership"
+                ]
+              }
+            ],
+            [
+              "Additional disclosable party",
+              "72 (SNF)",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "role_class_counts",
+                  "additional_disclosable_party"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "role_class_counts",
+                  "additional_disclosable_party"
+                ]
+              }
+            ],
+            [
+              "Trustee",
+              "71 (SNF)",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "role_class_counts",
+                  "trustee"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "role_class_counts",
+                  "trustee"
+                ]
+              }
+            ],
+            [
+              "Other",
+              "44",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "role_class_counts",
+                  "other"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "role_class_counts",
+                  "other"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "pecos-org-flags",
+          "title": "Organization classification agreement and conflicts",
+          "note": "Distinct valid organization PAC tokens within each source family, not role rows. Yes means at least one affirmative report. Conflict means both Y and N for the same PAC in that source. Flags can overlap and do not establish legal property ownership or a verified vendor relationship.",
+          "run": 45828076053,
+          "source": "https://data.cms.gov/sites/default/files/2026-07/SNF_All_Owners_Data_Dictionary.pdf",
+          "columns": [
+            "Reported type",
+            "Hospital Yes",
+            "Hospital conflicts",
+            "SNF Yes",
+            "SNF conflicts"
+          ],
+          "rows": [
+            [
+              "Management services",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "MANAGEMENT SERVICES COMPANY",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "MANAGEMENT SERVICES COMPANY",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "MANAGEMENT SERVICES COMPANY",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "MANAGEMENT SERVICES COMPANY",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              }
+            ],
+            [
+              "Medical staffing",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "MEDICAL STAFFING COMPANY",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "MEDICAL STAFFING COMPANY",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "MEDICAL STAFFING COMPANY",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "MEDICAL STAFFING COMPANY",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              }
+            ],
+            [
+              "Consulting",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "CONSULTING FIRM",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "CONSULTING FIRM",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "CONSULTING FIRM",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "CONSULTING FIRM",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              }
+            ],
+            [
+              "Private equity",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "PRIVATE EQUITY COMPANY",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "PRIVATE EQUITY COMPANY",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "PRIVATE EQUITY COMPANY",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "PRIVATE EQUITY COMPANY",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              }
+            ],
+            [
+              "REIT",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "REIT",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "REIT",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "REIT",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "REIT",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              }
+            ],
+            [
+              "Chain home office",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "CHAIN HOME OFFICE",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "owner",
+                  "flags",
+                  "CHAIN HOME OFFICE",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "CHAIN HOME OFFICE",
+                  "valid_pacs_with_yes"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "owner",
+                  "flags",
+                  "CHAIN HOME OFFICE",
+                  "valid_pacs_with_both_yes_no"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "pecos-chow-types",
+          "title": "Reported ownership-change types",
+          "note": "Q3 2026 source release containing historical changes since 2016. Current July and documented earlier CH wording were reconciled in the targeted qualification. Counts are source rows, not unique transactions or title transfers. Ambiguous dates have not been coerced.",
+          "run": 45828422101,
+          "source": "https://data.cms.gov/sites/default/files/2026-07/Hospital_CHOW_Data_Dictionary.pdf",
+          "columns": [
+            "Code",
+            "Reported change type",
+            "Hospital rows",
+            "SNF rows"
+          ],
+          "rows": [
+            [
+              "AM",
+              "Acquisition / merger",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "chow",
+                  "code_counts",
+                  "AM"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "chow",
+                  "code_counts",
+                  "AM"
+                ]
+              }
+            ],
+            [
+              "CH",
+              "Change of ownership",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "chow",
+                  "code_counts",
+                  "CH"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "chow",
+                  "code_counts",
+                  "CH"
+                ]
+              }
+            ],
+            [
+              "CO",
+              "Consolidation",
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "hospital",
+                  "chow",
+                  "code_counts",
+                  "CO"
+                ]
+              },
+              {
+                "path": [
+                  "pecos_semantic",
+                  "families",
+                  "snf",
+                  "chow",
+                  "code_counts",
+                  "CO"
                 ]
               }
             ]

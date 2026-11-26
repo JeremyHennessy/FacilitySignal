@@ -26,6 +26,38 @@ def build(ledger,cap,spec,data_use=None):
                 raise ValueError("Nursing flag domain or count mismatch")
             s["flag_yes"]={f:c.get("yes",0) for f,c in s["flags"].items()}
         ctx["nursing_semantic"]=groups
+    pecos_path=ROOT/"research/pecos_role_semantic_audit_20261126.json"
+    followup_path=ROOT/"research/pecos_semantic_followup_20261126.json"
+    if pecos_path.exists() and followup_path.exists():
+        pecos=read(pecos_path);follow=read(followup_path)
+        pins={s["key"]:s for s in read(ROOT/"research/snapshot_release_20261125.json")["sources"]}
+        if pecos["qualification_run"]!=45828076053 or follow["qualification_run"]!=45828422101:
+            raise ValueError("Unqualified PECOS evidence")
+        if set(pecos["sources"])!={f+"-"+s for f in ("hospital","snf") for s in ("enrollment","owner","chow")}:
+            raise ValueError("Unexpected PECOS source set")
+        for k,s in pecos["sources"].items():
+            if any(s[f]!=pins[k][f] for f in ("sha256","stored_rows","input_rows","excluded_rows","release")):
+                raise ValueError("PECOS release mismatch")
+        for k,h in follow["source_hashes"].items():
+            if pins[k]["sha256"]!=h:raise ValueError("Follow-up release mismatch")
+        for fam,v in pecos["families"].items():
+            own=v["owner"];n=own["counts"]["organizational_rows"]
+            if n!=pins[fam+"-owner"]["stored_rows"] or own["role_text_agreement"]!={"matches":n} or sum(own["role_class_counts"].values())!=n:
+                raise ValueError("Role reconciliation failed")
+            if any(sum(x["rows"].values())!=n for x in own["flags"].values()):
+                raise ValueError("Flag reconciliation failed")
+            for c in ("direct_ownership","indirect_ownership","management","financial_interest","partnership","other","additional_disclosable_party","trustee"):
+                if c not in own["role_class_counts"]:own["role_class_counts"][c]=None
+            for c in ("AM","CH","CO"):
+                v["chow"]["code_counts"].setdefault(c,0)
+            label=follow["result"][fam+"-chow"]["counts"]
+            if sum(label.get(k,0) for k in ("current_dictionary","documented_earlier_dictionary_variant"))!=pins[fam+"-chow"]["stored_rows"]:
+                raise ValueError("CHOW wording not reconciled")
+        subgroup=follow["result"]["hospital-enrollment"]
+        if subgroup["rows"]!=pins["hospital-enrollment"]["stored_rows"] or any(sum(x.values())!=subgroup["rows"] or set(x)-{"yes","no"} for x in subgroup["subgroup_flag_counts"].values()):
+            raise ValueError("Subgroup reconciliation failed")
+        ctx["pecos_semantic"]=pecos
+        ctx["pecos_followup"]=follow["result"]
     def resolve(cell):
         if isinstance(cell,dict):
             if set(cell)!={"path"}:raise ValueError("unexpected field selector")
