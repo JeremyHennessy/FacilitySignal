@@ -71,6 +71,27 @@ def audit(data,metadata_cells):
     reader=csv.DictReader(io.StringIO(data.decode("utf-8-sig"),newline=""),strict=True)
     headers=reader.fieldnames or []
     require(0<len(headers)<=150 and len(set(headers))==len(headers),"invalid CSV header")
+    # The live export has one empty final header. Preflight every row locally.
+    # Accept only exact named-column width, or exactly one additional empty cell;
+    # never discard a populated extra cell or pad a missing named field.
+    header_repair=None
+    if headers[-1]=="" and all(norm(h) for h in headers[:-1]) and len(resolve(headers[:-1]))>=3:
+        named=headers[:-1]
+        raw=csv.reader(io.StringIO(data.decode("utf-8-sig"),newline=""),strict=True)
+        next(raw)
+        widths=Counter();bad=0;populated_extra=0
+        for values in raw:
+            widths[str(len(values))]+=1
+            require(sum(widths.values())<=100000,"row count bound")
+            if len(values)==len(named)+1 and values[-1]!="":populated_extra+=1
+            if not (len(values)==len(named) or (len(values)==len(named)+1 and values[-1]=="")):bad+=1
+        header_repair={"original_columns":len(headers),"named_columns":len(named),"row_width_counts":dict(widths),
+                       "unexpected_width_or_nonempty_extra_rows":bad,"populated_extra_rows":populated_extra}
+        if bad==0 and sum(widths.values())>0:
+            headers=named
+            raw=csv.reader(io.StringIO(data.decode("utf-8-sig"),newline=""),strict=True)
+            next(raw)
+            reader=(dict(zip(headers,values[:len(headers)],strict=True)) for values in raw)
     # Publisher labels can contain Unicode punctuation or formatting whitespace.
     # Require bounded, nonempty labels and unique normalized names. Confirm
     # multiple institutional field anchors before retaining any header text.
@@ -96,7 +117,7 @@ def audit(data,metadata_cells):
                 if row[headers[i]].strip():nonblank_invalid[str(i+1)]+=1
         return {"headers":[],"columns":len(headers),"resolved_candidate_fields":{},
                 "metadata_exact_header_matches":sum(norm(h) in metadata_cells for h in headers),
-                "header_structure":{"invalid_columns":invalid,"normalized_unique":normalized_unique,
+                "header_repair":header_repair,"header_structure":{"invalid_columns":invalid,"normalized_unique":normalized_unique,
                     "row_shape_errors":shape_errors,"invalid_column_nonblank_counts":dict(nonblank_invalid)},
                 "input_rows":count,"mapping_complete":False,"privacy_screened_rows":0,
                 "excluded_protected_or_incomplete_rows":0,"missing_site_id":0,"duplicate_site_id":0,
@@ -104,7 +125,7 @@ def audit(data,metadata_cells):
     mapped=resolve(headers)
     anchors=sum(k in mapped for k in ("site_id","site_address","site_zip","site_type","site_state","site_status","location_setting"))
     report={"headers":headers if anchors>=3 else [],"columns":len(headers),"resolved_candidate_fields":mapped if anchors>=3 else {},
-            "header_anchors":anchors,"metadata_exact_header_matches":sum(norm(h) in metadata_cells for h in headers)}
+            "header_repair":header_repair,"header_anchors":anchors,"metadata_exact_header_matches":sum(norm(h) in metadata_cells for h in headers)}
     total=0;excluded=0;accepted=0;missing_id=0;duplicates=0;seen=set();status=Counter()
     required={"site_id","site_address","site_zip","site_type","location_setting","site_state","site_status"}
     ready=required<=mapped.keys() and anchors>=3

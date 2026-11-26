@@ -37,3 +37,16 @@ class HrsaTests(unittest.TestCase):
         self.assertEqual(a["header_structure"]["invalid_column_nonblank_counts"],{})
         self.assertEqual(a["privacy_screened_rows"],0)
         self.assertNotIn("Example",str(a))
+
+    def test_single_empty_final_header_preflight(self):
+        h=["BPHC Assigned Number","Site Address","Site Postal Code","Site Type","Location Setting","Site State","Site Status"]
+        rows=[["1","Street","12345","Service","Clinic","NY","Active"],["2","Street","12345","Service","Clinic","NY","Active",""]]
+        f=io.StringIO();w=csv.writer(f);w.writerow(h+[""]);w.writerows(rows)
+        a=audit(f.getvalue().encode(),set())
+        self.assertTrue(a["mapping_complete"]);self.assertEqual(a["privacy_screened_rows"],2)
+        self.assertEqual(a["header_repair"]["row_width_counts"],{"7":1,"8":1})
+        for invalid in (rows[0]+["unexpected"],rows[0][:-1],rows[0]+["",""]):
+            f=io.StringIO();w=csv.writer(f);w.writerow(h+[""]);w.writerow(invalid)
+            a=audit(f.getvalue().encode(),set())
+            self.assertFalse(a["mapping_complete"]);self.assertEqual(a["privacy_screened_rows"],0)
+            self.assertEqual(a["header_repair"]["unexpected_width_or_nonempty_extra_rows"],1)
