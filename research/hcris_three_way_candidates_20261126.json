@@ -1,0 +1,411 @@
+{
+  "format_version": 1,
+  "verified_commit": "f2df7f84164fd115cdd019645d43c4cc2b2d6b3f",
+  "scope": "FY2024 exact pinned three-way report header/S2 alpha worksheet/selected PUF corroboration, aggregate numeric-shape audit, matched cohort only",
+  "forms": {
+    "hospital": {
+      "alpha_coordinates": {
+        "begin": [
+          "S200001",
+          "02000",
+          "00100"
+        ],
+        "ccn": [
+          "S200001",
+          "00300",
+          "00200"
+        ],
+        "end": [
+          "S200001",
+          "02000",
+          "00200"
+        ],
+        "state": [
+          "S200001",
+          "00200",
+          "00200"
+        ]
+      },
+      "alpha_field_states": {
+        "begin_absent": 79,
+        "begin_single": 4260,
+        "ccn_single": 4339,
+        "end_absent": 79,
+        "end_single": 4260,
+        "state_single": 4339
+      },
+      "azure_writes": 0,
+      "candidate_provider_records": 3508,
+      "candidate_reports_in_period_conflicts": 0,
+      "candidate_states": {
+        "alpha_missing_or_duplicate": 79,
+        "directory_not_unique_exact": 699,
+        "three_way_candidate": 3561
+      },
+      "date_shapes": {
+        "alpha_begin_blank": 79,
+        "alpha_begin_mdy_ambiguous_without_documentation": 2515,
+        "alpha_begin_mdy_unambiguous": 1745,
+        "alpha_end_blank": 79,
+        "alpha_end_mdy_ambiguous_without_documentation": 15,
+        "alpha_end_mdy_unambiguous": 4245,
+        "puf_begin_mdy_ambiguous_without_documentation": 2561,
+        "puf_begin_mdy_unambiguous": 1778,
+        "puf_end_mdy_ambiguous_without_documentation": 16,
+        "puf_end_mdy_unambiguous": 4323,
+        "rpt_begin_mdy_ambiguous_without_documentation": 2561,
+        "rpt_begin_mdy_unambiguous": 1778,
+        "rpt_end_mdy_ambiguous_without_documentation": 16,
+        "rpt_end_mdy_unambiguous": 4323
+      },
+      "directory": {
+        "release": "2026-11-12",
+        "rows": 5435,
+        "sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a",
+        "source": "hospital"
+      },
+      "duplicate_period_pairs": 0,
+      "facility_financial_attribution": false,
+      "form": "hospital",
+      "form_date_spec": "https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/Downloads/R7P240s.pdf",
+      "individual_values_retained": false,
+      "measure_numeric_shape_audit": {
+        "Depreciation Cost": {
+          "coordinate": [
+            "A700003",
+            "00300",
+            "00900"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 150,
+            "negative_integer": 38,
+            "positive_integer": 5921
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Less Total Operating Expense": {
+          "coordinate": [
+            "G300000",
+            "00400",
+            "00100"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 81,
+            "negative_integer": 1,
+            "positive_integer": 6027
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Net Income": {
+          "coordinate": [
+            "G300000",
+            "02900",
+            "00100"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 88,
+            "negative_integer": 1928,
+            "positive_integer": 4093
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Net Patient Revenue": {
+          "coordinate": [
+            "G300000",
+            "00300",
+            "00100"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 235,
+            "negative_integer": 8,
+            "positive_integer": 5866
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Number of Beds": {
+          "coordinate": [
+            "S300001",
+            "01400",
+            "00200"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 122,
+            "positive_integer": 5987
+          },
+          "unit_candidate": "bed_count"
+        },
+        "Overhead Non-Salary Costs": {
+          "coordinate": [
+            "A000000",
+            "20000",
+            "00200"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 79,
+            "negative_integer": 2,
+            "positive_integer": 6028
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Costs": {
+          "coordinate": [
+            "C000001",
+            "20200",
+            "00300"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 79,
+            "positive_integer": 6030
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Patient Revenue": {
+          "coordinate": [
+            "G300000",
+            "00100",
+            "00100"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 237,
+            "positive_integer": 5872
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Salaries From Worksheet A": {
+          "coordinate": [
+            "A000000",
+            "20000",
+            "00100"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 83,
+            "positive_integer": 6026
+          },
+          "unit_candidate": "monetary_source_value"
+        }
+      },
+      "monetary_scale_qualified": false,
+      "nonconflicting_three_way_candidate_reports": 3561,
+      "overlap_period_pairs": 0,
+      "publication_cleared": false,
+      "publisher_archive_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+      "puf_sha256": "bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782",
+      "report_key_intersection": 4339,
+      "rpt_puf_documented_date_comparison": {
+        "rpt_puf_begin_equal": 4339,
+        "rpt_puf_end_equal": 4339
+      },
+      "screened_alpha_rows": 3763488,
+      "status": "COMPLETE_CANDIDATE_AUDIT",
+      "target_rows_with_unresolved_parent": 0,
+      "worksheet_dictionary": "https://data.cms.gov/sites/default/files/2024-03/9756088d-5280-4090-80b9-449d31ef25a3/Cost%20Report%20Data%20Dictionary%20Update.pdf",
+      "run": 45871859227,
+      "job": 140089017328,
+      "artifact": 15143352657
+    },
+    "snf": {
+      "alpha_coordinates": {
+        "begin": [
+          "S200001",
+          "01400",
+          "00100"
+        ],
+        "ccn": [
+          "S200001",
+          "00400",
+          "00200"
+        ],
+        "end": [
+          "S200001",
+          "01400",
+          "00200"
+        ],
+        "state": [
+          "S200001",
+          "00200",
+          "00200"
+        ]
+      },
+      "alpha_field_states": {
+        "begin_absent": 226,
+        "begin_single": 13546,
+        "ccn_single": 13772,
+        "end_absent": 226,
+        "end_single": 13546,
+        "state_single": 13772
+      },
+      "azure_writes": 0,
+      "candidate_provider_records": 12894,
+      "candidate_reports_in_period_conflicts": 0,
+      "candidate_states": {
+        "alpha_missing_or_duplicate": 226,
+        "directory_not_unique_exact": 138,
+        "three_way_candidate": 13408
+      },
+      "date_shapes": {
+        "alpha_begin_blank": 226,
+        "alpha_begin_mdy_ambiguous_without_documentation": 3637,
+        "alpha_begin_mdy_unambiguous": 9909,
+        "alpha_end_blank": 226,
+        "alpha_end_mdy_ambiguous_without_documentation": 56,
+        "alpha_end_mdy_unambiguous": 13490,
+        "puf_begin_blank": 226,
+        "puf_begin_mdy_ambiguous_without_documentation": 3637,
+        "puf_begin_mdy_unambiguous": 9909,
+        "puf_end_blank": 226,
+        "puf_end_mdy_ambiguous_without_documentation": 56,
+        "puf_end_mdy_unambiguous": 13490,
+        "rpt_begin_mdy_ambiguous_without_documentation": 3742,
+        "rpt_begin_mdy_unambiguous": 10030,
+        "rpt_end_mdy_ambiguous_without_documentation": 65,
+        "rpt_end_mdy_unambiguous": 13707
+      },
+      "directory": {
+        "release": "2026-10-28",
+        "rows": 14686,
+        "sha256": "36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce",
+        "source": "nursing"
+      },
+      "duplicate_period_pairs": 0,
+      "facility_financial_attribution": false,
+      "form": "snf",
+      "form_date_spec": "https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/downloads/R2P241.pdf",
+      "individual_values_retained": false,
+      "measure_numeric_shape_audit": {
+        "Contract Labor": {
+          "coordinate": [
+            "S300002",
+            "01400",
+            "00300"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 3913,
+            "positive_integer": 10674
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Number of Beds": {
+          "coordinate": [
+            "S300001",
+            "00800",
+            "00100"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 232,
+            "positive_integer": 14355
+          },
+          "unit_candidate": "bed_count"
+        },
+        "Overhead Non-Salary Costs": {
+          "coordinate": [
+            "A000000",
+            "10000",
+            "00200"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 226,
+            "positive_integer": 14361
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Bed Days Available": {
+          "coordinate": [
+            "S300001",
+            "00800",
+            "00200"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 235,
+            "positive_integer": 14352
+          },
+          "unit_candidate": "bed_days"
+        },
+        "Total Charges": {
+          "coordinate": [
+            "C000000",
+            "10000",
+            "00200"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 228,
+            "positive_integer": 14359
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Costs": {
+          "coordinate": [
+            "C000000",
+            "10000",
+            "00100"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 227,
+            "positive_integer": 14360
+          },
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Days Total": {
+          "coordinate": [
+            "S300001",
+            "00800",
+            "00700"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 226,
+            "positive_integer": 14361
+          },
+          "unit_candidate": "days_or_visits_source_definition"
+        },
+        "Total Salaries From Worksheet A": {
+          "coordinate": [
+            "A000000",
+            "10000",
+            "00100"
+          ],
+          "monetary_scaling_qualified": false,
+          "shape_counts": {
+            "missing": 226,
+            "positive_integer": 14361
+          },
+          "unit_candidate": "monetary_source_value"
+        }
+      },
+      "monetary_scale_qualified": false,
+      "nonconflicting_three_way_candidate_reports": 13408,
+      "overlap_period_pairs": 0,
+      "publication_cleared": false,
+      "publisher_archive_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+      "puf_sha256": "adcef64de8d15b772aa37ca03bba162e78f781d22198b8fbb478810685e6c05c",
+      "report_key_intersection": 13772,
+      "rpt_puf_documented_date_comparison": {
+        "rpt_puf_begin_equal": 13546,
+        "rpt_puf_end_equal": 13546
+      },
+      "screened_alpha_rows": 3804299,
+      "status": "COMPLETE_CANDIDATE_AUDIT",
+      "target_rows_with_unresolved_parent": 0,
+      "worksheet_dictionary": "https://data.cms.gov/sites/default/files/2023-12/Skilled%20Nursing%20Facility%20Cost%20Report%20Data%20Dictionary_508.pdf",
+      "run": 45871859227,
+      "job": 140089016984,
+      "artifact": 15142643649
+    }
+  },
+  "publication_cleared": false,
+  "monetary_scale_qualified": false
+}
