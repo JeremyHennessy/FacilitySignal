@@ -1,0 +1,157 @@
+{
+  "qualification_run": 45886200864,
+  "qualification_job": 140137482922,
+  "qualification_commit": "2adfb2d57f8400543387b02c43f92a43de45e456",
+  "artifact_id": 15149242582,
+  "artifact_digest": "sha256:548dd82b62f331303d3efae9c0c1291c59aa5c08b403a787be0d9c6805feb94b",
+  "receipt": {
+    "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e",
+    "base_release": "bootstrap-45845760984-1",
+    "domain": "FACILITYSIGNAL_PRIVATE_SOURCE",
+    "files": [
+      {
+        "bytes": 9003008,
+        "path": "projection.sqlite3",
+        "sha256": "e44a6f8c8e257077ba5ad14d8e7621904cda8fcfba1f3c77c713b2baddca54d4"
+      },
+      {
+        "bytes": 5092,
+        "path": "audit.json",
+        "sha256": "6fc1b4d9098c51277f85f1665e0de899997ab98a02e34968066a13fc8580422e"
+      }
+    ],
+    "format_version": 1,
+    "inventory": {
+      "files": 2,
+      "folder_markers": 0,
+      "list_head_etag_relations": {
+        "different": 0,
+        "exact": 0,
+        "quote_only": 2
+      }
+    },
+    "key": "pecos-ppef-enrollment-corroboration",
+    "payload_prefix": "CMS Facility Demo/source-releases/pecos-ppef-enrollment-corroboration/v1/5918d959ffd0ccef77de6c4feacf34df4e7e1b814661c70f40991f3b5d19501d/files",
+    "projector_version": 1,
+    "public_promotion": false,
+    "publisher": {
+      "inputs": {
+        "archives": {
+          "hha-enrollment-organizations": {
+            "database_sha256": "1035977f806a114e37ad0384fb2a822b4e475ab71ca741888160b77eae7f091a",
+            "observations": 11505,
+            "source_sha256": "d76ecbb2b50a7047cf913ba819cd9187bc344aaa357ee2c3ea584e663303cbb4"
+          },
+          "hospice-enrollment-organizations": {
+            "database_sha256": "7f7c371753c058c8793aaf1ae548758ea1de960cc103a08369015befd71ab0fa",
+            "observations": 5684,
+            "source_sha256": "cedea131bb00cc14ccc77440176574796bce5222817a301fe1c7cc00d121850b"
+          },
+          "pecos-nppes-identity-candidates": {
+            "database_sha256": "110dd0fa5fcf608119744f3012ca34767bba0dfbb6703749aea370002f2b4898",
+            "observations": 23520,
+            "source_sha256": "faf0318d9f32b87c1b1801ed5b00a3f9c97d567881f9a710467b9719ec1e6141"
+          },
+          "ppef-type2-enrollment": {
+            "database_sha256": "b8cb44897984c55ccae85e52919c798fdabfddb6e1fee5a7b65fc5fea819e870",
+            "observations": 380892,
+            "source_sha256": "c80bda03a8328b838d001aa696d0a26d9113de305fad236fb9eaa182d756ee30"
+          }
+        },
+        "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e",
+        "national_database_sha256": "138ad57c3719fe63895eeaff702c04b51107fe1cf6dc4daf403a554985a1f033",
+        "policy_version": 1
+      },
+      "kind": "derived_enrollment_corroboration",
+      "sha256": "5918d959ffd0ccef77de6c4feacf34df4e7e1b814661c70f40991f3b5d19501d"
+    },
+    "reuse_review": "pending",
+    "sha256_readback": true,
+    "source_sha256": "5918d959ffd0ccef77de6c4feacf34df4e7e1b814661c70f40991f3b5d19501d",
+    "status": "COMPLETE",
+    "summary": {
+      "by_family": {
+        "hha-enrollment-organizations": {
+          "all_keys_care_missing_or_invalid_ccn": 93,
+          "all_keys_care_no_ccn_candidate": 201,
+          "all_keys_care_same_practice_state_ccn": 11208,
+          "all_keys_owner_exact_enrollment_pac": 4573,
+          "all_keys_owner_no_exact_owner_candidate": 6929,
+          "all_keys_region_different": 18,
+          "all_keys_region_same": 11483,
+          "all_keys_region_unavailable": 1,
+          "alternative_key_multiple": 1,
+          "alternative_key_none": 2,
+          "exact_all_keys": 11502,
+          "no_exact_enrollment_id": 3,
+          "rows": 11505
+        },
+        "hospice-enrollment-organizations": {
+          "all_keys_care_ccn_without_practice_state_agreement": 1,
+          "all_keys_care_missing_or_invalid_ccn": 31,
+          "all_keys_care_no_ccn_candidate": 97,
+          "all_keys_care_same_practice_state_ccn": 5554,
+          "all_keys_owner_exact_enrollment_pac": 3080,
+          "all_keys_owner_no_exact_owner_candidate": 2603,
+          "all_keys_region_different": 11,
+          "all_keys_region_same": 5668,
+          "all_keys_region_unavailable": 4,
+          "conflict_npi_differs": 1,
+          "conflict_pac_agrees": 1,
+          "conflict_type_agrees": 1,
+          "exact_all_keys": 5683,
+          "exact_enrollment_id_conflict": 1,
+          "rows": 5684
+        },
+        "hospital-enrollment": {
+          "all_keys_care_ccn_without_state_agreement": 1,
+          "all_keys_care_missing_or_invalid_ccn": 75,
+          "all_keys_care_no_ccn_candidate": 2417,
+          "all_keys_care_same_state_ccn": 6569,
+          "all_keys_owner_exact_enrollment_pac": 7458,
+          "all_keys_owner_no_exact_owner_candidate": 1604,
+          "all_keys_region_different": 4,
+          "all_keys_region_same": 9058,
+          "alternative_key_none": 46,
+          "alternative_key_one": 5,
+          "conflict_npi_differs": 7,
+          "conflict_pac_agrees": 7,
+          "conflict_type_agrees": 7,
+          "exact_all_keys": 9062,
+          "exact_enrollment_id_conflict": 7,
+          "no_exact_enrollment_id": 51,
+          "rows": 9120
+        },
+        "snf-enrollment": {
+          "all_keys_care_ccn_without_state_agreement": 2,
+          "all_keys_care_missing_or_invalid_ccn": 166,
+          "all_keys_care_no_ccn_candidate": 22,
+          "all_keys_care_same_state_ccn": 14108,
+          "all_keys_owner_exact_enrollment_pac": 12848,
+          "all_keys_owner_no_exact_owner_candidate": 1450,
+          "all_keys_region_different": 17,
+          "all_keys_region_same": 14280,
+          "all_keys_region_unavailable": 1,
+          "alternative_key_none": 101,
+          "alternative_key_one": 1,
+          "exact_all_keys": 14298,
+          "no_exact_enrollment_id": 102,
+          "rows": 14400
+        }
+      },
+      "canonical_merges": 0,
+      "dispositions": {
+        "exact_all_keys": 40545,
+        "exact_enrollment_id_conflict": 8,
+        "no_exact_enrollment_id": 156
+      },
+      "distinct_ppef_ordinals_with_all_key_agreement": 40545,
+      "new_publisher_release": false,
+      "publisher_downloads": 0,
+      "raw_identifiers_in_projection": 0,
+      "scope": "Existing institution-qualified enrollment rows compared against pinned PPEF. Four-key agreement corroborates enrollment identity, not site, legal ownership, current active status or a confirmed purchasing relationship. Alternate-key counts do not create links.",
+      "stored_enrollment_evidence_rows": 40709
+    },
+    "total_bytes": 9008100
+  }
+}

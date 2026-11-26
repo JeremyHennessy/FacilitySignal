@@ -50,8 +50,17 @@ def totals(ledger):
     require(len({(x["key"],x["source_sha256"]) for x in receipts})==len(receipts),"duplicate source version")
     for x in receipts:
         src.prefix_for(x["key"],x["source_sha256"])
-        require(x["kind"] in ("publisher","derived","aggregate","supplemental_numeric","institutional_fields","evidence_bundle") and (x["key"]=="pecos-nppes-identity-candidates")== (x["kind"]=="derived") and (x["key"] in src.SUPPLEMENTAL_NUMERIC_PARENTS)==(x["kind"]=="supplemental_numeric"),"source grain")
+        require(x["kind"] in ("publisher","derived","aggregate","supplemental_numeric","institutional_fields","evidence_bundle","enrollment_corroboration") and (x["key"]=="pecos-nppes-identity-candidates")== (x["kind"]=="derived") and (x["key"] in src.SUPPLEMENTAL_NUMERIC_PARENTS)==(x["kind"]=="supplemental_numeric"),"source grain")
         require((x["key"]=="institutional-field-observations")== (x["kind"]=="institutional_fields") and (x["key"]=="repository-data-evidence")== (x["kind"]=="evidence_bundle"),"qualified supplement grain")
+        require((x["key"]=="pecos-ppef-enrollment-corroboration")== (x["kind"]=="enrollment_corroboration"),"enrollment evidence grain")
+        if x["kind"]=="enrollment_corroboration":
+            p=x["inputs"];parents=p["archives"]
+            require(p["policy_version"]==1 and p["base_receipt_sha256"]==x["base_receipt_sha256"] and hashlib.sha256(a.encode(p)).hexdigest()==x["source_sha256"],"enrollment identity digest")
+            require(set(parents)=={"pecos-nppes-identity-candidates","hha-enrollment-organizations","hospice-enrollment-organizations","ppef-type2-enrollment"},"enrollment input scope")
+            for k,v in parents.items():
+                prior=[r for r in receipts if r["key"]==k and r["source_sha256"]==v["source_sha256"]]
+                require(len(prior)==1 and prior[0]["observations"]==v["observations"] and prior[0]["base_receipt_sha256"]==x["base_receipt_sha256"] and next(f["sha256"] for f in prior[0]["files"] if f["path"]=="projection.sqlite3")==v["database_sha256"],"enrollment parent receipt drift")
+            require(x["observations"]==sum(v["observations"] for k,v in parents.items() if k!="ppef-type2-enrollment"),"enrollment evidence count")
         if x["kind"]=="evidence_bundle":require(x["observations"]==0 and type(x["tracked_data_file_count"]) is int and type(x["supplemental_file_count"]) is int and 0<=x["supplemental_file_count"]<=x["tracked_data_file_count"],"evidence bundle counts")
         if x["kind"]=="supplemental_numeric":
             parents=[p for p in receipts if p["key"]==src.SUPPLEMENTAL_NUMERIC_PARENTS[x["key"]] and p["source_sha256"]==x["source_sha256"] and p["kind"]=="publisher"]
@@ -78,6 +87,7 @@ def totals(ledger):
     if any(x["kind"]=="evidence_bundle" for x in receipts):
         result["repository_data_evidence_files"]=sum(x["tracked_data_file_count"] for x in receipts if x["kind"]=="evidence_bundle")
         result["repository_supplemental_data_files"]=sum(x["supplemental_file_count"] for x in receipts if x["kind"]=="evidence_bundle")
+    if any(x["kind"]=="enrollment_corroboration" for x in receipts):result["derived_enrollment_corroboration_rows"]=sum(x["observations"] for x in receipts if x["kind"]=="enrollment_corroboration")
     require(result==ledger["totals"],"ledger total drift")
     return result
 
@@ -111,11 +121,24 @@ def source_matches(rec,pin,national):
         for r in m:require(DATA_PATH.fullmatch(r["path"]) and type(r["bytes"]) is int and r["bytes"]>0 and re.fullmatch(r"[a-f0-9]{64}",r["sha256"]),"evidence manifest file")
         changed=[r for r in m if national["files"].get(r["path"])!=r]
         require(len(changed)==s["supplemental_file_count"]==pin["supplemental_file_count"] and s["base_file_count"]+len(changed)==len(m) and s["supplemental_paths"]==[r["path"] for r in changed] and s["supplemental_data_bytes"]==sum(r["bytes"] for r in changed) and s["tracked_data_bytes"]==sum(r["bytes"] for r in m),"evidence supplement coverage")
+    elif pin["kind"]=="enrollment_corroboration":
+        s=rec["summary"];p=rec["publisher"];inputs=pin["inputs"]
+        require(p["kind"]=="derived_enrollment_corroboration" and p["inputs"]==inputs and p["sha256"]==pin["source_sha256"]==hashlib.sha256(a.encode(inputs)).hexdigest() and inputs["national_database_sha256"]==national["receipt"]["database_sha256"] and inputs["base_receipt_sha256"]==national["receipt_sha256"],"enrollment input lineage")
+        require(s["stored_enrollment_evidence_rows"]==pin["observations"] and s["new_publisher_release"] is False and s["publisher_downloads"]==s["canonical_merges"]==s["raw_identifiers_in_projection"]==0,"enrollment summary scope")
+        states=("exact_all_keys","exact_enrollment_id_conflict","no_exact_enrollment_id","key_shape_review");families=s["by_family"];d=s["dispositions"]
+        require(set(families)=={"hospital-enrollment","snf-enrollment","hha-enrollment-organizations","hospice-enrollment-organizations"} and set(d)<=set(states),"enrollment domain")
+        require(families["hospital-enrollment"]["rows"]+families["snf-enrollment"]["rows"]==inputs["archives"]["pecos-nppes-identity-candidates"]["observations"] and all(families[k]["rows"]==inputs["archives"][k]["observations"] for k in ("hha-enrollment-organizations","hospice-enrollment-organizations")),"enrollment family count")
+        for v in families.values():
+            require(all(type(x) is int and x>=0 for x in v.values()) and sum(v.get(k,0) for k in states)==v["rows"],"enrollment disposition count")
+            for prefix,target in (("conflict_pac_","exact_enrollment_id_conflict"),("conflict_npi_","exact_enrollment_id_conflict"),("conflict_type_","exact_enrollment_id_conflict"),("alternative_key_","no_exact_enrollment_id"),("all_keys_care_","exact_all_keys"),("all_keys_region_","exact_all_keys"),("all_keys_owner_","exact_all_keys")):
+                require(sum(n for k,n in v.items() if k.startswith(prefix))==v.get(target,0),"enrollment subgroup reconciliation")
+        require(d=={k:sum(v.get(k,0) for v in families.values()) for k in states if sum(v.get(k,0) for v in families.values())} and sum(d.values())==pin["observations"] and 0<=s["distinct_ppef_ordinals_with_all_key_agreement"]<=d.get("exact_all_keys",0),"enrollment aggregate reconciliation")
     else:
         require(observation_count(rec)==pin["observations"] and "aggregate_rows" not in rec["summary"],"source observation drift")
     require((rec["publisher"].get("kind")=="derived_identity_candidate_release")== (pin["kind"]=="derived"),"derived/publisher mismatch")
     require((rec["publisher"].get("kind")=="supplemental_numeric_projection")== (pin["kind"]=="supplemental_numeric"),"supplemental source mismatch")
     require((rec["publisher"].get("kind")=="derived_institutional_field_projection")== (pin["kind"]=="institutional_fields") and (rec["publisher"].get("kind")=="repository_data_evidence_snapshot")== (pin["kind"]=="evidence_bundle"),"qualified supplement kind")
+    require((rec["publisher"].get("kind")=="derived_enrollment_corroboration")== (pin["kind"]=="enrollment_corroboration"),"enrollment receipt kind")
     if pin["kind"]=="supplemental_numeric":
         s=rec["summary"];require(s["source_index_key"]==src.SUPPLEMENTAL_NUMERIC_PARENTS[pin["key"]] and s["source_index_publisher_sha256"]==pin["source_sha256"] and s["source_index_sha256"]==pin["parent_database_sha256"] and s["supplemental_numeric_rows"]==pin["observations"] and s["new_publisher_release"] is False and s["alpha_values_retained"]==0,"supplemental lineage")
         if pin["key"] in src.HISTORICAL_NUMERIC_YEARS:
@@ -140,7 +163,7 @@ def verify_archive(store,ledger,full=False):
         name=src.prefix_for(pin["key"],pin["source_sha256"])+"/complete.json"
         rec,digest,head=ext.read_small(store,name)
         source_matches(rec,pin,national)
-        verify_files(store,rec["payload_prefix"],rec["files"],full or pin["kind"] in ("institutional_fields","evidence_bundle"))
+        verify_files(store,rec["payload_prefix"],rec["files"],full or pin["kind"] in ("institutional_fields","evidence_bundle","enrollment_corroboration"))
         require(ext.read_small(store,name,digest)[2]==head,"source receipt changed")
     ext.unchanged(store,national)
     require(ext.read_small(store,ext.EXT_POINTER,psha)[2]==phead,"extension pointer changed")

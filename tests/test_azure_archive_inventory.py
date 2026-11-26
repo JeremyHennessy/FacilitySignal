@@ -8,7 +8,8 @@ class ArchiveInventoryTests(unittest.TestCase):
         self.assertEqual(t["publisher_releases"],56)
         self.assertEqual(t["source_observations"],117850722)
         self.assertEqual(t["derived_candidate_observations"],23520)
-        self.assertEqual(t["payload_files"],212)
+        self.assertEqual(t["payload_files"],214)
+        self.assertEqual(t["derived_enrollment_corroboration_rows"],40709)
         self.assertEqual(t["derived_institutional_observations"],101534)
         self.assertEqual(t["repository_data_evidence_files"],73)
         self.assertEqual(t["repository_supplemental_data_files"],13)
@@ -61,3 +62,15 @@ class ArchiveInventoryTests(unittest.TestCase):
         pin["source_sha256"]=hashlib.sha256(audit.a.encode(inputs)).hexdigest()
         receipt.update(source_sha256=pin["source_sha256"],payload_prefix=audit.src.prefix_for(pin["key"],pin["source_sha256"])+"/files")
         with self.assertRaisesRegex(ValueError,"evidence manifest file"):audit.source_matches(receipt,pin,national)
+
+    def test_enrollment_corroboration_receipt_and_lineage(self):
+        p=next(x for x in self.ledger["receipts"] if x["kind"]=="enrollment_corroboration")
+        r=json.loads((audit.ROOT/"research/pecos_ppef_corroboration_qualification_20261126.json").read_text())["receipt"]
+        national={"receipt_sha256":p["base_receipt_sha256"],"receipt":{"database_sha256":p["inputs"]["national_database_sha256"]},"pointer":{"release":r["base_release"]}}
+        audit.source_matches(r,p,national)
+        bad=copy.deepcopy(r);bad["summary"]["by_family"]["hospital-enrollment"]["exact_all_keys"]+=1
+        with self.assertRaises(ValueError):audit.source_matches(bad,p,national)
+        altered=copy.deepcopy(self.ledger);next(x for x in altered["receipts"] if x["kind"]=="enrollment_corroboration")["kind"]="publisher"
+        with self.assertRaises(ValueError):audit.totals(altered)
+        altered=copy.deepcopy(self.ledger);next(x for x in altered["receipts"] if x["kind"]=="enrollment_corroboration")["inputs"]["archives"]["ppef-type2-enrollment"]["database_sha256"]="a"*64
+        with self.assertRaises(ValueError):audit.totals(altered)

@@ -1716,6 +1716,54 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "pecos-ppef-enrollment-corroboration",
+      "source_sha256": "5918d959ffd0ccef77de6c4feacf34df4e7e1b814661c70f40991f3b5d19501d",
+      "kind": "enrollment_corroboration",
+      "observations": 40709,
+      "inputs": {
+        "archives": {
+          "hha-enrollment-organizations": {
+            "database_sha256": "1035977f806a114e37ad0384fb2a822b4e475ab71ca741888160b77eae7f091a",
+            "observations": 11505,
+            "source_sha256": "d76ecbb2b50a7047cf913ba819cd9187bc344aaa357ee2c3ea584e663303cbb4"
+          },
+          "hospice-enrollment-organizations": {
+            "database_sha256": "7f7c371753c058c8793aaf1ae548758ea1de960cc103a08369015befd71ab0fa",
+            "observations": 5684,
+            "source_sha256": "cedea131bb00cc14ccc77440176574796bce5222817a301fe1c7cc00d121850b"
+          },
+          "pecos-nppes-identity-candidates": {
+            "database_sha256": "110dd0fa5fcf608119744f3012ca34767bba0dfbb6703749aea370002f2b4898",
+            "observations": 23520,
+            "source_sha256": "faf0318d9f32b87c1b1801ed5b00a3f9c97d567881f9a710467b9719ec1e6141"
+          },
+          "ppef-type2-enrollment": {
+            "database_sha256": "b8cb44897984c55ccae85e52919c798fdabfddb6e1fee5a7b65fc5fea819e870",
+            "observations": 380892,
+            "source_sha256": "c80bda03a8328b838d001aa696d0a26d9113de305fad236fb9eaa182d756ee30"
+          }
+        },
+        "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e",
+        "national_database_sha256": "138ad57c3719fe63895eeaff702c04b51107fe1cf6dc4daf403a554985a1f033",
+        "policy_version": 1
+      },
+      "run": 45886200864,
+      "job": 140137482922,
+      "files": [
+        {
+          "bytes": 9003008,
+          "path": "projection.sqlite3",
+          "sha256": "e44a6f8c8e257077ba5ad14d8e7621904cda8fcfba1f3c77c713b2baddca54d4"
+        },
+        {
+          "bytes": 5092,
+          "path": "audit.json",
+          "sha256": "6fc1b4d9098c51277f85f1665e0de899997ab98a02e34968066a13fc8580422e"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
@@ -1726,10 +1774,11 @@
     "derived_candidate_observations": 23520,
     "aggregate_evidence_releases": 8,
     "aggregate_source_rows_screened": 40787611,
-    "payload_files": 212,
-    "payload_bytes": 10908812534,
+    "payload_files": 214,
+    "payload_bytes": 10917820634,
     "derived_institutional_observations": 101534,
     "repository_data_evidence_files": 73,
-    "repository_supplemental_data_files": 13
+    "repository_supplemental_data_files": 13,
+    "derived_enrollment_corroboration_rows": 40709
   }
 }
