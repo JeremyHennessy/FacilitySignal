@@ -1,0 +1,943 @@
+{
+  "as_of": "2026-11-26",
+  "change_of_ownership_domain": {
+    "AM": "ACQUISITION/MERGER",
+    "CH": "CHANGE OF OWNERSHIP (CHOW)",
+    "CO": "CONSOLIDATION"
+  },
+  "distinct_literal_valid_organization_pac_tokens_across_families": 33799,
+  "families": {
+    "hospital": {
+      "chow": {
+        "buyer_seller_identity_text_counts": {
+          "ASSOCIATE ID/different_text": 750,
+          "ASSOCIATE ID/same_text": 29,
+          "CCN/different_text": 129,
+          "CCN/same_text": 650,
+          "ENROLLMENT ID/different_text": 779
+        },
+        "code_counts": {
+          "AM": 116,
+          "CH": 663
+        },
+        "code_text_agreement": {
+          "matches": 116,
+          "text_differs": 663
+        },
+        "counts": {
+          "before_2016": 0,
+          "rows": 779
+        },
+        "distinct_valid_candidate_transaction_keys": 235,
+        "effective_date_states": {
+          "ambiguous_slash": 544,
+          "parsed_as_of_or_before": 235
+        },
+        "enrollment_link_candidates": {
+          "BUYER": {
+            "candidate_ccn_text_agrees": 765,
+            "exact_enrollment_pac_candidate": 765,
+            "no_exact_enrollment_pac_candidate": 14
+          },
+          "SELLER": {
+            "candidate_ccn_text_agrees": 1,
+            "exact_enrollment_pac_candidate": 1,
+            "no_exact_enrollment_pac_candidate": 778
+          }
+        },
+        "parsed_effective_year_counts": {
+          "2016": 13,
+          "2017": 12,
+          "2018": 28,
+          "2019": 33,
+          "2020": 33,
+          "2021": 31,
+          "2022": 11,
+          "2023": 22,
+          "2024": 35,
+          "2025": 13,
+          "2026": 4
+        }
+      },
+      "enrollment": {
+        "counts": {
+          "rows": 9120,
+          "valid_enrollment_pac": 9120
+        },
+        "distinct_valid_enrollment_pac_pairs": 9120,
+        "distinct_valid_npis": 8668,
+        "distinct_valid_provider_pacs": 5269,
+        "field_states": {
+          "ASSOCIATE ID": {
+            "valid": 9120
+          },
+          "CCN": {
+            "nonstandard": 75,
+            "valid": 9045
+          },
+          "ENROLLMENT ID": {
+            "valid": 9120
+          },
+          "INCORPORATION DATE": {
+            "ambiguous_slash": 2180,
+            "blank": 3452,
+            "parsed_as_of_or_before": 3488
+          },
+          "MULTIPLE NPI FLAG": {
+            "no": 8086,
+            "yes": 1034
+          },
+          "NPI": {
+            "valid": 9120
+          },
+          "PROPRIETARY NONPROFIT": {
+            "nonprofit": 6662,
+            "proprietary": 2312,
+            "unrecognized": 146
+          }
+        },
+        "npis_with_multiple_enrollment_pac_pairs": 421,
+        "pairs_with_multiple_rows": 0,
+        "provider_pacs_with_multiple_enrollments": 2619
+      },
+      "owner": {
+        "association_date_states": {
+          "ambiguous_slash": 11185,
+          "parsed_as_of_or_before": 11550
+        },
+        "candidate_enrollment_count_bands": {
+          "1": 1880,
+          "100+": 19,
+          "2-4": 1418,
+          "20-99": 169,
+          "5-19": 597
+        },
+        "counts": {
+          "exact_enrollment_pac_candidate": 22735,
+          "organizational_rows": 22735,
+          "valid_owner_pac": 22735
+        },
+        "distinct_valid_org_enrollment_provider_pairs": 20755,
+        "distinct_valid_org_enrollment_provider_role_keys": 22735,
+        "distinct_valid_organization_pac_tokens": 4083,
+        "flags": {
+          "CHAIN HOME OFFICE": {
+            "rows": {
+              "no": 20546,
+              "yes": 2189
+            },
+            "valid_pacs_with_both_yes_no": 189,
+            "valid_pacs_with_no": 4057,
+            "valid_pacs_with_yes": 215,
+            "valid_pacs_yes_without_no_or_unrecognized": 26
+          },
+          "CONSULTING FIRM": {
+            "rows": {
+              "no": 22730,
+              "yes": 5
+            },
+            "valid_pacs_with_both_yes_no": 3,
+            "valid_pacs_with_no": 4081,
+            "valid_pacs_with_yes": 5,
+            "valid_pacs_yes_without_no_or_unrecognized": 2
+          },
+          "CORPORATION": {
+            "rows": {
+              "no": 13320,
+              "yes": 9415
+            },
+            "valid_pacs_with_both_yes_no": 596,
+            "valid_pacs_with_no": 3308,
+            "valid_pacs_with_yes": 1371,
+            "valid_pacs_yes_without_no_or_unrecognized": 775
+          },
+          "CREATED FOR ACQUISITION": {
+            "rows": {
+              "blank": 6538,
+              "no": 15311,
+              "yes": 886
+            },
+            "valid_pacs_with_both_yes_no": 123,
+            "valid_pacs_with_no": 2765,
+            "valid_pacs_with_yes": 458,
+            "valid_pacs_yes_without_no_or_unrecognized": 335
+          },
+          "FINANCIAL INSTITUTION": {
+            "rows": {
+              "no": 22499,
+              "yes": 236
+            },
+            "valid_pacs_with_both_yes_no": 10,
+            "valid_pacs_with_no": 4041,
+            "valid_pacs_with_yes": 52,
+            "valid_pacs_yes_without_no_or_unrecognized": 42
+          },
+          "FOR PROFIT": {
+            "rows": {
+              "no": 15220,
+              "yes": 7515
+            },
+            "valid_pacs_with_both_yes_no": 393,
+            "valid_pacs_with_no": 3433,
+            "valid_pacs_with_yes": 1043,
+            "valid_pacs_yes_without_no_or_unrecognized": 650
+          },
+          "HOLDING COMPANY": {
+            "rows": {
+              "no": 20409,
+              "yes": 2326
+            },
+            "valid_pacs_with_both_yes_no": 159,
+            "valid_pacs_with_no": 3839,
+            "valid_pacs_with_yes": 403,
+            "valid_pacs_yes_without_no_or_unrecognized": 244
+          },
+          "INVESTMENT FIRM": {
+            "rows": {
+              "no": 21877,
+              "yes": 858
+            },
+            "valid_pacs_with_both_yes_no": 35,
+            "valid_pacs_with_no": 4028,
+            "valid_pacs_with_yes": 90,
+            "valid_pacs_yes_without_no_or_unrecognized": 55
+          },
+          "LLC": {
+            "rows": {
+              "no": 17618,
+              "yes": 5117
+            },
+            "valid_pacs_with_both_yes_no": 178,
+            "valid_pacs_with_no": 3072,
+            "valid_pacs_with_yes": 1189,
+            "valid_pacs_yes_without_no_or_unrecognized": 1011
+          },
+          "MANAGEMENT SERVICES COMPANY": {
+            "rows": {
+              "no": 21914,
+              "yes": 821
+            },
+            "valid_pacs_with_both_yes_no": 55,
+            "valid_pacs_with_no": 4031,
+            "valid_pacs_with_yes": 107,
+            "valid_pacs_yes_without_no_or_unrecognized": 52
+          },
+          "MEDICAL PROVIDER SUPPLIER": {
+            "rows": {
+              "no": 22594,
+              "yes": 141
+            },
+            "valid_pacs_with_both_yes_no": 53,
+            "valid_pacs_with_no": 4039,
+            "valid_pacs_with_yes": 97,
+            "valid_pacs_yes_without_no_or_unrecognized": 44
+          },
+          "MEDICAL STAFFING COMPANY": {
+            "rows": {
+              "no": 22724,
+              "yes": 11
+            },
+            "valid_pacs_with_both_yes_no": 5,
+            "valid_pacs_with_no": 4083,
+            "valid_pacs_with_yes": 5,
+            "valid_pacs_yes_without_no_or_unrecognized": 0
+          },
+          "NON PROFIT": {
+            "rows": {
+              "no": 15846,
+              "yes": 6889
+            },
+            "valid_pacs_with_both_yes_no": 454,
+            "valid_pacs_with_no": 3110,
+            "valid_pacs_with_yes": 1427,
+            "valid_pacs_yes_without_no_or_unrecognized": 973
+          },
+          "OTHER TYPE": {
+            "rows": {
+              "no": 19357,
+              "yes": 3378
+            },
+            "valid_pacs_with_both_yes_no": 314,
+            "valid_pacs_with_no": 3382,
+            "valid_pacs_with_yes": 1015,
+            "valid_pacs_yes_without_no_or_unrecognized": 701
+          },
+          "OWNED BY ANOTHER ORG OR IND": {
+            "rows": {
+              "blank": 17435,
+              "no": 2779,
+              "yes": 2521
+            },
+            "valid_pacs_with_both_yes_no": 142,
+            "valid_pacs_with_no": 754,
+            "valid_pacs_with_yes": 668,
+            "valid_pacs_yes_without_no_or_unrecognized": 526
+          },
+          "PRIVATE EQUITY COMPANY": {
+            "rows": {
+              "no": 22559,
+              "yes": 176
+            },
+            "valid_pacs_with_both_yes_no": 20,
+            "valid_pacs_with_no": 4080,
+            "valid_pacs_with_yes": 23,
+            "valid_pacs_yes_without_no_or_unrecognized": 3
+          },
+          "REIT": {
+            "rows": {
+              "no": 22729,
+              "yes": 6
+            },
+            "valid_pacs_with_both_yes_no": 0,
+            "valid_pacs_with_no": 4080,
+            "valid_pacs_with_yes": 3,
+            "valid_pacs_yes_without_no_or_unrecognized": 3
+          }
+        },
+        "input_owner_type_counts": {
+          "I": 124294,
+          "O": 22735
+        },
+        "organization_pacs_with_exact_enrollment_candidate": 4083,
+        "organization_pacs_with_multiple_matched_enrollments": 2203,
+        "organization_pacs_with_multiple_role_codes": 1036,
+        "ownership_percentage_states_by_role": {
+          "34": {
+            "100": 4353,
+            "5_to_below_100": 1110,
+            "blank": 765,
+            "positive_below_5": 68,
+            "zero": 9
+          },
+          "35": {
+            "100": 5343,
+            "5_to_below_100": 4553,
+            "blank": 521,
+            "positive_below_5": 67,
+            "zero": 16
+          },
+          "36": {
+            "100": 17,
+            "5_to_below_100": 53,
+            "blank": 8
+          },
+          "37": {
+            "100": 155,
+            "5_to_below_100": 74,
+            "blank": 74,
+            "positive_below_5": 1,
+            "zero": 3
+          },
+          "38": {
+            "100": 1,
+            "5_to_below_100": 48,
+            "blank": 59,
+            "positive_below_5": 123,
+            "zero": 2
+          },
+          "39": {
+            "100": 6,
+            "5_to_below_100": 204,
+            "blank": 29,
+            "positive_below_5": 44
+          },
+          "43": {
+            "100": 1576,
+            "5_to_below_100": 108,
+            "blank": 2305,
+            "positive_below_5": 4,
+            "zero": 349
+          },
+          "44": {
+            "100": 123,
+            "5_to_below_100": 42,
+            "blank": 380,
+            "positive_below_5": 34,
+            "zero": 108
+          }
+        },
+        "role_class_counts": {
+          "direct_ownership": 6305,
+          "financial_interest": 385,
+          "indirect_ownership": 10500,
+          "management": 4342,
+          "other": 687,
+          "partnership": 516
+        },
+        "role_code_counts": {
+          "34": 6305,
+          "35": 10500,
+          "36": 78,
+          "37": 307,
+          "38": 233,
+          "39": 283,
+          "43": 4342,
+          "44": 687
+        },
+        "role_text_agreement": {
+          "matches": 22735
+        },
+        "role_text_conflicts_by_code": {},
+        "threshold_code_percentage_states": {
+          "at_least_5": 15658,
+          "below_label_threshold": 164,
+          "missing_or_invalid": 1368
+        }
+      }
+    },
+    "snf": {
+      "chow": {
+        "buyer_seller_identity_text_counts": {
+          "ASSOCIATE ID/different_text": 5338,
+          "ASSOCIATE ID/same_text": 2,
+          "CCN/different_text": 4,
+          "CCN/one_or_both_missing": 2,
+          "CCN/same_text": 5334,
+          "ENROLLMENT ID/different_text": 5340
+        },
+        "code_counts": {
+          "AM": 2,
+          "CH": 5338
+        },
+        "code_text_agreement": {
+          "matches": 2,
+          "text_differs": 5338
+        },
+        "counts": {
+          "before_2016": 0,
+          "rows": 5340
+        },
+        "distinct_valid_candidate_transaction_keys": 1508,
+        "effective_date_states": {
+          "ambiguous_slash": 3832,
+          "parsed_as_of_or_before": 1508
+        },
+        "enrollment_link_candidates": {
+          "BUYER": {
+            "candidate_ccn_text_agrees": 5305,
+            "exact_enrollment_pac_candidate": 5305,
+            "no_exact_enrollment_pac_candidate": 35
+          },
+          "SELLER": {
+            "candidate_ccn_missing_or_differs": 2,
+            "candidate_ccn_text_agrees": 1,
+            "exact_enrollment_pac_candidate": 3,
+            "no_exact_enrollment_pac_candidate": 5337
+          }
+        },
+        "parsed_effective_year_counts": {
+          "2016": 84,
+          "2017": 97,
+          "2018": 106,
+          "2019": 121,
+          "2020": 112,
+          "2021": 166,
+          "2022": 201,
+          "2023": 246,
+          "2024": 215,
+          "2025": 134,
+          "2026": 26
+        }
+      },
+      "enrollment": {
+        "counts": {
+          "rows": 14401,
+          "valid_enrollment_pac": 14401
+        },
+        "distinct_valid_enrollment_pac_pairs": 14401,
+        "distinct_valid_npis": 14397,
+        "distinct_valid_provider_pacs": 12230,
+        "field_states": {
+          "ASSOCIATE ID": {
+            "valid": 14401
+          },
+          "CCN": {
+            "nonstandard": 169,
+            "valid": 14232
+          },
+          "ENROLLMENT ID": {
+            "valid": 14401
+          },
+          "INCORPORATION DATE": {
+            "ambiguous_slash": 3115,
+            "blank": 6105,
+            "parsed_as_of_or_before": 5181
+          },
+          "MULTIPLE NPI FLAG": {
+            "no": 14364,
+            "yes": 37
+          },
+          "NPI": {
+            "valid": 14401
+          },
+          "PROPRIETARY NONPROFIT": {
+            "nonprofit": 4429,
+            "proprietary": 9747,
+            "unrecognized": 225
+          }
+        },
+        "npis_with_multiple_enrollment_pac_pairs": 3,
+        "pairs_with_multiple_rows": 0,
+        "provider_pacs_with_multiple_enrollments": 343
+      },
+      "owner": {
+        "association_date_states": {
+          "ambiguous_slash": 52108,
+          "parsed_as_of_or_before": 48113,
+          "parsed_future": 10
+        },
+        "candidate_enrollment_count_bands": {
+          "1": 25403,
+          "100+": 43,
+          "2-4": 2592,
+          "20-99": 605,
+          "5-19": 1875
+        },
+        "counts": {
+          "exact_enrollment_pac_candidate": 100231,
+          "organizational_rows": 100231,
+          "valid_owner_pac": 100231
+        },
+        "distinct_valid_org_enrollment_provider_pairs": 78333,
+        "distinct_valid_org_enrollment_provider_role_keys": 100231,
+        "distinct_valid_organization_pac_tokens": 30518,
+        "flags": {
+          "CHAIN HOME OFFICE": {
+            "rows": {
+              "no": 96024,
+              "yes": 4207
+            },
+            "valid_pacs_with_both_yes_no": 180,
+            "valid_pacs_with_no": 30358,
+            "valid_pacs_with_yes": 340,
+            "valid_pacs_yes_without_no_or_unrecognized": 160
+          },
+          "CONSULTING FIRM": {
+            "rows": {
+              "no": 94539,
+              "yes": 5692
+            },
+            "valid_pacs_with_both_yes_no": 265,
+            "valid_pacs_with_no": 28438,
+            "valid_pacs_with_yes": 2345,
+            "valid_pacs_yes_without_no_or_unrecognized": 2080
+          },
+          "CORPORATION": {
+            "rows": {
+              "no": 82136,
+              "yes": 18095
+            },
+            "valid_pacs_with_both_yes_no": 592,
+            "valid_pacs_with_no": 26575,
+            "valid_pacs_with_yes": 4535,
+            "valid_pacs_yes_without_no_or_unrecognized": 3943
+          },
+          "CREATED FOR ACQUISITION": {
+            "rows": {
+              "blank": 57246,
+              "no": 38968,
+              "yes": 4017
+            },
+            "valid_pacs_with_both_yes_no": 291,
+            "valid_pacs_with_no": 9162,
+            "valid_pacs_with_yes": 2515,
+            "valid_pacs_yes_without_no_or_unrecognized": 2224
+          },
+          "FINANCIAL INSTITUTION": {
+            "rows": {
+              "no": 97305,
+              "yes": 2926
+            },
+            "valid_pacs_with_both_yes_no": 86,
+            "valid_pacs_with_no": 29801,
+            "valid_pacs_with_yes": 803,
+            "valid_pacs_yes_without_no_or_unrecognized": 717
+          },
+          "FOR PROFIT": {
+            "rows": {
+              "no": 70682,
+              "yes": 29549
+            },
+            "valid_pacs_with_both_yes_no": 1516,
+            "valid_pacs_with_no": 22329,
+            "valid_pacs_with_yes": 9705,
+            "valid_pacs_yes_without_no_or_unrecognized": 8189
+          },
+          "HOLDING COMPANY": {
+            "rows": {
+              "no": 89297,
+              "yes": 10934
+            },
+            "valid_pacs_with_both_yes_no": 539,
+            "valid_pacs_with_no": 27497,
+            "valid_pacs_with_yes": 3560,
+            "valid_pacs_yes_without_no_or_unrecognized": 3021
+          },
+          "INVESTMENT FIRM": {
+            "rows": {
+              "no": 99339,
+              "yes": 892
+            },
+            "valid_pacs_with_both_yes_no": 89,
+            "valid_pacs_with_no": 30385,
+            "valid_pacs_with_yes": 222,
+            "valid_pacs_yes_without_no_or_unrecognized": 133
+          },
+          "LLC": {
+            "rows": {
+              "no": 48732,
+              "yes": 51499
+            },
+            "valid_pacs_with_both_yes_no": 684,
+            "valid_pacs_with_no": 12771,
+            "valid_pacs_with_yes": 18431,
+            "valid_pacs_yes_without_no_or_unrecognized": 17747
+          },
+          "MANAGEMENT SERVICES COMPANY": {
+            "rows": {
+              "no": 92411,
+              "yes": 7820
+            },
+            "valid_pacs_with_both_yes_no": 331,
+            "valid_pacs_with_no": 29396,
+            "valid_pacs_with_yes": 1453,
+            "valid_pacs_yes_without_no_or_unrecognized": 1122
+          },
+          "MEDICAL PROVIDER SUPPLIER": {
+            "rows": {
+              "no": 98097,
+              "yes": 2134
+            },
+            "valid_pacs_with_both_yes_no": 93,
+            "valid_pacs_with_no": 29604,
+            "valid_pacs_with_yes": 1007,
+            "valid_pacs_yes_without_no_or_unrecognized": 914
+          },
+          "MEDICAL STAFFING COMPANY": {
+            "rows": {
+              "no": 98790,
+              "yes": 1441
+            },
+            "valid_pacs_with_both_yes_no": 64,
+            "valid_pacs_with_no": 29734,
+            "valid_pacs_with_yes": 848,
+            "valid_pacs_yes_without_no_or_unrecognized": 784
+          },
+          "NON PROFIT": {
+            "rows": {
+              "no": 94456,
+              "yes": 5775
+            },
+            "valid_pacs_with_both_yes_no": 206,
+            "valid_pacs_with_no": 29013,
+            "valid_pacs_with_yes": 1711,
+            "valid_pacs_yes_without_no_or_unrecognized": 1505
+          },
+          "OTHER TYPE": {
+            "rows": {
+              "no": 85928,
+              "yes": 14303
+            },
+            "valid_pacs_with_both_yes_no": 755,
+            "valid_pacs_with_no": 26837,
+            "valid_pacs_with_yes": 4436,
+            "valid_pacs_yes_without_no_or_unrecognized": 3681
+          },
+          "OWNED BY ANOTHER ORG OR IND": {
+            "rows": {
+              "blank": 67891,
+              "no": 13112,
+              "yes": 19228
+            },
+            "valid_pacs_with_both_yes_no": 693,
+            "valid_pacs_with_no": 4128,
+            "valid_pacs_with_yes": 5802,
+            "valid_pacs_yes_without_no_or_unrecognized": 5109
+          },
+          "PARENT COMPANY": {
+            "rows": {
+              "blank": 68354,
+              "no": 28061,
+              "yes": 3816
+            },
+            "valid_pacs_with_both_yes_no": 277,
+            "valid_pacs_with_no": 8369,
+            "valid_pacs_with_yes": 1010,
+            "valid_pacs_yes_without_no_or_unrecognized": 733
+          },
+          "PRIVATE EQUITY COMPANY": {
+            "rows": {
+              "no": 100039,
+              "yes": 192
+            },
+            "valid_pacs_with_both_yes_no": 25,
+            "valid_pacs_with_no": 30435,
+            "valid_pacs_with_yes": 108,
+            "valid_pacs_yes_without_no_or_unrecognized": 83
+          },
+          "REIT": {
+            "rows": {
+              "no": 99090,
+              "yes": 1141
+            },
+            "valid_pacs_with_both_yes_no": 40,
+            "valid_pacs_with_no": 30141,
+            "valid_pacs_with_yes": 417,
+            "valid_pacs_yes_without_no_or_unrecognized": 377
+          },
+          "TRUST OR TRUSTEE": {
+            "rows": {
+              "no": 89560,
+              "yes": 10671
+            },
+            "valid_pacs_with_both_yes_no": 442,
+            "valid_pacs_with_no": 28405,
+            "valid_pacs_with_yes": 2555,
+            "valid_pacs_yes_without_no_or_unrecognized": 2113
+          }
+        },
+        "input_owner_type_counts": {
+          "I": 202487,
+          "O": 100231
+        },
+        "organization_pacs_with_exact_enrollment_candidate": 30518,
+        "organization_pacs_with_multiple_matched_enrollments": 5115,
+        "organization_pacs_with_multiple_role_codes": 7017,
+        "ownership_percentage_states_by_role": {
+          "34": {
+            "100": 7989,
+            "5_to_below_100": 3347,
+            "blank": 351,
+            "positive_below_5": 78,
+            "zero": 16
+          },
+          "35": {
+            "100": 5508,
+            "5_to_below_100": 12382,
+            "blank": 419,
+            "positive_below_5": 207,
+            "zero": 34
+          },
+          "36": {
+            "100": 826,
+            "5_to_below_100": 635,
+            "blank": 103,
+            "positive_below_5": 8,
+            "zero": 12
+          },
+          "37": {
+            "100": 892,
+            "5_to_below_100": 378,
+            "blank": 330,
+            "positive_below_5": 5,
+            "zero": 35
+          },
+          "38": {
+            "100": 22,
+            "5_to_below_100": 84,
+            "blank": 16,
+            "positive_below_5": 188,
+            "zero": 13
+          },
+          "39": {
+            "100": 27,
+            "5_to_below_100": 216,
+            "blank": 116,
+            "positive_below_5": 69,
+            "zero": 2
+          },
+          "43": {
+            "100": 2223,
+            "5_to_below_100": 139,
+            "blank": 9822,
+            "zero": 512
+          },
+          "44": {
+            "100": 100,
+            "5_to_below_100": 21,
+            "blank": 141,
+            "zero": 139
+          },
+          "71": {
+            "blank": 515
+          },
+          "72": {
+            "blank": 43100
+          },
+          "85": {
+            "100": 1110,
+            "5_to_below_100": 406,
+            "blank": 75,
+            "positive_below_5": 811,
+            "zero": 41
+          },
+          "86": {
+            "100": 1212,
+            "5_to_below_100": 2353,
+            "blank": 390,
+            "positive_below_5": 2578,
+            "zero": 235
+          }
+        },
+        "role_class_counts": {
+          "additional_disclosable_party": 43100,
+          "direct_ownership": 14224,
+          "financial_interest": 3224,
+          "indirect_ownership": 25318,
+          "management": 12696,
+          "other": 401,
+          "partnership": 753,
+          "trustee": 515
+        },
+        "role_code_counts": {
+          "34": 11781,
+          "35": 18550,
+          "36": 1584,
+          "37": 1640,
+          "38": 323,
+          "39": 430,
+          "43": 12696,
+          "44": 401,
+          "71": 515,
+          "72": 43100,
+          "85": 2443,
+          "86": 6768
+        },
+        "role_text_agreement": {
+          "matches": 100231
+        },
+        "role_text_conflicts_by_code": {},
+        "threshold_code_percentage_states": {
+          "at_least_5": 31957,
+          "below_label_threshold": 395,
+          "missing_or_invalid": 1203
+        }
+      }
+    }
+  },
+  "format_version": 1,
+  "limitations": [
+    "Only organizational owner rows; individual rows skipped before other fields. Flags self-reported and may vary by enrollment. Blank differs from no.",
+    "Role code and text must agree for interpretation. Unknown values remain aggregate unresolved counts. No raw IDs, names, addresses, private data, or row-level publication.",
+    "Candidate enrollment links use exact family and strict 15-character enrollment/10-digit PAC. Not unique physical sites, verified legal ownership or current control.",
+    "No ownership percentage totals: individuals excluded, direct/indirect/financial roles and overlapping enrollments differ. Below-threshold values are review flags, not legal conclusions.",
+    "Slash dates with two plausible interpretations are not coerced. CHOW records are reported changes, not unique deeds or verified current owners."
+  ],
+  "publisher_dictionaries": {
+    "hospital-chow": "https://data.cms.gov/sites/default/files/2026-07/Hospital_CHOW_Data_Dictionary.pdf",
+    "hospital-enrollment": "https://data.cms.gov/sites/default/files/2026-07/Hospital_Enrollments_Data_Dictionary.pdf",
+    "hospital-owner": "https://data.cms.gov/sites/default/files/2026-07/Hospital_All_Owners_Data_Dictionary.pdf",
+    "snf-chow": "https://data.cms.gov/sites/default/files/2026-07/SNF_CHOW_Data_Dictionary.pdf",
+    "snf-enrollment": "https://data.cms.gov/sites/default/files/2026-07/SNF_Enrollments_Data_Dictionary.pdf",
+    "snf-guidance": "https://data.cms.gov/sites/default/files/2026-07/SNF_Data_Guidance.pdf",
+    "snf-owner": "https://data.cms.gov/sites/default/files/2026-07/SNF_All_Owners_Data_Dictionary.pdf"
+  },
+  "role_classification": {
+    "25": "management",
+    "34": "direct_ownership",
+    "35": "indirect_ownership",
+    "36": "financial_interest",
+    "37": "financial_interest",
+    "38": "partnership",
+    "39": "partnership",
+    "40": "governance",
+    "41": "governance",
+    "42": "management",
+    "43": "management",
+    "44": "other",
+    "63": "governance",
+    "71": "trustee",
+    "72": "additional_disclosable_party",
+    "85": "direct_ownership",
+    "86": "indirect_ownership",
+    "01": "ownership_unspecified",
+    "03": "partnership"
+  },
+  "role_domain": {
+    "hospital": {
+      "25": "CONTRACTED MANAGING EMPLOYEE",
+      "34": "5% OR GREATER DIRECT OWNERSHIP INTEREST",
+      "35": "5% OR GREATER INDIRECT OWNERSHIP INTEREST",
+      "36": "5% OR GREATER MORTGAGE INTEREST",
+      "37": "5% OR GREATER SECURITY INTEREST",
+      "38": "GENERAL PARTNERSHIP INTEREST",
+      "39": "LIMITED PARTNERSHIP INTEREST",
+      "40": "OFFICER",
+      "41": "DIRECTOR",
+      "42": "W-2 MANAGING EMPLOYEE",
+      "43": "OPERATIONAL/MANAGERIAL CONTROL",
+      "44": "OTHER",
+      "01": "5% OR MORE OWNERSHIP INTEREST",
+      "03": "PARTNER"
+    },
+    "snf": {
+      "25": "CONTRACTED MANAGING EMPLOYEE",
+      "34": "5% OR GREATER DIRECT OWNERSHIP INTEREST",
+      "35": "5% OR GREATER INDIRECT OWNERSHIP INTEREST",
+      "36": "5% OR GREATER MORTGAGE INTEREST",
+      "37": "5% OR GREATER SECURITY INTEREST",
+      "38": "GENERAL PARTNERSHIP INTEREST",
+      "39": "LIMITED PARTNERSHIP INTEREST",
+      "40": "OFFICER",
+      "41": "DIRECTOR",
+      "42": "W-2 MANAGING EMPLOYEE",
+      "43": "OPERATIONAL/MANAGERIAL CONTROL",
+      "44": "OTHER",
+      "63": "MANAGING CONTROL – GOVERNING BODY",
+      "71": "TRUSTEE OF THE SNF",
+      "72": "ADP OF THE SNF",
+      "85": "DIRECT OWNERSHIP INTEREST",
+      "86": "INDIRECT OWNERSHIP INTEREST",
+      "01": "5% OR MORE OWNERSHIP INTEREST",
+      "03": "PARTNER"
+    }
+  },
+  "shared_literal_valid_organization_pac_tokens": 802,
+  "sources": {
+    "hospital-chow": {
+      "excluded_rows": 0,
+      "input_rows": 779,
+      "release": "2026-07-01/2026-09-30",
+      "sha256": "a8cb5111dee64780f2c5bd9b10fdd304140848eeeee2e4b2c5012c7421533648",
+      "stored_rows": 779
+    },
+    "hospital-enrollment": {
+      "excluded_rows": 0,
+      "input_rows": 9120,
+      "release": "2026-11-01/2026-11-30",
+      "sha256": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e",
+      "stored_rows": 9120
+    },
+    "hospital-owner": {
+      "excluded_rows": 124294,
+      "input_rows": 147029,
+      "release": "2026-11-01/2026-11-30",
+      "sha256": "4886fc907dd67d56d2c45057a13288b5e74a220f11cd6ba32b908a81728038f0",
+      "stored_rows": 22735
+    },
+    "snf-chow": {
+      "excluded_rows": 0,
+      "input_rows": 5340,
+      "release": "2026-07-01/2026-09-30",
+      "sha256": "8214fe65ec7c9b291bf579bd9fcdd281fbf9bd8a593613e9db93b6f0d8bdbcb5",
+      "stored_rows": 5340
+    },
+    "snf-enrollment": {
+      "excluded_rows": 0,
+      "input_rows": 14401,
+      "release": "2026-11-01/2026-11-30",
+      "sha256": "21f6b282b07017f2596d9c3cb84dac3eaa100bd2ec637e0d7f03510e0f0acf89",
+      "stored_rows": 14401
+    },
+    "snf-owner": {
+      "excluded_rows": 202487,
+      "input_rows": 302718,
+      "release": "2026-11-01/2026-11-30",
+      "sha256": "538b02368085b57139619c643ef5bad19c1c855cc6643e4a7eb2e6f098f46657",
+      "stored_rows": 100231
+    }
+  },
+  "qualification_run": 45828076053,
+  "qualification_job": 139937320326,
+  "qualified_commit": "d2580319c47ccad8f7c3280c74ebd37c47b76c44"
+}
