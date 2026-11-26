@@ -64,7 +64,7 @@ try:
             wrap=page.locator(".portfolio-results")
             assert wrap.evaluate("(e)=>Array.from(e.querySelectorAll('td button')).every(b=>getComputedStyle(b).whiteSpace==='nowrap'&&b.scrollWidth<=b.clientWidth+1)")
             assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
-            if width<=768:
+            if wrap.evaluate("(e)=>e.scrollWidth>e.clientWidth+1"):
                 assert page.locator(".portfolio-scroll-hint").is_visible()
                 assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const t=e.querySelector('tbody tr td:last-child');return e.scrollLeft>0&&t.getBoundingClientRect().right<=e.getBoundingClientRect().right+2}")
                 page.screenshot(path=str(OUT/f"{width}-portfolio-export-scrolled.png"),full_page=True)

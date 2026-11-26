@@ -121,6 +121,7 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 #app .portfolio-results table{min-width:680px!important;table-layout:auto}
 #app .portfolio-results th,#app .portfolio-results td{overflow-wrap:normal;word-break:normal}
 #app .portfolio-results th:first-child,#app .portfolio-results td:first-child{min-width:210px;overflow-wrap:break-word}
-#app .portfolio-results th:not(:first-child),#app .portfolio-results td:not(:first-child),#app .portfolio-results td button{white-space:nowrap}
+#app .portfolio-results th,#app .portfolio-results td{white-space:normal}
+#app .portfolio-results td:nth-child(3),#app .portfolio-results td button{white-space:nowrap}
 .portfolio-scroll-hint{display:none;font-size:12px;margin:6px 0}
-@media(max-width:980px){.portfolio-scroll-hint{display:block}}
+@media(max-width:1200px){.portfolio-scroll-hint{display:block}}
