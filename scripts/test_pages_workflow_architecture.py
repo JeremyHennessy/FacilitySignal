@@ -1,5 +1,5 @@
 """Qualify the task-first home, grouped navigation and exact-source facility comparison."""
-import json,os,subprocess,time
+import csv,json,os,subprocess,time
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import urlopen
@@ -53,6 +53,14 @@ try:
             page.get_by_role("link",name="Open saved portfolio").click()
             page.locator(".portfolio-count").wait_for()
             assert ("4 saved source records" if width<=720 else "3 saved source records") in page.locator(".portfolio-count").inner_text()
+            with page.expect_download() as dl:
+                page.get_by_role("button",name="Export filtered portfolio CSV").click()
+            assert dl.value.suggested_filename=="facilitysignal-saved-portfolio.csv"
+            with dl.value.path().open(encoding="utf-8",newline="") as f:
+                exported=list(csv.DictReader(f))
+            expected=chosen+([extra] if width<=720 else [])
+            assert [(r["source"],r["source_identifier"],r["reported_state"]) for r in exported]==[(s,r["ccn"],r["state"]) for s,r in expected]
+            assert all(r["saved_source_release"] and r["current_published_release"] and "not a unique property" in r["evidence_scope"] for r in exported)
             check=page.locator(".portfolio-provider-cell input")
             check.nth(0).check();assert page.get_by_role("button",name="Compare selected (1 / 4)").is_disabled()
             check.nth(1).check()
@@ -72,6 +80,19 @@ try:
             rows={c[0]:c[1:] for c in [tr.locator("td").all_inner_texts() for tr in page.locator(".comparison-table tbody tr").all()]}
             assert rows["Source identifier"]==[r["ccn"] for _,r in chosen]
             assert rows["Provider category"]==["Nursing homes","Dialysis facilities","Nursing homes"]
+            with page.expect_download() as dl:
+                page.get_by_role("button",name="Export comparison CSV").click()
+            assert dl.value.suggested_filename=="facilitysignal-facility-comparison.csv"
+            with dl.value.path().open(encoding="utf-8",newline="") as f:
+                matrix=list(csv.reader(f))
+            assert len(matrix[0])==4 and all(len(r)==4 for r in matrix)
+            report={r[0]:r[1:] for r in matrix[1:]}
+            for field in ("Source identifier","Reported capacity","Saved source release","Current published release","Nursing health citation evidence","Nursing fire citation evidence"):
+                assert report[field]==rows[field],field
+            assert all("#detail?" in v for v in report["Facility evidence profile"])
+            assert all("does not establish compliance" in v for v in report["Evidence limitations"])
+            assert page.evaluate("safeCsvCell('=1+1')")=="\"'=1+1\""
+            assert page.evaluate("safeCsvCell('x,\\\"y')")=='"x,""y"'
             for domain in ("health","fire"):
                 assert rows["Nursing "+domain+" citation evidence"]==[citation("nursing-"+domain,chosen[0][1]),"Not applicable to this source",citation("nursing-"+domain,chosen[2][1])]
             for val,(source,r) in zip(rows["Reported capacity"],chosen):
