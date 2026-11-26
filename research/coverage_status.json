@@ -135,11 +135,25 @@
     },
     {
       "id": "FS-023",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45827150713",
+      "retrieved_rows": 56226,
+      "ephemeral_projected_rows": 56226,
+      "rejected_rows": 0,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration."
     },
     {
       "id": "FS-024",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45827150713",
+      "retrieved_rows": 6634,
+      "ephemeral_projected_rows": 6634,
+      "rejected_rows": 0,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration."
     },
     {
       "id": "FS-025",
@@ -153,11 +167,25 @@
     },
     {
       "id": "FS-026",
-      "status": "discovered_not_tested"
+      "status": "blocked_key_format_review",
+      "evidence": "45827150713",
+      "retrieved_rows": 16481,
+      "ephemeral_projected_rows": 16328,
+      "rejected_rows": 153,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Source projection incomplete; rejected provider key formats remain unresolved. Not qualified or integrated."
     },
     {
       "id": "FS-027",
-      "status": "discovered_not_tested"
+      "status": "blocked_key_format_review",
+      "evidence": "45827150713",
+      "retrieved_rows": 875,
+      "ephemeral_projected_rows": 863,
+      "rejected_rows": 12,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Source projection incomplete; rejected provider key formats remain unresolved. Not qualified or integrated."
     },
     {
       "id": "FS-028",
@@ -171,11 +199,25 @@
     },
     {
       "id": "FS-029",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45827150713",
+      "retrieved_rows": 3458,
+      "ephemeral_projected_rows": 3458,
+      "rejected_rows": 0,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration."
     },
     {
       "id": "FS-030",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45827150713",
+      "retrieved_rows": 1104,
+      "ephemeral_projected_rows": 1104,
+      "rejected_rows": 0,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration."
     },
     {
       "id": "FS-031",
@@ -183,7 +225,14 @@
     },
     {
       "id": "FS-032",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45827150713",
+      "retrieved_rows": 95789,
+      "ephemeral_projected_rows": 95789,
+      "rejected_rows": 0,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Standalone source-scoped historical QCOR aggregate qualification, no durable rows or integration."
     },
     {
       "id": "FS-033",
@@ -1926,6 +1975,469 @@
           "last_modified": null,
           "etag": null,
           "retrieved_at": "2026-11-26T13:10:55.946954+00:00"
+        },
+        "reuse_review": "pending"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    }
+  },
+  "qcor_expansion_qualified_baselines": {
+    "cah": {
+      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+      "run": 45827150713,
+      "job_id": 139934133690,
+      "job_conclusion": "success",
+      "artifact": 15120926707,
+      "artifact_digest": "sha256:572a0f3c0b860bd2c3db6f5e193f8e1ec003f1dd5a49ddda9644abb6c6a9abfa",
+      "audit": {
+        "source_id": "FS-023",
+        "report_url": "https://qcor.cms.gov/CAH_2567_Reports",
+        "header": [
+          "CCN",
+          "Facility Name",
+          "Street Address",
+          "City",
+          "State/Territory",
+          "ZIP",
+          "CMS Region",
+          "Survey Event ID",
+          "Survey Date",
+          "Survey Type",
+          "Deficiency Tag",
+          "Deficiency Description",
+          "Deficiency Tag Type",
+          "Statement of Deficiency Text (Part 1)",
+          "Statement of Deficiency Text (Part 2)",
+          "Statement of Deficiency Text (Part 3)"
+        ],
+        "columns": 16,
+        "field_mapping": {
+          "ccn": "CCN",
+          "event": "Survey Event ID",
+          "date": "Survey Date",
+          "tag": "Deficiency Tag",
+          "kind": "Deficiency Tag Type"
+        },
+        "mapping_complete": true,
+        "input_rows": 56226,
+        "blank_rows": 0,
+        "stored_rows": 56226,
+        "rejected_rows": 0,
+        "reject_reasons": {},
+        "row_kinds": {
+          "memo": 10667,
+          "nonmemo_tag": 45559
+        },
+        "distinct_provider_keys": 1407,
+        "distinct_survey_event_keys": 10718,
+        "events_with_nonmemo_tag": 7831,
+        "events_without_nonmemo_tag": 2887,
+        "retained_row_level_records": 0,
+        "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+        "source": {
+          "url": "https://qcor.cms.gov/downloadCAH2567",
+          "bytes": 41149605,
+          "sha256": "ba7884671a35de85271db27693b1440f1086b75c1d57bc539e9a501975820400",
+          "last_modified": null,
+          "etag": null,
+          "retrieved_at": "2026-11-26T13:14:17.201417+00:00"
+        },
+        "reuse_review": "pending"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    },
+    "transplant": {
+      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+      "run": 45827150713,
+      "job_id": 139934133810,
+      "job_conclusion": "success",
+      "artifact": 15120886779,
+      "artifact_digest": "sha256:dc428f182215a46786922e5c393a02832c92a3ede28a803d4f1e2d1289550405",
+      "audit": {
+        "source_id": "FS-024",
+        "report_url": "https://qcor.cms.gov/Transplant_2567_Reports",
+        "header": [
+          "CCN",
+          "Facility Name",
+          "Street Address",
+          "City",
+          "State/Territory",
+          "ZIP",
+          "CMS Region",
+          "Survey Event ID",
+          "Survey Date",
+          "Survey Type",
+          "Deficiency Tag",
+          "Deficiency Description",
+          "Deficiency Tag Type",
+          "Statement of Deficiency Text (Part 1)",
+          "Statement of Deficiency Text (Part 2)"
+        ],
+        "columns": 15,
+        "field_mapping": {
+          "ccn": "CCN",
+          "event": "Survey Event ID",
+          "date": "Survey Date",
+          "tag": "Deficiency Tag",
+          "kind": "Deficiency Tag Type"
+        },
+        "mapping_complete": true,
+        "input_rows": 6634,
+        "blank_rows": 0,
+        "stored_rows": 6634,
+        "rejected_rows": 0,
+        "reject_reasons": {},
+        "row_kinds": {
+          "memo": 1023,
+          "nonmemo_tag": 5611
+        },
+        "distinct_provider_keys": 263,
+        "distinct_survey_event_keys": 1033,
+        "events_with_nonmemo_tag": 702,
+        "events_without_nonmemo_tag": 331,
+        "retained_row_level_records": 0,
+        "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+        "source": {
+          "url": "https://qcor.cms.gov/downloadTransplant2567",
+          "bytes": 4104337,
+          "sha256": "fd21478cc1952c97846dbb131c71d19385cbbff8d5f8ea2bafb3570674737a43",
+          "last_modified": null,
+          "etag": null,
+          "retrieved_at": "2026-11-26T13:14:17.397771+00:00"
+        },
+        "reuse_review": "pending"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    },
+    "fqhc": {
+      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+      "run": 45827150713,
+      "job_id": 139934133913,
+      "job_conclusion": "failure",
+      "artifact": 15119024893,
+      "artifact_digest": "sha256:aebf6776e784acf93e0aa2b083bce620cde3a8c4b49e885b33a5917fdd7e53d4",
+      "audit": {
+        "source_id": "FS-027",
+        "report_url": "https://qcor.cms.gov/FQHC_2567_Reports",
+        "header": [
+          "CCN",
+          "Facility Name",
+          "Street Address",
+          "City",
+          "State/Territory",
+          "ZIP",
+          "CMS Region",
+          "Survey Event ID",
+          "Survey Date",
+          "Survey Type",
+          "Deficiency Tag",
+          "Deficiency Description",
+          "Deficiency Tag Type",
+          "Statement of Deficiency Text"
+        ],
+        "columns": 14,
+        "field_mapping": {
+          "ccn": "CCN",
+          "event": "Survey Event ID",
+          "date": "Survey Date",
+          "tag": "Deficiency Tag",
+          "kind": "Deficiency Tag Type"
+        },
+        "mapping_complete": true,
+        "input_rows": 875,
+        "blank_rows": 0,
+        "stored_rows": 863,
+        "rejected_rows": 12,
+        "reject_reasons": {
+          "provider_key_shape": 12
+        },
+        "row_kinds": {
+          "memo": 690,
+          "nonmemo_tag": 173
+        },
+        "distinct_provider_keys": 472,
+        "distinct_survey_event_keys": 680,
+        "events_with_nonmemo_tag": 91,
+        "events_without_nonmemo_tag": 589,
+        "retained_row_level_records": 0,
+        "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+        "source": {
+          "url": "https://qcor.cms.gov/downloadFQHC2567",
+          "bytes": 342170,
+          "sha256": "058bd6dbe8dafcb775d1c7eda09fb225197627b4a1a821d3906a65959a63c4ea",
+          "last_modified": null,
+          "etag": null,
+          "retrieved_at": "2026-11-26T13:14:50.026617+00:00"
+        },
+        "reuse_review": "pending"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    },
+    "prtf": {
+      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+      "run": 45827150713,
+      "job_id": 139934133982,
+      "job_conclusion": "success",
+      "artifact": 15120681516,
+      "artifact_digest": "sha256:af570df4d121149c34ef1b87ca21f1225cedcc8269679939c2630366c8d6487a",
+      "audit": {
+        "source_id": "FS-029",
+        "report_url": "https://qcor.cms.gov/PRTF_2567_Reports",
+        "header": [
+          "CCN",
+          "Facility Name",
+          "Street Address",
+          "City",
+          "State/Territory",
+          "ZIP",
+          "CMS Region",
+          "Survey Event ID",
+          "Survey Date",
+          "Survey Type",
+          "Deficiency Tag",
+          "Deficiency Description",
+          "Deficiency Tag Type",
+          "Statement of Deficiency Text (Part 1)",
+          "Statement of Deficiency Text (Part 2)",
+          "Statement of Deficiency Text (Part 3)"
+        ],
+        "columns": 16,
+        "field_mapping": {
+          "ccn": "CCN",
+          "event": "Survey Event ID",
+          "date": "Survey Date",
+          "tag": "Deficiency Tag",
+          "kind": "Deficiency Tag Type"
+        },
+        "mapping_complete": true,
+        "input_rows": 3458,
+        "blank_rows": 0,
+        "stored_rows": 3458,
+        "rejected_rows": 0,
+        "reject_reasons": {},
+        "row_kinds": {
+          "memo": 1270,
+          "nonmemo_tag": 2188
+        },
+        "distinct_provider_keys": 335,
+        "distinct_survey_event_keys": 987,
+        "events_with_nonmemo_tag": 434,
+        "events_without_nonmemo_tag": 553,
+        "retained_row_level_records": 0,
+        "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+        "source": {
+          "url": "https://qcor.cms.gov/downloadPRTF2567",
+          "bytes": 2062184,
+          "sha256": "a82e78cb58b6e94099190e353dfd7cf2405cf3f204d738eb3acdbc77e304ae9b",
+          "last_modified": null,
+          "etag": null,
+          "retrieved_at": "2026-11-26T13:14:57.447581+00:00"
+        },
+        "reuse_review": "pending"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    },
+    "hha": {
+      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+      "run": 45827150713,
+      "job_id": 139934134013,
+      "job_conclusion": "success",
+      "artifact": 15119879187,
+      "artifact_digest": "sha256:7d550955df0669e0b6cb79074f5250205f4f2d1c7d1781ef3b2c3c9c8e117070",
+      "audit": {
+        "source_id": "FS-032",
+        "report_url": "https://qcor.cms.gov/HHA_2567_Reports",
+        "header": [
+          "CCN",
+          "Facility Name",
+          "Street Address",
+          "City",
+          "State/Territory",
+          "ZIP",
+          "CMS Region",
+          "Survey Event ID",
+          "Survey Date",
+          "Survey Type",
+          "Deficiency Tag",
+          "Deficiency Description",
+          "Deficiency Tag Type",
+          "Statement of Deficiency Text (Part 1)",
+          "Statement of Deficiency Text (Part 2)",
+          "Statement of Deficiency Text (Part 3)",
+          "Statement of Deficiency Text (Part 4)"
+        ],
+        "columns": 17,
+        "field_mapping": {
+          "ccn": "CCN",
+          "event": "Survey Event ID",
+          "date": "Survey Date",
+          "tag": "Deficiency Tag",
+          "kind": "Deficiency Tag Type"
+        },
+        "mapping_complete": true,
+        "input_rows": 95789,
+        "blank_rows": 0,
+        "stored_rows": 95789,
+        "rejected_rows": 0,
+        "reject_reasons": {},
+        "row_kinds": {
+          "memo": 32460,
+          "nonmemo_tag": 63329
+        },
+        "distinct_provider_keys": 8593,
+        "distinct_survey_event_keys": 21637,
+        "events_with_nonmemo_tag": 11965,
+        "events_without_nonmemo_tag": 9672,
+        "retained_row_level_records": 0,
+        "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+        "source": {
+          "url": "https://qcor.cms.gov/downloadHHA2567",
+          "bytes": 66138272,
+          "sha256": "a494dbdc6b25d3e96eceb3267494b950a3093ae6cc2d3fa37e700d37c1513ef9",
+          "last_modified": null,
+          "etag": null,
+          "retrieved_at": "2026-11-26T13:15:29.716436+00:00"
+        },
+        "reuse_review": "pending"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    },
+    "rhc": {
+      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+      "run": 45827150713,
+      "job_id": 139934134074,
+      "job_conclusion": "failure",
+      "artifact": 15119839207,
+      "artifact_digest": "sha256:3a5dcca65d473e8575923b96a7e7672ab07669cd12c74a0d85263199f9736cfa",
+      "audit": {
+        "source_id": "FS-026",
+        "report_url": "https://qcor.cms.gov/RHC_2567_Reports",
+        "header": [
+          "CCN",
+          "Facility Name",
+          "Street Address",
+          "City",
+          "State/Territory",
+          "ZIP",
+          "CMS Region",
+          "Survey Event ID",
+          "Survey Date",
+          "Survey Type",
+          "Deficiency Tag",
+          "Deficiency Description",
+          "Deficiency Tag Type",
+          "Statement of Deficiency Text (Part 1)",
+          "Statement of Deficiency Text (Part 2)"
+        ],
+        "columns": 15,
+        "field_mapping": {
+          "ccn": "CCN",
+          "event": "Survey Event ID",
+          "date": "Survey Date",
+          "tag": "Deficiency Tag",
+          "kind": "Deficiency Tag Type"
+        },
+        "mapping_complete": true,
+        "input_rows": 16481,
+        "blank_rows": 0,
+        "stored_rows": 16328,
+        "rejected_rows": 153,
+        "reject_reasons": {
+          "provider_key_shape": 153
+        },
+        "row_kinds": {
+          "memo": 7388,
+          "nonmemo_tag": 8940
+        },
+        "distinct_provider_keys": 3209,
+        "distinct_survey_event_keys": 4170,
+        "events_with_nonmemo_tag": 1986,
+        "events_without_nonmemo_tag": 2184,
+        "retained_row_level_records": 0,
+        "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+        "source": {
+          "url": "https://qcor.cms.gov/downloadRHC2567",
+          "bytes": 6933304,
+          "sha256": "6bc5ea259da6149770068d823f8223704e05e6505032d7b0528aa98bc3a66fc1",
+          "last_modified": null,
+          "etag": null,
+          "retrieved_at": "2026-11-26T13:14:32.460004+00:00"
+        },
+        "reuse_review": "pending"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    },
+    "corf": {
+      "commit": "792f1ba9ce9c553af31f253642bdc9ec84423263",
+      "run": 45827150713,
+      "job_id": 139934134424,
+      "job_conclusion": "success",
+      "artifact": 15119199540,
+      "artifact_digest": "sha256:73c5ba103e4c19e07446d6066b10f2e4ae133e30a583cab90c8e6c3e2fd22754",
+      "audit": {
+        "source_id": "FS-030",
+        "report_url": "https://qcor.cms.gov/CORF_2567_Reports",
+        "header": [
+          "CCN",
+          "Facility Name",
+          "Street Address",
+          "City",
+          "State/Territory",
+          "ZIP",
+          "CMS Region",
+          "Survey Event ID",
+          "Survey Date",
+          "Survey Type",
+          "Deficiency Tag",
+          "Deficiency Description",
+          "Deficiency Tag Type",
+          "Statement of Deficiency Text"
+        ],
+        "columns": 14,
+        "field_mapping": {
+          "ccn": "CCN",
+          "event": "Survey Event ID",
+          "date": "Survey Date",
+          "tag": "Deficiency Tag",
+          "kind": "Deficiency Tag Type"
+        },
+        "mapping_complete": true,
+        "input_rows": 1104,
+        "blank_rows": 0,
+        "stored_rows": 1104,
+        "rejected_rows": 0,
+        "reject_reasons": {},
+        "row_kinds": {
+          "memo": 259,
+          "nonmemo_tag": 845
+        },
+        "distinct_provider_keys": 118,
+        "distinct_survey_event_keys": 156,
+        "events_with_nonmemo_tag": 83,
+        "events_without_nonmemo_tag": 73,
+        "retained_row_level_records": 0,
+        "limits": "Source-scoped historical observations, not unique sites, current compliance or purchasing intent. Provider key shape only, not confirmed provider type. No source narratives or individual identifiers retained. No independent publisher workbook-count comparison available.",
+        "source": {
+          "url": "https://qcor.cms.gov/downloadCORF2567",
+          "bytes": 517231,
+          "sha256": "aa9157fb1c59901ab6a38c41aced4fe79a2093a6b238cb9715f7538904184239",
+          "last_modified": null,
+          "etag": null,
+          "retrieved_at": "2026-11-26T13:15:05.578844+00:00"
         },
         "reuse_review": "pending"
       },
