@@ -1,0 +1,32 @@
+name: HCRIS home health and FDA 503B independent qualifications
+on:
+  push:
+    branches: [build/hcris-hha-fda503b-20261126]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-hcris-hha-fda503b
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        source: [hcris_hha, fda_503b]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - run: python -m scripts.qualify_${{ matrix.source }} --audit "$RUNNER_TEMP/${{ matrix.source }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.source }}-aggregate-only
+          path: ${{ runner.temp }}/${{ matrix.source }}.json
+          retention-days: 14
+          if-no-files-found: warn
