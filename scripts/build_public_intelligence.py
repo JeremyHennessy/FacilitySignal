@@ -6,9 +6,26 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def read(path):
     return json.loads(path.read_text(encoding="utf-8"))
-def build(ledger,cap,spec):
+def build(ledger,cap,spec,data_use=None):
     epa=next(x for x in ledger["sources"] if x["id"]=="FS-157")
     ctx={"ledger":ledger,"cap":cap,"epa":epa}
+    if data_use is None:
+        path=ROOT/"research/qualified_data_use_20261126.json"
+        if path.exists():data_use=read(path)
+    if data_use is not None:ctx["data_use"]=data_use
+    clia_path=ROOT/"research/clia_domain_link_audit_20261126.json"
+    if clia_path.exists():ctx["clia_audit"]=read(clia_path)
+    nursing_path=ROOT/"research/nursing_semantic_audit_20261126.json"
+    if nursing_path.exists():
+        nursing=read(nursing_path)
+        groups={a["group"]:a["result"] for a in nursing["audits"]}
+        if set(groups)!={"chains","citations"} or nursing["qualification_run"]!=45826186143:
+            raise ValueError("Unexpected nursing semantic audit")
+        for name,s in groups["citations"].items():
+            if any(sum(c.values())!=s["rows"] or set(c)-{"yes","no"} for c in s["flags"].values()):
+                raise ValueError("Nursing flag domain or count mismatch")
+            s["flag_yes"]={f:c.get("yes",0) for f,c in s["flags"].items()}
+        ctx["nursing_semantic"]=groups
     def resolve(cell):
         if isinstance(cell,dict):
             if set(cell)!={"path"}:raise ValueError("unexpected field selector")

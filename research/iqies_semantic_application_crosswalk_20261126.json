@@ -1,0 +1,3830 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-26",
+  "source_dictionary_blob": "c1a7472e5af9fbfbde15ba0089125bd3667ace32",
+  "reviewed_branch_commit": "da70e4d757b43d8d417a15391824e5bf2e457bfd",
+  "source_release": "2026 Q3",
+  "scope": "Manual review of all 186 publisher metadata fields and explicit provisional application-use assignments, not raw value profiling, approved public data or normalization.",
+  "summary": {
+    "fields": 186,
+    "categories": {
+      "identity": 8,
+      "geography": 12,
+      "contact": 2,
+      "certification": 16,
+      "administrative": 5,
+      "organization": 13,
+      "service_provision": 22,
+      "workforce": 41,
+      "surgical_specialty": 10,
+      "capacity": 17,
+      "waiver": 3,
+      "governance_context": 3,
+      "dialysis_service": 6,
+      "corf_provision": 27,
+      "unresolved": 1
+    },
+    "unique_dictionary_definitions": 184,
+    "blocking_semantic_fields": [
+      "chow_sw",
+      "ot_cntrctr_sw",
+      "ot_arngmt_sw",
+      "physn_arngmt_sw",
+      "fed_fundd_fqhc_sw"
+    ],
+    "flagged_fields": 24
+  },
+  "fields": [
+    {
+      "ordinal": 1,
+      "field": "prvdr_num",
+      "category": "identity",
+      "display_label_candidate": "Provider Number",
+      "dictionary_rows": [
+        2
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Provider search and source-specific classification; no cross-program merge based solely on ID or name.",
+      "anomaly": {
+        "kind": "identity_review",
+        "reason": "Six or ten characters specified; retain original text, no padding/truncation."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 2,
+      "field": "fac_name",
+      "category": "identity",
+      "display_label_candidate": "Facility Name",
+      "dictionary_rows": [
+        3
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Provider search and source-specific classification; no cross-program merge based solely on ID or name.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 3,
+      "field": "prvdr_sbtyp_id",
+      "category": "identity",
+      "display_label_candidate": "Provider Subtype ID",
+      "dictionary_rows": [
+        4
+      ],
+      "publisher_format": "INT/Not Applicable",
+      "publisher_applicability": "NH",
+      "mapping_reference": "M12",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Provider search and source-specific classification; no cross-program merge based solely on ID or name.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 4,
+      "field": "mdcd_vndr_num",
+      "category": "identity",
+      "display_label_candidate": "Medicaid Vendor Number",
+      "dictionary_rows": [
+        5
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Provider search and source-specific classification; no cross-program merge based solely on ID or name.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 5,
+      "field": "orgnl_prtcptn_dt",
+      "category": "certification",
+      "display_label_candidate": "Original Participation Date",
+      "dictionary_rows": [
+        6
+      ],
+      "publisher_format": "yyyy-mm-dd",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "date_text",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 6,
+      "field": "prvdr_type_id",
+      "category": "identity",
+      "display_label_candidate": "Provider Type ID",
+      "dictionary_rows": [
+        7
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "ALL",
+      "mapping_reference": "M1",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Provider search and source-specific classification; no cross-program merge based solely on ID or name.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 7,
+      "field": "st_adr",
+      "category": "geography",
+      "display_label_candidate": "Address: Street",
+      "dictionary_rows": [
+        8
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 8,
+      "field": "city_name",
+      "category": "geography",
+      "display_label_candidate": "Address: City",
+      "dictionary_rows": [
+        9
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 9,
+      "field": "ssa_cnty_cd",
+      "category": "geography",
+      "display_label_candidate": "Social Security Administration County Code",
+      "dictionary_rows": [
+        10
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 10,
+      "field": "zip_cd",
+      "category": "geography",
+      "display_label_candidate": "ZIP Code",
+      "dictionary_rows": [
+        11
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 11,
+      "field": "phne_num",
+      "category": "contact",
+      "display_label_candidate": "Telephone Number",
+      "dictionary_rows": [
+        12
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Exclude from public profile and analytical export; retain only if institution-specific purpose and reuse/privacy review permit.",
+      "anomaly": {
+        "kind": "type_review",
+        "reason": "Publisher INT format does not make telephone an analytical number."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 12,
+      "field": "crtfctn_dt",
+      "category": "certification",
+      "display_label_candidate": "Certification Date",
+      "dictionary_rows": [
+        13
+      ],
+      "publisher_format": "yyyy-mm-dd",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "date_text",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 13,
+      "field": "trmntn_exprtn_dt",
+      "category": "certification",
+      "display_label_candidate": "Termination or Expiration Date",
+      "dictionary_rows": [
+        14
+      ],
+      "publisher_format": "yyyy-mm-dd",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "date_text",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": {
+        "kind": "date_review",
+        "reason": "Publisher format ISO but prior actual audit had ambiguous slash dates; no forced conversion."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 14,
+      "field": "state_cd",
+      "category": "geography",
+      "display_label_candidate": "State Abbreviation",
+      "dictionary_rows": [
+        15
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 15,
+      "field": "ssa_state_cd",
+      "category": "geography",
+      "display_label_candidate": "Social Security Administration State Code",
+      "dictionary_rows": [
+        16
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 16,
+      "field": "state_rgn_cd",
+      "category": "geography",
+      "display_label_candidate": "State Region Code",
+      "dictionary_rows": [
+        17
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 17,
+      "field": "rgn_cd",
+      "category": "geography",
+      "display_label_candidate": "Region Code",
+      "dictionary_rows": [
+        18
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 18,
+      "field": "fips_state_cd",
+      "category": "geography",
+      "display_label_candidate": "FIPS State Code",
+      "dictionary_rows": [
+        19
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": "M3",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 19,
+      "field": "fips_cnty_cd",
+      "category": "geography",
+      "display_label_candidate": "FIPS County Code",
+      "dictionary_rows": [
+        20
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 20,
+      "field": "cbsa_cd",
+      "category": "geography",
+      "display_label_candidate": "CBSA Code",
+      "dictionary_rows": [
+        21
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 21,
+      "field": "cbsa_urbn_rrl_ind",
+      "category": "geography",
+      "display_label_candidate": "CBSA (Core Based Statistical Area) Urban Rural Indicator",
+      "dictionary_rows": [
+        22
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Location evidence and regional market filters; preserve geography code strings and independently validate any physical-site link.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 22,
+      "field": "acrdtn_type_cd",
+      "category": "certification",
+      "display_label_candidate": "Accreditation Type Code",
+      "dictionary_rows": [
+        23
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "ASC, HHA, HOSPICE, ESRD, OPT/SLP",
+      "mapping_reference": "M4",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": {
+        "kind": "interpretation_limit",
+        "reason": "If multiple deeming organizations exist, publisher reports one with earliest active deeming effective date; not complete accreditation inventory."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 23,
+      "field": "intrmdry_carr_cd",
+      "category": "administrative",
+      "display_label_candidate": "Intermediary or Carrier Code",
+      "dictionary_rows": [
+        24
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL except for PRTF, ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "source_text",
+      "unit": null,
+      "proposed_use": "Source record provenance, payer/administrative context or ESRD network; not a legal owner or physical site.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 24,
+      "field": "acptbl_poc_sw",
+      "category": "certification",
+      "display_label_candidate": "Compliance: Acceptable Plan of Correction",
+      "dictionary_rows": [
+        25
+      ],
+      "publisher_format": "Yes/No/Not Available",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 25,
+      "field": "fy_end_mo_day_cd",
+      "category": "administrative",
+      "display_label_candidate": "Fiscal Year End Date (MM-DD)",
+      "dictionary_rows": [
+        26
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL except for FQHC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "source_text",
+      "unit": null,
+      "proposed_use": "Source record provenance, payer/administrative context or ESRD network; not a legal owner or physical site.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 26,
+      "field": "cmplnc_stus_cd",
+      "category": "certification",
+      "display_label_candidate": "Compliance Status Code",
+      "dictionary_rows": [
+        27
+      ],
+      "publisher_format": "Yes/No",
+      "publisher_applicability": "ALL expect for FQHC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": {
+        "kind": "scope_review",
+        "reason": "Publisher literal 'ALL expect for FQHC' appears to be an exception typo; preserve literal and provisional interpretation."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 27,
+      "field": "crtfctn_actn_type_cd",
+      "category": "certification",
+      "display_label_candidate": "Type of Action Code",
+      "dictionary_rows": [
+        28
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "source_text",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 28,
+      "field": "chow_dt",
+      "category": "organization",
+      "display_label_candidate": "Change of Ownership Date",
+      "dictionary_rows": [
+        29
+      ],
+      "publisher_format": "yyyy-mm-dd",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "date_text",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 29,
+      "field": "phrmcy_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Pharmacy Code",
+      "dictionary_rows": [
+        30
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ASC",
+      "mapping_reference": "M5",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 30,
+      "field": "hh_aide_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Home Health Aide Code",
+      "dictionary_rows": [
+        31
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HOSPICE, HHA",
+      "mapping_reference": "M6",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 31,
+      "field": "lab_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Laboratory Code",
+      "dictionary_rows": [
+        32
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ASC, HHA",
+      "mapping_reference": "M5",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 32,
+      "field": "lpn_lvn_cnt",
+      "category": "workforce",
+      "display_label_candidate": "LPN/LVN - Employee Number",
+      "dictionary_rows": [
+        33
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE, HHA, ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 33,
+      "field": "mdcl_scl_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Medical Social Code",
+      "dictionary_rows": [
+        34
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HOSPICE, HHA",
+      "mapping_reference": "M6",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 34,
+      "field": "othr_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Other Code",
+      "dictionary_rows": [
+        35
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA, HOSPICE",
+      "mapping_reference": "M6",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 35,
+      "field": "ot_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "OT Code",
+      "dictionary_rows": [
+        36
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA, HOSPICE",
+      "mapping_reference": "M6",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 36,
+      "field": "nrsng_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Nursing Code",
+      "dictionary_rows": [
+        37
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA, HOSPICE",
+      "mapping_reference": "M6",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 37,
+      "field": "prsnel_othr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Other Personnel Number",
+      "dictionary_rows": [
+        38
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HHA, HOSPICE, ESRD, PXR, RHC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 38,
+      "field": "pt_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "PT Code",
+      "dictionary_rows": [
+        39
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA, HOSPICE",
+      "mapping_reference": "M6",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 39,
+      "field": "rn_cnt",
+      "category": "workforce",
+      "display_label_candidate": "RN Number",
+      "dictionary_rows": [
+        40
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HHA, HOSPICE, ESRD, ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 40,
+      "field": "asc_bgn_srvc_dt",
+      "category": "certification",
+      "display_label_candidate": "ASC Begin Service Date",
+      "dictionary_rows": [
+        41
+      ],
+      "publisher_format": "yyyy-mm-dd",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "date_text",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 41,
+      "field": "dntl_srgry_sw",
+      "category": "surgical_specialty",
+      "display_label_candidate": "Surgical Specialty: Dental Indicator",
+      "dictionary_rows": [
+        42
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported service specialty by provider type, not equipment inventory or current real-time service availability.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 42,
+      "field": "endscpy_srgry_sw",
+      "category": "surgical_specialty",
+      "display_label_candidate": "Surgical Specialty: Endoscopy Indicator",
+      "dictionary_rows": [
+        43
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported service specialty by provider type, not equipment inventory or current real-time service availability.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 43,
+      "field": "ft_srgry_sw",
+      "category": "surgical_specialty",
+      "display_label_candidate": "Surgical Specialty: Podiatry Indicator",
+      "dictionary_rows": [
+        44
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported service specialty by provider type, not equipment inventory or current real-time service availability.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 44,
+      "field": "ob_gyn_srgry_sw",
+      "category": "surgical_specialty",
+      "display_label_candidate": "Surgical Specialty: Obstetrics / Gynecology Indicator",
+      "dictionary_rows": [
+        45
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported service specialty by provider type, not equipment inventory or current real-time service availability.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 45,
+      "field": "oprtg_room_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Operating Room Count",
+      "dictionary_rows": [
+        46
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "operating rooms",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 46,
+      "field": "procedure_room_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Procedure Room Count",
+      "dictionary_rows": [
+        47
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "procedure rooms",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 47,
+      "field": "opthmlgy_srgry_sw",
+      "category": "surgical_specialty",
+      "display_label_candidate": "Surgical Specialty: Ophthalmologic Indicator",
+      "dictionary_rows": [
+        48
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported service specialty by provider type, not equipment inventory or current real-time service availability.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 48,
+      "field": "orthpdc_srgry_sw",
+      "category": "surgical_specialty",
+      "display_label_candidate": "Surgical Specialty: Orthopedic Indicator",
+      "dictionary_rows": [
+        49
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported service specialty by provider type, not equipment inventory or current real-time service availability.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 49,
+      "field": "othr_srgry_sw",
+      "category": "surgical_specialty",
+      "display_label_candidate": "Surgical Specialty: Other Indicator",
+      "dictionary_rows": [
+        50
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported service specialty by provider type, not equipment inventory or current real-time service availability.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 50,
+      "field": "otlrynglgy_srgry_sw",
+      "category": "surgical_specialty",
+      "display_label_candidate": "Surgical Specialty: Ear/Nose/Throat Indicator",
+      "dictionary_rows": [
+        51
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported service specialty by provider type, not equipment inventory or current real-time service availability.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 51,
+      "field": "pain_srgry_sw",
+      "category": "surgical_specialty",
+      "display_label_candidate": "Surgical Specialty: Pain Indicator",
+      "dictionary_rows": [
+        52
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported service specialty by provider type, not equipment inventory or current real-time service availability.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 52,
+      "field": "plstc_srgry_sw",
+      "category": "surgical_specialty",
+      "display_label_candidate": "Surgical Specialty: Plastic / Reconstructive",
+      "dictionary_rows": [
+        53
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported service specialty by provider type, not equipment inventory or current real-time service availability.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 53,
+      "field": "rdlgy_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Radiology Code",
+      "dictionary_rows": [
+        54
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "ASC",
+      "mapping_reference": "M7",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 54,
+      "field": "aplnc_equip_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Appliance and Equipment Code",
+      "dictionary_rows": [
+        55
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA",
+      "mapping_reference": "M9",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 55,
+      "field": "brnch_cnt",
+      "category": "organization",
+      "display_label_candidate": "Branch Count",
+      "dictionary_rows": [
+        56
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "branches",
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 56,
+      "field": "brnch_oprtn_sw",
+      "category": "organization",
+      "display_label_candidate": "Branch Operation Indicator",
+      "dictionary_rows": [
+        57
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 57,
+      "field": "chow_sw",
+      "category": "organization",
+      "display_label_candidate": "Change of Ownership Indicator",
+      "dictionary_rows": [
+        58
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ASC",
+      "mapping_reference": null,
+      "semantic_review": "blocked_conflicting_metadata",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": {
+        "kind": "blocking",
+        "reason": "Publisher applicability ASC conflicts with definition describing an HHA ownership change since last survey."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 58,
+      "field": "dietn_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Dietitian Number",
+      "dictionary_rows": [
+        59
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HHA, ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 59,
+      "field": "hh_aide_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Home Health Aide Number",
+      "dictionary_rows": [
+        60
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 60,
+      "field": "hh_aide_trng_pgm_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Home Health Aide Training Program Code",
+      "dictionary_rows": [
+        61
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "source_text",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 61,
+      "field": "intrn_rsdnt_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Interns and Residents Code",
+      "dictionary_rows": [
+        62
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA",
+      "mapping_reference": "M9",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 62,
+      "field": "mdcr_hospc_sw",
+      "category": "certification",
+      "display_label_candidate": "Hospice Indicator",
+      "dictionary_rows": [
+        63
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 63,
+      "field": "medicare_hospice_provider_num",
+      "category": "identity",
+      "display_label_candidate": "Medicare Hospice Provider Number",
+      "dictionary_rows": [
+        64
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Provider search and source-specific classification; no cross-program merge based solely on ID or name.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 64,
+      "field": "ntrtnl_gdnc_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Nutritional Guidance Code",
+      "dictionary_rows": [
+        65
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA",
+      "mapping_reference": "M9",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 65,
+      "field": "ocptnl_thrpst_cnt",
+      "category": "workforce",
+      "display_label_candidate": "OT - Total",
+      "dictionary_rows": [
+        66
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE, OPT/SLP",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 66,
+      "field": "pgm_prtcptn_cd",
+      "category": "certification",
+      "display_label_candidate": "Program Participation Code",
+      "dictionary_rows": [
+        67
+      ],
+      "publisher_format": "string/Not Applicable/Not Available",
+      "publisher_applicability": "HOSPITAL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "source_text",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": {
+        "kind": "scope_limited",
+        "reason": "Dictionary names HOSPITAL, which has no entry in extracted iQIES M1 domain; do not map other provider categories to it."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 67,
+      "field": "phys_thrpst_stf_cnt",
+      "category": "workforce",
+      "display_label_candidate": "PT Number",
+      "dictionary_rows": [
+        68
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "OPT",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": {
+        "kind": "scope_limited",
+        "reason": "Dictionary uses OPT, whereas M1 type 6 combines OPT/SLP. Applicability cannot be determined from M1 alone."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 68,
+      "field": "reg_phrmcst_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Registered Pharmacist Number",
+      "dictionary_rows": [
+        69
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 69,
+      "field": "sbunit_cnt",
+      "category": "organization",
+      "display_label_candidate": "Subunit Count Number",
+      "dictionary_rows": [
+        70
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "subunits",
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 70,
+      "field": "sbunit_oprtn_sw",
+      "category": "organization",
+      "display_label_candidate": "Subunit Operation Indicator",
+      "dictionary_rows": [
+        71
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 71,
+      "field": "sbunit_sw",
+      "category": "organization",
+      "display_label_candidate": "Subunit Indicator",
+      "dictionary_rows": [
+        72
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 72,
+      "field": "scl_workr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Social Worker Number",
+      "dictionary_rows": [
+        73
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "ESRD,  HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 73,
+      "field": "spch_pthlgst_audlgst_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Speech Pathologist/Audiologist Number",
+      "dictionary_rows": [
+        74
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HHA",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 74,
+      "field": "spch_thrpy_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Speech Therapy Code",
+      "dictionary_rows": [
+        75
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA",
+      "mapping_reference": "M9 ",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 75,
+      "field": "vctnl_gdnc_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Vocational Guidance Code",
+      "dictionary_rows": [
+        76
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA",
+      "mapping_reference": "M9 ",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 76,
+      "field": "hospice_type",
+      "category": "identity",
+      "display_label_candidate": "Hospice Type",
+      "dictionary_rows": [
+        77
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Provider search and source-specific classification; no cross-program merge based solely on ID or name.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 77,
+      "field": "acute_resp_care_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Short Term Inpatient Acute/Respite Care Code",
+      "dictionary_rows": [
+        78
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": "M11",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 78,
+      "field": "cnslng_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Counseling Code",
+      "dictionary_rows": [
+        79
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": "M10",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 79,
+      "field": "cnslr_emplee_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Counselor - Employee Number",
+      "dictionary_rows": [
+        80
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 80,
+      "field": "cnslr_vlntr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Counselor - Volunteer Number",
+      "dictionary_rows": [
+        81
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 81,
+      "field": "emplee_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Total - Employee Number",
+      "dictionary_rows": [
+        82
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "NH, ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 82,
+      "field": "hh_aide_emplee_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Aide - Employee Number",
+      "dictionary_rows": [
+        83
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 83,
+      "field": "hh_aide_vlntr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Aide - Volunteer Number",
+      "dictionary_rows": [
+        84
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 84,
+      "field": "hmmkr_emplee_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Homemaker - Employee Number",
+      "dictionary_rows": [
+        85
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 85,
+      "field": "hmmkr_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Homemaker Code",
+      "dictionary_rows": [
+        86
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": "M10",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 86,
+      "field": "hmmkr_vlntr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Homemaker - Volunteer Number",
+      "dictionary_rows": [
+        87
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 87,
+      "field": "lpn_lvn_vlntr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "LPN/LVN - Volunteer Number",
+      "dictionary_rows": [
+        88
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 88,
+      "field": "mdcl_scl_workr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Medical Social Worker - Employee Number",
+      "dictionary_rows": [
+        89
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 89,
+      "field": "mdcl_scl_workr_vlntr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Medical Social Worker - Volunteer Number",
+      "dictionary_rows": [
+        90
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 90,
+      "field": "mdcl_suply_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Medical Supplies Code",
+      "dictionary_rows": [
+        91
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": "M10",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 91,
+      "field": "physn_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Physician - Employee Number",
+      "dictionary_rows": [
+        92
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE, RHC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 92,
+      "field": "physn_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Physician Code",
+      "dictionary_rows": [
+        93
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": "M10",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 93,
+      "field": "physn_vlntr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Physician - Volunteer Number",
+      "dictionary_rows": [
+        94
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 94,
+      "field": "rn_vlntr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "RN - Volunteer Number",
+      "dictionary_rows": [
+        95
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 95,
+      "field": "shrt_term_ip_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Short Term Inpatient Care Code",
+      "dictionary_rows": [
+        96
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": "M10",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 96,
+      "field": "spch_pthlgy_srvc_cd",
+      "category": "service_provision",
+      "display_label_candidate": "Speech Pathology Code",
+      "dictionary_rows": [
+        97
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": "M10",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Compare how defined services are supplied within applicable provider types; no named contractor, installed assets or purchase intent inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 97,
+      "field": "vlntr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Total - Volunteer Number",
+      "dictionary_rows": [
+        98
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 98,
+      "field": "vlntr_othr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Other - Volunteer Number",
+      "dictionary_rows": [
+        99
+      ],
+      "publisher_format": "float",
+      "publisher_applicability": "HOSPICE",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 99,
+      "field": "fed_crtfctn_stus_id",
+      "category": "certification",
+      "display_label_candidate": "Federal Certification Status ID",
+      "dictionary_rows": [
+        100
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "unmapped_code_or_count_review",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 100,
+      "field": "fed_crtfctn_stus_name",
+      "category": "certification",
+      "display_label_candidate": "Federal Certification Status Name",
+      "dictionary_rows": [
+        101
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "source_text",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 101,
+      "field": "pgm_trmntn_cd",
+      "category": "certification",
+      "display_label_candidate": "Termination Code",
+      "dictionary_rows": [
+        102
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "ALL",
+      "mapping_reference": "M2",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "mapped_code",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 102,
+      "field": "control_type",
+      "category": "organization",
+      "display_label_candidate": "Ownership Type",
+      "dictionary_rows": [
+        103
+      ],
+      "publisher_format": "string",
+      "publisher_applicability": "HHA, ASC, HOSPICE, NH, ESRD, PXR, CORF, OPT/SLP, ICFIID, RHC, PRTF, FQHC, CMHC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "source_text",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 103,
+      "field": "gnrl_fac_type_cd",
+      "category": "identity",
+      "display_label_candidate": "Category-specific Facility Type Code",
+      "dictionary_rows": [
+        105
+      ],
+      "publisher_format": "INT",
+      "publisher_applicability": "HHA, HOSPICE",
+      "mapping_reference": "M8 (Values Represented for HHA provider type only).",
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "scope_limited_code",
+      "unit": null,
+      "proposed_use": "Provider search and source-specific classification; no cross-program merge based solely on ID or name.",
+      "anomaly": {
+        "kind": "scope_limited",
+        "reason": "Dictionary M8 annotation expressly covers HHA only; hospice codes unresolved."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 104,
+      "field": "processing_date",
+      "category": "administrative",
+      "display_label_candidate": "Processing Date",
+      "dictionary_rows": [
+        104
+      ],
+      "publisher_format": "Date",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "date_text",
+      "unit": null,
+      "proposed_use": "Source record provenance, payer/administrative context or ESRD network; not a legal owner or physical site.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 105,
+      "field": "aids_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "AIDS Bed Count",
+      "dictionary_rows": [
+        106
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 106,
+      "field": "alzhmr_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Alzheimer Bed Count",
+      "dictionary_rows": [
+        107
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 107,
+      "field": "bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Bed Count",
+      "dictionary_rows": [
+        108
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "ICFIID, PRTF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": {
+        "kind": "interpretation_limit",
+        "reason": "Includes nonparticipating or nonlicensed areas; distinct from certified beds."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 108,
+      "field": "bed_per_room_wvr_sw",
+      "category": "waiver",
+      "display_label_candidate": "Beds Per Room Waiver Indicator",
+      "dictionary_rows": [
+        109
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Preserve recommendation versus approval; no assumption that an exemption is current, that a facility is unsafe, or that work is required. Aggregate only pending reuse.",
+      "anomaly": {
+        "kind": "interpretation_limit",
+        "reason": "Publisher says approved; not same as a recommended waiver."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 109,
+      "field": "crtfd_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Certified Bed Count",
+      "dictionary_rows": [
+        110
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 110,
+      "field": "dlys_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Dialysis Bed Count",
+      "dictionary_rows": [
+        111
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": {
+        "kind": "interpretation_limit",
+        "reason": "Special-care beds for residents needing dialysis, not dialysis stations."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 111,
+      "field": "dsbl_chldrn_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Disabled Children Bed Count",
+      "dictionary_rows": [
+        112
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 112,
+      "field": "elgblty_sw",
+      "category": "certification",
+      "display_label_candidate": "Eligibility Indicator",
+      "dictionary_rows": [
+        113
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 113,
+      "field": "exprmt_rsrch_cndctd_sw",
+      "category": "governance_context",
+      "display_label_candidate": "Research Conducted Indicator",
+      "dictionary_rows": [
+        114
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Source-reported research or resident/family group indicators; secondary context, not a commercial score.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 114,
+      "field": "fax_phne_num",
+      "category": "contact",
+      "display_label_candidate": "Fax Phone Number",
+      "dictionary_rows": [
+        115
+      ],
+      "publisher_format": "string/Not Applicable/Not Available",
+      "publisher_applicability": "ALL",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "identifier_or_text",
+      "unit": null,
+      "proposed_use": "Exclude from public profile and analytical export; retain only if institution-specific purpose and reuse/privacy review permit.",
+      "anomaly": {
+        "kind": "privacy_review",
+        "reason": "May refer to operator/primary contact; do not publish."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 115,
+      "field": "head_trma_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Head Trauma Bed Count",
+      "dictionary_rows": [
+        116
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 116,
+      "field": "hntgtn_dease_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Huntington's Disease Bed Count",
+      "dictionary_rows": [
+        117
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 117,
+      "field": "hosp_bsd_sw",
+      "category": "organization",
+      "display_label_candidate": "Hospital Based Indicator",
+      "dictionary_rows": [
+        118
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "NH, RHC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 118,
+      "field": "hospc_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Hospice Bed Count",
+      "dictionary_rows": [
+        119
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 119,
+      "field": "intrmdry_carr_prior_cd",
+      "category": "administrative",
+      "display_label_candidate": "Intermediary or Carrier Code",
+      "dictionary_rows": [
+        120
+      ],
+      "publisher_format": "string/Not Applicable/Not Available",
+      "publisher_applicability": "ALL except for PRTF, ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "source_text",
+      "unit": null,
+      "proposed_use": "Source record provenance, payer/administrative context or ESRD network; not a legal owner or physical site.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 120,
+      "field": "isCCRC",
+      "category": "organization",
+      "display_label_candidate": "Continuing Care Retirement Center Indicator",
+      "dictionary_rows": [
+        121
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 121,
+      "field": "lsc_wvr_sw",
+      "category": "waiver",
+      "display_label_candidate": "LSC Waiver Indicator",
+      "dictionary_rows": [
+        122
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "HOSPICE, OPT/SLP, ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Preserve recommendation versus approval; no assumption that an exemption is current, that a facility is unsafe, or that work is required. Aggregate only pending reuse.",
+      "anomaly": {
+        "kind": "interpretation_limit",
+        "reason": "Publisher says recommended; not approved or current."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 122,
+      "field": "mdcr_mdcd_snf_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Medicare Medicaid SNF Bed Count",
+      "dictionary_rows": [
+        123
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 123,
+      "field": "mdcr_snf_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Medicare SNF Bed Count",
+      "dictionary_rows": [
+        124
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 124,
+      "field": "mlt_fac_org_name",
+      "category": "organization",
+      "display_label_candidate": "Multi-facility Nursing Home Organization Name",
+      "dictionary_rows": [
+        125
+      ],
+      "publisher_format": "string/Not Applicable/Not Available",
+      "publisher_applicability": "NH, ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "source_text",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": {
+        "kind": "interpretation_limit",
+        "reason": "Source calls this owning organization; related flag also covers leasing/management. Not verified deed or ultimate ownership."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 125,
+      "field": "mlt_ownd_fac_org_sw",
+      "category": "organization",
+      "display_label_candidate": "Multiple Facility Organization Owned Indicator",
+      "dictionary_rows": [
+        126
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "NH, ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": {
+        "kind": "interpretation_limit",
+        "reason": "Reported owned, leased and/or managed relationship, not ownership alone."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 126,
+      "field": "orgnz_fmly_mbr_grp_sw",
+      "category": "governance_context",
+      "display_label_candidate": "Organized Family Group Indicator",
+      "dictionary_rows": [
+        127
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Source-reported research or resident/family group indicators; secondary context, not a commercial score.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 127,
+      "field": "orgnz_rsdnt_grp_sw",
+      "category": "governance_context",
+      "display_label_candidate": "Organized Resident Group Indicator",
+      "dictionary_rows": [
+        128
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Source-reported research or resident/family group indicators; secondary context, not a commercial score.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 128,
+      "field": "rehab_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Specialized Rehab Bed Count",
+      "dictionary_rows": [
+        129
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 129,
+      "field": "room_size_wvr_sw",
+      "category": "waiver",
+      "display_label_candidate": "Patient Room Size Waiver Indicator",
+      "dictionary_rows": [
+        130
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Preserve recommendation versus approval; no assumption that an exemption is current, that a facility is unsafe, or that work is required. Aggregate only pending reuse.",
+      "anomaly": {
+        "kind": "interpretation_limit",
+        "reason": "Publisher says recommended; not approved or current."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 130,
+      "field": "vntltr_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Ventilator Bed Count",
+      "dictionary_rows": [
+        131
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "NH",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 131,
+      "field": "esrd_ntwrk_num",
+      "category": "administrative",
+      "display_label_candidate": "End-Stage Renal Disease Network ID",
+      "dictionary_rows": [
+        132
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "unmapped_code_or_count_review",
+      "unit": null,
+      "proposed_use": "Source record provenance, payer/administrative context or ESRD network; not a legal owner or physical site.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 132,
+      "field": "home_trng_sprt_only_srvc_sw",
+      "category": "dialysis_service",
+      "display_label_candidate": "Is Onsite Home Training Provided",
+      "dictionary_rows": [
+        133
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported dialysis/training modalities; no treatment count, installed equipment or water-treatment inference.",
+      "anomaly": {
+        "kind": "interpretation_limit",
+        "reason": "Publisher describes onsite home training rooms being provided; no room count."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 133,
+      "field": "incntr_nctrnl_srvc_sw",
+      "category": "dialysis_service",
+      "display_label_candidate": "Is New In-Center Nocturnal Hemodialysis",
+      "dictionary_rows": [
+        134
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported dialysis/training modalities; no treatment count, installed equipment or water-treatment inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 134,
+      "field": "sp_home_trng_sprt_hd_sw",
+      "category": "dialysis_service",
+      "display_label_candidate": "Is Current Home Hemodialysis",
+      "dictionary_rows": [
+        135
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported dialysis/training modalities; no treatment count, installed equipment or water-treatment inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 135,
+      "field": "hmdlys_srvc_sw",
+      "category": "dialysis_service",
+      "display_label_candidate": "Is Current In-Center Hemodialysis",
+      "dictionary_rows": [
+        136
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported dialysis/training modalities; no treatment count, installed equipment or water-treatment inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 136,
+      "field": "sp_home_trng_sprt_pd_sw",
+      "category": "dialysis_service",
+      "display_label_candidate": "Is Current Home Peritoneal Dialysis",
+      "dictionary_rows": [
+        137
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported dialysis/training modalities; no treatment count, installed equipment or water-treatment inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 137,
+      "field": "prtnl_dlys_srvc_sw",
+      "category": "dialysis_service",
+      "display_label_candidate": "Is Current In-Center Peritoneal Dialysis",
+      "dictionary_rows": [
+        138
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported dialysis/training modalities; no treatment count, installed equipment or water-treatment inference.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 138,
+      "field": "lpn_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Number of Licensed Practical Nurse Staff",
+      "dictionary_rows": [
+        139
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 139,
+      "field": "tchncl_stf_num",
+      "category": "workforce",
+      "display_label_candidate": "Number of Technical Staff",
+      "dictionary_rows": [
+        140
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 140,
+      "field": "tchncn_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Number of Certified Patient Care Technician Staff",
+      "dictionary_rows": [
+        141
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 141,
+      "field": "dlys_stn_cnt",
+      "category": "capacity",
+      "display_label_candidate": "Number of Approved In-Center Dialysis Stations",
+      "dictionary_rows": [
+        142
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "ESRD",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "approved in-center dialysis stations",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": true,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 142,
+      "field": "tchnlgst_2_yr_rdlgc_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Number of Graduates of 24-Month School of Radiologic Technology",
+      "dictionary_rows": [
+        143
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "PXR",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 143,
+      "field": "tchnlgst_asct_dgr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Number of Associate Degrees in Radiologic Technology",
+      "dictionary_rows": [
+        144
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "PXR",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 144,
+      "field": "tchnlgst_bs_ba_dgr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Number of B.A./B.S. Degrees in Radiologic Technology",
+      "dictionary_rows": [
+        145
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "PXR",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 145,
+      "field": "mdcr_prtcptn_op_pt_spch_sw",
+      "category": "certification",
+      "display_label_candidate": "Currently Participating as OPT/SLP",
+      "dictionary_rows": [
+        146
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 146,
+      "field": "nrsng_srvc_emplee_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Nurses On Staff",
+      "dictionary_rows": [
+        147
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 147,
+      "field": "nrsng_srvc_cntrctr_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Nurses By Independent Contract",
+      "dictionary_rows": [
+        148
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 148,
+      "field": "nrsng_srvc_arngmt_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Nurses By Arrangement",
+      "dictionary_rows": [
+        149
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 149,
+      "field": "orthtc_prsthtc_emplee_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Orthotic Services On Staff",
+      "dictionary_rows": [
+        150
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 150,
+      "field": "orthtc_prsthtc_cntrctr_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Orthotic Services By Independent Contract",
+      "dictionary_rows": [
+        151
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 151,
+      "field": "orthtc_prsthtc_arngmt_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Orthotic Services By Arrangement",
+      "dictionary_rows": [
+        152
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 152,
+      "field": "ot_emplee_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Occupational Therapists On Staff",
+      "dictionary_rows": [
+        153
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 153,
+      "field": "ot_cntrctr_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Nurses By Independent Contract",
+      "dictionary_rows": [
+        154
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "blocked_conflicting_metadata",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": {
+        "kind": "blocking",
+        "reason": "Occupational-therapy-looking header is paired with a nursing-contractor label and definition; cannot choose which discipline is intended."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 154,
+      "field": "ot_arngmt_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Nurses By Arrangement",
+      "dictionary_rows": [
+        155
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "blocked_conflicting_metadata",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": {
+        "kind": "blocking",
+        "reason": "Occupational-therapy-looking header is paired with a nursing-arrangement label and definition; cannot choose which discipline is intended."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 155,
+      "field": "physn_emplee_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Physicians On Staff",
+      "dictionary_rows": [
+        156
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 156,
+      "field": "physn_cntrctr_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Physicians By Independent Contract",
+      "dictionary_rows": [
+        157
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 157,
+      "field": "physn_arngmt_sw",
+      "category": "corf_provision",
+      "display_label_candidate": null,
+      "dictionary_rows": [
+        158,
+        159
+      ],
+      "publisher_format": null,
+      "publisher_applicability": null,
+      "mapping_reference": null,
+      "semantic_review": "blocked_dictionary",
+      "interpretation_shape": "unresolved",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": {
+        "kind": "blocking",
+        "reason": "Two dictionary rows 158/159; both describe physician services by arrangement, second references CMS-359. Retain both; source revision unresolved."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 158,
+      "field": "psychlgcl_emplee_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Psychologists On Staff",
+      "dictionary_rows": [
+        160
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 159,
+      "field": "psychlgcl_cntrctr_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Psychologists By Independent Contract",
+      "dictionary_rows": [
+        161
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 160,
+      "field": "psychlgcl_arngmt_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Psychologists By Arrangement",
+      "dictionary_rows": [
+        162
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 161,
+      "field": "pt_emplee_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Physical Therapists On Staff",
+      "dictionary_rows": [
+        163
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 162,
+      "field": "pt_cntrctr_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Physical Therapists By Independent Contract",
+      "dictionary_rows": [
+        164
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 163,
+      "field": "pt_arngmt_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Physical Therapists By Arrangement",
+      "dictionary_rows": [
+        165
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 164,
+      "field": "rsprtry_care_emplee_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Respiratory Therapists On Staff",
+      "dictionary_rows": [
+        166
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 165,
+      "field": "rsprtry_care_cntrctr_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Respiratory Therapists By Independent Contract",
+      "dictionary_rows": [
+        167
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 166,
+      "field": "rsprtry_care_arngmt_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Respiratory Therapists By Arrangement",
+      "dictionary_rows": [
+        168
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 167,
+      "field": "scl_emplee_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Social Services On Staff",
+      "dictionary_rows": [
+        169
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 168,
+      "field": "scl_cntrctr_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Social Services By Independent Contract",
+      "dictionary_rows": [
+        170
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 169,
+      "field": "scl_arngmt_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Social Services By Arrangement",
+      "dictionary_rows": [
+        171
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 170,
+      "field": "spch_pthlgy_emplee_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Speech Language Pathologists On Staff",
+      "dictionary_rows": [
+        172
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 171,
+      "field": "spch_pthlgy_cntrctr_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Speech Language Pathologists By Independent Contract",
+      "dictionary_rows": [
+        173
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 172,
+      "field": "spch_pthlgy_arngmt_sw",
+      "category": "corf_provision",
+      "display_label_candidate": "Has Speech Language Pathologists By Arrangement",
+      "dictionary_rows": [
+        174
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "CORF",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Distinguish staff, independent contract and arrangement as publisher describes; multiple flags can coexist, not a named-vendor link or contract opportunity.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 173,
+      "field": "ocptnl_thrpst_cntrct_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Occupational Therapists By Arrangement",
+      "dictionary_rows": [
+        175
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "OPT/SLP",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 174,
+      "field": "ocptnl_thrpst_fltm_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Occupational Therapists On Staff",
+      "dictionary_rows": [
+        176
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "OPT/SLP",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 175,
+      "field": "phys_thrpst_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Physical Therapist Count",
+      "dictionary_rows": [
+        177
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "OPT/SLP",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": {
+        "kind": "blocking_for_aggregation",
+        "reason": "Dictionary describes FTE physical therapists under arrangement, overlapping phys_thrpst_arngmt_cnt. No total or sum until distinction verified."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 176,
+      "field": "phys_thrpst_arngmt_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Physical Therapists By Arrangement",
+      "dictionary_rows": [
+        178
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "OPT/SLP",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": {
+        "kind": "blocking_for_aggregation",
+        "reason": "Dictionary describes FTE physical therapists under arrangement, as does phys_thrpst_cnt. Keep both observations separate."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 177,
+      "field": "spch_pthlgst_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Speech Pathologist Count",
+      "dictionary_rows": [
+        179
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "OPT/SLP",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 178,
+      "field": "spch_pthlgst_arngmt_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Speech Pathologists By Arrangement",
+      "dictionary_rows": [
+        180
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "OPT/SLP",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 179,
+      "field": "spch_pthlgst_fltm_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Speech Pathologists On Staff",
+      "dictionary_rows": [
+        181
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "OPT/SLP",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 180,
+      "field": "icfiid_bed_cnt",
+      "category": "capacity",
+      "display_label_candidate": "ICF/IID Beds",
+      "dictionary_rows": [
+        182
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "count_integer",
+      "unit": "beds",
+      "proposed_use": "Type-specific capacity and market size; separate rooms, beds and approved dialysis stations, avoid summing overlapping bed subsets.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 181,
+      "field": "prvdr_bsd_fac_sw",
+      "category": "organization",
+      "display_label_candidate": "Is Distinct Part",
+      "dictionary_rows": [
+        183
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Reported ownership type, branch/subunit or affiliation evidence; distinguish control, operator, ownership, leasing and management.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 182,
+      "field": "drct_care_prsnel_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Number of Direct Care Personnel",
+      "dictionary_rows": [
+        184
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "ICFIID",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 183,
+      "field": "fed_fundd_fqhc_sw",
+      "category": "unresolved",
+      "display_label_candidate": null,
+      "dictionary_rows": [],
+      "publisher_format": null,
+      "publisher_applicability": null,
+      "mapping_reference": null,
+      "semantic_review": "blocked_dictionary",
+      "interpretation_shape": "unresolved",
+      "unit": null,
+      "proposed_use": "No semantic inference or application use.",
+      "anomaly": {
+        "kind": "blocking",
+        "reason": "No exact publisher dictionary row; do not infer definition."
+      },
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 184,
+      "field": "fqhc_aprvd_rhc_sw",
+      "category": "certification",
+      "display_label_candidate": "Is Approved Medicare Rural Health Center",
+      "dictionary_rows": [
+        185
+      ],
+      "publisher_format": "Yes/No/Not Applicable/Not Available",
+      "publisher_applicability": "FQHC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "boolean",
+      "unit": null,
+      "proposed_use": "Source-specific certification dates, survey status, program participation or accreditation context; not active operation/current compliance.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 185,
+      "field": "nrs_prctnr_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Nurse Practitioner Count",
+      "dictionary_rows": [
+        186
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "RHC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    },
+    {
+      "ordinal": 186,
+      "field": "physn_astnt_cnt",
+      "category": "workforce",
+      "display_label_candidate": "Physcian Assistant Count",
+      "dictionary_rows": [
+        187
+      ],
+      "publisher_format": "INT/Not Applicable/Not Available",
+      "publisher_applicability": "RHC",
+      "mapping_reference": null,
+      "semantic_review": "reviewed_provisional_application_mapping",
+      "interpretation_shape": "fte_decimal",
+      "unit": "full-time equivalents",
+      "proposed_use": "Aggregate workforce research in full-time equivalents, not headcount, shift staffing or operational vulnerability; avoid summing overlapping categories.",
+      "anomaly": null,
+      "raw_value_profile": "not_yet_qualified",
+      "existing_bounded_projection": false,
+      "application_approval": "not_granted_by_this_review"
+    }
+  ]
+}

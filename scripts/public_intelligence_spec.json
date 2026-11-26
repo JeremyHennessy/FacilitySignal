@@ -908,6 +908,415 @@
             ]
           ],
           "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-quality-improvement-and-evaluation-system/api-docs"
+        },
+        {
+          "id": "asc-provision",
+          "title": "ASC service provision arrangements",
+          "note": "Q3 2026 iQIES, 8,492 ASC source records per field. Codes are matched exactly to the publisher's M5/M7 ASC domains. Outside-source provision is a reported delivery mode, not a named contract, installed equipment or buying intent.",
+          "run": 45821921407,
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system",
+          "columns": [
+            "Service",
+            "Direct",
+            "Outside source",
+            "Combination",
+            "Not provided",
+            "Unavailable"
+          ],
+          "rows": [
+            [
+              "Pharmacy",
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Pharmacy",
+                  "direct"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Pharmacy",
+                  "outside"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Pharmacy",
+                  "combination"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Pharmacy",
+                  "not_provided"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Pharmacy",
+                  "unavailable"
+                ]
+              }
+            ],
+            [
+              "Laboratory",
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Laboratory",
+                  "direct"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Laboratory",
+                  "outside"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Laboratory",
+                  "combination"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Laboratory",
+                  "not_provided"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Laboratory",
+                  "unavailable"
+                ]
+              }
+            ],
+            [
+              "Radiology",
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Radiology",
+                  "direct"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Radiology",
+                  "outside"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Radiology",
+                  "combination"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Radiology",
+                  "not_provided"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "asc",
+                  "services",
+                  "Radiology",
+                  "unavailable"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "hha-services",
+          "title": "Home health reported services",
+          "note": "October 21, 2026 Care Compare release. Yes and No are literal source values; other or missing values are not treated as No. Reported service flags do not establish a physical site capability or current availability.",
+          "run": 45822384234,
+          "source": "https://data.cms.gov/provider-data/dataset/6jpm-sxkc",
+          "columns": [
+            "Service",
+            "Yes",
+            "No",
+            "Other / missing"
+          ],
+          "rows": [
+            [
+              "Nursing Care",
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Nursing Care",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Nursing Care",
+                  "no"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Nursing Care",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Physical Therapy",
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Physical Therapy",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Physical Therapy",
+                  "no"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Physical Therapy",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Occupational Therapy",
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Occupational Therapy",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Occupational Therapy",
+                  "no"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Occupational Therapy",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Speech Pathology",
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Speech Pathology",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Speech Pathology",
+                  "no"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Speech Pathology",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Medical Social",
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Medical Social",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Medical Social",
+                  "no"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Medical Social",
+                  "other_or_missing"
+                ]
+              }
+            ],
+            [
+              "Home Health Aide",
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Home Health Aide",
+                  "yes"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Home Health Aide",
+                  "no"
+                ]
+              },
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "services",
+                  "Home Health Aide",
+                  "other_or_missing"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "ltch-beds",
+          "title": "Long-term care hospital total beds",
+          "note": "September 23, 2026 Care Compare release. Total reported beds are not certified nursing beds or occupied beds. Six records do not report a qualified whole-number value and remain unknown.",
+          "run": 45822384234,
+          "source": "https://data.cms.gov/provider-data/dataset/azum-44iv",
+          "columns": [
+            "Measure",
+            "Reported value"
+          ],
+          "rows": [
+            [
+              "Provider records",
+              {
+                "path": [
+                  "data_use",
+                  "ltch",
+                  "rows"
+                ]
+              }
+            ],
+            [
+              "Records with numeric beds",
+              {
+                "path": [
+                  "data_use",
+                  "ltch",
+                  "reported"
+                ]
+              }
+            ],
+            [
+              "Records with unknown beds",
+              {
+                "path": [
+                  "data_use",
+                  "ltch",
+                  "unknown"
+                ]
+              }
+            ],
+            [
+              "Total reported beds",
+              {
+                "path": [
+                  "data_use",
+                  "ltch",
+                  "sum"
+                ]
+              }
+            ]
+          ]
         }
       ]
     },
@@ -1270,6 +1679,125 @@
             ]
           ],
           "source": "https://data.cms.gov/provider-data/topics/nursing-homes/technical-details"
+        },
+        {
+          "id": "nursing-inspection-disputes",
+          "title": "Nursing inspection and dispute flags",
+          "note": "October 28, 2026 source snapshot. Independent source-reported flags may overlap; counts are historical citation rows, not unique inspections, dispute outcomes or currently outstanding violations. All flags matched the Y/N domain. The health file has no tag-version column.",
+          "run": 45826186143,
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "columns": [
+            "Source-reported flag",
+            "Health citation rows",
+            "Fire citation rows"
+          ],
+          "rows": [
+            [
+              "Standard inspection",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "citations",
+                  "nursing-health",
+                  "flag_yes",
+                  "Standard Deficiency"
+                ]
+              },
+              {
+                "path": [
+                  "nursing_semantic",
+                  "citations",
+                  "nursing-fire",
+                  "flag_yes",
+                  "Standard Deficiency"
+                ]
+              }
+            ],
+            [
+              "Complaint inspection",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "citations",
+                  "nursing-health",
+                  "flag_yes",
+                  "Complaint Deficiency"
+                ]
+              },
+              {
+                "path": [
+                  "nursing_semantic",
+                  "citations",
+                  "nursing-fire",
+                  "flag_yes",
+                  "Complaint Deficiency"
+                ]
+              }
+            ],
+            [
+              "Infection-control inspection",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "citations",
+                  "nursing-health",
+                  "flag_yes",
+                  "Infection Control Inspection Deficiency"
+                ]
+              },
+              {
+                "path": [
+                  "nursing_semantic",
+                  "citations",
+                  "nursing-fire",
+                  "flag_yes",
+                  "Infection Control Inspection Deficiency"
+                ]
+              }
+            ],
+            [
+              "Informal dispute resolution (IDR)",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "citations",
+                  "nursing-health",
+                  "flag_yes",
+                  "Citation under IDR"
+                ]
+              },
+              {
+                "path": [
+                  "nursing_semantic",
+                  "citations",
+                  "nursing-fire",
+                  "flag_yes",
+                  "Citation under IDR"
+                ]
+              }
+            ],
+            [
+              "Independent informal dispute resolution (IIDR)",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "citations",
+                  "nursing-health",
+                  "flag_yes",
+                  "Citation under IIDR"
+                ]
+              },
+              {
+                "path": [
+                  "nursing_semantic",
+                  "citations",
+                  "nursing-fire",
+                  "flag_yes",
+                  "Citation under IIDR"
+                ]
+              }
+            ]
+          ]
         }
       ]
     },
@@ -1661,6 +2189,487 @@
             ]
           ],
           "source": "https://github.com/JeremyHennessy/FacilitySignal/blob/main/docs/PRIVATE_SNAPSHOT_ARCHIVE.md"
+        },
+        {
+          "id": "hha-ownership",
+          "title": "Home health general control classification",
+          "note": "Publisher defines this as the agency's control type, not a legal property owner. Other/missing tokens remain unclassified. National aggregate only; individual ownership fields are not published.",
+          "run": 45822384234,
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/home_health/HHS_Data_Dictionary.pdf",
+          "columns": [
+            "Reported control category",
+            "Source records"
+          ],
+          "rows": [
+            [
+              "Non-Profit",
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "ownership",
+                  "Non-Profit"
+                ]
+              }
+            ],
+            [
+              "Proprietary",
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "ownership",
+                  "Proprietary"
+                ]
+              }
+            ],
+            [
+              "Government Operated",
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "ownership",
+                  "Government Operated"
+                ]
+              }
+            ],
+            [
+              "Other / missing",
+              {
+                "path": [
+                  "data_use",
+                  "hha",
+                  "ownership",
+                  "other_or_missing"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "national-field-audit",
+          "title": "National field audit coverage",
+          "note": "19 pinned source releases profiled; restricted contact and narrative fields assessed for presence only. These are original source columns, not validated application features. Historical definitions and unresolved codes remain subject to review.",
+          "run": 45822384234,
+          "source": "https://data.cms.gov/about",
+          "columns": [
+            "Measure",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Pinned datasets",
+              {
+                "path": [
+                  "data_use",
+                  "audit",
+                  "datasets"
+                ]
+              }
+            ],
+            [
+              "Retained source records",
+              {
+                "path": [
+                  "data_use",
+                  "audit",
+                  "profiled_rows"
+                ]
+              }
+            ],
+            [
+              "Original columns",
+              {
+                "path": [
+                  "data_use",
+                  "audit",
+                  "columns"
+                ]
+              }
+            ],
+            [
+              "Cells assessed",
+              {
+                "path": [
+                  "data_use",
+                  "audit",
+                  "cells_checked"
+                ]
+              }
+            ],
+            [
+              "Aggregate-value profiles",
+              {
+                "path": [
+                  "data_use",
+                  "audit",
+                  "aggregate_value_profiles"
+                ]
+              }
+            ],
+            [
+              "Presence-only profiles",
+              {
+                "path": [
+                  "data_use",
+                  "audit",
+                  "presence_only_profiles"
+                ]
+              }
+            ],
+            [
+              "Completely blank columns",
+              {
+                "path": [
+                  "data_use",
+                  "audit",
+                  "all_blank_fields"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "clia-certificate",
+          "title": "CLIA certificate code distribution",
+          "note": "Q3 2026 laboratory registry records. All five certificate codes match the catalog-linked April 2023 layout; meanings remain historical-reference labels, not a count of active laboratories. No facility-level records or certificate status inference.",
+          "run": 45824121085,
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "columns": [
+            "Source code",
+            "Historical reference label",
+            "Registry rows"
+          ],
+          "rows": [
+            [
+              "1",
+              "Compliance",
+              {
+                "path": [
+                  "clia_audit",
+                  "domain_counts",
+                  "CRTFCT_TYPE_CD",
+                  "1"
+                ]
+              }
+            ],
+            [
+              "2",
+              "Waiver",
+              {
+                "path": [
+                  "clia_audit",
+                  "domain_counts",
+                  "CRTFCT_TYPE_CD",
+                  "2"
+                ]
+              }
+            ],
+            [
+              "3",
+              "Accreditation",
+              {
+                "path": [
+                  "clia_audit",
+                  "domain_counts",
+                  "CRTFCT_TYPE_CD",
+                  "3"
+                ]
+              }
+            ],
+            [
+              "4",
+              "Provider-performed microscopy",
+              {
+                "path": [
+                  "clia_audit",
+                  "domain_counts",
+                  "CRTFCT_TYPE_CD",
+                  "4"
+                ]
+              }
+            ],
+            [
+              "9",
+              "Registration",
+              {
+                "path": [
+                  "clia_audit",
+                  "domain_counts",
+                  "CRTFCT_TYPE_CD",
+                  "9"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "clia-link",
+          "title": "Hospital-to-laboratory reference evidence",
+          "note": "Exact source CLIA-reference tokens matched to laboratory registry identifiers; 25 candidate pairs disagree on reported state. Historical hospital category and registry records are source-scoped, not unique physical facilities, verified affiliations, current operations or installed assets.",
+          "run": 45824121085,
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "columns": [
+            "Evidence measure",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Hospital source rows with reference",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "qies_rows_with_reference"
+                ]
+              }
+            ],
+            [
+              "Hospital rows with exact candidate",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "qies_rows_with_exact_lab_candidate"
+                ]
+              }
+            ],
+            [
+              "Distinct matched CLIA tokens",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "distinct_matched_reference_tokens"
+                ]
+              }
+            ],
+            [
+              "Exact candidate row pairs",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "candidate_lab_row_pairs"
+                ]
+              }
+            ],
+            [
+              "Pairs with matching state",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "same_state_candidate_pairs"
+                ]
+              }
+            ],
+            [
+              "Pairs with conflicting state",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "different_state_candidate_pairs"
+                ]
+              }
+            ],
+            [
+              "Unmatched reference occurrences",
+              {
+                "path": [
+                  "clia_audit",
+                  "links",
+                  "unmatched_reference_occurrences"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "nursing-chain-coverage",
+          "title": "Reported nursing-home chain membership",
+          "note": "October 2026 Care Compare. CMS group IDs represent reported affiliation through ownership, officer or managerial relationships, not a resolved legal parent or property owner. Group size is reconciled once per group; names and identifiers are not published.",
+          "run": 45826186143,
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "columns": [
+            "Measure",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Nursing-home provider records",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "nursing",
+                  "rows"
+                ]
+              }
+            ],
+            [
+              "Records with a valid chain ID",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "nursing",
+                  "valid_chain_id"
+                ]
+              }
+            ],
+            [
+              "Records with blank chain ID",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "nursing",
+                  "blank_chain_id"
+                ]
+              }
+            ],
+            [
+              "Reported chain groups",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "chains",
+                  "groups"
+                ]
+              }
+            ],
+            [
+              "Groups with reconciled membership size",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "chains",
+                  "reported_size_matches_observed_members"
+                ]
+              }
+            ],
+            [
+              "Groups with 2-4 reported members",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "chains",
+                  "observed_membership_size_bands",
+                  "2-4"
+                ]
+              }
+            ],
+            [
+              "Groups with 5-19 reported members",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "chains",
+                  "observed_membership_size_bands",
+                  "5-19"
+                ]
+              }
+            ],
+            [
+              "Groups with 20-99 reported members",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "chains",
+                  "observed_membership_size_bands",
+                  "20-99"
+                ]
+              }
+            ],
+            [
+              "Groups with 100+ reported members",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "chains",
+                  "observed_membership_size_bands",
+                  "100+"
+                ]
+              }
+            ]
+          ]
+        },
+        {
+          "id": "nursing-affiliation-corroboration",
+          "title": "Nursing cross-source group corroboration",
+          "note": "October Care Compare versus November SNF PECOS enrollment. Exact CCN/state pairs only. Group identifiers are compared as literal tokens in separate release namespaces; agreement does not establish a legal entity, and conflicts or missing fields must remain unresolved.",
+          "run": 45826186143,
+          "source": "https://data.cms.gov/sites/default/files/2026-07/SNF_Data_Guidance.pdf",
+          "columns": [
+            "Measure",
+            "Candidate pairs"
+          ],
+          "rows": [
+            [
+              "Same CCN and state",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "cross_source_exact_ccn_state",
+                  "same_ccn_state_pairs"
+                ]
+              }
+            ],
+            [
+              "Equal populated group IDs",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "cross_source_exact_ccn_state",
+                  "both_populated_equal"
+                ]
+              }
+            ],
+            [
+              "Different populated group IDs",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "cross_source_exact_ccn_state",
+                  "both_populated_different"
+                ]
+              }
+            ],
+            [
+              "One group missing or invalid",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "cross_source_exact_ccn_state",
+                  "one_missing_or_invalid"
+                ]
+              }
+            ],
+            [
+              "Both groups missing or invalid",
+              {
+                "path": [
+                  "nursing_semantic",
+                  "chains",
+                  "cross_source_exact_ccn_state",
+                  "both_missing_or_invalid"
+                ]
+              }
+            ]
+          ]
         }
       ]
     }

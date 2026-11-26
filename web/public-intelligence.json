@@ -21,6 +21,7 @@
             "Not available",
             "Unrecognized"
           ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system/api-docs",
           "rows": [
             [
               "Operating room count",
@@ -94,8 +95,7 @@
               212,
               null
             ]
-          ],
-          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system/api-docs"
+          ]
         },
         {
           "id": "qies",
@@ -110,6 +110,7 @@
             "Code 3",
             "Blank"
           ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-quality-improvement-and-evaluation-system/api-docs",
           "rows": [
             [
               "CT imaging",
@@ -207,8 +208,128 @@
               244,
               1395
             ]
+          ]
+        },
+        {
+          "id": "asc-provision",
+          "title": "ASC service provision arrangements",
+          "note": "Q3 2026 iQIES, 8,492 ASC source records per field. Codes are matched exactly to the publisher's M5/M7 ASC domains. Outside-source provision is a reported delivery mode, not a named contract, installed equipment or buying intent.",
+          "run": 45821921407,
+          "columns": [
+            "Service",
+            "Direct",
+            "Outside source",
+            "Combination",
+            "Not provided",
+            "Unavailable"
           ],
-          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-quality-improvement-and-evaluation-system/api-docs"
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system",
+          "rows": [
+            [
+              "Pharmacy",
+              1068,
+              4947,
+              371,
+              1654,
+              452
+            ],
+            [
+              "Laboratory",
+              1161,
+              4961,
+              513,
+              1405,
+              452
+            ],
+            [
+              "Radiology",
+              2250,
+              3484,
+              290,
+              2016,
+              452
+            ]
+          ]
+        },
+        {
+          "id": "hha-services",
+          "title": "Home health reported services",
+          "note": "October 21, 2026 Care Compare release. Yes and No are literal source values; other or missing values are not treated as No. Reported service flags do not establish a physical site capability or current availability.",
+          "run": 45822384234,
+          "columns": [
+            "Service",
+            "Yes",
+            "No",
+            "Other / missing"
+          ],
+          "source": "https://data.cms.gov/provider-data/dataset/6jpm-sxkc",
+          "rows": [
+            [
+              "Nursing Care",
+              10208,
+              34,
+              2167
+            ],
+            [
+              "Physical Therapy",
+              9768,
+              469,
+              2172
+            ],
+            [
+              "Occupational Therapy",
+              9347,
+              887,
+              2175
+            ],
+            [
+              "Speech Pathology",
+              8620,
+              1590,
+              2199
+            ],
+            [
+              "Medical Social",
+              7960,
+              2243,
+              2206
+            ],
+            [
+              "Home Health Aide",
+              9008,
+              1230,
+              2171
+            ]
+          ]
+        },
+        {
+          "id": "ltch-beds",
+          "title": "Long-term care hospital total beds",
+          "note": "September 23, 2026 Care Compare release. Total reported beds are not certified nursing beds or occupied beds. Six records do not report a qualified whole-number value and remain unknown.",
+          "run": 45822384234,
+          "columns": [
+            "Measure",
+            "Reported value"
+          ],
+          "source": "https://data.cms.gov/provider-data/dataset/azum-44iv",
+          "rows": [
+            [
+              "Provider records",
+              311
+            ],
+            [
+              "Records with numeric beds",
+              305
+            ],
+            [
+              "Records with unknown beds",
+              6
+            ],
+            [
+              "Total reported beds",
+              21765
+            ]
+          ]
         }
       ]
     },
@@ -226,6 +347,7 @@
             "Source domain",
             "Historical rows"
           ],
+          "source": "https://data.cms.gov/provider-data/dataset/r5ix-sfxw",
           "rows": [
             [
               "Health",
@@ -239,8 +361,7 @@
               "Emergency preparedness",
               21625
             ]
-          ],
-          "source": "https://data.cms.gov/provider-data/dataset/r5ix-sfxw"
+          ]
         },
         {
           "id": "context",
@@ -251,6 +372,7 @@
             "Research context",
             "Historical rows"
           ],
+          "source": "https://www.cms.gov/medicare/health-safety-standards/certification-compliance/life-safety-code-health-care-facilities-code-requirements",
           "rows": [
             [
               "Infection prevention",
@@ -272,8 +394,7 @@
               "Broad emergency preparedness",
               21625
             ]
-          ],
-          "source": "https://www.cms.gov/medicare/health-safety-standards/certification-compliance/life-safety-code-health-care-facilities-code-requirements"
+          ]
         },
         {
           "id": "dictionary",
@@ -284,6 +405,7 @@
             "Evidence",
             "Count"
           ],
+          "source": "https://data.cms.gov/provider-data/dataset/tagd-9999",
           "rows": [
             [
               "Dictionary definitions",
@@ -309,8 +431,7 @@
               "Correction dates after source release",
               128
             ]
-          ],
-          "source": "https://data.cms.gov/provider-data/dataset/tagd-9999"
+          ]
         },
         {
           "id": "correction",
@@ -322,6 +443,7 @@
             "Health rows",
             "Fire rows"
           ],
+          "source": "https://data.cms.gov/provider-data/topics/nursing-homes/technical-details",
           "rows": [
             [
               "Date of correction reported",
@@ -348,8 +470,46 @@
               673,
               3106
             ]
+          ]
+        },
+        {
+          "id": "nursing-inspection-disputes",
+          "title": "Nursing inspection and dispute flags",
+          "note": "October 28, 2026 source snapshot. Independent source-reported flags may overlap; counts are historical citation rows, not unique inspections, dispute outcomes or currently outstanding violations. All flags matched the Y/N domain. The health file has no tag-version column.",
+          "run": 45826186143,
+          "columns": [
+            "Source-reported flag",
+            "Health citation rows",
+            "Fire citation rows"
           ],
-          "source": "https://data.cms.gov/provider-data/topics/nursing-homes/technical-details"
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Standard inspection",
+              317950,
+              198884
+            ],
+            [
+              "Complaint inspection",
+              129397,
+              1579
+            ],
+            [
+              "Infection-control inspection",
+              708,
+              0
+            ],
+            [
+              "Informal dispute resolution (IDR)",
+              631,
+              69
+            ],
+            [
+              "Independent informal dispute resolution (IIDR)",
+              131,
+              1
+            ]
+          ]
         }
       ]
     },
@@ -367,6 +527,7 @@
             "Evidence",
             "Count"
           ],
+          "source": "https://www.fda.gov/radiation-emitting-products/mammography-information-patients/search-certified-mammography-facility",
           "rows": [
             [
               "Source rows",
@@ -392,8 +553,7 @@
               "Retained row-level records",
               0
             ]
-          ],
-          "source": "https://www.fda.gov/radiation-emitting-products/mammography-information-patients/search-certified-mammography-facility"
+          ]
         },
         {
           "id": "sdwa",
@@ -404,6 +564,7 @@
             "Evidence",
             "Count"
           ],
+          "source": "https://echo.epa.gov/tools/data-downloads/sdwa-facility-search-download-summary",
           "rows": [
             [
               "Retrieved source rows",
@@ -421,8 +582,7 @@
               "Retained database rows",
               0
             ]
-          ],
-          "source": "https://echo.epa.gov/tools/data-downloads/sdwa-facility-search-download-summary"
+          ]
         },
         {
           "id": "water-candidates",
@@ -433,6 +593,7 @@
             "Evidence",
             "Count"
           ],
+          "source": "https://echo.epa.gov/help/facility-search/drinking-water-search-results-help",
           "rows": [
             [
               "Medical service-area records",
@@ -462,8 +623,7 @@
               "Distinct CMS provider source rows in pairs",
               84
             ]
-          ],
-          "source": "https://echo.epa.gov/help/facility-search/drinking-water-search-results-help"
+          ]
         }
       ]
     },
@@ -481,6 +641,7 @@
             "Evidence",
             "Count"
           ],
+          "source": "https://data.cms.gov/provider-data/",
           "rows": [
             [
               "Integrated historical source rows",
@@ -506,8 +667,7 @@
               "Provider source rows without candidate",
               835
             ]
-          ],
-          "source": "https://data.cms.gov/provider-data/"
+          ]
         },
         {
           "id": "dates",
@@ -518,6 +678,7 @@
             "Evidence",
             "Count"
           ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system-methodology",
           "rows": [
             [
               "Reported normalized dates",
@@ -531,8 +692,7 @@
               "Not available",
               74766
             ]
-          ],
-          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system-methodology"
+          ]
         },
         {
           "id": "retention",
@@ -543,6 +703,7 @@
             "Evidence",
             "Value"
           ],
+          "source": "https://github.com/JeremyHennessy/FacilitySignal/blob/main/docs/PRIVATE_SNAPSHOT_ARCHIVE.md",
           "rows": [
             [
               "Artifact ID",
@@ -556,8 +717,239 @@
               "Recorded expiration (UTC)",
               "2026-11-28T17:33:01Z"
             ]
+          ]
+        },
+        {
+          "id": "hha-ownership",
+          "title": "Home health general control classification",
+          "note": "Publisher defines this as the agency's control type, not a legal property owner. Other/missing tokens remain unclassified. National aggregate only; individual ownership fields are not published.",
+          "run": 45822384234,
+          "columns": [
+            "Reported control category",
+            "Source records"
           ],
-          "source": "https://github.com/JeremyHennessy/FacilitySignal/blob/main/docs/PRIVATE_SNAPSHOT_ARCHIVE.md"
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/home_health/HHS_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Non-Profit",
+              1049
+            ],
+            [
+              "Proprietary",
+              8954
+            ],
+            [
+              "Government Operated",
+              239
+            ],
+            [
+              "Other / missing",
+              2167
+            ]
+          ]
+        },
+        {
+          "id": "national-field-audit",
+          "title": "National field audit coverage",
+          "note": "19 pinned source releases profiled; restricted contact and narrative fields assessed for presence only. These are original source columns, not validated application features. Historical definitions and unresolved codes remain subject to review.",
+          "run": 45822384234,
+          "columns": [
+            "Measure",
+            "Count"
+          ],
+          "source": "https://data.cms.gov/about",
+          "rows": [
+            [
+              "Pinned datasets",
+              19
+            ],
+            [
+              "Retained source records",
+              1904060
+            ],
+            [
+              "Original columns",
+              1433
+            ],
+            [
+              "Cells assessed",
+              125518335
+            ],
+            [
+              "Aggregate-value profiles",
+              1402
+            ],
+            [
+              "Presence-only profiles",
+              31
+            ],
+            [
+              "Completely blank columns",
+              299
+            ]
+          ]
+        },
+        {
+          "id": "clia-certificate",
+          "title": "CLIA certificate code distribution",
+          "note": "Q3 2026 laboratory registry records. All five certificate codes match the catalog-linked April 2023 layout; meanings remain historical-reference labels, not a count of active laboratories. No facility-level records or certificate status inference.",
+          "run": 45824121085,
+          "columns": [
+            "Source code",
+            "Historical reference label",
+            "Registry rows"
+          ],
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "rows": [
+            [
+              "1",
+              "Compliance",
+              39116
+            ],
+            [
+              "2",
+              "Waiver",
+              525660
+            ],
+            [
+              "3",
+              "Accreditation",
+              30127
+            ],
+            [
+              "4",
+              "Provider-performed microscopy",
+              76090
+            ],
+            [
+              "9",
+              "Registration",
+              15065
+            ]
+          ]
+        },
+        {
+          "id": "clia-link",
+          "title": "Hospital-to-laboratory reference evidence",
+          "note": "Exact source CLIA-reference tokens matched to laboratory registry identifiers; 25 candidate pairs disagree on reported state. Historical hospital category and registry records are source-scoped, not unique physical facilities, verified affiliations, current operations or installed assets.",
+          "run": 45824121085,
+          "columns": [
+            "Evidence measure",
+            "Count"
+          ],
+          "source": "https://data.cms.gov/resources/provider-of-services-file-clinical-laboratories-methodology",
+          "rows": [
+            [
+              "Hospital source rows with reference",
+              6133
+            ],
+            [
+              "Hospital rows with exact candidate",
+              6132
+            ],
+            [
+              "Distinct matched CLIA tokens",
+              6566
+            ],
+            [
+              "Exact candidate row pairs",
+              7715
+            ],
+            [
+              "Pairs with matching state",
+              7690
+            ],
+            [
+              "Pairs with conflicting state",
+              25
+            ],
+            [
+              "Unmatched reference occurrences",
+              1
+            ]
+          ]
+        },
+        {
+          "id": "nursing-chain-coverage",
+          "title": "Reported nursing-home chain membership",
+          "note": "October 2026 Care Compare. CMS group IDs represent reported affiliation through ownership, officer or managerial relationships, not a resolved legal parent or property owner. Group size is reconciled once per group; names and identifiers are not published.",
+          "run": 45826186143,
+          "columns": [
+            "Measure",
+            "Count"
+          ],
+          "source": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+          "rows": [
+            [
+              "Nursing-home provider records",
+              14686
+            ],
+            [
+              "Records with a valid chain ID",
+              10227
+            ],
+            [
+              "Records with blank chain ID",
+              4459
+            ],
+            [
+              "Reported chain groups",
+              612
+            ],
+            [
+              "Groups with reconciled membership size",
+              612
+            ],
+            [
+              "Groups with 2-4 reported members",
+              66
+            ],
+            [
+              "Groups with 5-19 reported members",
+              419
+            ],
+            [
+              "Groups with 20-99 reported members",
+              118
+            ],
+            [
+              "Groups with 100+ reported members",
+              9
+            ]
+          ]
+        },
+        {
+          "id": "nursing-affiliation-corroboration",
+          "title": "Nursing cross-source group corroboration",
+          "note": "October Care Compare versus November SNF PECOS enrollment. Exact CCN/state pairs only. Group identifiers are compared as literal tokens in separate release namespaces; agreement does not establish a legal entity, and conflicts or missing fields must remain unresolved.",
+          "run": 45826186143,
+          "columns": [
+            "Measure",
+            "Candidate pairs"
+          ],
+          "source": "https://data.cms.gov/sites/default/files/2026-07/SNF_Data_Guidance.pdf",
+          "rows": [
+            [
+              "Same CCN and state",
+              14207
+            ],
+            [
+              "Equal populated group IDs",
+              9981
+            ],
+            [
+              "Different populated group IDs",
+              21
+            ],
+            [
+              "One group missing or invalid",
+              155
+            ],
+            [
+              "Both groups missing or invalid",
+              4050
+            ]
+          ]
         }
       ]
     }

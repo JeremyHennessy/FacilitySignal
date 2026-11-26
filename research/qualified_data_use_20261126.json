@@ -1,0 +1,128 @@
+{
+  "as_of": "2026-11-26",
+  "asc": {
+    "period": "2026-07-01/2026-09-30",
+    "rows": 8492,
+    "services": {
+      "Laboratory": {
+        "combination": 513,
+        "direct": 1161,
+        "not_provided": 1405,
+        "outside": 4961,
+        "unavailable": 452
+      },
+      "Pharmacy": {
+        "combination": 371,
+        "direct": 1068,
+        "not_provided": 1654,
+        "outside": 4947,
+        "unavailable": 452
+      },
+      "Radiology": {
+        "combination": 290,
+        "direct": 2250,
+        "not_provided": 2016,
+        "outside": 3484,
+        "unavailable": 452
+      }
+    },
+    "source_sha256": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2"
+  },
+  "audit": {
+    "aggregate_value_profiles": 1402,
+    "all_blank_fields": 299,
+    "cells_checked": 125518335,
+    "columns": 1433,
+    "datasets": 19,
+    "presence_only_profiles": 31,
+    "profiled_rows": 1904060
+  },
+  "format_version": 1,
+  "hha": {
+    "dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/home_health/HHS_Data_Dictionary.pdf",
+    "ownership": {
+      "Government Operated": 239,
+      "Non-Profit": 1049,
+      "Proprietary": 8954,
+      "other_or_missing": 2167
+    },
+    "ownership_other_states": {
+      "dash_marker": 2167
+    },
+    "release": "2026-10-21",
+    "reuse": "https://data.cms.gov/provider-data/topics/home-health-services/about-using-government-data",
+    "rows": 12409,
+    "services": {
+      "Home Health Aide": {
+        "no": 1230,
+        "other_or_missing": 2171,
+        "other_states": {
+          "dash_marker": 2171
+        },
+        "yes": 9008
+      },
+      "Medical Social": {
+        "no": 2243,
+        "other_or_missing": 2206,
+        "other_states": {
+          "dash_marker": 2206
+        },
+        "yes": 7960
+      },
+      "Nursing Care": {
+        "no": 34,
+        "other_or_missing": 2167,
+        "other_states": {
+          "dash_marker": 2167
+        },
+        "yes": 10208
+      },
+      "Occupational Therapy": {
+        "no": 887,
+        "other_or_missing": 2175,
+        "other_states": {
+          "dash_marker": 2175
+        },
+        "yes": 9347
+      },
+      "Physical Therapy": {
+        "no": 469,
+        "other_or_missing": 2172,
+        "other_states": {
+          "dash_marker": 2172
+        },
+        "yes": 9768
+      },
+      "Speech Pathology": {
+        "no": 1590,
+        "other_or_missing": 2199,
+        "other_states": {
+          "dash_marker": 2199
+        },
+        "yes": 8620
+      }
+    },
+    "source": "https://data.cms.gov/provider-data/dataset/6jpm-sxkc",
+    "source_sha256": "7adf3e17961949bbd64ef243545aa387224d9837e8c5601476f5b11946e76d22"
+  },
+  "ltch": {
+    "dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/long_term_care_hospital/LTCH_Data_Dictionary.pdf",
+    "max": 760,
+    "min": 9,
+    "release": "2026-09-23",
+    "reported": 305,
+    "reuse": "https://data.cms.gov/provider-data/topics/long-term-care-hospitals/about-using-government-data",
+    "rows": 311,
+    "source": "https://data.cms.gov/provider-data/dataset/azum-44iv",
+    "source_field": "Total Number of Beds",
+    "source_sha256": "176b1fae71a5ac97bf89f9d3404b98c6d3135b184f079baec939bcb2e016ba2e",
+    "sum": 21765,
+    "unknown": 6,
+    "value_states": {
+      "dash_marker": 6,
+      "reported_integer": 305
+    },
+    "zero": 0
+  },
+  "scope": "Selected institutional capacity and national aggregates from exact pinned releases; not current operation, equipment, legal ownership or confirmed procurement."
+}

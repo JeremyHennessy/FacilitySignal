@@ -1,0 +1,210 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-26",
+  "qualification_run": 45826186143,
+  "qualified_commit": "12603334f1a83ca0c1e9ac5842dedd04797a6803",
+  "audits": [
+    {
+      "group": "chains",
+      "qualification_job": 139930809852,
+      "documentation": {
+        "nursing_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+        "pecos_dictionary": "https://data.cms.gov/sites/default/files/2026-07/SNF_Enrollments_Data_Dictionary.pdf",
+        "pecos_guidance": "https://data.cms.gov/sites/default/files/2026-07/SNF_Data_Guidance.pdf"
+      },
+      "documentation_limit": "Nursing dictionary extracted text says October 2026, visual footer says June 2026. Reviewed stable field descriptions in tables 2,6,7; release provenance unresolved. SNF July 2026 guidance v1.8.",
+      "format_version": 1,
+      "limits": [
+        "Historical source evidence only. A dispute flag is not a dispute outcome or proof of present-day violation; multiple inspection flags can coexist. No individual-level output."
+      ],
+      "result": {
+        "chains": {
+          "consistent_reported_size": 612,
+          "groups": 612,
+          "missing_name_groups": 0,
+          "multiple_reported_names": 0,
+          "names_associated_with_multiple_chain_ids": 0,
+          "observed_membership_size_bands": {
+            "100+": 9,
+            "2-4": 66,
+            "20-99": 118,
+            "5-19": 419
+          },
+          "reported_size_matches_observed_members": 612,
+          "reported_size_mismatch_or_missing": 0,
+          "single_reported_name": 612
+        },
+        "cross_source_exact_ccn_state": {
+          "both_missing_or_invalid": 4050,
+          "both_populated_different": 21,
+          "both_populated_equal": 9981,
+          "one_missing_or_invalid": 155,
+          "same_ccn_state_pairs": 14207
+        },
+        "limits": [
+          "Chain IDs and affiliation IDs are kept in their own publisher/release namespaces. Equal tokens and names are corroboration only, not proof of identical groups across releases.",
+          "CMS methodology groups facilities by reported ownership, officer or management relationships; not legal property title or ultimate owner.",
+          "No group names, identifiers, addresses or individual relationships retained. Missing affiliation cannot establish independence."
+        ],
+        "name_corroboration": {
+          "both_populated_different/name_text_different": 21,
+          "both_populated_equal/name_exact_text_equal": 9976,
+          "both_populated_equal/name_text_different": 5
+        },
+        "nursing": {
+          "blank_chain_id": 4459,
+          "chain_id_name_both_populated": 10227,
+          "chain_id_name_conflict": 0,
+          "chain_id_size_conflict": 0,
+          "rows": 14686,
+          "unrecognized_chain_id": 0,
+          "valid_chain_id": 10227
+        },
+        "shared_literal_group_tokens": 611,
+        "snf_enrollment": {
+          "blank_affiliation_id": 4239,
+          "distinct_affiliation_tokens": 613,
+          "distinct_nursing_ccns_with_candidate": 14209,
+          "exact_nursing_ccn_candidate": 14209,
+          "no_exact_nursing_ccn_candidate": 192,
+          "nursing_ccns_with_multiple_enrollment_candidates": 0,
+          "rows": 14401,
+          "state_different": 1,
+          "state_missing": 1,
+          "state_same": 14207,
+          "unrecognized_affiliation_id": 0,
+          "valid_affiliation_id": 10162
+        }
+      },
+      "source_pins": {
+        "nursing": {
+          "release": "2026-10-28",
+          "rows": 14686,
+          "sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2"
+        },
+        "snf-enrollment": {
+          "release": "2026-11-01/2026-11-30",
+          "rows": 14401,
+          "sha256": "21f6b282b07017f2596d9c3cb84dac3eaa100bd2ec637e0d7f03510e0f0acf89"
+        }
+      }
+    },
+    {
+      "group": "citations",
+      "qualification_job": 139930810173,
+      "documentation": {
+        "nursing_dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+        "pecos_dictionary": "https://data.cms.gov/sites/default/files/2026-07/SNF_Enrollments_Data_Dictionary.pdf",
+        "pecos_guidance": "https://data.cms.gov/sites/default/files/2026-07/SNF_Data_Guidance.pdf"
+      },
+      "documentation_limit": "Nursing dictionary extracted text says October 2026, visual footer says June 2026. Reviewed stable field descriptions in tables 2,6,7; release provenance unresolved. SNF July 2026 guidance v1.8.",
+      "format_version": 1,
+      "limits": [
+        "Historical source evidence only. A dispute flag is not a dispute outcome or proof of present-day violation; multiple inspection flags can coexist. No individual-level output."
+      ],
+      "result": {
+        "nursing-fire": {
+          "flags": {
+            "Citation under IDR": {
+              "no": 200318,
+              "yes": 69
+            },
+            "Citation under IIDR": {
+              "no": 200386,
+              "yes": 1
+            },
+            "Complaint Deficiency": {
+              "no": 198808,
+              "yes": 1579
+            },
+            "Infection Control Inspection Deficiency": {
+              "no": 200387
+            },
+            "Standard Deficiency": {
+              "no": 1503,
+              "yes": 198884
+            }
+          },
+          "idr_iidr_joint_counts": {
+            "no/no": 200317,
+            "no/yes": 1,
+            "yes/no": 69
+          },
+          "inspection_cycle_codes": {
+            "1": 65253,
+            "2": 69555,
+            "3": 65579
+          },
+          "inspection_flag_joint_counts": {
+            "no/yes/no": 1503,
+            "yes/no/no": 198808,
+            "yes/yes/no": 76
+          },
+          "rows": 200387,
+          "tag_version": {
+            "new": 200387
+          },
+          "tag_version_date_agreement": {
+            "agrees": 200387
+          }
+        },
+        "nursing-health": {
+          "flags": {
+            "Citation under IDR": {
+              "no": 418051,
+              "yes": 631
+            },
+            "Citation under IIDR": {
+              "no": 418551,
+              "yes": 131
+            },
+            "Complaint Deficiency": {
+              "no": 289285,
+              "yes": 129397
+            },
+            "Infection Control Inspection Deficiency": {
+              "no": 417974,
+              "yes": 708
+            },
+            "Standard Deficiency": {
+              "no": 100732,
+              "yes": 317950
+            }
+          },
+          "idr_iidr_joint_counts": {
+            "no/no": 417920,
+            "no/yes": 131,
+            "yes/no": 631
+          },
+          "inspection_cycle_codes": {
+            "1": 135182,
+            "2": 143777,
+            "3": 139723
+          },
+          "inspection_flag_joint_counts": {
+            "no/no/yes": 60,
+            "no/yes/no": 100024,
+            "no/yes/yes": 648,
+            "yes/no/no": 289225,
+            "yes/yes/no": 28725
+          },
+          "rows": 418682,
+          "tag_version": null,
+          "tag_version_date_agreement": null
+        }
+      },
+      "source_pins": {
+        "nursing-fire": {
+          "release": "2026-10-28",
+          "rows": 200387,
+          "sha256": "54a18c6409013e2bdcac2da315ddc4557430a993fd324abecd34d7d071c70cb7"
+        },
+        "nursing-health": {
+          "release": "2026-10-28",
+          "rows": 418682,
+          "sha256": "15185c61678f9bcc663076de666d5054a0ca34249c97206cf9e0e3f4ae922473"
+        }
+      }
+    }
+  ]
+}
