@@ -34,7 +34,7 @@
     },
     {
       "id": "FS-004",
-      "status": "partial_structural_qualification",
+      "status": "private_archive_partial",
       "evidence": "45832460359",
       "weekly_scope": "2026-11-16/2026-11-22",
       "weekly_source_rows": 31024,
@@ -51,11 +51,50 @@
       "posted_weekly_observation_rows": 91874,
       "posted_weekly_organization_observations": 19308,
       "latest_supplement_evidence": "45837634635",
-      "deactivation_qualification": "blocked_schema_review"
+      "deactivation_qualification": "blocked_schema_review",
+      "historical_qualification_status": "partial_structural_qualification",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "nppes-monthly",
+          "nppes-weekly"
+        ],
+        "release_observations": 2009545,
+        "aggregate_source_rows_screened": 0,
+        "publisher_release_count": 4,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 0,
+        "qualification_run_ids": [
+          45850246524
+        ],
+        "limit": "Type 2 organization observations only; monthly and weekly releases may overlap. Deactivation, taxonomy semantics and identity review pending.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-005",
-      "status": "discovered_not_tested"
+      "status": "private_archive_partial",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "ppef-type2-enrollment"
+        ],
+        "release_observations": 380892,
+        "aggregate_source_rows_screened": 0,
+        "publisher_release_count": 1,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 0,
+        "qualification_run_ids": [
+          45856388645
+        ],
+        "limit": "Type 2 enrollment projection only; no current active-enrollment or physical-site determination.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-006",
@@ -487,7 +526,7 @@
     },
     {
       "id": "FS-055",
-      "status": "partial_structural_qualification",
+      "status": "private_archive_partial",
       "evidence": "45831729611",
       "qualified_form": "CMS-1728-20",
       "qualified_fiscal_year": 2024,
@@ -496,7 +535,81 @@
       "alpha_cell_rows": 1222130,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "One form/year only: complete HHA relational file structural qualification. 4,780,688 child cells linked; no unresolved coordinate formats. Worksheet semantic crosswalk, exact measure/unit interpretation and durable projection pending. Do not add cells to facility or existing projection totals."
+      "note": "One form/year only: complete HHA relational file structural qualification. 4,780,688 child cells linked; no unresolved coordinate formats. Worksheet semantic crosswalk, exact measure/unit interpretation and durable projection pending. Do not add cells to facility or existing projection totals.",
+      "historical_qualification_status": "partial_structural_qualification",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "hcris-cmhc-2017-index",
+          "hcris-cmhc-2017-numeric",
+          "hcris-fqhc-2014-index",
+          "hcris-fqhc-2024-numeric",
+          "hcris-fqhc-numeric-years-2014-2019",
+          "hcris-fqhc-numeric-years-2020-2026",
+          "hcris-hha-2024",
+          "hcris-hospice-2014-index",
+          "hcris-hospice-2024-numeric",
+          "hcris-hospice-numeric-years-2015-2016",
+          "hcris-hospice-numeric-years-2017-2018",
+          "hcris-hospice-numeric-years-2019-2019",
+          "hcris-hospice-numeric-years-2020-2020",
+          "hcris-hospice-numeric-years-2021-2021",
+          "hcris-hospice-numeric-years-2022-2022",
+          "hcris-hospice-numeric-years-2023-2023",
+          "hcris-hospice-numeric-years-2025-2026",
+          "hcris-hospital-2024-index",
+          "hcris-hospital-2024-numeric-00000001-03000000",
+          "hcris-hospital-2024-numeric-03000001-06000000",
+          "hcris-hospital-2024-numeric-06000001-09000000",
+          "hcris-hospital-2024-numeric-09000001-12000000",
+          "hcris-hospital-2024-numeric-12000001-15000000",
+          "hcris-hospital-2024-numeric-15000001-18000000",
+          "hcris-hospital-2024-numeric-18000001-19440697",
+          "hcris-renal-2011-index",
+          "hcris-renal-2024-numeric",
+          "hcris-renal-numeric-years-2011-2011",
+          "hcris-renal-numeric-years-2012-2012",
+          "hcris-renal-numeric-years-2013-2013",
+          "hcris-renal-numeric-years-2014-2014",
+          "hcris-renal-numeric-years-2015-2015",
+          "hcris-renal-numeric-years-2016-2016",
+          "hcris-renal-numeric-years-2017-2017",
+          "hcris-renal-numeric-years-2018-2018",
+          "hcris-renal-numeric-years-2019-2019",
+          "hcris-renal-numeric-years-2020-2020",
+          "hcris-renal-numeric-years-2021-2021",
+          "hcris-renal-numeric-years-2022-2022",
+          "hcris-renal-numeric-years-2023-2023",
+          "hcris-renal-numeric-years-2025-2026",
+          "hcris-rhc-2017-index",
+          "hcris-rhc-2017-numeric",
+          "hcris-snf-2024-index",
+          "hcris-snf-2024-numeric-00000001-03000000",
+          "hcris-snf-2024-numeric-03000001-06000000",
+          "hcris-snf-2024-numeric-06000001-09000000",
+          "hcris-snf-2024-numeric-09000001-12000000",
+          "hcris-snf-2024-numeric-12000001-13769223"
+        ],
+        "release_observations": 112621094,
+        "aggregate_source_rows_screened": 0,
+        "publisher_release_count": 8,
+        "supplemental_numeric_archive_count": 41,
+        "aggregate_release_count": 0,
+        "qualification_run_ids": [
+          45850246524,
+          45855006051,
+          45856388462,
+          45856912767,
+          45859089095,
+          45861770583,
+          45861965422,
+          45862301518
+        ],
+        "limit": "Eight modern provider-form scopes; report indexes, numeric cells and limited HHA alpha structures, not every form/year. No facility financial attribution; 17 direct hospital/SNF mappings qualified on matching report keys.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-056",
@@ -552,23 +665,123 @@
     },
     {
       "id": "FS-062",
-      "status": "discovered_not_tested"
+      "status": "private_aggregate_archived",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "epa-frs-healthcare-aggregate"
+        ],
+        "release_observations": 0,
+        "aggregate_source_rows_screened": 10148395,
+        "publisher_release_count": 0,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 1,
+        "qualification_run_ids": [
+          45859977557
+        ],
+        "limit": "Healthcare-sector aggregate evidence, not the complete FRS register or healthcare-site identity.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-063",
-      "status": "discovered_not_tested"
+      "status": "private_aggregate_partial",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "epa-frs-healthcare-aggregate",
+          "epa-npdes-part1-healthcare-aggregate",
+          "epa-rcra-healthcare-aggregate",
+          "epa-sdwa-aggregate"
+        ],
+        "release_observations": 0,
+        "aggregate_source_rows_screened": 22047696,
+        "publisher_release_count": 0,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 4,
+        "qualification_run_ids": [
+          45855530267,
+          45859977557,
+          45862337827
+        ],
+        "limit": "Selected program/sector aggregates only; not all ECHO datasets.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-064",
-      "status": "discovered_not_tested"
+      "status": "private_aggregate_partial",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "epa-sdwa-aggregate"
+        ],
+        "release_observations": 0,
+        "aggregate_source_rows_screened": 434757,
+        "publisher_release_count": 0,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 1,
+        "qualification_run_ids": [
+          45855530267
+        ],
+        "limit": "Drinking-water search extract only; not all SDWIS systems, violations or enforcement.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-065",
-      "status": "discovered_not_tested"
+      "status": "private_aggregate_archived",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "epa-rcra-healthcare-aggregate"
+        ],
+        "release_observations": 0,
+        "aggregate_source_rows_screened": 4347789,
+        "publisher_release_count": 0,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 1,
+        "qualification_run_ids": [
+          45862337827
+        ],
+        "limit": "Healthcare-sector RCRA program aggregates; no facility-level violation or enforcement records retained.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-066",
-      "status": "discovered_not_tested"
+      "status": "private_aggregate_partial",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "epa-npdes-part1-healthcare-aggregate"
+        ],
+        "release_observations": 0,
+        "aggregate_source_rows_screened": 7116755,
+        "publisher_release_count": 0,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 1,
+        "qualification_run_ids": [
+          45862337827
+        ],
+        "limit": "NPDES Part 1 selected sector aggregates; other parts, monitoring and facility attribution pending.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-067",
@@ -584,7 +797,26 @@
     },
     {
       "id": "FS-070",
-      "status": "discovered_not_tested"
+      "status": "private_aggregate_archived",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "osha-enforcement-healthcare-aggregate"
+        ],
+        "release_observations": 0,
+        "aggregate_source_rows_screened": 18509801,
+        "publisher_release_count": 0,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 1,
+        "qualification_run_ids": [
+          45864494699
+        ],
+        "limit": "Inspection and violation source aggregates; activity identifiers not facility IDs, dates unresolved, no row-level inspection records retained.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-071",
@@ -729,7 +961,26 @@
     },
     {
       "id": "FS-105",
-      "status": "discovered_not_tested"
+      "status": "private_aggregate_archived",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "mn-boiler-aggregate"
+        ],
+        "release_observations": 0,
+        "aggregate_source_rows_screened": 171503,
+        "publisher_release_count": 0,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 1,
+        "qualification_run_ids": [
+          45866627645
+        ],
+        "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-106",
@@ -745,7 +996,26 @@
     },
     {
       "id": "FS-109",
-      "status": "discovered_not_tested"
+      "status": "private_aggregate_archived",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "wa-xray-aggregate"
+        ],
+        "release_observations": 0,
+        "aggregate_source_rows_screened": 6661,
+        "publisher_release_count": 0,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 1,
+        "qualification_run_ids": [
+          45855530267
+        ],
+        "limit": "Source registry aggregate; freshness and reuse review pending.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-110",
@@ -773,7 +1043,26 @@
     },
     {
       "id": "FS-116",
-      "status": "discovered_not_tested"
+      "status": "private_aggregate_archived",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "mn-elevator-aggregate"
+        ],
+        "release_observations": 0,
+        "aggregate_source_rows_screened": 51950,
+        "publisher_release_count": 0,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 1,
+        "qualification_run_ids": [
+          45866627645
+        ],
+        "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-117",
@@ -909,7 +1198,26 @@
     },
     {
       "id": "FS-150",
-      "status": "discovered_not_tested"
+      "status": "private_directory_archived",
+      "historical_qualification_status": "discovered_not_tested",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "il-idph-hospital-directory"
+        ],
+        "release_observations": 207,
+        "aggregate_source_rows_screened": 0,
+        "publisher_release_count": 1,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 0,
+        "qualification_run_ids": [
+          45866627645
+        ],
+        "limit": "207 directory observations; license/CCN/site and current operating-status joins unresolved.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
+      }
     },
     {
       "id": "FS-151",
@@ -937,7 +1245,7 @@
     },
     {
       "id": "FS-157",
-      "status": "blocked_key_format_review",
+      "status": "private_aggregate_key_review",
       "adapter": "epa-sdwa-search",
       "evidence": "45742515823",
       "publisher": "US EPA ECHO",
@@ -1068,6 +1376,25 @@
           "etag": "\"215a23e-65e823ff2a078\""
         },
         "reuse_review": "pending"
+      },
+      "historical_qualification_status": "blocked_key_format_review",
+      "private_archive_evidence": {
+        "ledger": "research/azure_archive_inventory_20261126.json",
+        "consolidated_audit_run": 45867832962,
+        "receipt_keys": [
+          "epa-sdwa-aggregate"
+        ],
+        "release_observations": 0,
+        "aggregate_source_rows_screened": 434757,
+        "publisher_release_count": 0,
+        "supplemental_numeric_archive_count": 0,
+        "aggregate_release_count": 1,
+        "qualification_run_ids": [
+          45855530267
+        ],
+        "limit": "Medical-area aggregate archived; unresolved publisher identifier formats and facility relationships remain blocked.",
+        "scope": "Private archive evidence; observations may overlap across source releases and register entries. No new row-level public data or reuse approval.",
+        "public_promotion": false
       }
     },
     {
@@ -4004,7 +4331,28 @@
       "payload_files": 208,
       "payload_bytes": 10886303843
     },
-    "qualification": "Individually verified complete receipts; consolidated inventory audit pending for this expanded ledger.",
+    "qualification": "PASS: all 208 pinned payloads reconciled by metadata inventory audit; individual completion receipts include payload SHA-256 readback. Not a full consolidated SHA recomputation.",
+    "public_promotion": false,
+    "consolidated_audit_run": 45867832962
+  },
+  "hcris_direct_measure_crosswalk": {
+    "evidence": "research/hcris_direct_measure_crosswalk_20261126.json",
+    "run": 45867832459,
+    "forms": {
+      "hospital": {
+        "qualified_measures": 9,
+        "report_intersection": 4339,
+        "exact_value_matches": 37965
+      },
+      "snf": {
+        "qualified_measures": 8,
+        "report_intersection": 13772,
+        "exact_value_matches": 104925
+      }
+    },
+    "qualification": "All 17 direct-coordinate mappings match on report-key intersections with no unequal comparable values; distinct source cutoff populations and absent values preserved.",
+    "monetary_scale_qualified": false,
+    "facility_financial_attribution": false,
     "public_promotion": false
   }
 }

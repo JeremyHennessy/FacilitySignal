@@ -1,0 +1,106 @@
+{
+  "format_version": 1,
+  "consolidated_audit_run": 45867832962,
+  "sources": {
+    "FS-004": {
+      "status": "private_archive_partial",
+      "keys": [
+        "nppes-monthly",
+        "nppes-weekly"
+      ],
+      "limit": "Type 2 organization observations only; monthly and weekly releases may overlap. Deactivation, taxonomy semantics and identity review pending."
+    },
+    "FS-005": {
+      "status": "private_archive_partial",
+      "keys": [
+        "ppef-type2-enrollment"
+      ],
+      "limit": "Type 2 enrollment projection only; no current active-enrollment or physical-site determination."
+    },
+    "FS-055": {
+      "status": "private_archive_partial",
+      "prefix": "hcris-",
+      "limit": "Eight modern provider-form scopes; report indexes, numeric cells and limited HHA alpha structures, not every form/year. No facility financial attribution; 17 direct hospital/SNF mappings qualified on matching report keys."
+    },
+    "FS-062": {
+      "status": "private_aggregate_archived",
+      "keys": [
+        "epa-frs-healthcare-aggregate"
+      ],
+      "limit": "Healthcare-sector aggregate evidence, not the complete FRS register or healthcare-site identity."
+    },
+    "FS-063": {
+      "status": "private_aggregate_partial",
+      "keys": [
+        "epa-frs-healthcare-aggregate",
+        "epa-sdwa-aggregate",
+        "epa-rcra-healthcare-aggregate",
+        "epa-npdes-part1-healthcare-aggregate"
+      ],
+      "limit": "Selected program/sector aggregates only; not all ECHO datasets."
+    },
+    "FS-064": {
+      "status": "private_aggregate_partial",
+      "keys": [
+        "epa-sdwa-aggregate"
+      ],
+      "limit": "Drinking-water search extract only; not all SDWIS systems, violations or enforcement."
+    },
+    "FS-065": {
+      "status": "private_aggregate_archived",
+      "keys": [
+        "epa-rcra-healthcare-aggregate"
+      ],
+      "limit": "Healthcare-sector RCRA program aggregates; no facility-level violation or enforcement records retained."
+    },
+    "FS-066": {
+      "status": "private_aggregate_partial",
+      "keys": [
+        "epa-npdes-part1-healthcare-aggregate"
+      ],
+      "limit": "NPDES Part 1 selected sector aggregates; other parts, monitoring and facility attribution pending."
+    },
+    "FS-070": {
+      "status": "private_aggregate_archived",
+      "keys": [
+        "osha-enforcement-healthcare-aggregate"
+      ],
+      "limit": "Inspection and violation source aggregates; activity identifiers not facility IDs, dates unresolved, no row-level inspection records retained."
+    },
+    "FS-105": {
+      "status": "private_aggregate_archived",
+      "keys": [
+        "mn-boiler-aggregate"
+      ],
+      "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained."
+    },
+    "FS-109": {
+      "status": "private_aggregate_archived",
+      "keys": [
+        "wa-xray-aggregate"
+      ],
+      "limit": "Source registry aggregate; freshness and reuse review pending."
+    },
+    "FS-116": {
+      "status": "private_aggregate_archived",
+      "keys": [
+        "mn-elevator-aggregate"
+      ],
+      "limit": "Statewide equipment source aggregate, no healthcare links or individual asset identifiers retained."
+    },
+    "FS-150": {
+      "status": "private_directory_archived",
+      "keys": [
+        "il-idph-hospital-directory"
+      ],
+      "limit": "207 directory observations; license/CCN/site and current operating-status joins unresolved."
+    },
+    "FS-157": {
+      "status": "private_aggregate_key_review",
+      "keys": [
+        "epa-sdwa-aggregate"
+      ],
+      "limit": "Medical-area aggregate archived; unresolved publisher identifier formats and facility relationships remain blocked."
+    }
+  }
+}

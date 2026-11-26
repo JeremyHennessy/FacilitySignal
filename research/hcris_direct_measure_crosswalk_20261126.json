@@ -1,0 +1,341 @@
+{
+  "format_version": 1,
+  "scope": "Report-record-number intersection, exact decimal parity, not all reports or facility-level financial attribution.",
+  "verified_commit": "6ba1189b4533ed6221fc1077486dcd9ade128a73",
+  "forms": {
+    "snf": {
+      "archive_only_report_keys": 850,
+      "archive_reports": 14622,
+      "archive_source_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+      "azure_writes": 0,
+      "dictionary_sha256": "5f75e6a5680a9e975501cc7935f14901e602cbf6e3c783396c733d6d6264df49",
+      "dictionary_url": "https://data.cms.gov/sites/default/files/2023-12/Skilled%20Nursing%20Facility%20Cost%20Report%20Data%20Dictionary_508.pdf",
+      "excluded_source_rows": {
+        "coordinate_review_rows": 8,
+        "numeric_syntax_review_rows": 0,
+        "unresolved_parent_rows": 0
+      },
+      "facility_financial_attribution": false,
+      "form": "snf",
+      "individual_values_retained": false,
+      "measures": {
+        "Contract Labor": {
+          "archive_coordinate_rows": 10700,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 10700,
+          "comparisons": {
+            "equal_decimal": 10115,
+            "puf_missing_archive_absent": 3657
+          },
+          "coordinate": [
+            "S300002",
+            "01400",
+            "00300"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Number of Beds": {
+          "archive_coordinate_rows": 14389,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 14389,
+          "comparisons": {
+            "equal_decimal": 13542,
+            "puf_missing_archive_absent": 230
+          },
+          "coordinate": [
+            "S300001",
+            "00800",
+            "00100"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "bed_count"
+        },
+        "Overhead Non-Salary Costs": {
+          "archive_coordinate_rows": 14395,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 14395,
+          "comparisons": {
+            "equal_decimal": 13546,
+            "puf_missing_archive_absent": 226
+          },
+          "coordinate": [
+            "A000000",
+            "10000",
+            "00200"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Bed Days Available": {
+          "archive_coordinate_rows": 14386,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 14386,
+          "comparisons": {
+            "equal_decimal": 13539,
+            "puf_missing_archive_absent": 233
+          },
+          "coordinate": [
+            "S300001",
+            "00800",
+            "00200"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "bed_days"
+        },
+        "Total Charges": {
+          "archive_coordinate_rows": 14393,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 14393,
+          "comparisons": {
+            "equal_decimal": 13545,
+            "puf_missing_archive_absent": 227
+          },
+          "coordinate": [
+            "C000000",
+            "10000",
+            "00200"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Costs": {
+          "archive_coordinate_rows": 14394,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 14394,
+          "comparisons": {
+            "equal_decimal": 13546,
+            "puf_missing_archive_absent": 226
+          },
+          "coordinate": [
+            "C000000",
+            "10000",
+            "00100"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Days Total": {
+          "archive_coordinate_rows": 14395,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 14395,
+          "comparisons": {
+            "equal_decimal": 13546,
+            "puf_missing_archive_absent": 226
+          },
+          "coordinate": [
+            "S300001",
+            "00800",
+            "00700"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "days_or_visits_source_definition"
+        },
+        "Total Salaries From Worksheet A": {
+          "archive_coordinate_rows": 14395,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 14395,
+          "comparisons": {
+            "equal_decimal": 13546,
+            "puf_missing_archive_absent": 226
+          },
+          "coordinate": [
+            "A000000",
+            "10000",
+            "00100"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        }
+      },
+      "monetary_scale_qualified": false,
+      "numeric_shards": 5,
+      "public_promotion": false,
+      "puf_only_report_keys": 815,
+      "puf_reports": 14587,
+      "puf_sha256": "adcef64de8d15b772aa37ca03bba162e78f781d22198b8fbb478810685e6c05c",
+      "report_cutoffs_assumed_equal": false,
+      "report_key_intersection": 13772,
+      "status": "COMPLETE",
+      "verified_archived_numeric_rows": 13769215,
+      "run": 45867832459,
+      "job": 140075235231
+    },
+    "hospital": {
+      "archive_only_report_keys": 1774,
+      "archive_reports": 6113,
+      "archive_source_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+      "azure_writes": 0,
+      "dictionary_sha256": "40342bb506d4c39ad6a3306d188f414e97e683c8c7241aa5e0975bdc59c87b81",
+      "dictionary_url": "https://data.cms.gov/sites/default/files/2024-03/9756088d-5280-4090-80b9-449d31ef25a3/Cost%20Report%20Data%20Dictionary%20Update.pdf",
+      "excluded_source_rows": {
+        "coordinate_review_rows": 0,
+        "numeric_syntax_review_rows": 0,
+        "unresolved_parent_rows": 0
+      },
+      "facility_financial_attribution": false,
+      "form": "hospital",
+      "individual_values_retained": false,
+      "measures": {
+        "Depreciation Cost": {
+          "archive_coordinate_rows": 5963,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 5963,
+          "comparisons": {
+            "equal_decimal": 4205,
+            "puf_missing_archive_absent": 134
+          },
+          "coordinate": [
+            "A700003",
+            "00300",
+            "00900"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Less Total Operating Expense": {
+          "archive_coordinate_rows": 6032,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 6032,
+          "comparisons": {
+            "equal_decimal": 4258,
+            "puf_missing_archive_absent": 81
+          },
+          "coordinate": [
+            "G300000",
+            "00400",
+            "00100"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Net Income": {
+          "archive_coordinate_rows": 6025,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 6025,
+          "comparisons": {
+            "equal_decimal": 4251,
+            "puf_missing_archive_absent": 88
+          },
+          "coordinate": [
+            "G300000",
+            "02900",
+            "00100"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Net Patient Revenue": {
+          "archive_coordinate_rows": 5876,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 5876,
+          "comparisons": {
+            "equal_decimal": 4128,
+            "puf_missing_archive_absent": 211
+          },
+          "coordinate": [
+            "G300000",
+            "00300",
+            "00100"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Number of Beds": {
+          "archive_coordinate_rows": 5991,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 5991,
+          "comparisons": {
+            "equal_decimal": 4221,
+            "puf_missing_archive_absent": 118
+          },
+          "coordinate": [
+            "S300001",
+            "01400",
+            "00200"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "bed_count"
+        },
+        "Overhead Non-Salary Costs": {
+          "archive_coordinate_rows": 6034,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 6034,
+          "comparisons": {
+            "equal_decimal": 4260,
+            "puf_missing_archive_absent": 79
+          },
+          "coordinate": [
+            "A000000",
+            "20000",
+            "00200"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Costs": {
+          "archive_coordinate_rows": 6034,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 6034,
+          "comparisons": {
+            "equal_decimal": 4260,
+            "puf_missing_archive_absent": 79
+          },
+          "coordinate": [
+            "C000001",
+            "20200",
+            "00300"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Patient Revenue": {
+          "archive_coordinate_rows": 5874,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 5874,
+          "comparisons": {
+            "equal_decimal": 4126,
+            "puf_missing_archive_absent": 213
+          },
+          "coordinate": [
+            "G300000",
+            "00100",
+            "00100"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        },
+        "Total Salaries From Worksheet A": {
+          "archive_coordinate_rows": 6030,
+          "archive_duplicate_coordinate_report_keys": 0,
+          "archive_report_keys_with_coordinate": 6030,
+          "comparisons": {
+            "equal_decimal": 4256,
+            "puf_missing_archive_absent": 83
+          },
+          "coordinate": [
+            "A000000",
+            "20000",
+            "00100"
+          ],
+          "qualification": "matched_report_parity_supported",
+          "unit_candidate": "monetary_source_value"
+        }
+      },
+      "monetary_scale_qualified": false,
+      "numeric_shards": 7,
+      "public_promotion": false,
+      "puf_only_report_keys": 1770,
+      "puf_reports": 6109,
+      "puf_sha256": "bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782",
+      "report_cutoffs_assumed_equal": false,
+      "report_key_intersection": 4339,
+      "status": "COMPLETE",
+      "verified_archived_numeric_rows": 19440697,
+      "run": 45867832459,
+      "job": 140075235262
+    }
+  },
+  "monetary_scale_qualified": false,
+  "public_promotion": false
+}
