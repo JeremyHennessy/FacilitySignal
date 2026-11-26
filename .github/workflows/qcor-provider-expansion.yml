@@ -1,0 +1,33 @@
+name: QCOR remaining provider workbook qualifications
+on:
+  push:
+    branches: [diagnostics/qcor-provider-expansion-20261126]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-qcor-provider-expansion
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        source: [cah, transplant, rhc, fqhc, prtf, corf, icf, hha]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - run: python -m scripts.qualify_qcor_expansion --source ${{ matrix.source }} --audit "$RUNNER_TEMP/qcor-${{ matrix.source }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qcor-${{ matrix.source }}-expansion-aggregate-only
+          path: ${{ runner.temp }}/qcor-${{ matrix.source }}.json
+          retention-days: 14
+          if-no-files-found: warn
