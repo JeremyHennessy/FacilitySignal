@@ -1,0 +1,32 @@
+name: QCOR ASC and portable X-ray workbook qualification
+on:
+  push:
+    branches: [diagnostics/qcor-asc-xray-20261126]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-qcor-asc-xray
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        source: [asc, xray]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - run: python -m scripts.qualify_qcor_provider --source ${{ matrix.source }} --audit "$RUNNER_TEMP/qcor-${{ matrix.source }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qcor-${{ matrix.source }}-aggregate-only
+          path: ${{ runner.temp }}/qcor-${{ matrix.source }}.json
+          retention-days: 14
+          if-no-files-found: warn
