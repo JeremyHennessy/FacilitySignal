@@ -1,7 +1,7 @@
 name: FacilitySignal consolidated private archive audit
 on:
   push:
-    branches: [main, build/azure-consolidated-inventory-20261126, build/azure-priority-completion-20261126]
+    branches: [main, build/azure-consolidated-inventory-20261126, build/azure-priority-completion-20261126, build/azure-state-date-exceptions-20261126]
     paths:
       - .github/workflows/azure-consolidated-inventory.yml
       - scripts/audit_azure_archive_inventory.py

@@ -339,15 +339,99 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-cmhc-2017-index",
+      "source_sha256": "2b52cc74a765737afc779009b6ebf042befefdc24b49fd26db426edabc7f6dbd",
+      "kind": "publisher",
+      "observations": 716,
+      "run": 45856388462,
+      "job": 140035884645,
+      "files": [
+        {
+          "bytes": 40960,
+          "path": "projection.sqlite3",
+          "sha256": "e8585b316df9099bda839d30e42bac00a57df3ca64b75eafd3654478ab5462bd"
+        },
+        {
+          "bytes": 8316,
+          "path": "audit.json",
+          "sha256": "160af06fe39aa318c5652713066bd3a73c8cafa4655a31bf2e6a57a2ca13915a"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-fqhc-2014-index",
+      "source_sha256": "92bb395dd7eb3e82859bb506d83e04d8e5510ae3e4cdaf40315bedafc3e07e4c",
+      "kind": "publisher",
+      "observations": 31727,
+      "run": 45856388462,
+      "job": 140035884557,
+      "files": [
+        {
+          "bytes": 1474560,
+          "path": "projection.sqlite3",
+          "sha256": "4b81494898250813bf2d59e8582ee7ba2c588fd2319f69938a356867d72fa89e"
+        },
+        {
+          "bytes": 12861,
+          "path": "audit.json",
+          "sha256": "bde11dde9fe5ad9ea3b9163885eb863706ffe2377eb177f1f5c199314130238e"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-rhc-2017-index",
+      "source_sha256": "2a333c852896ea58118d409b7e2e556f0e87961f8c96e002d355445a266bc40d",
+      "kind": "publisher",
+      "observations": 11617,
+      "run": 45856388462,
+      "job": 140035884691,
+      "files": [
+        {
+          "bytes": 544768,
+          "path": "projection.sqlite3",
+          "sha256": "5793617e9944912f703723b75c6c51844c5d84d26ebce28318a793dea66fb9c5"
+        },
+        {
+          "bytes": 9407,
+          "path": "audit.json",
+          "sha256": "1dd1f9ab66880be5e4c00366017c6dec8e481316b29660f629c3849d27671ae5"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "ppef-type2-enrollment",
+      "source_sha256": "c80bda03a8328b838d001aa696d0a26d9113de305fad236fb9eaa182d756ee30",
+      "kind": "publisher",
+      "observations": 380892,
+      "run": 45856388645,
+      "job": 140035904436,
+      "files": [
+        {
+          "bytes": 50708480,
+          "path": "projection.sqlite3",
+          "sha256": "b8cb44897984c55ccae85e52919c798fdabfddb6e1fee5a7b65fc5fea819e870"
+        },
+        {
+          "bytes": 4153,
+          "path": "audit.json",
+          "sha256": "f1631cbb929140cb9ba878f99c93bc9946d7bcd5447b7fad53eb7ec63dbacad6"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
-    "publisher_releases": 47,
-    "source_observations": 9654576,
+    "publisher_releases": 51,
+    "source_observations": 10079528,
     "derived_candidate_observations": 23520,
     "aggregate_evidence_releases": 2,
     "aggregate_source_rows_screened": 441418,
-    "payload_files": 96,
-    "payload_bytes": 1930526942
+    "payload_files": 104,
+    "payload_bytes": 1983330447
   }
 }
