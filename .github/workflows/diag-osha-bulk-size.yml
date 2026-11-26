@@ -1,0 +1,19 @@
+name: FacilitySignal OSHA bounded source metadata diagnostic
+on:
+  push:
+    branches: [diag/osha-bulk-size-20261126]
+permissions:
+  contents: read
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -c 'import json,shutil; from scripts.archive_osha_enforcement_coverage import URLS,head; print("OSHA_BULK_METADATA",json.dumps({"sources":{k:head(k) for k in URLS},"available_disk_bytes":shutil.disk_usage("/tmp").free},sort_keys=True))'
