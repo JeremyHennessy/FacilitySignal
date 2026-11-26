@@ -103,7 +103,7 @@ def annual_groups(z):
     groups={};prefixes=set()
     for info in files:
         name=Path(info.filename).name
-        m=re.fullmatch(r"([A-Za-z0-9]+)_(20[0-9]{2})_(alpha|nmrc|rpt)\\.csv",name,re.I)
+        m=re.fullmatch(r"([A-Za-z0-9]+)_(20[0-9]{2})_(alpha|nmrc|rpt)\.csv",name,re.I)
         require(m is not None and not info.flag_bits&1,"unrecognized annual form member")
         prefix,year,suffix=m.groups();prefixes.add(prefix.casefold())
         role={"alpha":"alpha","nmrc":"numeric","rpt":"report"}[suffix.lower()]
@@ -148,7 +148,7 @@ def project_annual(path,db_path):
 
 def project(path,db_path):
     with zipfile.ZipFile(path) as z:
-        annual=any(re.fullmatch(r"[A-Za-z0-9]+_20[0-9]{2}_(alpha|nmrc|rpt)\\.csv",Path(i.filename).name,re.I) for i in z.infolist())
+        annual=any(re.fullmatch(r"[A-Za-z0-9]+_20[0-9]{2}_(alpha|nmrc|rpt)\.csv",Path(i.filename).name,re.I) for i in z.infolist())
     return project_annual(path,db_path) if annual else project_single(path,db_path)
 
 def main():
