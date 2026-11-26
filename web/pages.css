@@ -128,3 +128,17 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 
 /* Institutional field labels need enough room at every advanced-search breakpoint. */
 .advanced-form>label:has(>select[name="institutional_field"]){grid-column:span 2}@media(max-width:1200px){.advanced-form>label:has(>select[name="institutional_field"]){grid-column:1/-1}}
+
+/* Source-scoped organization research. */
+.chain-explorer{border:1px solid var(--border);background:var(--surface);border-radius:8px;padding:16px;margin:18px 0;min-width:0}
+.chain-explorer>h2{margin:0 0 6px}
+.chain-form{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:12px 0}
+.chain-form>label{flex:1 1 210px;min-width:0}
+.chain-form input,.chain-form select{width:100%;min-width:0}
+.chain-form>a{align-self:center;font-size:13px}
+.chain-group-title{font-size:18px;margin:14px 0 4px;overflow-wrap:anywhere}
+.chain-groups table,.chain-members table{min-width:680px}
+.chain-groups th:first-child,.chain-groups td:first-child,.chain-members th:first-child,.chain-members td:first-child{min-width:220px;overflow-wrap:break-word}
+.chain-groups td:not(:first-child),.chain-members td:not(:first-child){white-space:nowrap}
+.nursing-chain-profile a{overflow-wrap:anywhere}
+@media(max-width:720px){.chain-explorer{padding:12px}.chain-form>label{flex-basis:100%}.chain-groups table,.chain-members table{min-width:680px!important}}

@@ -29,7 +29,8 @@ try:
             for i,ident in enumerate(ids):
                 expected=[[f"{x:,}" if type(x) is int else x for x in row] for row in groups[ident]["rows"]]
                 assert [r.locator("td").all_inner_texts() for r in tables.nth(i).locator("tbody tr").all()]==expected
-            assert "Named chain memberships are not published" in page.locator("#app").inner_text()
+            assert "Publisher-defined affiliations are not legal ownership" in page.locator("#app").inner_text()
+            assert page.locator(".chain-explorer[data-ready=true]").count()==1
             assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
             page.screenshot(path=str(OUT/f"{width}-nursing-portfolios.png"),full_page=True)
             for pathway,fragment in [("facilities","#facilities?source=nursing&state=NY"),("capacity","#capacity?source=nursing&state=NY"),("nursing-health","#citations?source=nursing-health&state=NY"),("nursing-fire","#citations?source=nursing-fire&state=NY")]:

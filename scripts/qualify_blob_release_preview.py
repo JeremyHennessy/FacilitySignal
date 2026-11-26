@@ -17,7 +17,7 @@ ROOT=Path(__file__).resolve().parents[1]
 LOCK="research/snapshot_release_20261125.json"
 SOURCES=set(fs.CATALOG)
 NEW_STATES={"private_candidate_qualified","candidate_already_qualified"}
-DEPS={"home-health":["home_health_service_evidence"],"dialysis":["dialysis_registry_corroboration","institutional_public_flags_pack_requalification"],"long-term-hospital":["long_term_hospital_capacity_enrichment"],"hospital":["hospital_infrastructure_and_laboratory_evidence","institutional_public_flags_pack_requalification"],"nursing":["nursing_provider_and_chain_evidence","nursing_citation_name_join","institutional_public_flags_pack_requalification"],"nursing-health":["nursing_health_citation_evidence"],"nursing-fire":["nursing_fire_citation_evidence"],"hospice":[],"rehabilitation":[]}
+DEPS={"home-health":["home_health_service_evidence"],"dialysis":["dialysis_registry_corroboration","institutional_public_flags_pack_requalification"],"long-term-hospital":["long_term_hospital_capacity_enrichment"],"hospital":["hospital_infrastructure_and_laboratory_evidence","institutional_public_flags_pack_requalification"],"nursing":["nursing_provider_and_chain_evidence","nursing_citation_name_join","institutional_public_flags_pack_requalification","nursing_chain_membership_pack_requalification"],"nursing-health":["nursing_health_citation_evidence"],"nursing-fire":["nursing_fire_citation_evidence"],"hospice":[],"rehabilitation":[]}
 class ReadOnlyWeeklyAzure(weekly.WeeklyAzure):
     def create(self,*args,**kwargs):raise ValueError("release preview is read-only")
     def delete_probe(self,*args,**kwargs):raise ValueError("release preview is read-only")

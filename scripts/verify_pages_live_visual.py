@@ -16,7 +16,7 @@ OUT=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"pages-live-visual-evidence"
 OUT.mkdir(exist_ok=True)
 def sha(data):return hashlib.sha256(data).hexdigest()
 ASSETS=("web/pages.js","web/pages.css")
-HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json","web/public-directory/manifest.json","web/public-directory/long-term-hospital.json","web/public-intelligence.json","web/dialysis-service-evidence.json","web/public-directory/dialysis.json","web/hha-service-evidence.json","web/public-directory/home-health.json")}
+HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json","web/public-directory/manifest.json","web/public-directory/long-term-hospital.json","web/public-intelligence.json","web/dialysis-service-evidence.json","web/public-directory/dialysis.json","web/hha-service-evidence.json","web/public-directory/home-health.json","web/nursing-chain-evidence.json")}
 VERSIONS={x:x+"?v="+HASHES[x][:16] for x in ASSETS}
 MANIFEST=json.loads((ROOT/"web/public-directory/manifest.json").read_text())
 TOTAL=MANIFEST["provider_rows"]
@@ -154,7 +154,25 @@ def run(base,local):
                     page.locator("#app").screenshot(path=str(OUT/f"{width}-hospital-infrastructure-full.png"))
                 if name=="nursing-portfolios":
                     assert page.locator("#app .intelligence-table").count()==3
-                    assert "Named chain memberships are not published" in page.locator("#app").inner_text()
+                    assert "Publisher-defined affiliations are not legal ownership" in page.locator("#app").inner_text()
+                    loc=page.locator(".chain-explorer[data-ready=true]");loc.wait_for()
+                    assert loc.locator(".chain-status").get_attribute("data-total")=="612"
+                    got=[r for r in responses if r.url==base+"web/nursing-chain-evidence.json?v="+HASHES["web/nursing-chain-evidence.json"][:16]]
+                    assert got and sha(got[-1].body())==HASHES["web/nursing-chain-evidence.json"],"Stale chain pack"
+                    loc.screenshot(path=str(OUT/f"{width}-chain-directory.png"))
+                    loc.locator(".chain-groups tbody tr a").first.click()
+                    detail=page.locator(".chain-explorer[data-ready=true]");detail.locator(".chain-members").wait_for()
+                    assert int(detail.locator(".chain-status").get_attribute("data-total"))>0
+                    assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+                    detail.screenshot(path=str(OUT/f"{width}-chain-members.png"))
+                    detail.locator(".chain-members tbody tr a").first.click()
+                    page.locator(".nursing-chain-profile[data-evidence=assigned]").wait_for()
+                    page.locator(".nursing-chain-profile").screenshot(path=str(OUT/f"{width}-chain-profile.png"))
+                    page.get_by_role("link",name="Back to results").click()
+                    page.locator(".chain-explorer[data-ready=true] .chain-members").wait_for()
+                    page.goto(base+"#nursing-portfolios")
+                    page.locator(".chain-explorer[data-ready=true] .chain-groups").wait_for()
+                    page.get_by_role("heading",name="Nursing cross-source group corroboration").wait_for()
                     seen=[r for r in responses if r.url==base+"web/public-intelligence.json"]
                     assert seen and sha(seen[-1].body())==HASHES["web/public-intelligence.json"],"Stale nursing aggregate evidence"
                     page.locator("#app").screenshot(path=str(OUT/f"{width}-nursing-portfolio-full.png"))

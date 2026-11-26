@@ -32,9 +32,7 @@ def validate_stage(stage,receipt,root):
         want={k:pin[k] for k in ("path","bytes","sha256")}
         require(record(stage/key,key)==record(root/key,key)==want,"staged pack or approved checkout differs: "+key)
     return pins
-def build(stage,stage_receipt,out,manifest,root=ROOT):
-    require(not out.exists() and not manifest.exists(),"new bundle output required")
-    receipt=read(stage_receipt);validate_stage(stage,receipt,root)
+def runtime_paths(root=ROOT):
     runtime=set(RUNTIME)
     supplement={"web/institutional-evidence.json","web/institutional-evidence-manifest.json"}
     present={key for key in supplement if (root/key).exists()}
@@ -44,6 +42,17 @@ def build(stage,stage_receipt,out,manifest,root=ROOT):
         require(root.resolve()==ROOT.resolve(),"institutional candidate requires exact repository inputs")
         require(read(root/"web/institutional-evidence-manifest.json")==manifest_for(root/"web"),"institutional candidate qualification drift")
         runtime.update(supplement)
+    chain="web/nursing-chain-evidence.json"
+    if (root/chain).exists():
+        from scripts.build_nursing_chain_pack import check
+        checked=check(root/chain,root)
+        require('payload:"'+checked["sha256"]+'"' in (root/"web/pages.js").read_text(),"chain payload not pinned in renderer")
+        runtime.add(chain)
+    return runtime
+def build(stage,stage_receipt,out,manifest,root=ROOT):
+    require(not out.exists() and not manifest.exists(),"new bundle output required")
+    receipt=read(stage_receipt);validate_stage(stage,receipt,root)
+    runtime=runtime_paths(root)
     out.mkdir(parents=True)
     records=[]
     for key in sorted(runtime):
