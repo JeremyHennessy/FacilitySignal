@@ -409,6 +409,680 @@
               8867
             ]
           ]
+        },
+        {
+          "id": "qies-hospital-service-subset",
+          "title": "Hospital service provision — matched research subset",
+          "note": "Q3 2026 QIES category 01, 5,362 source rows with program code 00 and exact CCN/state candidate in November Care Compare. Historical 2023 code labels remain provisional. Staff, arrangement, both and not provided are separate reported modes; blank is unknown. Not current operation, confirmed contracts or installed assets.",
+          "run": 45829855217,
+          "columns": [
+            "Reported service",
+            "Staff",
+            "Arrangement",
+            "Both",
+            "Not provided",
+            "Blank"
+          ],
+          "source": "https://data.cms.gov/sites/default/files/2023-07/0ca58d5d-7914-4532-b22d-41741d3e6151/P.QWB.POSQ.OTHER.LAYOUT.MAR23.pdf",
+          "rows": [
+            [
+              "Pharmacy",
+              3754,
+              562,
+              769,
+              123,
+              154
+            ],
+            [
+              "Clinical laboratory",
+              3000,
+              668,
+              1364,
+              196,
+              134
+            ],
+            [
+              "Acute renal dialysis",
+              823,
+              1207,
+              295,
+              2903,
+              134
+            ],
+            [
+              "Anesthesia",
+              1245,
+              2229,
+              691,
+              1063,
+              134
+            ],
+            [
+              "CT Scan",
+              3332,
+              177,
+              431,
+              1288,
+              134
+            ],
+            [
+              "MRI",
+              2269,
+              862,
+              509,
+              1588,
+              134
+            ],
+            [
+              "PET Scan",
+              634,
+              655,
+              243,
+              3696,
+              134
+            ],
+            [
+              "Nuclear Medicine",
+              2529,
+              543,
+              508,
+              1648,
+              134
+            ],
+            [
+              "Dental",
+              673,
+              729,
+              179,
+              3647,
+              134
+            ],
+            [
+              "Dietary",
+              3073,
+              1085,
+              813,
+              257,
+              134
+            ],
+            [
+              "Cardiac catheterization lab",
+              1420,
+              77,
+              277,
+              3454,
+              134
+            ],
+            [
+              "Inpatient Surgical",
+              3173,
+              73,
+              666,
+              1316,
+              134
+            ],
+            [
+              "Outpatient Surgery",
+              3168,
+              92,
+              760,
+              1208,
+              134
+            ],
+            [
+              "Respiratory Care",
+              3926,
+              188,
+              231,
+              863,
+              154
+            ],
+            [
+              "Adult Inpatient Psychiatric",
+              1390,
+              197,
+              334,
+              3307,
+              134
+            ],
+            [
+              "Alcohol and/or Drug",
+              888,
+              186,
+              232,
+              3922,
+              134
+            ],
+            [
+              "Audiology",
+              693,
+              658,
+              119,
+              3758,
+              134
+            ],
+            [
+              "Burn Care Unit",
+              141,
+              68,
+              27,
+              4992,
+              134
+            ],
+            [
+              "Cardiac Thoracic Surgery",
+              978,
+              90,
+              211,
+              3949,
+              134
+            ],
+            [
+              "CARF Inpatient Rehabilitation",
+              1986,
+              317,
+              333,
+              2592,
+              134
+            ],
+            [
+              "Chemotherapy",
+              1700,
+              104,
+              340,
+              3084,
+              134
+            ],
+            [
+              "Chiropractic",
+              113,
+              52,
+              13,
+              5050,
+              134
+            ],
+            [
+              "Coronary Care Unit",
+              1725,
+              56,
+              237,
+              3210,
+              134
+            ],
+            [
+              "Designated Trauma Center",
+              1219,
+              46,
+              372,
+              3591,
+              134
+            ],
+            [
+              "Diagnostic Radiology",
+              3008,
+              556,
+              1383,
+              281,
+              134
+            ],
+            [
+              "Emergency Department",
+              2452,
+              214,
+              1642,
+              920,
+              134
+            ],
+            [
+              "Emergency Psychiatric",
+              1142,
+              607,
+              634,
+              2845,
+              134
+            ],
+            [
+              "Extracorporeal shockwave lithotripsy",
+              443,
+              750,
+              478,
+              3557,
+              134
+            ],
+            [
+              "Forensic Psychiatric",
+              173,
+              69,
+              53,
+              4933,
+              134
+            ],
+            [
+              "Geriatric Psychiatric",
+              763,
+              205,
+              280,
+              3980,
+              134
+            ],
+            [
+              "Gerontological Specialty",
+              434,
+              56,
+              102,
+              4636,
+              134
+            ],
+            [
+              "Medical Surgical ICU",
+              2633,
+              55,
+              418,
+              2122,
+              134
+            ],
+            [
+              "Medicare-certified transplant center",
+              197,
+              39,
+              40,
+              4952,
+              134
+            ],
+            [
+              "Neonatal ICU",
+              752,
+              43,
+              279,
+              4154,
+              134
+            ],
+            [
+              "Neonatal Nursery",
+              1739,
+              49,
+              288,
+              3152,
+              134
+            ],
+            [
+              "Neurosurgical",
+              1106,
+              150,
+              280,
+              3692,
+              134
+            ],
+            [
+              "Non-Medicare Organ Transplant",
+              163,
+              429,
+              75,
+              4561,
+              134
+            ],
+            [
+              "Obstetrics",
+              2345,
+              84,
+              384,
+              2415,
+              134
+            ],
+            [
+              "Ophthalmic Surgery",
+              1516,
+              284,
+              527,
+              2901,
+              134
+            ],
+            [
+              "Optometric",
+              439,
+              241,
+              101,
+              4447,
+              134
+            ],
+            [
+              "Operating room services",
+              3469,
+              58,
+              534,
+              1167,
+              134
+            ],
+            [
+              "Orthopedic Surgery",
+              2237,
+              227,
+              660,
+              2104,
+              134
+            ],
+            [
+              "Occupational therapy",
+              3110,
+              903,
+              254,
+              941,
+              154
+            ],
+            [
+              "Outpatient",
+              3560,
+              80,
+              944,
+              644,
+              134
+            ],
+            [
+              "Outpatient Psychiatric",
+              1037,
+              226,
+              283,
+              3682,
+              134
+            ],
+            [
+              "Outpatient Rehabilitation",
+              2403,
+              339,
+              286,
+              2200,
+              134
+            ],
+            [
+              "Pediatric",
+              2508,
+              78,
+              408,
+              2234,
+              134
+            ],
+            [
+              "Pediatric ICU",
+              452,
+              36,
+              97,
+              4643,
+              134
+            ],
+            [
+              "Postoperative Recovery Room",
+              3753,
+              51,
+              215,
+              1209,
+              134
+            ],
+            [
+              "Child / adolescent psychiatric",
+              649,
+              216,
+              180,
+              4183,
+              134
+            ],
+            [
+              "Physical therapy",
+              3473,
+              861,
+              351,
+              523,
+              154
+            ],
+            [
+              "Reconstructive Surgery",
+              1228,
+              97,
+              264,
+              3639,
+              134
+            ],
+            [
+              "Social services",
+              4287,
+              248,
+              221,
+              452,
+              154
+            ],
+            [
+              "Speech Pathology",
+              2690,
+              1282,
+              200,
+              1036,
+              154
+            ],
+            [
+              "Surgical ICU",
+              1302,
+              38,
+              235,
+              3653,
+              134
+            ],
+            [
+              "Therapeutic Radiology",
+              1528,
+              261,
+              741,
+              2698,
+              134
+            ],
+            [
+              "Urgent Care Center",
+              563,
+              52,
+              142,
+              4471,
+              134
+            ]
+          ]
+        },
+        {
+          "id": "qies-hospital-count-subset",
+          "title": "Hospital infrastructure and affiliation count coverage",
+          "note": "Same 5,362-record research subset; cells count source records with positive, explicit zero or other/missing numeric values, not beds, rooms, sites or FTE totals. Historical field meanings remain provisional. Counts can overlap; unresolved operating-room count and unreviewed staffing sums excluded.",
+          "run": 45829855217,
+          "columns": [
+            "Reported count field",
+            "Positive records",
+            "Zero records",
+            "Other / missing"
+          ],
+          "source": "https://data.cms.gov/sites/default/files/2023-07/0ca58d5d-7914-4532-b22d-41741d3e6151/P.QWB.POSQ.OTHER.LAYOUT.MAR23.pdf",
+          "rows": [
+            [
+              "Affiliated Count: Ambulance Services",
+              92,
+              5270,
+              0
+            ],
+            [
+              "Affiliated Count: ASC",
+              56,
+              5306,
+              0
+            ],
+            [
+              "Affiliated Count: Co-Located Hospital",
+              208,
+              5154,
+              0
+            ],
+            [
+              "Affiliated Count: ESRD",
+              171,
+              5191,
+              0
+            ],
+            [
+              "Affiliated Count: FQHC",
+              11,
+              5351,
+              0
+            ],
+            [
+              "Affiliated Count: HHA",
+              623,
+              4739,
+              0
+            ],
+            [
+              "Affiliated Count: Hospice",
+              378,
+              4984,
+              0
+            ],
+            [
+              "Affiliated Count: OPO",
+              14,
+              5348,
+              0
+            ],
+            [
+              "Affiliated Count: PRTF",
+              8,
+              5354,
+              0
+            ],
+            [
+              "Affiliated Count: RHC",
+              689,
+              4673,
+              0
+            ],
+            [
+              "Affiliated Count: SNF",
+              434,
+              4928,
+              0
+            ],
+            [
+              "Affiliated Count: Total",
+              1608,
+              3754,
+              0
+            ],
+            [
+              "Off-Site Count: Cancer Hospital Satellites",
+              18,
+              5344,
+              0
+            ],
+            [
+              "Off-Site Count: Childrens Hospital Satellites",
+              25,
+              5337,
+              0
+            ],
+            [
+              "Off-Site Count: Emergency Departments",
+              1024,
+              4338,
+              0
+            ],
+            [
+              "Off-Site Count: Inpatient Remote Locations",
+              290,
+              5072,
+              0
+            ],
+            [
+              "Off-Site Count: LTC Hospital Satellites",
+              16,
+              5346,
+              0
+            ],
+            [
+              "Off-Site Count: Ophthalmic Surgery Units",
+              274,
+              5088,
+              0
+            ],
+            [
+              "Off-Site Count: Other Locations",
+              2114,
+              3248,
+              0
+            ],
+            [
+              "Off-Site Count: Psychiatric Hospitals",
+              51,
+              5311,
+              0
+            ],
+            [
+              "Off-Site Count: Psychiatric Units",
+              36,
+              5326,
+              0
+            ],
+            [
+              "Off-Site Count: Rehabilitation Hospitals",
+              18,
+              5344,
+              0
+            ],
+            [
+              "Off-Site Count: Rehabilitation Units",
+              30,
+              5332,
+              0
+            ],
+            [
+              "Off-Site Count: Urgent Care Centers",
+              156,
+              5206,
+              0
+            ],
+            [
+              "Off-Site Location Count",
+              2638,
+              2724,
+              0
+            ],
+            [
+              "Bed Count: Certified",
+              5362,
+              0,
+              0
+            ],
+            [
+              "Bed Count: Total",
+              5362,
+              0,
+              0
+            ],
+            [
+              "Cardiac Catheterization Procedure Room Count",
+              1299,
+              4063,
+              0
+            ],
+            [
+              "Endoscopy Procedure Room Count",
+              2474,
+              2888,
+              0
+            ],
+            [
+              "Psychiatric Unit Bed Count",
+              1589,
+              3773,
+              0
+            ],
+            [
+              "Rehabilitation Unit Bed Count",
+              1162,
+              4200,
+              0
+            ]
+          ]
         }
       ]
     },
@@ -1181,6 +1855,47 @@
               "Consolidation",
               0,
               0
+            ]
+          ]
+        },
+        {
+          "id": "qies-hospital-comparison",
+          "title": "Hospital registry and directory comparison",
+          "note": "Q3 2026 QIES compared to November 12, 2026 Care Compare hospital directory. Exact identifier and state candidates are not unique physical sites; literal address/city/ZIP agreement is corroboration only. Code 00 is historical program status, not current operation.",
+          "run": 45829855217,
+          "columns": [
+            "Evidence measure",
+            "Records / pairs"
+          ],
+          "source": "https://data.cms.gov/sites/default/files/2023-07/0ca58d5d-7914-4532-b22d-41741d3e6151/P.QWB.POSQ.OTHER.LAYOUT.MAR23.pdf",
+          "rows": [
+            [
+              "QIES category 01 records",
+              13598
+            ],
+            [
+              "Care Compare hospital records",
+              5435
+            ],
+            [
+              "Exact identifier and state candidate pairs",
+              5425
+            ],
+            [
+              "Address, city and ZIP text corroborated",
+              5021
+            ],
+            [
+              "Program code 00 with same-state candidate",
+              5362
+            ],
+            [
+              "Program code 00 without same-state candidate",
+              1671
+            ],
+            [
+              "Other or unknown program code",
+              6565
             ]
           ]
         }
