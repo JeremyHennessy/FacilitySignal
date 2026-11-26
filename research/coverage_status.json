@@ -41,7 +41,12 @@
       "weekly_organization_rows": 6627,
       "retained_database_rows": 0,
       "reuse_review": "pending",
-      "note": "Latest weekly V2 increment independently qualified. Full replacement monthly processing is separate; do not infer new facilities, unique national organization count or current licensing. Other weekly increments/deactivation update and ordered reconciliation remain pending."
+      "note": "Full November V2 primary file plus type-2-filtered reference membership structurally qualified, and Nov 16–22 weekly increment independently qualified. No union/ordered application of increments, deactivation-file review, taxonomy semantics, canonical site matches, endpoint processing or persistent integration. Registration does not establish licensure, site count or active operation.",
+      "monthly_release": "2026-11-09",
+      "monthly_source_rows": 9891116,
+      "monthly_organization_npis": 1990237,
+      "monthly_untyped_deactivation_rows": 360013,
+      "monthly_individual_rows_excluded": 7540866
     },
     {
       "id": "FS-005",
@@ -3293,6 +3298,129 @@
           "last_modified": "Mon, 23 Nov 2026 07:07:23 GMT",
           "etag": "\"21967220060d2cecd1d2fff0e94fc6d4:1795417642.55267\"",
           "retrieved_at": "2026-11-26T13:46:55.344646+00:00"
+        },
+        "retained_row_level_records": 0,
+        "reuse_review": "pending",
+        "limits": "NPPES registration-level structural qualification only. Weekly is incremental, not national baseline. Type 1 excluded; untyped deactivated rows not inferred as Type 2. Endpoint values not parsed. No site identity or license/compliance inference. No persistent projection."
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false,
+      "included_in_expanded_projection_total": false
+    },
+    "monthly": {
+      "commit": "0baac6db4fbf13d087e1631427ced9c0de86b411",
+      "run": 45832460359,
+      "job_id": 139952591463,
+      "job_conclusion": "success",
+      "artifact": 15124170123,
+      "artifact_digest": "sha256:786b8f140ad7ef652590965d80a35cbaf8c65bf1eac94a9141910cd2644d0612",
+      "audit": {
+        "input_rows": 9891116,
+        "columns": 330,
+        "entity_classes": {
+          "individual_excluded": 7540866,
+          "organization": 1990237,
+          "untyped_with_deactivation": 360013
+        },
+        "organization_key_counts": {
+          "valid_organization_npi": 1990237
+        },
+        "distinct_valid_organization_npis": 1990237,
+        "duplicate_valid_organization_rows": 0,
+        "organization_field_states": {
+          "legal_name": {
+            "present": 1990206,
+            "blank": 31
+          },
+          "enumeration": {
+            "reported": 1990237
+          },
+          "updated": {
+            "reported": 1990237
+          },
+          "deactivation": {
+            "blank": 1987784,
+            "reported": 2453
+          },
+          "reactivation": {
+            "blank": 1987784,
+            "reported": 2453
+          },
+          "primary_taxonomy_switch": {
+            "Y": 1736326,
+            "N": 253911
+          },
+          "taxonomy_presence": {
+            "present": 1990237
+          },
+          "practice_state_presence": {
+            "present": 1990237
+          },
+          "practice_country_presence": {
+            "present": 1990237
+          }
+        },
+        "reference_files": {
+          "other_name": {
+            "input_rows": 866962,
+            "columns": 4,
+            "key_counts": {
+              "type2_key_match": 814577,
+              "outside_qualified_type2_scope": 52385
+            },
+            "distinct_matched_type2_npis": 647587,
+            "limits": "Reference membership only; no address, alternative name or individual/endpoint value retained. Outside scope is not an orphan or invalid registration."
+          },
+          "practice_location": {
+            "input_rows": 1284848,
+            "columns": 10,
+            "key_counts": {
+              "outside_qualified_type2_scope": 1147536,
+              "type2_key_match": 137312
+            },
+            "distinct_matched_type2_npis": 69772,
+            "limits": "Reference membership only; no address, alternative name or individual/endpoint value retained. Outside scope is not an orphan or invalid registration."
+          }
+        },
+        "archive_members": {
+          "endpoint": {
+            "uncompressed_bytes": 126953621,
+            "crc32": "b6ea0fbb",
+            "parsed": false
+          },
+          "practice_location": {
+            "uncompressed_bytes": 122937948,
+            "crc32": "c1db56da",
+            "parsed": true
+          },
+          "main": {
+            "uncompressed_bytes": 11776341517,
+            "crc32": "5422f7b1",
+            "parsed": true
+          },
+          "header": {
+            "uncompressed_bytes": 12267,
+            "crc32": "09b8631b",
+            "parsed": true
+          },
+          "other_name": {
+            "uncompressed_bytes": 50408886,
+            "crc32": "c15453a1",
+            "parsed": true
+          }
+        },
+        "endpoint_values_parsed": false,
+        "source_id": "FS-004",
+        "scope": "monthly",
+        "publisher_label": "NPPES Data Dissemination V.2 (November 09, 2026)",
+        "publisher": {
+          "url": "https://download.cms.gov/nppes/NPPES_Data_Dissemination_November_2026_V2.zip",
+          "bytes": 1130479129,
+          "sha256": "c5a34fba9b2e04bcb87358a1e3f9f4bbfc79b49b71fb37b71f9de43570c18713",
+          "last_modified": "Tue, 03 Nov 2026 03:29:06 GMT",
+          "etag": "\"33d578345178502a44a8147e66542734:1793676464.781416\"",
+          "retrieved_at": "2026-11-26T13:47:12.458212+00:00"
         },
         "retained_row_level_records": 0,
         "reuse_review": "pending",
