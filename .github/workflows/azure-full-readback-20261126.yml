@@ -1,13 +1,5 @@
 name: FacilitySignal one-time pinned full SHA-256 readback
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - '.github/workflows/azure-full-readback-20261126.yml'
-      - 'scripts/restore_pinned_archive_samples.py'
-      - 'tests/test_pinned_archive_restore.py'
-      - 'scripts/reconcile_storage_coverage.js'
-      - 'tests/storage_coverage_reconciliation.test.js'
   push:
     branches: [main]
     paths:
@@ -16,6 +8,8 @@ permissions:
   contents: read
 jobs:
   qualify:
+    # This completed historical experiment must not qualify a newer inventory.
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.event_name == 'push' && github.run_attempt == 1 && contains(github.event.head_commit.message, '[full-sha-20261126]')
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
