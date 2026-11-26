@@ -49,14 +49,16 @@ def totals(ledger):
     require(len({(x["key"],x["source_sha256"]) for x in receipts})==len(receipts),"duplicate source version")
     for x in receipts:
         src.prefix_for(x["key"],x["source_sha256"])
-        require(x["kind"] in ("publisher","derived") and (x["key"]=="pecos-nppes-identity-candidates")== (x["kind"]=="derived"),"source grain")
+        require(x["kind"] in ("publisher","derived","aggregate") and (x["key"]=="pecos-nppes-identity-candidates")== (x["kind"]=="derived"),"source grain")
         require(len(x["files"])==2 and {f["path"] for f in x["files"]}=={"projection.sqlite3","audit.json"},"receipt payload scope")
-        require(type(x["observations"]) is int and x["observations"]>0,"source count")
+        require(type(x["observations"]) is int and (x["observations"]==0 and type(x.get("screened_observations")) is int and x["screened_observations"]>0 if x["kind"]=="aggregate" else x["observations"]>0),"source count")
         for f in x["files"]:
             require(type(f["bytes"]) is int and f["bytes"]>0 and re.fullmatch(r"[a-f0-9]{64}",f["sha256"]),"payload pin")
     result={"publisher_releases":sum(x["source_releases"] for x in layers)+sum(x["kind"]=="publisher" for x in receipts),
             "source_observations":sum(x["observations"] for x in layers)+sum(x["observations"] for x in receipts if x["kind"]=="publisher"),
             "derived_candidate_observations":sum(x["observations"] for x in receipts if x["kind"]=="derived"),
+            "aggregate_evidence_releases":sum(x["kind"]=="aggregate" for x in receipts),
+            "aggregate_source_rows_screened":sum(x["screened_observations"] for x in receipts if x["kind"]=="aggregate"),
             "payload_files":sum(x["files"] for x in layers)+sum(len(x["files"]) for x in receipts),
             "payload_bytes":sum(x["payload_bytes"] for x in layers)+sum(f["bytes"] for x in receipts for f in x["files"])}
     require(result==ledger["totals"],"ledger total drift")
@@ -76,7 +78,11 @@ def source_matches(rec,pin,national):
     require(rec["key"]==pin["key"] and rec["source_sha256"]==pin["source_sha256"] and rec["payload_prefix"]==src.prefix_for(pin["key"],pin["source_sha256"])+"/files","source receipt identity")
     require(rec["base_receipt_sha256"]==pin["base_receipt_sha256"]==national["receipt_sha256"] and rec["base_release"]==national["pointer"]["release"],"source base lineage")
     require(rec["files"]==pin["files"] and rec["total_bytes"]==sum(f["bytes"] for f in pin["files"]),"source payload drift")
-    require(rec["sha256_readback"] is True and rec["public_promotion"] is False and observation_count(rec)==pin["observations"],"source count or qualification drift")
+    require(rec["sha256_readback"] is True and rec["public_promotion"] is False ,"source count or qualification drift")
+    if pin["kind"]=="aggregate":
+        require(rec["summary"].get("aggregate_rows")==1 and rec["summary"].get("source_rows_screened")==pin["screened_observations"] and pin["observations"]==0,"aggregate receipt scope")
+    else:
+        require(observation_count(rec)==pin["observations"] and "aggregate_rows" not in rec["summary"],"source observation drift")
     require((rec["publisher"].get("kind")=="derived_identity_candidate_release")== (pin["kind"]=="derived"),"derived/publisher mismatch")
 
 def verify_archive(store,ledger,full=False):

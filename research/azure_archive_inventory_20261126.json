@@ -253,13 +253,101 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-snf-2024-index",
+      "source_sha256": "a9937de2e88e083f13f32a1fb92998de3dbbd57d0542761822dc1b55ef5a5336",
+      "kind": "publisher",
+      "observations": 14622,
+      "run": 45855006051,
+      "job": 140031069208,
+      "files": [
+        {
+          "bytes": 610304,
+          "path": "projection.sqlite3",
+          "sha256": "8a6e60fd46347934147a6af61caef18825df7f4886b957d7b0eea2364d2a5bc4"
+        },
+        {
+          "bytes": 2054,
+          "path": "audit.json",
+          "sha256": "3c32e0347f7e7d9edb1998383e73c08c983e68adf5eb98a8c2355a1675593c32"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "il-reportcard-ascs",
+      "source_sha256": "1f6545c8d698ac517aacc6354b2daef3855f763a1c9125c0c905686f0cab0d26",
+      "kind": "publisher",
+      "observations": 187,
+      "run": 45855530267,
+      "job": 140032909698,
+      "files": [
+        {
+          "bytes": 24576,
+          "path": "projection.sqlite3",
+          "sha256": "94853473ef019c58f718e3bc745bf894fd5ffc1d442a0417748e328f8342b4e5"
+        },
+        {
+          "bytes": 1012,
+          "path": "audit.json",
+          "sha256": "6ce94cbbebeeef8603edf16863d69752740c40970ea6aa12a2a6707b9336757a"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "wa-xray-aggregate",
+      "source_sha256": "eec10fcf396ed921ba35b2b55b4f4766f77e32470ed466acb29c7d4ba447b0c7",
+      "kind": "aggregate",
+      "observations": 0,
+      "screened_observations": 6661,
+      "run": 45855530267,
+      "job": 140032909798,
+      "files": [
+        {
+          "bytes": 8192,
+          "path": "projection.sqlite3",
+          "sha256": "e631cb0980725f5e400fdfede87d32d37c3da2d01940d17e1504210706ec60d7"
+        },
+        {
+          "bytes": 1303,
+          "path": "audit.json",
+          "sha256": "523cab3f1bd9b3ffd188786e0e8d5911c7497cad69d1d2af2965f336e1928229"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "epa-sdwa-aggregate",
+      "source_sha256": "cad153417ac7f22726bd4b5ebe1cb4aca6088b45910a0b343324fc82cf78ce21",
+      "kind": "aggregate",
+      "observations": 0,
+      "screened_observations": 434757,
+      "run": 45855530267,
+      "job": 140032909910,
+      "files": [
+        {
+          "bytes": 8192,
+          "path": "projection.sqlite3",
+          "sha256": "720e525b4ec62d71ad67f4713eeb0c4a1a669dc1f7dd33eec6995a7806d371c0"
+        },
+        {
+          "bytes": 1086,
+          "path": "audit.json",
+          "sha256": "d4340f4753165035921b20eae70c16502b2c709b95cef5e8a9d918bd4d8f4c49"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
-    "publisher_releases": 45,
-    "source_observations": 9639767,
+    "publisher_releases": 47,
+    "source_observations": 9654576,
     "derived_candidate_observations": 23520,
-    "payload_files": 88,
-    "payload_bytes": 1929870223
+    "aggregate_evidence_releases": 2,
+    "aggregate_source_rows_screened": 441418,
+    "payload_files": 96,
+    "payload_bytes": 1930526942
   }
 }

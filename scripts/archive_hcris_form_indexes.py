@@ -15,7 +15,7 @@ from build_combined import require,sha,check_integrity
 from scripts import azure_source_archive as storage,qualify_hcris_hha as h
 BASE="https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/"
 TARGETS={
- "hospital":("hospital-2024-index","CMS-2552-10","cost-reports-fiscal-year/hospital-2010-fy-2024","HOSPITAL-2010 FY 2024 DATA FILES"),
+ "hospital":("hospital-2024-index","CMS-2552-10","cost-reports-fiscal-year/hospital-2010-fy-2024","HOSP10FY2024.ZIP"),
  "snf":("snf-2024-index","CMS-2540-10","cost-reports-fiscal-year/snf-2010-fy-2024-data-files","SNF-2010 FY 2024 DATA FILES"),
  "hospice":("hospice-2014-index","CMS-1984-14","hospice-1984-2014-form","Hospice 14 Data files"),
  "renal":("renal-2011-index","CMS-265-11","renal-facility-265-2011-form","Renal 2011 Data files"),
@@ -65,7 +65,7 @@ def members(z):
     require(set(roles)=={"report","numeric","alpha"},"relational member set")
     return roles
 
-def project(path,db_path):
+def project_single(path,db_path):
     with zipfile.ZipFile(path) as z,closing(sqlite3.connect(db_path)) as db:
         roles=members(z);keys={};widths=Counter()
         with z.open(roles["report"]) as raw,io.TextIOWrapper(raw,encoding="latin-1",newline="") as f:
@@ -96,6 +96,60 @@ def project(path,db_path):
         observed=db.execute("SELECT count(*),sum(numeric_rows),sum(alpha_rows) FROM reports").fetchone()
         require(observed==(len(keys),summary["child_tables"]["numeric"]["rows"],summary["child_tables"]["alpha"]["rows"]),"stored report index reconciliation")
         return {**summary,"stored_rows":len(keys),"screened_child_rows":observed[1]+observed[2],"numeric_cell_values_retained":0,"alpha_values_retained":0,"report_metadata_fields_retained":["report_key","ordinal"],"retention":"report index with child counts; not full numeric-cell archive","units_interpreted":False,"public_promotion":False}
+
+def annual_groups(z):
+    files=[i for i in z.infolist() if not i.is_dir()]
+    require(0<len(files)<=60 and 0<sum(i.file_size for i in files)<=MAX_EXPANDED,"multi-year expansion bound")
+    groups={};prefixes=set()
+    for info in files:
+        name=Path(info.filename).name
+        m=re.fullmatch(r"([A-Za-z0-9]+)_(20[0-9]{2})_(alpha|nmrc|rpt)\\.csv",name,re.I)
+        require(m is not None and not info.flag_bits&1,"unrecognized annual form member")
+        prefix,year,suffix=m.groups();prefixes.add(prefix.casefold())
+        role={"alpha":"alpha","nmrc":"numeric","rpt":"report"}[suffix.lower()]
+        group=groups.setdefault(year,{})
+        require(role not in group,"duplicate annual role")
+        group[role]=info
+    require(len(prefixes)==1 and 0<len(groups)<=20 and all(set(g)=={"report","numeric","alpha"} for g in groups.values()),"annual triplet inventory")
+    return groups
+
+def project_annual(path,db_path):
+    with zipfile.ZipFile(path) as z,closing(sqlite3.connect(db_path)) as db:
+        groups=annual_groups(z);summaries={};total=children=0
+        db.execute("CREATE TABLE reports(source_year TEXT NOT NULL,report_key TEXT NOT NULL,ordinal INTEGER NOT NULL,numeric_rows INTEGER NOT NULL,alpha_rows INTEGER NOT NULL,PRIMARY KEY(source_year,report_key),UNIQUE(source_year,ordinal)) WITHOUT ROWID")
+        for year,roles in sorted(groups.items()):
+            keys={};widths=Counter()
+            with z.open(roles["report"]) as raw,io.TextIOWrapper(raw,encoding="latin-1",newline="") as f:
+                for ordinal,row in enumerate(csv.reader(f,strict=True),1):
+                    require(ordinal<=150000 and 2<=len(row)<=100,"annual report row bound")
+                    key=h.report_key(row[0]);require(key is not None and key not in keys,"annual report primary key")
+                    keys[key]=[ordinal,0,0];widths[str(len(row))]+=1
+            require(len(widths)<=1 and (keys or roles["report"].file_size==0),"annual report widths")
+            summary={"report_rows":len(keys),"report_width_counts":dict(widths),"child_tables":{}}
+            for role,slot in (("numeric",1),("alpha",2)):
+                shapes=Counter();values=Counter();n=0
+                with z.open(roles[role]) as raw,io.TextIOWrapper(raw,encoding="latin-1",newline="") as f:
+                    for n,row in enumerate(csv.reader(f,strict=True),1):
+                        require(n<=MAX_ROWS and len(row)==5,"annual child row width/bound")
+                        k=h.report_key(row[0]);require(k in keys,"orphan annual child report")
+                        keys[k][slot]+=1
+                        w,l,c=(v.strip() for v in row[1:4])
+                        bounded=bool(re.fullmatch(r"[A-Z0-9*]{1,7}",w) and re.fullmatch(r"[0-9A-Z]{1,5}",l) and re.fullmatch(r"[0-9A-Z]{1,5}",c))
+                        shapes["bounded_source_coordinate" if bounded else "coordinate_review"]+=1
+                        values[h.cell_state(row[4]) if role=="numeric" else ("present" if row[4].strip() else "blank")]+=1
+                require((n>0 or roles[role].file_size==0) and n==sum(shapes.values())==sum(values.values())==sum(k[slot] for k in keys.values()),"annual child reconciliation")
+                summary["child_tables"][role]={"rows":n,"coordinate_shapes":dict(shapes),"value_states":dict(values),"reports_with_cells":sum(k[slot]>0 for k in keys.values()),"uncompressed_bytes":roles[role].file_size,"zip_crc32":format(roles[role].CRC,"08x")}
+                children+=n
+            db.executemany("INSERT INTO reports VALUES(?,?,?,?,?)",((year,key,*v) for key,v in keys.items()));total+=len(keys);summaries[year]=summary
+        db.commit();check_integrity(db)
+        observed=db.execute("SELECT count(*),sum(numeric_rows+alpha_rows) FROM reports").fetchone()
+        require(total>0 and observed==(total,children),"multi-year report index reconciliation")
+        return {"stored_rows":total,"screened_child_rows":children,"annual_partitions":summaries,"numeric_cell_values_retained":0,"alpha_values_retained":0,"report_metadata_fields_retained":["source_year","report_key","ordinal"],"retention":"report index with child counts; not full numeric-cell archive","units_interpreted":False,"public_promotion":False}
+
+def project(path,db_path):
+    with zipfile.ZipFile(path) as z:
+        annual=any(re.fullmatch(r"[A-Za-z0-9]+_20[0-9]{2}_(alpha|nmrc|rpt)\\.csv",Path(i.filename).name,re.I) for i in z.infolist())
+    return project_annual(path,db_path) if annual else project_single(path,db_path)
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--source",choices=TARGETS,required=True);p.add_argument("--receipt",type=Path,required=True);args=p.parse_args()

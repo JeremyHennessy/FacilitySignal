@@ -43,7 +43,7 @@ def safe_name(name):
 class WeeklyAzure(source_archive.SourceAzure):
     def blob(self,name):
         if name.startswith(PREFIX+"/"):safe_name(name)
-        elif name.startswith(source_archive.PREFIX+"/nppes-weekly/"):source_archive.safe(name)
+        elif name.startswith(source_archive.PREFIX+"/"):source_archive.safe(name)
         else:archive.allowed_name(name)
         return self.container.get_blob_client(name)
     def create(self,name,stream,size,kind):
@@ -235,6 +235,14 @@ def run(store,national,root):
     except Exception as e:results["nppes"]={"state":"failed","error_type":type(e).__name__};failures.append("nppes")
     try:results["registry_and_ownership"]=discover_registry(registry.get_json(registry.CATALOG),lock["sources"])
     except Exception as e:results["registry_and_ownership"]={"state":"failed","error_type":type(e).__name__};failures.append("registry_and_ownership")
+    try:
+        from scripts.weekly_archive_monitor import monitor
+        extra_archive=monitor(store,national)
+        results["additional_private_archives"]=extra_archive
+        failures.extend("archive:"+k for k,v in extra_archive.items() if v["state"]=="failed")
+    except Exception as e:
+        results["additional_private_archives"]={"state":"failed","error_type":type(e).__name__}
+        failures.append("additional_private_archives")
     unchanged(store,national)
     return {"format_version":1,"checked_at":datetime.now(timezone.utc).isoformat(),"base_release":national["pointer"]["release"],"policy_version":POLICY_VERSION,"sources":results,"failed_checks":failures,"national_pointer_unchanged":True,"pages_packs_unchanged":True,"public_promotion":False,"limits":"Care Compare source candidates and NPPES weekly private institutional projections. Nursing supplementary, registry/ownership and monthly NPPES changes detected for separate qualification; not automatic public release. Source metadata equality does not prove unchanged bytes at mutable URLs."}
 

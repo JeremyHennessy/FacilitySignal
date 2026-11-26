@@ -25,3 +25,17 @@ class FormIndexTests(unittest.TestCase):
         page=m.BASE+"test";url="https://downloads.cms.gov/files/example.zip"
         self.assertEqual(m.resolve('<a href="'+url+'">Hospice 14 Data files</a>',page,"Hospice 14 Data files"),url)
         with self.assertRaises(Exception):m.resolve('<a href="https://example.com/example.zip">Hospice 14 Data files</a>',page,"Hospice 14 Data files")
+
+    def test_annual_partition_and_empty_child(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);z=p/"source.zip";db=p/"output.db"
+            with zipfile.ZipFile(z,"w") as f:
+                for year in ("2024","2025"):
+                    f.writestr(f"FORM_{year}_rpt.csv","1,private header\n")
+                    f.writestr(f"FORM_{year}_nmrc.csv","1,A000000,00100,00100,12.3\n")
+                    f.writestr(f"FORM_{year}_alpha.csv","")
+            s=m.project(z,db)
+            self.assertEqual(s["stored_rows"],2)
+            self.assertEqual(s["screened_child_rows"],2)
+            self.assertEqual(set(s["annual_partitions"]),{"2024","2025"})
+            with sqlite3.connect(db) as con:self.assertEqual(con.execute("SELECT source_year,report_key FROM reports ORDER BY source_year").fetchall(),[("2024","1"),("2025","1")])

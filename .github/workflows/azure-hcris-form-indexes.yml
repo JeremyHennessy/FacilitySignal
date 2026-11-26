@@ -1,7 +1,7 @@
 name: FacilitySignal private HCRIS modern form indexes
 on:
   push:
-    branches: [main, build/azure-hcris-forms-20261126]
+    branches: [main, build/azure-hcris-forms-20261126, build/azure-priority-completion-20261126]
     paths:
       - .github/workflows/azure-hcris-form-indexes.yml
       - scripts/archive_hcris_form_indexes.py
@@ -33,7 +33,7 @@ jobs:
     environment: azure-production
     strategy:
       fail-fast: false
-      max-parallel: 2
+      max-parallel: 3
       matrix:
         source: [cmhc, hospice, renal, fqhc, rhc, snf, hospital]
     steps:
