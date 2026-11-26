@@ -423,15 +423,78 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-hospital-2024-index",
+      "source_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+      "kind": "publisher",
+      "observations": 6113,
+      "run": 45856388462,
+      "job": 140035884639,
+      "files": [
+        {
+          "bytes": 315392,
+          "path": "projection.sqlite3",
+          "sha256": "5ce8d37c69e467166202af0985f7aa5dc70d3a4fca4b859d12998497938397c4"
+        },
+        {
+          "bytes": 2180,
+          "path": "audit.json",
+          "sha256": "b3c0d65c574e6295ddeceac03dbaa5eb73ef8f4b78484e6b6b120efe9eb4695b"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "hcris-hospice-2014-index",
+      "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+      "kind": "publisher",
+      "observations": 44027,
+      "run": 45856388462,
+      "job": 140035884647,
+      "files": [
+        {
+          "bytes": 2129920,
+          "path": "projection.sqlite3",
+          "sha256": "9a88ca0559afb8b0524f1716d5f693179b711a150887787d1b9110cae1797766"
+        },
+        {
+          "bytes": 12183,
+          "path": "audit.json",
+          "sha256": "91ae85d7f297d5b191874e85e0323d098d693b1823afb932d667fbf2bdc3d82e"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "il-reportcard-hospitals",
+      "source_sha256": "522c8d54ad3890a1afdb9d7e10b58929ec91742a69d6a0fe4da0d59b382974f6",
+      "kind": "publisher",
+      "observations": 272,
+      "run": 45856912912,
+      "job": 140037717096,
+      "files": [
+        {
+          "bytes": 36864,
+          "path": "projection.sqlite3",
+          "sha256": "b76fdcafce5bf4e928f64a11981d0c1bd1cfff200681669fa4eadb939ac020bc"
+        },
+        {
+          "bytes": 1140,
+          "path": "audit.json",
+          "sha256": "50756b6e6d73cb470662f0a97d6c724fc95b037903ca84cf3fab8230a990b4b4"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
-    "publisher_releases": 51,
-    "source_observations": 10079528,
+    "publisher_releases": 54,
+    "source_observations": 10129940,
     "derived_candidate_observations": 23520,
     "aggregate_evidence_releases": 2,
     "aggregate_source_rows_screened": 441418,
-    "payload_files": 104,
-    "payload_bytes": 1983330447
+    "payload_files": 110,
+    "payload_bytes": 1985828126
   }
 }
