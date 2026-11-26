@@ -213,6 +213,12 @@ def run(base,local):
                     assert "2 exact published records resolved" in page.locator(".comparison-status").inner_text()
                     assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
                     page.screenshot(path=str(OUT/f"{width}-facility-comparison.png"))
+                    if width<=720:
+                        wrap=page.locator(".comparison-table")
+                        assert page.locator(".comparison-scroll-hint").is_visible()
+                        assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;return e.scrollLeft>0}")
+                        assert wrap.locator("td").first.evaluate("(e)=>getComputedStyle(e).position==='sticky'")
+                        page.screenshot(path=str(OUT/f"{width}-facility-comparison-scrolled.png"))
                     page.get_by_role("link",name="Back to saved portfolio").click()
                     page.locator(".portfolio-count").wait_for()
                     for _ in range(2):page.get_by_role("button",name="Remove",exact=True).first.click()

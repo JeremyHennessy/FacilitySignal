@@ -1071,7 +1071,7 @@ async function compareFacilities(p,signal,epoch){
     ];
     const wrapper=table(["Evidence field",...selected.map(r=>r.name+" · "+r.ccn)],rows);wrapper.classList.add("comparison-table");wrapper.setAttribute("aria-label","Saved facility evidence comparison; scroll horizontally");
     status.replaceWith(el("p",N.format(selected.length)+" selected source records · "+N.format(obs.filter(o=>o.record).length)+" exact published records resolved","intro comparison-status"));
-    app.append(wrapper,el("div","Historical nursing citation rows are not current findings or counts of inspections. Missing or unresolved evidence does not establish compliance. No portfolio ownership or shared property is inferred.","notice"))
+    app.append(el("p","On narrow screens, scroll the table horizontally to see all selected facilities. Evidence field labels stay visible.","comparison-scroll-hint intro"),wrapper,el("div","Historical nursing citation rows are not current findings or counts of inspections. Missing or unresolved evidence does not establish compliance. No portfolio ownership or shared property is inferred.","notice"))
 }
 
 async function procurementResearch(signal,epoch){

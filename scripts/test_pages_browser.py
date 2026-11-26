@@ -33,7 +33,8 @@ try:
             assert page.locator("tbody tr").count()>0
             open_workspace(page,"certifications")
             page.get_by_role("heading",name="Certifications & laboratories").wait_for()
-            assert page.get_by_text("row-level registry data are not published",exact=False).count()==1
+            page.get_by_text("raw registry records are not published",exact=False).wait_for()
+            assert page.get_by_text("raw registry records are not published",exact=False).count()==1
             assert page.evaluate("document.documentElement.scrollWidth <= innerWidth+1")
             page.close()
         print("PUBLIC_PAGES_BROWSER_PASS widths=390,768,1024,1440; directory, details, filters, history, citation aggregates, registry coverage")

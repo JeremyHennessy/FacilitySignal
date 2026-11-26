@@ -67,6 +67,12 @@ try:
                 assert ("certified beds" if source=="nursing" else "dialysis stations") in val or val=="Not reported / nonnumeric"
             assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
             page.screenshot(path=str(OUT/f"{width}-comparison.png"),full_page=True)
+            if width<=720:
+                wrap=page.locator(".comparison-table")
+                assert page.locator(".comparison-scroll-hint").is_visible()
+                assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;return e.scrollLeft>0}")
+                assert wrap.locator("td").first.evaluate("(e)=>getComputedStyle(e).position==='sticky'")
+                page.screenshot(path=str(OUT/f"{width}-comparison-scrolled.png"),full_page=True)
             page.reload();page.locator(".comparison-table").wait_for()
             page.go_back();page.locator(".portfolio-count").wait_for()
             page.goto(URL+"#compare?records=invalid")

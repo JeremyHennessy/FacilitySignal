@@ -81,3 +81,10 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 @media(max-width:1100px){.home-discovery-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){aside nav>.nav-group{display:none}.home-discovery{padding:14px}.home-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.home-metrics .metric:last-child{grid-column:1/-1}.home-metrics .metric{padding:10px}.home-workflow{padding:13px}.home-workflows{grid-template-columns:1fr}.home-coverage{padding:12px}.comparison-table table{min-width:760px!important}.comparison-table th,.comparison-table td{overflow-wrap:anywhere!important}}
 @media(max-width:420px){.home-discovery-form{grid-template-columns:1fr}.home-discovery-form button{width:100%}}
+
+/* Keep the comparison's row labels readable while navigating narrow tables. */
+.comparison-scroll-hint{font-size:12px;margin:10px 0 7px}
+@media(max-width:720px){
+ .comparison-table th:first-child,.comparison-table td:first-child{position:sticky;left:0;z-index:1;width:140px;min-width:140px;background:#fff;box-shadow:1px 0 0 var(--border);overflow-wrap:anywhere}
+ .comparison-table th:first-child{background:#edf3f6;z-index:2}
+}
