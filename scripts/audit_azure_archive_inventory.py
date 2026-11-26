@@ -53,6 +53,8 @@ def totals(ledger):
         if x["kind"]=="supplemental_numeric":
             parents=[p for p in receipts if p["key"]==src.SUPPLEMENTAL_NUMERIC_PARENTS[x["key"]] and p["source_sha256"]==x["source_sha256"] and p["kind"]=="publisher"]
             require(len(parents)==1 and x["parent_database_sha256"]==next(f["sha256"] for f in parents[0]["files"] if f["path"]=="projection.sqlite3"),"supplemental parent pin")
+            if x["key"] in src.HISTORICAL_NUMERIC_YEARS:
+                require(x["years"]==src.HISTORICAL_NUMERIC_YEARS[x["key"]] and "2024" not in x["years"],"historical ledger year scope")
             if x["key"] in src.LARGE_NUMERIC_SCOPES:
                 form,start,end=src.LARGE_NUMERIC_SCOPES[x["key"]]
                 require(x["ordinal_start"]==start and x["ordinal_end"]==end and x["observations"]<=end-start+1,"large numeric ledger ordinal scope")
@@ -95,6 +97,8 @@ def source_matches(rec,pin,national):
     require((rec["publisher"].get("kind")=="supplemental_numeric_projection")== (pin["kind"]=="supplemental_numeric"),"supplemental source mismatch")
     if pin["kind"]=="supplemental_numeric":
         s=rec["summary"];require(s["source_index_key"]==src.SUPPLEMENTAL_NUMERIC_PARENTS[pin["key"]] and s["source_index_publisher_sha256"]==pin["source_sha256"] and s["source_index_sha256"]==pin["parent_database_sha256"] and s["supplemental_numeric_rows"]==pin["observations"] and s["new_publisher_release"] is False and s["alpha_values_retained"]==0,"supplemental lineage")
+        if pin["key"] in src.HISTORICAL_NUMERIC_YEARS:
+            require(sorted(s["annual_partitions"])==pin["years"]==src.HISTORICAL_NUMERIC_YEARS[pin["key"]] and s["input_numeric_rows"]==sum(s[k] for k in ("stored_rows","unresolved_parent_rows","coordinate_review_rows","numeric_syntax_review_rows")),"historical receipt scope")
         if pin["key"] in src.LARGE_NUMERIC_SCOPES:
             form,start,end=src.LARGE_NUMERIC_SCOPES[pin["key"]]
             require(s["ordinal_start"]==pin["ordinal_start"]==start and s["ordinal_end"]==pin["ordinal_end"]==end and s["source_year"]=="2024" and s["whole_member_rows"]==src.LARGE_NUMERIC_ROWS[form] and s["whole_member_reconciled"] is True and s["input_numeric_rows"]==end-start+1 and s["stored_rows"]+s["unresolved_parent_rows"]+s["coordinate_review_rows"]+s["numeric_syntax_review_rows"]==s["input_numeric_rows"],"large numeric receipt scope")

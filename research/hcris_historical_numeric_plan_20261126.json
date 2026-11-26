@@ -1,0 +1,252 @@
+{
+  "format_version": 1,
+  "excluded_year": "2024",
+  "max_rows_per_group": 3500000,
+  "forms": {
+    "fqhc": {
+      "parent": "hcris-fqhc-2014-index",
+      "source_sha256": "92bb395dd7eb3e82859bb506d83e04d8e5510ae3e4cdaf40315bedafc3e07e4c",
+      "source_year_counts": {
+        "2014": 0,
+        "2015": 557402,
+        "2016": 623428,
+        "2017": 653056,
+        "2018": 671905,
+        "2019": 711618,
+        "2020": 713442,
+        "2021": 729992,
+        "2022": 750914,
+        "2023": 773780,
+        "2025": 461877,
+        "2026": 1848
+      },
+      "groups": [
+        {
+          "years": [
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019"
+          ],
+          "rows": 3217409,
+          "key": "hcris-fqhc-numeric-years-2014-2019"
+        },
+        {
+          "years": [
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2025",
+            "2026"
+          ],
+          "rows": 3431853,
+          "key": "hcris-fqhc-numeric-years-2020-2026"
+        }
+      ]
+    },
+    "hospice": {
+      "parent": "hcris-hospice-2014-index",
+      "source_sha256": "525b89fa99231aa79cc66c45c9a5403c48b21602beff19167db0c16e54a7eb17",
+      "source_year_counts": {
+        "2015": 1474551,
+        "2016": 1530968,
+        "2017": 1561030,
+        "2018": 1666561,
+        "2019": 1745035,
+        "2020": 1801649,
+        "2021": 1882551,
+        "2022": 1952284,
+        "2023": 2091946,
+        "2025": 1926744,
+        "2026": 8946
+      },
+      "groups": [
+        {
+          "years": [
+            "2015",
+            "2016"
+          ],
+          "rows": 3005519,
+          "key": "hcris-hospice-numeric-years-2015-2016"
+        },
+        {
+          "years": [
+            "2017",
+            "2018"
+          ],
+          "rows": 3227591,
+          "key": "hcris-hospice-numeric-years-2017-2018"
+        },
+        {
+          "years": [
+            "2019"
+          ],
+          "rows": 1745035,
+          "key": "hcris-hospice-numeric-years-2019-2019"
+        },
+        {
+          "years": [
+            "2020"
+          ],
+          "rows": 1801649,
+          "key": "hcris-hospice-numeric-years-2020-2020"
+        },
+        {
+          "years": [
+            "2021"
+          ],
+          "rows": 1882551,
+          "key": "hcris-hospice-numeric-years-2021-2021"
+        },
+        {
+          "years": [
+            "2022"
+          ],
+          "rows": 1952284,
+          "key": "hcris-hospice-numeric-years-2022-2022"
+        },
+        {
+          "years": [
+            "2023"
+          ],
+          "rows": 2091946,
+          "key": "hcris-hospice-numeric-years-2023-2023"
+        },
+        {
+          "years": [
+            "2025",
+            "2026"
+          ],
+          "rows": 1935690,
+          "key": "hcris-hospice-numeric-years-2025-2026"
+        }
+      ]
+    },
+    "renal": {
+      "parent": "hcris-renal-2011-index",
+      "source_sha256": "5cf223ba1af1e4fc8ba7a7e92e219fd94298a5febe1cca929b12fe7cf104abe9",
+      "source_year_counts": {
+        "2011": 2198638,
+        "2012": 2327356,
+        "2013": 2434205,
+        "2014": 2568122,
+        "2015": 2658729,
+        "2016": 2818244,
+        "2017": 2961082,
+        "2018": 3087380,
+        "2019": 3195180,
+        "2020": 3260608,
+        "2021": 3339812,
+        "2022": 3322528,
+        "2023": 3471017,
+        "2025": 3414837,
+        "2026": 26780
+      },
+      "groups": [
+        {
+          "years": [
+            "2011"
+          ],
+          "rows": 2198638,
+          "key": "hcris-renal-numeric-years-2011-2011"
+        },
+        {
+          "years": [
+            "2012"
+          ],
+          "rows": 2327356,
+          "key": "hcris-renal-numeric-years-2012-2012"
+        },
+        {
+          "years": [
+            "2013"
+          ],
+          "rows": 2434205,
+          "key": "hcris-renal-numeric-years-2013-2013"
+        },
+        {
+          "years": [
+            "2014"
+          ],
+          "rows": 2568122,
+          "key": "hcris-renal-numeric-years-2014-2014"
+        },
+        {
+          "years": [
+            "2015"
+          ],
+          "rows": 2658729,
+          "key": "hcris-renal-numeric-years-2015-2015"
+        },
+        {
+          "years": [
+            "2016"
+          ],
+          "rows": 2818244,
+          "key": "hcris-renal-numeric-years-2016-2016"
+        },
+        {
+          "years": [
+            "2017"
+          ],
+          "rows": 2961082,
+          "key": "hcris-renal-numeric-years-2017-2017"
+        },
+        {
+          "years": [
+            "2018"
+          ],
+          "rows": 3087380,
+          "key": "hcris-renal-numeric-years-2018-2018"
+        },
+        {
+          "years": [
+            "2019"
+          ],
+          "rows": 3195180,
+          "key": "hcris-renal-numeric-years-2019-2019"
+        },
+        {
+          "years": [
+            "2020"
+          ],
+          "rows": 3260608,
+          "key": "hcris-renal-numeric-years-2020-2020"
+        },
+        {
+          "years": [
+            "2021"
+          ],
+          "rows": 3339812,
+          "key": "hcris-renal-numeric-years-2021-2021"
+        },
+        {
+          "years": [
+            "2022"
+          ],
+          "rows": 3322528,
+          "key": "hcris-renal-numeric-years-2022-2022"
+        },
+        {
+          "years": [
+            "2023"
+          ],
+          "rows": 3471017,
+          "key": "hcris-renal-numeric-years-2023-2023"
+        },
+        {
+          "years": [
+            "2025",
+            "2026"
+          ],
+          "rows": 3441617,
+          "key": "hcris-renal-numeric-years-2025-2026"
+        }
+      ]
+    }
+  },
+  "source_numeric_rows": 65376045
+}
