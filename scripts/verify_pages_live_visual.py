@@ -27,9 +27,11 @@ ROUTES=[
     ("search","search",lambda page:page.get_by_role("heading",name="Unified search",exact=True)),
     ("advanced","advanced?source=nursing&state=NY&min=100&max=199&run=1",lambda page:page.locator('.advanced-status[data-complete="true"]')),
     ("industry","industry?state=NY",lambda page:page.get_by_role("heading",name="Water treatment & dialysis")),
+    ("procurement","procurement",lambda page:page.locator('.procurement-pilot[data-qualified="true"]')),
     ("market","geography?source=hospital&state=NY",lambda page:page.locator(".market-region[data-state=NY][aria-current=true]")),
     ("directory","facilities?source=hospital&state=NY",lambda page:page.locator("tbody tr").first),
     ("profile","detail?"+urlencode({"source":"nursing","id":PROVIDER["ccn"],"state":PROVIDER["state"],"section":"sources"}),lambda page:page.get_by_role("heading",name="Evidence availability for this record")),
+    ("profile-summary","detail?"+urlencode({"source":"nursing","id":PROVIDER["ccn"],"state":PROVIDER["state"]}),lambda page:page.get_by_role("heading",name="Continue this research")),
     ("certifications","certifications",lambda page:page.get_by_role("heading",name="Certifications & laboratories",exact=True)),
     ("capacity","capacity?source=dialysis&state=NY",lambda page:page.locator(".capacity-band").first),
     ("services","services",lambda page:page.get_by_role("heading",name="Hospital service provision codes")),
@@ -94,6 +96,12 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="profile-summary":
+                    page.locator(".profile-research-actions").screenshot(path=str(OUT/f"{width}-profile-actions.png"))
+                    assert page.get_by_role("link",name="All provider records in reported city").count()==1
+                if name=="procurement":
+                    assert page.locator(".procurement-pilot .metric strong").all_inner_texts()==["100","100"]
+                    page.locator(".procurement-pilot").screenshot(path=str(OUT/f"{width}-procurement-pilot.png"))
                 if name=="advanced":
                     page.locator(".advanced-form").screenshot(path=str(OUT/f"{width}-advanced-filters.png"))
                     page.locator(".advanced-results").screenshot(path=str(OUT/f"{width}-advanced-results.png"))

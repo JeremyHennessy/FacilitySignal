@@ -1,0 +1,54 @@
+{
+  "qualification_run": 45825126846,
+  "qualification_commit": "ecf7af88940051fbd33cfb8751feecea67f3e04e",
+  "artifact": 15120036655,
+  "audit": {
+    "canonical_matches": 0,
+    "cms_directory_git_blobs": {
+      "dialysis": "27c5c03e90451e90b703e61beb9c316951a60c02",
+      "home-health": "fb20daad02d01fb23fbfcd60f9ad3b77447e9bbf",
+      "hospice": "33bae4cee004d1e6f97ce587e7e0d5a20b2af14b",
+      "hospital": "b0f0c73946064b5cb754912f685d2fcf975fb02b",
+      "long-term-hospital": "a844990b8de32df47b73fe218dac66fb3beba850",
+      "manifest": "8123501588260afc66337412c2212076371d8616",
+      "nursing": "35274944fb33e1a617b6e029e8c1a837f3ad97ad",
+      "rehabilitation": "009eca9c0400521f8547bc542fa51cadb85be317"
+    },
+    "confirmed_equipment_installations": 0,
+    "corroborated_candidate_pairs_by_provider_source": {
+      "hospital": 278,
+      "nursing": 6
+    },
+    "distinct_corrob_provider_source_rows": 284,
+    "limits": "Exact casefold/whitespace name and reported state, plus literal FDA first address line, city and ZIP5 agreement to CMS reported address. Address-only, name-only and discordant candidates stay separate. Text agreement is not physical-site or equipment proof; mobile classification incomplete. Military-mail and unsupported jurisdictions excluded from candidates. No row-level output.",
+    "match_dispositions": {
+      "address_city_zip_state_only": 369,
+      "name_and_address_candidates_disagree": 16,
+      "name_and_address_text_multiple": 2,
+      "name_and_address_text_single": 280,
+      "name_state_only": 984,
+      "no_exact_candidate": 7484,
+      "out_of_jurisdiction": 11
+    },
+    "pair_counts": {
+      "address_text_candidate_pairs": 734,
+      "corroborated_candidate_pairs": 284,
+      "name_state_candidate_pairs": 1405
+    },
+    "provider_rows": 48004,
+    "qualification": "aggregate_institutional_identity_candidates_only",
+    "retained_row_level_records": 0,
+    "reuse_review": "pending",
+    "source_metadata": {
+      "bytes": 338039,
+      "documentation": "https://www.fda.gov/radiation-emitting-products/mammography-information-patients/search-certified-mammography-facility",
+      "etag": "\"809f995327bdd1:0\"",
+      "last_modified": "Mon, 23 Nov 2026 10:08:27 GMT",
+      "retrieved_at": "2026-11-26T13:01:47.116247+00:00",
+      "sha256": "fb0c74333ade998ce28c6b5f342324f5ff4c46d716c45332634513edddf1b33a",
+      "url": "https://www.accessdata.fda.gov/premarket/ftparea/public.zip"
+    },
+    "source_rows": 9146,
+    "source_sha256": "fb0c74333ade998ce28c6b5f342324f5ff4c46d716c45332634513edddf1b33a"
+  }
+}

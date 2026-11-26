@@ -1,0 +1,5 @@
+# FDA MQSA institutional identity evidence — 2026-11-26
+
+Base d65bcbfd9c7e2923640a6858caf3622281f73627. FDA source audit 45812374966 qualified 9,146 rows including six exact pinned width exceptions; no retained source archive or database. This is a new relationship hypothesis rather than repetition of the earlier schema audit. One 338 KB pinned retrieval is justified only to compare exact name/state and literal address1/city/ZIP5/state evidence against already committed CMS institutional provider records. Stop without retry on source drift or failed prior schema/count pins. No new source family, storage provisioning, address geocoding, public row-level projection or facility-specific equipment claims.
+
+Separate name-only, address-only, corroborated, discordant, unresolved/military-mail, and single/multiple candidates. Preserve source scopes and exact identifiers. No canonical match, installed unit, current certification or procurement inference. EPA strict format gate remains unresolved; do not reuse MQSA matching to waive EPA source qualification or infer water connections. Aggregate audit only. Reuse review still pending.
