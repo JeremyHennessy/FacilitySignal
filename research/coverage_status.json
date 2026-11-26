@@ -143,7 +143,13 @@
     },
     {
       "id": "FS-025",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45826621964",
+      "retrieved_rows": 61443,
+      "ephemeral_projected_rows": 61443,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Aggregate-only source-scoped QCOR workbook projection; historical survey events and tag classes, no public row-level retention or current compliance inference; not included in integrated national baseline."
     },
     {
       "id": "FS-026",
@@ -155,7 +161,13 @@
     },
     {
       "id": "FS-028",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45826621964",
+      "retrieved_rows": 751,
+      "ephemeral_projected_rows": 751,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Aggregate-only source-scoped QCOR workbook projection; historical survey events and tag classes, no public row-level retention or current compliance inference; not included in integrated national baseline."
     },
     {
       "id": "FS-029",
@@ -1790,5 +1802,136 @@
     "reuse_review": "pending",
     "retained_row_level_records": 0,
     "included_in_integrated_national_baseline": false
+  },
+  "qcor_provider_qualified_baselines": {
+    "asc": {
+      "commit": "e0376984afa9e6c767c6060a24ac1ed66e968921",
+      "run": 45826621964,
+      "artifact": 15119473587,
+      "artifact_digest": "sha256:3d63dad9e4ba7d0c5cd1555d32f4c5c9a98f4530c2f1c719ed722c995bade080",
+      "audit": {
+        "source_id": "FS-025",
+        "report_url": "https://qcor.cms.gov/ASC_2567_Reports",
+        "sheet_count": 1,
+        "header": [
+          "CCN",
+          "Facility Name",
+          "Street Address",
+          "City",
+          "State/Territory",
+          "ZIP",
+          "CMS Region",
+          "Survey Event ID",
+          "Survey Date",
+          "Survey Type",
+          "Deficiency Tag",
+          "Deficiency Description",
+          "Deficiency Tag Type",
+          "Statement of Deficiency Text (Part 1)",
+          "Statement of Deficiency Text (Part 2)",
+          "Statement of Deficiency Text (Part 3)",
+          "Statement of Deficiency Text (Part 4)"
+        ],
+        "columns": 17,
+        "field_mapping": {
+          "ccn": "CCN",
+          "event": "Survey Event ID",
+          "date": "Survey Date",
+          "tag": "Deficiency Tag",
+          "kind": "Deficiency Tag Type"
+        },
+        "mapping_complete": true,
+        "input_rows": 61443,
+        "blank_rows": 0,
+        "stored_rows": 61443,
+        "rejected_rows": 0,
+        "reject_reasons": {},
+        "row_kinds": {
+          "memo": 19082,
+          "nonmemo_tag": 42361
+        },
+        "distinct_provider_keys": 4482,
+        "distinct_survey_event_keys": 13755,
+        "events_with_nonmemo_tag": 8717,
+        "events_without_nonmemo_tag": 5038,
+        "retained_row_level_records": 0,
+        "limits": "Historical source rows and observed tag classifications, not open violations, service needs or verified current operation. No narratives, names, locations, tag values or individual survey or provider identifiers retained in artifacts. Publisher report display count may use different grain.",
+        "source": {
+          "url": "https://qcor.cms.gov/downloadASC2567",
+          "bytes": 37412545,
+          "sha256": "87be909585e91ce0c2bf97586944e79eb640fc338dab5b7d54b9bc8c93be9bbb",
+          "last_modified": null,
+          "etag": null,
+          "retrieved_at": "2026-11-26T13:10:57.848547+00:00"
+        },
+        "reuse_review": "pending"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    },
+    "xray": {
+      "commit": "e0376984afa9e6c767c6060a24ac1ed66e968921",
+      "run": 45826621964,
+      "artifact": 15119368679,
+      "artifact_digest": "sha256:384bdf3c62ca9589a9ce53384848f3da931a0507bf2368d3793bd7ea94de50d0",
+      "audit": {
+        "source_id": "FS-028",
+        "report_url": "https://qcor.cms.gov/X-Ray_Supplier_2567_Reports",
+        "sheet_count": 1,
+        "header": [
+          "CCN",
+          "Facility Name",
+          "Street Address",
+          "City",
+          "State/Territory",
+          "ZIP",
+          "CMS Region",
+          "Survey Event ID",
+          "Survey Date",
+          "Survey Type",
+          "Deficiency Tag",
+          "Deficiency Description",
+          "Deficiency Tag Type",
+          "Statement of Deficiency Text"
+        ],
+        "columns": 14,
+        "field_mapping": {
+          "ccn": "CCN",
+          "event": "Survey Event ID",
+          "date": "Survey Date",
+          "tag": "Deficiency Tag",
+          "kind": "Deficiency Tag Type"
+        },
+        "mapping_complete": true,
+        "input_rows": 751,
+        "blank_rows": 0,
+        "stored_rows": 751,
+        "rejected_rows": 0,
+        "reject_reasons": {},
+        "row_kinds": {
+          "memo": 399,
+          "nonmemo_tag": 352
+        },
+        "distinct_provider_keys": 347,
+        "distinct_survey_event_keys": 418,
+        "events_with_nonmemo_tag": 123,
+        "events_without_nonmemo_tag": 295,
+        "retained_row_level_records": 0,
+        "limits": "Historical source rows and observed tag classifications, not open violations, service needs or verified current operation. No narratives, names, locations, tag values or individual survey or provider identifiers retained in artifacts. Publisher report display count may use different grain.",
+        "source": {
+          "url": "https://qcor.cms.gov/downloadXRAY2567",
+          "bytes": 205467,
+          "sha256": "1993d3954d0df88e8735343f117795fb1355a728b0f872feb37bcd28fe89d17e",
+          "last_modified": null,
+          "etag": null,
+          "retrieved_at": "2026-11-26T13:10:55.946954+00:00"
+        },
+        "reuse_review": "pending"
+      },
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "included_in_integrated_national_baseline": false
+    }
   }
 }
