@@ -1,0 +1,56 @@
+name: FacilitySignal new HHA organizational ownership private ingestion
+on:
+  push:
+    branches: [main, build/azure-hha-ownership-20261126]
+    paths:
+      - .github/workflows/azure-hha-ownership.yml
+      - scripts/archive_hha_ownership.py
+      - tests/test_archive_hha_ownership.py
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-hha-ownership-private
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  archive:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    environment: azure-production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Retrieve and qualify Q4 institutional ownership source, archive verified projection
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.archive_hha_ownership --receipt "$RUNNER_TEMP/hha-owner-receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hha-owner-private-receipt
+          path: ${{ runner.temp }}/hha-owner-receipt.json
+          retention-days: 30
+          if-no-files-found: error
