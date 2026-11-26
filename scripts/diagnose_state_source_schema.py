@@ -22,6 +22,18 @@ def csv_probe(f):
         n+=1;require(n<=2_000_000,"row bound")
         widths[str(len(row))]=widths.get(str(len(row)),0)+1
     return {"headers":header,"rows":n,"row_width_counts":widths}
+def probe_encoding(raw):
+    # Report strict decoder results, without logging row values or silently replacing bytes.
+    results={}
+    for enc in ("utf-8-sig","cp1252","iso-8859-1"):
+        try:
+            decoded=raw.decode(enc,errors="strict")
+            result=csv_probe(io.StringIO(decoded,newline=""))
+            result["control_characters"]=sum(1 for c in decoded if ord(c)<32 and c not in "\r\n\t")+sum(1 for c in decoded if 127<=ord(c)<=159)
+            results[enc]=result
+        except (UnicodeError,csv.Error,ValueError) as e:
+            results[enc]={"error_type":type(e).__name__}
+    return results
 def probe(name,scope,root):
     url=scope["url"];p=root/(name+".download")
     req=urllib.request.Request(url,headers={"User-Agent":"FacilitySignal publisher schema diagnostic","Accept-Encoding":"identity"})
@@ -42,10 +54,12 @@ def probe(name,scope,root):
             members=[m for m in z.infolist() if not m.is_dir()]
             require(len(members)==1 and members[0].file_size<=MAX_BYTES and Path(members[0].filename).suffix.casefold()==".csv","ZIP member scope")
             m=members[0]
-            with z.open(m) as raw,io.TextIOWrapper(raw,encoding="utf-8-sig",newline="") as f:result=csv_probe(f)
+            with z.open(m) as raw:
+                data=raw.read(MAX_BYTES+1);require(len(data)==m.file_size,"ZIP member completeness")
+            result={"encoding_candidates":probe_encoding(data)}
             result.update({"member":Path(m.filename).name,"crc32":format(m.CRC,"08x")})
     else:
-        with p.open(encoding="utf-8-sig",newline="") as f:result=csv_probe(f)
+        result={"encoding_candidates":probe_encoding(p.read_bytes())}
     return {"status":"SCHEMA_PASS","publisher":meta,"result":result}
 with tempfile.TemporaryDirectory(prefix="state-source-schema-") as d:
     root=Path(d)
