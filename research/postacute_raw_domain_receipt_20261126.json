@@ -1,0 +1,206 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-26",
+  "qualified_commit": "baa522b334cabe6eabd4d34e2aaa7929941baac9",
+  "run": 45911231291,
+  "job": 140219849194,
+  "artifact": {
+    "id": 15159509769,
+    "digest": "sha256:4bd7a51faa86b1e9bab8d3a796fd6da7d03077420727cc3aef06e78b6047270f",
+    "expires_at": "2026-12-26T23:29:35Z"
+  },
+  "tests_passed": 5,
+  "scope": "Complete emitted aggregate JSON from successful CI log, not independently extracted ZIP. No raw source values.",
+  "result": {
+    "hha_reconciliation": {
+      "casefold_qualified_categories": {
+        "Government Operated": 239,
+        "Non-Profit": 1049,
+        "Proprietary": 8954
+      },
+      "evidence": "qualified_data_use.py classify strips/casefolds against explicit dictionary labels; both audits exact same source hash. Exact raw spellings not retained.",
+      "exact_raw_spelling_retained": false,
+      "missing_dash": 2167,
+      "new_downloads": 0,
+      "release": "2026-10-21",
+      "rows": 12409,
+      "source_sha256": "7adf3e17961949bbd64ef243545aa387224d9837e8c5601476f5b11946e76d22",
+      "unmapped_after_prior_casefold": 0
+    },
+    "limits": "Source identity parity only, not canonical matches. Region concordance is an administrative reference, not a service area. Unmapped labels withheld. Initial Medicare dates not proof of active operation.",
+    "new_application_approved_fields": 0,
+    "new_public_row_fields": 0,
+    "publisher_bytes": 1039106,
+    "publisher_downloads": 3,
+    "region_reference": "https://www.cms.gov/medicare-coverage-database/help/all-page-help-text.aspx",
+    "sources": [
+      {
+        "ccn_shapes": {
+          "six_alphanumeric": 6470
+        },
+        "certification_dates": {
+          "valid_calendar_date": 6470
+        },
+        "headers": 12,
+        "identity_projection_parity": 6470,
+        "ownership_punctuation_candidates": {},
+        "ownership_qualified_categories": {
+          "For Profit": 4479,
+          "Government": 101,
+          "Non-Profit": 804,
+          "Other": 428
+        },
+        "ownership_states": {
+          "casefold_match": 5812,
+          "dash": 658
+        },
+        "ownership_unmapped_distinct": 0,
+        "region_counts": {
+          "1": 164,
+          "2": 144,
+          "3": 346,
+          "4": 741,
+          "5": 762,
+          "6": 1396,
+          "7": 330,
+          "8": 250,
+          "9": 2156,
+          "10": 181
+        },
+        "region_states": {
+          "matches_reference": 6470
+        },
+        "release": "2026-11-20",
+        "rows": 6470,
+        "secondary_address": {
+          "dash": 5891,
+          "reported_nonblank": 579
+        },
+        "source": "hospice",
+        "source_sha256": "9ff0f8e60a0864f51faf9d5668b1a5b7a644f15eefc1fecd66a771783722700f",
+        "telephone_presence_only": {
+          "nonblank": 6470
+        },
+        "zip_shapes": {
+          "postal_shape": 6470
+        }
+      },
+      {
+        "beds": {
+          "existing_projection_parity": 311,
+          "max": 760,
+          "min": 9,
+          "reported": 305,
+          "states": {
+            "dash_marker": 6,
+            "reported_integer": 305
+          },
+          "sum": 21765,
+          "zero": 0
+        },
+        "ccn_shapes": {
+          "six_alphanumeric": 311
+        },
+        "certification_dates": {
+          "valid_calendar_date": 311
+        },
+        "headers": 13,
+        "identity_projection_parity": 311,
+        "ownership_punctuation_candidates": {},
+        "ownership_qualified_categories": {
+          "For Profit": 217,
+          "Government": 11,
+          "Non-profit": 81,
+          "Physician": 1,
+          "Tribal": 1
+        },
+        "ownership_states": {
+          "casefold_match": 217,
+          "exact_trimmed": 94
+        },
+        "ownership_unmapped_distinct": 0,
+        "region_counts": {
+          "1": 13,
+          "2": 10,
+          "3": 27,
+          "4": 77,
+          "5": 43,
+          "6": 76,
+          "7": 15,
+          "8": 13,
+          "9": 32,
+          "10": 5
+        },
+        "region_states": {
+          "matches_reference": 311
+        },
+        "release": "2026-09-23",
+        "rows": 311,
+        "secondary_address": {
+          "dash": 311
+        },
+        "source": "long-term-hospital",
+        "source_sha256": "176b1fae71a5ac97bf89f9d3404b98c6d3135b184f079baec939bcb2e016ba2e",
+        "telephone_presence_only": {
+          "nonblank": 311
+        },
+        "zip_shapes": {
+          "postal_shape": 311
+        }
+      },
+      {
+        "ccn_shapes": {
+          "six_alphanumeric": 1222
+        },
+        "certification_dates": {
+          "after_release": 2,
+          "valid_calendar_date": 1220
+        },
+        "headers": 12,
+        "identity_projection_parity": 1222,
+        "ownership_punctuation_candidates": {},
+        "ownership_qualified_categories": {
+          "For Profit": 545,
+          "Government": 100,
+          "Non-profit": 569,
+          "Physician": 8
+        },
+        "ownership_states": {
+          "casefold_match": 545,
+          "exact_trimmed": 677
+        },
+        "ownership_unmapped_distinct": 0,
+        "region_counts": {
+          "1": 36,
+          "2": 64,
+          "3": 110,
+          "4": 259,
+          "5": 203,
+          "6": 273,
+          "7": 73,
+          "8": 48,
+          "9": 121,
+          "10": 35
+        },
+        "region_states": {
+          "matches_reference": 1222
+        },
+        "release": "2026-09-23",
+        "rows": 1222,
+        "secondary_address": {
+          "dash": 1154,
+          "reported_nonblank": 68
+        },
+        "source": "rehabilitation",
+        "source_sha256": "18f89d14e22355b3ae2bcf02b2db93e7e54341f679ad380a2d741ce58002e214",
+        "telephone_presence_only": {
+          "nonblank": 1222
+        },
+        "zip_shapes": {
+          "postal_shape": 1222
+        }
+      }
+    ],
+    "status": "AUDIT_COMPLETE_NOT_PUBLICATION_APPROVAL"
+  }
+}
