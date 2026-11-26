@@ -1,0 +1,95 @@
+name: FacilitySignal stage qualified institutional public candidate
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/azure-institutional-public-candidate-20261126.yml'
+      - 'scripts/stage_institutional_public_candidate.py'
+      - 'tests/test_stage_institutional_public_candidate.py'
+      - 'docs/institutional_search_receipt_20261126.json'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/azure-institutional-public-candidate-20261126.yml'
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  stage:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main' && github.event_name == 'push' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    environment: azure-production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Restore and stage only the seven explicitly reviewed public flags
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.stage_institutional_public_candidate stage --output "$RUNNER_TEMP/qualified-candidate"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qualified-institutional-public-candidate
+          path: |
+            ${{ runner.temp }}/qualified-candidate/institutional-evidence.json
+            ${{ runner.temp }}/qualified-candidate/institutional-evidence-manifest.json
+          if-no-files-found: error
+          retention-days: 7
+  candidate-branch:
+    needs: stage
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main' && github.event_name == 'push' && github.run_attempt == 1
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - uses: actions/download-artifact@v4
+        with:
+          name: qualified-institutional-public-candidate
+          path: ${{ runner.temp }}/qualified-candidate
+      - name: Independently validate safe fields and create isolated candidate branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch=build/institutional-public-data-candidate-20261126
+          python -m scripts.stage_institutional_public_candidate verify --output "$RUNNER_TEMP/qualified-candidate"
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain)"
+          test ! -e web/institutional-evidence.json
+          test ! -e web/institutional-evidence-manifest.json
+          cp "$RUNNER_TEMP/qualified-candidate/institutional-evidence.json" web/institutional-evidence.json
+          cp "$RUNNER_TEMP/qualified-candidate/institutional-evidence-manifest.json" web/institutional-evidence-manifest.json
+          git add -- web/institutional-evidence.json web/institutional-evidence-manifest.json
+          test "$(git diff --cached --name-only | sort)" = "$(printf '%s\n' web/institutional-evidence-manifest.json web/institutional-evidence.json)"
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Stage exact qualified institutional public candidate; no production promotion'
+          git push --force-with-lease="refs/heads/$branch:" origin "HEAD:refs/heads/$branch"
+          echo "FACILITYSIGNAL_INSTITUTIONAL_CANDIDATE_BRANCH $(git rev-parse HEAD)"

@@ -1,0 +1,135 @@
+{
+  "qualification_run": 45884421720,
+  "qualification_job": 140131621231,
+  "qualification_commit": "273a0fbbeff5b7b1a90241093c3f302df70ba87a",
+  "artifact_id": 15148503078,
+  "artifact_digest": "sha256:007ab748a0aeee3c1dcf862e7cfea84a3627f52423b561a09cc11a4f515f62fc",
+  "receipt": {
+    "archive_database_sha256": "5c1827bacea3018c493db34a8a5b83cd4b92bb754583aa90efc744066186403a",
+    "archive_receipt_sha256": "eae70c435023921296eaee6eb5f298f9b82e010fcce43f1606450780d79d085c",
+    "archive_source_sha256": "c19f08e7c24abf2469d161105f487cd36ef8fc9e2fa725ef64164e4e90e8736c",
+    "azure_writes": 0,
+    "candidate_bytes": 3009206,
+    "candidate_fields": 7,
+    "candidate_sha256": "7e5c5afa86a535c1acf753b39a5f1ad97dc3ecb925cded12e64a4dd703dd567d",
+    "canonical_merges": 0,
+    "field_rules": 10,
+    "local_only_fields": 3,
+    "local_only_observations": 44058,
+    "observations": 101534,
+    "provider_records": 27592,
+    "public_candidate_observations": 57476,
+    "public_promotion": false,
+    "publisher_downloads": 0,
+    "scope": "Verified archive restore and local search qualification; no public release",
+    "sources": {
+      "dialysis": {
+        "combined_filter_checks": 40,
+        "fields": {
+          "chain_owned_or_managed": {
+            "observations": 7471,
+            "publication": "public_candidate_only",
+            "value_counts": {
+              "reported_no": 737,
+              "reported_yes": 6734
+            }
+          },
+          "home_hemodialysis_training": {
+            "observations": 7471,
+            "publication": "public_candidate_only",
+            "value_counts": {
+              "reported_no": 5060,
+              "reported_yes": 2411
+            }
+          },
+          "in_center_hemodialysis": {
+            "observations": 7471,
+            "publication": "public_candidate_only",
+            "value_counts": {
+              "reported_no": 512,
+              "reported_yes": 6959
+            }
+          },
+          "late_shift": {
+            "observations": 7471,
+            "publication": "public_candidate_only",
+            "value_counts": {
+              "reported_no": 6335,
+              "reported_yes": 1136
+            }
+          },
+          "peritoneal_dialysis": {
+            "observations": 7471,
+            "publication": "public_candidate_only",
+            "value_counts": {
+              "reported_no": 3404,
+              "reported_yes": 4067
+            }
+          }
+        },
+        "observations": 37355,
+        "provider_records": 7471,
+        "state_count": 56
+      },
+      "hospital": {
+        "combined_filter_checks": 0,
+        "fields": {
+          "emergency_services": {
+            "observations": 5435,
+            "publication": "public_candidate_only",
+            "value_counts": {
+              "reported_no": 934,
+              "reported_yes": 4501
+            }
+          }
+        },
+        "observations": 5435,
+        "provider_records": 5435,
+        "state_count": 56
+      },
+      "nursing": {
+        "combined_filter_checks": 37,
+        "fields": {
+          "health_survey_over_two_years": {
+            "observations": 14686,
+            "publication": "authorized_local_only",
+            "value_counts": {
+              "reported_no": 13731,
+              "reported_yes": 955
+            }
+          },
+          "ownership_change_12_months": {
+            "observations": 14686,
+            "publication": "public_candidate_only",
+            "value_counts": {
+              "reported_no": 14626,
+              "reported_yes": 60
+            }
+          },
+          "special_focus": {
+            "observations": 14686,
+            "publication": "authorized_local_only",
+            "value_counts": {
+              "not_reported": 14159,
+              "reported_candidate": 440,
+              "reported_sff": 87
+            }
+          },
+          "sprinklers": {
+            "observations": 14686,
+            "publication": "authorized_local_only",
+            "value_counts": {
+              "all_required_areas": 14599,
+              "not_available": 51,
+              "partial": 36
+            }
+          }
+        },
+        "observations": 58744,
+        "provider_records": 14686,
+        "state_count": 53
+      }
+    },
+    "status": "PASS"
+  }
+}
