@@ -17,3 +17,13 @@ class HrsaTests(unittest.TestCase):
     def test_missing_mapping_fail_closed(self):
         a=audit(b"Site Name,Site State\nExample,NY\n",set())
         self.assertFalse(a["mapping_complete"]);self.assertEqual(a["privacy_screened_rows"],0)
+
+    def test_publisher_punctuation_and_unrecognized_header_suppression(self):
+        f=io.StringIO();w=csv.writer(f)
+        h=["BPHC Assigned Number","Site Address","Site Postal Code","Site Type","Location Setting","Site State","Site Status","Grantee’s organization type: (optional)"]
+        w.writerow(h);w.writerow(["1","Street","12345","Service","Clinic","NY","Active","Other"])
+        a=audit(f.getvalue().encode(),{norm(x) for x in h})
+        self.assertTrue(a["mapping_complete"]);self.assertEqual(a["privacy_screened_rows"],1)
+        self.assertEqual(a["metadata_exact_header_matches"],8)
+        b=audit(b"Unverified label,Another label\nExample,Other\n",set())
+        self.assertFalse(b["mapping_complete"]);self.assertEqual(b["headers"],[])

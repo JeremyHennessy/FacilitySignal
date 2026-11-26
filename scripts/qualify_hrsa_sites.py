@@ -71,13 +71,18 @@ def audit(data,metadata_cells):
     reader=csv.DictReader(io.StringIO(data.decode("utf-8-sig"),newline=""),strict=True)
     headers=reader.fieldnames or []
     require(0<len(headers)<=150 and len(set(headers))==len(headers),"invalid CSV header")
-    require(all(re.fullmatch(r"[A-Za-z0-9 _()/.,&-]{1,150}",h) for h in headers),"unrecognized header syntax")
+    # Publisher labels can contain Unicode punctuation or formatting whitespace.
+    # Require bounded, nonempty labels and unique normalized names. Confirm
+    # multiple institutional field anchors before retaining any header text.
+    require(all(0<len(h)<=150 and norm(h) and all(c.isprintable() or c in "\t\r\n" for c in h) for h in headers),"invalid header characters or length")
+    require(len({norm(h) for h in headers})==len(headers),"ambiguous normalized headers")
     mapped=resolve(headers)
-    report={"headers":headers,"columns":len(headers),"resolved_candidate_fields":mapped,
-            "metadata_exact_header_matches":sum(norm(h) in metadata_cells for h in headers)}
+    anchors=sum(k in mapped for k in ("site_id","site_address","site_zip","site_type","site_state","site_status","location_setting"))
+    report={"headers":headers if anchors>=3 else [],"columns":len(headers),"resolved_candidate_fields":mapped if anchors>=3 else {},
+            "header_anchors":anchors,"metadata_exact_header_matches":sum(norm(h) in metadata_cells for h in headers)}
     total=0;excluded=0;accepted=0;missing_id=0;duplicates=0;seen=set();status=Counter()
     required={"site_id","site_address","site_zip","site_type","location_setting","site_state","site_status"}
-    ready=required<=mapped.keys()
+    ready=required<=mapped.keys() and anchors>=3
     for row in reader:
         total+=1
         require(total<=100000 and None not in row and all(v is not None for v in row.values()),"CSV row shape or count bound")
