@@ -51,6 +51,7 @@ ROUTES=[
     ("hha-profile","detail?"+urlencode({"source":"home-health","id":HHA_PROFILE["ccn"],"state":HHA_PROFILE["state"],"section":"services"}),lambda page:page.locator(".hha-profile[data-evidence=qualified]")),
     ("dialysis-linked","detail?"+urlencode({"source":"dialysis","id":DIALYSIS_LINKED["ccn"],"state":DIALYSIS_LINKED["state"],"section":"services"}),lambda page:page.locator(".dialysis-profile[data-evidence=corroborated]")),
     ("dialysis-unlinked","detail?"+urlencode({"source":"dialysis","id":DIALYSIS_UNLINKED["ccn"],"state":DIALYSIS_UNLINKED["state"],"section":"services"}),lambda page:page.locator(".dialysis-profile[data-evidence=unlinked]")),
+    ("nursing-portfolios","nursing-portfolios",lambda page:page.get_by_role("heading",name="Nursing cross-source group corroboration")),
     ("compliance","compliance-research",lambda page:page.get_by_role("heading",name="Nursing inspection and dispute flags")),
     ("citations","citations?source=nursing-health&state=NY",lambda page:page.get_by_role("columnheader",name="Historical citation rows")),
     ("hospital-surveys","hospital-surveys",lambda page:page.get_by_role("heading",name="Hospital survey coverage",exact=True)),
@@ -116,6 +117,12 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="nursing-portfolios":
+                    assert page.locator("#app .intelligence-table").count()==3
+                    assert "Named chain memberships are not published" in page.locator("#app").inner_text()
+                    seen=[r for r in responses if r.url==base+"web/public-intelligence.json"]
+                    assert seen and sha(seen[-1].body())==HASHES["web/public-intelligence.json"],"Stale nursing aggregate evidence"
+                    page.locator("#app").screenshot(path=str(OUT/f"{width}-nursing-portfolio-full.png"))
                 if name=="hha-services":
                     assert page.locator(".hha-status").get_attribute("data-total")=="10208"
                     received=[r for r in responses if r.url==base+"web/hha-service-evidence.json?v="+HASHES["web/hha-service-evidence.json"][:16]]
