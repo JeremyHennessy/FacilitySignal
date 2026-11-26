@@ -617,6 +617,28 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "epa-frs-healthcare-aggregate",
+      "source_sha256": "ba245b37de34bce4d6b2ca9a42e3342c928f330b436addd40d69436e43815f30",
+      "kind": "aggregate",
+      "observations": 0,
+      "screened_observations": 10148395,
+      "run": 45859977557,
+      "job": 140048236823,
+      "files": [
+        {
+          "bytes": 8192,
+          "path": "projection.sqlite3",
+          "sha256": "a00e57482d2a2b277a1cf1e8566f3dc1317b69f11183c43b1a7c932f21bbb31a"
+        },
+        {
+          "bytes": 3783,
+          "path": "audit.json",
+          "sha256": "2e28d97e24f748db708aae37054d7bc10bdab40aa81ca6a2082223f9a6121a5a"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
@@ -625,9 +647,9 @@
     "supplemental_numeric_archives": 5,
     "supplemental_numeric_observations": 9033630,
     "derived_candidate_observations": 23520,
-    "aggregate_evidence_releases": 2,
-    "aggregate_source_rows_screened": 441418,
-    "payload_files": 122,
-    "payload_bytes": 2721000783
+    "aggregate_evidence_releases": 3,
+    "aggregate_source_rows_screened": 10589813,
+    "payload_files": 124,
+    "payload_bytes": 2721012758
   }
 }
