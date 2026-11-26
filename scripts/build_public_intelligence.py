@@ -6,6 +6,77 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def read(path):
     return json.loads(path.read_text(encoding="utf-8"))
+def qualify_clia_semantic(a,prior,ledger):
+    pin=next(s for s in ledger["sources"] if s["key"]=="clia")
+    n=a["source_rows"]
+    if a["qualification_run"]!=45831429985 or a["qualification_result"]!="success" or a["source_sha256"]!=pin["sha256"] or n!=pin["stored_rows"] or a["period"]!=pin["release"]:
+        raise ValueError("CLIA semantic source mismatch")
+    catalog=a["catalog"]
+    if len(catalog)!=103 or len({f["field"] for f in catalog})!=103 or [f["ordinal"] for f in catalog]!=list(range(1,104)):
+        raise ValueError("CLIA semantic field inventory mismatch")
+    if a["historical_layout_sha256"]!="8887f8603550af0ec6cb793b1f1fcb61afd5ab1bea4c1ca5701f592b56e7be65" or a["historical_layout_artifact_sha256"]!="23eb5208fd333ae52105a1e674268b713eec3dc89edd4d6fe697f18aed0e8b9b":
+        raise ValueError("CLIA historical reference mismatch")
+    def counts(v,total):
+        if any(type(x) is not int or x<0 for x in v.values()) or sum(v.values())!=total:
+            raise ValueError("CLIA count reconciliation failed")
+    for group in ("code_counts","date_states","literal_flag_counts","reference_shape_counts","quantity_states"):
+        for c in a[group].values():counts(c,n)
+    term=a["code_counts"]["CLIA_TRMNTN_CD"]
+    if a["code_counts"]["PGM_TRMNTN_CD"]!=term or a["termination_code_pairs"]!={f"{k}/{k}":v for k,v in term.items()}:
+        raise ValueError("CLIA termination columns no longer agree")
+    scopes=a["clia_term_scope_rows"]
+    expected={"literal_00":term["code_00"],"other_documented":sum(v for k,v in term.items() if k.startswith("code_") and k!="code_00"),"unresolved":term["unmapped_code_95"]}
+    if scopes!=expected or a["termination_scope_pairs"]!={f"{k}/{k}":v for k,v in scopes.items()}:
+        raise ValueError("CLIA termination scope mismatch")
+    counts(scopes,n)
+    cert=a["certificate_by_clia_term_scope"]
+    facilities=a["facility_type_by_clia_term_scope"]
+    for group,field in ((cert,"CRTFCT_TYPE_CD"),(facilities,"GNRL_FAC_TYPE_CD")):
+        if set(group)!=set(scopes):raise ValueError("CLIA scope missing")
+        all_codes=a["code_counts"][field]
+        for sc,values in group.items():
+            counts(values,scopes[sc])
+            if set(values)-set(all_codes):raise ValueError("CLIA classification domain mismatch")
+        if {k:sum(group[sc].get(k,0) for sc in scopes) for k in all_codes}!=all_codes:
+            raise ValueError("CLIA cross-scope totals mismatch")
+        if prior is None or prior["source_hashes"]["clia"]!=pin["sha256"] or {"code_"+k:v for k,v in prior["domain_counts"][field].items()}!=all_codes:
+            raise ValueError("CLIA prior qualified domain mismatch")
+    old_term=prior["domain_counts"]["CLIA_TRMNTN_CD"]
+    if {**{"code_"+k:v for k,v in old_term.items() if k!="unrecognized"},"unmapped_code_95":old_term["unrecognized"]}!=term:
+        raise ValueError("CLIA prior termination distribution mismatch")
+    accred={}
+    yes="code_X/literal_Y/date_present";no="code_X/literal_N/date_blank";blank="blank/literal_N/date_blank"
+    organizations={"A2LA","AABB","AOA","ASHI","CAP","COLA","JCAHO"}
+    if set(a["accreditation_report_confirmation_date_presence"])!=organizations or set(a["accreditation_by_clia_term_scope"])!=organizations:
+        raise ValueError("CLIA accreditation field set mismatch")
+    for k,v in a["accreditation_report_confirmation_date_presence"].items():
+        counts(v,n)
+        if set(v)-{yes,no,blank}:raise ValueError("CLIA accreditation pattern changed")
+        scoped=a["accreditation_by_clia_term_scope"][k]
+        if set(scoped)!=set(scopes):raise ValueError("CLIA accreditation scope mismatch")
+        for sc,c in scoped.items():
+            counts(c,scopes[sc])
+            if set(c)-{yes,no,blank}:raise ValueError("CLIA accreditation scoped pattern changed")
+        if any(sum(c.get(pattern,0) for c in scoped.values())!=v.get(pattern,0) for pattern in (yes,no,blank)):
+            raise ValueError("CLIA accreditation aggregate mismatch")
+        accred[k]={"reported":v.get(yes,0)+v.get(no,0),"confirmed":v.get(yes,0),"unconfirmed":v.get(no,0),"code00_confirmed":scoped["literal_00"].get(yes,0)}
+    dates={}
+    for sc in scopes:
+        for f in ("CRTFCT_EFCTV_DT","TRMNTN_EXPRTN_DT","CRTFCT_MAIL_DT"):
+            k=sc+"/"+f;c=a["date_states_by_clia_term_scope"][k];counts(c,scopes[sc])
+            before=c.get("compact_yyyymmdd_on_or_before_release_end",0);after=c.get("compact_yyyymmdd_after_release_end",0)
+            dates[k]={"before":before,"after":after,"other":scopes[sc]-before-after}
+    identity=a["identity_and_reference_diagnostics"];counts(identity["distinct_affiliation_tokens_per_row"],n)
+    counts(a["current_class_history_corroboration"],n)
+    counts(a["date_order_diagnostics"],n)
+    counts(a["multi_site_flag_and_count"],n)
+    if identity["affiliation_occurrences_matching_registry_id"]>identity["affiliation_reference_occurrences"] or identity["distinct_registry_id_tokens"]!=n:
+        raise ValueError("CLIA identifier count mismatch")
+    return {"scopes":scopes,"certificates":{sc:{k:cert[sc].get(k,0) for k in a["code_counts"]["CRTFCT_TYPE_CD"]} for sc in scopes},"facility_all":a["code_counts"]["GNRL_FAC_TYPE_CD"],"facility_00":{k:facilities["literal_00"].get(k,0) for k in a["code_counts"]["GNRL_FAC_TYPE_CD"]},
+            "accreditation":accred,"dates":dates,"identity":identity,"field_count":len(catalog),
+            "unmatched_references":identity["affiliation_reference_occurrences"]-identity["affiliation_occurrences_matching_registry_id"],
+            "history_match":a["current_class_history_corroboration"]["current_in_reported_history"],
+            "reversed_dates":a["date_order_diagnostics"]["effective_vs_termination_or_expiration/after"],"multisite":a["multi_site_flag_and_count"]}
 def build(ledger,cap,spec,data_use=None):
     epa=next(x for x in ledger["sources"] if x["id"]=="FS-157")
     ctx={"ledger":ledger,"cap":cap,"epa":epa}
@@ -88,6 +159,9 @@ def build(ledger,cap,spec,data_use=None):
             "source_rows":hospital["source_rows"],"scope_rows":n,
             "comparison":hospital["public_hospital_comparison"],
             "scope_totals":{k:v["rows"] for k,v in hospital["scope_results"].items()}}
+    semantic_path=ROOT/"research/clia_certificate_semantic_audit_20261126.json"
+    if semantic_path.exists():
+        ctx["clia_semantic"]=qualify_clia_semantic(read(semantic_path),ctx.get("clia_audit"),read(ROOT/"research/snapshot_release_20261125.json"))
     def resolve(cell):
         if isinstance(cell,dict):
             if set(cell)!={"path"}:raise ValueError("unexpected field selector")

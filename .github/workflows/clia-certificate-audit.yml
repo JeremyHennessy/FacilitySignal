@@ -1,0 +1,35 @@
+name: FacilitySignal CLIA certificate and accreditation semantic qualification
+on:
+  push:
+    branches: [research/clia-certificate-semantics-20261126]
+    paths:
+      - clia_certificate_audit.py
+      - tests/test_clia_certificate_audit.py
+      - .github/workflows/clia-certificate-audit.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - uses: actions/download-artifact@v4
+        with:
+          name: legacy-layout-crosswalk-clia
+          run-id: 45822686294
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/clia-layout
+      - run: python -m unittest discover -s tests -p test_clia_certificate_audit.py -v
+      - run: python clia_certificate_audit.py --layout "$RUNNER_TEMP/clia-layout/layout-crosswalk.json" --download --output "$RUNNER_TEMP/clia-certificate-audit.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: clia-certificate-semantic-audit
+          path: ${{ runner.temp }}/clia-certificate-audit.json
+          retention-days: 14
+          if-no-files-found: error

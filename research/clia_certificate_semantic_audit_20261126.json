@@ -1,0 +1,4051 @@
+{
+  "accreditation_by_clia_term_scope": {
+    "A2LA": {
+      "literal_00": {
+        "blank/literal_N/date_blank": 299331,
+        "code_X/literal_N/date_blank": 6,
+        "code_X/literal_Y/date_present": 8
+      },
+      "other_documented": {
+        "blank/literal_N/date_blank": 386614,
+        "code_X/literal_N/date_blank": 1
+      },
+      "unresolved": {
+        "blank/literal_N/date_blank": 97,
+        "code_X/literal_Y/date_present": 1
+      }
+    },
+    "AABB": {
+      "literal_00": {
+        "blank/literal_N/date_blank": 299099,
+        "code_X/literal_N/date_blank": 10,
+        "code_X/literal_Y/date_present": 236
+      },
+      "other_documented": {
+        "blank/literal_N/date_blank": 386591,
+        "code_X/literal_N/date_blank": 11,
+        "code_X/literal_Y/date_present": 13
+      },
+      "unresolved": {
+        "blank/literal_N/date_blank": 98
+      }
+    },
+    "AOA": {
+      "literal_00": {
+        "blank/literal_N/date_blank": 299160,
+        "code_X/literal_Y/date_present": 185
+      },
+      "other_documented": {
+        "blank/literal_N/date_blank": 386596,
+        "code_X/literal_N/date_blank": 8,
+        "code_X/literal_Y/date_present": 11
+      },
+      "unresolved": {
+        "blank/literal_N/date_blank": 98
+      }
+    },
+    "ASHI": {
+      "literal_00": {
+        "blank/literal_N/date_blank": 299226,
+        "code_X/literal_N/date_blank": 2,
+        "code_X/literal_Y/date_present": 117
+      },
+      "other_documented": {
+        "blank/literal_N/date_blank": 386607,
+        "code_X/literal_Y/date_present": 8
+      },
+      "unresolved": {
+        "blank/literal_N/date_blank": 98
+      }
+    },
+    "CAP": {
+      "literal_00": {
+        "blank/literal_N/date_blank": 291926,
+        "code_X/literal_N/date_blank": 361,
+        "code_X/literal_Y/date_present": 7058
+      },
+      "other_documented": {
+        "blank/literal_N/date_blank": 385536,
+        "code_X/literal_N/date_blank": 131,
+        "code_X/literal_Y/date_present": 948
+      },
+      "unresolved": {
+        "blank/literal_N/date_blank": 89,
+        "code_X/literal_N/date_blank": 3,
+        "code_X/literal_Y/date_present": 6
+      }
+    },
+    "COLA": {
+      "literal_00": {
+        "blank/literal_N/date_blank": 293545,
+        "code_X/literal_N/date_blank": 514,
+        "code_X/literal_Y/date_present": 5286
+      },
+      "other_documented": {
+        "blank/literal_N/date_blank": 384605,
+        "code_X/literal_N/date_blank": 544,
+        "code_X/literal_Y/date_present": 1466
+      },
+      "unresolved": {
+        "blank/literal_N/date_blank": 73,
+        "code_X/literal_N/date_blank": 5,
+        "code_X/literal_Y/date_present": 20
+      }
+    },
+    "JCAHO": {
+      "literal_00": {
+        "blank/literal_N/date_blank": 296065,
+        "code_X/literal_N/date_blank": 772,
+        "code_X/literal_Y/date_present": 2508
+      },
+      "other_documented": {
+        "blank/literal_N/date_blank": 386245,
+        "code_X/literal_N/date_blank": 74,
+        "code_X/literal_Y/date_present": 296
+      },
+      "unresolved": {
+        "blank/literal_N/date_blank": 96,
+        "code_X/literal_Y/date_present": 2
+      }
+    }
+  },
+  "accreditation_report_confirmation_date_presence": {
+    "A2LA": {
+      "blank/literal_N/date_blank": 686042,
+      "code_X/literal_N/date_blank": 7,
+      "code_X/literal_Y/date_present": 9
+    },
+    "AABB": {
+      "blank/literal_N/date_blank": 685788,
+      "code_X/literal_N/date_blank": 21,
+      "code_X/literal_Y/date_present": 249
+    },
+    "AOA": {
+      "blank/literal_N/date_blank": 685854,
+      "code_X/literal_N/date_blank": 8,
+      "code_X/literal_Y/date_present": 196
+    },
+    "ASHI": {
+      "blank/literal_N/date_blank": 685931,
+      "code_X/literal_N/date_blank": 2,
+      "code_X/literal_Y/date_present": 125
+    },
+    "CAP": {
+      "blank/literal_N/date_blank": 677551,
+      "code_X/literal_N/date_blank": 495,
+      "code_X/literal_Y/date_present": 8012
+    },
+    "COLA": {
+      "blank/literal_N/date_blank": 678223,
+      "code_X/literal_N/date_blank": 1063,
+      "code_X/literal_Y/date_present": 6772
+    },
+    "JCAHO": {
+      "blank/literal_N/date_blank": 682406,
+      "code_X/literal_N/date_blank": 846,
+      "code_X/literal_Y/date_present": 2806
+    }
+  },
+  "as_of": "2026-11-26",
+  "certificate_by_clia_term_scope": {
+    "literal_00": {
+      "code_1": 15237,
+      "code_2": 244230,
+      "code_3": 15821,
+      "code_4": 22034,
+      "code_9": 2023
+    },
+    "other_documented": {
+      "code_1": 23864,
+      "code_2": 281402,
+      "code_3": 14278,
+      "code_4": 54052,
+      "code_9": 13019
+    },
+    "unresolved": {
+      "code_1": 15,
+      "code_2": 28,
+      "code_3": 28,
+      "code_4": 4,
+      "code_9": 23
+    }
+  },
+  "classification_history_populated_count": {
+    "1": 146482,
+    "2": 98527,
+    "3": 76276,
+    "4": 54915,
+    "5": 46135,
+    "6": 36837,
+    "7": 30555,
+    "8": 25346,
+    "9": 21881,
+    "10": 149104
+  },
+  "clia_term_scope_rows": {
+    "literal_00": 299345,
+    "other_documented": 386615,
+    "unresolved": 98
+  },
+  "code_counts": {
+    "A2LA_ACRDTD_CD": {
+      "blank": 686042,
+      "code_X": 16
+    },
+    "AABB_ACRDTD_CD": {
+      "blank": 685788,
+      "code_X": 270
+    },
+    "ACRDTN_SCHDL_CD": {
+      "blank": 665773,
+      "code_A": 3371,
+      "code_B": 270,
+      "code_C": 2243,
+      "code_D": 326,
+      "code_E": 1975,
+      "code_F": 1069,
+      "code_G": 686,
+      "code_H": 3295,
+      "code_I": 1113,
+      "code_J": 1545,
+      "code_V": 4392
+    },
+    "AOA_ACRDTD_CD": {
+      "blank": 685854,
+      "code_X": 204
+    },
+    "APLCTN_TYPE_CD": {
+      "code_1": 48559,
+      "code_2": 525660,
+      "code_3": 35749,
+      "code_4": 76090
+    },
+    "ASHI_ACRDTD_CD": {
+      "blank": 685931,
+      "code_X": 127
+    },
+    "CAP_ACRDTD_CD": {
+      "blank": 677551,
+      "code_X": 8507
+    },
+    "CLIA_LAB_CLASSIFICATION_CD_1": {
+      "code_00": 652322,
+      "code_05": 32500,
+      "code_10": 1236
+    },
+    "CLIA_LAB_CLASSIFICATION_CD_10": {
+      "blank": 536954,
+      "code_00": 149020,
+      "code_05": 84
+    },
+    "CLIA_LAB_CLASSIFICATION_CD_2": {
+      "blank": 146482,
+      "code_00": 535811,
+      "code_05": 3726,
+      "code_10": 39
+    },
+    "CLIA_LAB_CLASSIFICATION_CD_3": {
+      "blank": 245009,
+      "code_00": 440073,
+      "code_05": 975,
+      "code_10": 1
+    },
+    "CLIA_LAB_CLASSIFICATION_CD_4": {
+      "blank": 321285,
+      "code_00": 364414,
+      "code_05": 359
+    },
+    "CLIA_LAB_CLASSIFICATION_CD_5": {
+      "blank": 376200,
+      "code_00": 309677,
+      "code_05": 181
+    },
+    "CLIA_LAB_CLASSIFICATION_CD_6": {
+      "blank": 422335,
+      "code_00": 263621,
+      "code_05": 102
+    },
+    "CLIA_LAB_CLASSIFICATION_CD_7": {
+      "blank": 459172,
+      "code_00": 226781,
+      "code_05": 105
+    },
+    "CLIA_LAB_CLASSIFICATION_CD_8": {
+      "blank": 489727,
+      "code_00": 196226,
+      "code_05": 105
+    },
+    "CLIA_LAB_CLASSIFICATION_CD_9": {
+      "blank": 515073,
+      "code_00": 170886,
+      "code_05": 99
+    },
+    "CLIA_TRMNTN_CD": {
+      "code_00": 299345,
+      "code_01": 136223,
+      "code_02": 154,
+      "code_03": 266,
+      "code_04": 6372,
+      "code_05": 2368,
+      "code_06": 264,
+      "code_07": 759,
+      "code_08": 191197,
+      "code_09": 22,
+      "code_10": 2692,
+      "code_11": 228,
+      "code_12": 25939,
+      "code_13": 1716,
+      "code_14": 1000,
+      "code_15": 5708,
+      "code_16": 1952,
+      "code_17": 6640,
+      "code_20": 71,
+      "code_33": 2252,
+      "code_80": 7,
+      "code_99": 785,
+      "unmapped_code_95": 98
+    },
+    "CMPLNC_STUS_CD": {
+      "blank": 607188,
+      "code_A": 73622,
+      "code_B": 5248
+    },
+    "COLA_ACRDTD_CD": {
+      "blank": 678223,
+      "code_X": 7835
+    },
+    "CRTFCTN_ACTN_TYPE_CD": {
+      "blank": 607189,
+      "code_1": 19943,
+      "code_2": 52838,
+      "code_3": 23,
+      "code_5": 6063,
+      "unrecognized": 2
+    },
+    "CRTFCT_TYPE_CD": {
+      "code_1": 39116,
+      "code_2": 525660,
+      "code_3": 30127,
+      "code_4": 76090,
+      "code_9": 15065
+    },
+    "CURRENT_CLIA_LAB_CLSFCTN_CD": {
+      "code_00": 652322,
+      "code_05": 32500,
+      "code_10": 1236
+    },
+    "FORM_1557_CMPLNC_SCHDL_CD": {
+      "blank": 670729,
+      "code_A": 2998,
+      "code_B": 70,
+      "code_C": 1550,
+      "code_D": 106,
+      "code_E": 1170,
+      "code_F": 761,
+      "code_G": 533,
+      "code_H": 1711,
+      "code_I": 250,
+      "code_J": 293,
+      "code_V": 5887
+    },
+    "FORM_1557_CRTFCT_SCHDL_CD": {
+      "blank": 670729,
+      "code_A": 2998,
+      "code_B": 70,
+      "code_C": 1550,
+      "code_D": 106,
+      "code_E": 1170,
+      "code_F": 761,
+      "code_G": 533,
+      "code_H": 1711,
+      "code_I": 250,
+      "code_J": 293,
+      "code_V": 5887
+    },
+    "GNRL_CNTL_TYPE_CD": {
+      "code_01": 18099,
+      "code_02": 77594,
+      "code_03": 36438,
+      "code_04": 507080,
+      "code_05": 6125,
+      "code_06": 11271,
+      "code_07": 10815,
+      "code_08": 3354,
+      "code_09": 7885,
+      "code_10": 7397
+    },
+    "GNRL_FAC_TYPE_CD": {
+      "code_01": 10043,
+      "code_02": 11294,
+      "code_03": 9173,
+      "code_04": 16158,
+      "code_05": 933,
+      "code_06": 17403,
+      "code_07": 2387,
+      "code_08": 9696,
+      "code_09": 6785,
+      "code_10": 2027,
+      "code_11": 1672,
+      "code_12": 37402,
+      "code_13": 9593,
+      "code_14": 16342,
+      "code_15": 26646,
+      "code_16": 5065,
+      "code_17": 164,
+      "code_18": 3136,
+      "code_19": 7243,
+      "code_20": 39233,
+      "code_21": 315902,
+      "code_22": 15981,
+      "code_23": 1714,
+      "code_24": 1405,
+      "code_25": 4717,
+      "code_26": 11769,
+      "code_27": 20806,
+      "code_28": 158,
+      "code_29": 81211
+    },
+    "JCAHO_ACRDTD_CD": {
+      "blank": 682406,
+      "code_X": 3652
+    },
+    "PGM_TRMNTN_CD": {
+      "code_00": 299345,
+      "code_01": 136223,
+      "code_02": 154,
+      "code_03": 266,
+      "code_04": 6372,
+      "code_05": 2368,
+      "code_06": 264,
+      "code_07": 759,
+      "code_08": 191197,
+      "code_09": 22,
+      "code_10": 2692,
+      "code_11": 228,
+      "code_12": 25939,
+      "code_13": 1716,
+      "code_14": 1000,
+      "code_15": 5708,
+      "code_16": 1952,
+      "code_17": 6640,
+      "code_20": 71,
+      "code_33": 2252,
+      "code_80": 7,
+      "code_99": 785,
+      "unmapped_code_95": 98
+    },
+    "PRVDR_CTGRY_CD": {
+      "code_22": 686058
+    },
+    "PRVDR_CTGRY_SBTYP_CD": {
+      "code_01": 686058
+    }
+  },
+  "current_class_history_corroboration": {
+    "current_in_reported_history": 686058
+  },
+  "date_order_diagnostics": {
+    "effective_vs_termination_or_expiration/after": 1,
+    "effective_vs_termination_or_expiration/before": 686057
+  },
+  "date_states": {
+    "A2LA_ACRDTD_Y_MATCH_DT": {
+      "blank": 686049,
+      "compact_yyyymmdd_on_or_before_release_end": 9
+    },
+    "AABB_ACRDTD_Y_MATCH_DT": {
+      "blank": 685809,
+      "compact_yyyymmdd_on_or_before_release_end": 249
+    },
+    "AOA_ACRDTD_Y_MATCH_DT": {
+      "blank": 685862,
+      "compact_yyyymmdd_on_or_before_release_end": 196
+    },
+    "APLCTN_RCVD_DT": {
+      "compact_yyyymmdd_on_or_before_release_end": 686058
+    },
+    "ASHI_ACRDTD_Y_MATCH_DT": {
+      "blank": 685933,
+      "compact_yyyymmdd_on_or_before_release_end": 125
+    },
+    "CAP_ACRDTD_Y_MATCH_DT": {
+      "blank": 678046,
+      "compact_yyyymmdd_on_or_before_release_end": 8012
+    },
+    "CHOW_DT": {
+      "blank": 685370,
+      "compact_yyyymmdd_on_or_before_release_end": 688
+    },
+    "CHOW_PRIOR_DT": {
+      "blank": 685202,
+      "compact_yyyymmdd_on_or_before_release_end": 856
+    },
+    "COLA_ACRDTD_Y_MATCH_DT": {
+      "blank": 679286,
+      "compact_yyyymmdd_on_or_before_release_end": 6772
+    },
+    "CRTFCTN_DT": {
+      "compact_yyyymmdd_on_or_before_release_end": 686058
+    },
+    "CRTFCT_EFCTV_DT": {
+      "compact_yyyymmdd_after_release_end": 7151,
+      "compact_yyyymmdd_on_or_before_release_end": 678907
+    },
+    "CRTFCT_MAIL_DT": {
+      "blank": 33400,
+      "compact_yyyymmdd_on_or_before_release_end": 652658
+    },
+    "JCAHO_ACRDTD_Y_MATCH_DT": {
+      "blank": 683252,
+      "compact_yyyymmdd_on_or_before_release_end": 2806
+    },
+    "ORGNL_PRTCPTN_DT": {
+      "compact_yyyymmdd_on_or_before_release_end": 686058
+    },
+    "TRMNTN_EXPRTN_DT": {
+      "compact_yyyymmdd_after_release_end": 298205,
+      "compact_yyyymmdd_on_or_before_release_end": 387853
+    }
+  },
+  "date_states_by_clia_term_scope": {
+    "literal_00/CRTFCT_EFCTV_DT": {
+      "compact_yyyymmdd_after_release_end": 7149,
+      "compact_yyyymmdd_on_or_before_release_end": 292196
+    },
+    "literal_00/CRTFCT_MAIL_DT": {
+      "blank": 16105,
+      "compact_yyyymmdd_on_or_before_release_end": 283240
+    },
+    "literal_00/TRMNTN_EXPRTN_DT": {
+      "compact_yyyymmdd_after_release_end": 298165,
+      "compact_yyyymmdd_on_or_before_release_end": 1180
+    },
+    "other_documented/CRTFCT_EFCTV_DT": {
+      "compact_yyyymmdd_after_release_end": 2,
+      "compact_yyyymmdd_on_or_before_release_end": 386613
+    },
+    "other_documented/CRTFCT_MAIL_DT": {
+      "blank": 17293,
+      "compact_yyyymmdd_on_or_before_release_end": 369322
+    },
+    "other_documented/TRMNTN_EXPRTN_DT": {
+      "compact_yyyymmdd_after_release_end": 36,
+      "compact_yyyymmdd_on_or_before_release_end": 386579
+    },
+    "unresolved/CRTFCT_EFCTV_DT": {
+      "compact_yyyymmdd_on_or_before_release_end": 98
+    },
+    "unresolved/CRTFCT_MAIL_DT": {
+      "blank": 2,
+      "compact_yyyymmdd_on_or_before_release_end": 96
+    },
+    "unresolved/TRMNTN_EXPRTN_DT": {
+      "compact_yyyymmdd_after_release_end": 4,
+      "compact_yyyymmdd_on_or_before_release_end": 94
+    }
+  },
+  "facility_type_by_clia_term_scope": {
+    "literal_00": {
+      "code_01": 6292,
+      "code_02": 7254,
+      "code_03": 3635,
+      "code_04": 10987,
+      "code_05": 403,
+      "code_06": 7899,
+      "code_07": 1172,
+      "code_08": 7042,
+      "code_09": 5316,
+      "code_10": 518,
+      "code_11": 643,
+      "code_12": 12917,
+      "code_13": 4720,
+      "code_14": 9386,
+      "code_15": 7816,
+      "code_16": 1515,
+      "code_17": 36,
+      "code_18": 1349,
+      "code_19": 2572,
+      "code_20": 22634,
+      "code_21": 115548,
+      "code_22": 6520,
+      "code_23": 1251,
+      "code_24": 1049,
+      "code_25": 2976,
+      "code_26": 4522,
+      "code_27": 13836,
+      "code_28": 51,
+      "code_29": 39486
+    },
+    "other_documented": {
+      "code_01": 3751,
+      "code_02": 4039,
+      "code_03": 5537,
+      "code_04": 5171,
+      "code_05": 530,
+      "code_06": 9504,
+      "code_07": 1215,
+      "code_08": 2653,
+      "code_09": 1468,
+      "code_10": 1509,
+      "code_11": 1029,
+      "code_12": 24485,
+      "code_13": 4873,
+      "code_14": 6954,
+      "code_15": 18794,
+      "code_16": 3548,
+      "code_17": 128,
+      "code_18": 1787,
+      "code_19": 4671,
+      "code_20": 16588,
+      "code_21": 200322,
+      "code_22": 9458,
+      "code_23": 463,
+      "code_24": 356,
+      "code_25": 1741,
+      "code_26": 7247,
+      "code_27": 6970,
+      "code_28": 107,
+      "code_29": 41717
+    },
+    "unresolved": {
+      "code_02": 1,
+      "code_03": 1,
+      "code_08": 1,
+      "code_09": 1,
+      "code_14": 2,
+      "code_15": 36,
+      "code_16": 2,
+      "code_20": 11,
+      "code_21": 32,
+      "code_22": 3,
+      "code_29": 8
+    }
+  },
+  "format_version": 1,
+  "historical_layout_artifact_sha256": "23eb5208fd333ae52105a1e674268b713eec3dc89edd4d6fe697f18aed0e8b9b",
+  "historical_layout_sha256": "8887f8603550af0ec6cb793b1f1fcb61afd5ab1bea4c1ca5701f592b56e7be65",
+  "identity_and_reference_diagnostics": {
+    "affiliation_occurrences_matching_registry_id": 260315,
+    "affiliation_reference_occurrences": 260718,
+    "affiliation_self_reference_occurrences": 2,
+    "distinct_affiliation_reference_tokens": 108969,
+    "distinct_affiliation_tokens_matching_registry_id": 108696,
+    "distinct_affiliation_tokens_per_row": {
+      "0": 574528,
+      "1": 50271,
+      "2": 22610,
+      "3": 15302,
+      "4": 11814,
+      "5": 4333,
+      "6": 3144,
+      "7": 943,
+      "8": 3113
+    },
+    "distinct_registry_id_tokens": 686058,
+    "nonblank_registry_ids": 686058,
+    "registry_id_tokens_with_multiple_rows": 0
+  },
+  "limits": [
+    "Source file is historical; the 2023 field dictionary remains provisional for 2026.",
+    "Literal 00 is historical active-status label, not independently verified current certificate validity or operation.",
+    "Both termination columns remain separate; exact exported mapping to provider/current/pending certificate levels is not assumed.",
+    "TRMNTN_EXPRTN_DT can be termination or expiration, and a future date is not proof of active certification.",
+    "Accreditation application declaration, confirmation flag and date presence differ; no current accreditation claim.",
+    "Affiliation token matches are not verified relationships or ownership. No raw identifiers, dates, names or addresses emitted.",
+    "Volume count fields differ in scope and certificate type; no total tests, capacity, or installed equipment inference."
+  ],
+  "literal_flag_counts": {
+    "A2LA_ACRDTD_Y_MATCH_SW": {
+      "literal_N": 686049,
+      "literal_Y": 9
+    },
+    "AABB_ACRDTD_Y_MATCH_SW": {
+      "literal_N": 685809,
+      "literal_Y": 249
+    },
+    "ACPTBL_POC_SW": {
+      "literal_N": 654174,
+      "literal_Y": 31884
+    },
+    "AOA_ACRDTD_Y_MATCH_SW": {
+      "literal_N": 685862,
+      "literal_Y": 196
+    },
+    "ASHI_ACRDTD_Y_MATCH_SW": {
+      "literal_N": 685933,
+      "literal_Y": 125
+    },
+    "CAP_ACRDTD_Y_MATCH_SW": {
+      "literal_N": 678046,
+      "literal_Y": 8012
+    },
+    "COLA_ACRDTD_Y_MATCH_SW": {
+      "literal_N": 679286,
+      "literal_Y": 6772
+    },
+    "ELGBLTY_SW": {
+      "literal_N": 607226,
+      "literal_Y": 78832
+    },
+    "HOSP_LAB_EXCPTN_SW": {
+      "literal_N": 683574,
+      "literal_Y": 2484
+    },
+    "JCAHO_ACRDTD_Y_MATCH_SW": {
+      "literal_N": 683252,
+      "literal_Y": 2806
+    },
+    "LAB_TEMP_TSTG_SITE_SW": {
+      "literal_N": 666451,
+      "literal_Y": 19607
+    },
+    "MLT_SITE_EXCPTN_SW": {
+      "literal_N": 647437,
+      "literal_Y": 38621
+    },
+    "NON_PRFT_EXCPTN_SW": {
+      "literal_N": 670917,
+      "literal_Y": 15141
+    },
+    "SHR_LAB_SW": {
+      "literal_N": 681620,
+      "literal_Y": 4438
+    },
+    "SKLTN_REC_SW": {
+      "literal_N": 78899,
+      "literal_Y": 607159
+    }
+  },
+  "multi_site_flag_and_count": {
+    "literal_N/positive": 190,
+    "literal_N/zero": 647247,
+    "literal_Y/positive": 38575,
+    "literal_Y/zero": 46
+  },
+  "period": "2026-07-01/2026-09-30",
+  "quantity_states": {
+    "CHOW_CNT": {
+      "positive": 1478,
+      "zero": 684580
+    },
+    "DRCTLY_AFLTD_LAB_CNT": {
+      "positive": 111395,
+      "zero": 574663
+    },
+    "FORM_116_ACRDTD_TEST_VOL_CNT": {
+      "positive": 20291,
+      "zero": 665767
+    },
+    "FORM_116_TEST_VOL_CNT": {
+      "positive": 21223,
+      "zero": 664835
+    },
+    "FORM_1557_TEST_VOL_CNT": {
+      "blank": 525,
+      "positive": 15328,
+      "zero": 670205
+    },
+    "LAB_SITE_CNT": {
+      "positive": 38765,
+      "zero": 647293
+    },
+    "PPMP_TEST_VOL_CNT": {
+      "positive": 33032,
+      "zero": 653026
+    },
+    "WVD_TEST_VOL_CNT": {
+      "positive": 603361,
+      "zero": 82697
+    }
+  },
+  "quantity_states_by_certificate_code": {
+    "DRCTLY_AFLTD_LAB_CNT": {
+      "code_1": {
+        "positive": 15594,
+        "zero": 23522
+      },
+      "code_2": {
+        "positive": 63726,
+        "zero": 461934
+      },
+      "code_3": {
+        "positive": 14878,
+        "zero": 15249
+      },
+      "code_4": {
+        "positive": 12326,
+        "zero": 63764
+      },
+      "code_9": {
+        "positive": 4871,
+        "zero": 10194
+      }
+    },
+    "FORM_116_ACRDTD_TEST_VOL_CNT": {
+      "code_1": {
+        "positive": 20,
+        "zero": 39096
+      },
+      "code_2": {
+        "positive": 21,
+        "zero": 525639
+      },
+      "code_3": {
+        "positive": 18502,
+        "zero": 11625
+      },
+      "code_4": {
+        "positive": 4,
+        "zero": 76086
+      },
+      "code_9": {
+        "positive": 1744,
+        "zero": 13321
+      }
+    },
+    "FORM_116_TEST_VOL_CNT": {
+      "code_1": {
+        "positive": 18703,
+        "zero": 20413
+      },
+      "code_2": {
+        "positive": 49,
+        "zero": 525611
+      },
+      "code_3": {
+        "positive": 172,
+        "zero": 29955
+      },
+      "code_4": {
+        "positive": 6,
+        "zero": 76084
+      },
+      "code_9": {
+        "positive": 2293,
+        "zero": 12772
+      }
+    },
+    "FORM_1557_TEST_VOL_CNT": {
+      "code_1": {
+        "blank": 255,
+        "positive": 15117,
+        "zero": 23744
+      },
+      "code_2": {
+        "zero": 525660
+      },
+      "code_3": {
+        "blank": 193,
+        "zero": 29934
+      },
+      "code_4": {
+        "zero": 76090
+      },
+      "code_9": {
+        "blank": 77,
+        "positive": 211,
+        "zero": 14777
+      }
+    },
+    "LAB_SITE_CNT": {
+      "code_1": {
+        "positive": 946,
+        "zero": 38170
+      },
+      "code_2": {
+        "positive": 32131,
+        "zero": 493529
+      },
+      "code_3": {
+        "positive": 1949,
+        "zero": 28178
+      },
+      "code_4": {
+        "positive": 3279,
+        "zero": 72811
+      },
+      "code_9": {
+        "positive": 460,
+        "zero": 14605
+      }
+    },
+    "PPMP_TEST_VOL_CNT": {
+      "code_1": {
+        "positive": 3174,
+        "zero": 35942
+      },
+      "code_2": {
+        "positive": 156,
+        "zero": 525504
+      },
+      "code_3": {
+        "positive": 1486,
+        "zero": 28641
+      },
+      "code_4": {
+        "positive": 27809,
+        "zero": 48281
+      },
+      "code_9": {
+        "positive": 407,
+        "zero": 14658
+      }
+    },
+    "WVD_TEST_VOL_CNT": {
+      "code_1": {
+        "positive": 18833,
+        "zero": 20283
+      },
+      "code_2": {
+        "positive": 500868,
+        "zero": 24792
+      },
+      "code_3": {
+        "positive": 16404,
+        "zero": 13723
+      },
+      "code_4": {
+        "positive": 61418,
+        "zero": 14672
+      },
+      "code_9": {
+        "positive": 5838,
+        "zero": 9227
+      }
+    }
+  },
+  "reference_shape_counts": {
+    "AFFILIATED_PROVIDER_NUMBER_1": {
+      "blank": 574854,
+      "clia_shaped": 111204
+    },
+    "AFFILIATED_PROVIDER_NUMBER_2": {
+      "blank": 624870,
+      "clia_shaped": 61188
+    },
+    "AFFILIATED_PROVIDER_NUMBER_3": {
+      "blank": 647311,
+      "clia_shaped": 38747
+    },
+    "AFFILIATED_PROVIDER_NUMBER_4": {
+      "blank": 662562,
+      "clia_shaped": 23496
+    },
+    "AFFILIATED_PROVIDER_NUMBER_5": {
+      "blank": 674414,
+      "clia_shaped": 11644
+    },
+    "AFFILIATED_PROVIDER_NUMBER_6": {
+      "blank": 678831,
+      "clia_shaped": 7227
+    },
+    "AFFILIATED_PROVIDER_NUMBER_7": {
+      "blank": 681982,
+      "clia_shaped": 4076
+    },
+    "AFFILIATED_PROVIDER_NUMBER_8": {
+      "blank": 682922,
+      "clia_shaped": 3136
+    },
+    "CLIA_MDCR_NUM": {
+      "blank": 686058
+    },
+    "CROSS_REF_PROVIDER_NUMBER": {
+      "blank": 680019,
+      "clia_shaped": 6038,
+      "six_character_alphanumeric": 1
+    },
+    "RELATED_PROVIDER_NUMBER": {
+      "blank": 686058
+    },
+    "SHARED_LAB_XREF_NUMBER": {
+      "blank": 685124,
+      "clia_shaped": 934
+    }
+  },
+  "source_rows": 686058,
+  "source_sha256": "b7b7dce68abec2ad69b6c3378ff14e0b1c4e12f5dda433d12db2cf8eb4c5b1bf",
+  "termination_code_pairs": {
+    "code_00/code_00": 299345,
+    "code_01/code_01": 136223,
+    "code_02/code_02": 154,
+    "code_03/code_03": 266,
+    "code_04/code_04": 6372,
+    "code_05/code_05": 2368,
+    "code_06/code_06": 264,
+    "code_07/code_07": 759,
+    "code_08/code_08": 191197,
+    "code_09/code_09": 22,
+    "code_10/code_10": 2692,
+    "code_11/code_11": 228,
+    "code_12/code_12": 25939,
+    "code_13/code_13": 1716,
+    "code_14/code_14": 1000,
+    "code_15/code_15": 5708,
+    "code_16/code_16": 1952,
+    "code_17/code_17": 6640,
+    "code_20/code_20": 71,
+    "code_33/code_33": 2252,
+    "code_80/code_80": 7,
+    "code_99/code_99": 785,
+    "unmapped_code_95/unmapped_code_95": 98
+  },
+  "termination_scope_pairs": {
+    "literal_00/literal_00": 299345,
+    "other_documented/other_documented": 386615,
+    "unresolved/unresolved": 98
+  },
+  "catalog": [
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "PRVDR_CTGRY_SBTYP_CD",
+      "historical_codes": {
+        "01": "CLIA88 Laboratory"
+      },
+      "historical_definition": "Identifies the subtype of the provider, within the primary category. Used in reporting to show the breakdown of provider categories, mainly for hospitals and SNFs.",
+      "historical_page": 1,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Provider Category Subtype Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 1,
+      "printed_page": 1,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "PRVDR_CTGRY_CD",
+      "historical_codes": {
+        "22": "CLIA Laboratory"
+      },
+      "historical_definition": "Identifies the type of provider participating in the Medicare/Medicaid program.",
+      "historical_page": 1,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Provider Category Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 2,
+      "printed_page": 1,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "quantity_states",
+      "category": "quantity",
+      "field": "CHOW_CNT",
+      "historical_codes": {},
+      "historical_definition": "Number of times this provider has undergone a change of ownership.",
+      "historical_page": 1,
+      "historical_type": "NUMBER",
+      "label_candidate": "CHOW Count",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 3,
+      "printed_page": 1,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 7,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific count or estimated annual volume; preserve zero/blank, certificate applicability and overlapping measures. No sum as equipment or actual throughput."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "CHOW_DT",
+      "historical_codes": {},
+      "historical_definition": "Effective date of the most recent change of ownership for this provider.",
+      "historical_page": 1,
+      "historical_type": "DATE",
+      "label_candidate": "CHOW Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 4,
+      "printed_page": 1,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 358,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 688
+        },
+        "states": {
+          "blank": 685370,
+          "other_nonblank": 688
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "CITY_NAME",
+      "historical_codes": {},
+      "historical_definition": "City in which the provider is physically located.",
+      "historical_page": 2,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Address: City",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 5,
+      "printed_page": 1,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 685851
+        },
+        "states": {
+          "blank": 207,
+          "other_nonblank": 685851
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "ACPTBL_POC_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if a provider is in compliance with program requirements based on an acceptable plan for correction of deficiencies.",
+      "historical_page": 2,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Compliance: Acceptable POC",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 6,
+      "printed_page": 1,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CMPLNC_STUS_CD",
+      "historical_codes": {
+        "A": "IN COMPLIANCE",
+        "B": "NOT IN COMPLIANCE"
+      },
+      "historical_definition": "Compliance status of a provider at the time of certification survey.",
+      "historical_page": 2,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Compliance: Status",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 7,
+      "printed_page": 1,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 78870
+        },
+        "states": {
+          "blank": 607188,
+          "other_nonblank": 78870
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "SSA_CNTY_CD",
+      "historical_codes": {},
+      "historical_definition": "Social Security Administration geographic code indicating the county where the provider is located.",
+      "historical_page": 2,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "SSA County Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 8,
+      "printed_page": 2,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 340,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 2,
+          "unsigned_integer_text": 685662
+        },
+        "states": {
+          "blank": 394,
+          "other_nonblank": 685664
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "CROSS_REF_PROVIDER_NUMBER",
+      "historical_codes": {},
+      "historical_definition": "Cross reference provider number",
+      "historical_page": 2,
+      "historical_type": "CHAR",
+      "label_candidate": "Cross Ref Provider Number",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 9,
+      "printed_page": 2,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 6038,
+          "unsigned_integer_text": 1
+        },
+        "states": {
+          "blank": 680019,
+          "other_nonblank": 6039
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "CRTFCTN_DT",
+      "historical_codes": {},
+      "historical_definition": "Equal to the exit date of the initial visit of the Health survey for certifications completed after July 28, 2012. For certifications prior to that date, the certification date is equal to the exit date of the initial visit of the Health survey or LSC survey, whichever is later.",
+      "historical_page": 3,
+      "historical_type": "DATE",
+      "label_candidate": "Certification Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 10,
+      "printed_page": 2,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "ELGBLTY_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if a facility is eligible to participate in the Medicare and/or Medicaid programs.",
+      "historical_page": 3,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Eligibility Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 11,
+      "printed_page": 2,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "identity",
+      "field": "FAC_NAME",
+      "historical_codes": {},
+      "historical_definition": "Name of the provider certified to participate in the Medicare and/or Medicaid programs.",
+      "historical_page": 3,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Facility Name",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 12,
+      "printed_page": 2,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 686053,
+          "unsigned_integer_text": 5
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported source identifier/name; not a canonical site or legal entity."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "administrative",
+      "field": "INTRMDRY_CARR_CD",
+      "historical_codes": {},
+      "historical_definition": "Number assigned to the Medicare Administrative Contractor, intermediary or carrier servicing this provider.",
+      "historical_page": 3,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Medicare Administrative Contractor (MAC) or Intermediary or Carrier Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 13,
+      "printed_page": 2,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 50,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 5936
+        },
+        "states": {
+          "blank": 680122,
+          "other_nonblank": 5936
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Administrative source context; no current contractor or fiscal-date inference."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "identity",
+      "field": "MDCD_VNDR_NUM",
+      "historical_codes": {},
+      "historical_definition": "Number which may be assigned to a provider by the state Medicaid agency for external control or billing purposes.",
+      "historical_page": 10,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Medicaid Vendor Number",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 14,
+      "printed_page": 7,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 0,
+          "method": "exact"
+        },
+        "lexical_shapes": {},
+        "states": {
+          "blank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported source identifier/name; not a canonical site or legal entity."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "ORGNL_PRTCPTN_DT",
+      "historical_codes": {},
+      "historical_definition": "Date a provider is first approved to provide Medicare and/or Medicaid services.",
+      "historical_page": 10,
+      "historical_type": "DATE",
+      "label_candidate": "Original Participation Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 15,
+      "printed_page": 7,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "CHOW_PRIOR_DT",
+      "historical_codes": {},
+      "historical_definition": "Effective date of the previous change of ownership for this provider.",
+      "historical_page": 10,
+      "historical_type": "DATE",
+      "label_candidate": "Prior CHOW Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 16,
+      "printed_page": 7,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 374,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 856
+        },
+        "states": {
+          "blank": 685202,
+          "other_nonblank": 856
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "administrative",
+      "field": "INTRMDRY_CARR_PRIOR_CD",
+      "historical_codes": {},
+      "historical_definition": "Number assigned to the previous Medicare Administrative Contractor, intermediary or carrier servicing this provider.",
+      "historical_page": 10,
+      "historical_type": null,
+      "label_candidate": null,
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 17,
+      "printed_page": 7,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 31,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 1765
+        },
+        "states": {
+          "blank": 684293,
+          "other_nonblank": 1765
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Administrative source context; no current contractor or fiscal-date inference."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "identity",
+      "field": "PRVDR_NUM",
+      "historical_codes": {},
+      "historical_definition": "Six or ten position identification number that is assigned to a certified provider. This is the CMS Certification Number.",
+      "historical_page": 17,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "CCN",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 18,
+      "printed_page": 12,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported source identifier/name; not a canonical site or legal entity."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "RGN_CD",
+      "historical_codes": {},
+      "historical_definition": "Indicates the CMS Regional Office responsible for the certification of the provider.",
+      "historical_page": 17,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Region Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 19,
+      "printed_page": 12,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 10,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "SKLTN_REC_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the record is a skeleton record. Only a limited set of data is available for this provider; no survey data exists. Only provider categories 01,17,19,21and 22 can have skeleton providers.",
+      "historical_page": 17,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Skeleton Record Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 20,
+      "printed_page": 12,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "STATE_CD",
+      "historical_codes": {},
+      "historical_definition": "Two-character state abbreviation.",
+      "historical_page": 17,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "State Abbreviation",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 21,
+      "printed_page": 13,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 58,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "SSA_STATE_CD",
+      "historical_codes": {},
+      "historical_definition": "Social Security Administration geographic code indicating the state where the provider is located.",
+      "historical_page": 19,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "SSA State Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 22,
+      "printed_page": 14,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 58,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "STATE_RGN_CD",
+      "historical_codes": {},
+      "historical_definition": "Identifies the region within a state where the provider is located.",
+      "historical_page": 20,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "State Region Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 23,
+      "printed_page": 15,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 114,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 448680,
+          "unsigned_integer_text": 237378
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "ST_ADR",
+      "historical_codes": {},
+      "historical_definition": "Street address where the provider is located.",
+      "historical_page": 27,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Address: Street",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 24,
+      "printed_page": 20,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 686013,
+          "unsigned_integer_text": 35
+        },
+        "states": {
+          "blank": 10,
+          "other_nonblank": 686048
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "restricted_contact",
+      "field": "PHNE_NUM",
+      "historical_codes": {},
+      "historical_definition": "Telephone number of the provider.",
+      "historical_page": 28,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Telephone Number",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 25,
+      "printed_page": 20,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 63,
+          "unsigned_integer_text": 684770
+        },
+        "states": {
+          "blank": 1225,
+          "other_nonblank": 684833
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Presence only; no contact publication or numeric conversion."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "PGM_TRMNTN_CD",
+      "historical_codes": {
+        "10": "REV/OTHER REASON - CLIA Only",
+        "11": "INCOMPLETE CLIA APPLICATION INFORMATION - CLIA Only",
+        "12": "NO LONGER PERFORMING TESTS - CLIA Only",
+        "13": "MULTIPLE TO SINGLE SITE CERTIFICATE - CLIA Only",
+        "14": "SHARED LABORATORY - CLIA Only",
+        "15": "FAILURE TO RENEW WAIVER PPM CERTIFICATE - CLIA Only",
+        "16": "DUPLICATE CLIA NUMBER - CLIA Only",
+        "17": "MAIL RETURNED NO FORWARD ADDRESS CERT ENDED - CLIA",
+        "20": "NOTIFICATION BANKRUPTCY - CLIA Only",
+        "33": "ACCREDITATION NOT CONFIRMED - CLIA Only",
+        "80": "AWAITING STATE APPROVAL",
+        "99": "OIG ACTION - DO NOT ACTIVATE - CLIA Only",
+        "00": "ACTIVE PROVIDER",
+        "01": "VOLUNTARY-MERGER, CLOSURE",
+        "02": "VOLUNTARY-DISSATISFACTION WITH REIMBURSEMENT",
+        "03": "VOLUNTARY-RISK OF INVOLUNTARY TERMINATION",
+        "04": "VOLUNTARY-OTHER REASON FOR WITHDRAWAL",
+        "05": "INVOLUNTARY-FAILURE TO MEET HEALTH/SAFETY REQ",
+        "06": "INVOLUNTARY-FAILURE TO MEET AGREEMENT",
+        "07": "OTHER-PROVIDER STATUS CHANGE",
+        "08": "NONPAYMENT OF FEES - CLIA Only",
+        "09": "REV/UNSUCCESSFUL PARTICIPATION IN PT - CLIA Only"
+      },
+      "historical_definition": "Indicates the current termination status for the provider.",
+      "historical_page": 28,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Termination Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 26,
+      "printed_page": 20,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 23,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "TRMNTN_EXPRTN_DT",
+      "historical_codes": {},
+      "historical_definition": "Date the provider was terminated. For CLIA providers, date the laboratory's certificate was terminated or the expiration date of the current CLIA certificate.",
+      "historical_page": 28,
+      "historical_type": "DATE",
+      "label_candidate": "Termination or Expiration Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 27,
+      "printed_page": 21,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CRTFCTN_ACTN_TYPE_CD",
+      "historical_codes": {
+        "1": "INITIAL",
+        "2": "RECERTIFICATION",
+        "3": "TERMINATION",
+        "4": "CHANGE OF OWNERSHIP",
+        "5": "VALIDATION",
+        "8": "FULL SURVEY AFTER COMPLAINT"
+      },
+      "historical_definition": "Identifies the reason for the certification. Type of action from the official survey record, CMS 1539 form.",
+      "historical_page": 29,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Type of Action Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 28,
+      "printed_page": 21,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 5,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 78869
+        },
+        "states": {
+          "blank": 607189,
+          "other_nonblank": 78869
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "GNRL_CNTL_TYPE_CD",
+      "historical_codes": {
+        "10": "UNKNOWN",
+        "01": "RELIGIOUS AFFILIATION",
+        "02": "PRIVATE",
+        "03": "OTHER",
+        "04": "PROPRIETARY",
+        "05": "GOVERNMENT - CITY",
+        "06": "GOVERNMENT - COUNTY",
+        "07": "GOVERNMENT - STATE",
+        "08": "GOVERNMENT - FEDERAL",
+        "09": "GOVERNMENT - OTHER"
+      },
+      "historical_definition": "Indicates the ownership type of the provider.",
+      "historical_page": 29,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Ownership Type Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 29,
+      "printed_page": 21,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 10,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "ZIP_CD",
+      "historical_codes": {},
+      "historical_definition": "Five-digit ZIP code for a provider's physical address.",
+      "historical_page": 29,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Address: ZIP Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 30,
+      "printed_page": 21,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 685850
+        },
+        "states": {
+          "blank": 208,
+          "other_nonblank": 685850
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "FIPS_STATE_CD",
+      "historical_codes": {},
+      "historical_definition": "FIPS State Code",
+      "historical_page": 29,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "FIPS State Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 31,
+      "printed_page": 21,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 56,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 685332
+        },
+        "states": {
+          "blank": 726,
+          "other_nonblank": 685332
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "FIPS_CNTY_CD",
+      "historical_codes": {},
+      "historical_definition": "FIPS County Code",
+      "historical_page": 30,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "FIPS County Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 32,
+      "printed_page": 22,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 331,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 685332
+        },
+        "states": {
+          "blank": 726,
+          "other_nonblank": 685332
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "CBSA_URBN_RRL_IND",
+      "historical_codes": {},
+      "historical_definition": "CBSA (Core Based Statistical Area) indicates whether the county is defined as Urban or Rural.",
+      "historical_page": 31,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "CBSA Urban Rural Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 33,
+      "printed_page": 22,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 685276
+        },
+        "states": {
+          "blank": 782,
+          "other_nonblank": 685276
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "CBSA_CD",
+      "historical_codes": {},
+      "historical_definition": "CBSA (Core Based Statistical Area) geographic entities defined by the U.S. Office of Management and Budget (OMB) on June 6, 2003 for use by Federal statistical agencies in collecting, tabulating, and publishing Federal statistics. CBSA collectively refers to MSA.",
+      "historical_page": 31,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "CBSA Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 34,
+      "printed_page": 22,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 461,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 685276
+        },
+        "states": {
+          "blank": 782,
+          "other_nonblank": 685276
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "geography",
+      "field": "ADDTNL_ST_ADR",
+      "historical_codes": {},
+      "historical_definition": "Second line of a laboratory's street address.",
+      "historical_page": 31,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Address: Street 2nd Line",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 35,
+      "printed_page": 22,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 24868,
+          "unsigned_integer_text": 21
+        },
+        "states": {
+          "blank": 661169,
+          "other_nonblank": 24889
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported geography or location metadata; not site verification. Preserve text and leading zeros."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "AFFILIATED_PROVIDER_NUMBER_1",
+      "historical_codes": {},
+      "historical_definition": "Affiliated provider number 1",
+      "historical_page": 31,
+      "historical_type": "CHAR",
+      "label_candidate": "Affiliated Provider Number 1",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 36,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 111204
+        },
+        "states": {
+          "blank": 574854,
+          "other_nonblank": 111204
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "AFFILIATED_PROVIDER_NUMBER_2",
+      "historical_codes": {},
+      "historical_definition": "Affiliated provider number 2",
+      "historical_page": 31,
+      "historical_type": "CHAR",
+      "label_candidate": "Affiliated Provider Number 2",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 37,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 61188
+        },
+        "states": {
+          "blank": 624870,
+          "other_nonblank": 61188
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "AFFILIATED_PROVIDER_NUMBER_3",
+      "historical_codes": {},
+      "historical_definition": "Affiliated provider number 3",
+      "historical_page": 31,
+      "historical_type": "CHAR",
+      "label_candidate": "Affiliated Provider Number 3",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 38,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 38747
+        },
+        "states": {
+          "blank": 647311,
+          "other_nonblank": 38747
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "AFFILIATED_PROVIDER_NUMBER_4",
+      "historical_codes": {},
+      "historical_definition": "Affiliated provider number 4",
+      "historical_page": 31,
+      "historical_type": "CHAR",
+      "label_candidate": "Affiliated Provider Number 4",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 39,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 23496
+        },
+        "states": {
+          "blank": 662562,
+          "other_nonblank": 23496
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "AFFILIATED_PROVIDER_NUMBER_5",
+      "historical_codes": {},
+      "historical_definition": "Affiliated provider number 5",
+      "historical_page": 32,
+      "historical_type": "CHAR",
+      "label_candidate": "Affiliated Provider Number 5",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 40,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 11644
+        },
+        "states": {
+          "blank": 674414,
+          "other_nonblank": 11644
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "AFFILIATED_PROVIDER_NUMBER_6",
+      "historical_codes": {},
+      "historical_definition": "Affiliated provider number 6",
+      "historical_page": 32,
+      "historical_type": "CHAR",
+      "label_candidate": "Affiliated Provider Number 6",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 41,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 7227
+        },
+        "states": {
+          "blank": 678831,
+          "other_nonblank": 7227
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "AFFILIATED_PROVIDER_NUMBER_7",
+      "historical_codes": {},
+      "historical_definition": "Affiliated provider number 7",
+      "historical_page": 32,
+      "historical_type": "CHAR",
+      "label_candidate": "Affiliated Provider Number 7",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 42,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 4076
+        },
+        "states": {
+          "blank": 681982,
+          "other_nonblank": 4076
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "AFFILIATED_PROVIDER_NUMBER_8",
+      "historical_codes": {},
+      "historical_definition": "Affiliated provider number 8",
+      "historical_page": 32,
+      "historical_type": "CHAR",
+      "label_candidate": "Affiliated Provider Number 8",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 43,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1596,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 3136
+        },
+        "states": {
+          "blank": 682922,
+          "other_nonblank": 3136
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "A2LA_ACRDTD_CD",
+      "historical_codes": {
+        "X": "ACCREDITED"
+      },
+      "historical_definition": "Indicates if the lab reported that it is accredited by the American Association for Laboratory Accreditation. This information is from the lab's CMS-116.",
+      "historical_page": 32,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO A2LA Accredited Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 44,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 16
+        },
+        "states": {
+          "blank": 686042,
+          "other_nonblank": 16
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "A2LA_ACRDTD_Y_MATCH_DT",
+      "historical_codes": {},
+      "historical_definition": "Date the American Association for Laboratory Accreditation confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+      "historical_page": 32,
+      "historical_type": "DATE",
+      "label_candidate": "AO A2LA Accredited Y Match Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 45,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 9,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 9
+        },
+        "states": {
+          "blank": 686049,
+          "other_nonblank": 9
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "A2LA_ACRDTD_Y_MATCH_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the lab is confirmed as accredited by the American Association for Laboratory Accreditation.",
+      "historical_page": 32,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO A2LA Accredited Y Match Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 46,
+      "printed_page": 23,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "AABB_ACRDTD_CD",
+      "historical_codes": {
+        "X": "ACCREDITED"
+      },
+      "historical_definition": "Indicates if the lab reported that it is accredited by the American Association of Blood Banks. This information is from the lab's CMS-116.",
+      "historical_page": 33,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO AABB Accredited Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 47,
+      "printed_page": 24,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 270
+        },
+        "states": {
+          "blank": 685788,
+          "other_nonblank": 270
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "AABB_ACRDTD_Y_MATCH_DT",
+      "historical_codes": {},
+      "historical_definition": "Date the American Association of Blood Banks confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+      "historical_page": 33,
+      "historical_type": "DATE",
+      "label_candidate": "AO AABB Accredited Y Match Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 48,
+      "printed_page": 24,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 119,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 249
+        },
+        "states": {
+          "blank": 685809,
+          "other_nonblank": 249
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "AABB_ACRDTD_Y_MATCH_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the lab is confirmed as accredited by the American Association of Blood Banks.",
+      "historical_page": 33,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO AABB Accredited Y Match Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 49,
+      "printed_page": 24,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "AOA_ACRDTD_CD",
+      "historical_codes": {
+        "X": "ACCREDITED"
+      },
+      "historical_definition": "Indicates if the lab reported that it is accredited by the American Osteopathic Association. This information is from the lab's CMS-116.",
+      "historical_page": 33,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO AOA Accredited Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 50,
+      "printed_page": 24,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 204
+        },
+        "states": {
+          "blank": 685854,
+          "other_nonblank": 204
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "AOA_ACRDTD_Y_MATCH_DT",
+      "historical_codes": {},
+      "historical_definition": "Date the American Osteopathic Association confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+      "historical_page": 33,
+      "historical_type": "DATE",
+      "label_candidate": "AO AOA Accredited Y Match Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 51,
+      "printed_page": 24,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 122,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 196
+        },
+        "states": {
+          "blank": 685862,
+          "other_nonblank": 196
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "AOA_ACRDTD_Y_MATCH_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the lab is confirmed as accredited by the American Osteopathic Association.",
+      "historical_page": 33,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO AOA Accredited Y Match Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 52,
+      "printed_page": 24,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "ASHI_ACRDTD_CD",
+      "historical_codes": {
+        "X": "ACCREDITED"
+      },
+      "historical_definition": "Indicates if the lab reported that it is accredited by the American Society for Histocompatibility and Immunogenetics. This information is from the lab's CMS-116.",
+      "historical_page": 34,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO ASHI Accredited Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 53,
+      "printed_page": 24,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 127
+        },
+        "states": {
+          "blank": 685931,
+          "other_nonblank": 127
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "ASHI_ACRDTD_Y_MATCH_DT",
+      "historical_codes": {},
+      "historical_definition": "Date the American Society for Histocompatibility and Immunogenetics confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+      "historical_page": 34,
+      "historical_type": "DATE",
+      "label_candidate": "AO ASHI Accredited Y Match Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 54,
+      "printed_page": 24,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 75,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 125
+        },
+        "states": {
+          "blank": 685933,
+          "other_nonblank": 125
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "ASHI_ACRDTD_Y_MATCH_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the lab is confirmed as accredited by the American Society for Histocompatibility and Immunogenetics.",
+      "historical_page": 34,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO ASHI Accredited Y Match Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 55,
+      "printed_page": 25,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CAP_ACRDTD_CD",
+      "historical_codes": {
+        "X": "ACCREDITED"
+      },
+      "historical_definition": "Indicates if the lab reported that it is accredited by the College of American Pathologists. This information is from the lab's CMS-116.",
+      "historical_page": 34,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO CAP Accredited Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 56,
+      "printed_page": 25,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 8507
+        },
+        "states": {
+          "blank": 677551,
+          "other_nonblank": 8507
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "CAP_ACRDTD_Y_MATCH_DT",
+      "historical_codes": {},
+      "historical_definition": "Date the College of American Pathologists confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+      "historical_page": 35,
+      "historical_type": "DATE",
+      "label_candidate": "AO CAP Accredited Y Match Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 57,
+      "printed_page": 25,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1381,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 8012
+        },
+        "states": {
+          "blank": 678046,
+          "other_nonblank": 8012
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "CAP_ACRDTD_Y_MATCH_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the lab is confirmed as accredited by the College of American Pathologists.",
+      "historical_page": 35,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO CAP Accredited Y Match Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 58,
+      "printed_page": 25,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "COLA_ACRDTD_CD",
+      "historical_codes": {
+        "X": "ACCREDITED"
+      },
+      "historical_definition": "Indicates if the lab reported that it is accredited by the Commission on Office Laboratory Accreditation. This information is from the lab's CMS-116.",
+      "historical_page": 35,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO COLA Accredited Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 59,
+      "printed_page": 25,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 7835
+        },
+        "states": {
+          "blank": 678223,
+          "other_nonblank": 7835
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "COLA_ACRDTD_Y_MATCH_DT",
+      "historical_codes": {},
+      "historical_definition": "Date the Commission on Office Laboratory Accreditation confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+      "historical_page": 35,
+      "historical_type": "DATE",
+      "label_candidate": "AO COLA Accredited Y Match Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 60,
+      "printed_page": 25,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 821,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 6772
+        },
+        "states": {
+          "blank": 679286,
+          "other_nonblank": 6772
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "COLA_ACRDTD_Y_MATCH_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the lab is confirmed as accredited by the Commission on Office Laboratory Accreditation.",
+      "historical_page": 35,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO COLA Accredited Y Match Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 61,
+      "printed_page": 25,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "JCAHO_ACRDTD_CD",
+      "historical_codes": {
+        "X": "ACCREDITED"
+      },
+      "historical_definition": "Indicates if the lab reported that it is accredited by the Joint Commission. This information is from the lab's CMS-116.",
+      "historical_page": 35,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO JC Accredited Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 62,
+      "printed_page": 25,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 3652
+        },
+        "states": {
+          "blank": 682406,
+          "other_nonblank": 3652
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "JCAHO_ACRDTD_Y_MATCH_DT",
+      "historical_codes": {},
+      "historical_definition": "Date the Joint Commission confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+      "historical_page": 36,
+      "historical_type": "DATE",
+      "label_candidate": "AO JC Accredited Y Match Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 63,
+      "printed_page": 26,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1053,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 2806
+        },
+        "states": {
+          "blank": 683252,
+          "other_nonblank": 2806
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "JCAHO_ACRDTD_Y_MATCH_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the lab is confirmed as accredited by the Joint Commission.",
+      "historical_page": 36,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "AO JC Accredited Y Match Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 64,
+      "printed_page": 26,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "APLCTN_RCVD_DT",
+      "historical_codes": {},
+      "historical_definition": "Date the CMS-116 application was entered in the online system and a CLIA number was issued.",
+      "historical_page": 36,
+      "historical_type": "DATE",
+      "label_candidate": "Application Received SA Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 65,
+      "printed_page": 26,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "APLCTN_TYPE_CD",
+      "historical_codes": {
+        "1": "COMPLIANCE",
+        "2": "WAIVER",
+        "3": "ACCREDITATION",
+        "4": "PPM"
+      },
+      "historical_definition": "Type of CLIA certificate applied for by a laboratory.",
+      "historical_page": 36,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Application Type Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 66,
+      "printed_page": 26,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 4,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "GNRL_FAC_TYPE_CD",
+      "historical_codes": {
+        "10": "Health Fair",
+        "11": "Health Maintenance Organization",
+        "12": "Home Health Agency",
+        "13": "Hospice",
+        "14": "Hospital",
+        "15": "Independent",
+        "16": "Industrial",
+        "17": "Insurance",
+        "18": "Intermediate Care Facility/Individuals with",
+        "19": "Mobile Lab",
+        "20": "Pharmacy",
+        "21": "Physician Office",
+        "22": "Other Practitioner",
+        "23": "Prison",
+        "24": "Public Health Laboratory",
+        "25": "Rural Health Clinic",
+        "26": "School/Student Health Service",
+        "27": "Skilled Nursing/Nursing Facility",
+        "28": "Tissue Bank/Repositories",
+        "29": "Other",
+        "01": "Ambulance",
+        "02": "Ambulatory Surgery Center",
+        "03": "Ancillary Test Site",
+        "04": "Assisted Living Facility",
+        "05": "Blood Banks",
+        "06": "Community Clinic",
+        "07": "Comprehensive Outpatient Rehab",
+        "08": "End Stage Renal Disease Dialysis",
+        "09": "Federally Qualified Health Center"
+      },
+      "historical_definition": "Indicates the category-specific facility type code, for certain provider categories only.",
+      "historical_page": 36,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Category-specific Facility Type Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 67,
+      "printed_page": 26,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 29,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "CRTFCT_EFCTV_DT",
+      "historical_codes": {},
+      "historical_definition": "Start date of the certificate.",
+      "historical_page": 37,
+      "historical_type": "DATE",
+      "label_candidate": "CLIA Certificate Effective Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 68,
+      "printed_page": 27,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "conservative_date_states",
+      "category": "date",
+      "field": "CRTFCT_MAIL_DT",
+      "historical_codes": {},
+      "historical_definition": "Date the certificate was generated for mailing.",
+      "historical_page": 37,
+      "historical_type": "DATE",
+      "label_candidate": "CLIA Certificate Mailed Date",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 69,
+      "printed_page": 27,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1753,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 652658
+        },
+        "states": {
+          "blank": 33400,
+          "other_nonblank": 652658
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific historical date meaning. Preserve ambiguous dates; termination/expiration is a dual-purpose field."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CRTFCT_TYPE_CD",
+      "historical_codes": {
+        "1": "COMP",
+        "2": "WAIVER",
+        "3": "ACCRED",
+        "4": "PPM",
+        "9": "REG"
+      },
+      "historical_definition": "Type of certificate issued to the laboratory, based on the application type code.",
+      "historical_page": 37,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "CLIA Certificate Type Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 70,
+      "printed_page": 27,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 5,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CURRENT_CLIA_LAB_CLSFCTN_CD",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORATORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Current Lab Classification",
+      "historical_page": 37,
+      "historical_type": "CHAR",
+      "label_candidate": "Current CLIA Lab Clsfctn CD",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 71,
+      "printed_page": 27,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 3,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_LAB_CLASSIFICATION_CD_1",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORATORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Laboratory Classification 1",
+      "historical_page": 38,
+      "historical_type": "CHAR",
+      "label_candidate": "CLIA Lab Classification CD 1",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 72,
+      "printed_page": 27,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 3,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_LAB_CLASSIFICATION_CD_10",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORATORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Laboratory Classification 10",
+      "historical_page": 38,
+      "historical_type": "CHAR",
+      "label_candidate": "CLIA Lab Classification CD 10",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 73,
+      "printed_page": 27,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 149104
+        },
+        "states": {
+          "blank": 536954,
+          "other_nonblank": 149104
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_LAB_CLASSIFICATION_CD_2",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORATORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Laboratory Classification 2",
+      "historical_page": 38,
+      "historical_type": "CHAR",
+      "label_candidate": "CLIA Lab Classification CD 2",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 74,
+      "printed_page": 27,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 3,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 539576
+        },
+        "states": {
+          "blank": 146482,
+          "other_nonblank": 539576
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_LAB_CLASSIFICATION_CD_3",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORATORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Laboratory Classification 3",
+      "historical_page": 38,
+      "historical_type": "CHAR",
+      "label_candidate": "CLIA Lab Classification CD 3",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 75,
+      "printed_page": 27,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 3,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 441049
+        },
+        "states": {
+          "blank": 245009,
+          "other_nonblank": 441049
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_LAB_CLASSIFICATION_CD_4",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORATORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Laboratory Classification 4",
+      "historical_page": 38,
+      "historical_type": "CHAR",
+      "label_candidate": "CLIA Lab Classification CD 4",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 76,
+      "printed_page": 27,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 364773
+        },
+        "states": {
+          "blank": 321285,
+          "other_nonblank": 364773
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_LAB_CLASSIFICATION_CD_5",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORATORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Laboratory Classification 5",
+      "historical_page": 39,
+      "historical_type": "CHAR",
+      "label_candidate": "CLIA Lab Classification CD 5",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 77,
+      "printed_page": 28,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 309858
+        },
+        "states": {
+          "blank": 376200,
+          "other_nonblank": 309858
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_LAB_CLASSIFICATION_CD_6",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORAT ORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Laboratory Classification 6",
+      "historical_page": 39,
+      "historical_type": "CHAR",
+      "label_candidate": "CLIA Lab Classification CD 6",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 78,
+      "printed_page": 28,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 263723
+        },
+        "states": {
+          "blank": 422335,
+          "other_nonblank": 263723
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_LAB_CLASSIFICATION_CD_7",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORATORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Laboratory Classification 7",
+      "historical_page": 39,
+      "historical_type": "CHAR",
+      "label_candidate": "CLIA Lab Classification CD 7",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 79,
+      "printed_page": 28,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 226886
+        },
+        "states": {
+          "blank": 459172,
+          "other_nonblank": 226886
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_LAB_CLASSIFICATION_CD_8",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORATORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Laboratory Classification 8",
+      "historical_page": 39,
+      "historical_type": "CHAR",
+      "label_candidate": "CLIA Lab Classification CD 8",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 80,
+      "printed_page": 28,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 196331
+        },
+        "states": {
+          "blank": 489727,
+          "other_nonblank": 196331
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_LAB_CLASSIFICATION_CD_9",
+      "historical_codes": {
+        "10": "CLIA VA LABORATORY",
+        "00": "CLIA LABORATORY",
+        "05": "CLIA EXEMPT LABORATORY"
+      },
+      "historical_definition": "Laboratory Classification 9",
+      "historical_page": 39,
+      "historical_type": "CHAR",
+      "label_candidate": "CLIA Lab Classification CD 9",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 81,
+      "printed_page": 28,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 170985
+        },
+        "states": {
+          "blank": 515073,
+          "other_nonblank": 170985
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "CLIA_MDCR_NUM",
+      "historical_codes": {},
+      "historical_definition": "Contains medicare numbers from prior to CLIA88. Optional field.",
+      "historical_page": 39,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "CLIA Medicare Number",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 82,
+      "printed_page": 28,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 0,
+          "method": "exact"
+        },
+        "lexical_shapes": {},
+        "states": {
+          "blank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "CLIA_TRMNTN_CD",
+      "historical_codes": {
+        "10": "REV/OTHER REASON",
+        "11": "INCOMPLETE CLIA APPLICATION INFORMATION",
+        "12": "NO LONGER PERFORMING TESTS",
+        "13": "MULTIPLE TO SINGLE SITE CERTIFICATE",
+        "14": "SHARED LABORATORY",
+        "15": "FAILURE TO RENEW WAIVER PPM CERTIFICATE",
+        "16": "DUPLICATE CLIA NUMBER",
+        "17": "MAIL RETURNED NO FORWARD ADDRESS CERT ENDED",
+        "20": "NOTIFICATION BANKRUPTCY",
+        "33": "ACCREDITATION NOT CONFIRMED",
+        "80": "AWAITING STATE APPROVAL",
+        "99": "OIG ACTION - DO NOT ACTIVATE",
+        "00": "ACTIVE PROVIDER",
+        "01": "VOLUNTARY-MERGER, CLOSURE",
+        "02": "VOLUNTARY-DISSATISFACTION WITH REIMBURSEMENT",
+        "03": "VOLUNTARY-RISK OF INVOLUNTARY TERMINATION",
+        "04": "VOLUNTARY-OTHER REASON FOR WITHDRAWAL",
+        "05": "INVOLUNTARY-FAILURE TO MEET HEALTH/SAFETY REQ",
+        "06": "INVOLUNTARY-FAILURE TO MEET AGREEMENT",
+        "07": "OTHER-PROVIDER STATUS CHANGE",
+        "08": "NONPAYMENT OF FEES",
+        "09": "REV/UNSUCCESSFUL PARTICIPATION IN PT"
+      },
+      "historical_definition": "Identifies a laboratory's active or terminated status. If terminated, identifies the reason.",
+      "historical_page": 39,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "CLIA Termination Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 83,
+      "printed_page": 28,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 23,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "ACRDTN_SCHDL_CD",
+      "historical_codes": {
+        "A": "SPEC COUNT < 4 (2,001 TO 10,000 TOT. VOL.)",
+        "B": "SPEC COUNT > 3 (2,001 T0 10,000 TOT. VOL.)",
+        "C": "SPEC COUNT < 4 (10,001 TO 25,000 TOT. VOL.)",
+        "D": "SPEC COUNT > 3 (10,001 TO 25,000 TOT. VOL.)",
+        "E": "SPEC COUNT > 0 (25,001 TO 50,000 TOT. VOL.)",
+        "F": "SPEC COUNT > 0 (50,001 TO 75,000 TOT. VOL.)",
+        "G": "SPEC COUNT > 0 (75,001 TO 100,000 TOT. VOL.)",
+        "H": "SPEC COUNT > 0 (100,001 TO 500,000 TOT. VOL.)",
+        "I": "SPEC COUNT > 0 (500,001 TO 1,000,000 TOT VOL)",
+        "J": "SPEC COUNT > 0 (1,000,001 OR MORE TOT. VOL.)",
+        "V": "TOTAL VOLUME: 1 TO 2,000"
+      },
+      "historical_definition": "Indicates the lab's accreditation schedule code calculated by the CLIA system, based on the information in the most recent CMS-116 application form. Applies only to labs with a certificate of accreditation.",
+      "historical_page": 40,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "CMS-116 Accreditation Schedule Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 84,
+      "printed_page": 29,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 11,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 20285
+        },
+        "states": {
+          "blank": 665773,
+          "other_nonblank": 20285
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "quantity_states",
+      "category": "quantity",
+      "field": "FORM_116_ACRDTD_TEST_VOL_CNT",
+      "historical_codes": {},
+      "historical_definition": "Sum for all specialties as reported on the most recent CMS-116 application form. Applies only to labs with a certificate of accreditation.",
+      "historical_page": 41,
+      "historical_type": "NUMBER",
+      "label_candidate": "CMS-116 Accredited Annual Test Volume",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 85,
+      "printed_page": 29,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific count or estimated annual volume; preserve zero/blank, certificate applicability and overlapping measures. No sum as equipment or actual throughput."
+    },
+    {
+      "actual_review": "quantity_states",
+      "category": "quantity",
+      "field": "FORM_116_TEST_VOL_CNT",
+      "historical_codes": {},
+      "historical_definition": "Sum for all specialties as reported on the most recent CMS-116 application form. Applies only to labs with a certificate of compliance.",
+      "historical_page": 41,
+      "historical_type": "NUMBER",
+      "label_candidate": "CMS-116 Annual Test Volume",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 86,
+      "printed_page": 29,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific count or estimated annual volume; preserve zero/blank, certificate applicability and overlapping measures. No sum as equipment or actual throughput."
+    },
+    {
+      "actual_review": "quantity_states",
+      "category": "quantity",
+      "field": "DRCTLY_AFLTD_LAB_CNT",
+      "historical_codes": {},
+      "historical_definition": "Number of laboratories with which the lab's director is affiliated.",
+      "historical_page": 41,
+      "historical_type": "NUMBER",
+      "label_candidate": "Director Affiliated Lab Count",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 87,
+      "printed_page": 29,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 72,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific count or estimated annual volume; preserve zero/blank, certificate applicability and overlapping measures. No sum as equipment or actual throughput."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "restricted_contact",
+      "field": "FAX_PHNE_NUM",
+      "historical_codes": {},
+      "historical_definition": "10-digit fax phone number of the primary contact or the operator of the provider.",
+      "historical_page": 41,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Fax Phone Number",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 88,
+      "printed_page": 29,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 484835
+        },
+        "states": {
+          "blank": 201223,
+          "other_nonblank": 484835
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Presence only; no contact publication or numeric conversion."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "administrative",
+      "field": "FY_END_MO_DAY_CD",
+      "historical_codes": {},
+      "historical_definition": "End date, consisting of the month and day, of the provider's fiscal year.",
+      "historical_page": 41,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Fiscal Year End Date (MMDD)",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 89,
+      "printed_page": 29,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 80,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 18240
+        },
+        "states": {
+          "blank": 667818,
+          "other_nonblank": 18240
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Administrative source context; no current contractor or fiscal-date inference."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "MLT_SITE_EXCPTN_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if a lab has applied for a single site CLIA certificate to cover multiple testing locations.",
+      "historical_page": 41,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Multiple Site Certificate Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 90,
+      "printed_page": 30,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "HOSP_LAB_EXCPTN_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the single site CLIA certificate is for a hospital with several labs on a single hospital campus and under common direction.",
+      "historical_page": 42,
+      "historical_type": null,
+      "label_candidate": null,
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 91,
+      "printed_page": 30,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "NON_PRFT_EXCPTN_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the single site CLIA certificate is for multiple sites with non-profit, federal, state or local government status and engaged in limited public health testing.",
+      "historical_page": 42,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Multiple Site Exception: Public Health Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 92,
+      "printed_page": 30,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "LAB_TEMP_TSTG_SITE_SW",
+      "historical_codes": {},
+      "historical_definition": "Indicates if the single site CLIA certificate is for a lab with multiple temporary testing sites.",
+      "historical_page": 42,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Multiple Site Exception: Temporary Testing Site Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 93,
+      "printed_page": 30,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "quantity_states",
+      "category": "quantity",
+      "field": "LAB_SITE_CNT",
+      "historical_codes": {},
+      "historical_definition": "Total number of lab sites for which a lab has applied for a single certificate for multiple sites.",
+      "historical_page": 42,
+      "historical_type": "NUMBER",
+      "label_candidate": "Multiple Site Lab Count",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 94,
+      "printed_page": 30,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 166,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific count or estimated annual volume; preserve zero/blank, certificate applicability and overlapping measures. No sum as equipment or actual throughput."
+    },
+    {
+      "actual_review": "quantity_states",
+      "category": "quantity",
+      "field": "PPMP_TEST_VOL_CNT",
+      "historical_codes": {},
+      "historical_definition": "Estimated total annual Provider Performed Microscopy tests performed by the lab.",
+      "historical_page": 42,
+      "historical_type": "NUMBER",
+      "label_candidate": "PPM Test Volume Count",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 95,
+      "printed_page": 30,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 1722,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific count or estimated annual volume; preserve zero/blank, certificate applicability and overlapping measures. No sum as equipment or actual throughput."
+    },
+    {
+      "actual_review": "existing_aggregate_lexical_profile",
+      "category": "identity",
+      "field": "ADDTNL_FAC_NAME",
+      "historical_codes": {},
+      "historical_definition": "Second line of a laboratory name.",
+      "historical_page": 42,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Provider Name 2nd Line",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 96,
+      "printed_page": 30,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "other_text": 69907,
+          "signed_integer_text": 4,
+          "unsigned_integer_text": 38
+        },
+        "states": {
+          "blank": 616109,
+          "other_nonblank": 69949
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported source identifier/name; not a canonical site or legal entity."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "RELATED_PROVIDER_NUMBER",
+      "historical_codes": {},
+      "historical_definition": "Related provider number",
+      "historical_page": 42,
+      "historical_type": "CHAR",
+      "label_candidate": "Related Provider Number",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 97,
+      "printed_page": 30,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 0,
+          "method": "exact"
+        },
+        "lexical_shapes": {},
+        "states": {
+          "blank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "literal_flag_counts",
+      "category": "indicator",
+      "field": "SHR_LAB_SW",
+      "historical_codes": {},
+      "historical_definition": "Applies to physician office labs when two or more physicians collectively pool resources to fund a lab's operation.",
+      "historical_page": 42,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Shared Lab Indicator",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 98,
+      "printed_page": 30,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Reported literal flag; not an independently validated status, exemption or installed asset."
+    },
+    {
+      "actual_review": "reference_shape_counts",
+      "category": "reference",
+      "field": "SHARED_LAB_XREF_NUMBER",
+      "historical_codes": {},
+      "historical_definition": "Shared lab xref number",
+      "historical_page": 43,
+      "historical_type": "CHAR",
+      "label_candidate": "Shared Lab Xref Number",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 99,
+      "printed_page": 30,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 647,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 934
+        },
+        "states": {
+          "blank": 685124,
+          "other_nonblank": 934
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Exact token candidate research only. Meaning of numbered affiliations or cross-references requires corroboration."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "FORM_1557_CRTFCT_SCHDL_CD",
+      "historical_codes": {
+        "A": "SPEC COUNT < 4 (2,001 TO 10,000 TOT. VOL.)",
+        "B": "SPEC COUNT > 3 (2,001 T0 10,000 TOT. VOL.)",
+        "C": "SPEC COUNT < 4 (10,001 TO 25,000 TOT. VOL.)",
+        "D": "SPEC COUNT > 3 (10,001 TO 25,000 TOT. VOL.)",
+        "E": "SPEC COUNT > 0 (25,001 TO 50,000 TOT. VOL.)",
+        "F": "SPEC COUNT > 0 (50,001 TO 75,000 TOT. VOL.)",
+        "G": "SPEC COUNT > 0 (75,001 TO 100,000 TOT. VOL.)",
+        "H": "SPEC COUNT > 0 (100,001 TO 500,000 TOT. VOL.)",
+        "I": "SPEC COUNT > 0 (500,001 TO 1,000,000 TOT VOL)",
+        "J": "SPEC COUNT > 0 (1,000,001 OR MORE TOT. VOL.)",
+        "V": "TOTAL VOLUME: 1 TO 2,000"
+      },
+      "historical_definition": "Certificate Compliance schedule code based on the information gathered at survey.",
+      "historical_page": 43,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Survey Compliance Certificate Schedule Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 100,
+      "printed_page": 31,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 11,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 15329
+        },
+        "states": {
+          "blank": 670729,
+          "other_nonblank": 15329
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "bounded_code_domain_counts",
+      "category": "coded_classification",
+      "field": "FORM_1557_CMPLNC_SCHDL_CD",
+      "historical_codes": {
+        "A": "SPEC COUNT < 4 (2,001 TO 10,000 TOT. VOL.)",
+        "B": "SPEC COUNT > 3 (2,001 T0 10,000 TOT. VOL.)",
+        "C": "SPEC COUNT < 4 (10,001 TO 25,000 TOT. VOL.)",
+        "D": "SPEC COUNT > 3 (10,001 TO 25,000 TOT. VOL.)",
+        "E": "SPEC COUNT > 0 (25,001 TO 50,000 TOT. VOL.)",
+        "F": "SPEC COUNT > 0 (50,001 TO 75,000 TOT. VOL.)",
+        "G": "SPEC COUNT > 0 (75,001 TO 100,000 TOT. VOL.)",
+        "H": "SPEC COUNT > 0 (100,001 TO 500,000 TOT. VOL.)",
+        "I": "SPEC COUNT > 0 (500,001 TO 1,000,000 TOT VOL)",
+        "J": "SPEC COUNT > 0 (1,000,001 OR MORE TOT. VOL.)",
+        "V": "TOTAL VOLUME: 1 TO 2,000"
+      },
+      "historical_definition": "Compliance schedule code based on the information gathered at survey.",
+      "historical_page": 43,
+      "historical_type": "VARCHAR2",
+      "label_candidate": "Survey Compliance Schedule Code",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 101,
+      "printed_page": 31,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 11,
+          "method": "exact"
+        },
+        "lexical_shapes": {
+          "other_text": 15329
+        },
+        "states": {
+          "blank": 670729,
+          "other_nonblank": 15329
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Compare exact historical publisher code domain. No blanket current-version approval or current operations inference."
+    },
+    {
+      "actual_review": "quantity_states",
+      "category": "quantity",
+      "field": "FORM_1557_TEST_VOL_CNT",
+      "historical_codes": {},
+      "historical_definition": "Sum of tests performed annually in a laboratory, as verified at the time of the state survey.",
+      "historical_page": 44,
+      "historical_type": "NUMBER",
+      "label_candidate": "Survey Test Volume Count",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 102,
+      "printed_page": 31,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 685533
+        },
+        "states": {
+          "blank": 525,
+          "other_nonblank": 685533
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific count or estimated annual volume; preserve zero/blank, certificate applicability and overlapping measures. No sum as equipment or actual throughput."
+    },
+    {
+      "actual_review": "quantity_states",
+      "category": "quantity",
+      "field": "WVD_TEST_VOL_CNT",
+      "historical_codes": {},
+      "historical_definition": "Estimated total annual waived tests performed by the lab.",
+      "historical_page": 44,
+      "historical_type": "NUMBER",
+      "label_candidate": "Waived Test Volume Count",
+      "new_row_level_publication": "not_authorized",
+      "ordinal": 103,
+      "printed_page": 31,
+      "raw_presence_and_shape": {
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "lexical_shapes": {
+          "unsigned_integer_text": 686058
+        },
+        "states": {
+          "other_nonblank": 686058
+        }
+      },
+      "semantic_status": "historical_2023_publisher_reference_only",
+      "use_limit": "Field-specific count or estimated annual volume; preserve zero/blank, certificate applicability and overlapping measures. No sum as equipment or actual throughput."
+    }
+  ],
+  "qualification_run": 45831429985,
+  "qualification_job": 139948901884,
+  "qualification_commit": "a598ca8c2686c42dc0670db135fb03881ecbf75b",
+  "qualification_result": "success"
+}
