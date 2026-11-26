@@ -38,3 +38,12 @@ class NPPESSupplementTests(unittest.TestCase):
             a=scan_deactivation(iter([["NPI",h],[key,"2026-11-01"]]))
             self.assertEqual(a["key_validation_counts"],{"checksum_valid":1})
         with self.assertRaises(ValueError):scan_deactivation(iter([["NPI","Unrecognized Field"]]))
+
+    def test_recognized_bounded_title_preamble(self):
+        key=next("123456789"+str(i) for i in range(10) if npi_valid("123456789"+str(i)))
+        a=scan_deactivation(iter([["NPPES Deactivated NPI Report - 11/09/2026"],[],["NPI","Deactivation Date"],[key,"11/01/2026"]]))
+        self.assertEqual(a["header_ordinal"],3)
+        self.assertEqual(a["preamble_counts"],{"recognized_report_title":1,"blank":1})
+        self.assertEqual(a["input_rows"],1)
+        with self.assertRaises(ValueError):scan_deactivation(iter([[key],["NPI","Deactivation Date"]]))
+        with self.assertRaises(ValueError):scan_deactivation(iter([["unexpected title"],["NPI","Deactivation Date"]]))

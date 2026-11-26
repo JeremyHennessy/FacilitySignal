@@ -38,14 +38,25 @@ def date_bucket(v):
     return "after_release" if d>date(2026,11,9) else "on_or_before_release"
 
 def scan_deactivation(reader):
-    header=next(reader,[]);h=[norm(x) for x in header]
-    # Header evidence: retain recognized metadata tokens only. Never emit
-    # arbitrary first-row strings, which could be identifiers or data values.
+    # The publisher's actual first record has one 43-character cell.
+    # Only skip a bounded recognizable report title or empty rows; never
+    # discard arbitrary data rows or a second table before the header.
     recognized={"npi","npideactivationdate","deactivationdate","npinumber","npiid","deactivationdt","npideactivationdt"}
-    structure=[{"column":i+1,"recognized_label":v if v in recognized else None,"length":len(str(raw or "")),
-                "shape":"text" if isinstance(raw,str) and re.fullmatch(r"[A-Za-z _-]{1,100}",raw) else "other"} for i,(raw,v) in enumerate(zip(header,h))]
-    print("NPPES_DEACTIVATION_SCHEMA",json.dumps({"column_count":len(h),"columns":structure[:20]},sort_keys=True),flush=True)
-    require(len(h)==2 and len(set(h))==2 and "npi" in h and len(set(h)&DATE_HEADERS)==1,"deactivation header not recognized")
+    h=None;header_ordinal=0;preamble=Counter()
+    for i,header in enumerate(reader,1):
+        require(i<=10,"deactivation header not recognized")
+        h0=[norm(x) for x in header]
+        structure=[{"column":j+1,"recognized_label":v if v in recognized else None,"length":len(str(raw or "")),
+                    "shape":"text" if isinstance(raw,str) and re.fullmatch(r"[A-Za-z _-]{1,100}",raw) else "other"} for j,(raw,v) in enumerate(zip(header,h0))]
+        print("NPPES_DEACTIVATION_SCHEMA",json.dumps({"row_ordinal":i,"column_count":len(h0),"columns":structure[:20]},sort_keys=True),flush=True)
+        if len(h0)==2 and len(set(h0))==2 and "npi" in h0 and len(set(h0)&DATE_HEADERS)==1:
+            h=h0;header_ordinal=i;break
+        nonblank=[str(x).strip() for x in header if x is not None and str(x).strip()]
+        if not nonblank:preamble["blank"]+=1;continue
+        if len(nonblank)==1 and len(nonblank[0])<=200 and re.search(r"\bnpi\b",nonblank[0],re.I) and re.search(r"deactivat",nonblank[0],re.I) and not re.fullmatch(r"[0-9]+",nonblank[0]):
+            preamble["recognized_report_title"]+=1;continue
+        raise ValueError("deactivation header not recognized")
+    require(h is not None,"deactivation header not recognized")
     key_idx=h.index("npi");date_idx=next(i for i,v in enumerate(h) if v in DATE_HEADERS)
     rows=0;keys=Counter();dates=Counter();shapes=Counter()
     for row in reader:
@@ -60,7 +71,7 @@ def scan_deactivation(reader):
         keys["checksum_valid" if npi_valid(n) else "invalid_or_missing"]+=1
         dates[date_bucket(row[date_idx])]+=1
     require(rows>0 and rows==sum(keys.values())==sum(dates.values()),"deactivation row reconciliation")
-    return {"input_rows":rows,"columns":2,"width_counts":dict(shapes),"key_validation_counts":dict(keys),
+    return {"input_rows":rows,"columns":2,"header_ordinal":header_ordinal,"preamble_counts":dict(preamble),"width_counts":dict(shapes),"key_validation_counts":dict(keys),
             "deactivation_date_states":dict(dates),"distinct_key_count":None,
             "entity_type_available":False,"retained_identifiers":0,
             "limits":"Deactivation list includes both entity types without entity type attribution. No duplicate-key test or identity linkage performed. Count comparison to monthly file is not record-level reconciliation."}
