@@ -1,0 +1,293 @@
+{
+  "format_version": 1,
+  "run": 45845760984,
+  "attempt": 1,
+  "job": 139999030455,
+  "commit": "25ed486112a82a202b3f379adbbb9613b4e54b8d",
+  "release": "bootstrap-45845760984-1",
+  "failure": "archive ETags changed",
+  "reconstruction_audit": {
+    "source_lock_sha256": "b830627c44a759d042cc52311f175280e08fd81d5e3079f13b9b60068d298204",
+    "source_records_total": 1904060,
+    "table_counts": {
+      "facilities": 48004,
+      "findings": 619069,
+      "certification_records": 799990,
+      "qcor_hospital_rows": 284391,
+      "pecos_enrollment_rows": 23521,
+      "pecos_org_role_rows": 122966,
+      "pecos_chow_rows": 6119
+    },
+    "database_sha256": "138ad57c3719fe63895eeaff702c04b51107fe1cf6dc4daf403a554985a1f033",
+    "database_bytes": 906149888,
+    "reconstructed_at": "2026-11-26T15:11:48.693326+00:00",
+    "note": "Logical source reconstruction, not a byte-for-byte restoration; no production or reuse clearance.",
+    "capabilities": {
+      "derived_observations": {
+        "iqies": 68604,
+        "qies": 163176
+      },
+      "total_derived_observations": 231780,
+      "iqies_dictionary_sha256": "bd68d76dc72ee5c3b3249c459644ff2ed90c8e8cf6e182b76742ec53164c0594",
+      "qies_layout_sha256": "08291e4cd5d0221b1201d48be1d58a916af9ea4b608b90c4ebc5ae450ef1f4b7",
+      "qies_semantic_status": "catalog_linked_2023_layout_provisional_for_2026",
+      "iqies_field_states": {
+        "oprtg_room_cnt": {
+          "reported_count": 8036,
+          "not_available": 452,
+          "unrecognized": 4
+        },
+        "procedure_room_cnt": {
+          "reported_count": 8040,
+          "not_available": 452
+        },
+        "dntl_srgry_sw": {
+          "reported_no": 7389,
+          "not_available": 452,
+          "reported_yes": 651
+        },
+        "endscpy_srgry_sw": {
+          "reported_yes": 2400,
+          "reported_no": 5640,
+          "not_available": 452
+        },
+        "dlys_stn_cnt": {
+          "reported_count": 8447,
+          "not_available": 212
+        },
+        "hmdlys_srvc_sw": {
+          "reported_yes": 7746,
+          "not_available": 212,
+          "reported_no": 701
+        },
+        "prtnl_dlys_srvc_sw": {
+          "reported_no": 7941,
+          "not_available": 212,
+          "reported_yes": 506
+        },
+        "home_trng_sprt_only_srvc_sw": {
+          "reported_yes": 3087,
+          "not_available": 212,
+          "reported_no": 5360
+        }
+      },
+      "qies_field_distributions": {
+        "CT_SCAN_SRVC_CD": {
+          "code_1": 4127,
+          "code_0": 6773,
+          "code_3": 572,
+          "blank": 1395,
+          "code_2": 731
+        },
+        "MGNTC_RSNC_IMG_SRVC_CD": {
+          "code_1": 2653,
+          "code_0": 7273,
+          "code_3": 627,
+          "code_2": 1650,
+          "blank": 1395
+        },
+        "PET_SCAN_SRVC_CD": {
+          "code_2": 921,
+          "code_0": 10327,
+          "code_1": 686,
+          "code_3": 269,
+          "blank": 1395
+        },
+        "NUCLR_MDCN_SRVC_CD": {
+          "code_1": 4064,
+          "code_0": 5349,
+          "code_2": 2096,
+          "code_3": 694,
+          "blank": 1395
+        },
+        "DNTL_SRVC_CD": {
+          "code_0": 8860,
+          "code_2": 1858,
+          "code_1": 1225,
+          "code_3": 260,
+          "blank": 1395
+        },
+        "OPRTG_ROOM_SRVC_CD": {
+          "code_1": 6919,
+          "code_3": 676,
+          "code_0": 4147,
+          "blank": 1395,
+          "code_2": 461
+        },
+        "DGNSTC_RDLGY_SRVC_CD": {
+          "code_1": 6550,
+          "code_2": 2520,
+          "code_3": 2380,
+          "code_0": 753,
+          "blank": 1395
+        },
+        "DTRY_SRVC_CD": {
+          "code_1": 6504,
+          "code_2": 2888,
+          "code_3": 1706,
+          "code_0": 1105,
+          "blank": 1395
+        },
+        "DCTD_ER_SRVC_CD": {
+          "code_1": 5127,
+          "code_3": 2489,
+          "code_2": 915,
+          "code_0": 3672,
+          "blank": 1395
+        },
+        "ICU_SRVC_CD": {
+          "code_1": 5108,
+          "code_0": 6276,
+          "code_3": 497,
+          "blank": 1395,
+          "code_2": 322
+        },
+        "NEONTL_ICU_SRVC_CD": {
+          "code_1": 804,
+          "code_0": 11053,
+          "code_3": 292,
+          "blank": 1395,
+          "code_2": 54
+        },
+        "OPEN_HRT_SRGRY_SRVC_CD": {
+          "code_1": 1257,
+          "code_0": 10378,
+          "code_2": 324,
+          "code_3": 244,
+          "blank": 1395
+        }
+      },
+      "note": "Derived source-scoped observations, not additional provider records; QIES historical domain provisional. Local only."
+    },
+    "status_identity": {
+      "status_observations": 100334,
+      "status_domain_counts": {
+        "01": 21557,
+        "00": 74762,
+        "07": 157,
+        "06": 834,
+        "05": 725,
+        "03": 303,
+        "04": 1565,
+        "unknown": 285,
+        "02": 146
+      },
+      "status_value_state_counts": {
+        "termination_recognized": 100049,
+        "date_reported": 15803,
+        "survey_reported_no": 35797,
+        "federal_name_present": 100334,
+        "date_not_available": 74766,
+        "survey_reported_yes": 51409,
+        "date_ambiguous": 9765,
+        "termination_unknown": 285,
+        "survey_unknown": 13128
+      },
+      "termination_date_format_audit": {
+        "rows": 100334,
+        "raw_shape_counts": {
+          "slash_date_uninterpreted": 25568,
+          "not_available": 74766
+        },
+        "shape_by_existing_parse_state": {
+          "slash_date_uninterpreted": {
+            "reported": 15803,
+            "ambiguous": 9765
+          },
+          "not_available": {
+            "not_available": 74766
+          }
+        },
+        "note": "No date values or identifiers in audit. Raw shapes remain unchanged. Audited release permits only unambiguous MDY or identical interpretations; differing interpretations remain unresolved."
+      },
+      "facility_registry_candidate_audit": {
+        "hospital": {
+          "facility_rows": 5435,
+          "exact_identifier_candidate_pairs": 5425,
+          "pair_states": {
+            "same_state": 5425
+          },
+          "facility_rows_with_identifier_candidate": 5425,
+          "facility_rows_without_identifier_candidate": 10,
+          "facility_rows_with_same_state_and_type_candidate": 5425,
+          "facility_rows_with_multiple_same_state_candidates": 0,
+          "same_state_type_and_exact_address_city_zip_text_pairs": 5021
+        },
+        "rehabilitation": {
+          "facility_rows": 1222,
+          "exact_identifier_candidate_pairs": 412,
+          "pair_states": {
+            "same_state": 412
+          },
+          "facility_rows_with_identifier_candidate": 412,
+          "facility_rows_without_identifier_candidate": 810,
+          "facility_rows_with_same_state_and_type_candidate": 412,
+          "facility_rows_with_multiple_same_state_candidates": 0,
+          "same_state_type_and_exact_address_city_zip_text_pairs": 0
+        },
+        "long-term-hospital": {
+          "facility_rows": 311,
+          "exact_identifier_candidate_pairs": 311,
+          "pair_states": {
+            "same_state": 311
+          },
+          "facility_rows_with_identifier_candidate": 311,
+          "facility_rows_without_identifier_candidate": 0,
+          "facility_rows_with_same_state_and_type_candidate": 311,
+          "facility_rows_with_multiple_same_state_candidates": 0,
+          "same_state_type_and_exact_address_city_zip_text_pairs": 0
+        },
+        "nursing": {
+          "facility_rows": 14686,
+          "exact_identifier_candidate_pairs": 14686,
+          "pair_states": {
+            "same_state": 14686
+          },
+          "facility_rows_with_identifier_candidate": 14686,
+          "facility_rows_without_identifier_candidate": 0,
+          "facility_rows_with_same_state_and_type_candidate": 14686,
+          "facility_rows_with_multiple_same_state_candidates": 0,
+          "same_state_type_and_exact_address_city_zip_text_pairs": 14682
+        },
+        "dialysis": {
+          "facility_rows": 7471,
+          "exact_identifier_candidate_pairs": 7456,
+          "pair_states": {
+            "same_state": 7456
+          },
+          "facility_rows_with_identifier_candidate": 7456,
+          "facility_rows_without_identifier_candidate": 15,
+          "facility_rows_with_same_state_and_type_candidate": 7456,
+          "facility_rows_with_multiple_same_state_candidates": 0,
+          "same_state_type_and_exact_address_city_zip_text_pairs": 2194
+        },
+        "home-health": {
+          "facility_rows": 12409,
+          "exact_identifier_candidate_pairs": 12409,
+          "pair_states": {
+            "same_state": 12409
+          },
+          "facility_rows_with_identifier_candidate": 12409,
+          "facility_rows_without_identifier_candidate": 0,
+          "facility_rows_with_same_state_and_type_candidate": 12409,
+          "facility_rows_with_multiple_same_state_candidates": 0,
+          "same_state_type_and_exact_address_city_zip_text_pairs": 12367
+        },
+        "hospice": {
+          "facility_rows": 6470,
+          "exact_identifier_candidate_pairs": 6470,
+          "pair_states": {
+            "same_state": 6470
+          },
+          "facility_rows_with_identifier_candidate": 6470,
+          "facility_rows_without_identifier_candidate": 0,
+          "facility_rows_with_same_state_and_type_candidate": 6470,
+          "facility_rows_with_multiple_same_state_candidates": 0,
+          "same_state_type_and_exact_address_city_zip_text_pairs": 0
+        }
+      },
+      "candidate_pairs": 47169,
+      "note": "Source-scoped exact CCN candidates within expected registry, provider-type and state evidence kept separate. No facility merges, physical-site resolution or active status inference."
+    }
+  }
+}
