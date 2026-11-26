@@ -162,6 +162,52 @@ def build(ledger,cap,spec,data_use=None):
     semantic_path=ROOT/"research/clia_certificate_semantic_audit_20261126.json"
     if semantic_path.exists():
         ctx["clia_semantic"]=qualify_clia_semantic(read(semantic_path),ctx.get("clia_audit"),read(ROOT/"research/snapshot_release_20261125.json"))
+    cc_path=ROOT/"research/care_compare_provider_semantic_audit_20261126.json"
+    follow_path=ROOT/"research/hospital_category_followup_20261126.json"
+    if cc_path.exists() and follow_path.exists():
+        a=read(cc_path);follow=read(follow_path)
+        if a["qualification_run"]!=45833630704 or follow["qualification_run"]!=45833939891 or a["field_count"]!=140 or a["source_rows"]!=20121:
+            raise ValueError("Care Compare semantic qualification mismatch")
+        pins={s["key"]:s for s in read(ROOT/"research/snapshot_release_20261125.json")["sources"]}
+        heads={s["source"]:s for s in read(ROOT/"research/care_compare_pecos_exact_headers_20261126.json")["sources"]}
+        sources={s["source"]:s for s in a["sources"]}
+        if set(sources)!={"hospital","nursing"}:raise ValueError("Unexpected Care Compare scope")
+        for k,s in sources.items():
+            pin=pins[k]
+            if (s["source_sha256"],s["period"],s["rows"])!=(pin["sha256"],pin["release"],pin["stored_rows"]):
+                raise ValueError("Care Compare source lineage")
+            fields=[f["field"] for f in s["catalog"]]
+            if fields!=[f["field"] for f in heads[k]["fields"]] or len(fields)!=s["columns"] or set(fields)!=set(s["distributions"]):
+                raise ValueError("Care Compare field inventory")
+            if any(f["application_approval"]!="no_new_row_level_publication" for f in s["catalog"]):
+                raise ValueError("Unexpected individual publication approval")
+            for d in (s["distributions"],s["cross_checks"]):
+                if any(sum(v.values())!=s["rows"] or any(type(x) is not int or x<0 for x in v.values()) for v in d.values()):
+                    raise ValueError("Care Compare aggregate count mismatch")
+        h=sources["hospital"];n=sources["nursing"];hd=h["distributions"];nd=n["distributions"]
+        if (follow["source_sha256"],follow["period"],follow["rows"])!=(h["source_sha256"],h["period"],h["rows"]):
+            raise ValueError("Hospital category source mismatch")
+        categories=follow["classification_counts"]
+        for f,cnt in (("Hospital Type",9),("Hospital Ownership",12)):
+            c=categories[f];prior=hd[f];unknown=follow["not_in_initial_dictionary_based_list"][f]
+            if len(c)!=cnt or sum(c.values())!=h["rows"] or sum(unknown.values())!=prior["unrecognized"] or {k:v for k,v in c.items() if k not in unknown}!={k:v for k,v in prior.items() if k!="unrecognized"}:
+                raise ValueError("Hospital category reconciliation")
+        sprinklers=nd["Automatic Sprinkler Systems in All Required Areas"]
+        if set(sprinklers)-{"Yes","Partial","No","Data Not Available"}:raise ValueError("Sprinkler category drift")
+        focus=nd["Special Focus Status"]
+        if set(focus)-{"SFF","SFF Candidate","blank"}:raise ValueError("Special Focus category drift")
+        flags={}
+        for f in ("Provider Resides in Hospital","Continuing Care Retirement Community","Abuse Icon","Most Recent Health Inspection More Than 2 Years Ago","Provider Changed Ownership in Last 12 Months"):
+            c=nd[f];flags[f]={"yes":c.get("Y",0),"no":c.get("N",0),"other":n["rows"]-c.get("Y",0)-c.get("N",0)}
+        coverage={}
+        for g in ("MORT","Safety","READM","Pt Exp","TE"):
+            c=hd["Count of Facility "+g+" Measures"];numeric=c.get("positive",0)+c.get("zero",0)
+            coverage[g]={"numeric":numeric,"unavailable":c.get("not_available",0),"other":h["rows"]-numeric-c.get("not_available",0)}
+        q=n["cross_checks"];geo=q["coordinate_pair_vs_geocoding_footnote"]
+        if set(geo)!={"in_range/in_range/blank","in_range/in_range/code_22"}:raise ValueError("Geocoding pattern drift")
+        ctx["cc_semantic"]={"categories":categories,"sprinklers":{k:sprinklers.get(k,0) for k in ("Yes","Partial","No","Data Not Available")},"flags":flags,"focus":focus,"coverage":coverage,
+            "diagnostics":{"zip_estimate":geo["in_range/in_range/code_22"],"no_geocoding_footnote":geo["in_range/in_range/blank"],
+            "census_above_beds":q["resident_census_vs_certified_beds"]["first_above_second"],"census_not_comparable":q["resident_census_vs_certified_beds"]["not_comparable"]}}
     def resolve(cell):
         if isinstance(cell,dict):
             if set(cell)!={"path"}:raise ValueError("unexpected field selector")
