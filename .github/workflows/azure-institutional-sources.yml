@@ -1,7 +1,7 @@
 name: FacilitySignal private HCRIS and NPPES source archives
 on:
   push:
-    branches: [main, build/azure-institutional-sources-20261126]
+    branches: [build/azure-institutional-sources-20261126]
     paths:
       - .github/workflows/azure-institutional-sources.yml
       - scripts/azure_source_archive.py

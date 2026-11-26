@@ -75,10 +75,12 @@ def calendar(raw):
     if z:return z,"dmy_only"
     return None,"invalid"
 
-def project(data,expected,columns,api_fields,db,providers):
+def project(data,expected,columns,api_fields,db,providers,*,measures=None):
+    measure_fields=MEASURES if measures is None else list(measures)
+    require(bool(measure_fields) and len(set(measure_fields))==len(measure_fields) and not set(CORE)&set(measure_fields),"invalid selected measures")
     reader=csv.DictReader(io.StringIO(data.decode("utf-8-sig"),newline=""),strict=True)
     header=reader.fieldnames or [];mapping={norm(h):h for h in header}
-    needed=CORE+MEASURES
+    needed=CORE+measure_fields
     require(len(header)==columns==len(mapping),"source column count/uniqueness")
     require(set(mapping)=={norm(h) for h in api_fields},"CSV and pinned API schema differ")
     require(all(norm(h) in mapping for h in needed),"required field missing")
@@ -106,7 +108,7 @@ def project(data,expected,columns,api_fields,db,providers):
         if a is not None and b is not None and b<a:period_order+=1
         link="same_state" if state in providers.get(ccn,set()) else "state_conflict" if ccn in providers else "unmatched_ccn"
         vals={};states={}
-        for field in MEASURES:
+        for field in measure_fields:
             value,kind=number(get(field))
             vals[field]=value;states[field]=kind
         cursor=db.execute("INSERT OR IGNORE INTO cost_report VALUES(?,?,?,?,?,?,?,?,?,?,?)",
@@ -118,7 +120,7 @@ def project(data,expected,columns,api_fields,db,providers):
     db.commit();stored=db.execute("SELECT count(*) FROM cost_report").fetchone()[0]
     require(total==expected==stored+sum(reject.values()),"record reconciliation")
     require(stored==sum(links.values())==sum(ccns.values()),"link reconciliation")
-    require(all(sum(counts[k].values())==stored for k in MEASURES),"measure reconciliation")
+    require(all(sum(counts[k].values())==stored for k in measure_fields),"measure reconciliation")
     db.execute("CREATE INDEX cost_report_ccn ON cost_report(ccn,state)")
     require(db.execute("PRAGMA integrity_check").fetchone()[0]=="ok","SQLite integrity")
     sample=db.execute("SELECT ccn FROM cost_report LIMIT 1").fetchone()
@@ -126,8 +128,8 @@ def project(data,expected,columns,api_fields,db,providers):
     return {"input_rows":total,"stored_rows":stored,"rejected_rows":sum(reject.values()),"reject_reasons":dict(reject),
             "exact_duplicate_rows":dup_rows,"distinct_ccns":len(ccns),"ccns_with_multiple_reports":sum(v>1 for v in ccns.values()),
             "link_counts":dict(links),"fiscal_date_shape_counts":dict(dates),"unambiguous_period_order_anomalies":period_order,
-            "measure_value_states":{k:dict(counts[k]) for k in MEASURES},"columns":len(header),
-            "projected_measure_count":len(MEASURES),"retained_row_level_records":0}
+            "measure_value_states":{k:dict(counts[k]) for k in measure_fields},"columns":len(header),
+            "projected_measure_count":len(measure_fields),"retained_row_level_records":0}
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--cms-base",type=Path,required=True);p.add_argument("--audit",type=Path,required=True);a=p.parse_args()

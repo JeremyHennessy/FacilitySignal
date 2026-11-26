@@ -1,0 +1,61 @@
+name: FacilitySignal new postacute private source ingestion
+on:
+  push:
+    branches: [main, build/azure-postacute-expansion-20261126]
+    paths:
+      - .github/workflows/azure-postacute-sources.yml
+      - scripts/archive_postacute_sources.py
+      - tests/test_archive_postacute_sources.py
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-postacute-private
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  archive:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: azure-production
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        source: [hospice, hha-cost]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Qualify official release and archive institutional projection
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.archive_postacute_sources --source ${{ matrix.source }} --receipt "$RUNNER_TEMP/postacute-receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: postacute-${{ matrix.source }}-receipt
+          path: ${{ runner.temp }}/postacute-receipt.json
+          retention-days: 30
+          if-no-files-found: error
