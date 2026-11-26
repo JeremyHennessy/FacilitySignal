@@ -1,0 +1,310 @@
+{
+  "as_of": "2026-11-26",
+  "base": "a733906304bcd3eb747f942bf747ec36548c6dd0",
+  "scope": "Preparation only; no source bytes retrieved, no production or inventory status change. Publisher documentation reviewed; endpoints and schemas not all verified.",
+  "original_inventory_preserved": true,
+  "qualification_sequence": [
+    "HRSA sites",
+    "CMS penalties",
+    "CMS selected hospital costs",
+    "QCOR ASC and X-ray",
+    "NPPES V2 after storage and resource assessment",
+    "remaining independent sources"
+  ],
+  "common_gates": [
+    "Exact publisher download and dictionary",
+    "Reuse assessment",
+    "Bounded retrieval and checksum",
+    "Schema and record reconciliation",
+    "Institutional-only projection",
+    "Source-scoped linkage, no canonical merge",
+    "Aggregate-only evidence until publication approved",
+    "Regression and populated API tests before promotion"
+  ],
+  "existing_sources": [
+    {
+      "inventory_id": "FS-009",
+      "priority": "P0",
+      "name": "HRSA service delivery sites",
+      "publisher_url": "https://data.hrsa.gov/topics/health-centers/",
+      "refresh": "daily",
+      "format": "CSV plus metadata",
+      "join_grain": "Site and awardee identifiers; institutional sites only",
+      "gate": "Exclude protected/suppressed shelter records; no reconstruction",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-036",
+      "priority": "P0",
+      "name": "CMS nursing penalties",
+      "publisher_url": "https://data.cms.gov/provider-data/dataset/g6vv-u9sr",
+      "refresh": "publisher release",
+      "format": "CSV/API",
+      "join_grain": "CCN; fine ID or source-scoped payment-denial event",
+      "gate": "Reconcile latest catalog and download; distinguish historical penalty from current liability",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-056",
+      "priority": "P0",
+      "name": "Hospital selected cost report",
+      "publisher_url": "https://data.cms.gov/provider-compliance/cost-reports/hospital-provider-cost-report",
+      "refresh": "annual",
+      "format": "CSV/API and dictionary",
+      "join_grain": "CCN and reporting period",
+      "gate": "Fiscal period, revisions, units and missing codes; no vendor spend inference",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-057",
+      "priority": "P0",
+      "name": "SNF selected cost report",
+      "publisher_url": "https://data.cms.gov/provider-compliance/cost-reports",
+      "refresh": "annual",
+      "format": "CSV/API and dictionary",
+      "join_grain": "CCN and reporting period",
+      "gate": "Same fiscal-period safeguards",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-004",
+      "priority": "P0",
+      "name": "NPPES V2",
+      "publisher_url": "https://download.cms.gov/nppes/NPI_Files.html",
+      "refresh": "monthly plus weekly",
+      "format": "ZIP CSV",
+      "join_grain": "Type 2 NPI and institutional practice location",
+      "gate": "~1.08 GB compressed monthly; organization-only streaming; no individual contacts; NPI not license",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-010",
+      "priority": "P1",
+      "name": "HRSA UDS awardee and look-alike",
+      "publisher_url": "https://data.hrsa.gov/topics/health-centers/uds",
+      "refresh": "annual",
+      "format": "XLSX",
+      "join_grain": "Awardee identifier and reporting year",
+      "gate": "Institutional aggregates only; suppress sensitive small cells",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-017",
+      "priority": "P1",
+      "name": "340B public daily reports",
+      "publisher_url": "https://340bregistration.hrsa.gov/help/CoveredEntity/Reports/DailyReports.htm",
+      "refresh": "daily",
+      "format": "XLSX/JSON",
+      "join_grain": "340B parent/child ID and separate pharmacy relationship",
+      "gate": "Public reports only; no restricted pricing or personal contacts",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-077",
+      "priority": "P1",
+      "name": "FDA 503B registry",
+      "publisher_url": "https://www.fda.gov/drugs/human-drug-compounding/registered-outsourcing-facilities",
+      "refresh": "weekly",
+      "format": "HTML table",
+      "join_grain": "Source-scoped facility registration observation",
+      "gate": "Exclude contact names/phones; historical inspection action not current deficiency",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-055",
+      "priority": "P1",
+      "name": "HCRIS detailed cost reports",
+      "publisher_url": "https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports",
+      "refresh": "publisher releases",
+      "format": "ZIP Rpt/Nmrc/Alphnmrc",
+      "join_grain": "Report record number plus worksheet/line/column",
+      "gate": "Pin form version and dictionary; report revision and cost units",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-070",
+      "priority": "P1",
+      "name": "OSHA inspections",
+      "publisher_url": "https://www.osha.gov/data",
+      "refresh": "verify release",
+      "format": "DOL open data",
+      "join_grain": "Inspection identifier plus institutional name/address evidence",
+      "gate": "Institutional enforcement only; exclude individual injury details",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-058",
+      "priority": "P1",
+      "name": "SAM opportunities",
+      "publisher_url": "https://open.gsa.gov/api/get-opportunities-public-api/",
+      "refresh": "daily active",
+      "format": "API",
+      "join_grain": "Notice ID/version and procurement classifications",
+      "gate": "API key required; no restricted attachments",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-087",
+      "priority": "P1",
+      "name": "California hospital building data",
+      "publisher_url": "https://hcai.ca.gov/data/data-resources/healthcare-facility-attributes/",
+      "refresh": "publisher release",
+      "format": "CSV/ZIP",
+      "join_grain": "HCAI facility/building ID",
+      "gate": "Aggregate public commercial property characteristics only; no internal layouts or vulnerability targeting",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-088",
+      "priority": "P1",
+      "name": "California seismic compliance",
+      "publisher_url": "https://hcai.ca.gov/data/data-resources/healthcare-facility-attributes/",
+      "refresh": "publisher release",
+      "format": "CSV/ZIP",
+      "join_grain": "HCAI facility ID",
+      "gate": "No site-specific vulnerability targeting",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-089",
+      "priority": "P1",
+      "name": "California construction projects",
+      "publisher_url": "https://hcai.ca.gov/data/data-resources/healthcare-facility-attributes/",
+      "refresh": "publisher release",
+      "format": "catalog",
+      "join_grain": "Project and facility identifiers",
+      "gate": "Public project budgets and status only",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-023",
+      "priority": "P0",
+      "name": "QCOR Critical access hospital",
+      "publisher_url": "https://qcor.cms.gov/",
+      "refresh": "publisher release",
+      "format": "downloadable extract",
+      "join_grain": "CCN and source survey/citation key",
+      "gate": "Discover exact endpoint and schema first; exclude narrative columns; correction unknown",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-024",
+      "priority": "P0",
+      "name": "QCOR Transplant hospital",
+      "publisher_url": "https://qcor.cms.gov/",
+      "refresh": "publisher release",
+      "format": "downloadable extract",
+      "join_grain": "CCN and source survey/citation key",
+      "gate": "Discover exact endpoint and schema first; exclude narrative columns; correction unknown",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-025",
+      "priority": "P0",
+      "name": "QCOR Ambulatory surgery center",
+      "publisher_url": "https://qcor.cms.gov/",
+      "refresh": "publisher release",
+      "format": "downloadable extract",
+      "join_grain": "CCN and source survey/citation key",
+      "gate": "Discover exact endpoint and schema first; exclude narrative columns; correction unknown",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-026",
+      "priority": "P0",
+      "name": "QCOR Rural health clinic",
+      "publisher_url": "https://qcor.cms.gov/",
+      "refresh": "publisher release",
+      "format": "downloadable extract",
+      "join_grain": "CCN and source survey/citation key",
+      "gate": "Discover exact endpoint and schema first; exclude narrative columns; correction unknown",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-027",
+      "priority": "P0",
+      "name": "QCOR FQHC",
+      "publisher_url": "https://qcor.cms.gov/",
+      "refresh": "publisher release",
+      "format": "downloadable extract",
+      "join_grain": "CCN and source survey/citation key",
+      "gate": "Discover exact endpoint and schema first; exclude narrative columns; correction unknown",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-028",
+      "priority": "P0",
+      "name": "QCOR X-ray supplier",
+      "publisher_url": "https://qcor.cms.gov/",
+      "refresh": "publisher release",
+      "format": "downloadable extract",
+      "join_grain": "CCN and source survey/citation key",
+      "gate": "Discover exact endpoint and schema first; exclude narrative columns; correction unknown",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-029",
+      "priority": "P0",
+      "name": "QCOR Psychiatric residential treatment",
+      "publisher_url": "https://qcor.cms.gov/",
+      "refresh": "publisher release",
+      "format": "downloadable extract",
+      "join_grain": "CCN and source survey/citation key",
+      "gate": "Discover exact endpoint and schema first; exclude narrative columns; correction unknown",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-030",
+      "priority": "P0",
+      "name": "QCOR Outpatient rehabilitation",
+      "publisher_url": "https://qcor.cms.gov/",
+      "refresh": "publisher release",
+      "format": "downloadable extract",
+      "join_grain": "CCN and source survey/citation key",
+      "gate": "Discover exact endpoint and schema first; exclude narrative columns; correction unknown",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-031",
+      "priority": "P0",
+      "name": "QCOR ICF-IID",
+      "publisher_url": "https://qcor.cms.gov/",
+      "refresh": "publisher release",
+      "format": "downloadable extract",
+      "join_grain": "CCN and source survey/citation key",
+      "gate": "Discover exact endpoint and schema first; exclude narrative columns; correction unknown",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    },
+    {
+      "inventory_id": "FS-032",
+      "priority": "P0",
+      "name": "QCOR Home health",
+      "publisher_url": "https://qcor.cms.gov/",
+      "refresh": "publisher release",
+      "format": "downloadable extract",
+      "join_grain": "CCN and source survey/citation key",
+      "gate": "Discover exact endpoint and schema first; exclude narrative columns; correction unknown",
+      "status": "publisher_documentation_reviewed_not_ingested"
+    }
+  ],
+  "additional_candidates": [
+    {
+      "candidate_id": "EXP-001",
+      "name": "FDA medical device registration/listing",
+      "publisher_url": "https://open.fda.gov/apis/device/registrationlisting/download/",
+      "format": "ZIP JSON",
+      "join_grain": "FDA establishment/registration and product code",
+      "gate": "Manufacturer/vendor intelligence only, not installed equipment; exclude personal contact fields",
+      "priority": "P1"
+    },
+    {
+      "candidate_id": "EXP-002",
+      "name": "California hospital annual financial disclosure",
+      "publisher_url": "https://hcai.ca.gov/data/cost-transparency/hospital-financials/",
+      "format": "selected and complete datasets",
+      "join_grain": "HCAI facility and fiscal period",
+      "gate": "Reconcile expense definitions, revisions and source-specific reuse",
+      "priority": "P1"
+    }
+  ]
+}
