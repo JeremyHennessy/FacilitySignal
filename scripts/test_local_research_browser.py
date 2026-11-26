@@ -34,6 +34,17 @@ with tempfile.TemporaryDirectory() as t:
                     ("portfolio","/organization-research?owner_pac_id=456","1 matching source observations")]:
                     page.goto("http://127.0.0.1:8094"+url)
                     page.get_by_role("heading",name=expected).wait_for()
+                    if name=="service":
+                        assert page.locator("input[name=registry]").input_value()=="iqies"
+                        assert page.locator("select[name=code]").count()==0
+                        page.get_by_role("link",name="QIES literal hospital codes").click()
+                        page.get_by_role("heading",name="3 matching source observations").wait_for()
+                        assert page.locator("input[name=registry]").input_value()=="qies"
+                        assert page.locator("input[name=min]").count()==0
+                        page.get_by_role("link",name="iQIES capability fields").click()
+                        page.get_by_role("heading",name="1 matching source observations").wait_for()
+                        page.goto("http://127.0.0.1:8094"+url)
+                        page.get_by_role("heading",name=expected).wait_for()
                     page.screenshot(path=str(OUT/f"{width}-{name}.png"),full_page=True)
                 page.close()
             b.close()

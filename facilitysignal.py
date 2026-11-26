@@ -375,7 +375,7 @@ def render_hospital_surveys(db,params):
 
 
 def render_local_research(db,path,params):
-    from local_research import service_search,portfolio_search
+    from local_research import service_search,portfolio_search,I_STATES,Q_STATES
     from iqies_capabilities import RULES
     from qies_hospital_services import FIELDS
     service=path=="/service-research"
@@ -386,14 +386,21 @@ def render_local_research(db,path,params):
     form='<form class="filters" method="get" action="'+path+'">'
     if service:
         reg=result["registry"];fields=[(k,v[2]) for k,v in RULES.items()] if reg=="iqies" else list(FIELDS.items())
-        form+=select("registry","Registry",[("iqies","iQIES (ASC / ESRD)"),("qies","QIES hospital (provisional codes)")],{"registry":reg})
-        form+=select("field","Source field",fields,{"field":result["field"]})
-        form+=input_field("value_state","Exact source value state")+input_field("code","QIES literal code")
-        form+=input_field("min","Minimum count","number")+input_field("max","Maximum count","number")
+        form+='<input type="hidden" name="registry" value="'+esc(reg)+'">'
+        form+='<label>Registry<strong>'+esc("iQIES (ASC / ESRD)" if reg=="iqies" else "QIES hospital (provisional codes)")+'</strong></label>'
+        form+=select("field","Source field",fields,{"field":result["field"]}).replace('<option value="">All</option>','',1)
+        # A source field may be a count or a yes/no field. Label incompatible
+        # filters and preserve strict query validation rather than guessing.
+        states=sorted(I_STATES if reg=="iqies" else Q_STATES)
+        form+=select("value_state","Exact source value state",[(x,x.replace("_"," ")) for x in states],params)
+        if reg=="qies":
+            form+=select("code","QIES literal code",[(x,x) for x in ("0","1","2","3")],params)
+        else:
+            form+=input_field("min","Minimum count (count fields only)","number")+input_field("max","Maximum count (count fields only)","number")
     else:
         form+=select("family","Source family",[("hospital","Hospital"),("snf","Skilled nursing")],{"family":result["family"]})
         form+=input_field("owner_pac_id","Exact organization PAC ID")
-    form+=input_field("state","Reported state")+input_field("q","Name / source search")+'<button type="submit">Search evidence</button></form>'
+    form+=select("state","Reported state",[(s,s) for s in STATES],params)+input_field("q","Name / source search")+'<button type="submit">Search evidence</button></form>'
     body='<p class="intro">'+esc(result["note"])+'</p><p>Private local development only. No individual source rows are published to GitHub Pages.</p>'
     if service:
         body+='<div class="links"><a href="/service-research?registry=iqies&amp;field=oprtg_room_cnt">iQIES capability fields</a> · <a href="/service-research?registry=qies&amp;field=CT_SCAN_SRVC_CD">QIES literal hospital codes</a></div>'
