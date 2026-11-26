@@ -5,3 +5,8 @@ FS-070. DOL official inspection and violation data documented at https://usdepar
 ## Verified compressed-size diagnostic
 
 Initial live run 45863696867 stopped at the compressed-size bound before archiving. HEAD-only diagnostic run 45864234256 verified inspection 1,457,273,162 bytes and violation 2,276,398,695 bytes (both last modified November 25, 2026), with 93,043,216,384 bytes free runner storage. Increase only the violation compressed-transfer cap from 2.1 GB to 2.4 GB; retain inspection 2.1 GB and all ZIP expansion, source-shape, row, identity and metadata consistency gates. No successful OSHA receipt yet.
+
+
+## Verified completion
+
+Run 45864494699, job 140063806371: exact combined manifest SHA 8aff0f1394e6d67ed303b5571a75ef1d27374d592e1d22a96f11ab697ac1b8cb, 5,213,443 inspection and 13,296,358 violation source rows screened; 58,042 healthcare (621–623) inspection activity keys. All 63,775 sector 62 valid-key rows were classified as date_review, so no open-year result is qualified. Do not infer historical dates, currently outstanding violations, unique sites or full state-plan coverage. Two private aggregate payload files passed exact SHA readback; aggregate count only.

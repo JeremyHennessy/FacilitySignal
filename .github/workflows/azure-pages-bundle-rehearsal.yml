@@ -2,7 +2,7 @@ name: FacilitySignal Blob-to-Pages approved bundle browser rehearsal
 on:
   workflow_dispatch:
   push:
-    branches: [main, build/azure-pages-bundle-rehearsal-20261126]
+    branches: [main, build/azure-pages-bundle-rehearsal-20261126, build/azure-state-equipment-license-osha-receipt-20261126]
     paths:
       - scripts/build_pages_bundle_from_blob.py
       - tests/test_pages_bundle_from_blob.py
@@ -28,7 +28,7 @@ jobs:
   rehearse:
     needs: qualify
     if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     environment: azure-production
     steps:

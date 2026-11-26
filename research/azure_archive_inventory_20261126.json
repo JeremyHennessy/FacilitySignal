@@ -1585,6 +1585,28 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "osha-enforcement-healthcare-aggregate",
+      "source_sha256": "8aff0f1394e6d67ed303b5571a75ef1d27374d592e1d22a96f11ab697ac1b8cb",
+      "kind": "aggregate",
+      "observations": 0,
+      "screened_observations": 18509801,
+      "run": 45864494699,
+      "job": 140063806371,
+      "files": [
+        {
+          "bytes": 20480,
+          "path": "projection.sqlite3",
+          "sha256": "6d9892756c37b5f20f428fe0c92358d97ad5b7a4c127fc122e86dab864486988"
+        },
+        {
+          "bytes": 24755,
+          "path": "audit.json",
+          "sha256": "ac7caf19e9e616cdac41fe7d575a9ff9678c705c4b5f5a5d1d148c5c5132f572"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
@@ -1593,9 +1615,9 @@
     "supplemental_numeric_archives": 41,
     "supplemental_numeric_observations": 107619587,
     "derived_candidate_observations": 23520,
-    "aggregate_evidence_releases": 5,
-    "aggregate_source_rows_screened": 22054357,
-    "payload_files": 200,
-    "payload_bytes": 10886195428
+    "aggregate_evidence_releases": 6,
+    "aggregate_source_rows_screened": 40564158,
+    "payload_files": 202,
+    "payload_bytes": 10886240663
   }
 }

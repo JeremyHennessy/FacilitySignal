@@ -48,6 +48,13 @@ def monitor(store,national):
                 from scripts.archive_osha_enforcement_coverage import head,URLS
                 checks={k:compare_metadata(old["sources"][k],head(k),("etag","last_modified","bytes")) for k in URLS}
                 results[ident]={"state":"new_version_review" if "new_version_review" in checks.values() else "metadata_unchanged" if set(checks.values())=={"metadata_unchanged"} else "metadata_review","components":checks}
+            elif key in {"mn-boiler-aggregate","mn-elevator-aggregate"}:
+                from scripts.archive_state_equipment_directory import head
+                results[ident]={"state":compare_metadata(old,head(old["url"]),("etag","last_modified","bytes"))}
+            elif key=="il-idph-hospital-directory":
+                from scripts.archive_state_equipment_directory import il_metadata,il_rows
+                new=il_metadata();_,digest=il_rows(new)
+                results[ident]={"state":"metadata_unchanged" if digest==old["sha256"] and new["count"]==old["count"] and new["fields"]==old["fields"] else "new_version_review","publisher_count":new["count"]}
             elif key=="wa-xray-aggregate":
                 new=state.wa_metadata();results[ident]={"state":compare_metadata(old,new,("rows_updated_at","view_last_modified","count","fields")),"publisher_count":new["count"]}
             elif key.startswith("il-reportcard-"):
