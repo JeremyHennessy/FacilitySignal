@@ -188,7 +188,13 @@
     },
     {
       "id": "FS-036",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45821686668",
+      "retrieved_rows": 15007,
+      "ephemeral_projected_rows": 15007,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Standalone national SQLite projection and exact CCN/state evidence qualified; not included in integrated national baseline or public facility profiles. Historical fines and payment denials, not outstanding liabilities."
     },
     {
       "id": "FS-037",
@@ -1332,6 +1338,48 @@
       "unique_layout": true,
       "unresolved_rows": 0,
       "url": "https://www.accessdata.fda.gov/premarket/ftparea/public.zip"
+    },
+    "reuse_review": "pending",
+    "retained_row_level_records": 0,
+    "included_in_integrated_national_baseline": false
+  },
+  "cms_penalties_qualified_baseline": {
+    "commit": "ed618ebe6e75ccea3559b9aa69d3ae250fddb7da",
+    "run": 45821686668,
+    "artifact": 15118452043,
+    "artifact_digest": "sha256:f56f869021e9a6117dfbe8e1c16e22f784f6ab7ae5911a93996ce940e5f2cc07",
+    "audit": {
+      "input_rows": 15007,
+      "stored_rows": 15007,
+      "rejected_rows": 0,
+      "reject_reasons": {},
+      "exact_duplicate_rows": 0,
+      "duplicate_fine_ids": 0,
+      "penalty_type_counts": {
+        "Fine": 12638,
+        "Payment Denial": 2369
+      },
+      "link_counts": {
+        "same_state": 15007
+      },
+      "field_anomalies": {},
+      "date_anomalies": {},
+      "distinct_ccns": 6725,
+      "fine_amount_reported_sum_usd": 445738479,
+      "fine_amount_reported_count": 12638,
+      "publisher": {
+        "id": "g6vv-u9sr",
+        "released": "2026-10-28",
+        "modified": "2026-10-01",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/4d0e526b8cf3d0b78294803291483073_1792181741/NH_Penalties_Oct2026.csv"
+      },
+      "source_sha256": "5b2be235e7cfbba04d3a6fb6441b2634aa43d309f4cb61cd247410211207cd01",
+      "bytes": 2595946,
+      "retrieved_at": "2026-11-26T12:39:43.032392+00:00",
+      "baseline_sha256": "baa78020a2c60df25408421d4491f66f6f260aa25d3c7579c13199aee9e23960",
+      "reuse_review": "pending",
+      "retained_row_level_records": 0,
+      "limits": "Reported historical fine amounts are not outstanding liabilities or procurement intent. Exact CCN/state candidates are source evidence, not canonical sites. No row-level publication."
     },
     "reuse_review": "pending",
     "retained_row_level_records": 0,
