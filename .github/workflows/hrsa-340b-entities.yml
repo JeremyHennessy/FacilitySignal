@@ -1,0 +1,29 @@
+name: HRSA 340B public covered-entity report qualification
+on:
+  push:
+    branches: [diagnostics/hrsa-340b-covered-entities-20261126]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-hrsa-340b-entities
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0
+      - run: python -m unittest discover -s tests -v
+      - run: python -m playwright install --with-deps chromium
+      - run: python -m scripts.qualify_340b_entities --audit "$RUNNER_TEMP/340b.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hrsa-340b-covered-entity-aggregate-only
+          path: ${{ runner.temp }}/340b.json
+          retention-days: 14
+          if-no-files-found: warn
