@@ -11,7 +11,7 @@ import azure_national_archive as archive
 import facilitysignal as fs
 from build_combined import require,sha,readonly,check_integrity
 from scripts import azure_verified_extension as ext,weekly_azure_refresh as weekly
-from scripts import build_market_summary as market,requalify_care_compare_dependencies as deps,requalify_dialysis_blob_dependency as dialysis
+from scripts import build_market_summary as market,requalify_care_compare_dependencies as deps,requalify_dialysis_blob_dependency as dialysis,requalify_hospital_nursing_dependencies as institutional
 from scripts.azure_inventory import verify_inventory
 ROOT=Path(__file__).resolve().parents[1]
 LOCK="research/snapshot_release_20261125.json"
@@ -180,6 +180,7 @@ def qualify(store,national,report,root,rehearse=False):
     dependency_result=deps.qualify(out,pins,set(changed),root/"raw-dependencies",approved,rehearse)
     dialysis_result=dialysis.qualify(out,pins,set(changed),base_db,approved,report,rehearse)
     if dialysis_result is not None:dependency_result["dialysis"]=dialysis_result
+    dependency_result.update(institutional.qualify(out,pins,set(changed),base_db,candidates,root/"institutional-dependencies",rehearse,report))
     verified_dependencies={k:v for k,v in dependency_result.items() if v["status"] in {"BASELINE_PARITY_PASS","PRIVATE_DEPENDENCY_QUALIFIED"}}
     if verified_dependencies:
         # Recompute downstream checksums and market summary after LTCH enrichment.

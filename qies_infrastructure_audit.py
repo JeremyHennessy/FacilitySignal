@@ -107,8 +107,8 @@ def compare_totals(vals,total,components):
     if vals[total] is None or any(vals[k] is None for k in components):return "not_comparable"
     n=sum(vals[k] for k in components)
     return "equal" if n==vals[total] else "component_sum_above_reported_total" if n>vals[total] else "component_sum_below_reported_total"
-def audit(raw,pin,inventory,layout,public,public_meta,prior):
-    exact,svc,fte=hospital_catalog(layout,pin)
+def audit(raw,pin,inventory,layout,public,public_meta,prior,*,reviewed_catalog=None):
+    exact,svc,fte=hospital_catalog(layout,pin) if reviewed_catalog is None else reviewed_catalog
     header=[f["field"] for f in inventory["fields"]]
     need(inventory["source_sha256"]==pin["sha256"],"inventory mismatch")
     fields=tuple(svc)+COUNTS+tuple(fte)+FLAGS+STATUS
