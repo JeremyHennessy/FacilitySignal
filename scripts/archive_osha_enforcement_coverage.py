@@ -18,7 +18,7 @@ KEY="osha-enforcement-healthcare-aggregate"
 BASE="https://data.dol.gov/data-catalog/OSHA/"
 URLS={k:BASE+k+"/OSHA_"+k+".zip" for k in ("inspection","violation")}
 DOC="https://usdepartmentoflabor.github.io/Developer/health-and-safety/dol-osha-enforcement/"
-MAX_DOWNLOAD=2_100_000_000
+MAX_DOWNLOAD={"inspection":2_100_000_000,"violation":2_400_000_000}
 MAX_EXPANDED=7_000_000_000
 MAX_ROWS={"inspection":8_000_000,"violation":20_000_000}
 REQUIRED={"inspection":{"ACTIVITY_NR","NAICS_CODE","SITE_STATE","OPEN_DATE","INSP_SCOPE"},"violation":{"ACTIVITY_NR","CITATION_ID","DELETE_FLAG","VIOL_TYPE"}}
@@ -40,9 +40,9 @@ def download(kind,path):
     with response(kind) as res,path.open("xb") as f:
         require(res.geturl()==URLS[kind],"DOL source identity")
         meta=metadata(res);declared=meta["bytes"]
-        if declared is not None:require(0<declared<=MAX_DOWNLOAD,"DOL compressed size bound")
+        if declared is not None:require(0<declared<=MAX_DOWNLOAD[kind],"DOL compressed size bound")
         while chunk:=res.read(1024*1024):
-            n+=len(chunk);require(n<=MAX_DOWNLOAD,"DOL compressed size bound");h.update(chunk);f.write(chunk)
+            n+=len(chunk);require(n<=MAX_DOWNLOAD[kind],"DOL compressed size bound");h.update(chunk);f.write(chunk)
         require(n>0 and (declared is None or n==declared),"DOL transfer completeness")
     return {"url":URLS[kind],**meta,"bytes":n,"sha256":h.hexdigest()}
 def identity(v):

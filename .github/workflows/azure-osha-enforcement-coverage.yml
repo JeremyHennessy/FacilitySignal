@@ -2,7 +2,7 @@ name: FacilitySignal private OSHA enforcement aggregate coverage
 on:
   workflow_dispatch:
   push:
-    branches: [main, build/azure-osha-enforcement-coverage-20261126]
+    branches: [main, build/azure-osha-enforcement-coverage-20261126, build/azure-renal-verified-receipts-osha-bound-20261126]
     paths:
       - scripts/archive_osha_enforcement_coverage.py
       - tests/test_osha_enforcement_coverage.py
