@@ -19,6 +19,7 @@ jobs:
       - run: python -m py_compile facilitysignal.py tests/test_facilitysignal.py
       - run: python scripts/stamp_pages_assets.py --check
       - run: python scripts/verify_dialysis_public.py
+      - run: python scripts/verify_hha_public.py
       - run: python -m unittest discover -s tests -v
       - name: Verify local HTTP routes
         shell: bash
