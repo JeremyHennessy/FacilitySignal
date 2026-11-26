@@ -297,7 +297,13 @@
     },
     {
       "id": "FS-056",
-      "status": "discovered_not_tested"
+      "status": "ephemeral_projection_qualified",
+      "evidence": "45825853982",
+      "retrieved_rows": 6109,
+      "ephemeral_projected_rows": 6109,
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Standalone report-grain projection of 19 selected 2024 measures; 5935 same-state CCN evidence pairs and 174 unmatched reports. No retained row-level records or integrated national baseline increment; dictionary semantics/units and ambiguous dates require review."
     },
     {
       "id": "FS-057",
@@ -1512,6 +1518,148 @@
       ],
       "publisher_catalog": "https://catalog.data.gov/dataset/health-center-service-delivery-and-lookalike-sites",
       "reuse": "Publisher lists public domain/CC0 and no usage limitations; protected records excluded; commercial projection requires semantic review."
+    },
+    "reuse_review": "pending",
+    "retained_row_level_records": 0,
+    "included_in_integrated_national_baseline": false
+  },
+  "hospital_cost_qualified_baseline": {
+    "commit": "99e696556212fc23cd1b5416f26811dfe8b13105",
+    "run": 45825853982,
+    "artifact": 15119597841,
+    "artifact_digest": "sha256:0ab382d6ab83087530ada4ea16337c6838289fcb95d8f3fad34e8cdde23a6f07",
+    "audit": {
+      "input_rows": 6109,
+      "stored_rows": 6109,
+      "rejected_rows": 0,
+      "reject_reasons": {},
+      "exact_duplicate_rows": 0,
+      "distinct_ccns": 6026,
+      "ccns_with_multiple_reports": 81,
+      "link_counts": {
+        "unmatched_ccn": 174,
+        "same_state": 5935
+      },
+      "fiscal_date_shape_counts": {
+        "begin_ambiguous": 3602,
+        "end_mdy_only": 6083,
+        "begin_mdy_only": 75,
+        "begin_both_same": 2432,
+        "end_ambiguous": 20,
+        "end_both_same": 6
+      },
+      "unambiguous_period_order_anomalies": 0,
+      "measure_value_states": {
+        "Number of Beds": {
+          "blank": 122,
+          "positive": 5987
+        },
+        "Total Costs": {
+          "positive": 6030,
+          "blank": 79
+        },
+        "Overhead Non-Salary Costs": {
+          "positive": 6028,
+          "blank": 79,
+          "negative": 2
+        },
+        "Depreciation Cost": {
+          "blank": 150,
+          "positive": 5921,
+          "negative": 38
+        },
+        "Land": {
+          "blank": 1909,
+          "positive": 4193,
+          "negative": 7
+        },
+        "Land Improvements": {
+          "blank": 2269,
+          "positive": 3815,
+          "negative": 25
+        },
+        "Buildings": {
+          "positive": 5070,
+          "blank": 1033,
+          "negative": 6
+        },
+        "Leasehold Improvements": {
+          "blank": 3127,
+          "positive": 2959,
+          "negative": 23
+        },
+        "Fixed Equipment": {
+          "positive": 3392,
+          "blank": 2705,
+          "negative": 12
+        },
+        "Major Movable Equipment": {
+          "positive": 5220,
+          "blank": 879,
+          "negative": 10
+        },
+        "Minor Equipment Depreciable": {
+          "blank": 5187,
+          "positive": 906,
+          "negative": 16
+        },
+        "Total Fixed Assets": {
+          "positive": 5728,
+          "blank": 364,
+          "negative": 17
+        },
+        "Total Assets": {
+          "positive": 5723,
+          "blank": 298,
+          "negative": 88
+        },
+        "Less Total Operating Expense": {
+          "positive": 6027,
+          "blank": 81,
+          "negative": 1
+        },
+        "Net Patient Revenue": {
+          "positive": 5866,
+          "blank": 235,
+          "negative": 8
+        },
+        "Total Patient Revenue": {
+          "positive": 5872,
+          "blank": 237
+        },
+        "Net Income": {
+          "positive": 4093,
+          "negative": 1928,
+          "blank": 88
+        },
+        "Total Salaries From Worksheet A": {
+          "positive": 6026,
+          "blank": 83
+        },
+        "Contract Labor: Direct Patient Care": {
+          "blank": 3088,
+          "positive": 3021
+        }
+      },
+      "columns": 117,
+      "projected_measure_count": 19,
+      "retained_row_level_records": 0,
+      "publisher": {
+        "title": "Hospital Provider Cost Report",
+        "period": "2024-01-01/2024-12-31",
+        "version": "bcddce31-68ff-4475-9024-77f6eb3a1e96",
+        "api": "https://data.cms.gov/data-api/v1/dataset/bcddce31-68ff-4475-9024-77f6eb3a1e96/data",
+        "url": "https://data.cms.gov/sites/default/files/2026-10/46b1f5a0-a9dd-4431-beee-2ee7194b4135/CostReport_2024_Final.csv",
+        "modified": "2026-10-05",
+        "license": "https://www.usa.gov/government-works",
+        "dictionary_candidate": "https://data.cms.gov/sites/default/files/2024-03/9756088d-5280-4090-80b9-449d31ef25a3/Cost%20Report%20Data%20Dictionary%20Update.pdf"
+      },
+      "source_sha256": "bde32414133a7b4ae0bb092654f805ad9d20335764cb4f91feeb4ca129c4e782",
+      "bytes": 4153389,
+      "retrieved_at": "2026-11-26T13:06:27.982375+00:00",
+      "baseline_sha256": "baa78020a2c60df25408421d4491f66f6f260aa25d3c7579c13199aee9e23960",
+      "reuse_review": "pending",
+      "limits": "Report-scoped selected historical measures, not purchase intent, equipment count, vendor payments, current operating capacity or audited financial totals. No row-level publication, no sum across reporting periods, no ambiguous date normalization. Measure semantics and units require dictionary review."
     },
     "reuse_review": "pending",
     "retained_row_level_records": 0,
