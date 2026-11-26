@@ -1,0 +1,20 @@
+name: Field utilization evidence check
+on:
+  push:
+    branches: [research/field-utilization-20261126]
+    paths:
+      - scripts/build_field_utilization.js
+      - research/field_utilization_20261126.json
+      - .github/workflows/field-utilization.yml
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/build_field_utilization.js --check
