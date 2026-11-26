@@ -98,8 +98,13 @@ def cell_state(s):
     try:n=Decimal(v)
     except InvalidOperation:return "unrecognized"
     return "zero" if n==0 else "positive" if n>0 else "negative"
+def coordinate_shape(v):
+    if not v:return "blank"
+    if len(v)>24:return "over_24"
+    return "".join("9" if "0"<=c<="9" else "A" if "A"<=c<="Z" else "a" if "a"<=c<="z" else "S" if c.isspace() else "P" for c in v)
+
 def count_child(reader,keys,role):
-    rows=0;width=Counter();link=Counter();coord=Counter();values=Counter();covered=set();coords=set()
+    rows=0;width=Counter();link=Counter();coord=Counter();values=Counter();covered=set();coords=set();exceptions={k:Counter() for k in ('worksheet','line','column')}
     for row in reader:
         rows+=1;require(rows<=MAX_ROWS,"child row bound")
         width[str(len(row))]+=1
@@ -113,11 +118,14 @@ def count_child(reader,keys,role):
         a,b,c=(v.strip() for v in row[1:4])
         if re.fullmatch(r"[A-Z0-9]{7}",a) and re.fullmatch(r"[0-9]{1,5}",b) and re.fullmatch(r"[0-9]{1,5}",c):
             coord["shape_valid"]+=1;coords.add((a,b,c));require(len(coords)<=500000,"coordinate bound")
-        else:coord["shape_unrecognized"]+=1
+        else:
+            coord["shape_unrecognized"]+=1
+            for k,v in zip(exceptions,(a,b,c)):
+                exceptions[k][coordinate_shape(v)]+=1
         values[cell_state(row[4]) if role=="numeric" else ("present" if row[4].strip() else "blank")]+=1
     require(rows>0 and rows==sum(link.values())==sum(coord.values())==sum(values.values()),"child reconciliation")
     return {"rows":rows,"width_counts":dict(width),"report_key_link_counts":dict(link),"reports_with_cells":len(covered),
-            "coordinate_shape_counts":dict(coord),"distinct_valid_worksheet_coordinates":len(coords),"value_states":dict(values)}
+            "coordinate_shape_counts":dict(coord),"unrecognized_coordinate_component_shapes":{k:dict(v) for k,v in exceptions.items()},"distinct_valid_worksheet_coordinates":len(coords),"value_states":dict(values)}
 def inspect(path):
     with zipfile.ZipFile(path) as z:
         roles=members(z);result={}
@@ -135,12 +143,14 @@ def main():
     p=argparse.ArgumentParser();p.add_argument("--audit",type=Path,required=True);a=p.parse_args()
     require(not a.audit.exists(),"audit exists")
     with tempfile.TemporaryDirectory(prefix="hcris-hha-") as d:
-        path=Path(d)/"source.zip";meta=download(path);result=inspect(path)
+        path=Path(d)/"source.zip";meta=download(path)
+        require(meta["sha256"]=="d3bf63b5d6293aa98f5a1cee096858c5d32d322f3cbe8471d9b6d410b37182d6","prior archive changed")
+        result=inspect(path)
     out={"source_id":"FS-055","form":"CMS-1728-20","fiscal_year":2024,"publisher":meta,"landing":PAGE,"documentation":DOC,
          "tables":result,"retained_row_level_records":0,"reuse_review":"pending",
          "limits":"Structural streaming qualification only. No worksheet measure/unit crosswalk, report-status interpretation, unique facility count or durable projection. Numeric and alpha cells are not additional facility records. No provider identity, individual cell or alpha text retained."}
     with a.audit.open("x") as f:json.dump(out,f,indent=2);f.write("\n")
-    print("HCRIS_HHA_AUDIT",json.dumps(out),flush=True)
+    print("HCRIS_HHA_COORDINATE_DIAGNOSTIC",json.dumps(out),flush=True)
     rpt=result["report"]
     require(rpt["invalid_report_key_rows"]==rpt["duplicate_report_key_rows"]==0 and len(rpt["width_counts"])==1,"report exceptions")
     for role in ("numeric","alpha"):

@@ -1,6 +1,6 @@
 import csv,io,tempfile,unittest,zipfile
 from pathlib import Path
-from scripts.qualify_hcris_hha import resolve,inspect,cell_state,PAGE
+from scripts.qualify_hcris_hha import resolve,inspect,cell_state,PAGE,coordinate_shape
 class HCRISHHATests(unittest.TestCase):
     def test_resolve_official_link(self):
         a='<a href="/files/zip/hha20-2024.zip">HHA-2020 FY 2024 DATA FILES</a>'
@@ -23,3 +23,9 @@ class HCRISHHATests(unittest.TestCase):
         self.assertEqual(cell_state(""),"blank")
         self.assertEqual(cell_state("0.00"),"zero")
         self.assertEqual(cell_state("1,000"),"unrecognized")
+
+    def test_coordinate_shape_does_not_retain_values(self):
+        self.assertEqual(coordinate_shape("01A00"),"99A99")
+        self.assertEqual(coordinate_shape("A100 01"),"A999S99")
+        self.assertEqual(coordinate_shape(""),"blank")
+        self.assertEqual(coordinate_shape("9"*25),"over_24")

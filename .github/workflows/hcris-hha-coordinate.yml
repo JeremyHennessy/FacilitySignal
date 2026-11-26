@@ -1,0 +1,28 @@
+name: HCRIS HHA exact-release coordinate diagnosis
+on:
+  push:
+    branches: [diagnostics/hcris-hha-coordinate-20261126]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-hcris-hha-coordinate
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - run: python -m scripts.qualify_hcris_hha --audit "$RUNNER_TEMP/hcris-hha-coordinates.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hcris-hha-coordinate-aggregate-only
+          path: ${{ runner.temp }}/hcris-hha-coordinates.json
+          retention-days: 14
+          if-no-files-found: warn
