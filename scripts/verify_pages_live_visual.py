@@ -221,6 +221,14 @@ def run(base,local):
                     with dl.value.path().open(encoding="utf-8",newline="") as f:
                         saved=list(csv.DictReader(f))
                     assert len(saved)==2 and all(r["saved_source_release"] and r["source_identifier"] for r in saved)
+                    wrap=page.locator(".portfolio-results")
+                    assert wrap.evaluate("(e)=>Array.from(e.querySelectorAll('td button')).every(b=>getComputedStyle(b).whiteSpace==='nowrap'&&b.scrollWidth<=b.clientWidth+1)")
+                    assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+                    if width<=768:
+                        assert page.locator(".portfolio-scroll-hint").is_visible()
+                        assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const t=e.querySelector('tbody tr td:last-child');return e.scrollLeft>0&&t.getBoundingClientRect().right<=e.getBoundingClientRect().right+2}")
+                        page.screenshot(path=str(OUT/f"{width}-portfolio-export-scrolled.png"),full_page=True)
+                        wrap.evaluate("(e)=>{e.scrollLeft=0}")
                     page.screenshot(path=str(OUT/f"{width}-portfolio-export.png"),full_page=True)
                     page.locator(".portfolio-provider-cell input").nth(0).check()
                     page.locator(".portfolio-provider-cell input").nth(1).check()
