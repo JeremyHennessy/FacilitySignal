@@ -1,0 +1,1668 @@
+{
+  "version": 1,
+  "sections": [
+    {
+      "id": "services",
+      "title": "Service intelligence",
+      "intro": "National aggregate service research, not individual facility service availability, installed assets or purchasing intent. Source-specific observations are not additional providers. Individual service evidence is not published in this workspace.",
+      "groups": [
+        {
+          "id": "iqies",
+          "title": "Surgical and dialysis capability evidence",
+          "note": "Q3 2026 iQIES. Counts are field observations within ASC and ESRD source scopes. A dash means the state is not present in the qualified field distribution; it is not a reported zero. Count fields report the number of source rows with numeric values, not the sum of rooms or stations.",
+          "run": 45736841012,
+          "columns": [
+            "Source field / service",
+            "Scope",
+            "Numeric count reported",
+            "Yes",
+            "No",
+            "Not available",
+            "Unrecognized"
+          ],
+          "rows": [
+            [
+              "Operating room count",
+              "ASC",
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "oprtg_room_cnt",
+                  "reported_count"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "oprtg_room_cnt",
+                  "reported_yes"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "oprtg_room_cnt",
+                  "reported_no"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "oprtg_room_cnt",
+                  "not_available"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "oprtg_room_cnt",
+                  "unrecognized"
+                ]
+              }
+            ],
+            [
+              "Procedure room count",
+              "ASC",
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "procedure_room_cnt",
+                  "reported_count"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "procedure_room_cnt",
+                  "reported_yes"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "procedure_room_cnt",
+                  "reported_no"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "procedure_room_cnt",
+                  "not_available"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "procedure_room_cnt",
+                  "unrecognized"
+                ]
+              }
+            ],
+            [
+              "Dental surgery",
+              "ASC",
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "dntl_srgry_sw",
+                  "reported_count"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "dntl_srgry_sw",
+                  "reported_yes"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "dntl_srgry_sw",
+                  "reported_no"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "dntl_srgry_sw",
+                  "not_available"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "dntl_srgry_sw",
+                  "unrecognized"
+                ]
+              }
+            ],
+            [
+              "Endoscopy",
+              "ASC",
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "endscpy_srgry_sw",
+                  "reported_count"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "endscpy_srgry_sw",
+                  "reported_yes"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "endscpy_srgry_sw",
+                  "reported_no"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "endscpy_srgry_sw",
+                  "not_available"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "endscpy_srgry_sw",
+                  "unrecognized"
+                ]
+              }
+            ],
+            [
+              "Approved in-center dialysis stations",
+              "ESRD",
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "dlys_stn_cnt",
+                  "reported_count"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "dlys_stn_cnt",
+                  "reported_yes"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "dlys_stn_cnt",
+                  "reported_no"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "dlys_stn_cnt",
+                  "not_available"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "dlys_stn_cnt",
+                  "unrecognized"
+                ]
+              }
+            ],
+            [
+              "In-center hemodialysis",
+              "ESRD",
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "hmdlys_srvc_sw",
+                  "reported_count"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "hmdlys_srvc_sw",
+                  "reported_yes"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "hmdlys_srvc_sw",
+                  "reported_no"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "hmdlys_srvc_sw",
+                  "not_available"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "hmdlys_srvc_sw",
+                  "unrecognized"
+                ]
+              }
+            ],
+            [
+              "Peritoneal dialysis",
+              "ESRD",
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "prtnl_dlys_srvc_sw",
+                  "reported_count"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "prtnl_dlys_srvc_sw",
+                  "reported_yes"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "prtnl_dlys_srvc_sw",
+                  "reported_no"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "prtnl_dlys_srvc_sw",
+                  "not_available"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "prtnl_dlys_srvc_sw",
+                  "unrecognized"
+                ]
+              }
+            ],
+            [
+              "Onsite home training",
+              "ESRD",
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "home_trng_sprt_only_srvc_sw",
+                  "reported_count"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "home_trng_sprt_only_srvc_sw",
+                  "reported_yes"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "home_trng_sprt_only_srvc_sw",
+                  "reported_no"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "home_trng_sprt_only_srvc_sw",
+                  "not_available"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "iqies_field_states",
+                  "home_trng_sprt_only_srvc_sw",
+                  "unrecognized"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system/api-docs"
+        },
+        {
+          "id": "qies",
+          "title": "Hospital service provision codes",
+          "note": "Q3 2026 QIES, hospital category 01. Historical 2023 reference layout remains provisional for this release. Codes are presented literally without interpreting provision mode, current availability or installation.",
+          "run": 45736841012,
+          "columns": [
+            "Service field",
+            "Code 0",
+            "Code 1",
+            "Code 2",
+            "Code 3",
+            "Blank"
+          ],
+          "rows": [
+            [
+              "CT imaging",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "CT_SCAN_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "CT_SCAN_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "CT_SCAN_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "CT_SCAN_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "CT_SCAN_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "MRI",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "MGNTC_RSNC_IMG_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "MGNTC_RSNC_IMG_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "MGNTC_RSNC_IMG_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "MGNTC_RSNC_IMG_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "MGNTC_RSNC_IMG_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "PET imaging",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "PET_SCAN_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "PET_SCAN_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "PET_SCAN_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "PET_SCAN_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "PET_SCAN_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Nuclear medicine",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "NUCLR_MDCN_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "NUCLR_MDCN_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "NUCLR_MDCN_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "NUCLR_MDCN_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "NUCLR_MDCN_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Dental services",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DNTL_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DNTL_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DNTL_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DNTL_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DNTL_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Operating room services",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "OPRTG_ROOM_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "OPRTG_ROOM_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "OPRTG_ROOM_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "OPRTG_ROOM_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "OPRTG_ROOM_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Diagnostic radiology",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DGNSTC_RDLGY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DGNSTC_RDLGY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DGNSTC_RDLGY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DGNSTC_RDLGY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DGNSTC_RDLGY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Dietary services",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DTRY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DTRY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DTRY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DTRY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DTRY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Dedicated emergency department",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DCTD_ER_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DCTD_ER_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DCTD_ER_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DCTD_ER_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "DCTD_ER_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Intensive care",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "ICU_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "ICU_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "ICU_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "ICU_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "ICU_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Neonatal intensive care",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "NEONTL_ICU_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "NEONTL_ICU_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "NEONTL_ICU_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "NEONTL_ICU_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "NEONTL_ICU_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ],
+            [
+              "Open-heart surgery",
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "OPEN_HRT_SRGRY_SRVC_CD",
+                  "code_0"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "OPEN_HRT_SRGRY_SRVC_CD",
+                  "code_1"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "OPEN_HRT_SRGRY_SRVC_CD",
+                  "code_2"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "OPEN_HRT_SRGRY_SRVC_CD",
+                  "code_3"
+                ]
+              },
+              {
+                "path": [
+                  "cap",
+                  "qies_field_distributions",
+                  "OPEN_HRT_SRGRY_SRVC_CD",
+                  "blank"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-quality-improvement-and-evaluation-system/api-docs"
+        }
+      ]
+    },
+    {
+      "id": "compliance-research",
+      "title": "Compliance research",
+      "intro": "Historical national aggregates. Citation rows are not inspection events, open violations or service leads. Research contexts are not equipment failures; correction wording and date validity are separate evidence dimensions.",
+      "groups": [
+        {
+          "id": "domains",
+          "title": "Citation source domains",
+          "note": "All 619,069 source rows reconcile across the three domains; source release 2026-10-28.",
+          "run": 45776550120,
+          "columns": [
+            "Source domain",
+            "Historical rows"
+          ],
+          "rows": [
+            [
+              "Health",
+              {
+                "path": [
+                  "ledger",
+                  "citation_evidence_qualified_baseline",
+                  "source_domains",
+                  "health"
+                ]
+              }
+            ],
+            [
+              "Life safety",
+              {
+                "path": [
+                  "ledger",
+                  "citation_evidence_qualified_baseline",
+                  "source_domains",
+                  "life_safety"
+                ]
+              }
+            ],
+            [
+              "Emergency preparedness",
+              {
+                "path": [
+                  "ledger",
+                  "citation_evidence_qualified_baseline",
+                  "source_domains",
+                  "emergency_preparedness"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-data/dataset/r5ix-sfxw"
+        },
+        {
+          "id": "context",
+          "title": "Service research contexts",
+          "note": "Exact source-category research context; no facility-specific vulnerability or purchasing inference. Reuse review remains pending for additional projections.",
+          "run": 45793231904,
+          "columns": [
+            "Research context",
+            "Historical rows"
+          ],
+          "rows": [
+            [
+              "Infection prevention",
+              {
+                "path": [
+                  "ledger",
+                  "service_context_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-health",
+                  "research_context_counts",
+                  "infection_prevention_context"
+                ]
+              }
+            ],
+            [
+              "Food and dietary",
+              {
+                "path": [
+                  "ledger",
+                  "service_context_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-health",
+                  "research_context_counts",
+                  "food_service_context"
+                ]
+              }
+            ],
+            [
+              "Other health context",
+              {
+                "path": [
+                  "ledger",
+                  "service_context_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-health",
+                  "research_context_counts",
+                  "other_health_context"
+                ]
+              }
+            ],
+            [
+              "Broad life safety",
+              {
+                "path": [
+                  "ledger",
+                  "service_context_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-fire",
+                  "research_context_counts",
+                  "broad_life_safety_context"
+                ]
+              }
+            ],
+            [
+              "Broad emergency preparedness",
+              {
+                "path": [
+                  "ledger",
+                  "service_context_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-fire",
+                  "research_context_counts",
+                  "broad_preparedness_context"
+                ]
+              }
+            ]
+          ],
+          "source": "https://www.cms.gov/medicare/health-safety-standards/certification-compliance/life-safety-code-health-care-facilities-code-requirements"
+        },
+        {
+          "id": "dictionary",
+          "title": "Dictionary and date quality",
+          "note": "Exact text matching does not prove historical tag version or present correction status. Initial unmapped statuses are distinct from later literal wording comparisons.",
+          "run": 45783277977,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Dictionary definitions",
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "lookup",
+                  "distinct_keys"
+                ]
+              }
+            ],
+            [
+              "Health exact text matches",
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-health",
+                  "lookup_match_counts",
+                  "exact_text_single_definition"
+                ]
+              }
+            ],
+            [
+              "Fire exact text matches",
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-fire",
+                  "lookup_match_counts",
+                  "exact_text_single_definition"
+                ]
+              }
+            ],
+            [
+              "Fire missing dictionary keys",
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-fire",
+                  "lookup_match_counts",
+                  "key_missing"
+                ]
+              }
+            ],
+            [
+              "Initially unmapped correction status",
+              {
+                "path": [
+                  "ledger",
+                  "citation_evidence_qualified_baseline",
+                  "unmapped_correction_rows"
+                ]
+              }
+            ],
+            [
+              "Correction dates after source release",
+              {
+                "path": [
+                  "ledger",
+                  "citation_evidence_qualified_baseline",
+                  "correction_dates_after_release"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-data/dataset/tagd-9999"
+        },
+        {
+          "id": "correction",
+          "title": "Literal correction wording",
+          "note": "Literal source wording comparison only. Candidate no-plan wording and unresolved other are not active violation counts.",
+          "run": 45783277977,
+          "columns": [
+            "Source wording group",
+            "Health rows",
+            "Fire rows"
+          ],
+          "rows": [
+            [
+              "Date of correction reported",
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-health",
+                  "correction_status_candidate_counts",
+                  "source_reports_date_of_correction"
+                ]
+              },
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-fire",
+                  "correction_status_candidate_counts",
+                  "source_reports_date_of_correction"
+                ]
+              }
+            ],
+            [
+              "Plan reported",
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-health",
+                  "correction_status_candidate_counts",
+                  "source_reports_plan"
+                ]
+              },
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-fire",
+                  "correction_status_candidate_counts",
+                  "source_reports_plan"
+                ]
+              }
+            ],
+            [
+              "Past noncompliance reported",
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-health",
+                  "correction_status_candidate_counts",
+                  "source_reports_past_noncompliance"
+                ]
+              },
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-fire",
+                  "correction_status_candidate_counts",
+                  "source_reports_past_noncompliance"
+                ]
+              }
+            ],
+            [
+              "Candidate no-plan wording",
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-health",
+                  "correction_status_candidate_counts",
+                  "candidate_no_plan"
+                ]
+              },
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-fire",
+                  "correction_status_candidate_counts",
+                  "candidate_no_plan"
+                ]
+              }
+            ],
+            [
+              "Unresolved other",
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-health",
+                  "correction_status_candidate_counts",
+                  "unresolved_other"
+                ]
+              },
+              {
+                "path": [
+                  "ledger",
+                  "citation_dictionary_qualified_baseline",
+                  "audit",
+                  "sources",
+                  "nursing-fire",
+                  "correction_status_candidate_counts",
+                  "unresolved_other"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-data/topics/nursing-homes/technical-details"
+        }
+      ]
+    },
+    {
+      "id": "equipment-environment",
+      "title": "Equipment & environmental research",
+      "intro": "Source qualification and candidate evidence only. Individual mammography and water system records are not published here. No confirmed installed equipment, water-system connection, current compliance or sales opportunity is inferred.",
+      "groups": [
+        {
+          "id": "mqsa",
+          "title": "FDA mammography directory",
+          "note": "Separately qualified ephemeral directory; not included in the 19-source integrated baseline. No stable publisher ID, certificate dates, unit counts or inspection findings. Six pinned address-width exceptions were retained without truncation; reuse review pending.",
+          "run": 45812374966,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Source rows",
+              {
+                "path": [
+                  "ledger",
+                  "fda_mqsa_qualified_baseline",
+                  "audit",
+                  "stored_rows"
+                ]
+              }
+            ],
+            [
+              "US jurisdictions represented",
+              {
+                "path": [
+                  "ledger",
+                  "fda_mqsa_qualified_baseline",
+                  "audit",
+                  "represented_us_jurisdictions"
+                ]
+              }
+            ],
+            [
+              "Military-mail source rows (included in total)",
+              {
+                "path": [
+                  "ledger",
+                  "fda_mqsa_qualified_baseline",
+                  "audit",
+                  "jurisdiction_counts",
+                  "military_mail"
+                ]
+              }
+            ],
+            [
+              "Pinned width exceptions",
+              {
+                "path": [
+                  "ledger",
+                  "fda_mqsa_qualified_baseline",
+                  "audit",
+                  "schema_exception_rows"
+                ]
+              }
+            ],
+            [
+              "Canonical matches",
+              {
+                "path": [
+                  "ledger",
+                  "fda_mqsa_qualified_baseline",
+                  "audit",
+                  "canonical_matches"
+                ]
+              }
+            ],
+            [
+              "Retained row-level records",
+              {
+                "path": [
+                  "ledger",
+                  "fda_mqsa_qualified_baseline",
+                  "retained_row_level_records"
+                ]
+              }
+            ]
+          ],
+          "source": "https://www.fda.gov/radiation-emitting-products/mammography-information-patients/search-certified-mammography-facility"
+        },
+        {
+          "id": "sdwa",
+          "title": "EPA drinking-water source qualification",
+          "note": "Strict identifier gate blocked; no EPA records retained in the integrated database. Unresolved keys must not be linked.",
+          "run": 45742515823,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Retrieved source rows",
+              {
+                "path": [
+                  "epa",
+                  "retrieved_rows"
+                ]
+              }
+            ],
+            [
+              "Reviewed identifier format",
+              {
+                "path": [
+                  "epa",
+                  "documented_format_rows"
+                ]
+              }
+            ],
+            [
+              "Unresolved identifier format",
+              {
+                "path": [
+                  "epa",
+                  "unresolved_format_rows"
+                ]
+              }
+            ],
+            [
+              "Retained database rows",
+              {
+                "path": [
+                  "epa",
+                  "retained_database_rows"
+                ]
+              }
+            ]
+          ],
+          "source": "https://echo.epa.gov/tools/data-downloads/sdwa-facility-search-download-summary"
+        },
+        {
+          "id": "water-candidates",
+          "title": "Medical service-area candidate evidence",
+          "note": "Exact institutional name and reported state only, not a physical-site or water-service connection. No individual candidates published; reuse review pending.",
+          "run": 45762608778,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Medical service-area records",
+              {
+                "path": [
+                  "epa",
+                  "medical_identity_aggregate",
+                  "medical_area_rows"
+                ]
+              }
+            ],
+            [
+              "One exact name/state candidate",
+              {
+                "path": [
+                  "epa",
+                  "medical_identity_aggregate",
+                  "candidate_state_counts",
+                  "one_candidate"
+                ]
+              }
+            ],
+            [
+              "Multiple candidates",
+              {
+                "path": [
+                  "epa",
+                  "medical_identity_aggregate",
+                  "candidate_state_counts",
+                  "multiple_candidates"
+                ]
+              }
+            ],
+            [
+              "No exact candidate",
+              {
+                "path": [
+                  "epa",
+                  "medical_identity_aggregate",
+                  "candidate_state_counts",
+                  "no_exact_candidate"
+                ]
+              }
+            ],
+            [
+              "Unresolved identifiers",
+              {
+                "path": [
+                  "epa",
+                  "medical_identity_aggregate",
+                  "candidate_state_counts",
+                  "unresolved_identifier"
+                ]
+              }
+            ],
+            [
+              "Candidate pairs",
+              {
+                "path": [
+                  "epa",
+                  "medical_identity_aggregate",
+                  "candidate_pairs"
+                ]
+              }
+            ],
+            [
+              "Distinct CMS provider source rows in pairs",
+              {
+                "path": [
+                  "epa",
+                  "medical_identity_aggregate",
+                  "distinct_cms_source_rows_in_candidates"
+                ]
+              }
+            ]
+          ],
+          "source": "https://echo.epa.gov/help/facility-search/drinking-water-search-results-help"
+        }
+      ]
+    },
+    {
+      "id": "data-evidence",
+      "title": "Data intelligence",
+      "intro": "Historical qualification evidence is distinct from currently published public projections. No full national database is attached to GitHub Pages. Data quality and availability are not regulatory compliance.",
+      "groups": [
+        {
+          "id": "identity",
+          "title": "National integration and identity evidence",
+          "note": "19-source logical recovery; source-scoped CCN, state and type candidates are not unique physical sites. Address agreement is corroboration only.",
+          "run": 45736841012,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Integrated historical source rows",
+              {
+                "path": [
+                  "ledger",
+                  "national_date_normalization_qualified_baseline",
+                  "source_records"
+                ]
+              }
+            ],
+            [
+              "Derived service observations",
+              {
+                "path": [
+                  "ledger",
+                  "national_date_normalization_qualified_baseline",
+                  "capability_observations"
+                ]
+              }
+            ],
+            [
+              "Derived status observations",
+              {
+                "path": [
+                  "ledger",
+                  "national_date_normalization_qualified_baseline",
+                  "status_observations"
+                ]
+              }
+            ],
+            [
+              "Exact CCN/state/type candidate pairs",
+              {
+                "path": [
+                  "ledger",
+                  "national_date_normalization_qualified_baseline",
+                  "candidate_pairs"
+                ]
+              }
+            ],
+            [
+              "Address/city/ZIP text corroborations",
+              {
+                "path": [
+                  "ledger",
+                  "national_date_normalization_qualified_baseline",
+                  "same_state_type_address_city_zip_pairs"
+                ]
+              }
+            ],
+            [
+              "Provider source rows without candidate",
+              {
+                "path": [
+                  "ledger",
+                  "national_date_normalization_qualified_baseline",
+                  "unmatched_facility_source_rows"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-data/"
+        },
+        {
+          "id": "dates",
+          "title": "iQIES termination date evidence",
+          "note": "Only unambiguous dates normalized under pinned source audit. Ambiguity and unavailable dates preserved; no current operating status inferred.",
+          "run": 45736841012,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Reported normalized dates",
+              {
+                "path": [
+                  "ledger",
+                  "national_date_normalization_qualified_baseline",
+                  "date_state_counts",
+                  "reported"
+                ]
+              }
+            ],
+            [
+              "Ambiguous dates",
+              {
+                "path": [
+                  "ledger",
+                  "national_date_normalization_qualified_baseline",
+                  "date_state_counts",
+                  "ambiguous"
+                ]
+              }
+            ],
+            [
+              "Not available",
+              {
+                "path": [
+                  "ledger",
+                  "national_date_normalization_qualified_baseline",
+                  "date_state_counts",
+                  "not_available"
+                ]
+              }
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system-methodology"
+        },
+        {
+          "id": "retention",
+          "title": "Snapshot retention checkpoint",
+          "note": "This is the historical artifact checkpoint, not an assertion of current availability. The artifact contains only the nine Care Compare sources. No verified durable private storage or full national backup.",
+          "run": 45665664275,
+          "columns": [
+            "Evidence",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Artifact ID",
+              {
+                "path": [
+                  "ledger",
+                  "retention_checkpoint",
+                  "artifact_id"
+                ]
+              }
+            ],
+            [
+              "Recorded archive bytes",
+              {
+                "path": [
+                  "ledger",
+                  "retention_checkpoint",
+                  "archive_bytes"
+                ]
+              }
+            ],
+            [
+              "Recorded expiration (UTC)",
+              {
+                "path": [
+                  "ledger",
+                  "retention_checkpoint",
+                  "expires_at"
+                ]
+              }
+            ]
+          ],
+          "source": "https://github.com/JeremyHennessy/FacilitySignal/blob/main/docs/PRIVATE_SNAPSHOT_ARCHIVE.md"
+        }
+      ]
+    }
+  ]
+}

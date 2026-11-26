@@ -1,6 +1,8 @@
 # FacilitySignal
 
-Independent Pharm3r healthcare facility intelligence for the United States. Development alpha, local only.
+Independent Pharm3r healthcare facility intelligence for the United States.
+
+**Public research workspace:** https://jeremyhennessy.github.io/FacilitySignal/ (GitHub Pages). Searchable Care Compare provider projections, nursing citation aggregates, regional markets, capacity and historical national research evidence. The public site is not the full national SQLite database. The Python/SQLite application below remains local development only. Do not expose it to a network.
 
 ## Run
 
@@ -58,5 +60,5 @@ A CSV import checks the declared row count, required field mappings, identifiers
 - Source register browser and imported-release history
 - Read-only JSON endpoints: /api/overview, /api/facilities, /api/findings, /api/sources
 
-Original source research and planning are under research/ and docs/. Source discovery is not ingestion. SQLite, Python standard-library server and server-rendered HTML are provisional zero-dependency development choices, not the final production stack. PostgreSQL/PostGIS, authenticated API, React UI, source workers, coverage review, ownership, equipment, environmental and procurement remain planned. No production deployment or cloud provisioning.
+Original source research and planning are under research/ and docs/. Source discovery is not ingestion. SQLite, Python standard-library server and server-rendered HTML are provisional zero-dependency development choices, not the final production stack. PostgreSQL/PostGIS, authenticated API, React UI, source workers, coverage review, ownership, equipment, environmental and procurement remain planned. No secure dynamic production deployment or additional cloud provisioning. The static public Pages deployment is separate. See docs/PUBLIC_INTELLIGENCE_20261126.md.
 

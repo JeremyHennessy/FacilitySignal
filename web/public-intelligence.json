@@ -1,0 +1,565 @@
+{
+  "version": 1,
+  "scope": "historical national aggregate qualification",
+  "sections": [
+    {
+      "id": "services",
+      "title": "Service intelligence",
+      "intro": "National aggregate service research, not individual facility service availability, installed assets or purchasing intent. Source-specific observations are not additional providers. Individual service evidence is not published in this workspace.",
+      "groups": [
+        {
+          "id": "iqies",
+          "title": "Surgical and dialysis capability evidence",
+          "note": "Q3 2026 iQIES. Counts are field observations within ASC and ESRD source scopes. A dash means the state is not present in the qualified field distribution; it is not a reported zero. Count fields report the number of source rows with numeric values, not the sum of rooms or stations.",
+          "run": 45736841012,
+          "columns": [
+            "Source field / service",
+            "Scope",
+            "Numeric count reported",
+            "Yes",
+            "No",
+            "Not available",
+            "Unrecognized"
+          ],
+          "rows": [
+            [
+              "Operating room count",
+              "ASC",
+              8036,
+              null,
+              null,
+              452,
+              4
+            ],
+            [
+              "Procedure room count",
+              "ASC",
+              8040,
+              null,
+              null,
+              452,
+              null
+            ],
+            [
+              "Dental surgery",
+              "ASC",
+              null,
+              651,
+              7389,
+              452,
+              null
+            ],
+            [
+              "Endoscopy",
+              "ASC",
+              null,
+              2400,
+              5640,
+              452,
+              null
+            ],
+            [
+              "Approved in-center dialysis stations",
+              "ESRD",
+              8447,
+              null,
+              null,
+              212,
+              null
+            ],
+            [
+              "In-center hemodialysis",
+              "ESRD",
+              null,
+              7746,
+              701,
+              212,
+              null
+            ],
+            [
+              "Peritoneal dialysis",
+              "ESRD",
+              null,
+              506,
+              7941,
+              212,
+              null
+            ],
+            [
+              "Onsite home training",
+              "ESRD",
+              null,
+              3087,
+              5360,
+              212,
+              null
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system/api-docs"
+        },
+        {
+          "id": "qies",
+          "title": "Hospital service provision codes",
+          "note": "Q3 2026 QIES, hospital category 01. Historical 2023 reference layout remains provisional for this release. Codes are presented literally without interpreting provision mode, current availability or installation.",
+          "run": 45736841012,
+          "columns": [
+            "Service field",
+            "Code 0",
+            "Code 1",
+            "Code 2",
+            "Code 3",
+            "Blank"
+          ],
+          "rows": [
+            [
+              "CT imaging",
+              6773,
+              4127,
+              731,
+              572,
+              1395
+            ],
+            [
+              "MRI",
+              7273,
+              2653,
+              1650,
+              627,
+              1395
+            ],
+            [
+              "PET imaging",
+              10327,
+              686,
+              921,
+              269,
+              1395
+            ],
+            [
+              "Nuclear medicine",
+              5349,
+              4064,
+              2096,
+              694,
+              1395
+            ],
+            [
+              "Dental services",
+              8860,
+              1225,
+              1858,
+              260,
+              1395
+            ],
+            [
+              "Operating room services",
+              4147,
+              6919,
+              461,
+              676,
+              1395
+            ],
+            [
+              "Diagnostic radiology",
+              753,
+              6550,
+              2520,
+              2380,
+              1395
+            ],
+            [
+              "Dietary services",
+              1105,
+              6504,
+              2888,
+              1706,
+              1395
+            ],
+            [
+              "Dedicated emergency department",
+              3672,
+              5127,
+              915,
+              2489,
+              1395
+            ],
+            [
+              "Intensive care",
+              6276,
+              5108,
+              322,
+              497,
+              1395
+            ],
+            [
+              "Neonatal intensive care",
+              11053,
+              804,
+              54,
+              292,
+              1395
+            ],
+            [
+              "Open-heart surgery",
+              10378,
+              1257,
+              324,
+              244,
+              1395
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-quality-improvement-and-evaluation-system/api-docs"
+        }
+      ]
+    },
+    {
+      "id": "compliance-research",
+      "title": "Compliance research",
+      "intro": "Historical national aggregates. Citation rows are not inspection events, open violations or service leads. Research contexts are not equipment failures; correction wording and date validity are separate evidence dimensions.",
+      "groups": [
+        {
+          "id": "domains",
+          "title": "Citation source domains",
+          "note": "All 619,069 source rows reconcile across the three domains; source release 2026-10-28.",
+          "run": 45776550120,
+          "columns": [
+            "Source domain",
+            "Historical rows"
+          ],
+          "rows": [
+            [
+              "Health",
+              418682
+            ],
+            [
+              "Life safety",
+              178762
+            ],
+            [
+              "Emergency preparedness",
+              21625
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-data/dataset/r5ix-sfxw"
+        },
+        {
+          "id": "context",
+          "title": "Service research contexts",
+          "note": "Exact source-category research context; no facility-specific vulnerability or purchasing inference. Reuse review remains pending for additional projections.",
+          "run": 45793231904,
+          "columns": [
+            "Research context",
+            "Historical rows"
+          ],
+          "rows": [
+            [
+              "Infection prevention",
+              32088
+            ],
+            [
+              "Food and dietary",
+              37823
+            ],
+            [
+              "Other health context",
+              348771
+            ],
+            [
+              "Broad life safety",
+              178762
+            ],
+            [
+              "Broad emergency preparedness",
+              21625
+            ]
+          ],
+          "source": "https://www.cms.gov/medicare/health-safety-standards/certification-compliance/life-safety-code-health-care-facilities-code-requirements"
+        },
+        {
+          "id": "dictionary",
+          "title": "Dictionary and date quality",
+          "note": "Exact text matching does not prove historical tag version or present correction status. Initial unmapped statuses are distinct from later literal wording comparisons.",
+          "run": 45783277977,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Dictionary definitions",
+              643
+            ],
+            [
+              "Health exact text matches",
+              418682
+            ],
+            [
+              "Fire exact text matches",
+              192067
+            ],
+            [
+              "Fire missing dictionary keys",
+              8320
+            ],
+            [
+              "Initially unmapped correction status",
+              6093
+            ],
+            [
+              "Correction dates after source release",
+              128
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-data/dataset/tagd-9999"
+        },
+        {
+          "id": "correction",
+          "title": "Literal correction wording",
+          "note": "Literal source wording comparison only. Candidate no-plan wording and unresolved other are not active violation counts.",
+          "run": 45783277977,
+          "columns": [
+            "Source wording group",
+            "Health rows",
+            "Fire rows"
+          ],
+          "rows": [
+            [
+              "Date of correction reported",
+              407301,
+              194485
+            ],
+            [
+              "Plan reported",
+              2879,
+              1948
+            ],
+            [
+              "Past noncompliance reported",
+              6239,
+              124
+            ],
+            [
+              "Candidate no-plan wording",
+              1590,
+              724
+            ],
+            [
+              "Unresolved other",
+              673,
+              3106
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-data/topics/nursing-homes/technical-details"
+        }
+      ]
+    },
+    {
+      "id": "equipment-environment",
+      "title": "Equipment & environmental research",
+      "intro": "Source qualification and candidate evidence only. Individual mammography and water system records are not published here. No confirmed installed equipment, water-system connection, current compliance or sales opportunity is inferred.",
+      "groups": [
+        {
+          "id": "mqsa",
+          "title": "FDA mammography directory",
+          "note": "Separately qualified ephemeral directory; not included in the 19-source integrated baseline. No stable publisher ID, certificate dates, unit counts or inspection findings. Six pinned address-width exceptions were retained without truncation; reuse review pending.",
+          "run": 45812374966,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Source rows",
+              9146
+            ],
+            [
+              "US jurisdictions represented",
+              56
+            ],
+            [
+              "Military-mail source rows (included in total)",
+              11
+            ],
+            [
+              "Pinned width exceptions",
+              6
+            ],
+            [
+              "Canonical matches",
+              0
+            ],
+            [
+              "Retained row-level records",
+              0
+            ]
+          ],
+          "source": "https://www.fda.gov/radiation-emitting-products/mammography-information-patients/search-certified-mammography-facility"
+        },
+        {
+          "id": "sdwa",
+          "title": "EPA drinking-water source qualification",
+          "note": "Strict identifier gate blocked; no EPA records retained in the integrated database. Unresolved keys must not be linked.",
+          "run": 45742515823,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Retrieved source rows",
+              434757
+            ],
+            [
+              "Reviewed identifier format",
+              431470
+            ],
+            [
+              "Unresolved identifier format",
+              3287
+            ],
+            [
+              "Retained database rows",
+              0
+            ]
+          ],
+          "source": "https://echo.epa.gov/tools/data-downloads/sdwa-facility-search-download-summary"
+        },
+        {
+          "id": "water-candidates",
+          "title": "Medical service-area candidate evidence",
+          "note": "Exact institutional name and reported state only, not a physical-site or water-service connection. No individual candidates published; reuse review pending.",
+          "run": 45762608778,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Medical service-area records",
+              1712
+            ],
+            [
+              "One exact name/state candidate",
+              65
+            ],
+            [
+              "Multiple candidates",
+              10
+            ],
+            [
+              "No exact candidate",
+              1626
+            ],
+            [
+              "Unresolved identifiers",
+              11
+            ],
+            [
+              "Candidate pairs",
+              85
+            ],
+            [
+              "Distinct CMS provider source rows in pairs",
+              84
+            ]
+          ],
+          "source": "https://echo.epa.gov/help/facility-search/drinking-water-search-results-help"
+        }
+      ]
+    },
+    {
+      "id": "data-evidence",
+      "title": "Data intelligence",
+      "intro": "Historical qualification evidence is distinct from currently published public projections. No full national database is attached to GitHub Pages. Data quality and availability are not regulatory compliance.",
+      "groups": [
+        {
+          "id": "identity",
+          "title": "National integration and identity evidence",
+          "note": "19-source logical recovery; source-scoped CCN, state and type candidates are not unique physical sites. Address agreement is corroboration only.",
+          "run": 45736841012,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Integrated historical source rows",
+              1904060
+            ],
+            [
+              "Derived service observations",
+              231780
+            ],
+            [
+              "Derived status observations",
+              100334
+            ],
+            [
+              "Exact CCN/state/type candidate pairs",
+              47169
+            ],
+            [
+              "Address/city/ZIP text corroborations",
+              34264
+            ],
+            [
+              "Provider source rows without candidate",
+              835
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-data/"
+        },
+        {
+          "id": "dates",
+          "title": "iQIES termination date evidence",
+          "note": "Only unambiguous dates normalized under pinned source audit. Ambiguity and unavailable dates preserved; no current operating status inferred.",
+          "run": 45736841012,
+          "columns": [
+            "Evidence",
+            "Count"
+          ],
+          "rows": [
+            [
+              "Reported normalized dates",
+              15803
+            ],
+            [
+              "Ambiguous dates",
+              9765
+            ],
+            [
+              "Not available",
+              74766
+            ]
+          ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system-methodology"
+        },
+        {
+          "id": "retention",
+          "title": "Snapshot retention checkpoint",
+          "note": "This is the historical artifact checkpoint, not an assertion of current availability. The artifact contains only the nine Care Compare sources. No verified durable private storage or full national backup.",
+          "run": 45665664275,
+          "columns": [
+            "Evidence",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Artifact ID",
+              15046953633
+            ],
+            [
+              "Recorded archive bytes",
+              90953835
+            ],
+            [
+              "Recorded expiration (UTC)",
+              "2026-11-28T17:33:01Z"
+            ]
+          ],
+          "source": "https://github.com/JeremyHennessy/FacilitySignal/blob/main/docs/PRIVATE_SNAPSHOT_ARCHIVE.md"
+        }
+      ]
+    }
+  ]
+}
