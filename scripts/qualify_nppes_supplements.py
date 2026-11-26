@@ -18,11 +18,12 @@ LABELS={
  "week_1109":"NPPES Data Dissemination V.2 - Weekly Update - 110926_111526",
  "deactivation":"NPPES Data Dissemination V.2 - Monthly Deactivation Update - November 09, 2026",
 }
-DATE_HEADERS={"npi deactivation date","deactivation date"}
+DATE_HEADERS={"npideactivationdate","deactivationdate"}
+DEACTIVATION_PIN="3bc64ebb331b72d2fc80a15c4b4a89d57810c69991b33985c5bc31b763504190"
 MAX_DEACTIVATION_ROWS=2_000_000
 MAX_DEACTIVATION_EXPANDED=200_000_000
 
-def norm(v):return " ".join(str(v or "").split()).casefold()
+def norm(v):return re.sub(r"[\s_-]+","",str(v or "").strip().casefold())
 def date_bucket(v):
     if isinstance(v,datetime):d=v.date()
     elif isinstance(v,date):d=v
@@ -38,7 +39,12 @@ def date_bucket(v):
 
 def scan_deactivation(reader):
     header=next(reader,[]);h=[norm(x) for x in header]
-    # Retain only bounded known schema fields; never print unexpected data.
+    # Header evidence: retain recognized metadata tokens only. Never emit
+    # arbitrary first-row strings, which could be identifiers or data values.
+    recognized={"npi","npideactivationdate","deactivationdate","npinumber","npiid","deactivationdt","npideactivationdt"}
+    structure=[{"column":i+1,"recognized_label":v if v in recognized else None,"length":len(str(raw or "")),
+                "shape":"text" if isinstance(raw,str) and re.fullmatch(r"[A-Za-z _-]{1,100}",raw) else "other"} for i,(raw,v) in enumerate(zip(header,h))]
+    print("NPPES_DEACTIVATION_SCHEMA",json.dumps({"column_count":len(h),"columns":structure[:20]},sort_keys=True),flush=True)
     require(len(h)==2 and len(set(h))==2 and "npi" in h and len(set(h)&DATE_HEADERS)==1,"deactivation header not recognized")
     key_idx=h.index("npi");date_idx=next(i for i,v in enumerate(h) if v in DATE_HEADERS)
     rows=0;keys=Counter();dates=Counter();shapes=Counter()
@@ -85,16 +91,18 @@ def inspect_deactivation(path):
         return result
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument("--audit",type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument("--audit",type=Path,required=True);p.add_argument("--only",choices=LABELS);a=p.parse_args()
     require(not a.audit.exists(),"audit exists")
     results={};failures=[]
     # CMS instructs downloading only one file at a time. Use isolated stages
     # sequentially and continue independent checks after a source failure.
     for key,label in LABELS.items():
+        if a.only is not None and key!=a.only:continue
         with tempfile.TemporaryDirectory(prefix="nppes-supplement-") as d:
             root=Path(d);path=root/"source.zip";meta=None
             try:
                 meta=download(path,"weekly",publisher_label=label)
+                if key=="deactivation":require(meta["sha256"]==DEACTIVATION_PIN,"deactivation release changed")
                 result=inspect_deactivation(path) if key=="deactivation" else inspect(path,root/"org.sqlite3","weekly")
                 result.update({"source_id":"FS-004","scope":key,"publisher_label":label,"publisher":meta,
                                "retained_row_level_records":0,"reuse_review":"pending"})
@@ -114,7 +122,7 @@ def main():
                 print("NPPES_SUPPLEMENT_SOURCE",key,json.dumps(result,sort_keys=True),flush=True)
             except Exception as e:
                 # Report only fixed reason vocabulary and safe publisher metadata.
-                known={"exact V2 publisher release link absent or ambiguous","deactivation header not recognized","deactivation data member ambiguous","deactivation archive bound","expected V2 archive member absent","unexpected workbook count","deactivation row bound","deactivation row reconciliation","header file shape","separate header disagreement","reference header"}
+                known={"exact V2 publisher release link absent or ambiguous","deactivation header not recognized","deactivation release changed","deactivation data member ambiguous","deactivation archive bound","expected V2 archive member absent","unexpected workbook count","deactivation row bound","deactivation row reconciliation","header file shape","separate header disagreement","reference header"}
                 result={"scope":key,"publisher_label":label,"qualification":"failed","error_type":type(e).__name__,"reason":str(e) if str(e) in known else "unclassified_failure","publisher":meta,"retained_row_level_records":0}
                 results[key]=result;failures.append(key)
                 print("NPPES_SUPPLEMENT_SOURCE",key,json.dumps(result,sort_keys=True),flush=True)

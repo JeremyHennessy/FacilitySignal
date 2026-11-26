@@ -31,3 +31,10 @@ class NPPESSupplementTests(unittest.TestCase):
             self.assertEqual(a["key_validation_counts"],{"checksum_valid":1})
         self.assertEqual(date_bucket("2026-02-30"),"invalid")
         with self.assertRaises(ValueError):scan_deactivation(iter([["NPI","Name","Deactivation Date"]]))
+
+    def test_deactivation_field_name_separator_normalization(self):
+        key=next("123456789"+str(i) for i in range(10) if npi_valid("123456789"+str(i)))
+        for h in ("NPI_DEACTIVATION_DATE","DeactivationDate","deactivation-date"):
+            a=scan_deactivation(iter([["NPI",h],[key,"2026-11-01"]]))
+            self.assertEqual(a["key_validation_counts"],{"checksum_valid":1})
+        with self.assertRaises(ValueError):scan_deactivation(iter([["NPI","Unrecognized Field"]]))
