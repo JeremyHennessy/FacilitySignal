@@ -49,7 +49,8 @@ def numeric_count(raw):
 def download(key):
     sid,ident,header=SOURCES[key]
     meta=cms.metadata(ident);n=cms.count(ident)
-    require(meta["released"]==RELEASE and 0<n<=MAX_ROWS,"unexpected source release/count")
+    require(meta["released"]==RELEASE,"unexpected_release")
+    require(0<n<=MAX_ROWS,"unexpected_count")
     with cms.response(meta["url"]) as res:
         cms.allowed(res.geturl());data=res.read(MAX_BYTES+1)
     require(0<len(data)<=MAX_BYTES,"download bound")
@@ -123,24 +124,34 @@ def compare_dates(db,base):
     return dict(out)
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument("--cms-base",type=Path,required=True);p.add_argument("--audit",type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument("--cms-base",type=Path,required=True);p.add_argument("--audit",type=Path,required=True);p.add_argument("--source",choices=("all",*SOURCES),default="all");a=p.parse_args()
+    selected=list(SOURCES) if a.source=="all" else [a.source]
     path=a.cms_base/"facilitysignal.sqlite3";require(not a.audit.exists() and sha(path)==BASE_SHA,"baseline or output mismatch")
     validate_base(a.cms_base)
     out={};failed=[]
     with closing(readonly(path)) as base, tempfile.TemporaryDirectory(prefix="nursing-survey-") as t, closing(sqlite3.connect(Path(t)/"survey.sqlite3")) as db:
         providers={}
         for ccn,state in base.execute("SELECT ccn,state FROM facilities WHERE dataset='nursing'"):providers.setdefault(ccn,set()).add(state)
-        for key in SOURCES:
+        for key in selected:
+            info={}
             try:
-                data,meta,n=download(key);result=project(key,data,n,db,providers)
+                data,meta,n=download(key)
+                info={"publisher":meta,"source_sha256":hashlib.sha256(data).hexdigest(),"bytes":len(data),"expected_rows":n}
+                header=next(csv.reader(io.StringIO(data.decode("utf-8-sig"),newline=""),strict=True),[])
+                info["observed_column_count"]=len(header)
+                # Header names, not rows. Only bounded ordinary schema labels.
+                info["observed_header"]=[h if re.fullmatch(r"[A-Za-z0-9 ()/.,_-]{1,150}",h) else "<unrecognized header>" for h in header[:100]]
+                result=project(key,data,n,db,providers)
                 result.update({"publisher":meta,"source_sha256":hashlib.sha256(data).hexdigest(),"bytes":len(data),"retrieved_at":datetime.now(timezone.utc).isoformat(),"reuse_review":"pending"})
                 if result["rejected_rows"] or not result["stored_rows"]:failed.append(key)
                 if key=="summary" and result["repeated_candidate_key_rows"]:failed.append(key)
                 out[key]=result
             except Exception as e:
                 # Only fixed reason names; no values or network response contents.
-                out[key]={"status":"failed","error_type":type(e).__name__};failed.append(key)
-                print("NURSING_SURVEY_SOURCE_FAILED",key,type(e).__name__,flush=True)
+                safe_reasons={"unexpected_release","unexpected_count","source_header_drift","source changed during retrieval","download bound","input reconciliation","projection reconciliation","count field reconciliation","SQLite integrity","unexpected dataset identity/access","ambiguous CSV distribution or release missing","unexpected API count"}
+                reason=str(e) if str(e) in safe_reasons else "unclassified_exception"
+                out[key]={"status":"failed","error_type":type(e).__name__,"reason":reason,**info};failed.append(key)
+                print("NURSING_SURVEY_SOURCE_FAILED",key,type(e).__name__,reason,flush=True)
         cross=compare_dates(db,base) if out.get("dates",{}).get("stored_rows",0)>0 and not out["dates"]["rejected_rows"] else None
     require(sha(path)==BASE_SHA,"baseline changed")
     audit={"baseline_sha256":BASE_SHA,"release":RELEASE,"sources":out,"citation_ccn_day_crosscheck":cross,
@@ -148,5 +159,5 @@ def main():
     a.audit.parent.mkdir(parents=True,exist_ok=True)
     with a.audit.open("x") as f:json.dump(audit,f,indent=2);f.write("\n")
     print("NURSING_SURVEYS_AUDIT",json.dumps(audit),flush=True)
-    require(not failed and len(out)==2,"source anomalies require review")
+    require(not failed and len(out)==len(selected),"source anomalies require review")
 if __name__=="__main__":main()

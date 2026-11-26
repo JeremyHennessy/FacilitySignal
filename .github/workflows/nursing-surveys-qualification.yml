@@ -25,7 +25,7 @@ jobs:
           run-id: 45665664275
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/cms-base
-      - run: python -m scripts.qualify_nursing_surveys --cms-base "$RUNNER_TEMP/cms-base" --audit "$RUNNER_TEMP/nursing-surveys.json"
+      - run: python -m scripts.qualify_nursing_surveys --cms-base "$RUNNER_TEMP/cms-base" --source dates --audit "$RUNNER_TEMP/nursing-surveys.json"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
