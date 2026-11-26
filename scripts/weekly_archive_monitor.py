@@ -27,7 +27,7 @@ def compare_metadata(old,new,fields):
 
 def monitor(store,national):
     ledger=json.loads(LEDGER.read_text());results={};catalog=None
-    pins=[p for p in ledger["receipts"] if p["key"] not in {"nppes-monthly","nppes-weekly","pecos-nppes-identity-candidates"}]
+    pins=[p for p in ledger["receipts"] if p["key"] not in {"nppes-monthly","nppes-weekly","pecos-nppes-identity-candidates"} and p["kind"]!="supplemental_numeric"]
     require(len(pins)<=100,"archive monitoring bound")
     for pin in pins:
         key=pin["key"];ident=key+":"+pin["source_sha256"][:12]

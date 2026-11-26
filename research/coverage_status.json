@@ -3998,7 +3998,9 @@
       "aggregate_evidence_releases": 2,
       "aggregate_source_rows_screened": 441418,
       "payload_files": 112,
-      "payload_bytes": 1990934145
+      "payload_bytes": 1990934145,
+      "supplemental_numeric_archives": 0,
+      "supplemental_numeric_observations": 0
     },
     "prior_consolidated_audit_run": 45857191692,
     "new_source_runs": [

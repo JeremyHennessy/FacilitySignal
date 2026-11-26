@@ -24,3 +24,12 @@ class ArchiveInventoryTests(unittest.TestCase):
         store=audit.ReadOnlyAzure.__new__(audit.ReadOnlyAzure)
         with self.assertRaises(ValueError): store.create("anything",None,1,"text/plain")
         with self.assertRaises(ValueError): store.delete_probe("anything","etag")
+
+    def test_supplemental_projection_requires_parent_and_not_new_publisher(self):
+        parent=next(x for x in self.ledger["receipts"] if x["key"]=="hcris-cmhc-2017-index")
+        p=copy.deepcopy(parent);p.update(key="hcris-cmhc-2017-numeric",kind="supplemental_numeric",observations=2,parent_database_sha256=next(f["sha256"] for f in parent["files"] if f["path"]=="projection.sqlite3"))
+        self.ledger["receipts"].append(p)
+        t=self.ledger["totals"];t["source_observations"]+=2;t["supplemental_numeric_archives"]+=1;t["supplemental_numeric_observations"]+=2;t["payload_files"]+=2;t["payload_bytes"]+=sum(f["bytes"] for f in p["files"])
+        self.assertEqual(audit.totals(self.ledger)["publisher_releases"],55)
+        p["parent_database_sha256"]="f"*64
+        with self.assertRaises(ValueError):audit.totals(self.ledger)

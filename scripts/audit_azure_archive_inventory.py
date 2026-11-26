@@ -49,13 +49,18 @@ def totals(ledger):
     require(len({(x["key"],x["source_sha256"]) for x in receipts})==len(receipts),"duplicate source version")
     for x in receipts:
         src.prefix_for(x["key"],x["source_sha256"])
-        require(x["kind"] in ("publisher","derived","aggregate") and (x["key"]=="pecos-nppes-identity-candidates")== (x["kind"]=="derived"),"source grain")
+        require(x["kind"] in ("publisher","derived","aggregate","supplemental_numeric") and (x["key"]=="pecos-nppes-identity-candidates")== (x["kind"]=="derived") and (x["key"] in src.SUPPLEMENTAL_NUMERIC_PARENTS)==(x["kind"]=="supplemental_numeric"),"source grain")
+        if x["kind"]=="supplemental_numeric":
+            parents=[p for p in receipts if p["key"]==src.SUPPLEMENTAL_NUMERIC_PARENTS[x["key"]] and p["source_sha256"]==x["source_sha256"] and p["kind"]=="publisher"]
+            require(len(parents)==1 and x["parent_database_sha256"]==next(f["sha256"] for f in parents[0]["files"] if f["path"]=="projection.sqlite3"),"supplemental parent pin")
         require(len(x["files"])==2 and {f["path"] for f in x["files"]}=={"projection.sqlite3","audit.json"},"receipt payload scope")
         require(type(x["observations"]) is int and (x["observations"]==0 and type(x.get("screened_observations")) is int and x["screened_observations"]>0 if x["kind"]=="aggregate" else x["observations"]>0),"source count")
         for f in x["files"]:
             require(type(f["bytes"]) is int and f["bytes"]>0 and re.fullmatch(r"[a-f0-9]{64}",f["sha256"]),"payload pin")
     result={"publisher_releases":sum(x["source_releases"] for x in layers)+sum(x["kind"]=="publisher" for x in receipts),
-            "source_observations":sum(x["observations"] for x in layers)+sum(x["observations"] for x in receipts if x["kind"]=="publisher"),
+            "source_observations":sum(x["observations"] for x in layers)+sum(x["observations"] for x in receipts if x["kind"] in ("publisher","supplemental_numeric")),
+            "supplemental_numeric_archives":sum(x["kind"]=="supplemental_numeric" for x in receipts),
+            "supplemental_numeric_observations":sum(x["observations"] for x in receipts if x["kind"]=="supplemental_numeric"),
             "derived_candidate_observations":sum(x["observations"] for x in receipts if x["kind"]=="derived"),
             "aggregate_evidence_releases":sum(x["kind"]=="aggregate" for x in receipts),
             "aggregate_source_rows_screened":sum(x["screened_observations"] for x in receipts if x["kind"]=="aggregate"),
@@ -84,6 +89,9 @@ def source_matches(rec,pin,national):
     else:
         require(observation_count(rec)==pin["observations"] and "aggregate_rows" not in rec["summary"],"source observation drift")
     require((rec["publisher"].get("kind")=="derived_identity_candidate_release")== (pin["kind"]=="derived"),"derived/publisher mismatch")
+    require((rec["publisher"].get("kind")=="supplemental_numeric_projection")== (pin["kind"]=="supplemental_numeric"),"supplemental source mismatch")
+    if pin["kind"]=="supplemental_numeric":
+        s=rec["summary"];require(s["source_index_key"]==src.SUPPLEMENTAL_NUMERIC_PARENTS[pin["key"]] and s["source_index_publisher_sha256"]==pin["source_sha256"] and s["source_index_sha256"]==pin["parent_database_sha256"] and s["supplemental_numeric_rows"]==pin["observations"] and s["new_publisher_release"] is False and s["alpha_values_retained"]==0,"supplemental lineage")
 
 def verify_archive(store,ledger,full=False):
     result=totals(ledger)
