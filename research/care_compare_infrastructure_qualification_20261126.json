@@ -1,0 +1,95 @@
+{
+  "as_of": "2026-11-26",
+  "qualification_run": 45835796014,
+  "qualification_job": 139964186982,
+  "qualified_commit": "6980e65e3b96393ea4ff672d2995ff7703f7add5",
+  "tests_passed": 4,
+  "scope": "Exact pinned release aggregate-only; no production or row-level publication approval.",
+  "sources": {
+    "dialysis": {
+      "literal_counts": {
+        "Chain Owned": {
+          "No": 737,
+          "Yes": 6734
+        },
+        "Late Shift": {
+          "No": 6335,
+          "Yes": 1136
+        },
+        "Offers home hemodialysis training": {
+          "No": 5060,
+          "Yes": 2411
+        },
+        "Offers in-center hemodialysis": {
+          "No": 512,
+          "Yes": 6959
+        },
+        "Offers peritoneal dialysis": {
+          "No": 3404,
+          "Yes": 4067
+        }
+      },
+      "release": "2026-10-28",
+      "rows": 7471,
+      "sha256": "9b0232d73b8aa9628b51bc76b7246b8590daa0393ec9dfd3126171ce571469ed",
+      "station_service_cross_tabs": {
+        "Offers home hemodialysis training": {
+          "positive | No": 5010,
+          "positive | Yes": 2314,
+          "zero | No": 50,
+          "zero | Yes": 97
+        },
+        "Offers in-center hemodialysis": {
+          "positive | No": 376,
+          "positive | Yes": 6948,
+          "zero | No": 136,
+          "zero | Yes": 11
+        },
+        "Offers peritoneal dialysis": {
+          "positive | No": 3394,
+          "positive | Yes": 3930,
+          "zero | No": 10,
+          "zero | Yes": 137
+        }
+      }
+    },
+    "long-term-hospital": {
+      "literal_counts": {
+        "Total Number of Beds": {
+          "-": 6,
+          "positive": 305
+        }
+      },
+      "release": "2026-09-23",
+      "rows": 311,
+      "sha256": "176b1fae71a5ac97bf89f9d3404b98c6d3135b184f079baec939bcb2e016ba2e",
+      "station_service_cross_tabs": {}
+    },
+    "nursing": {
+      "literal_counts": {
+        "Automatic Sprinkler Systems in All Required Areas": {
+          "Data Not Available": 51,
+          "Partial": 36,
+          "Yes": 14599
+        },
+        "Most Recent Health Inspection More Than 2 Years Ago": {
+          "N": 13731,
+          "Y": 955
+        },
+        "Provider Changed Ownership in Last 12 Months": {
+          "N": 14626,
+          "Y": 60
+        },
+        "Special Focus Status": {
+          "<blank>": 14159,
+          "SFF": 87,
+          "SFF Candidate": 440
+        }
+      },
+      "release": "2026-10-28",
+      "rows": 14686,
+      "sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2",
+      "station_service_cross_tabs": {}
+    }
+  }
+}
