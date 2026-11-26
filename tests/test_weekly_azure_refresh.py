@@ -25,3 +25,29 @@ class WeeklyRefreshTests(unittest.TestCase):
     def test_refresh_new_release_has_distinct_private_identity(self):
         week={"label":"synthetic","url":"https://download.cms.gov/nppes/example.zip"}
         self.assertNotEqual(w.fingerprint({"policy":w.POLICY_VERSION,"release":week}),w.fingerprint({"policy":w.POLICY_VERSION,"release":week,"private_projection":1}))
+
+    def test_observer_final_flush_without_prior_count(self):
+        import csv,io,sqlite3,tempfile,zipfile
+        from pathlib import Path
+        from scripts import qualify_nppes_v2 as n,archive_hcris_nppes as p
+        npi=next("123456789"+str(i) for i in range(10) if n.npi_valid("123456789"+str(i)))
+        h=n.REQUIRED+["Healthcare Provider Taxonomy Code_"+str(i) for i in range(2,16)]
+        def csv_bytes(rows):
+            f=io.StringIO();writer=csv.writer(f);writer.writerows(rows);return f.getvalue()
+        def row(entity):
+            d={"Entity Type Code":entity,"NPI":npi,"Provider Organization Name (Legal Business Name)":"SECRET","Provider Enumeration Date":"01/01/2024","Healthcare Provider Taxonomy Code_1":"123456789X"}
+            return [d.get(k,"") for k in h]
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);path=root/"source.zip"
+            suffix="11162026-11222026"
+            with zipfile.ZipFile(path,"w") as z:
+                z.writestr("npidata_pfile_"+suffix+".csv",csv_bytes([h,row("1"),row("2")]))
+                z.writestr("npidata_pfile_"+suffix+"_fileheader.csv",csv_bytes([h]))
+                z.writestr("othername_pfile_"+suffix+".csv",csv_bytes([["NPI"],[npi]]))
+                z.writestr("pl_pfile_"+suffix+".csv",csv_bytes([["NPI"],[npi]]))
+                z.writestr("endpoint_pfile_"+suffix+".csv","SECRET ENDPOINT")
+            db=root/"projection.sqlite3";a=p.nppes_project(path,db,"weekly")
+            self.assertEqual(a["organization_observations"],1)
+            self.assertEqual(a["taxonomy_observations"],1)
+            self.assertEqual(a["individual_identifiers_retained"],0)
+            with sqlite3.connect(db) as conn:self.assertNotIn("SECRET",str(list(conn.iterdump())))
