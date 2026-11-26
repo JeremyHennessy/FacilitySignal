@@ -98,3 +98,21 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
  .comparison-table th:not(:first-child){width:var(--compare-col)}
  .comparison-table th:first-child,.comparison-table td:first-child{box-sizing:border-box;min-width:140px;width:140px}
 }
+
+/* Integrated facility dossier: record-specific evidence above research pathways. */
+.dossier-evidence{border:1px solid var(--border);border-radius:8px;background:var(--surface);padding:18px;margin:18px 0}
+.dossier-evidence>h2{margin:0 0 6px}
+.dossier-evidence>section{margin-top:18px;padding-top:12px;border-top:1px solid var(--border)}
+.dossier-evidence>section>h2{margin-top:0}
+.dossier-capacity{display:flex;gap:6px 14px;align-items:baseline;flex-wrap:wrap;background:var(--background);padding:12px 14px;border-radius:5px;margin:10px 0}
+.dossier-capacity strong{font-size:18px;color:var(--text)}
+.dossier-capacity span{font-size:12px;color:var(--muted)}
+.dossier-capacity a{font-size:12px;font-weight:600}
+.dossier-coverage,.location-coverage{border:1px solid var(--border);border-radius:7px;padding:12px 14px;background:var(--surface);margin:16px 0;min-width:0}
+.dossier-coverage summary,.location-coverage summary{cursor:pointer;color:var(--link);font-weight:650}
+.dossier-coverage[open] .intro,.location-coverage[open] .table-wrap{margin-top:12px}
+.profile-location h3{font-size:15px;margin:24px 0 9px}
+.profile-peer-metrics{margin:12px 0}
+.profile-location-table table{min-width:650px}
+.profile-location-table th,.profile-location-table td{overflow-wrap:anywhere}
+@media(max-width:720px){.dossier-evidence{padding:12px}.dossier-capacity{padding:10px;align-items:flex-start;flex-direction:column}.dossier-capacity strong{font-size:16px}.profile-peer-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-peer-metrics .metric strong{font-size:21px}}

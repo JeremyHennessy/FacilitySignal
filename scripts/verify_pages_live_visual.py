@@ -191,6 +191,16 @@ def run(base,local):
                     groups=("ASC service provision arrangements","Home health reported services","Hospital enrollment subgroup classifications","Hospital service provision — matched research subset","Hospital infrastructure and affiliation count coverage") if name=="services" else ("Nursing inspection and dispute flags",) if name=="compliance" else ("CLIA certificate code distribution","Hospital-to-laboratory reference evidence","National field audit coverage","Reported nursing-home chain membership","Nursing cross-source group corroboration","Reported PECOS organizational relationship classes","Organization classification agreement and conflicts","Reported ownership-change types","Hospital registry and directory comparison","CLIA historical termination-code scopes","CLIA certificates by reported status scope","CLIA reported facility-type classifications","CLIA accreditation declarations and confirmations","CLIA certificate date diagnostics","CLIA identifier and affiliation-reference diagnostics")
                     for n,g in enumerate(groups):page.locator(f'[aria-label^="{g}"]').screenshot(path=str(OUT/f"{width}-{name}-group-{n}.png"))
                 if name=="profile-summary":
+                    page.locator(".dossier-evidence[data-ready=true]").wait_for()
+                    assert page.get_by_role("columnheader",name="Historical citation rows").count()==1
+                    page.screenshot(path=str(OUT/f"{width}-integrated-nursing-dossier.png"),full_page=True)
+                    page.get_by_role("link",name="Location & peers",exact=True).click()
+                    location=page.locator(".profile-location[data-ready=true]");location.wait_for()
+                    assert location.get_attribute("data-complete")=="true"
+                    assert location.locator(".location-match-count").count()==1
+                    assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+                    page.screenshot(path=str(OUT/f"{width}-profile-location.png"),full_page=True)
+                    page.go_back();page.locator(".dossier-evidence[data-ready=true]").wait_for()
                     page.locator(".profile-research-actions").screenshot(path=str(OUT/f"{width}-profile-actions.png"))
                     assert page.get_by_role("link",name="All provider records in reported city").count()==1
                     page.get_by_role("button",name="Save to research portfolio").click()
