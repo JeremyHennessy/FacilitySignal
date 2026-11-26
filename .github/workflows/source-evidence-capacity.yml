@@ -1,0 +1,29 @@
+name: FacilitySignal source evidence and live capacity qualification
+on:
+  push:
+    branches: [build/source-evidence-capacity-20261126]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-source-evidence-capacity
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 playwright==1.51.0
+      - run: python -m unittest discover -s tests -v
+      - run: node --check web/pages.js
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/verify_pages_capacity_deployed.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: live-capacity-aggregate-evidence
+          path: ${{ runner.temp }}/live-capacity/report.json
+          retention-days: 14
+          if-no-files-found: error
