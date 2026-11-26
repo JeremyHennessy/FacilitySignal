@@ -16,7 +16,7 @@ OUT=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"pages-live-visual-evidence"
 OUT.mkdir(exist_ok=True)
 def sha(data):return hashlib.sha256(data).hexdigest()
 ASSETS=("web/pages.js","web/pages.css")
-HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json","web/public-directory/manifest.json","web/public-directory/long-term-hospital.json","web/public-intelligence.json")}
+HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json","web/public-directory/manifest.json","web/public-directory/long-term-hospital.json","web/public-intelligence.json","web/dialysis-service-evidence.json","web/public-directory/dialysis.json")}
 VERSIONS={x:x+"?v="+HASHES[x][:16] for x in ASSETS}
 MANIFEST=json.loads((ROOT/"web/public-directory/manifest.json").read_text())
 TOTAL=MANIFEST["provider_rows"]
@@ -24,6 +24,10 @@ LTCH_META=MANIFEST["field_enrichments"]["long-term-hospital"]
 LTCH=next(r for r in json.loads((ROOT/"web/public-directory/long-term-hospital.json").read_text())["records"] if r["capacity"])
 HOSPITAL=Counter(r["state"] for r in json.loads((ROOT/"web/public-directory/hospital.json").read_text())["records"])
 PROVIDER=json.loads((ROOT/"web/public-directory/nursing.json").read_text())["records"][0]
+DIALYSIS_OBS=json.loads((ROOT/"web/dialysis-service-evidence.json").read_text())["records"]
+DIALYSIS_ROWS=json.loads((ROOT/"web/public-directory/dialysis.json").read_text())["records"]
+DIALYSIS_LINKED=next(r for r in DIALYSIS_ROWS if r["ccn"] in DIALYSIS_OBS)
+DIALYSIS_UNLINKED=next(r for r in DIALYSIS_ROWS if r["ccn"] not in DIALYSIS_OBS)
 ROUTES=[
     ("overview","overview",lambda page:page.get_by_text(f"{TOTAL:,}",exact=True)),
     ("search","search",lambda page:page.get_by_role("heading",name="Unified search",exact=True)),
@@ -39,6 +43,9 @@ ROUTES=[
     ("ltch-capacity","capacity?source=long-term-hospital",lambda page:page.locator(".ltch-capacity-table")),
     ("ltch-profile","detail?"+urlencode({"source":"long-term-hospital","id":LTCH["ccn"],"state":LTCH["state"],"section":"services"}),lambda page:page.get_by_role("heading",name="Reported capacity and service evidence")),
     ("services","services",lambda page:page.get_by_role("heading",name="ASC service provision arrangements")),
+    ("dialysis-services","dialysis-services?field=hmdlys_srvc_sw&evidence=reported_yes",lambda page:page.locator(".dialysis-status[data-ready=true]")),
+    ("dialysis-linked","detail?"+urlencode({"source":"dialysis","id":DIALYSIS_LINKED["ccn"],"state":DIALYSIS_LINKED["state"],"section":"services"}),lambda page:page.locator(".dialysis-profile[data-evidence=corroborated]")),
+    ("dialysis-unlinked","detail?"+urlencode({"source":"dialysis","id":DIALYSIS_UNLINKED["ccn"],"state":DIALYSIS_UNLINKED["state"],"section":"services"}),lambda page:page.locator(".dialysis-profile[data-evidence=unlinked]")),
     ("compliance","compliance-research",lambda page:page.get_by_role("heading",name="Nursing inspection and dispute flags")),
     ("citations","citations?source=nursing-health&state=NY",lambda page:page.get_by_role("columnheader",name="Historical citation rows")),
     ("hospital-surveys","hospital-surveys",lambda page:page.get_by_role("heading",name="Hospital survey coverage",exact=True)),
@@ -104,6 +111,14 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="dialysis-services":
+                    assert page.locator(".dialysis-status").get_attribute("data-total")=="2043"
+                    received=[r for r in responses if r.url==base+"web/dialysis-service-evidence.json?v="+HASHES["web/dialysis-service-evidence.json"][:16]]
+                    assert received and sha(received[-1].body())==HASHES["web/dialysis-service-evidence.json"],"Stale or unavailable service projection"
+                    page.locator(".dialysis-service-form").screenshot(path=str(OUT/f"{width}-dialysis-filters.png"))
+                    page.locator(".dialysis-results").screenshot(path=str(OUT/f"{width}-dialysis-results.png"))
+                if name in ("dialysis-linked","dialysis-unlinked"):
+                    page.locator(".dialysis-profile").screenshot(path=str(OUT/f"{width}-{name}-evidence.png"))
                 if name=="ltch-capacity":
                     assert page.locator(".metrics .metric strong").all_inner_texts()==["311","21,765","305","6"]
                     seen=[r for r in responses if r.url==base+"web/public-directory/long-term-hospital.json?v="+LTCH_META["projection_sha256"][:16]]
