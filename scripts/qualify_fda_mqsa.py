@@ -34,7 +34,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 def download(path):
     opener = urllib.request.build_opener(NoRedirect())
-    req = urllib.request.Request(URL, headers={"User-Agent": "FacilitySignal institutional source qualification", "Accept": "application/zip,application/octet-stream"})
+    req = urllib.request.Request(URL, headers={"User-Agent": "FacilitySignal institutional source qualification", "Accept": "application/x-zip-compressed,application/zip,application/octet-stream"})
     digest = hashlib.sha256()
     count = 0
     with opener.open(req, timeout=60) as res, path.open("xb") as out:
