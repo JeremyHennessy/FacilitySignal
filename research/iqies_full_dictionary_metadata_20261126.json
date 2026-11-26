@@ -1,0 +1,4946 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-26",
+  "source": {
+    "url": "https://data.cms.gov/sites/default/files/2026-11/dd404bad-f893-4c80-b472-ab600bee1405/iQIES%20POS%20Data%20Dictionary%20Oct2026.xlsx",
+    "sha256": "bd68d76dc72ee5c3b3249c459644ff2ed90c8e8cf6e182b76742ec53164c0594",
+    "bytes": 40305,
+    "retrieved_at": "2026-11-26T12:34:51.869241+00:00"
+  },
+  "qualification": {
+    "commit": "2de09114e8cd78f8856826e9c8904d0300309eb8",
+    "run": 45820947232,
+    "job": 139912727780,
+    "tests_passed": 28,
+    "inventory_blob": "57739358a9329485243a57d0c653b68843cf21c4"
+  },
+  "scope": "Full publisher dictionary metadata extraction for all pinned iQIES Q3 2026 fields; not a raw provider data profile or complete interpretation/normalization approval.",
+  "source_fields": 186,
+  "dictionary_rows": 186,
+  "unique_matches": 184,
+  "unique_with_definition": 184,
+  "unique_with_scope": 184,
+  "missing_fields": [
+    "fed_fundd_fqhc_sw"
+  ],
+  "ambiguous_fields": [
+    "physn_arngmt_sw"
+  ],
+  "unmatched_dictionary_rows": [],
+  "mapping_sheet_count": 12,
+  "mapping_row_count": 147,
+  "mapping_status_counts": {
+    "not_specified": 157,
+    "exact_mapping_sheet_reference": 26,
+    "unresolved_mapping_reference": 1
+  },
+  "fields": [
+    {
+      "ordinal": 1,
+      "field": "prvdr_num",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 2,
+          "publisher_header": "prvdr_num",
+          "format": "string",
+          "label": "Provider Number",
+          "definition": "Six or ten position identification number that is assigned to a certified provider. This is the CMS Certification Number (CCN).",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 2,
+      "field": "fac_name",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 3,
+          "publisher_header": "fac_name",
+          "format": "string",
+          "label": "Facility Name",
+          "definition": "Name of the provider certified to participate in the Medicare and/or Medicaid programs.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 3,
+      "field": "prvdr_sbtyp_id",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 4,
+          "publisher_header": "prvdr_sbtyp_id",
+          "format": "INT/Not Applicable",
+          "label": "Provider Subtype ID",
+          "definition": "Identifies the subtype of the provider, within the primary category. Used in reporting to show the breakdown of provider categories.",
+          "applicability": "NH",
+          "mapping_raw": "M12",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 4,
+      "field": "mdcd_vndr_num",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 5,
+          "publisher_header": "mdcd_vndr_num",
+          "format": "string",
+          "label": "Medicaid Vendor Number",
+          "definition": "Number which may be assigned to a provider by the state Medicaid agency for external control or billing purposes.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 5,
+      "field": "orgnl_prtcptn_dt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 6,
+          "publisher_header": "orgnl_prtcptn_dt",
+          "format": "yyyy-mm-dd",
+          "label": "Original Participation Date",
+          "definition": "Date a provider is first approved to provide Medicare and/or Medicaid services.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 6,
+      "field": "prvdr_type_id",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 7,
+          "publisher_header": "prvdr_type_id",
+          "format": "INT",
+          "label": "Provider Type ID",
+          "definition": "Identifies the type of provider participating in the Medicare/Medicaid program.",
+          "applicability": "ALL",
+          "mapping_raw": "M1",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 7,
+      "field": "st_adr",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 8,
+          "publisher_header": "st_adr",
+          "format": "string",
+          "label": "Address: Street",
+          "definition": "Street address where the provider is located.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 8,
+      "field": "city_name",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 9,
+          "publisher_header": "city_name",
+          "format": "string",
+          "label": "Address: City",
+          "definition": "City in which the provider is physically located.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 9,
+      "field": "ssa_cnty_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 10,
+          "publisher_header": "ssa_cnty_cd",
+          "format": "string",
+          "label": "Social Security Administration County Code",
+          "definition": "Social Security Administration geographic code indicating the county where the provider is located.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 10,
+      "field": "zip_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 11,
+          "publisher_header": "zip_cd",
+          "format": "string",
+          "label": "ZIP Code",
+          "definition": "Five-digit ZIP code for a provider's physical address.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 11,
+      "field": "phne_num",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 12,
+          "publisher_header": "phne_num",
+          "format": "INT",
+          "label": "Telephone Number",
+          "definition": "Telephone number of the provider.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 12,
+      "field": "crtfctn_dt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 13,
+          "publisher_header": "crtfctn_dt",
+          "format": "yyyy-mm-dd",
+          "label": "Certification Date",
+          "definition": "The most recent certification date for the provider.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 13,
+      "field": "trmntn_exprtn_dt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 14,
+          "publisher_header": "trmntn_exprtn_dt",
+          "format": "yyyy-mm-dd",
+          "label": "Termination or Expiration Date",
+          "definition": "Date the provider was terminated.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 14,
+      "field": "state_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 15,
+          "publisher_header": "state_cd",
+          "format": "string",
+          "label": "State Abbreviation",
+          "definition": "Two-character state abbreviation.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 15,
+      "field": "ssa_state_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 16,
+          "publisher_header": "ssa_state_cd",
+          "format": "string",
+          "label": "Social Security Administration State Code",
+          "definition": "Social Security Administration geographic code indicating the state where the provider is located.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 16,
+      "field": "state_rgn_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 17,
+          "publisher_header": "state_rgn_cd",
+          "format": "string",
+          "label": "State Region Code",
+          "definition": "Identifies the region within a state where the provider is located.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 17,
+      "field": "rgn_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 18,
+          "publisher_header": "rgn_cd",
+          "format": "string",
+          "label": "Region Code",
+          "definition": "The CMS Regional Office where a particular provider is located.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 18,
+      "field": "fips_state_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 19,
+          "publisher_header": "fips_state_cd",
+          "format": "string",
+          "label": "FIPS State Code",
+          "definition": "FIPS State Code\n",
+          "applicability": "ALL",
+          "mapping_raw": "M3",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 19,
+      "field": "fips_cnty_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 20,
+          "publisher_header": "fips_cnty_cd",
+          "format": "string",
+          "label": "FIPS County Code",
+          "definition": "FIPS County Code",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 20,
+      "field": "cbsa_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 21,
+          "publisher_header": "cbsa_cd",
+          "format": "string",
+          "label": "CBSA Code",
+          "definition": "CBSA (Core Based Statistical Area) geographic entities defined by the U.S. Office of Management and Budget (OMB) on June 6, 2003 for use by Federal statistical agencies in collecting, tabulating, and publishing Federal statistics. CBSA collectively refers to MSA.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 21,
+      "field": "cbsa_urbn_rrl_ind",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 22,
+          "publisher_header": "cbsa_urbn_rrl_ind",
+          "format": "string",
+          "label": "CBSA (Core Based Statistical Area) Urban Rural Indicator",
+          "definition": "CBSA (Core Based Statistical Area) indicates whether the county is defined as Urban or Rural.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 22,
+      "field": "acrdtn_type_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 23,
+          "publisher_header": "acrdtn_type_cd",
+          "format": "INT",
+          "label": "Accreditation Type Code",
+          "definition": "Indicates the accrediting organization deeming the provider. If a provider is deemed by multiple accrediting organizations then the accrediting organization with the earliest active deeming effective date is displayed in this field.",
+          "applicability": "ASC, HHA, HOSPICE, ESRD, OPT/SLP",
+          "mapping_raw": "M4",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 23,
+      "field": "intrmdry_carr_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 24,
+          "publisher_header": "intrmdry_carr_cd",
+          "format": "string",
+          "label": "Intermediary or Carrier Code",
+          "definition": "Number assigned to the Medicare Administrative Contractor, intermediary or carrier servicing this provider.",
+          "applicability": "ALL except for PRTF, ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 24,
+      "field": "acptbl_poc_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 25,
+          "publisher_header": "acptbl_poc_sw",
+          "format": "Yes/No/Not Available",
+          "label": "Compliance: Acceptable Plan of Correction",
+          "definition": "Indicates if a provider is in compliance with program requirements based on an acceptable plan for correction of deficiencies.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 25,
+      "field": "fy_end_mo_day_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 26,
+          "publisher_header": "fy_end_mo_day_cd",
+          "format": "string",
+          "label": "Fiscal Year End Date (MM-DD)",
+          "definition": "End date, consisting of the month and day, of the provider's fiscal year.",
+          "applicability": "ALL except for FQHC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 26,
+      "field": "cmplnc_stus_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 27,
+          "publisher_header": "cmplnc_stus_cd",
+          "format": "Yes/No",
+          "label": "Compliance Status Code",
+          "definition": "Compliance status of a provider at the time of certification survey.",
+          "applicability": "ALL expect for FQHC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 27,
+      "field": "crtfctn_actn_type_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 28,
+          "publisher_header": "crtfctn_actn_type_cd",
+          "format": "string",
+          "label": "Type of Action Code",
+          "definition": "Identifies the reason for the certification and the type of action from the official survey record.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 28,
+      "field": "chow_dt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 29,
+          "publisher_header": "chow_dt",
+          "format": "yyyy-mm-dd",
+          "label": "Change of Ownership Date",
+          "definition": "Effective date of the most recent change of ownership for this provider. ",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 29,
+      "field": "phrmcy_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 30,
+          "publisher_header": "phrmcy_srvc_cd",
+          "format": "string",
+          "label": "Pharmacy Code",
+          "definition": "Indicates how pharmaceutical services are provided.",
+          "applicability": "ASC",
+          "mapping_raw": "M5",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 30,
+      "field": "hh_aide_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 31,
+          "publisher_header": "hh_aide_srvc_cd",
+          "format": "string",
+          "label": "Home Health Aide Code",
+          "definition": "Indicates how home health aide services are provided.",
+          "applicability": "HOSPICE, HHA",
+          "mapping_raw": "M6",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 31,
+      "field": "lab_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 32,
+          "publisher_header": "lab_srvc_cd",
+          "format": "string",
+          "label": "Laboratory Code",
+          "definition": "Indicates how laboratory services are provided.",
+          "applicability": "ASC, HHA",
+          "mapping_raw": "M5",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 32,
+      "field": "lpn_lvn_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 33,
+          "publisher_header": "lpn_lvn_cnt",
+          "format": "float",
+          "label": "LPN/LVN - Employee Number",
+          "definition": "Number of full-time equivalent licensed practical or vocational nurses employed by a provider.",
+          "applicability": "HOSPICE, HHA, ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 33,
+      "field": "mdcl_scl_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 34,
+          "publisher_header": "mdcl_scl_srvc_cd",
+          "format": "string",
+          "label": "Medical Social Code",
+          "definition": "Indicates how medical social services are provided.",
+          "applicability": "HOSPICE, HHA",
+          "mapping_raw": "M6",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 34,
+      "field": "othr_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 35,
+          "publisher_header": "othr_srvc_cd",
+          "format": "string",
+          "label": "Other Code",
+          "definition": "Indicates how other services are provided.",
+          "applicability": "HHA, HOSPICE",
+          "mapping_raw": "M6",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 35,
+      "field": "ot_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 36,
+          "publisher_header": "ot_srvc_cd",
+          "format": "string",
+          "label": "OT Code",
+          "definition": "Indicates if/how occupational therapy services are provided.",
+          "applicability": "HHA, HOSPICE",
+          "mapping_raw": "M6",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 36,
+      "field": "nrsng_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 37,
+          "publisher_header": "nrsng_srvc_cd",
+          "format": "string",
+          "label": "Nursing Code",
+          "definition": "Indicates how nursing services are provided.",
+          "applicability": "HHA, HOSPICE",
+          "mapping_raw": "M6",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 37,
+      "field": "prsnel_othr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 38,
+          "publisher_header": "prsnel_othr_cnt",
+          "format": "float",
+          "label": "Other Personnel Number",
+          "definition": "Number of full-time equivalent other personnel employed by a provider.",
+          "applicability": "HHA, HOSPICE, ESRD, PXR, RHC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 38,
+      "field": "pt_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 39,
+          "publisher_header": "pt_srvc_cd",
+          "format": "string",
+          "label": "PT Code",
+          "definition": "Indicates if/how physical therapy services are provided.",
+          "applicability": "HHA, HOSPICE",
+          "mapping_raw": "M6",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 39,
+      "field": "rn_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 40,
+          "publisher_header": "rn_cnt",
+          "format": "float",
+          "label": "RN Number",
+          "definition": "Number of full-time equivalent registered nurses employed by a provider.",
+          "applicability": "HHA, HOSPICE, ESRD, ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 40,
+      "field": "asc_bgn_srvc_dt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 41,
+          "publisher_header": "asc_bgn_srvc_dt",
+          "format": "yyyy-mm-dd",
+          "label": "ASC Begin Service Date",
+          "definition": "Date an ambulatory surgical center began providing healthcare services.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 41,
+      "field": "dntl_srgry_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 42,
+          "publisher_header": "dntl_srgry_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Surgical Specialty: Dental Indicator",
+          "definition": "Indicates if dental surgery is offered by an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 42,
+      "field": "endscpy_srgry_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 43,
+          "publisher_header": "endscpy_srgry_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Surgical Specialty: Endoscopy Indicator",
+          "definition": "Indicates if endoscopy surgery is offered by an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 43,
+      "field": "ft_srgry_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 44,
+          "publisher_header": "ft_srgry_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Surgical Specialty: Podiatry Indicator",
+          "definition": "Indicates if podiatric surgery is offered by an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 44,
+      "field": "ob_gyn_srgry_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 45,
+          "publisher_header": "ob_gyn_srgry_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Surgical Specialty: Obstetrics / Gynecology Indicator",
+          "definition": "Indicates if obstetrics/gynecology surgery is offered by an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 45,
+      "field": "oprtg_room_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 46,
+          "publisher_header": "oprtg_room_cnt",
+          "format": "string",
+          "label": "Operating Room Count",
+          "definition": "Number of operating rooms in an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 46,
+      "field": "procedure_room_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 47,
+          "publisher_header": "procedure_room_cnt",
+          "format": "string",
+          "label": "Procedure Room Count",
+          "definition": "Number of procedure rooms in an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 47,
+      "field": "opthmlgy_srgry_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 48,
+          "publisher_header": "opthmlgy_srgry_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Surgical Specialty: Ophthalmologic Indicator",
+          "definition": "Indicates if ophthalmologic surgery is offered by an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 48,
+      "field": "orthpdc_srgry_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 49,
+          "publisher_header": "orthpdc_srgry_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Surgical Specialty: Orthopedic Indicator ",
+          "definition": "Indicates if orthopedic surgery is offered by an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 49,
+      "field": "othr_srgry_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 50,
+          "publisher_header": "othr_srgry_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Surgical Specialty: Other Indicator",
+          "definition": "Indicates if other surgery types are performed at an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 50,
+      "field": "otlrynglgy_srgry_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 51,
+          "publisher_header": "otlrynglgy_srgry_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Surgical Specialty: Ear/Nose/Throat Indicator",
+          "definition": "Indicates if ear, nose and throat surgery is offered by an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 51,
+      "field": "pain_srgry_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 52,
+          "publisher_header": "pain_srgry_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Surgical Specialty: Pain Indicator",
+          "definition": "Indicates if pain surgery is offered by an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 52,
+      "field": "plstc_srgry_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 53,
+          "publisher_header": "plstc_srgry_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Surgical Specialty: Plastic / Reconstructive",
+          "definition": "Indicates if plastic and reconstructive surgery is offered by an ambulatory surgical center.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 53,
+      "field": "rdlgy_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 54,
+          "publisher_header": "rdlgy_srvc_cd",
+          "format": "INT",
+          "label": "Radiology Code",
+          "definition": "Indicates how radiology services are provided.",
+          "applicability": "ASC",
+          "mapping_raw": "M7",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 54,
+      "field": "aplnc_equip_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 55,
+          "publisher_header": "aplnc_equip_srvc_cd",
+          "format": "string",
+          "label": "Appliance and Equipment Code",
+          "definition": "Indicates how appliance and equipment services are provided by a home health agency.",
+          "applicability": "HHA",
+          "mapping_raw": "M9",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 55,
+      "field": "brnch_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 56,
+          "publisher_header": "brnch_cnt",
+          "format": "INT",
+          "label": "Branch Count",
+          "definition": "Number of branches operated by the home health agency.",
+          "applicability": "HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 56,
+      "field": "brnch_oprtn_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 57,
+          "publisher_header": "brnch_oprtn_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Branch Operation Indicator",
+          "definition": "Indicates if the home health agency operates any branches.",
+          "applicability": "HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 57,
+      "field": "chow_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 58,
+          "publisher_header": "chow_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Change of Ownership Indicator",
+          "definition": "Indicates if the home health agency has undergone a change of ownership since the last survey.",
+          "applicability": "ASC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 58,
+      "field": "dietn_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 59,
+          "publisher_header": "dietn_cnt",
+          "format": "float",
+          "label": "Dietitian Number",
+          "definition": "Number of full-time equivalent dietitians employed by a provider. ",
+          "applicability": "HHA, ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 59,
+      "field": "hh_aide_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 60,
+          "publisher_header": "hh_aide_cnt",
+          "format": "float",
+          "label": "Home Health Aide Number",
+          "definition": "Number of full-time equivalent home health aides employeed by a home health agency.",
+          "applicability": "HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 60,
+      "field": "hh_aide_trng_pgm_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 61,
+          "publisher_header": "hh_aide_trng_pgm_cd",
+          "format": "string",
+          "label": "Home Health Aide Training Program Code ",
+          "definition": "Indicates how the agency provides home health aide training and competency evaluation programs.",
+          "applicability": "HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 61,
+      "field": "intrn_rsdnt_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 62,
+          "publisher_header": "intrn_rsdnt_srvc_cd",
+          "format": "string",
+          "label": "Interns and Residents Code",
+          "definition": "Indicates how intern and resident services are provided by a home health agency.",
+          "applicability": "HHA",
+          "mapping_raw": "M9",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 62,
+      "field": "mdcr_hospc_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 63,
+          "publisher_header": "mdcr_hospc_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Hospice Indicator ",
+          "definition": "Indicates if the home health agency also participates in the Medicare program as a hospice.",
+          "applicability": "HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 63,
+      "field": "medicare_hospice_provider_num",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 64,
+          "publisher_header": "medicare_hospice_provider_num",
+          "format": "string",
+          "label": "Medicare Hospice Provider Number",
+          "definition": "Medicare hospice provider number",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 64,
+      "field": "ntrtnl_gdnc_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 65,
+          "publisher_header": "ntrtnl_gdnc_srvc_cd",
+          "format": "string",
+          "label": "Nutritional Guidance Code",
+          "definition": "Indicates how nutritional guidance services are provided by a home health agency.",
+          "applicability": "HHA",
+          "mapping_raw": "M9",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 65,
+      "field": "ocptnl_thrpst_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 66,
+          "publisher_header": "ocptnl_thrpst_cnt",
+          "format": "float",
+          "label": "OT - Total",
+          "definition": "Total number of full-time equivalent occupational therapists employed by a provider.",
+          "applicability": "HOSPICE, OPT/SLP",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 66,
+      "field": "pgm_prtcptn_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 67,
+          "publisher_header": "pgm_prtcptn_cd",
+          "format": "string/Not Applicable/Not Available",
+          "label": "Program Participation Code",
+          "definition": "Indicates if the provider participates in Medicare, Medicaid, or both programs.",
+          "applicability": "HOSPITAL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 67,
+      "field": "phys_thrpst_stf_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 68,
+          "publisher_header": "phys_thrpst_stf_cnt",
+          "format": "float",
+          "label": "PT Number",
+          "definition": "Number of full-time equivalent physical therapists employed by a provider.",
+          "applicability": "OPT",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 68,
+      "field": "reg_phrmcst_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 69,
+          "publisher_header": "reg_phrmcst_cnt",
+          "format": "float",
+          "label": "Registered Pharmacist Number",
+          "definition": "Number of full-time equivalent registered pharmacists employed by the provider.",
+          "applicability": "HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 69,
+      "field": "sbunit_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 70,
+          "publisher_header": "sbunit_cnt",
+          "format": "INT",
+          "label": "Subunit Count Number",
+          "definition": "Number of subunits operated by the home health agency.",
+          "applicability": "HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 70,
+      "field": "sbunit_oprtn_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 71,
+          "publisher_header": "sbunit_oprtn_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Subunit Operation Indicator",
+          "definition": "Indicates if the home health agency operates any subunits.",
+          "applicability": "HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 71,
+      "field": "sbunit_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 72,
+          "publisher_header": "sbunit_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Subunit Indicator",
+          "definition": "Indicates if the home health agency is a subunit of another agency.",
+          "applicability": "HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 72,
+      "field": "scl_workr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 73,
+          "publisher_header": "scl_workr_cnt",
+          "format": "float",
+          "label": "Social Worker Number",
+          "definition": "Number of full-time equivalent social workers employed by the provider.",
+          "applicability": "ESRD,  HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 73,
+      "field": "spch_pthlgst_audlgst_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 74,
+          "publisher_header": "spch_pthlgst_audlgst_cnt",
+          "format": "float",
+          "label": "Speech Pathologist/Audiologist Number",
+          "definition": "Number of full-time equivalent speech pathologists or audiologists employed by the provider.",
+          "applicability": "HHA",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 74,
+      "field": "spch_thrpy_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 75,
+          "publisher_header": "spch_thrpy_srvc_cd",
+          "format": "string",
+          "label": "Speech Therapy Code",
+          "definition": "Indicates how speech therapy services are provided by the home health agency.",
+          "applicability": "HHA",
+          "mapping_raw": "M9 ",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 75,
+      "field": "vctnl_gdnc_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 76,
+          "publisher_header": "vctnl_gdnc_srvc_cd",
+          "format": "string",
+          "label": "Vocational Guidance Code",
+          "definition": "Indicates how vocational guidance services are provided by the home health agency.",
+          "applicability": "HHA",
+          "mapping_raw": "M9 ",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 76,
+      "field": "hospice_type",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 77,
+          "publisher_header": "hospice_type",
+          "format": "string",
+          "label": "Hospice Type",
+          "definition": "Indicates the type of hospice",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 77,
+      "field": "acute_resp_care_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 78,
+          "publisher_header": "acute_resp_care_cd",
+          "format": "INT",
+          "label": "Short Term Inpatient Acute/Respite Care Code",
+          "definition": "Indicates the type of short-term inpatient care provided by the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": "M11",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 78,
+      "field": "cnslng_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 79,
+          "publisher_header": "cnslng_srvc_cd",
+          "format": "INT",
+          "label": "Counseling Code",
+          "definition": "Indicates how counseling services are provided by the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": "M10",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 79,
+      "field": "cnslr_emplee_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 80,
+          "publisher_header": "cnslr_emplee_cnt",
+          "format": "float",
+          "label": "Counselor - Employee Number",
+          "definition": "Number of full-time equivalent counselors employed by the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 80,
+      "field": "cnslr_vlntr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 81,
+          "publisher_header": "cnslr_vlntr_cnt",
+          "format": "float",
+          "label": "Counselor - Volunteer Number",
+          "definition": "Number of full-time equivalent counselors volunteering in a hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 81,
+      "field": "emplee_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 82,
+          "publisher_header": "emplee_cnt",
+          "format": "float",
+          "label": "Total - Employee Number",
+          "definition": "Total number of full-time equivalent employees of a provider.",
+          "applicability": "NH, ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 82,
+      "field": "hh_aide_emplee_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 83,
+          "publisher_header": "hh_aide_emplee_cnt",
+          "format": "float",
+          "label": "Aide - Employee Number",
+          "definition": "Number of full-time equivalent aides employed by the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 83,
+      "field": "hh_aide_vlntr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 84,
+          "publisher_header": "hh_aide_vlntr_cnt",
+          "format": "float",
+          "label": "Aide - Volunteer Number",
+          "definition": "Number of full-time equivalent aides volunteering in a hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 84,
+      "field": "hmmkr_emplee_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 85,
+          "publisher_header": "hmmkr_emplee_cnt",
+          "format": "float",
+          "label": "Homemaker - Employee Number",
+          "definition": "Number of full-time equivalent homemakers employed by the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 85,
+      "field": "hmmkr_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 86,
+          "publisher_header": "hmmkr_srvc_cd",
+          "format": "INT",
+          "label": "Homemaker Code",
+          "definition": "Indicates how homemaker services are provided by the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": "M10",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 86,
+      "field": "hmmkr_vlntr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 87,
+          "publisher_header": "hmmkr_vlntr_cnt",
+          "format": "float",
+          "label": "Homemaker - Volunteer Number",
+          "definition": "Number of full-time equivalent homemakers volunteering in a hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 87,
+      "field": "lpn_lvn_vlntr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 88,
+          "publisher_header": "lpn_lvn_vlntr_cnt",
+          "format": "float",
+          "label": "LPN/LVN - Volunteer Number",
+          "definition": "Number of full-time equivalent licensed practical or vocational nurses volunteering in the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 88,
+      "field": "mdcl_scl_workr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 89,
+          "publisher_header": "mdcl_scl_workr_cnt",
+          "format": "float",
+          "label": "Medical Social Worker - Employee Number",
+          "definition": "Number of full-time equivalent medical social workers employed by a provider.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 89,
+      "field": "mdcl_scl_workr_vlntr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 90,
+          "publisher_header": "mdcl_scl_workr_vlntr_cnt",
+          "format": "float",
+          "label": "Medical Social Worker - Volunteer Number",
+          "definition": "Number of full-time equivalent medical social workers volunteering in the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 90,
+      "field": "mdcl_suply_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 91,
+          "publisher_header": "mdcl_suply_srvc_cd",
+          "format": "INT",
+          "label": "Medical Supplies Code",
+          "definition": "Indicates how medical supply services are provided by the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": "M10",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 91,
+      "field": "physn_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 92,
+          "publisher_header": "physn_cnt",
+          "format": "float",
+          "label": "Physician - Employee Number",
+          "definition": "Number of full-time equivalent physicians employed by a provider.",
+          "applicability": "HOSPICE, RHC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 92,
+      "field": "physn_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 93,
+          "publisher_header": "physn_srvc_cd",
+          "format": "INT",
+          "label": "Physician Code",
+          "definition": "Indicates how physician services are provided by the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": "M10",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 93,
+      "field": "physn_vlntr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 94,
+          "publisher_header": "physn_vlntr_cnt",
+          "format": "float",
+          "label": "Physician - Volunteer Number",
+          "definition": "Number of full-time equivalent physicians volunteering in a hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 94,
+      "field": "rn_vlntr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 95,
+          "publisher_header": "rn_vlntr_cnt",
+          "format": "float",
+          "label": "RN - Volunteer Number",
+          "definition": "Number of full-time equivalent registered nurses volunteering in a hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 95,
+      "field": "shrt_term_ip_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 96,
+          "publisher_header": "shrt_term_ip_srvc_cd",
+          "format": "INT",
+          "label": "Short Term Inpatient Care Code",
+          "definition": "Indicates how short term inpatient care services are provided by the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": "M10",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 96,
+      "field": "spch_pthlgy_srvc_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 97,
+          "publisher_header": "spch_pthlgy_srvc_cd",
+          "format": "INT",
+          "label": "Speech Pathology Code",
+          "definition": "Indicates if/how speech pathology services are provided.",
+          "applicability": "HOSPICE",
+          "mapping_raw": "M10",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 97,
+      "field": "vlntr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 98,
+          "publisher_header": "vlntr_cnt",
+          "format": "float",
+          "label": "Total - Volunteer Number",
+          "definition": "Number of full-time equivalent volunteers in the hospice.",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 98,
+      "field": "vlntr_othr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 99,
+          "publisher_header": "vlntr_othr_cnt",
+          "format": "float",
+          "label": "Other - Volunteer Number",
+          "definition": "Number of full-time equivalent others volunteering in the hospice. ",
+          "applicability": "HOSPICE",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 99,
+      "field": "fed_crtfctn_stus_id",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 100,
+          "publisher_header": "fed_crtfctn_stus_id",
+          "format": "INT",
+          "label": "Federal Certification Status ID",
+          "definition": "The ID code of the federal certification status of the provider. ",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 100,
+      "field": "fed_crtfctn_stus_name",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 101,
+          "publisher_header": "fed_crtfctn_stus_name",
+          "format": "string",
+          "label": "Federal Certification Status Name",
+          "definition": "The name of the federal certification status of the provider.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 101,
+      "field": "pgm_trmntn_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 102,
+          "publisher_header": "pgm_trmntn_cd",
+          "format": "string",
+          "label": "Termination Code",
+          "definition": "Indicates the current termination status for the provider. ",
+          "applicability": "ALL",
+          "mapping_raw": "M2",
+          "mapping_status": "exact_mapping_sheet_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 102,
+      "field": "control_type",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 103,
+          "publisher_header": "control_type",
+          "format": "string",
+          "label": "Ownership Type ",
+          "definition": "Indicates the ownership type of the provider.",
+          "applicability": "HHA, ASC, HOSPICE, NH, ESRD, PXR, CORF, OPT/SLP, ICFIID, RHC, PRTF, FQHC, CMHC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 103,
+      "field": "gnrl_fac_type_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 105,
+          "publisher_header": "gnrl_fac_type_cd",
+          "format": "INT",
+          "label": "Category-specific Facility Type Code",
+          "definition": "Indicates the category-specific facility type code, for certain provider categories only. ",
+          "applicability": "HHA, HOSPICE",
+          "mapping_raw": "M8 (Values Represented for HHA provider type only).",
+          "mapping_status": "unresolved_mapping_reference"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 104,
+      "field": "processing_date",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 104,
+          "publisher_header": "processing_date",
+          "format": "Date",
+          "label": "Processing Date",
+          "definition": "Date the Provider of Service file was processed.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 105,
+      "field": "aids_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 106,
+          "publisher_header": "aids_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "AIDS Bed Count",
+          "definition": "Number of beds in a special care unit dedicated for residents with AIDS.",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 106,
+      "field": "alzhmr_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 107,
+          "publisher_header": "alzhmr_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Alzheimer Bed Count",
+          "definition": "Number of beds in a special care unit dedicated for residents with Alzheimer's disease. ",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 107,
+      "field": "bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 108,
+          "publisher_header": "bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Bed Count",
+          "definition": "Total number of beds in a provider, including those in non-participating or non-licensed areas.",
+          "applicability": "ICFIID, PRTF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 108,
+      "field": "bed_per_room_wvr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 109,
+          "publisher_header": "bed_per_room_wvr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Beds Per Room Waiver Indicator",
+          "definition": "Indicates if a waiver of the beds per room requirement has been approved for a facility.",
+          "applicability": "ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 109,
+      "field": "crtfd_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 110,
+          "publisher_header": "crtfd_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Certified Bed Count",
+          "definition": "Number of beds in Medicare and/or Medicaid certified areas within a facility.",
+          "applicability": "ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 110,
+      "field": "dlys_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 111,
+          "publisher_header": "dlys_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Dialysis Bed Count",
+          "definition": "Number of beds in a special care unit dedicated for residents who require dialysis.",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 111,
+      "field": "dsbl_chldrn_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 112,
+          "publisher_header": "dsbl_chldrn_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Disabled Children Bed Count",
+          "definition": "Number of beds in a special care unit dedicated for disabled children. ",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 112,
+      "field": "elgblty_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 113,
+          "publisher_header": "elgblty_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Eligibility Indicator ",
+          "definition": "Indicates if a facility is eligible to participate in the Medicare and/or Medicaid programs.",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 113,
+      "field": "exprmt_rsrch_cndctd_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 114,
+          "publisher_header": "exprmt_rsrch_cndctd_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Research Conducted Indicator ",
+          "definition": "Indicates if a facility conducts experimental research. ",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 114,
+      "field": "fax_phne_num",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 115,
+          "publisher_header": "fax_phne_num",
+          "format": "string/Not Applicable/Not Available",
+          "label": "Fax Phone Number ",
+          "definition": "10-digit fax phone number of the primary contact or the operator of the provider. ",
+          "applicability": "ALL",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 115,
+      "field": "head_trma_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 116,
+          "publisher_header": "head_trma_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Head Trauma Bed Count",
+          "definition": "Number of beds in a special care unit dedicated for residents with head trauma. ",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 116,
+      "field": "hntgtn_dease_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 117,
+          "publisher_header": "hntgtn_dease_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Huntington's Disease Bed Count",
+          "definition": "Number of beds in a special care unit dedicated for residents with Huntington's disease. ",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 117,
+      "field": "hosp_bsd_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 118,
+          "publisher_header": "hosp_bsd_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Hospital Based Indicator",
+          "definition": "Indicates if the provider is based in a hospital.",
+          "applicability": "NH, RHC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 118,
+      "field": "hospc_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 119,
+          "publisher_header": "hospc_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Hospice Bed Count",
+          "definition": "Number of beds in a special care unit dedicated for residents who require hospice care. ",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 119,
+      "field": "intrmdry_carr_prior_cd",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 120,
+          "publisher_header": "intrmdry_carr_prior_cd",
+          "format": "string/Not Applicable/Not Available",
+          "label": "Intermediary or Carrier Code ",
+          "definition": "Number assigned to the previous Medicare Administrative Contractor, intermediary or carrier servicing this provider.",
+          "applicability": "ALL except for PRTF, ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 120,
+      "field": "isCCRC",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 121,
+          "publisher_header": "isCCRC",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Continuing Care Retirement Center Indicator",
+          "definition": "Indicates if a facility is part of a larger retirement community that provides several levels of care.",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 121,
+      "field": "lsc_wvr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 122,
+          "publisher_header": "lsc_wvr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "LSC Waiver Indicator",
+          "definition": "Indicates if a waiver of any life safety code provision has been recommended for a provider. ",
+          "applicability": "HOSPICE, OPT/SLP, ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 122,
+      "field": "mdcr_mdcd_snf_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 123,
+          "publisher_header": "mdcr_mdcd_snf_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Medicare Medicaid SNF Bed Count",
+          "definition": "Number of dually certified (Medicare/Medicaid) beds in a Skilled Nursing Facility.",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 123,
+      "field": "mdcr_snf_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 124,
+          "publisher_header": "mdcr_snf_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Medicare SNF Bed Count",
+          "definition": "Number of Medicare-certified Skilled Nursing Facility beds. ",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 124,
+      "field": "mlt_fac_org_name",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 125,
+          "publisher_header": "mlt_fac_org_name",
+          "format": "string/Not Applicable/Not Available",
+          "label": "Multi-facility Nursing Home Organization Name",
+          "definition": "Name of the multi-facility organization that owns the facility. ",
+          "applicability": "NH, ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 125,
+      "field": "mlt_ownd_fac_org_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 126,
+          "publisher_header": "mlt_ownd_fac_org_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Multiple Facility Organization Owned Indicator ",
+          "definition": "Indicates if a facility/provider is owned, leased, and/or managed by a multi-facility organization.",
+          "applicability": "NH, ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 126,
+      "field": "orgnz_fmly_mbr_grp_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 127,
+          "publisher_header": "orgnz_fmly_mbr_grp_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Organized Family Group Indicator",
+          "definition": "Indicates if the facility has an organized family member group (Family Council).",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 127,
+      "field": "orgnz_rsdnt_grp_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 128,
+          "publisher_header": "orgnz_rsdnt_grp_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Organized Resident Group Indicator ",
+          "definition": "Indicates if the facility has an organized resident member group (Resident Council).",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 128,
+      "field": "rehab_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 129,
+          "publisher_header": "rehab_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Specialized Rehab Bed Count",
+          "definition": "Number of beds in a special care unit dedicated for residents with specialized rehab needs.",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 129,
+      "field": "room_size_wvr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 130,
+          "publisher_header": "room_size_wvr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Patient Room Size Waiver Indicator",
+          "definition": "Indicates if a waiver of the patient room size provision has been recommended for a provider.",
+          "applicability": "ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 130,
+      "field": "vntltr_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 131,
+          "publisher_header": "vntltr_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Ventilator Bed Count",
+          "definition": "Number of beds in a special care unit dedicated for residents requiring a ventilator and/or respiratory care.",
+          "applicability": "NH",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 131,
+      "field": "esrd_ntwrk_num",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 132,
+          "publisher_header": "esrd_ntwrk_num",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "End-Stage Renal Disease Network ID",
+          "definition": "Identifies the End-Stage Renal Disease (ESRD) network associated with the provider.",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 132,
+      "field": "home_trng_sprt_only_srvc_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 133,
+          "publisher_header": "home_trng_sprt_only_srvc_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Is Onsite Home Training Provided",
+          "definition": "Indicates that onsite home training rooms are provided.",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 133,
+      "field": "incntr_nctrnl_srvc_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 134,
+          "publisher_header": "incntr_nctrnl_srvc_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Is New In-Center Nocturnal Hemodialysis",
+          "definition": "Indicates that the provider has begun providing in-center nocturnal hemodialysis services.",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 134,
+      "field": "sp_home_trng_sprt_hd_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 135,
+          "publisher_header": "sp_home_trng_sprt_hd_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Is Current Home Hemodialysis",
+          "definition": "Indicates that the provider continued to provide home hemodialysis services.",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 135,
+      "field": "hmdlys_srvc_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 136,
+          "publisher_header": "hmdlys_srvc_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Is Current In-Center Hemodialysis",
+          "definition": "Indicates that the provider continued to provide in-center hemodialysis services. ",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 136,
+      "field": "sp_home_trng_sprt_pd_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 137,
+          "publisher_header": "sp_home_trng_sprt_pd_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Is Current Home Peritoneal Dialysis",
+          "definition": "Indicates that the provider continued to provide home peritoneal dialysis services.",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 137,
+      "field": "prtnl_dlys_srvc_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 138,
+          "publisher_header": "prtnl_dlys_srvc_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Is Current In-Center Peritoneal Dialysis",
+          "definition": "Indicates that the provider continued to provide in-center peritoneal dialysis services.",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 138,
+      "field": "lpn_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 139,
+          "publisher_header": "lpn_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Number of Licensed Practical Nurse Staff",
+          "definition": "The number of full-time equivalent (FTE) licensed practical nurse (LPN) and licensed vocational nurse (LVN) staff.",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 139,
+      "field": "tchncl_stf_num",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 140,
+          "publisher_header": "tchncl_stf_num",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Number of Technical Staff",
+          "definition": "The number of full-time equivalent (FTE) technical staff.",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 140,
+      "field": "tchncn_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 141,
+          "publisher_header": "tchncn_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Number of Certified Patient Care Technician Staff",
+          "definition": "The number of full-time equivalent (FTE) certified patient care technician staff.",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 141,
+      "field": "dlys_stn_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 142,
+          "publisher_header": "dlys_stn_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Number of Approved In-Center Dialysis Stations",
+          "definition": "The number of approved in-center dialysis stations.",
+          "applicability": "ESRD",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 142,
+      "field": "tchnlgst_2_yr_rdlgc_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 143,
+          "publisher_header": "tchnlgst_2_yr_rdlgc_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Number of Graduates of 24-Month School of Radiologic Technology",
+          "definition": "The number of full-time equivalent technologists who are graduates of a 24-month approved school of radiologic technology.",
+          "applicability": "PXR",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 143,
+      "field": "tchnlgst_asct_dgr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 144,
+          "publisher_header": "tchnlgst_asct_dgr_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Number of Associate Degrees in Radiologic Technology",
+          "definition": "The number of full-time equivalent technologists with an associate degree in radiologic technology.",
+          "applicability": "PXR",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 144,
+      "field": "tchnlgst_bs_ba_dgr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 145,
+          "publisher_header": "tchnlgst_bs_ba_dgr_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Number of B.A./B.S. Degrees in Radiologic Technology",
+          "definition": "The number of full-time equivalent technologists with a B.A. or B.S. in radiologic technology.",
+          "applicability": "PXR",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 145,
+      "field": "mdcr_prtcptn_op_pt_spch_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 146,
+          "publisher_header": "mdcr_prtcptn_op_pt_spch_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Currently Participating as OPT/SLP",
+          "definition": "Indicates that the organization is currently participating as a provider of Outpatient Physical Therapy/Speech Language Pathology (OPT/SLP) services.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 146,
+      "field": "nrsng_srvc_emplee_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 147,
+          "publisher_header": "nrsng_srvc_emplee_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Nurses On Staff",
+          "definition": "Indicates that the provider has nurses employed on staff.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 147,
+      "field": "nrsng_srvc_cntrctr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 148,
+          "publisher_header": "nrsng_srvc_cntrctr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Nurses By Independent Contract",
+          "definition": "Indicates that the provider has nurses employed as independent contractors.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 148,
+      "field": "nrsng_srvc_arngmt_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 149,
+          "publisher_header": "nrsng_srvc_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Nurses By Arrangement",
+          "definition": "Indicates that the provider has nurses employed under arrangement. Included in CMS-359 forms.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 149,
+      "field": "orthtc_prsthtc_emplee_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 150,
+          "publisher_header": "orthtc_prsthtc_emplee_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Orthotic Services On Staff",
+          "definition": "Indicates that the provider offers orthotic services on staff.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 150,
+      "field": "orthtc_prsthtc_cntrctr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 151,
+          "publisher_header": "orthtc_prsthtc_cntrctr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Orthotic Services By Independent Contract",
+          "definition": "Indicates that the provider offers orthotic services by independent contractors.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 151,
+      "field": "orthtc_prsthtc_arngmt_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 152,
+          "publisher_header": "orthtc_prsthtc_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Orthotic Services By Arrangement",
+          "definition": "Indicates that the provider offers orthotic services by arrangement.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 152,
+      "field": "ot_emplee_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 153,
+          "publisher_header": "ot_emplee_sw ",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Occupational Therapists On Staff",
+          "definition": "Indicates that the provider has occupational therapists employed on staff. Included in CMS-359 forms.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 153,
+      "field": "ot_cntrctr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 154,
+          "publisher_header": "ot_cntrctr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Nurses By Independent Contract",
+          "definition": "Indicates that the provider has nurses employed as independent contractors.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 154,
+      "field": "ot_arngmt_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 155,
+          "publisher_header": "ot_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Nurses By Arrangement",
+          "definition": "Indicates that the provider has nurses employed under arrangement.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 155,
+      "field": "physn_emplee_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 156,
+          "publisher_header": "physn_emplee_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Physicians On Staff",
+          "definition": "Indicates that the provider offers physician services on staff.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 156,
+      "field": "physn_cntrctr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 157,
+          "publisher_header": "physn_cntrctr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Physicians By Independent Contract",
+          "definition": "Indicates that the provider offers physician services by independent contractors.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 157,
+      "field": "physn_arngmt_sw",
+      "match_status": "ambiguous",
+      "candidates": [
+        {
+          "row": 158,
+          "publisher_header": "physn_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Physicians By Arrangement",
+          "definition": "Indicates that the provider offers physician services by arrangement.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        },
+        {
+          "row": 159,
+          "publisher_header": "physn_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Physicians By Arrangement",
+          "definition": "Indicates that the provider offers physician services by arrangement. Included in CMS-359 forms.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": false,
+      "scope_present": false,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 158,
+      "field": "psychlgcl_emplee_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 160,
+          "publisher_header": "psychlgcl_emplee_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Psychologists On Staff",
+          "definition": "Indicates that the provider offers psychological services on staff.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 159,
+      "field": "psychlgcl_cntrctr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 161,
+          "publisher_header": "psychlgcl_cntrctr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Psychologists By Independent Contract",
+          "definition": "Indicates that the provider offers psychological services by independent contractors.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 160,
+      "field": "psychlgcl_arngmt_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 162,
+          "publisher_header": "psychlgcl_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Psychologists By Arrangement",
+          "definition": "Indicates that the provider offers psychological services by arrangement.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 161,
+      "field": "pt_emplee_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 163,
+          "publisher_header": "pt_emplee_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Physical Therapists On Staff",
+          "definition": "Indicates that the provider offers physical therapy on staff.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 162,
+      "field": "pt_cntrctr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 164,
+          "publisher_header": "pt_cntrctr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Physical Therapists By Independent Contract",
+          "definition": "Indicates that the provider offers physical therapy by independent contractors.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 163,
+      "field": "pt_arngmt_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 165,
+          "publisher_header": "pt_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Physical Therapists By Arrangement",
+          "definition": "Indicates that the provider offers physical therapy by arrangement.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 164,
+      "field": "rsprtry_care_emplee_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 166,
+          "publisher_header": "rsprtry_care_emplee_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Respiratory Therapists On Staff",
+          "definition": "Indicates that the provider offers respiratory therapy on staff.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 165,
+      "field": "rsprtry_care_cntrctr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 167,
+          "publisher_header": "rsprtry_care_cntrctr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Respiratory Therapists By Independent Contract",
+          "definition": "Indicates that the provider offers respiratory therapy by independent contractors.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 166,
+      "field": "rsprtry_care_arngmt_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 168,
+          "publisher_header": "rsprtry_care_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Respiratory Therapists By Arrangement",
+          "definition": "Indicates that the provider offers respiratory therapy by arrangement.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 167,
+      "field": "scl_emplee_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 169,
+          "publisher_header": "scl_emplee_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Social Services On Staff",
+          "definition": "Indicates that the provider offers social services on staff.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 168,
+      "field": "scl_cntrctr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 170,
+          "publisher_header": "scl_cntrctr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Social Services By Independent Contract",
+          "definition": "Indicates that the provider offers social services by independent contractors.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 169,
+      "field": "scl_arngmt_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 171,
+          "publisher_header": "scl_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Social Services By Arrangement",
+          "definition": "Indicates that the provider offers social services by arrangement.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 170,
+      "field": "spch_pthlgy_emplee_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 172,
+          "publisher_header": "spch_pthlgy_emplee_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Speech Language Pathologists On Staff",
+          "definition": "Indicates that the provider offers speech language pathology on staff.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 171,
+      "field": "spch_pthlgy_cntrctr_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 173,
+          "publisher_header": "spch_pthlgy_cntrctr_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Speech Language Pathologists By Independent Contract",
+          "definition": "Indicates that the provider offers speech language pathology by independent contractors.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 172,
+      "field": "spch_pthlgy_arngmt_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 174,
+          "publisher_header": "spch_pthlgy_arngmt_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Has Speech Language Pathologists By Arrangement",
+          "definition": "Indicates that the provider offers speech language pathology by arrangement.",
+          "applicability": "CORF",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 173,
+      "field": "ocptnl_thrpst_cntrct_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 175,
+          "publisher_header": "ocptnl_thrpst_cntrct_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Occupational Therapists By Arrangement",
+          "definition": "The number of full-time equivalent occupational therapists employed under arrangement by the provider.",
+          "applicability": "OPT/SLP",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 174,
+      "field": "ocptnl_thrpst_fltm_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 176,
+          "publisher_header": "ocptnl_thrpst_fltm_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Occupational Therapists On Staff",
+          "definition": "The number of full-time equivalent occupational therapists employed on staff by the provider.",
+          "applicability": "OPT/SLP",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 175,
+      "field": "phys_thrpst_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 177,
+          "publisher_header": "phys_thrpst_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Physical Therapist Count",
+          "definition": "Number of full-time equivalent physical therapists under arrangement to the outpatient physical therapy facility.",
+          "applicability": "OPT/SLP",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 176,
+      "field": "phys_thrpst_arngmt_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 178,
+          "publisher_header": "phys_thrpst_arngmt_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Physical Therapists By Arrangement",
+          "definition": "The number of full-time equivalent physical therapists employed under arrangement by the provider.",
+          "applicability": "OPT/SLP",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 177,
+      "field": "spch_pthlgst_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 179,
+          "publisher_header": "spch_pthlgst_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Speech Pathologist Count",
+          "definition": "Total number of full-time equivalent speech pathologists at the outpatient physical therapy facility.",
+          "applicability": "OPT/SLP",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 178,
+      "field": "spch_pthlgst_arngmt_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 180,
+          "publisher_header": "spch_pthlgst_arngmt_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Speech Pathologists By Arrangement",
+          "definition": "The number of full-time equivalent speech pathologists employed under arrangement by the provider.",
+          "applicability": "OPT/SLP",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 179,
+      "field": "spch_pthlgst_fltm_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 181,
+          "publisher_header": "spch_pthlgst_fltm_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Speech Pathologists On Staff",
+          "definition": "The number of full-time equivalent speech pathologists employed on staff by the provider.",
+          "applicability": "OPT/SLP",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 180,
+      "field": "icfiid_bed_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 182,
+          "publisher_header": "icfiid_bed_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "ICF/IID Beds",
+          "definition": "The number of Intermediate Care Facility for Individuals with Intellectual Disability (ICF/IID) beds for the provider.",
+          "applicability": "ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 181,
+      "field": "prvdr_bsd_fac_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 183,
+          "publisher_header": "prvdr_bsd_fac_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Is Distinct Part",
+          "definition": "Indicates that the provider is a distinct part of a hospital, Skilled Nursing Facility (SNF) or Nursing Facility (NF).",
+          "applicability": "ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 182,
+      "field": "drct_care_prsnel_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 184,
+          "publisher_header": "drct_care_prsnel_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Number of Direct Care Personnel",
+          "definition": "The number of full-time equivalent direct care personnel at the provider.",
+          "applicability": "ICFIID",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 183,
+      "field": "fed_fundd_fqhc_sw",
+      "match_status": "missing",
+      "candidates": [],
+      "definition_present": false,
+      "scope_present": false,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 184,
+      "field": "fqhc_aprvd_rhc_sw",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 185,
+          "publisher_header": "fqhc_aprvd_rhc_sw",
+          "format": "Yes/No/Not Applicable/Not Available",
+          "label": "Is Approved Medicare Rural Health Center",
+          "definition": "FQHC provier is approved Medicare Rural Health Center (RHC).",
+          "applicability": "FQHC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 185,
+      "field": "nrs_prctnr_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 186,
+          "publisher_header": "nrs_prctnr_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Nurse Practitioner Count",
+          "definition": "The number of full-time equivalent nurse practitioners at the provider.",
+          "applicability": "RHC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    },
+    {
+      "ordinal": 186,
+      "field": "physn_astnt_cnt",
+      "match_status": "unique_metadata_match",
+      "candidates": [
+        {
+          "row": 187,
+          "publisher_header": "physn_astnt_cnt",
+          "format": "INT/Not Applicable/Not Available",
+          "label": "Physcian Assistant Count",
+          "definition": "The number of full-time equivalent physician assistants at the provider.",
+          "applicability": "RHC",
+          "mapping_raw": null,
+          "mapping_status": "not_specified"
+        }
+      ],
+      "definition_present": true,
+      "scope_present": true,
+      "semantic_status": "publisher_metadata_extracted_not_full_semantic_review",
+      "raw_value_profile": "pending"
+    }
+  ],
+  "mapping_sheets": {
+    "M1": {
+      "header": [
+        "ID",
+        "Value"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "3",
+          "label": "Home Health Agency",
+          "provider_types": null
+        },
+        {
+          "row": 3,
+          "code": "4",
+          "label": "Psychiatric Residential Treatment Facility",
+          "provider_types": null
+        },
+        {
+          "row": 4,
+          "code": "5",
+          "label": "Portable X-Ray Supplier",
+          "provider_types": null
+        },
+        {
+          "row": 5,
+          "code": "6",
+          "label": "Outpatient Physical Therapy / Speech Pathology Service",
+          "provider_types": null
+        },
+        {
+          "row": 6,
+          "code": "7",
+          "label": "End-Stage Renal Disease Facility",
+          "provider_types": null
+        },
+        {
+          "row": 7,
+          "code": "8",
+          "label": "Intermediate Care Facility for Individuals with Intellectual Disabilities",
+          "provider_types": null
+        },
+        {
+          "row": 8,
+          "code": "9",
+          "label": "Rural Health Clinic",
+          "provider_types": null
+        },
+        {
+          "row": 9,
+          "code": "10",
+          "label": "Comprehensive Outpatient Rehabilitation Facility",
+          "provider_types": null
+        },
+        {
+          "row": 10,
+          "code": "11",
+          "label": "Ambulatory Surgical Center",
+          "provider_types": null
+        },
+        {
+          "row": 11,
+          "code": "12",
+          "label": "Hospice",
+          "provider_types": null
+        },
+        {
+          "row": 12,
+          "code": "13",
+          "label": "Organ Procurement Organization",
+          "provider_types": null
+        },
+        {
+          "row": 13,
+          "code": "14",
+          "label": "Community Mental Health Center",
+          "provider_types": null
+        },
+        {
+          "row": 14,
+          "code": "15",
+          "label": "Federally Qualified Health Center",
+          "provider_types": null
+        },
+        {
+          "row": 15,
+          "code": "20",
+          "label": "Nursing Home",
+          "provider_types": null
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M2": {
+      "header": [
+        "ID",
+        "Value"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "00",
+          "label": "Active",
+          "provider_types": null
+        },
+        {
+          "row": 3,
+          "code": "01",
+          "label": "Voluntary Merger/Closure",
+          "provider_types": null
+        },
+        {
+          "row": 4,
+          "code": "02",
+          "label": "Voluntary Dissatisfication w/ Reimbursement",
+          "provider_types": null
+        },
+        {
+          "row": 5,
+          "code": "03",
+          "label": "Risk of Involuntary Termination",
+          "provider_types": null
+        },
+        {
+          "row": 6,
+          "code": "04",
+          "label": "Other Reason for Withdrawal",
+          "provider_types": null
+        },
+        {
+          "row": 7,
+          "code": "05",
+          "label": "Fail to Meet Health/Safety",
+          "provider_types": null
+        },
+        {
+          "row": 8,
+          "code": "06",
+          "label": "Fail to Meet Agreement",
+          "provider_types": null
+        },
+        {
+          "row": 9,
+          "code": "07",
+          "label": "Provider Status Change",
+          "provider_types": null
+        },
+        {
+          "row": 10,
+          "code": "08",
+          "label": "Nonpayment of Fees",
+          "provider_types": null
+        },
+        {
+          "row": 11,
+          "code": "09",
+          "label": "Rev/Unsuccessful Participation in PT",
+          "provider_types": null
+        },
+        {
+          "row": 12,
+          "code": "10",
+          "label": "Rev/Other Reason",
+          "provider_types": null
+        },
+        {
+          "row": 13,
+          "code": "11",
+          "label": "Incomplete CLIA Application Information",
+          "provider_types": null
+        },
+        {
+          "row": 14,
+          "code": "12",
+          "label": "No Longer Performing Tests",
+          "provider_types": null
+        },
+        {
+          "row": 15,
+          "code": "13",
+          "label": "Multiple to Single Site Certificate",
+          "provider_types": null
+        },
+        {
+          "row": 16,
+          "code": "14",
+          "label": "Shared Laboratory",
+          "provider_types": null
+        },
+        {
+          "row": 17,
+          "code": "15",
+          "label": "Failure to Renew Waiver PPMP Certificate",
+          "provider_types": null
+        },
+        {
+          "row": 18,
+          "code": "16",
+          "label": "Duplicate CLIA Number",
+          "provider_types": null
+        },
+        {
+          "row": 19,
+          "code": "17",
+          "label": "Mail Returned No Forward Address Cert Ended",
+          "provider_types": null
+        },
+        {
+          "row": 20,
+          "code": "20",
+          "label": "Notification Bankruptcy",
+          "provider_types": null
+        },
+        {
+          "row": 21,
+          "code": "33",
+          "label": "Accreditation Not Confirmed",
+          "provider_types": null
+        },
+        {
+          "row": 22,
+          "code": "80",
+          "label": "Awaiting State Approval",
+          "provider_types": null
+        },
+        {
+          "row": 23,
+          "code": "99",
+          "label": "OIG Action - Do Not Activate",
+          "provider_types": null
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M3": {
+      "header": [
+        "ID",
+        "Value"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "01",
+          "label": "Alabama",
+          "provider_types": null
+        },
+        {
+          "row": 3,
+          "code": "02",
+          "label": "Alaska",
+          "provider_types": null
+        },
+        {
+          "row": 4,
+          "code": "04",
+          "label": "Arizona",
+          "provider_types": null
+        },
+        {
+          "row": 5,
+          "code": "05",
+          "label": "Arkansas",
+          "provider_types": null
+        },
+        {
+          "row": 6,
+          "code": "06",
+          "label": "California",
+          "provider_types": null
+        },
+        {
+          "row": 7,
+          "code": "08",
+          "label": "Colorado",
+          "provider_types": null
+        },
+        {
+          "row": 8,
+          "code": "09",
+          "label": "Connecticut",
+          "provider_types": null
+        },
+        {
+          "row": 9,
+          "code": "10",
+          "label": "Delaware",
+          "provider_types": null
+        },
+        {
+          "row": 10,
+          "code": "11",
+          "label": "District of Columbia",
+          "provider_types": null
+        },
+        {
+          "row": 11,
+          "code": "12",
+          "label": "Florida",
+          "provider_types": null
+        },
+        {
+          "row": 12,
+          "code": "13",
+          "label": "Georgia",
+          "provider_types": null
+        },
+        {
+          "row": 13,
+          "code": "15",
+          "label": "Hawaii",
+          "provider_types": null
+        },
+        {
+          "row": 14,
+          "code": "16",
+          "label": "Idaho",
+          "provider_types": null
+        },
+        {
+          "row": 15,
+          "code": "17",
+          "label": "Illinois",
+          "provider_types": null
+        },
+        {
+          "row": 16,
+          "code": "18",
+          "label": "Indiana",
+          "provider_types": null
+        },
+        {
+          "row": 17,
+          "code": "19",
+          "label": "Iowa",
+          "provider_types": null
+        },
+        {
+          "row": 18,
+          "code": "20",
+          "label": "Kansas",
+          "provider_types": null
+        },
+        {
+          "row": 19,
+          "code": "21",
+          "label": "Kentucky",
+          "provider_types": null
+        },
+        {
+          "row": 20,
+          "code": "22",
+          "label": "Louisiana",
+          "provider_types": null
+        },
+        {
+          "row": 21,
+          "code": "23",
+          "label": "Maine",
+          "provider_types": null
+        },
+        {
+          "row": 22,
+          "code": "24",
+          "label": "Maryland",
+          "provider_types": null
+        },
+        {
+          "row": 23,
+          "code": "25",
+          "label": "Massachusetts",
+          "provider_types": null
+        },
+        {
+          "row": 24,
+          "code": "26",
+          "label": "Michigan",
+          "provider_types": null
+        },
+        {
+          "row": 25,
+          "code": "27",
+          "label": "Minnesota",
+          "provider_types": null
+        },
+        {
+          "row": 26,
+          "code": "28",
+          "label": "MIssissippi",
+          "provider_types": null
+        },
+        {
+          "row": 27,
+          "code": "29",
+          "label": "MIssouri",
+          "provider_types": null
+        },
+        {
+          "row": 28,
+          "code": "30",
+          "label": "Montana",
+          "provider_types": null
+        },
+        {
+          "row": 29,
+          "code": "31",
+          "label": "Nebraska",
+          "provider_types": null
+        },
+        {
+          "row": 30,
+          "code": "32",
+          "label": "Nevada",
+          "provider_types": null
+        },
+        {
+          "row": 31,
+          "code": "33",
+          "label": "New Hampshire",
+          "provider_types": null
+        },
+        {
+          "row": 32,
+          "code": "34",
+          "label": "New Jersey",
+          "provider_types": null
+        },
+        {
+          "row": 33,
+          "code": "35",
+          "label": "New Mexico",
+          "provider_types": null
+        },
+        {
+          "row": 34,
+          "code": "36",
+          "label": "New York",
+          "provider_types": null
+        },
+        {
+          "row": 35,
+          "code": "37",
+          "label": "North Carolina",
+          "provider_types": null
+        },
+        {
+          "row": 36,
+          "code": "38",
+          "label": "North Dakota",
+          "provider_types": null
+        },
+        {
+          "row": 37,
+          "code": "39",
+          "label": "Ohio",
+          "provider_types": null
+        },
+        {
+          "row": 38,
+          "code": "40",
+          "label": "Oklahoma",
+          "provider_types": null
+        },
+        {
+          "row": 39,
+          "code": "41",
+          "label": "Oregon",
+          "provider_types": null
+        },
+        {
+          "row": 40,
+          "code": "42",
+          "label": "Pennsylvania",
+          "provider_types": null
+        },
+        {
+          "row": 41,
+          "code": "43",
+          "label": "Puerto Rico",
+          "provider_types": null
+        },
+        {
+          "row": 42,
+          "code": "44",
+          "label": "Rhode Island",
+          "provider_types": null
+        },
+        {
+          "row": 43,
+          "code": "45",
+          "label": "South Carolina",
+          "provider_types": null
+        },
+        {
+          "row": 44,
+          "code": "46",
+          "label": "South Dakota",
+          "provider_types": null
+        },
+        {
+          "row": 45,
+          "code": "47",
+          "label": "Tennessee",
+          "provider_types": null
+        },
+        {
+          "row": 46,
+          "code": "48",
+          "label": "Texas",
+          "provider_types": null
+        },
+        {
+          "row": 47,
+          "code": "49",
+          "label": "Utah",
+          "provider_types": null
+        },
+        {
+          "row": 48,
+          "code": "50",
+          "label": "Vermont",
+          "provider_types": null
+        },
+        {
+          "row": 49,
+          "code": "51",
+          "label": "Virginia",
+          "provider_types": null
+        },
+        {
+          "row": 50,
+          "code": "53",
+          "label": "Washington",
+          "provider_types": null
+        },
+        {
+          "row": 51,
+          "code": "54",
+          "label": "West Virginia",
+          "provider_types": null
+        },
+        {
+          "row": 52,
+          "code": "55",
+          "label": "Wisconsin",
+          "provider_types": null
+        },
+        {
+          "row": 53,
+          "code": "56",
+          "label": "Wyoming",
+          "provider_types": null
+        },
+        {
+          "row": 54,
+          "code": "60",
+          "label": "American Samoa",
+          "provider_types": null
+        },
+        {
+          "row": 55,
+          "code": "66",
+          "label": "Guam",
+          "provider_types": null
+        },
+        {
+          "row": 56,
+          "code": "69",
+          "label": "Northern Mariana Islands",
+          "provider_types": null
+        },
+        {
+          "row": 57,
+          "code": "72",
+          "label": "Puerto Rico",
+          "provider_types": null
+        },
+        {
+          "row": 58,
+          "code": "78",
+          "label": "U.S. Virgin Islands",
+          "provider_types": null
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M4": {
+      "header": [
+        "ID",
+        "Value",
+        "Provider Type"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "1",
+          "label": "The Joint Commission (TJC)",
+          "provider_types": "ASC, HHA, Hospice"
+        },
+        {
+          "row": 3,
+          "code": "2",
+          "label": "American Osteopathic Association (AOA)/ Healthcare Facilities Accreditation Program   (HFAP)",
+          "provider_types": "ASC"
+        },
+        {
+          "row": 4,
+          "code": "3",
+          "label": "Accreditation Association for Ambulatory Health Care (AAAHC)",
+          "provider_types": "ASC"
+        },
+        {
+          "row": 5,
+          "code": "4",
+          "label": "American Association for Accreditation of Ambulatory Surgery Facilities, Inc. (AAAASF)",
+          "provider_types": "ASC, OPT/SLP"
+        },
+        {
+          "row": 6,
+          "code": "5",
+          "label": "DNV GL Healthcare (DNV GL)",
+          "provider_types": "ASC"
+        },
+        {
+          "row": 7,
+          "code": "6",
+          "label": "Community Health Accreditation Partner (CHAP)",
+          "provider_types": "HHA, Hospice"
+        },
+        {
+          "row": 8,
+          "code": "7",
+          "label": "Accreditation Commission for Health Care (ACHC)",
+          "provider_types": "HHA, ASC, Hospice, ESRD"
+        },
+        {
+          "row": 9,
+          "code": "8",
+          "label": "Institute for Medical Quality (IMQ)",
+          "provider_types": "ASC"
+        },
+        {
+          "row": 10,
+          "code": "16",
+          "label": "National Dialysis Accreditation Commission (NDAC)",
+          "provider_types": "ESRD"
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M5": {
+      "header": [
+        "ID",
+        "Value",
+        "Provider Type"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "1",
+          "label": "Provided Directly by The Facility",
+          "provider_types": "ASC"
+        },
+        {
+          "row": 3,
+          "code": "2",
+          "label": "Provided Through an Outside Source",
+          "provider_types": "ASC"
+        },
+        {
+          "row": 4,
+          "code": "3",
+          "label": "Combination",
+          "provider_types": "ASC"
+        },
+        {
+          "row": 5,
+          "code": "4",
+          "label": "Not Provided",
+          "provider_types": "ASC"
+        },
+        {
+          "row": 6,
+          "code": "COMBO",
+          "label": "Combination",
+          "provider_types": "HHA"
+        },
+        {
+          "row": 7,
+          "code": "HS",
+          "label": "HHA Staff",
+          "provider_types": "HHA"
+        },
+        {
+          "row": 8,
+          "code": "NP",
+          "label": "Not Provided",
+          "provider_types": "HHA"
+        },
+        {
+          "row": 9,
+          "code": "PAS",
+          "label": "Provided by Agency Staff",
+          "provider_types": "HHA"
+        },
+        {
+          "row": 10,
+          "code": "UA",
+          "label": "Under Arrangement",
+          "provider_types": "HHA"
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M6": {
+      "header": [
+        "ID",
+        "Value",
+        "Provider Type"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "0",
+          "label": "Not Provided",
+          "provider_types": "Hospice"
+        },
+        {
+          "row": 3,
+          "code": "1",
+          "label": "Provided By Staff",
+          "provider_types": "Hospice"
+        },
+        {
+          "row": 4,
+          "code": "2",
+          "label": "Provided Under Arrangement",
+          "provider_types": "Hospice"
+        },
+        {
+          "row": 5,
+          "code": "3",
+          "label": "Combination",
+          "provider_types": "Hospice"
+        },
+        {
+          "row": 6,
+          "code": "COMBO",
+          "label": "Combination",
+          "provider_types": "HHA"
+        },
+        {
+          "row": 7,
+          "code": "HS",
+          "label": "HHA Staff",
+          "provider_types": "HHA"
+        },
+        {
+          "row": 8,
+          "code": "NP",
+          "label": "Not Provided",
+          "provider_types": "HHA"
+        },
+        {
+          "row": 9,
+          "code": "PAS",
+          "label": "Provided by Agency Staff",
+          "provider_types": "HHA"
+        },
+        {
+          "row": 10,
+          "code": "UA",
+          "label": "Under Arrangement",
+          "provider_types": "HHA"
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M7": {
+      "header": [
+        "ID",
+        "Value"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "1",
+          "label": "Provided Directly by the Facility",
+          "provider_types": null
+        },
+        {
+          "row": 3,
+          "code": "2",
+          "label": "Provided Through An Outside Source",
+          "provider_types": null
+        },
+        {
+          "row": 4,
+          "code": "3",
+          "label": "Combination",
+          "provider_types": null
+        },
+        {
+          "row": 5,
+          "code": "4",
+          "label": "Not Provided",
+          "provider_types": null
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M8": {
+      "header": [
+        "ID",
+        "Value"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "1",
+          "label": "VNA",
+          "provider_types": null
+        },
+        {
+          "row": 3,
+          "code": "2",
+          "label": "Combination Government & Voluntary",
+          "provider_types": null
+        },
+        {
+          "row": 4,
+          "code": "3",
+          "label": "Official Health Agency",
+          "provider_types": null
+        },
+        {
+          "row": 5,
+          "code": "4",
+          "label": "Rehab-based Program",
+          "provider_types": null
+        },
+        {
+          "row": 6,
+          "code": "5",
+          "label": "Hospital-based Program",
+          "provider_types": null
+        },
+        {
+          "row": 7,
+          "code": "6",
+          "label": "SNF/NF-based Program",
+          "provider_types": null
+        },
+        {
+          "row": 8,
+          "code": "7",
+          "label": "Other",
+          "provider_types": null
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M9": {
+      "header": [
+        "ID",
+        "Value"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "COMBO",
+          "label": "Combination",
+          "provider_types": null
+        },
+        {
+          "row": 3,
+          "code": "NP",
+          "label": "Not Provided",
+          "provider_types": null
+        },
+        {
+          "row": 4,
+          "code": "PAS",
+          "label": "Provided by Agency Staff",
+          "provider_types": null
+        },
+        {
+          "row": 5,
+          "code": "UA",
+          "label": "Under Arrangement",
+          "provider_types": null
+        },
+        {
+          "row": 6,
+          "code": "HS",
+          "label": "HHA Staff",
+          "provider_types": null
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M10": {
+      "header": [
+        "ID",
+        "Value"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "0",
+          "label": "Not Provided",
+          "provider_types": null
+        },
+        {
+          "row": 3,
+          "code": "1",
+          "label": "Provided By Staff",
+          "provider_types": null
+        },
+        {
+          "row": 4,
+          "code": "2",
+          "label": "Provided Under Arrangement",
+          "provider_types": null
+        },
+        {
+          "row": 5,
+          "code": "3",
+          "label": "Combination",
+          "provider_types": null
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M11": {
+      "header": [
+        "ID",
+        "Value"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "1",
+          "label": "SHORT TERM INPATIENT ACUTE CARE",
+          "provider_types": null
+        },
+        {
+          "row": 3,
+          "code": "2",
+          "label": "SHORT TERM INPATIENT RESPITE CARE",
+          "provider_types": null
+        },
+        {
+          "row": 4,
+          "code": "3",
+          "label": "SHORT TERM INPATIENT ACUTE AND RESPITE CARE",
+          "provider_types": null
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    },
+    "M12": {
+      "header": [
+        "ID",
+        "Value",
+        "Provider Types"
+      ],
+      "entries": [
+        {
+          "row": 2,
+          "code": "16",
+          "label": "SNF/NF Dual Certification",
+          "provider_types": "NH"
+        },
+        {
+          "row": 3,
+          "code": "17",
+          "label": "SNF/NF Distinct Part",
+          "provider_types": "NH"
+        },
+        {
+          "row": 4,
+          "code": "18",
+          "label": "SNF (Medicare) Only",
+          "provider_types": "NH"
+        },
+        {
+          "row": 5,
+          "code": "19",
+          "label": "NF (Medicaid) Only",
+          "provider_types": "NH"
+        }
+      ],
+      "status": "publisher_mapping_rows_extracted_not_domain_qualified"
+    }
+  },
+  "limitations": [
+    "184 source fields have a unique publisher definition and applicability cell; one field missing and one ambiguous. No automatic resolution or code coercion.",
+    "Exact mapping references and publisher mapping rows are evidence only. Verify scope, domain uniqueness, actual observed tokens, missing semantics, release applicability and permitted use before any new projection.",
+    "M8 annotated mapping reference remains unresolved for automatic processing; review its explicit HHA-only qualification.",
+    "No provider-level rows or new raw registry data downloaded; no operational status, installed equipment, purchasing intent, legal ownership or risk inferred."
+  ]
+}
