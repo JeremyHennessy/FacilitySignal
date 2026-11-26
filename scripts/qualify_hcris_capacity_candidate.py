@@ -60,7 +60,7 @@ def summarize(records,form,prior):
     pack={"version":1,"scope":"FY2024 selected CMS PUF historical report capacity; exact matched candidate cohort, not current certified capacity","form":form,"records":records}
     raw=(json.dumps(pack,sort_keys=True,separators=(",",":"))+"\n").encode("utf-8")
     return {"candidate_reports":len(records),"candidate_providers":providers,"field_value_states":{k:dict(v) for k,v in counts.items()},"ephemeral_candidate_bytes":len(raw),"ephemeral_candidate_sha256":hashlib.sha256(raw).hexdigest(),"row_level_output_retained":False,"public_promotion":False,"monetary_values_included":False}
-def run(form,root):
+def run(form,root,*,candidate_sink=None):
     cov=json.loads((root/"research/coverage_status.json").read_text())[form+"_cost_qualified_baseline"]["audit"]
     cross=json.loads((root/"research/hcris_direct_measure_crosswalk_20261126.json").read_text())["forms"][form]
     prior=json.loads((root/"research/hcris_three_way_candidates_20261126.json").read_text())["forms"][form]
@@ -81,7 +81,9 @@ def run(form,root):
         require(check[key]==prior[key],"three-way receipt mismatch")
     require(check["candidate_reports_in_period_conflicts"]==0,"overlap gate")
     records=candidate_records(headers,puf,alpha,directory,numeric,form)
-    return {"status":"COMPLETE_CANDIDATE_REHEARSAL","form":form,"source_sha256":cov["source_sha256"],"archive_sha256":archive["sha256"],"directory":dmeta,"publisher_license":cov["publisher"]["license"],"measure_dictionary":cross["dictionary_url"],"fields":FIELDS[form],**summarize(records,form,prior),"azure_writes":0}
+    receipt={"status":"COMPLETE_CANDIDATE_REHEARSAL","form":form,"source_sha256":cov["source_sha256"],"archive_sha256":archive["sha256"],"directory":dmeta,"publisher_license":cov["publisher"]["license"],"measure_dictionary":cross["dictionary_url"],"fields":FIELDS[form],**summarize(records,form,prior),"azure_writes":0}
+    if candidate_sink is not None:candidate_sink(records,receipt)
+    return receipt
 def main():
     p=argparse.ArgumentParser();p.add_argument("--form",choices=FIELDS,required=True);p.add_argument("--receipt",type=Path,required=True);a=p.parse_args()
     require(not a.receipt.exists(),"receipt exists")
