@@ -1,0 +1,390 @@
+{
+  "as_of": "2026-11-26",
+  "format_version": 1,
+  "qualification_run": 45822384234,
+  "qualification_job": 139917679090,
+  "qualified_commit": "1a946bc562100c6497cf9426021e66000fd693d5",
+  "source_count": 1,
+  "field_count": 18,
+  "profiled_rows": 284391,
+  "sources": [
+    {
+      "columns": 18,
+      "excluded_rows": 0,
+      "family": "qcor",
+      "input_rows": 284391,
+      "period": null,
+      "profiled_rows": 284391,
+      "scope": "Aggregate-only exact pinned source; lexical profile, not publisher semantic qualification.",
+      "source": "qcor-hospital",
+      "source_bytes": 249544306,
+      "source_sha256": "0827c681005f3fe61b5e46f6448c3128456b5a7b25b0318738ab764d418c4eec",
+      "fields": [
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "CCN",
+          "lexical_shapes": {
+            "other_text": 74,
+            "unsigned_integer_text": 284317
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 6,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 1,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Facility Name",
+          "lexical_shapes": {
+            "other_text": 284391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 50,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 2,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 10,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Hospital Subtype",
+          "lexical_shapes": {
+            "other_text": 284391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 36,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 3,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Street Address",
+          "lexical_shapes": {
+            "other_text": 284391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 50,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 4,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "City",
+          "lexical_shapes": {
+            "other_text": 284391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 20,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 5,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 55,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "State/Territory",
+          "lexical_shapes": {
+            "other_text": 284391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 6,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ZIP",
+          "lexical_shapes": {
+            "unsigned_integer_text": 284391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 5,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 7,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 10,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CMS Region",
+          "lexical_shapes": {
+            "other_text": 284391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 17,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 8,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Survey Event ID",
+          "lexical_shapes": {
+            "other_text": 282540,
+            "unsigned_integer_text": 1851
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 6,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 9,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "Survey Date",
+          "lexical_shapes": {
+            "iso_date_shape": 284391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 10,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 9,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Survey Type",
+          "lexical_shapes": {
+            "other_text": 284391
+          },
+          "literal_marker_counts": {
+            "n/a": 7
+          },
+          "max_nonmissing_trimmed_length": 28,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 11,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 1413,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Tag",
+          "lexical_shapes": {
+            "other_text": 284391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 5,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 12,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 969,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Description",
+          "lexical_shapes": {
+            "other_text": 284391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 60,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 13,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 284391
+          },
+          "distinct_nonmissing": {
+            "count": 6,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "Deficiency Tag Type",
+          "lexical_shapes": {
+            "other_text": 284391
+          },
+          "literal_marker_counts": {
+            "n/a": 79
+          },
+          "max_nonmissing_trimmed_length": 11,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 14,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 284391
+          }
+        },
+        {
+          "field": "Statement of Deficiency Text (Part 1)",
+          "ordinal": 15,
+          "presence": {
+            "blank": 111,
+            "nonblank": 284280
+          },
+          "profile_status": "narrative_excluded_presence_only"
+        },
+        {
+          "field": "Statement of Deficiency Text (Part 2)",
+          "ordinal": 16,
+          "presence": {
+            "blank": 283278,
+            "nonblank": 1113
+          },
+          "profile_status": "narrative_excluded_presence_only"
+        },
+        {
+          "field": "Statement of Deficiency Text (Part 3)",
+          "ordinal": 17,
+          "presence": {
+            "blank": 284257,
+            "nonblank": 134
+          },
+          "profile_status": "narrative_excluded_presence_only"
+        },
+        {
+          "field": "Statement of Deficiency Text (Part 4)",
+          "ordinal": 18,
+          "presence": {
+            "blank": 284360,
+            "nonblank": 31
+          },
+          "profile_status": "narrative_excluded_presence_only"
+        }
+      ]
+    }
+  ]
+}

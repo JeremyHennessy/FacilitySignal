@@ -1,0 +1,4153 @@
+{
+  "as_of": "2026-11-26",
+  "format_version": 1,
+  "qualification_run": 45822384234,
+  "qualification_job": 139917678474,
+  "qualified_commit": "1a946bc562100c6497cf9426021e66000fd693d5",
+  "source_count": 6,
+  "field_count": 186,
+  "profiled_rows": 152606,
+  "excluded_rows": 326781,
+  "sources": [
+    {
+      "columns": 39,
+      "excluded_rows": 0,
+      "family": "pecos",
+      "input_rows": 9120,
+      "period": "2026-11-01/2026-11-30",
+      "profiled_rows": 9120,
+      "scope": "Aggregate-only exact pinned source; lexical profile, not publisher semantic qualification.",
+      "source": "hospital-enrollment",
+      "source_bytes": 3089060,
+      "source_sha256": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e",
+      "fields": [
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT ID",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 15,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 1,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 56,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT STATE",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 2,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 3,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE CODE",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 5,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 3,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 3,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE TEXT",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 48,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 4,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "NPI",
+          "lexical_shapes": {
+            "unsigned_integer_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 5,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MULTIPLE NPI FLAG",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 6,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "CCN",
+          "lexical_shapes": {
+            "other_text": 3131,
+            "unsigned_integer_text": 5989
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 9,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 7,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATE ID",
+          "lexical_shapes": {
+            "unsigned_integer_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 8,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION NAME",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 9,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "DOING BUSINESS AS NAME",
+          "lexical_shapes": {
+            "other_text": 7024
+          },
+          "literal_marker_counts": {
+            "n/a": 4
+          },
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 10,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 2096,
+            "other_nonblank": 7024
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "INCORPORATION DATE",
+          "lexical_shapes": {
+            "slash_date_shape": 5668
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 11,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 3452,
+            "other_nonblank": 5668
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 53,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "INCORPORATION STATE",
+          "lexical_shapes": {
+            "other_text": 5729
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 12,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 3391,
+            "other_nonblank": 5729
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 7,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION TYPE STRUCTURE",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 15,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 13,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 377,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION OTHER TYPE TEXT",
+          "lexical_shapes": {
+            "other_text": 1391
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 60,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 14,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 7729,
+            "other_nonblank": 1391
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 3,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROPRIETARY NONPROFIT",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 15,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ADDRESS LINE 1",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 50,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 16,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 568,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ADDRESS LINE 2",
+          "lexical_shapes": {
+            "other_text": 736,
+            "unsigned_integer_text": 1
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 55,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 17,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 8383,
+            "other_nonblank": 737
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "CITY",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 25,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 18,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 56,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "STATE",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 19,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ZIP CODE",
+          "lexical_shapes": {
+            "unsigned_integer_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 9,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 20,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 6,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PRACTICE LOCATION TYPE",
+          "lexical_shapes": {
+            "other_text": 8396
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 32,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 21,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 724,
+            "other_nonblank": 8396
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 222,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "LOCATION OTHER TYPE TEXT",
+          "lexical_shapes": {
+            "other_text": 625
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 60,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 22,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 8495,
+            "other_nonblank": 625
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - GENERAL",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 23,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - ACUTE CARE",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 24,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - ALCOHOL DRUG",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 25,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - CHILDRENS",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 26,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - LONG-TERM",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 27,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - PSYCHIATRIC",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 28,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - REHABILITATION",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 29,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - SHORT-TERM",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 30,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - SWING-BED APPROVED",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 31,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - PSYCHIATRIC UNIT",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 32,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - REHABILITATION UNIT",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 33,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - SPECIALTY HOSPITAL",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 34,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - OTHER",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 35,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 172,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "SUBGROUP - OTHER TEXT",
+          "lexical_shapes": {
+            "other_text": 253
+          },
+          "literal_marker_counts": {
+            "na": 1
+          },
+          "max_nonmissing_trimmed_length": 59,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 36,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 8867,
+            "other_nonblank": 253
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "REH CONVERSION FLAG",
+          "lexical_shapes": {
+            "other_text": 9120
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 37,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 9120
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 48,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "REH CONVERSION DATE",
+          "lexical_shapes": {
+            "slash_date_shape": 51
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 38,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 9069,
+            "other_nonblank": 51
+          }
+        },
+        {
+          "cell_types": {
+            "str": 9120
+          },
+          "distinct_nonmissing": {
+            "count": 51,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CAH OR HOSPITAL CCN",
+          "lexical_shapes": {
+            "other_text": 23,
+            "unsigned_integer_text": 28
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 20,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 39,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 9069,
+            "other_nonblank": 51
+          }
+        }
+      ]
+    },
+    {
+      "columns": 38,
+      "excluded_rows": 124294,
+      "family": "pecos",
+      "input_rows": 147029,
+      "period": "2026-11-01/2026-11-30",
+      "profiled_rows": 22735,
+      "scope": "Aggregate-only exact pinned source; lexical profile, not publisher semantic qualification.",
+      "source": "hospital-owner",
+      "source_bytes": 29940255,
+      "source_sha256": "4886fc907dd67d56d2c45057a13288b5e74a220f11cd6ba32b908a81728038f0",
+      "fields": [
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT ID",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 15,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 1,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATE ID",
+          "lexical_shapes": {
+            "unsigned_integer_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 2,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION NAME",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 3,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATE ID - OWNER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 4,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "TYPE - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 5,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 8,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ROLE CODE - OWNER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 6,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 8,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ROLE TEXT - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 41,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 7,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATION DATE - OWNER",
+          "lexical_shapes": {
+            "slash_date_shape": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 8,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "field": "FIRST NAME - OWNER",
+          "ordinal": 9,
+          "presence": {
+            "blank": 22735
+          },
+          "profile_status": "contact_or_personal_presence_only"
+        },
+        {
+          "field": "MIDDLE NAME - OWNER",
+          "ordinal": 10,
+          "presence": {
+            "blank": 22735
+          },
+          "profile_status": "contact_or_personal_presence_only"
+        },
+        {
+          "field": "LAST NAME - OWNER",
+          "ordinal": 11,
+          "presence": {
+            "blank": 22735
+          },
+          "profile_status": "contact_or_personal_presence_only"
+        },
+        {
+          "field": "TITLE - OWNER",
+          "ordinal": 12,
+          "presence": {
+            "blank": 22735
+          },
+          "profile_status": "contact_or_personal_presence_only"
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION NAME - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 13,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 1654,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "DOING BUSINESS AS NAME - OWNER",
+          "lexical_shapes": {
+            "other_text": 9511
+          },
+          "literal_marker_counts": {
+            "n/a": 1262
+          },
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 14,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 13224,
+            "other_nonblank": 9511
+          }
+        },
+        {
+          "field": "ADDRESS LINE 1 - OWNER",
+          "ordinal": 15,
+          "presence": {
+            "blank": 12,
+            "nonblank": 22723
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "field": "ADDRESS LINE 2 - OWNER",
+          "ordinal": 16,
+          "presence": {
+            "blank": 16409,
+            "nonblank": 6326
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "field": "CITY - OWNER",
+          "ordinal": 17,
+          "presence": {
+            "blank": 12,
+            "nonblank": 22723
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "field": "STATE - OWNER",
+          "ordinal": 18,
+          "presence": {
+            "blank": 17,
+            "nonblank": 22718
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "field": "ZIP CODE - OWNER",
+          "ordinal": 19,
+          "presence": {
+            "blank": 25,
+            "nonblank": 22710
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 919,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PERCENTAGE OWNERSHIP",
+          "lexical_shapes": {
+            "decimal_text": 18594
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 6,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 20,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 4141,
+            "other_nonblank": 18594
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CREATED FOR ACQUISITION - OWNER",
+          "lexical_shapes": {
+            "other_text": 16197
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 21,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 6538,
+            "other_nonblank": 16197
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CORPORATION - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 22,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "LLC - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 23,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MEDICAL PROVIDER SUPPLIER - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 24,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MANAGEMENT SERVICES COMPANY - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 25,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MEDICAL STAFFING COMPANY - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 26,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "HOLDING COMPANY - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 27,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "INVESTMENT FIRM - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 28,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "FINANCIAL INSTITUTION - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 29,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CONSULTING FIRM - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 30,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "FOR PROFIT - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 31,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "NON PROFIT - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 32,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PRIVATE EQUITY COMPANY - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 33,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "REIT - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 34,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CHAIN HOME OFFICE - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 35,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "OTHER TYPE - OWNER",
+          "lexical_shapes": {
+            "other_text": 22735
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 36,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 22735
+          }
+        },
+        {
+          "field": "OTHER TYPE TEXT - OWNER",
+          "ordinal": 37,
+          "presence": {
+            "blank": 19357,
+            "nonblank": 3378
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "cell_types": {
+            "str": 22735
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "OWNED BY ANOTHER ORG OR IND - OWNER",
+          "lexical_shapes": {
+            "other_text": 5300
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 38,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 17435,
+            "other_nonblank": 5300
+          }
+        }
+      ]
+    },
+    {
+      "columns": 23,
+      "excluded_rows": 0,
+      "family": "pecos",
+      "input_rows": 779,
+      "period": "2026-07-01/2026-09-30",
+      "profiled_rows": 779,
+      "scope": "Aggregate-only exact pinned source; lexical profile, not publisher semantic qualification.",
+      "source": "hospital-chow",
+      "source_bytes": 253613,
+      "source_sha256": "a8cb5111dee64780f2c5bd9b10fdd304140848eeeee2e4b2c5012c7421533648",
+      "fields": [
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 766,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT ID - BUYER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 15,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 1,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 49,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT STATE - BUYER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 2,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 3,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE CODE - BUYER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 5,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 3,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 3,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE TEXT - BUYER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 48,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 4,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 744,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "NPI - BUYER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 5,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MULTIPLE NPI FLAG - BUYER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 6,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 766,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CCN - BUYER",
+          "lexical_shapes": {
+            "other_text": 229,
+            "unsigned_integer_text": 550
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 8,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 7,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 484,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATE ID - BUYER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 8,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 483,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION NAME - BUYER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 9,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 505,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "DOING BUSINESS AS NAME - BUYER",
+          "lexical_shapes": {
+            "other_text": 650
+          },
+          "literal_marker_counts": {
+            "n/a": 1
+          },
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 10,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 129,
+            "other_nonblank": 650
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CHOW TYPE CODE",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 11,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CHOW TYPE TEXT",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 19,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 12,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 213,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "EFFECTIVE DATE",
+          "lexical_shapes": {
+            "slash_date_shape": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 13,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 776,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT ID - SELLER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 15,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 14,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 49,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT STATE - SELLER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 15,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 6,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE CODE - SELLER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 5,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 16,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 6,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE TEXT - SELLER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 92,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 17,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 756,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "NPI - SELLER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 778
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 18,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 1,
+            "other_nonblank": 778
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MULTIPLE NPI FLAG - SELLER",
+          "lexical_shapes": {
+            "other_text": 778
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 19,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 1,
+            "other_nonblank": 778
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 775,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CCN - SELLER",
+          "lexical_shapes": {
+            "other_text": 230,
+            "unsigned_integer_text": 549
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 8,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 20,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 512,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATE ID - SELLER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 21,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 508,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION NAME - SELLER",
+          "lexical_shapes": {
+            "other_text": 779
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 22,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 779
+          }
+        },
+        {
+          "cell_types": {
+            "str": 779
+          },
+          "distinct_nonmissing": {
+            "count": 497,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "DOING BUSINESS AS NAME - SELLER",
+          "lexical_shapes": {
+            "other_text": 624
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 64,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 23,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 155,
+            "other_nonblank": 624
+          }
+        }
+      ]
+    },
+    {
+      "columns": 23,
+      "excluded_rows": 0,
+      "family": "pecos",
+      "input_rows": 14401,
+      "period": "2026-11-01/2026-11-30",
+      "profiled_rows": 14401,
+      "scope": "Aggregate-only exact pinned source; lexical profile, not publisher semantic qualification.",
+      "source": "snf-enrollment",
+      "source_bytes": 4417293,
+      "source_sha256": "21f6b282b07017f2596d9c3cb84dac3eaa100bd2ec637e0d7f03510e0f0acf89",
+      "fields": [
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT ID",
+          "lexical_shapes": {
+            "other_text": 14401
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 15,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 1,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 53,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT STATE",
+          "lexical_shapes": {
+            "other_text": 14401
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 2,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE CODE",
+          "lexical_shapes": {
+            "other_text": 14401
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 5,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 3,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE TEXT",
+          "lexical_shapes": {
+            "other_text": 14401
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 42,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 4,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "NPI",
+          "lexical_shapes": {
+            "unsigned_integer_text": 14401
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 5,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MULTIPLE NPI FLAG",
+          "lexical_shapes": {
+            "other_text": 14401
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 6,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "CCN",
+          "lexical_shapes": {
+            "other_text": 116,
+            "unsigned_integer_text": 14285
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 9,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 7,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATE ID",
+          "lexical_shapes": {
+            "unsigned_integer_text": 14401
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 8,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION NAME",
+          "lexical_shapes": {
+            "other_text": 14401
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 9,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "DOING BUSINESS AS NAME",
+          "lexical_shapes": {
+            "other_text": 12720
+          },
+          "literal_marker_counts": {
+            "n/a": 6,
+            "na": 1
+          },
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 10,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 1681,
+            "other_nonblank": 12720
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "INCORPORATION DATE",
+          "lexical_shapes": {
+            "slash_date_shape": 8296
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 11,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 6105,
+            "other_nonblank": 8296
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 52,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "INCORPORATION STATE",
+          "lexical_shapes": {
+            "other_text": 8385
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 12,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 6016,
+            "other_nonblank": 8385
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 7,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION TYPE STRUCTURE",
+          "lexical_shapes": {
+            "other_text": 14401
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 15,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 13,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 209,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION OTHER TYPE TEXT",
+          "lexical_shapes": {
+            "other_text": 913
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 55,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 14,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 13488,
+            "other_nonblank": 913
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 3,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROPRIETARY NONPROFIT",
+          "lexical_shapes": {
+            "other_text": 14401
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 15,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 14401
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "NURSING HOME PROVIDER NAME",
+          "lexical_shapes": {
+            "other_text": 14028
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 78,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 16,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 373,
+            "other_nonblank": 14028
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 613,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "AFFILIATION ENTITY NAME",
+          "lexical_shapes": {
+            "other_text": 10162
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 88,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 17,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 4239,
+            "other_nonblank": 10162
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 613,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "AFFILIATION ENTITY ID",
+          "lexical_shapes": {
+            "unsigned_integer_text": 10162
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 3,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 18,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 4239,
+            "other_nonblank": 10162
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ADDRESS LINE 1",
+          "lexical_shapes": {
+            "other_text": 14400
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 52,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 19,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 1,
+            "other_nonblank": 14400
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 565,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ADDRESS LINE 2",
+          "lexical_shapes": {
+            "other_text": 593
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 50,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 20,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 13808,
+            "other_nonblank": 593
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "CITY",
+          "lexical_shapes": {
+            "other_text": 14400
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 25,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 21,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 1,
+            "other_nonblank": 14400
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 53,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "STATE",
+          "lexical_shapes": {
+            "other_text": 14400
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 22,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 1,
+            "other_nonblank": 14400
+          }
+        },
+        {
+          "cell_types": {
+            "str": 14401
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ZIP CODE",
+          "lexical_shapes": {
+            "unsigned_integer_text": 14400
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 9,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 23,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 1,
+            "other_nonblank": 14400
+          }
+        }
+      ]
+    },
+    {
+      "columns": 40,
+      "excluded_rows": 202487,
+      "family": "pecos",
+      "input_rows": 302718,
+      "period": "2026-11-01/2026-11-30",
+      "profiled_rows": 100231,
+      "scope": "Aggregate-only exact pinned source; lexical profile, not publisher semantic qualification.",
+      "source": "snf-owner",
+      "source_bytes": 65545255,
+      "source_sha256": "538b02368085b57139619c643ef5bad19c1c855cc6643e4a7eb2e6f098f46657",
+      "fields": [
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT ID",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 15,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 1,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATE ID",
+          "lexical_shapes": {
+            "unsigned_integer_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 2,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION NAME",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 3,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATE ID - OWNER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 4,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "TYPE - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 5,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 12,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ROLE CODE - OWNER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 6,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 12,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ROLE TEXT - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 41,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 7,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATION DATE - OWNER",
+          "lexical_shapes": {
+            "slash_date_shape": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 8,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "field": "FIRST NAME - OWNER",
+          "ordinal": 9,
+          "presence": {
+            "blank": 100231
+          },
+          "profile_status": "contact_or_personal_presence_only"
+        },
+        {
+          "field": "MIDDLE NAME - OWNER",
+          "ordinal": 10,
+          "presence": {
+            "blank": 100231
+          },
+          "profile_status": "contact_or_personal_presence_only"
+        },
+        {
+          "field": "LAST NAME - OWNER",
+          "ordinal": 11,
+          "presence": {
+            "blank": 100231
+          },
+          "profile_status": "contact_or_personal_presence_only"
+        },
+        {
+          "field": "TITLE - OWNER",
+          "ordinal": 12,
+          "presence": {
+            "blank": 100231
+          },
+          "profile_status": "contact_or_personal_presence_only"
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION NAME - OWNER",
+          "lexical_shapes": {
+            "other_text": 85974
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 13,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 14257,
+            "other_nonblank": 85974
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "DOING BUSINESS AS NAME - OWNER",
+          "lexical_shapes": {
+            "other_text": 21111
+          },
+          "literal_marker_counts": {
+            "n/a": 129
+          },
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 14,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 79120,
+            "other_nonblank": 21111
+          }
+        },
+        {
+          "field": "ADDRESS LINE 1 - OWNER",
+          "ordinal": 15,
+          "presence": {
+            "blank": 148,
+            "nonblank": 100083
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "field": "ADDRESS LINE 2 - OWNER",
+          "ordinal": 16,
+          "presence": {
+            "blank": 59414,
+            "nonblank": 40817
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "field": "CITY - OWNER",
+          "ordinal": 17,
+          "presence": {
+            "blank": 148,
+            "nonblank": 100083
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "field": "STATE - OWNER",
+          "ordinal": 18,
+          "presence": {
+            "blank": 167,
+            "nonblank": 100064
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "field": "ZIP CODE - OWNER",
+          "ordinal": 19,
+          "presence": {
+            "blank": 180,
+            "nonblank": 100051
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 1717,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PERCENTAGE OWNERSHIP",
+          "lexical_shapes": {
+            "decimal_text": 44853
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 6,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 20,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 55378,
+            "other_nonblank": 44853
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CREATED FOR ACQUISITION - OWNER",
+          "lexical_shapes": {
+            "other_text": 42985
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 21,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 57246,
+            "other_nonblank": 42985
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CORPORATION - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 22,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "LLC - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 23,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MEDICAL PROVIDER SUPPLIER - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 24,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MANAGEMENT SERVICES COMPANY - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 25,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MEDICAL STAFFING COMPANY - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 26,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "HOLDING COMPANY - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 27,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "INVESTMENT FIRM - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 28,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "FINANCIAL INSTITUTION - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 29,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CONSULTING FIRM - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 30,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "FOR PROFIT - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 31,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "NON PROFIT - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 32,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PRIVATE EQUITY COMPANY - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 33,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "REIT - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 34,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CHAIN HOME OFFICE - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 35,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "TRUST OR TRUSTEE - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 36,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "OTHER TYPE - OWNER",
+          "lexical_shapes": {
+            "other_text": 100231
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 37,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 100231
+          }
+        },
+        {
+          "field": "OTHER TYPE TEXT - OWNER",
+          "ordinal": 38,
+          "presence": {
+            "blank": 85928,
+            "nonblank": 14303
+          },
+          "profile_status": "owner_address_or_free_text_presence_only"
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PARENT COMPANY - OWNER",
+          "lexical_shapes": {
+            "other_text": 31877
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 39,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 68354,
+            "other_nonblank": 31877
+          }
+        },
+        {
+          "cell_types": {
+            "str": 100231
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "OWNED BY ANOTHER ORG OR IND - OWNER",
+          "lexical_shapes": {
+            "other_text": 32340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 40,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 67891,
+            "other_nonblank": 32340
+          }
+        }
+      ]
+    },
+    {
+      "columns": 23,
+      "excluded_rows": 0,
+      "family": "pecos",
+      "input_rows": 5340,
+      "period": "2026-07-01/2026-09-30",
+      "profiled_rows": 5340,
+      "scope": "Aggregate-only exact pinned source; lexical profile, not publisher semantic qualification.",
+      "source": "snf-chow",
+      "source_bytes": 1888921,
+      "source_sha256": "8214fe65ec7c9b291bf579bd9fcdd281fbf9bd8a593613e9db93b6f0d8bdbcb5",
+      "fields": [
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT ID - BUYER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 15,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 1,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 51,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT STATE - BUYER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 2,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE CODE - BUYER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 5,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 3,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE TEXT - BUYER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 42,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 4,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "NPI - BUYER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 5,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MULTIPLE NPI FLAG - BUYER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 6,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "CCN - BUYER",
+          "lexical_shapes": {
+            "other_text": 38,
+            "unsigned_integer_text": 5302
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 9,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 7,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATE ID - BUYER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 8,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION NAME - BUYER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 66,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 9,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "DOING BUSINESS AS NAME - BUYER",
+          "lexical_shapes": {
+            "other_text": 4897
+          },
+          "literal_marker_counts": {
+            "n/a": 1
+          },
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 10,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 443,
+            "other_nonblank": 4897
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CHOW TYPE CODE",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 11,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "CHOW TYPE TEXT",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 19,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 12,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 741,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "EFFECTIVE DATE",
+          "lexical_shapes": {
+            "slash_date_shape": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 13,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT ID - SELLER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 15,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 14,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 51,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "ENROLLMENT STATE - SELLER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 2,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 15,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 7,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE CODE - SELLER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 5,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 16,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 7,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "PROVIDER TYPE TEXT - SELLER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 92,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 17,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "NPI - SELLER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 5339
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 18,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 1,
+            "other_nonblank": 5339
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "documented_code_counts": {},
+          "field": "MULTIPLE NPI FLAG - SELLER",
+          "lexical_shapes": {
+            "other_text": 5339
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 1,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 19,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 1,
+            "other_nonblank": 5339
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "CCN - SELLER",
+          "lexical_shapes": {
+            "other_text": 42,
+            "unsigned_integer_text": 5296
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 9,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 20,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 2,
+            "other_nonblank": 5338
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ASSOCIATE ID - SELLER",
+          "lexical_shapes": {
+            "unsigned_integer_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 10,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 21,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "ORGANIZATION NAME - SELLER",
+          "lexical_shapes": {
+            "other_text": 5340
+          },
+          "literal_marker_counts": {},
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 22,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "other_nonblank": 5340
+          }
+        },
+        {
+          "cell_types": {
+            "str": 5340
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "documented_code_counts": {},
+          "field": "DOING BUSINESS AS NAME - SELLER",
+          "lexical_shapes": {
+            "other_text": 4770
+          },
+          "literal_marker_counts": {
+            "n/a": 2
+          },
+          "max_nonmissing_trimmed_length": 70,
+          "numeric_aggregate_by_scope": {},
+          "ordinal": 23,
+          "profile_status": "aggregate_lexical_profile",
+          "scope_counts": {},
+          "states": {
+            "blank": 570,
+            "other_nonblank": 4770
+          }
+        }
+      ]
+    }
+  ]
+}

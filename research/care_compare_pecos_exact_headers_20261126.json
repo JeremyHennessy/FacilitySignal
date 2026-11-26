@@ -1,0 +1,3450 @@
+{
+  "format_version": 1,
+  "scope": "Exact pinned release headers recovered from qualified historical audit manifests, not raw value profiles.",
+  "source_count": 15,
+  "field_count": 653,
+  "evidence": {
+    "cms_run": 45664651617,
+    "cms_artifact": 15044944704,
+    "pecos_run": 45675883927,
+    "pecos_artifact": 15052006792,
+    "cms_manifest_sha256": "ec79fad38877793b42b49a50301dfccc80ca10c3840847e1295744d8f81021ae",
+    "pecos_manifest_sha256": "2937ab7e6f3730bcd9c7fce48abac8cc54cfd8d51c6dc4e8b7ce0ecab4a52138"
+  },
+  "as_of": "2026-11-26",
+  "qualification_run": 45821921407,
+  "qualification_job": 139916084400,
+  "qualified_commit": "bc4bba6360a650eea2624b377cc7c1c246f01511",
+  "sources": [
+    {
+      "source": "dialysis",
+      "family": "care-compare",
+      "source_sha256": "9b0232d73b8aa9628b51bc76b7246b8590daa0393ec9dfd3126171ce571469ed",
+      "period": "2026-10-28",
+      "input_rows": 7471,
+      "stored_rows": 7471,
+      "field_count": 146,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "Network",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "Facility Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "Five Star Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "Five Star",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "Five Star Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "Address Line 1",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "Address Line 2",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "City/Town",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "State",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "ZIP Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "County/Parish",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "Telephone Number",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "Profit or Non-Profit",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "Chain Owned",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "Chain Organization",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "Late Shift",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "# of Dialysis Stations",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "Offers in-center hemodialysis",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "Offers peritoneal dialysis",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "Offers home hemodialysis training",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "Certification Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "Claims Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 24,
+          "field": "EQRS Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 25,
+          "field": "SMR Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 26,
+          "field": "Patient Survival Category Text",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 27,
+          "field": "Patient Survival data availability code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 28,
+          "field": "Number of Patients included in survival summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 29,
+          "field": "Mortality Rate (Facility)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 30,
+          "field": "Mortality Rate: Upper Confidence Limit (97.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 31,
+          "field": "Mortality Rate: Lower Confidence Limit (2.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 32,
+          "field": "SHR Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 33,
+          "field": "Patient hospitalization category text",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 34,
+          "field": "Patient Hospitalization data availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 35,
+          "field": "Number of patients included in hospitalization summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 36,
+          "field": "Hospitalization Rate (Facility)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 37,
+          "field": "Hospitalization Rate: Upper Confidence Limit (97.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 38,
+          "field": "Hospitalization Rate: Lower Confidence Limit (2.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 39,
+          "field": "SRR Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 40,
+          "field": "Patient Hospital Readmission Category",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 41,
+          "field": "Patient Hospital Readmission data availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 42,
+          "field": "Number of hospitalizations included in hospital readmission summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 43,
+          "field": "Readmission Rate (Facility)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 44,
+          "field": "Readmission Rate: Upper Confidence Limit (97.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 45,
+          "field": "Readmission Rate: Lower Confidence Limit (2.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 46,
+          "field": "STrR Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 47,
+          "field": "Patient Transfusion category text",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 48,
+          "field": "Patient Transfusion data availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 49,
+          "field": "Number of patients included in the transfusion summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 50,
+          "field": "Transfusion Rate (Facility)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 51,
+          "field": "Transfusion Rate: Upper Confidence Limit (97.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 52,
+          "field": "Transfusion Rate: Lower Confidence Limit (2.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 53,
+          "field": "FYSWR Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 54,
+          "field": "FYSWR category text",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 55,
+          "field": "Patient transplant waitlist data availability code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 56,
+          "field": "Number of patients in this facility for FYSWR",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 57,
+          "field": "First Year Standardized Kidney Transplant Waitlist Ratio",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 58,
+          "field": "95% C.I. (upper limit) for FYSWR",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 59,
+          "field": "95% C.I. (lower limit) for FYSWR",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 60,
+          "field": "PPPW category text",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 61,
+          "field": "Patient prevalent transplant waitlist data availability code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 62,
+          "field": "Number of patients for PPPW",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 63,
+          "field": "Percentage of Prevalent Patients Waitlisted for Kidney Transplant",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 64,
+          "field": "95% C.I. (upper limit) for PPPW",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 65,
+          "field": "95% C.I. (lower limit) for PPPW",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 66,
+          "field": "SEDR Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 67,
+          "field": "SEDR category text",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 68,
+          "field": "Emergency Department Encounter data availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 69,
+          "field": "Number of patients included in SEDR summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 70,
+          "field": "Standardized ED visits ratio (Facility)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 71,
+          "field": "SEDR: Upper Confidence Limit (97.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 72,
+          "field": "SEDR: Lower Confidence Limit (2.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 73,
+          "field": "ED30 Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 74,
+          "field": "ED30 Category text",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 75,
+          "field": "Emergency Department Encounter Ratio Occurring within 30 Days of Hospital Discharge data availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 76,
+          "field": "Number of hospitalizations included in ED30 summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 77,
+          "field": "Standardized ED visits within 30 days of hospital discharge ratio (Facility)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 78,
+          "field": "ED30: Upper Confidence Limit (97.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 79,
+          "field": "ED30: Lower Confidence Limit (2.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 80,
+          "field": "YEARS Modality Switch BASED UPON",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 81,
+          "field": "SMoSR: Classification Category (FACILITY)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 82,
+          "field": "Modality Switch Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 83,
+          "field": "SMoSR: Number of Eligible patients (FACILITY)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 84,
+          "field": "SMoSR: Standardized Modality Switch Ratio (FACILITY)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 85,
+          "field": "SMoSR: Upper Confidence Limit (FACILITY)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 86,
+          "field": "SMoSR: Lower Confidence Limit (FACILITY)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 87,
+          "field": "SIR Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 88,
+          "field": "Patient Infection category text",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 89,
+          "field": "Patient Infection Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 90,
+          "field": "Standard Infection Ratio",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 91,
+          "field": "SIR: Upper Confidence Limit (97.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 92,
+          "field": "SIR: Lower Confidence Limit (2.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 93,
+          "field": "Fistula Category Text",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 94,
+          "field": "Fistula data availability code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 95,
+          "field": "Number of Patients included in fistula summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 96,
+          "field": "Fistula Rate (Facility)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 97,
+          "field": "Fistula Rate: Upper Confidence Limit (97.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 98,
+          "field": "Fistula Rate: Lower Confidence Limit (2.5%)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 99,
+          "field": "HCP Vaccination Data Collection Dates",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 100,
+          "field": "HCP Vaccination Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 101,
+          "field": "Healthcare worker COVID-19 vaccination adherence percentage",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 102,
+          "field": "Adult HD Kt/V data availability code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 103,
+          "field": "Number of adult HD patients with KT/V data",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 104,
+          "field": "Number of adult HD patient-months with Kt/V data",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 105,
+          "field": "Percent of Adult HD patients with Kt/V >= 1.2",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 106,
+          "field": "Adult PD Kt/V data availability code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 107,
+          "field": "Number of adult PD patients with KT/V data",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 108,
+          "field": "Number of adult PD patient-months with Kt/V data",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 109,
+          "field": "Percentage of Adult PD PTS with Kt/V >= 1.7",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 110,
+          "field": "Pediatric HD Kt/V Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 111,
+          "field": "Number of pediatric HD patients with Kt/V data",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 112,
+          "field": "Number of pediatric HD patient-months with KT/V data",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 113,
+          "field": "Percentage of Pediatric HD patients with Kt/V >= 1.2",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 114,
+          "field": "Pediatric PD Kt/V Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 115,
+          "field": "Number of pediatric PD patients with Kt/V data",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 116,
+          "field": "Number of pediatric PD patient-months with KT/V data",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 117,
+          "field": "Percentage of pediatric PD patients with Kt/V>=1.8",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 118,
+          "field": "Percentage of Medicare patients with Hgb<10 g/dL",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 119,
+          "field": "HGB<10 data availability code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 120,
+          "field": "Percentage of Medicare patients with Hgb>12 g/dL",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 121,
+          "field": "Hgb > 12 data availability code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 122,
+          "field": "Number of Dialysis Patients with Hgb data",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 123,
+          "field": "Hypercalcemia Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 124,
+          "field": "Number of patients in hypercalcemia summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 125,
+          "field": "Number of patient-months in hypercalcemia summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 126,
+          "field": "Percentage of adult patients with hypercalcemia (serum calcium greater than 10.2 mg/dL)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 127,
+          "field": "Serum phosphorus Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 128,
+          "field": "Number of patients in Serum phosphorus summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 129,
+          "field": "Number of patient-months in Serum phosphorus summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 130,
+          "field": "Percentage of Adult patients with serum phosphorus less than 3.5 mg/dL",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 131,
+          "field": "Percentage of Adult patients with serum phosphorus between 3.5-4.5 mg/dL",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 132,
+          "field": "Percentage of Adult patients with serum phosphorus between 4.6-5.5 mg/dL",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 133,
+          "field": "Percentage of Adult patients with serum phosphorus between 5.6-7.0 mg/dL",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 134,
+          "field": "Percentage of Adult patients with serum phosphorus greater than 7.0 mg/dL",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 135,
+          "field": "Hyperphosphatemia Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 136,
+          "field": "Number of patients in hyperphosphatemia summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 137,
+          "field": "Number of patient-months in hyperphosphatemia summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 138,
+          "field": "Percentage of adult patients with hyperphosphatemia (phosphorus at least 6.5 mg/dL)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 139,
+          "field": "Long term catheter Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 140,
+          "field": "Number of patients in long term catheter summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 141,
+          "field": "Number of patient months in long term catheter summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 142,
+          "field": "Percentage of Adult patients with long term catheter in use",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 143,
+          "field": "nPCR Data Availability Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 144,
+          "field": "Number of patients in nPCR summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 145,
+          "field": "Number of patient-months in nPCR summary",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 146,
+          "field": "Percentage of pediatric HD patients with nPCR",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "home-health",
+      "family": "care-compare",
+      "source_sha256": "7adf3e17961949bbd64ef243545aa387224d9837e8c5601476f5b11946e76d22",
+      "period": "2026-10-21",
+      "input_rows": 12409,
+      "stored_rows": 12409,
+      "field_count": 96,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "State",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "CMS Certification Number (CCN)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "Provider Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "Address",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "City/Town",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "ZIP Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "Telephone Number",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "Type of Ownership",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "Offers Nursing Care Services",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "Offers Physical Therapy Services",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "Offers Occupational Therapy Services",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "Offers Speech Pathology Services",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "Offers Medical Social Services",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "Offers Home Health Aide Services",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "Certification Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "Quality of patient care star rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "Footnote for quality of patient care star rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "Numerator for how often the home health team began their patients' care in a timely manner",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "Denominator for how often the home health team began their patients' care in a timely manner",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "How often the home health team began their patients' care in a timely manner",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "Footnote for how often the home health team began their patients' care in a timely manner",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "Numerator for how often the home health team determined whether patients received a flu shot for the current flu season",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "Denominator for how often the home health team determined whether patients received a flu shot for the current flu season",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 24,
+          "field": "How often the home health team determined whether patients received a flu shot for the current flu season",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 25,
+          "field": "Footnote for how often the home health team determined whether patients received a flu shot for the current flu season",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 26,
+          "field": "Numerator for how often patients got better at walking or moving around",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 27,
+          "field": "Denominator for how often patients got better at walking or moving around",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 28,
+          "field": "How often patients got better at walking or moving around",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 29,
+          "field": "Footnote for how often patients got better at walking or moving around",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 30,
+          "field": "Numerator for how often patients got better at getting in and out of bed",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 31,
+          "field": "Denominator for how often patients got better at getting in and out of bed",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 32,
+          "field": "How often patients got better at getting in and out of bed",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 33,
+          "field": "Footnote for how often patients got better at getting in and out of bed",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 34,
+          "field": "Numerator for how often patients got better at bathing",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 35,
+          "field": "Denominator for how often patients got better at bathing",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 36,
+          "field": "How often patients got better at bathing",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 37,
+          "field": "Footnote for how often patients got better at bathing",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 38,
+          "field": "Numerator for how often patients' breathing improved",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 39,
+          "field": "Denominator for how often patients' breathing improved",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 40,
+          "field": "How often patients' breathing improved",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 41,
+          "field": "Footnote for how often patients' breathing improved",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 42,
+          "field": "Numerator for how often patients got better at taking their drugs correctly by mouth",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 43,
+          "field": "Denominator for how often patients got better at taking their drugs correctly by mouth",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 44,
+          "field": "How often patients got better at taking their drugs correctly by mouth",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 45,
+          "field": "Footnote for how often patients got better at taking their drugs correctly by mouth",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 46,
+          "field": "Numerator for Changes in skin integrity post-acute care: pressure ulcer/injury",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 47,
+          "field": "Denominator for Changes in skin integrity post-acute care: pressure ulcer/injury",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 48,
+          "field": "Changes in skin integrity post-acute care: pressure ulcer/injury",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 49,
+          "field": "Footnote Changes in skin integrity post-acute care: pressure ulcer/injury",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 50,
+          "field": "Numerator for how often physician-recommended actions to address medication issues were completely timely",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 51,
+          "field": "Denominator for how often physician-recommended actions to address medication issues were completely timely",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 52,
+          "field": "How often physician-recommended actions to address medication issues were completely timely",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 53,
+          "field": "Footnote for how often physician-recommended actions to address medication issues were completely timely",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 54,
+          "field": "Numerator for Percent of Residents Experiencing One or More Falls with Major Injury",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 55,
+          "field": "Denominator for Percent of Residents Experiencing One or More Falls with Major Injury",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 56,
+          "field": "Percent of Residents Experiencing One or More Falls with Major Injury",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 57,
+          "field": "Footnote for Percent of Residents Experiencing One or More Falls with Major Injury",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 58,
+          "field": "Numerator for Discharge Function Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 59,
+          "field": "Denominator for Discharge Function Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 60,
+          "field": "Discharge Function Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 61,
+          "field": "Footnote for Discharge Function Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 62,
+          "field": "Numerator for Transfer of Health Information to the Provider",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 63,
+          "field": "Denominator for Transfer of Health Information to the Provider",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 64,
+          "field": "Transfer of Health Information to the Provider",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 65,
+          "field": "Footnote for Transfer of Health Information to the Provider",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 66,
+          "field": "Numerator for Transfer of Health Information to the Patient",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 67,
+          "field": "Denominator for Transfer of Health Information to the Patient",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 68,
+          "field": "Transfer of Health Information to the Patient",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 69,
+          "field": "Footnote for Transfer of Health Information to the Patient",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 70,
+          "field": "DTC Numerator",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 71,
+          "field": "DTC Denominator",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 72,
+          "field": "DTC Observed Rate",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 73,
+          "field": "DTC Risk-Standardized Rate",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 74,
+          "field": "DTC Risk-Standardized Rate (Lower Limit)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 75,
+          "field": "DTC Risk-Standardized Rate (Upper Limit)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 76,
+          "field": "DTC Performance Categorization",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 77,
+          "field": "Footnote for DTC Risk-Standardized Rate",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 78,
+          "field": "PPR Numerator",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 79,
+          "field": "PPR Denominator",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 80,
+          "field": "PPR Observed Rate",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 81,
+          "field": "PPR Risk-Standardized Rate",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 82,
+          "field": "PPR Risk-Standardized Rate (Lower Limit)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 83,
+          "field": "PPR Risk-Standardized Rate (Upper Limit)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 84,
+          "field": "PPR Performance Categorization",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 85,
+          "field": "Footnote for PPR Risk-Standardized Rate",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 86,
+          "field": "PPH Numerator",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 87,
+          "field": "PPH Denominator",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 88,
+          "field": "PPH Observed Rate",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 89,
+          "field": "PPH Risk-Standardized Rate",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 90,
+          "field": "PPH Risk-Standardized Rate (Lower Limit)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 91,
+          "field": "PPH Risk-Standardized Rate (Upper Limit)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 92,
+          "field": "PPH Performance Categorization",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 93,
+          "field": "Footnote for PPH Risk-Standardized Rate",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 94,
+          "field": "How much Medicare spends on an episode of care at this agency, compared to Medicare spending across all agencies nationally",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 95,
+          "field": "Footnote for how much Medicare spends on an episode of care at this agency, compared to Medicare spending across all agencies nationally",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 96,
+          "field": "No. of episodes to calc how much Medicare spends per episode of care at agency, compared to spending at all agencies (national)",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "hospice",
+      "family": "care-compare",
+      "source_sha256": "9ff0f8e60a0864f51faf9d5668b1a5b7a644f15eefc1fecd66a771783722700f",
+      "period": "2026-11-20",
+      "input_rows": 6470,
+      "stored_rows": 6470,
+      "field_count": 12,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "Facility Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "Address Line 1",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "Address Line 2",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "City/Town",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "State",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "ZIP Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "County/Parish",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "Telephone Number",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "CMS Region",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "Ownership Type",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "Certification Date",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "hospital",
+      "family": "care-compare",
+      "source_sha256": "ff2a82a7149975fb86348e7f901aa3bcd9f3701e8b0ecd0ab34702df193ff559",
+      "period": "2026-11-12",
+      "input_rows": 5435,
+      "stored_rows": 5435,
+      "field_count": 38,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "Facility ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "Facility Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "Address",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "City/Town",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "State",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "ZIP Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "County/Parish",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "Telephone Number",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "Hospital Type",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "Hospital Ownership",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "Emergency Services",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "Meets criteria for birthing friendly designation",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "Hospital overall rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "Hospital overall rating footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "MORT Group Measure Count",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "Count of Facility MORT Measures",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "Count of MORT Measures Better",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "Count of MORT Measures No Different",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "Count of MORT Measures Worse",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "MORT Group Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "Safety Group Measure Count",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "Count of Facility Safety Measures",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "Count of Safety Measures Better",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 24,
+          "field": "Count of Safety Measures No Different",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 25,
+          "field": "Count of Safety Measures Worse",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 26,
+          "field": "Safety Group Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 27,
+          "field": "READM Group Measure Count",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 28,
+          "field": "Count of Facility READM Measures",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 29,
+          "field": "Count of READM Measures Better",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 30,
+          "field": "Count of READM Measures No Different",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 31,
+          "field": "Count of READM Measures Worse",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 32,
+          "field": "READM Group Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 33,
+          "field": "Pt Exp Group Measure Count",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 34,
+          "field": "Count of Facility Pt Exp Measures",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 35,
+          "field": "Pt Exp Group Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 36,
+          "field": "TE Group Measure Count",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 37,
+          "field": "Count of Facility TE Measures",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 38,
+          "field": "TE Group Footnote",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "long-term-hospital",
+      "family": "care-compare",
+      "source_sha256": "176b1fae71a5ac97bf89f9d3404b98c6d3135b184f079baec939bcb2e016ba2e",
+      "period": "2026-09-23",
+      "input_rows": 311,
+      "stored_rows": 311,
+      "field_count": 13,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "Provider Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "Address Line 1",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "Address Line 2",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "City/Town",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "State",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "ZIP Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "County/Parish",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "Telephone Number",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "CMS Region",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "Ownership Type",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "Certification Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "Total Number of Beds",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "nursing",
+      "family": "care-compare",
+      "source_sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2",
+      "period": "2026-10-28",
+      "input_rows": 14686,
+      "stored_rows": 14686,
+      "field_count": 102,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "Provider Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "Provider Address",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "City/Town",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "State",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "ZIP Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "Telephone Number",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "Provider SSA County Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "County/Parish",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "Urban",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "Ownership Type",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "Number of Certified Beds",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "Average Number of Residents per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "Average Number of Residents per Day Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "Provider Type",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "Provider Resides in Hospital",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "Legal Business Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "Date First Approved to Provide Medicare and Medicaid Services",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "Chain Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "Chain ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "Number of Facilities in Chain",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "Chain Average Overall 5-star Rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "Chain Average Health Inspection Rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 24,
+          "field": "Chain Average Staffing Rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 25,
+          "field": "Chain Average QM Rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 26,
+          "field": "Continuing Care Retirement Community",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 27,
+          "field": "Special Focus Status",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 28,
+          "field": "Abuse Icon",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 29,
+          "field": "High Performing Icon",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 30,
+          "field": "Most Recent Health Inspection More Than 2 Years Ago",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 31,
+          "field": "Provider Changed Ownership in Last 12 Months",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 32,
+          "field": "With a Resident and Family Council",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 33,
+          "field": "Automatic Sprinkler Systems in All Required Areas",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 34,
+          "field": "Overall Rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 35,
+          "field": "Overall Rating Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 36,
+          "field": "Health Inspection Rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 37,
+          "field": "Health Inspection Rating Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 38,
+          "field": "QM Rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 39,
+          "field": "QM Rating Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 40,
+          "field": "Long-Stay QM Rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 41,
+          "field": "Long-Stay QM Rating Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 42,
+          "field": "Short-Stay QM Rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 43,
+          "field": "Short-Stay QM Rating Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 44,
+          "field": "Staffing Rating",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 45,
+          "field": "Staffing Rating Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 46,
+          "field": "Reported Staffing Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 47,
+          "field": "Physical Therapist Staffing Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 48,
+          "field": "Reported Nurse Aide Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 49,
+          "field": "Reported LPN Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 50,
+          "field": "Reported RN Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 51,
+          "field": "Reported Licensed Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 52,
+          "field": "Reported Total Nurse Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 53,
+          "field": "Total number of nurse staff hours per resident per day on the weekend",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 54,
+          "field": "Registered Nurse hours per resident per day on the weekend",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 55,
+          "field": "Reported Physical Therapist Staffing Hours per Resident Per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 56,
+          "field": "Total nursing staff turnover",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 57,
+          "field": "Total nursing staff turnover footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 58,
+          "field": "Registered Nurse turnover",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 59,
+          "field": "Registered Nurse turnover footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 60,
+          "field": "Number of administrators who have left the nursing home",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 61,
+          "field": "Administrator turnover footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 62,
+          "field": "Nursing Case-Mix Index",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 63,
+          "field": "Nursing Case-Mix Index Ratio",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 64,
+          "field": "Case-Mix Nurse Aide Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 65,
+          "field": "Case-Mix LPN Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 66,
+          "field": "Case-Mix RN Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 67,
+          "field": "Case-Mix Total Nurse Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 68,
+          "field": "Case-Mix Weekend Total Nurse Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 69,
+          "field": "Adjusted Nurse Aide Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 70,
+          "field": "Adjusted LPN Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 71,
+          "field": "Adjusted RN Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 72,
+          "field": "Adjusted Total Nurse Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 73,
+          "field": "Adjusted Weekend Total Nurse Staffing Hours per Resident per Day",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 74,
+          "field": "Rating Cycle 1 Standard Survey Health Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 75,
+          "field": "Rating Cycle 1 Standard Survey Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 76,
+          "field": "Rating Cycle 1 Total Number of Health Deficiencies",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 77,
+          "field": "Rating Cycle 1 Number of Standard Health Deficiencies",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 78,
+          "field": "Rating Cycle 1 Number of Complaint Health Deficiencies",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 79,
+          "field": "Rating Cycle 1 Health Deficiency Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 80,
+          "field": "Rating Cycle 1 Number of Health Revisits",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 81,
+          "field": "Rating Cycle 1 Health Revisit Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 82,
+          "field": "Rating Cycle 1 Total Health Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 83,
+          "field": "Rating Cycle 2 Standard Health Survey Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 84,
+          "field": "Rating Cycle 2 Standard Survey Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 85,
+          "field": "Rating Cycle 2/3 Total Number of Health Deficiencies",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 86,
+          "field": "Rating Cycle 2 Number of Standard Health Deficiencies",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 87,
+          "field": "Rating Cycle 2/3 Number of Complaint Health Deficiencies",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 88,
+          "field": "Rating Cycle 2/3 Health Deficiency Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 89,
+          "field": "Rating Cycle 2/3 Number of Health Revisits",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 90,
+          "field": "Rating Cycle 2/3 Health Revisit Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 91,
+          "field": "Rating Cycle 2/3 Total Health Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 92,
+          "field": "Total Weighted Health Survey Score",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 93,
+          "field": "Number of Citations from Infection Control Inspections",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 94,
+          "field": "Number of Fines",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 95,
+          "field": "Total Amount of Fines in Dollars",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 96,
+          "field": "Number of Payment Denials",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 97,
+          "field": "Total Number of Penalties",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 98,
+          "field": "Location",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 99,
+          "field": "Latitude",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 100,
+          "field": "Longitude",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 101,
+          "field": "Geocoding Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 102,
+          "field": "Processing Date",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "nursing-fire",
+      "family": "care-compare",
+      "source_sha256": "54a18c6409013e2bdcac2da315ddc4557430a993fd324abecd34d7d071c70cb7",
+      "period": "2026-10-28",
+      "input_rows": 200387,
+      "stored_rows": 200387,
+      "field_count": 24,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "Provider Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "Provider Address",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "City/Town",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "State",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "ZIP Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "Survey Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "Survey Type",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "Deficiency Prefix",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "Deficiency Category",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "Deficiency Tag Number",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "Tag Version",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "Deficiency Description",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "Scope Severity Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "Deficiency Corrected",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "Correction Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "Inspection Cycle",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "Standard Deficiency",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "Complaint Deficiency",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "Infection Control Inspection Deficiency",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "Citation under IDR",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "Citation under IIDR",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "Location",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 24,
+          "field": "Processing Date",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "nursing-health",
+      "family": "care-compare",
+      "source_sha256": "15185c61678f9bcc663076de666d5054a0ca34249c97206cf9e0e3f4ae922473",
+      "period": "2026-10-28",
+      "input_rows": 418682,
+      "stored_rows": 418682,
+      "field_count": 24,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "Provider Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "Provider Address",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "City/Town",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "State",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "ZIP Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "Survey Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "Survey Footnote",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "Survey Type",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "Deficiency Prefix",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "Deficiency Category",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "Deficiency Tag Number",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "Deficiency Description",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "Scope Severity Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "Deficiency Corrected",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "Correction Date",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "Inspection Cycle",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "Standard Deficiency",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "Complaint Deficiency",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "Infection Control Inspection Deficiency",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "Citation under IDR",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "Citation under IIDR",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "Location",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 24,
+          "field": "Processing Date",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "rehabilitation",
+      "family": "care-compare",
+      "source_sha256": "18f89d14e22355b3ae2bcf02b2db93e7e54341f679ad380a2d741ce58002e214",
+      "period": "2026-09-23",
+      "input_rows": 1222,
+      "stored_rows": 1222,
+      "field_count": 12,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "Provider Name",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "Address Line 1",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "Address Line 2",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "City/Town",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "State",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "ZIP Code",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "County/Parish",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "Telephone Number",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "CMS Region",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "Ownership Type",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "Certification Date",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "hospital-enrollment",
+      "family": "pecos",
+      "source_sha256": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e",
+      "period": "2026-11-01/2026-11-30",
+      "input_rows": 9120,
+      "stored_rows": 9120,
+      "field_count": 39,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "ENROLLMENT ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "ENROLLMENT STATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "PROVIDER TYPE CODE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "PROVIDER TYPE TEXT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "NPI",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "MULTIPLE NPI FLAG",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "CCN",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "ASSOCIATE ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "ORGANIZATION NAME",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "DOING BUSINESS AS NAME",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "INCORPORATION DATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "INCORPORATION STATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "ORGANIZATION TYPE STRUCTURE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "ORGANIZATION OTHER TYPE TEXT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "PROPRIETARY NONPROFIT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "ADDRESS LINE 1",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "ADDRESS LINE 2",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "CITY",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "STATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "ZIP CODE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "PRACTICE LOCATION TYPE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "LOCATION OTHER TYPE TEXT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "SUBGROUP - GENERAL",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 24,
+          "field": "SUBGROUP - ACUTE CARE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 25,
+          "field": "SUBGROUP - ALCOHOL DRUG",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 26,
+          "field": "SUBGROUP - CHILDRENS",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 27,
+          "field": "SUBGROUP - LONG-TERM",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 28,
+          "field": "SUBGROUP - PSYCHIATRIC",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 29,
+          "field": "SUBGROUP - REHABILITATION",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 30,
+          "field": "SUBGROUP - SHORT-TERM",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 31,
+          "field": "SUBGROUP - SWING-BED APPROVED",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 32,
+          "field": "SUBGROUP - PSYCHIATRIC UNIT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 33,
+          "field": "SUBGROUP - REHABILITATION UNIT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 34,
+          "field": "SUBGROUP - SPECIALTY HOSPITAL",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 35,
+          "field": "SUBGROUP - OTHER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 36,
+          "field": "SUBGROUP - OTHER TEXT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 37,
+          "field": "REH CONVERSION FLAG",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 38,
+          "field": "REH CONVERSION DATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 39,
+          "field": "CAH OR HOSPITAL CCN",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "hospital-owner",
+      "family": "pecos",
+      "source_sha256": "4886fc907dd67d56d2c45057a13288b5e74a220f11cd6ba32b908a81728038f0",
+      "period": "2026-11-01/2026-11-30",
+      "input_rows": 147029,
+      "stored_rows": 22735,
+      "field_count": 38,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "ENROLLMENT ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "ASSOCIATE ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "ORGANIZATION NAME",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "ASSOCIATE ID - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "TYPE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "ROLE CODE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "ROLE TEXT - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "ASSOCIATION DATE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "FIRST NAME - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "MIDDLE NAME - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "LAST NAME - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "TITLE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "ORGANIZATION NAME - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "DOING BUSINESS AS NAME - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "ADDRESS LINE 1 - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "ADDRESS LINE 2 - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "CITY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "STATE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "ZIP CODE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "PERCENTAGE OWNERSHIP",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "CREATED FOR ACQUISITION - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "CORPORATION - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "LLC - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 24,
+          "field": "MEDICAL PROVIDER SUPPLIER - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 25,
+          "field": "MANAGEMENT SERVICES COMPANY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 26,
+          "field": "MEDICAL STAFFING COMPANY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 27,
+          "field": "HOLDING COMPANY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 28,
+          "field": "INVESTMENT FIRM - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 29,
+          "field": "FINANCIAL INSTITUTION - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 30,
+          "field": "CONSULTING FIRM - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 31,
+          "field": "FOR PROFIT - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 32,
+          "field": "NON PROFIT - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 33,
+          "field": "PRIVATE EQUITY COMPANY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 34,
+          "field": "REIT - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 35,
+          "field": "CHAIN HOME OFFICE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 36,
+          "field": "OTHER TYPE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 37,
+          "field": "OTHER TYPE TEXT - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 38,
+          "field": "OWNED BY ANOTHER ORG OR IND - OWNER",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "hospital-chow",
+      "family": "pecos",
+      "source_sha256": "a8cb5111dee64780f2c5bd9b10fdd304140848eeeee2e4b2c5012c7421533648",
+      "period": "2026-07-01/2026-09-30",
+      "input_rows": 779,
+      "stored_rows": 779,
+      "field_count": 23,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "ENROLLMENT ID - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "ENROLLMENT STATE - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "PROVIDER TYPE CODE - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "PROVIDER TYPE TEXT - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "NPI - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "MULTIPLE NPI FLAG - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "CCN - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "ASSOCIATE ID - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "ORGANIZATION NAME - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "DOING BUSINESS AS NAME - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "CHOW TYPE CODE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "CHOW TYPE TEXT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "EFFECTIVE DATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "ENROLLMENT ID - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "ENROLLMENT STATE - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "PROVIDER TYPE CODE - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "PROVIDER TYPE TEXT - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "NPI - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "MULTIPLE NPI FLAG - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "CCN - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "ASSOCIATE ID - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "ORGANIZATION NAME - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "DOING BUSINESS AS NAME - SELLER",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "snf-enrollment",
+      "family": "pecos",
+      "source_sha256": "21f6b282b07017f2596d9c3cb84dac3eaa100bd2ec637e0d7f03510e0f0acf89",
+      "period": "2026-11-01/2026-11-30",
+      "input_rows": 14401,
+      "stored_rows": 14401,
+      "field_count": 23,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "ENROLLMENT ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "ENROLLMENT STATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "PROVIDER TYPE CODE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "PROVIDER TYPE TEXT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "NPI",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "MULTIPLE NPI FLAG",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "CCN",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "ASSOCIATE ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "ORGANIZATION NAME",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "DOING BUSINESS AS NAME",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "INCORPORATION DATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "INCORPORATION STATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "ORGANIZATION TYPE STRUCTURE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "ORGANIZATION OTHER TYPE TEXT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "PROPRIETARY NONPROFIT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "NURSING HOME PROVIDER NAME",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "AFFILIATION ENTITY NAME",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "AFFILIATION ENTITY ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "ADDRESS LINE 1",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "ADDRESS LINE 2",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "CITY",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "STATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "ZIP CODE",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "snf-owner",
+      "family": "pecos",
+      "source_sha256": "538b02368085b57139619c643ef5bad19c1c855cc6643e4a7eb2e6f098f46657",
+      "period": "2026-11-01/2026-11-30",
+      "input_rows": 302718,
+      "stored_rows": 100231,
+      "field_count": 40,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "ENROLLMENT ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "ASSOCIATE ID",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "ORGANIZATION NAME",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "ASSOCIATE ID - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "TYPE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "ROLE CODE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "ROLE TEXT - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "ASSOCIATION DATE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "FIRST NAME - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "MIDDLE NAME - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "LAST NAME - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "TITLE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "ORGANIZATION NAME - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "DOING BUSINESS AS NAME - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "ADDRESS LINE 1 - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "ADDRESS LINE 2 - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "CITY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "STATE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "ZIP CODE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "PERCENTAGE OWNERSHIP",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "CREATED FOR ACQUISITION - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "CORPORATION - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "LLC - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 24,
+          "field": "MEDICAL PROVIDER SUPPLIER - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 25,
+          "field": "MANAGEMENT SERVICES COMPANY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 26,
+          "field": "MEDICAL STAFFING COMPANY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 27,
+          "field": "HOLDING COMPANY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 28,
+          "field": "INVESTMENT FIRM - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 29,
+          "field": "FINANCIAL INSTITUTION - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 30,
+          "field": "CONSULTING FIRM - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 31,
+          "field": "FOR PROFIT - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 32,
+          "field": "NON PROFIT - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 33,
+          "field": "PRIVATE EQUITY COMPANY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 34,
+          "field": "REIT - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 35,
+          "field": "CHAIN HOME OFFICE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 36,
+          "field": "TRUST OR TRUSTEE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 37,
+          "field": "OTHER TYPE - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 38,
+          "field": "OTHER TYPE TEXT - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 39,
+          "field": "PARENT COMPANY - OWNER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 40,
+          "field": "OWNED BY ANOTHER ORG OR IND - OWNER",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    },
+    {
+      "source": "snf-chow",
+      "family": "pecos",
+      "source_sha256": "8214fe65ec7c9b291bf579bd9fcdd281fbf9bd8a593613e9db93b6f0d8bdbcb5",
+      "period": "2026-07-01/2026-09-30",
+      "input_rows": 5340,
+      "stored_rows": 5340,
+      "field_count": 23,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "ENROLLMENT ID - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 2,
+          "field": "ENROLLMENT STATE - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 3,
+          "field": "PROVIDER TYPE CODE - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 4,
+          "field": "PROVIDER TYPE TEXT - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 5,
+          "field": "NPI - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 6,
+          "field": "MULTIPLE NPI FLAG - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 7,
+          "field": "CCN - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 8,
+          "field": "ASSOCIATE ID - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 9,
+          "field": "ORGANIZATION NAME - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 10,
+          "field": "DOING BUSINESS AS NAME - BUYER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 11,
+          "field": "CHOW TYPE CODE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 12,
+          "field": "CHOW TYPE TEXT",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 13,
+          "field": "EFFECTIVE DATE",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 14,
+          "field": "ENROLLMENT ID - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 15,
+          "field": "ENROLLMENT STATE - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 16,
+          "field": "PROVIDER TYPE CODE - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 17,
+          "field": "PROVIDER TYPE TEXT - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 18,
+          "field": "NPI - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 19,
+          "field": "MULTIPLE NPI FLAG - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 20,
+          "field": "CCN - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 21,
+          "field": "ASSOCIATE ID - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 22,
+          "field": "ORGANIZATION NAME - SELLER",
+          "semantic_status": "exact_header_only"
+        },
+        {
+          "ordinal": 23,
+          "field": "DOING BUSINESS AS NAME - SELLER",
+          "semantic_status": "exact_header_only"
+        }
+      ]
+    }
+  ]
+}

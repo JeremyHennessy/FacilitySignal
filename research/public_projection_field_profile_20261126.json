@@ -1,0 +1,316 @@
+{
+  "as_of": "2026-11-26",
+  "reviewed_commit": "5ed5eeceae8c258c1d7c1d780162c274603060cd",
+  "scope": "Read-only actual public projection profiling, no new download from publisher. Field counts and distinct values only; no row-level output. Numeric capacity sum is dataset-specific; do not aggregate across sources or treat as installed equipment. Address tuple cardinality is not physical property count. String distinctness is literal.",
+  "sources": [
+    {
+      "source": "dialysis",
+      "qualified": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "source": "home-health",
+      "qualified": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "source": "hospice",
+      "blob_sha": "33bae4cee004d1e6f97ce587e7e0d5a20b2af14b",
+      "release": "2026-11-20",
+      "published_rows": 6470,
+      "source_rows": 6470,
+      "columns": {
+        "address": {
+          "nonblank": 6470,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 6462,
+          "types": {
+            "string": 6470
+          }
+        },
+        "capacity": {
+          "nonblank": 0,
+          "blank_or_missing": 6470,
+          "distinct_nonblank": 0,
+          "types": {},
+          "numeric_nonnegative_integer_rows": 0,
+          "zero_rows": 0,
+          "min": null,
+          "max": null,
+          "sum": 0
+        },
+        "ccn": {
+          "nonblank": 6470,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 6470,
+          "types": {
+            "string": 6470
+          }
+        },
+        "city": {
+          "nonblank": 6470,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 1997,
+          "types": {
+            "string": 6470
+          }
+        },
+        "name": {
+          "nonblank": 6470,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 5555,
+          "types": {
+            "string": 6470
+          }
+        },
+        "state": {
+          "nonblank": 6470,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 55,
+          "types": {
+            "string": 6470
+          }
+        },
+        "zip": {
+          "nonblank": 6470,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 3196,
+          "types": {
+            "string": 6470
+          }
+        }
+      },
+      "unique_ccn_state": 6470,
+      "unique_reported_address_city_state_zip": 6464,
+      "qualified": true
+    },
+    {
+      "source": "hospital",
+      "blob_sha": "b0f0c73946064b5cb754912f685d2fcf975fb02b",
+      "release": "2026-11-12",
+      "published_rows": 5435,
+      "source_rows": 5435,
+      "columns": {
+        "address": {
+          "nonblank": 5435,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 5399,
+          "types": {
+            "string": 5435
+          }
+        },
+        "capacity": {
+          "nonblank": 0,
+          "blank_or_missing": 5435,
+          "distinct_nonblank": 0,
+          "types": {},
+          "numeric_nonnegative_integer_rows": 0,
+          "zero_rows": 0,
+          "min": null,
+          "max": null,
+          "sum": 0
+        },
+        "ccn": {
+          "nonblank": 5435,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 5435,
+          "types": {
+            "string": 5435
+          }
+        },
+        "city": {
+          "nonblank": 5435,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 3048,
+          "types": {
+            "string": 5435
+          }
+        },
+        "name": {
+          "nonblank": 5435,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 5301,
+          "types": {
+            "string": 5435
+          }
+        },
+        "state": {
+          "nonblank": 5435,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 56,
+          "types": {
+            "string": 5435
+          }
+        },
+        "zip": {
+          "nonblank": 5435,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 4723,
+          "types": {
+            "string": 5435
+          }
+        }
+      },
+      "unique_ccn_state": 5435,
+      "unique_reported_address_city_state_zip": 5425,
+      "qualified": true
+    },
+    {
+      "source": "long-term-hospital",
+      "blob_sha": "a844990b8de32df47b73fe218dac66fb3beba850",
+      "release": "2026-09-23",
+      "published_rows": 311,
+      "source_rows": 311,
+      "columns": {
+        "address": {
+          "nonblank": 311,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 311,
+          "types": {
+            "string": 311
+          }
+        },
+        "capacity": {
+          "nonblank": 0,
+          "blank_or_missing": 311,
+          "distinct_nonblank": 0,
+          "types": {},
+          "numeric_nonnegative_integer_rows": 0,
+          "zero_rows": 0,
+          "min": null,
+          "max": null,
+          "sum": 0
+        },
+        "ccn": {
+          "nonblank": 311,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 311,
+          "types": {
+            "string": 311
+          }
+        },
+        "city": {
+          "nonblank": 311,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 265,
+          "types": {
+            "string": 311
+          }
+        },
+        "name": {
+          "nonblank": 311,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 311,
+          "types": {
+            "string": 311
+          }
+        },
+        "state": {
+          "nonblank": 311,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 47,
+          "types": {
+            "string": 311
+          }
+        },
+        "zip": {
+          "nonblank": 311,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 307,
+          "types": {
+            "string": 311
+          }
+        }
+      },
+      "unique_ccn_state": 311,
+      "unique_reported_address_city_state_zip": 311,
+      "qualified": true
+    },
+    {
+      "source": "nursing",
+      "qualified": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "source": "nursing-fire",
+      "qualified": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "source": "nursing-health",
+      "qualified": false,
+      "error": "SyntaxError: Unexpected end of JSON input"
+    },
+    {
+      "source": "rehabilitation",
+      "blob_sha": "009eca9c0400521f8547bc542fa51cadb85be317",
+      "release": "2026-09-23",
+      "published_rows": 1222,
+      "source_rows": 1222,
+      "columns": {
+        "address": {
+          "nonblank": 1222,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 1220,
+          "types": {
+            "string": 1222
+          }
+        },
+        "capacity": {
+          "nonblank": 0,
+          "blank_or_missing": 1222,
+          "distinct_nonblank": 0,
+          "types": {},
+          "numeric_nonnegative_integer_rows": 0,
+          "zero_rows": 0,
+          "min": null,
+          "max": null,
+          "sum": 0
+        },
+        "ccn": {
+          "nonblank": 1222,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 1222,
+          "types": {
+            "string": 1222
+          }
+        },
+        "city": {
+          "nonblank": 1222,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 830,
+          "types": {
+            "string": 1222
+          }
+        },
+        "name": {
+          "nonblank": 1222,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 1207,
+          "types": {
+            "string": 1222
+          }
+        },
+        "state": {
+          "nonblank": 1222,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 52,
+          "types": {
+            "string": 1222
+          }
+        },
+        "zip": {
+          "nonblank": 1222,
+          "blank_or_missing": 0,
+          "distinct_nonblank": 1126,
+          "types": {
+            "string": 1222
+          }
+        }
+      },
+      "unique_ccn_state": 1222,
+      "unique_reported_address_city_state_zip": 1222,
+      "qualified": true
+    }
+  ]
+}

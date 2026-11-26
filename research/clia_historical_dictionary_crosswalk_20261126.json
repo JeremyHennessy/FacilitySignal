@@ -1,0 +1,2198 @@
+{
+  "current_release": "2026-07-01/2026-09-30",
+  "fields_with_candidate_description": 103,
+  "fields_with_exact_historical_match": 103,
+  "fields_with_multiple_candidate_definitions": 0,
+  "format_version": 1,
+  "historical_layout": {
+    "bytes": 415072,
+    "document_date": "2023-04-02",
+    "sha256": "8887f8603550af0ec6cb793b1f1fcb61afd5ab1bea4c1ca5701f592b56e7be65",
+    "url": "https://data.cms.gov/sites/default/files/2023-07/50eacc07-7930-4e62-97e3-e04a2dc1e2a3/P.QWB.POSQ.CLIA.LAYOUT.MAR23.pdf"
+  },
+  "historical_occurrences": 103,
+  "limitations": [
+    "Publisher catalog links a historical April 2023 layout; not proof of Q3 2026 semantics.",
+    "Page-based extracted text and codes are review candidates; scope, formatting and current value domains must be verified.",
+    "Different provider categories can assign different domains. Never infer assets, current status or legal ownership."
+  ],
+  "provider_categories": {
+    "22": [
+      "CLIA Laboratory"
+    ]
+  },
+  "raw_fields": 103,
+  "source": "clia",
+  "source_sha256": "b7b7dce68abec2ad69b6c3378ff14e0b1c4e12f5dda433d12db2cf8eb4c5b1bf",
+  "unmatched_fields": [],
+  "as_of": "2026-11-26",
+  "qualification_run": 45822686294,
+  "qualification_job": 139918706742,
+  "qualified_commit": "dbd988b92c754ff447e777052c88fb89fd418532",
+  "fields": [
+    {
+      "definitions": [
+        {
+          "description_candidate": "Identifies the subtype of the provider, within the primary category. Used in reporting to show the breakdown of provider categories, mainly for hospitals and SNFs.",
+          "label_candidate": "Provider Category Subtype Code",
+          "locations": [
+            [
+              "22",
+              1,
+              1
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "PRVDR_CTGRY_SBTYP_CD",
+      "historical_name_matches": 1,
+      "ordinal": 1,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Identifies the type of provider participating in the Medicare/Medicaid program.",
+          "label_candidate": "Provider Category Code",
+          "locations": [
+            [
+              "22",
+              1,
+              1
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "PRVDR_CTGRY_CD",
+      "historical_name_matches": 1,
+      "ordinal": 2,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Number of times this provider has undergone a change of ownership.",
+          "label_candidate": "CHOW Count",
+          "locations": [
+            [
+              "22",
+              1,
+              1
+            ]
+          ],
+          "type_candidate": "NUMBER"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CHOW_CNT",
+      "historical_name_matches": 1,
+      "ordinal": 3,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Effective date of the most recent change of ownership for this provider.",
+          "label_candidate": "CHOW Date",
+          "locations": [
+            [
+              "22",
+              1,
+              1
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CHOW_DT",
+      "historical_name_matches": 1,
+      "ordinal": 4,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "City in which the provider is physically located.",
+          "label_candidate": "Address: City",
+          "locations": [
+            [
+              "22",
+              2,
+              1
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CITY_NAME",
+      "historical_name_matches": 1,
+      "ordinal": 5,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if a provider is in compliance with program requirements based on an acceptable plan for correction of deficiencies.",
+          "label_candidate": "Compliance: Acceptable POC",
+          "locations": [
+            [
+              "22",
+              2,
+              1
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ACPTBL_POC_SW",
+      "historical_name_matches": 1,
+      "ordinal": 6,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Compliance status of a provider at the time of certification survey.",
+          "label_candidate": "Compliance: Status",
+          "locations": [
+            [
+              "22",
+              2,
+              1
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CMPLNC_STUS_CD",
+      "historical_name_matches": 1,
+      "ordinal": 7,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Social Security Administration geographic code indicating the county where the provider is located.",
+          "label_candidate": "SSA County Code",
+          "locations": [
+            [
+              "22",
+              2,
+              2
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "SSA_CNTY_CD",
+      "historical_name_matches": 1,
+      "ordinal": 8,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Cross reference provider number",
+          "label_candidate": "Cross Ref Provider Number",
+          "locations": [
+            [
+              "22",
+              2,
+              2
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CROSS_REF_PROVIDER_NUMBER",
+      "historical_name_matches": 1,
+      "ordinal": 9,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Equal to the exit date of the initial visit of the Health survey for certifications completed after July 28, 2012. For certifications prior to that date, the certification date is equal to the exit date of the initial visit of the Health survey or LSC survey, whichever is later.",
+          "label_candidate": "Certification Date",
+          "locations": [
+            [
+              "22",
+              3,
+              2
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CRTFCTN_DT",
+      "historical_name_matches": 1,
+      "ordinal": 10,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if a facility is eligible to participate in the Medicare and/or Medicaid programs.",
+          "label_candidate": "Eligibility Indicator",
+          "locations": [
+            [
+              "22",
+              3,
+              2
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ELGBLTY_SW",
+      "historical_name_matches": 1,
+      "ordinal": 11,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Name of the provider certified to participate in the Medicare and/or Medicaid programs.",
+          "label_candidate": "Facility Name",
+          "locations": [
+            [
+              "22",
+              3,
+              2
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "FAC_NAME",
+      "historical_name_matches": 1,
+      "ordinal": 12,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Number assigned to the Medicare Administrative Contractor, intermediary or carrier servicing this provider.",
+          "label_candidate": "Medicare Administrative Contractor (MAC) or Intermediary or Carrier Code",
+          "locations": [
+            [
+              "22",
+              3,
+              2
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "INTRMDRY_CARR_CD",
+      "historical_name_matches": 1,
+      "ordinal": 13,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Number which may be assigned to a provider by the state Medicaid agency for external control or billing purposes.",
+          "label_candidate": "Medicaid Vendor Number",
+          "locations": [
+            [
+              "22",
+              10,
+              7
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "MDCD_VNDR_NUM",
+      "historical_name_matches": 1,
+      "ordinal": 14,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date a provider is first approved to provide Medicare and/or Medicaid services.",
+          "label_candidate": "Original Participation Date",
+          "locations": [
+            [
+              "22",
+              10,
+              7
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ORGNL_PRTCPTN_DT",
+      "historical_name_matches": 1,
+      "ordinal": 15,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Effective date of the previous change of ownership for this provider.",
+          "label_candidate": "Prior CHOW Date",
+          "locations": [
+            [
+              "22",
+              10,
+              7
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CHOW_PRIOR_DT",
+      "historical_name_matches": 1,
+      "ordinal": 16,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Number assigned to the previous Medicare Administrative Contractor, intermediary or carrier servicing this provider.",
+          "label_candidate": null,
+          "locations": [
+            [
+              "22",
+              10,
+              7
+            ]
+          ],
+          "type_candidate": null
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "INTRMDRY_CARR_PRIOR_CD",
+      "historical_name_matches": 1,
+      "ordinal": 17,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Six or ten position identification number that is assigned to a certified provider. This is the CMS Certification Number.",
+          "label_candidate": "CCN",
+          "locations": [
+            [
+              "22",
+              17,
+              12
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "PRVDR_NUM",
+      "historical_name_matches": 1,
+      "ordinal": 18,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates the CMS Regional Office responsible for the certification of the provider.",
+          "label_candidate": "Region Code",
+          "locations": [
+            [
+              "22",
+              17,
+              12
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "RGN_CD",
+      "historical_name_matches": 1,
+      "ordinal": 19,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the record is a skeleton record. Only a limited set of data is available for this provider; no survey data exists. Only provider categories 01,17,19,21and 22 can have skeleton providers.",
+          "label_candidate": "Skeleton Record Indicator",
+          "locations": [
+            [
+              "22",
+              17,
+              12
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "SKLTN_REC_SW",
+      "historical_name_matches": 1,
+      "ordinal": 20,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Two-character state abbreviation.",
+          "label_candidate": "State Abbreviation",
+          "locations": [
+            [
+              "22",
+              17,
+              13
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "STATE_CD",
+      "historical_name_matches": 1,
+      "ordinal": 21,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Social Security Administration geographic code indicating the state where the provider is located.",
+          "label_candidate": "SSA State Code",
+          "locations": [
+            [
+              "22",
+              19,
+              14
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "SSA_STATE_CD",
+      "historical_name_matches": 1,
+      "ordinal": 22,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Identifies the region within a state where the provider is located.",
+          "label_candidate": "State Region Code",
+          "locations": [
+            [
+              "22",
+              20,
+              15
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "STATE_RGN_CD",
+      "historical_name_matches": 1,
+      "ordinal": 23,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Street address where the provider is located.",
+          "label_candidate": "Address: Street",
+          "locations": [
+            [
+              "22",
+              27,
+              20
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ST_ADR",
+      "historical_name_matches": 1,
+      "ordinal": 24,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Telephone number of the provider.",
+          "label_candidate": "Telephone Number",
+          "locations": [
+            [
+              "22",
+              28,
+              20
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "PHNE_NUM",
+      "historical_name_matches": 1,
+      "ordinal": 25,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates the current termination status for the provider.",
+          "label_candidate": "Termination Code",
+          "locations": [
+            [
+              "22",
+              28,
+              20
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "PGM_TRMNTN_CD",
+      "historical_name_matches": 1,
+      "ordinal": 26,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date the provider was terminated. For CLIA providers, date the laboratory's certificate was terminated or the expiration date of the current CLIA certificate.",
+          "label_candidate": "Termination or Expiration Date",
+          "locations": [
+            [
+              "22",
+              28,
+              21
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "TRMNTN_EXPRTN_DT",
+      "historical_name_matches": 1,
+      "ordinal": 27,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Identifies the reason for the certification. Type of action from the official survey record, CMS 1539 form.",
+          "label_candidate": "Type of Action Code",
+          "locations": [
+            [
+              "22",
+              29,
+              21
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CRTFCTN_ACTN_TYPE_CD",
+      "historical_name_matches": 1,
+      "ordinal": 28,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates the ownership type of the provider.",
+          "label_candidate": "Ownership Type Code",
+          "locations": [
+            [
+              "22",
+              29,
+              21
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "GNRL_CNTL_TYPE_CD",
+      "historical_name_matches": 1,
+      "ordinal": 29,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Five-digit ZIP code for a provider's physical address.",
+          "label_candidate": "Address: ZIP Code",
+          "locations": [
+            [
+              "22",
+              29,
+              21
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ZIP_CD",
+      "historical_name_matches": 1,
+      "ordinal": 30,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "FIPS State Code",
+          "label_candidate": "FIPS State Code",
+          "locations": [
+            [
+              "22",
+              29,
+              21
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "FIPS_STATE_CD",
+      "historical_name_matches": 1,
+      "ordinal": 31,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "FIPS County Code",
+          "label_candidate": "FIPS County Code",
+          "locations": [
+            [
+              "22",
+              30,
+              22
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "FIPS_CNTY_CD",
+      "historical_name_matches": 1,
+      "ordinal": 32,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "CBSA (Core Based Statistical Area) indicates whether the county is defined as Urban or Rural.",
+          "label_candidate": "CBSA Urban Rural Indicator",
+          "locations": [
+            [
+              "22",
+              31,
+              22
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CBSA_URBN_RRL_IND",
+      "historical_name_matches": 1,
+      "ordinal": 33,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "CBSA (Core Based Statistical Area) geographic entities defined by the U.S. Office of Management and Budget (OMB) on June 6, 2003 for use by Federal statistical agencies in collecting, tabulating, and publishing Federal statistics. CBSA collectively refers to MSA.",
+          "label_candidate": "CBSA Code",
+          "locations": [
+            [
+              "22",
+              31,
+              22
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CBSA_CD",
+      "historical_name_matches": 1,
+      "ordinal": 34,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Second line of a laboratory's street address.",
+          "label_candidate": "Address: Street 2nd Line",
+          "locations": [
+            [
+              "22",
+              31,
+              22
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ADDTNL_ST_ADR",
+      "historical_name_matches": 1,
+      "ordinal": 35,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Affiliated provider number 1",
+          "label_candidate": "Affiliated Provider Number 1",
+          "locations": [
+            [
+              "22",
+              31,
+              23
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AFFILIATED_PROVIDER_NUMBER_1",
+      "historical_name_matches": 1,
+      "ordinal": 36,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Affiliated provider number 2",
+          "label_candidate": "Affiliated Provider Number 2",
+          "locations": [
+            [
+              "22",
+              31,
+              23
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AFFILIATED_PROVIDER_NUMBER_2",
+      "historical_name_matches": 1,
+      "ordinal": 37,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Affiliated provider number 3",
+          "label_candidate": "Affiliated Provider Number 3",
+          "locations": [
+            [
+              "22",
+              31,
+              23
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AFFILIATED_PROVIDER_NUMBER_3",
+      "historical_name_matches": 1,
+      "ordinal": 38,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Affiliated provider number 4",
+          "label_candidate": "Affiliated Provider Number 4",
+          "locations": [
+            [
+              "22",
+              31,
+              23
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AFFILIATED_PROVIDER_NUMBER_4",
+      "historical_name_matches": 1,
+      "ordinal": 39,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Affiliated provider number 5",
+          "label_candidate": "Affiliated Provider Number 5",
+          "locations": [
+            [
+              "22",
+              32,
+              23
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AFFILIATED_PROVIDER_NUMBER_5",
+      "historical_name_matches": 1,
+      "ordinal": 40,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Affiliated provider number 6",
+          "label_candidate": "Affiliated Provider Number 6",
+          "locations": [
+            [
+              "22",
+              32,
+              23
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AFFILIATED_PROVIDER_NUMBER_6",
+      "historical_name_matches": 1,
+      "ordinal": 41,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Affiliated provider number 7",
+          "label_candidate": "Affiliated Provider Number 7",
+          "locations": [
+            [
+              "22",
+              32,
+              23
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AFFILIATED_PROVIDER_NUMBER_7",
+      "historical_name_matches": 1,
+      "ordinal": 42,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Affiliated provider number 8",
+          "label_candidate": "Affiliated Provider Number 8",
+          "locations": [
+            [
+              "22",
+              32,
+              23
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AFFILIATED_PROVIDER_NUMBER_8",
+      "historical_name_matches": 1,
+      "ordinal": 43,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab reported that it is accredited by the American Association for Laboratory Accreditation. This information is from the lab's CMS-116.",
+          "label_candidate": "AO A2LA Accredited Code",
+          "locations": [
+            [
+              "22",
+              32,
+              23
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "A2LA_ACRDTD_CD",
+      "historical_name_matches": 1,
+      "ordinal": 44,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date the American Association for Laboratory Accreditation confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+          "label_candidate": "AO A2LA Accredited Y Match Date",
+          "locations": [
+            [
+              "22",
+              32,
+              23
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "A2LA_ACRDTD_Y_MATCH_DT",
+      "historical_name_matches": 1,
+      "ordinal": 45,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab is confirmed as accredited by the American Association for Laboratory Accreditation.",
+          "label_candidate": "AO A2LA Accredited Y Match Indicator",
+          "locations": [
+            [
+              "22",
+              32,
+              23
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "A2LA_ACRDTD_Y_MATCH_SW",
+      "historical_name_matches": 1,
+      "ordinal": 46,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab reported that it is accredited by the American Association of Blood Banks. This information is from the lab's CMS-116.",
+          "label_candidate": "AO AABB Accredited Code",
+          "locations": [
+            [
+              "22",
+              33,
+              24
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AABB_ACRDTD_CD",
+      "historical_name_matches": 1,
+      "ordinal": 47,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date the American Association of Blood Banks confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+          "label_candidate": "AO AABB Accredited Y Match Date",
+          "locations": [
+            [
+              "22",
+              33,
+              24
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AABB_ACRDTD_Y_MATCH_DT",
+      "historical_name_matches": 1,
+      "ordinal": 48,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab is confirmed as accredited by the American Association of Blood Banks.",
+          "label_candidate": "AO AABB Accredited Y Match Indicator",
+          "locations": [
+            [
+              "22",
+              33,
+              24
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AABB_ACRDTD_Y_MATCH_SW",
+      "historical_name_matches": 1,
+      "ordinal": 49,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab reported that it is accredited by the American Osteopathic Association. This information is from the lab's CMS-116.",
+          "label_candidate": "AO AOA Accredited Code",
+          "locations": [
+            [
+              "22",
+              33,
+              24
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AOA_ACRDTD_CD",
+      "historical_name_matches": 1,
+      "ordinal": 50,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date the American Osteopathic Association confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+          "label_candidate": "AO AOA Accredited Y Match Date",
+          "locations": [
+            [
+              "22",
+              33,
+              24
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AOA_ACRDTD_Y_MATCH_DT",
+      "historical_name_matches": 1,
+      "ordinal": 51,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab is confirmed as accredited by the American Osteopathic Association.",
+          "label_candidate": "AO AOA Accredited Y Match Indicator",
+          "locations": [
+            [
+              "22",
+              33,
+              24
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "AOA_ACRDTD_Y_MATCH_SW",
+      "historical_name_matches": 1,
+      "ordinal": 52,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab reported that it is accredited by the American Society for Histocompatibility and Immunogenetics. This information is from the lab's CMS-116.",
+          "label_candidate": "AO ASHI Accredited Code",
+          "locations": [
+            [
+              "22",
+              34,
+              24
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ASHI_ACRDTD_CD",
+      "historical_name_matches": 1,
+      "ordinal": 53,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date the American Society for Histocompatibility and Immunogenetics confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+          "label_candidate": "AO ASHI Accredited Y Match Date",
+          "locations": [
+            [
+              "22",
+              34,
+              24
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ASHI_ACRDTD_Y_MATCH_DT",
+      "historical_name_matches": 1,
+      "ordinal": 54,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab is confirmed as accredited by the American Society for Histocompatibility and Immunogenetics.",
+          "label_candidate": "AO ASHI Accredited Y Match Indicator",
+          "locations": [
+            [
+              "22",
+              34,
+              25
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ASHI_ACRDTD_Y_MATCH_SW",
+      "historical_name_matches": 1,
+      "ordinal": 55,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab reported that it is accredited by the College of American Pathologists. This information is from the lab's CMS-116.",
+          "label_candidate": "AO CAP Accredited Code",
+          "locations": [
+            [
+              "22",
+              34,
+              25
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CAP_ACRDTD_CD",
+      "historical_name_matches": 1,
+      "ordinal": 56,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date the College of American Pathologists confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+          "label_candidate": "AO CAP Accredited Y Match Date",
+          "locations": [
+            [
+              "22",
+              35,
+              25
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CAP_ACRDTD_Y_MATCH_DT",
+      "historical_name_matches": 1,
+      "ordinal": 57,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab is confirmed as accredited by the College of American Pathologists.",
+          "label_candidate": "AO CAP Accredited Y Match Indicator",
+          "locations": [
+            [
+              "22",
+              35,
+              25
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CAP_ACRDTD_Y_MATCH_SW",
+      "historical_name_matches": 1,
+      "ordinal": 58,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab reported that it is accredited by the Commission on Office Laboratory Accreditation. This information is from the lab's CMS-116.",
+          "label_candidate": "AO COLA Accredited Code",
+          "locations": [
+            [
+              "22",
+              35,
+              25
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "COLA_ACRDTD_CD",
+      "historical_name_matches": 1,
+      "ordinal": 59,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date the Commission on Office Laboratory Accreditation confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+          "label_candidate": "AO COLA Accredited Y Match Date",
+          "locations": [
+            [
+              "22",
+              35,
+              25
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "COLA_ACRDTD_Y_MATCH_DT",
+      "historical_name_matches": 1,
+      "ordinal": 60,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab is confirmed as accredited by the Commission on Office Laboratory Accreditation.",
+          "label_candidate": "AO COLA Accredited Y Match Indicator",
+          "locations": [
+            [
+              "22",
+              35,
+              25
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "COLA_ACRDTD_Y_MATCH_SW",
+      "historical_name_matches": 1,
+      "ordinal": 61,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab reported that it is accredited by the Joint Commission. This information is from the lab's CMS-116.",
+          "label_candidate": "AO JC Accredited Code",
+          "locations": [
+            [
+              "22",
+              35,
+              25
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "JCAHO_ACRDTD_CD",
+      "historical_name_matches": 1,
+      "ordinal": 62,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date the Joint Commission confirmed the lab is accredited. When the lab is accredited by multiple accrediting organizations, the earliest Y match date initiates billing of the certificate of accreditation fees.",
+          "label_candidate": "AO JC Accredited Y Match Date",
+          "locations": [
+            [
+              "22",
+              36,
+              26
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "JCAHO_ACRDTD_Y_MATCH_DT",
+      "historical_name_matches": 1,
+      "ordinal": 63,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the lab is confirmed as accredited by the Joint Commission.",
+          "label_candidate": "AO JC Accredited Y Match Indicator",
+          "locations": [
+            [
+              "22",
+              36,
+              26
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "JCAHO_ACRDTD_Y_MATCH_SW",
+      "historical_name_matches": 1,
+      "ordinal": 64,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date the CMS-116 application was entered in the online system and a CLIA number was issued.",
+          "label_candidate": "Application Received SA Date",
+          "locations": [
+            [
+              "22",
+              36,
+              26
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "APLCTN_RCVD_DT",
+      "historical_name_matches": 1,
+      "ordinal": 65,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Type of CLIA certificate applied for by a laboratory.",
+          "label_candidate": "Application Type Code",
+          "locations": [
+            [
+              "22",
+              36,
+              26
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "APLCTN_TYPE_CD",
+      "historical_name_matches": 1,
+      "ordinal": 66,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates the category-specific facility type code, for certain provider categories only.",
+          "label_candidate": "Category-specific Facility Type Code",
+          "locations": [
+            [
+              "22",
+              36,
+              26
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "GNRL_FAC_TYPE_CD",
+      "historical_name_matches": 1,
+      "ordinal": 67,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Start date of the certificate.",
+          "label_candidate": "CLIA Certificate Effective Date",
+          "locations": [
+            [
+              "22",
+              37,
+              27
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CRTFCT_EFCTV_DT",
+      "historical_name_matches": 1,
+      "ordinal": 68,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Date the certificate was generated for mailing.",
+          "label_candidate": "CLIA Certificate Mailed Date",
+          "locations": [
+            [
+              "22",
+              37,
+              27
+            ]
+          ],
+          "type_candidate": "DATE"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CRTFCT_MAIL_DT",
+      "historical_name_matches": 1,
+      "ordinal": 69,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Type of certificate issued to the laboratory, based on the application type code.",
+          "label_candidate": "CLIA Certificate Type Code",
+          "locations": [
+            [
+              "22",
+              37,
+              27
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CRTFCT_TYPE_CD",
+      "historical_name_matches": 1,
+      "ordinal": 70,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Current Lab Classification",
+          "label_candidate": "Current CLIA Lab Clsfctn CD",
+          "locations": [
+            [
+              "22",
+              37,
+              27
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CURRENT_CLIA_LAB_CLSFCTN_CD",
+      "historical_name_matches": 1,
+      "ordinal": 71,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Laboratory Classification 1",
+          "label_candidate": "CLIA Lab Classification CD 1",
+          "locations": [
+            [
+              "22",
+              38,
+              27
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_1",
+      "historical_name_matches": 1,
+      "ordinal": 72,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Laboratory Classification 10",
+          "label_candidate": "CLIA Lab Classification CD 10",
+          "locations": [
+            [
+              "22",
+              38,
+              27
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_10",
+      "historical_name_matches": 1,
+      "ordinal": 73,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Laboratory Classification 2",
+          "label_candidate": "CLIA Lab Classification CD 2",
+          "locations": [
+            [
+              "22",
+              38,
+              27
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_2",
+      "historical_name_matches": 1,
+      "ordinal": 74,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Laboratory Classification 3",
+          "label_candidate": "CLIA Lab Classification CD 3",
+          "locations": [
+            [
+              "22",
+              38,
+              27
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_3",
+      "historical_name_matches": 1,
+      "ordinal": 75,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Laboratory Classification 4",
+          "label_candidate": "CLIA Lab Classification CD 4",
+          "locations": [
+            [
+              "22",
+              38,
+              27
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_4",
+      "historical_name_matches": 1,
+      "ordinal": 76,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Laboratory Classification 5",
+          "label_candidate": "CLIA Lab Classification CD 5",
+          "locations": [
+            [
+              "22",
+              39,
+              28
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_5",
+      "historical_name_matches": 1,
+      "ordinal": 77,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Laboratory Classification 6",
+          "label_candidate": "CLIA Lab Classification CD 6",
+          "locations": [
+            [
+              "22",
+              39,
+              28
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_6",
+      "historical_name_matches": 1,
+      "ordinal": 78,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Laboratory Classification 7",
+          "label_candidate": "CLIA Lab Classification CD 7",
+          "locations": [
+            [
+              "22",
+              39,
+              28
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_7",
+      "historical_name_matches": 1,
+      "ordinal": 79,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Laboratory Classification 8",
+          "label_candidate": "CLIA Lab Classification CD 8",
+          "locations": [
+            [
+              "22",
+              39,
+              28
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_8",
+      "historical_name_matches": 1,
+      "ordinal": 80,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Laboratory Classification 9",
+          "label_candidate": "CLIA Lab Classification CD 9",
+          "locations": [
+            [
+              "22",
+              39,
+              28
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_9",
+      "historical_name_matches": 1,
+      "ordinal": 81,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Contains medicare numbers from prior to CLIA88. Optional field.",
+          "label_candidate": "CLIA Medicare Number",
+          "locations": [
+            [
+              "22",
+              39,
+              28
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_MDCR_NUM",
+      "historical_name_matches": 1,
+      "ordinal": 82,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Identifies a laboratory's active or terminated status. If terminated, identifies the reason.",
+          "label_candidate": "CLIA Termination Code",
+          "locations": [
+            [
+              "22",
+              39,
+              28
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "CLIA_TRMNTN_CD",
+      "historical_name_matches": 1,
+      "ordinal": 83,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates the lab's accreditation schedule code calculated by the CLIA system, based on the information in the most recent CMS-116 application form. Applies only to labs with a certificate of accreditation.",
+          "label_candidate": "CMS-116 Accreditation Schedule Code",
+          "locations": [
+            [
+              "22",
+              40,
+              29
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ACRDTN_SCHDL_CD",
+      "historical_name_matches": 1,
+      "ordinal": 84,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Sum for all specialties as reported on the most recent CMS-116 application form. Applies only to labs with a certificate of accreditation.",
+          "label_candidate": "CMS-116 Accredited Annual Test Volume",
+          "locations": [
+            [
+              "22",
+              41,
+              29
+            ]
+          ],
+          "type_candidate": "NUMBER"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "FORM_116_ACRDTD_TEST_VOL_CNT",
+      "historical_name_matches": 1,
+      "ordinal": 85,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Sum for all specialties as reported on the most recent CMS-116 application form. Applies only to labs with a certificate of compliance.",
+          "label_candidate": "CMS-116 Annual Test Volume",
+          "locations": [
+            [
+              "22",
+              41,
+              29
+            ]
+          ],
+          "type_candidate": "NUMBER"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "FORM_116_TEST_VOL_CNT",
+      "historical_name_matches": 1,
+      "ordinal": 86,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Number of laboratories with which the lab's director is affiliated.",
+          "label_candidate": "Director Affiliated Lab Count",
+          "locations": [
+            [
+              "22",
+              41,
+              29
+            ]
+          ],
+          "type_candidate": "NUMBER"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "DRCTLY_AFLTD_LAB_CNT",
+      "historical_name_matches": 1,
+      "ordinal": 87,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "10-digit fax phone number of the primary contact or the operator of the provider.",
+          "label_candidate": "Fax Phone Number",
+          "locations": [
+            [
+              "22",
+              41,
+              29
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "FAX_PHNE_NUM",
+      "historical_name_matches": 1,
+      "ordinal": 88,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "End date, consisting of the month and day, of the provider's fiscal year.",
+          "label_candidate": "Fiscal Year End Date (MMDD)",
+          "locations": [
+            [
+              "22",
+              41,
+              29
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "FY_END_MO_DAY_CD",
+      "historical_name_matches": 1,
+      "ordinal": 89,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if a lab has applied for a single site CLIA certificate to cover multiple testing locations.",
+          "label_candidate": "Multiple Site Certificate Indicator",
+          "locations": [
+            [
+              "22",
+              41,
+              30
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "MLT_SITE_EXCPTN_SW",
+      "historical_name_matches": 1,
+      "ordinal": 90,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the single site CLIA certificate is for a hospital with several labs on a single hospital campus and under common direction.",
+          "label_candidate": null,
+          "locations": [
+            [
+              "22",
+              42,
+              30
+            ]
+          ],
+          "type_candidate": null
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "HOSP_LAB_EXCPTN_SW",
+      "historical_name_matches": 1,
+      "ordinal": 91,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the single site CLIA certificate is for multiple sites with non-profit, federal, state or local government status and engaged in limited public health testing.",
+          "label_candidate": "Multiple Site Exception: Public Health Indicator",
+          "locations": [
+            [
+              "22",
+              42,
+              30
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "NON_PRFT_EXCPTN_SW",
+      "historical_name_matches": 1,
+      "ordinal": 92,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Indicates if the single site CLIA certificate is for a lab with multiple temporary testing sites.",
+          "label_candidate": "Multiple Site Exception: Temporary Testing Site Indicator",
+          "locations": [
+            [
+              "22",
+              42,
+              30
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "LAB_TEMP_TSTG_SITE_SW",
+      "historical_name_matches": 1,
+      "ordinal": 93,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Total number of lab sites for which a lab has applied for a single certificate for multiple sites.",
+          "label_candidate": "Multiple Site Lab Count",
+          "locations": [
+            [
+              "22",
+              42,
+              30
+            ]
+          ],
+          "type_candidate": "NUMBER"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "LAB_SITE_CNT",
+      "historical_name_matches": 1,
+      "ordinal": 94,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Estimated total annual Provider Performed Microscopy tests performed by the lab.",
+          "label_candidate": "PPM Test Volume Count",
+          "locations": [
+            [
+              "22",
+              42,
+              30
+            ]
+          ],
+          "type_candidate": "NUMBER"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "PPMP_TEST_VOL_CNT",
+      "historical_name_matches": 1,
+      "ordinal": 95,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Second line of a laboratory name.",
+          "label_candidate": "Provider Name 2nd Line",
+          "locations": [
+            [
+              "22",
+              42,
+              30
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "ADDTNL_FAC_NAME",
+      "historical_name_matches": 1,
+      "ordinal": 96,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Related provider number",
+          "label_candidate": "Related Provider Number",
+          "locations": [
+            [
+              "22",
+              42,
+              30
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "RELATED_PROVIDER_NUMBER",
+      "historical_name_matches": 1,
+      "ordinal": 97,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Applies to physician office labs when two or more physicians collectively pool resources to fund a lab's operation.",
+          "label_candidate": "Shared Lab Indicator",
+          "locations": [
+            [
+              "22",
+              42,
+              30
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "SHR_LAB_SW",
+      "historical_name_matches": 1,
+      "ordinal": 98,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Shared lab xref number",
+          "label_candidate": "Shared Lab Xref Number",
+          "locations": [
+            [
+              "22",
+              43,
+              30
+            ]
+          ],
+          "type_candidate": "CHAR"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "SHARED_LAB_XREF_NUMBER",
+      "historical_name_matches": 1,
+      "ordinal": 99,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Certificate Compliance schedule code based on the information gathered at survey.",
+          "label_candidate": "Survey Compliance Certificate Schedule Code",
+          "locations": [
+            [
+              "22",
+              43,
+              31
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "FORM_1557_CRTFCT_SCHDL_CD",
+      "historical_name_matches": 1,
+      "ordinal": 100,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Compliance schedule code based on the information gathered at survey.",
+          "label_candidate": "Survey Compliance Schedule Code",
+          "locations": [
+            [
+              "22",
+              43,
+              31
+            ]
+          ],
+          "type_candidate": "VARCHAR2"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "FORM_1557_CMPLNC_SCHDL_CD",
+      "historical_name_matches": 1,
+      "ordinal": 101,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Sum of tests performed annually in a laboratory, as verified at the time of the state survey.",
+          "label_candidate": "Survey Test Volume Count",
+          "locations": [
+            [
+              "22",
+              44,
+              31
+            ]
+          ],
+          "type_candidate": "NUMBER"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "FORM_1557_TEST_VOL_CNT",
+      "historical_name_matches": 1,
+      "ordinal": 102,
+      "status": "historical_candidate_only"
+    },
+    {
+      "definitions": [
+        {
+          "description_candidate": "Estimated total annual waived tests performed by the lab.",
+          "label_candidate": "Waived Test Volume Count",
+          "locations": [
+            [
+              "22",
+              44,
+              31
+            ]
+          ],
+          "type_candidate": "NUMBER"
+        }
+      ],
+      "distinct_candidate_definitions": 1,
+      "field": "WVD_TEST_VOL_CNT",
+      "historical_name_matches": 1,
+      "ordinal": 103,
+      "status": "historical_candidate_only"
+    }
+  ],
+  "field_evidence_note": "Compact definitions and page locations recovered from successful job logs. Full code examples and fixed-width positions are retained in qualification artifact, not duplicated here."
+}

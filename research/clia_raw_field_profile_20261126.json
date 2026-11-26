@@ -1,0 +1,1939 @@
+{
+  "columns": 103,
+  "encoding": "utf-8-sig",
+  "format_version": 1,
+  "limits": [
+    "Counts only; no source values except exact matched publisher dictionary codes.",
+    "Shape is lexical, not semantic. Blank, Not Applicable, Not Available and Unknown differ.",
+    "Distinct count is capped; lower_bound is not an exact count.",
+    "Scope and code comparisons are provisional, exact trimmed tokens; no guessed mapping.",
+    "Numeric sums are single field and provider scope only; not unique properties, staffing shifts or installed assets.",
+    "No operational, equipment, procurement, or reuse approval."
+  ],
+  "period": "2026-07-01/2026-09-30",
+  "provider_scope_counts": {},
+  "rows": 686058,
+  "source": "clia",
+  "source_bytes": 221994249,
+  "source_sha256": "b7b7dce68abec2ad69b6c3378ff14e0b1c4e12f5dda433d12db2cf8eb4c5b1bf",
+  "as_of": "2026-11-26",
+  "qualification_run": 45821921407,
+  "qualification_job": 139916084813,
+  "qualified_commit": "bc4bba6360a650eea2624b377cc7c1c246f01511",
+  "fields": [
+    {
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "PRVDR_CTGRY_SBTYP_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 1,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "PRVDR_CTGRY_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 2,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 7,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CHOW_CNT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 3,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 358,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CHOW_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 688
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 4,
+      "scope_counts": {},
+      "states": {
+        "blank": 685370,
+        "other_nonblank": 688
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "CITY_NAME",
+      "lexical_shapes": {
+        "other_text": 685851
+      },
+      "max_nonmissing_trimmed_length": 25,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 5,
+      "scope_counts": {},
+      "states": {
+        "blank": 207,
+        "other_nonblank": 685851
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "ACPTBL_POC_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 6,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CMPLNC_STUS_CD",
+      "lexical_shapes": {
+        "other_text": 78870
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 7,
+      "scope_counts": {},
+      "states": {
+        "blank": 607188,
+        "other_nonblank": 78870
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 340,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "SSA_CNTY_CD",
+      "lexical_shapes": {
+        "other_text": 2,
+        "unsigned_integer_text": 685662
+      },
+      "max_nonmissing_trimmed_length": 3,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 8,
+      "scope_counts": {},
+      "states": {
+        "blank": 394,
+        "other_nonblank": 685664
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "CROSS_REF_PROVIDER_NUMBER",
+      "lexical_shapes": {
+        "other_text": 6038,
+        "unsigned_integer_text": 1
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 9,
+      "scope_counts": {},
+      "states": {
+        "blank": 680019,
+        "other_nonblank": 6039
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "CRTFCTN_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 10,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "ELGBLTY_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 11,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "FAC_NAME",
+      "lexical_shapes": {
+        "other_text": 686053,
+        "unsigned_integer_text": 5
+      },
+      "max_nonmissing_trimmed_length": 50,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 12,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 50,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "INTRMDRY_CARR_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 5936
+      },
+      "max_nonmissing_trimmed_length": 5,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 13,
+      "scope_counts": {},
+      "states": {
+        "blank": 680122,
+        "other_nonblank": 5936
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 0,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "MDCD_VNDR_NUM",
+      "lexical_shapes": {},
+      "max_nonmissing_trimmed_length": 0,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 14,
+      "scope_counts": {},
+      "states": {
+        "blank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "ORGNL_PRTCPTN_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 15,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 374,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CHOW_PRIOR_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 856
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 16,
+      "scope_counts": {},
+      "states": {
+        "blank": 685202,
+        "other_nonblank": 856
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 31,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "INTRMDRY_CARR_PRIOR_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 1765
+      },
+      "max_nonmissing_trimmed_length": 5,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 17,
+      "scope_counts": {},
+      "states": {
+        "blank": 684293,
+        "other_nonblank": 1765
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "PRVDR_NUM",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 18,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 10,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "RGN_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 19,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "SKLTN_REC_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 20,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 58,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "STATE_CD",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 21,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 58,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "SSA_STATE_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 22,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 114,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "STATE_RGN_CD",
+      "lexical_shapes": {
+        "other_text": 448680,
+        "unsigned_integer_text": 237378
+      },
+      "max_nonmissing_trimmed_length": 3,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 23,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "ST_ADR",
+      "lexical_shapes": {
+        "other_text": 686013,
+        "unsigned_integer_text": 35
+      },
+      "max_nonmissing_trimmed_length": 50,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 24,
+      "scope_counts": {},
+      "states": {
+        "blank": 10,
+        "other_nonblank": 686048
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "PHNE_NUM",
+      "lexical_shapes": {
+        "other_text": 63,
+        "unsigned_integer_text": 684770
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 25,
+      "scope_counts": {},
+      "states": {
+        "blank": 1225,
+        "other_nonblank": 684833
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 23,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "PGM_TRMNTN_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 26,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "TRMNTN_EXPRTN_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 27,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CRTFCTN_ACTN_TYPE_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 78869
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 28,
+      "scope_counts": {},
+      "states": {
+        "blank": 607189,
+        "other_nonblank": 78869
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 10,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "GNRL_CNTL_TYPE_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 29,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "ZIP_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 685850
+      },
+      "max_nonmissing_trimmed_length": 5,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 30,
+      "scope_counts": {},
+      "states": {
+        "blank": 208,
+        "other_nonblank": 685850
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 56,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "FIPS_STATE_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 685332
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 31,
+      "scope_counts": {},
+      "states": {
+        "blank": 726,
+        "other_nonblank": 685332
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 331,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "FIPS_CNTY_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 685332
+      },
+      "max_nonmissing_trimmed_length": 3,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 32,
+      "scope_counts": {},
+      "states": {
+        "blank": 726,
+        "other_nonblank": 685332
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CBSA_URBN_RRL_IND",
+      "lexical_shapes": {
+        "other_text": 685276
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 33,
+      "scope_counts": {},
+      "states": {
+        "blank": 782,
+        "other_nonblank": 685276
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 461,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CBSA_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 685276
+      },
+      "max_nonmissing_trimmed_length": 5,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 34,
+      "scope_counts": {},
+      "states": {
+        "blank": 782,
+        "other_nonblank": 685276
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "ADDTNL_ST_ADR",
+      "lexical_shapes": {
+        "other_text": 24868,
+        "unsigned_integer_text": 21
+      },
+      "max_nonmissing_trimmed_length": 50,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 35,
+      "scope_counts": {},
+      "states": {
+        "blank": 661169,
+        "other_nonblank": 24889
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "AFFILIATED_PROVIDER_NUMBER_1",
+      "lexical_shapes": {
+        "other_text": 111204
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 36,
+      "scope_counts": {},
+      "states": {
+        "blank": 574854,
+        "other_nonblank": 111204
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "AFFILIATED_PROVIDER_NUMBER_2",
+      "lexical_shapes": {
+        "other_text": 61188
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 37,
+      "scope_counts": {},
+      "states": {
+        "blank": 624870,
+        "other_nonblank": 61188
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "AFFILIATED_PROVIDER_NUMBER_3",
+      "lexical_shapes": {
+        "other_text": 38747
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 38,
+      "scope_counts": {},
+      "states": {
+        "blank": 647311,
+        "other_nonblank": 38747
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "AFFILIATED_PROVIDER_NUMBER_4",
+      "lexical_shapes": {
+        "other_text": 23496
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 39,
+      "scope_counts": {},
+      "states": {
+        "blank": 662562,
+        "other_nonblank": 23496
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "AFFILIATED_PROVIDER_NUMBER_5",
+      "lexical_shapes": {
+        "other_text": 11644
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 40,
+      "scope_counts": {},
+      "states": {
+        "blank": 674414,
+        "other_nonblank": 11644
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "AFFILIATED_PROVIDER_NUMBER_6",
+      "lexical_shapes": {
+        "other_text": 7227
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 41,
+      "scope_counts": {},
+      "states": {
+        "blank": 678831,
+        "other_nonblank": 7227
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "AFFILIATED_PROVIDER_NUMBER_7",
+      "lexical_shapes": {
+        "other_text": 4076
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 42,
+      "scope_counts": {},
+      "states": {
+        "blank": 681982,
+        "other_nonblank": 4076
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1596,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "AFFILIATED_PROVIDER_NUMBER_8",
+      "lexical_shapes": {
+        "other_text": 3136
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 43,
+      "scope_counts": {},
+      "states": {
+        "blank": 682922,
+        "other_nonblank": 3136
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "A2LA_ACRDTD_CD",
+      "lexical_shapes": {
+        "other_text": 16
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 44,
+      "scope_counts": {},
+      "states": {
+        "blank": 686042,
+        "other_nonblank": 16
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 9,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "A2LA_ACRDTD_Y_MATCH_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 9
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 45,
+      "scope_counts": {},
+      "states": {
+        "blank": 686049,
+        "other_nonblank": 9
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "A2LA_ACRDTD_Y_MATCH_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 46,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "AABB_ACRDTD_CD",
+      "lexical_shapes": {
+        "other_text": 270
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 47,
+      "scope_counts": {},
+      "states": {
+        "blank": 685788,
+        "other_nonblank": 270
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 119,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "AABB_ACRDTD_Y_MATCH_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 249
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 48,
+      "scope_counts": {},
+      "states": {
+        "blank": 685809,
+        "other_nonblank": 249
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "AABB_ACRDTD_Y_MATCH_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 49,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "AOA_ACRDTD_CD",
+      "lexical_shapes": {
+        "other_text": 204
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 50,
+      "scope_counts": {},
+      "states": {
+        "blank": 685854,
+        "other_nonblank": 204
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 122,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "AOA_ACRDTD_Y_MATCH_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 196
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 51,
+      "scope_counts": {},
+      "states": {
+        "blank": 685862,
+        "other_nonblank": 196
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "AOA_ACRDTD_Y_MATCH_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 52,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "ASHI_ACRDTD_CD",
+      "lexical_shapes": {
+        "other_text": 127
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 53,
+      "scope_counts": {},
+      "states": {
+        "blank": 685931,
+        "other_nonblank": 127
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 75,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "ASHI_ACRDTD_Y_MATCH_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 125
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 54,
+      "scope_counts": {},
+      "states": {
+        "blank": 685933,
+        "other_nonblank": 125
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "ASHI_ACRDTD_Y_MATCH_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 55,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CAP_ACRDTD_CD",
+      "lexical_shapes": {
+        "other_text": 8507
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 56,
+      "scope_counts": {},
+      "states": {
+        "blank": 677551,
+        "other_nonblank": 8507
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1381,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CAP_ACRDTD_Y_MATCH_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 8012
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 57,
+      "scope_counts": {},
+      "states": {
+        "blank": 678046,
+        "other_nonblank": 8012
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CAP_ACRDTD_Y_MATCH_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 58,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "COLA_ACRDTD_CD",
+      "lexical_shapes": {
+        "other_text": 7835
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 59,
+      "scope_counts": {},
+      "states": {
+        "blank": 678223,
+        "other_nonblank": 7835
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 821,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "COLA_ACRDTD_Y_MATCH_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 6772
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 60,
+      "scope_counts": {},
+      "states": {
+        "blank": 679286,
+        "other_nonblank": 6772
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "COLA_ACRDTD_Y_MATCH_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 61,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "JCAHO_ACRDTD_CD",
+      "lexical_shapes": {
+        "other_text": 3652
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 62,
+      "scope_counts": {},
+      "states": {
+        "blank": 682406,
+        "other_nonblank": 3652
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1053,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "JCAHO_ACRDTD_Y_MATCH_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 2806
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 63,
+      "scope_counts": {},
+      "states": {
+        "blank": 683252,
+        "other_nonblank": 2806
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "JCAHO_ACRDTD_Y_MATCH_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 64,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "APLCTN_RCVD_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 65,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "APLCTN_TYPE_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 66,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 29,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "GNRL_FAC_TYPE_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 67,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "CRTFCT_EFCTV_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 68,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1753,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CRTFCT_MAIL_DT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 652658
+      },
+      "max_nonmissing_trimmed_length": 8,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 69,
+      "scope_counts": {},
+      "states": {
+        "blank": 33400,
+        "other_nonblank": 652658
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CRTFCT_TYPE_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 70,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CURRENT_CLIA_LAB_CLSFCTN_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 71,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_LAB_CLASSIFICATION_CD_1",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 72,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_LAB_CLASSIFICATION_CD_10",
+      "lexical_shapes": {
+        "unsigned_integer_text": 149104
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 73,
+      "scope_counts": {},
+      "states": {
+        "blank": 536954,
+        "other_nonblank": 149104
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_LAB_CLASSIFICATION_CD_2",
+      "lexical_shapes": {
+        "unsigned_integer_text": 539576
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 74,
+      "scope_counts": {},
+      "states": {
+        "blank": 146482,
+        "other_nonblank": 539576
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_LAB_CLASSIFICATION_CD_3",
+      "lexical_shapes": {
+        "unsigned_integer_text": 441049
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 75,
+      "scope_counts": {},
+      "states": {
+        "blank": 245009,
+        "other_nonblank": 441049
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_LAB_CLASSIFICATION_CD_4",
+      "lexical_shapes": {
+        "unsigned_integer_text": 364773
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 76,
+      "scope_counts": {},
+      "states": {
+        "blank": 321285,
+        "other_nonblank": 364773
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_LAB_CLASSIFICATION_CD_5",
+      "lexical_shapes": {
+        "unsigned_integer_text": 309858
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 77,
+      "scope_counts": {},
+      "states": {
+        "blank": 376200,
+        "other_nonblank": 309858
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_LAB_CLASSIFICATION_CD_6",
+      "lexical_shapes": {
+        "unsigned_integer_text": 263723
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 78,
+      "scope_counts": {},
+      "states": {
+        "blank": 422335,
+        "other_nonblank": 263723
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_LAB_CLASSIFICATION_CD_7",
+      "lexical_shapes": {
+        "unsigned_integer_text": 226886
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 79,
+      "scope_counts": {},
+      "states": {
+        "blank": 459172,
+        "other_nonblank": 226886
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_LAB_CLASSIFICATION_CD_8",
+      "lexical_shapes": {
+        "unsigned_integer_text": 196331
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 80,
+      "scope_counts": {},
+      "states": {
+        "blank": 489727,
+        "other_nonblank": 196331
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_LAB_CLASSIFICATION_CD_9",
+      "lexical_shapes": {
+        "unsigned_integer_text": 170985
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 81,
+      "scope_counts": {},
+      "states": {
+        "blank": 515073,
+        "other_nonblank": 170985
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 0,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_MDCR_NUM",
+      "lexical_shapes": {},
+      "max_nonmissing_trimmed_length": 0,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 82,
+      "scope_counts": {},
+      "states": {
+        "blank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 23,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "CLIA_TRMNTN_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 83,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 11,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "ACRDTN_SCHDL_CD",
+      "lexical_shapes": {
+        "other_text": 20285
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 84,
+      "scope_counts": {},
+      "states": {
+        "blank": 665773,
+        "other_nonblank": 20285
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "FORM_116_ACRDTD_TEST_VOL_CNT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 9,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 85,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "FORM_116_TEST_VOL_CNT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 9,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 86,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 72,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "DRCTLY_AFLTD_LAB_CNT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 2,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 87,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "FAX_PHNE_NUM",
+      "lexical_shapes": {
+        "unsigned_integer_text": 484835
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 88,
+      "scope_counts": {},
+      "states": {
+        "blank": 201223,
+        "other_nonblank": 484835
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 80,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "FY_END_MO_DAY_CD",
+      "lexical_shapes": {
+        "unsigned_integer_text": 18240
+      },
+      "max_nonmissing_trimmed_length": 4,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 89,
+      "scope_counts": {},
+      "states": {
+        "blank": 667818,
+        "other_nonblank": 18240
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "MLT_SITE_EXCPTN_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 90,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "HOSP_LAB_EXCPTN_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 91,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "NON_PRFT_EXCPTN_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 92,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "LAB_TEMP_TSTG_SITE_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 93,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 166,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "LAB_SITE_CNT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 4,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 94,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 1722,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "PPMP_TEST_VOL_CNT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 7,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 95,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "ADDTNL_FAC_NAME",
+      "lexical_shapes": {
+        "other_text": 69907,
+        "signed_integer_text": 4,
+        "unsigned_integer_text": 38
+      },
+      "max_nonmissing_trimmed_length": 50,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 96,
+      "scope_counts": {},
+      "states": {
+        "blank": 616109,
+        "other_nonblank": 69949
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 0,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "RELATED_PROVIDER_NUMBER",
+      "lexical_shapes": {},
+      "max_nonmissing_trimmed_length": 0,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 97,
+      "scope_counts": {},
+      "states": {
+        "blank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "SHR_LAB_SW",
+      "lexical_shapes": {
+        "other_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 98,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 647,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "SHARED_LAB_XREF_NUMBER",
+      "lexical_shapes": {
+        "other_text": 934
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 99,
+      "scope_counts": {},
+      "states": {
+        "blank": 685124,
+        "other_nonblank": 934
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 11,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "FORM_1557_CRTFCT_SCHDL_CD",
+      "lexical_shapes": {
+        "other_text": 15329
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 100,
+      "scope_counts": {},
+      "states": {
+        "blank": 670729,
+        "other_nonblank": 15329
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 11,
+        "method": "exact"
+      },
+      "documented_code_counts": {},
+      "field": "FORM_1557_CMPLNC_SCHDL_CD",
+      "lexical_shapes": {
+        "other_text": 15329
+      },
+      "max_nonmissing_trimmed_length": 1,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 101,
+      "scope_counts": {},
+      "states": {
+        "blank": 670729,
+        "other_nonblank": 15329
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "FORM_1557_TEST_VOL_CNT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 685533
+      },
+      "max_nonmissing_trimmed_length": 9,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 102,
+      "scope_counts": {},
+      "states": {
+        "blank": 525,
+        "other_nonblank": 685533
+      }
+    },
+    {
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "documented_code_counts": {},
+      "field": "WVD_TEST_VOL_CNT",
+      "lexical_shapes": {
+        "unsigned_integer_text": 686058
+      },
+      "max_nonmissing_trimmed_length": 10,
+      "numeric_aggregate_by_scope": {},
+      "ordinal": 103,
+      "scope_counts": {},
+      "states": {
+        "other_nonblank": 686058
+      }
+    }
+  ]
+}
