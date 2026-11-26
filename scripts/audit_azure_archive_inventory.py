@@ -3,7 +3,7 @@ No writes, deletes, source retrieval, public-pack changes or pointer promotion.
 Metadata mode checks completion receipts, sizes, exact list/HEAD inventory and
 stable ETags; full mode additionally streams SHA-256 for every pinned payload.
 """
-import argparse,json,os,re
+import argparse,hashlib,json,os,re
 from pathlib import Path
 import azure_national_archive as a
 from scripts import azure_verified_extension as ext, azure_source_archive as src
@@ -49,7 +49,9 @@ def totals(ledger):
     require(len({(x["key"],x["source_sha256"]) for x in receipts})==len(receipts),"duplicate source version")
     for x in receipts:
         src.prefix_for(x["key"],x["source_sha256"])
-        require(x["kind"] in ("publisher","derived","aggregate","supplemental_numeric") and (x["key"]=="pecos-nppes-identity-candidates")== (x["kind"]=="derived") and (x["key"] in src.SUPPLEMENTAL_NUMERIC_PARENTS)==(x["kind"]=="supplemental_numeric"),"source grain")
+        require(x["kind"] in ("publisher","derived","aggregate","supplemental_numeric","institutional_fields","evidence_bundle") and (x["key"]=="pecos-nppes-identity-candidates")== (x["kind"]=="derived") and (x["key"] in src.SUPPLEMENTAL_NUMERIC_PARENTS)==(x["kind"]=="supplemental_numeric"),"source grain")
+        require((x["key"]=="institutional-field-observations")== (x["kind"]=="institutional_fields") and (x["key"]=="repository-data-evidence")== (x["kind"]=="evidence_bundle"),"qualified supplement grain")
+        if x["kind"]=="evidence_bundle":require(x["observations"]==0 and type(x["tracked_data_file_count"]) is int and type(x["supplemental_file_count"]) is int and 0<=x["supplemental_file_count"]<=x["tracked_data_file_count"],"evidence bundle counts")
         if x["kind"]=="supplemental_numeric":
             parents=[p for p in receipts if p["key"]==src.SUPPLEMENTAL_NUMERIC_PARENTS[x["key"]] and p["source_sha256"]==x["source_sha256"] and p["kind"]=="publisher"]
             require(len(parents)==1 and x["parent_database_sha256"]==next(f["sha256"] for f in parents[0]["files"] if f["path"]=="projection.sqlite3"),"supplemental parent pin")
@@ -59,7 +61,7 @@ def totals(ledger):
                 form,start,end=src.LARGE_NUMERIC_SCOPES[x["key"]]
                 require(x["ordinal_start"]==start and x["ordinal_end"]==end and x["observations"]<=end-start+1,"large numeric ledger ordinal scope")
         require(len(x["files"])==2 and {f["path"] for f in x["files"]}=={"projection.sqlite3","audit.json"},"receipt payload scope")
-        require(type(x["observations"]) is int and (x["observations"]==0 and type(x.get("screened_observations")) is int and x["screened_observations"]>0 if x["kind"]=="aggregate" else x["observations"]>0),"source count")
+        require(type(x["observations"]) is int and (x["observations"]==0 and type(x.get("screened_observations")) is int and x["screened_observations"]>0 if x["kind"]=="aggregate" else x["observations"]==0 if x["kind"]=="evidence_bundle" else x["observations"]>0),"source count")
         for f in x["files"]:
             require(type(f["bytes"]) is int and f["bytes"]>0 and re.fullmatch(r"[a-f0-9]{64}",f["sha256"]),"payload pin")
     result={"publisher_releases":sum(x["source_releases"] for x in layers)+sum(x["kind"]=="publisher" for x in receipts),
@@ -71,6 +73,10 @@ def totals(ledger):
             "aggregate_source_rows_screened":sum(x["screened_observations"] for x in receipts if x["kind"]=="aggregate"),
             "payload_files":sum(x["files"] for x in layers)+sum(len(x["files"]) for x in receipts),
             "payload_bytes":sum(x["payload_bytes"] for x in layers)+sum(f["bytes"] for x in receipts for f in x["files"])}
+    if any(x["kind"]=="institutional_fields" for x in receipts):result["derived_institutional_observations"]=sum(x["observations"] for x in receipts if x["kind"]=="institutional_fields")
+    if any(x["kind"]=="evidence_bundle" for x in receipts):
+        result["repository_data_evidence_files"]=sum(x["tracked_data_file_count"] for x in receipts if x["kind"]=="evidence_bundle")
+        result["repository_supplemental_data_files"]=sum(x["supplemental_file_count"] for x in receipts if x["kind"]=="evidence_bundle")
     require(result==ledger["totals"],"ledger total drift")
     return result
 
@@ -91,10 +97,24 @@ def source_matches(rec,pin,national):
     require(rec["sha256_readback"] is True and rec["public_promotion"] is False ,"source count or qualification drift")
     if pin["kind"]=="aggregate":
         require(rec["summary"].get("aggregate_rows")==1 and rec["summary"].get("source_rows_screened")==pin["screened_observations"] and pin["observations"]==0,"aggregate receipt scope")
+    elif pin["kind"]=="institutional_fields":
+        s=rec["summary"];p=rec["publisher"];prior=json.loads((ROOT/"research/institutional_observations_qualification_20261126.json").read_text())
+        require(p["kind"]=="derived_institutional_field_projection" and p["base_database_sha256"]==national["receipt"]["database_sha256"] and p["qualification_sha256"]==a.sha(ROOT/"research/institutional_observations_qualification_20261126.json") and hashlib.sha256(a.encode({k:v for k,v in p.items() if k!="sha256"})).hexdigest()==pin["source_sha256"],"institutional lineage")
+        require(s["stored_field_observations"]==pin["observations"]==prior["observations"] and s["source_provider_records"]==prior["source_records"] and s["field_rules"]==prior["field_rules"] and s["membership_and_state_filter_checks"]=="passed" and s["new_publisher_release"] is False,"institutional counts")
+        require(s["sources"]=={k:{"providers":v["providers"],"field_observations":v["observations"],"fields":v["fields"]} for k,v in prior["sources"].items()},"institutional source counts")
+        require(p["inputs"]=={k:{"source_sha256":v["source_sha256"],"release":v["release"],"directory_sha256":v["public_sha256"]} for k,v in prior["sources"].items()},"institutional input pins")
+    elif pin["kind"]=="evidence_bundle":
+        s=rec["summary"];p=rec["publisher"];m=s["complete_manifest"]
+        require(p["kind"]=="repository_data_evidence_snapshot" and p["inputs"]["base_receipt_sha256"]==national["receipt_sha256"] and p["inputs"]["tracked_data_files"]==m and hashlib.sha256(a.encode(p["inputs"])).hexdigest()==pin["source_sha256"],"evidence bundle lineage")
+        require(s["new_publisher_release"] is False and pin["observations"]==0 and len(m)==len({r["path"] for r in m})==s["tracked_data_file_count"]==pin["tracked_data_file_count"],"evidence manifest count")
+        for r in m:require(re.fullmatch(r"(?:research|web|web/public-directory|web/hcris-capacity)/[A-Za-z0-9_.-]+\\.json",r["path"]) and type(r["bytes"]) is int and r["bytes"]>0 and re.fullmatch(r"[a-f0-9]{64}",r["sha256"]),"evidence manifest file")
+        changed=[r for r in m if national["files"].get(r["path"])!=r]
+        require(len(changed)==s["supplemental_file_count"]==pin["supplemental_file_count"] and s["base_file_count"]+len(changed)==len(m) and s["supplemental_paths"]==[r["path"] for r in changed] and s["supplemental_data_bytes"]==sum(r["bytes"] for r in changed) and s["tracked_data_bytes"]==sum(r["bytes"] for r in m),"evidence supplement coverage")
     else:
         require(observation_count(rec)==pin["observations"] and "aggregate_rows" not in rec["summary"],"source observation drift")
     require((rec["publisher"].get("kind")=="derived_identity_candidate_release")== (pin["kind"]=="derived"),"derived/publisher mismatch")
     require((rec["publisher"].get("kind")=="supplemental_numeric_projection")== (pin["kind"]=="supplemental_numeric"),"supplemental source mismatch")
+    require((rec["publisher"].get("kind")=="derived_institutional_field_projection")== (pin["kind"]=="institutional_fields") and (rec["publisher"].get("kind")=="repository_data_evidence_snapshot")== (pin["kind"]=="evidence_bundle"),"qualified supplement kind")
     if pin["kind"]=="supplemental_numeric":
         s=rec["summary"];require(s["source_index_key"]==src.SUPPLEMENTAL_NUMERIC_PARENTS[pin["key"]] and s["source_index_publisher_sha256"]==pin["source_sha256"] and s["source_index_sha256"]==pin["parent_database_sha256"] and s["supplemental_numeric_rows"]==pin["observations"] and s["new_publisher_release"] is False and s["alpha_values_retained"]==0,"supplemental lineage")
         if pin["key"] in src.HISTORICAL_NUMERIC_YEARS:
@@ -119,7 +139,7 @@ def verify_archive(store,ledger,full=False):
         name=src.prefix_for(pin["key"],pin["source_sha256"])+"/complete.json"
         rec,digest,head=ext.read_small(store,name)
         source_matches(rec,pin,national)
-        verify_files(store,rec["payload_prefix"],rec["files"],full)
+        verify_files(store,rec["payload_prefix"],rec["files"],full or pin["kind"] in ("institutional_fields","evidence_bundle"))
         require(ext.read_small(store,name,digest)[2]==head,"source receipt changed")
     ext.unchanged(store,national)
     require(ext.read_small(store,ext.EXT_POINTER,psha)[2]==phead,"extension pointer changed")

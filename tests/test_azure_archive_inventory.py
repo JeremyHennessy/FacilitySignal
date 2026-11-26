@@ -8,7 +8,10 @@ class ArchiveInventoryTests(unittest.TestCase):
         self.assertEqual(t["publisher_releases"],56)
         self.assertEqual(t["source_observations"],117850722)
         self.assertEqual(t["derived_candidate_observations"],23520)
-        self.assertEqual(t["payload_files"],208)
+        self.assertEqual(t["payload_files"],212)
+        self.assertEqual(t["derived_institutional_observations"],101534)
+        self.assertEqual(t["repository_data_evidence_files"],73)
+        self.assertEqual(t["repository_supplemental_data_files"],13)
         self.assertEqual(t["supplemental_numeric_archives"],41)
         self.assertEqual(t["supplemental_numeric_observations"],107619587)
         self.assertEqual(t["aggregate_evidence_releases"],8)
@@ -39,3 +42,9 @@ class ArchiveInventoryTests(unittest.TestCase):
         self.assertEqual(audit.totals(self.ledger)["publisher_releases"],self.ledger["totals"]["publisher_releases"])
         p["parent_database_sha256"]="f"*64
         with self.assertRaises(ValueError):audit.totals(self.ledger)
+
+    def test_supplements_cannot_inflate_publisher_count(self):
+        for kind in ("institutional_fields","evidence_bundle"):
+            altered=copy.deepcopy(self.ledger)
+            next(x for x in altered["receipts"] if x["kind"]==kind)["kind"]="publisher"
+            with self.assertRaises(ValueError):audit.totals(altered)

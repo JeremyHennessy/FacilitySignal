@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "scope": "Pinned completed archive layers and publisher releases, not a live container-wide listing; observations are source-specific, not unique facilities. Derived records counted separately. Payload bytes exclude pointers, receipts and other unlisted objects.",
-  "evidence_commit": "2d5c04f366ffe46226306ab268b7e82b3ad43417",
+  "evidence_commit": "3b2a59b2fc8970ce97b2334a0653611c415231ff",
   "layers": [
     {
       "key": "national",
@@ -1672,6 +1672,50 @@
         }
       ],
       "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "institutional-field-observations",
+      "source_sha256": "c19f08e7c24abf2469d161105f487cd36ef8fc9e2fa725ef64164e4e90e8736c",
+      "kind": "institutional_fields",
+      "observations": 101534,
+      "run": 45880420262,
+      "job": 140118136941,
+      "files": [
+        {
+          "bytes": 19152896,
+          "path": "projection.sqlite3",
+          "sha256": "5c1827bacea3018c493db34a8a5b83cd4b92bb754583aa90efc744066186403a"
+        },
+        {
+          "bytes": 3274,
+          "path": "audit.json",
+          "sha256": "1cddb25640e1ce0e7f57619a468b2dcf9bfc27b09072fee1280b81a3230c1dc7"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
+    },
+    {
+      "key": "repository-data-evidence",
+      "source_sha256": "d99a4a943482a3611048ac037e9181a83c9a4250640bf592e3e3877134522844",
+      "kind": "evidence_bundle",
+      "observations": 0,
+      "tracked_data_file_count": 73,
+      "supplemental_file_count": 13,
+      "run": 45880420262,
+      "job": 140118137064,
+      "files": [
+        {
+          "bytes": 3321856,
+          "path": "projection.sqlite3",
+          "sha256": "5e05d4f2e392e527b4a6c138491521976fe95d3d96224218b22bfa912469f094"
+        },
+        {
+          "bytes": 30665,
+          "path": "audit.json",
+          "sha256": "6ace179a13be7f178de91a8869bb6569fcaae13a54f7771d4899a94555940478"
+        }
+      ],
+      "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e"
     }
   ],
   "totals": {
@@ -1682,7 +1726,10 @@
     "derived_candidate_observations": 23520,
     "aggregate_evidence_releases": 8,
     "aggregate_source_rows_screened": 40787611,
-    "payload_files": 208,
-    "payload_bytes": 10886303843
+    "payload_files": 212,
+    "payload_bytes": 10908812534,
+    "derived_institutional_observations": 101534,
+    "repository_data_evidence_files": 73,
+    "repository_supplemental_data_files": 13
   }
 }
