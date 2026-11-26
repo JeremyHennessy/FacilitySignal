@@ -12,6 +12,16 @@ from build_combined import require,sha
 PREFIX=a.PREFIX+"/source-releases"
 KEYS={"hcris-hha-2024","nppes-monthly","nppes-weekly","hha-organizational-ownership","hospice-organizational-ownership","hha-selected-cost-2024","pecos-nppes-identity-candidates","hha-enrollment-organizations","hospice-enrollment-organizations","hcris-hospital-2024-index","hcris-snf-2024-index","hcris-hospice-2014-index","hcris-renal-2011-index","hcris-fqhc-2014-index","hcris-rhc-2017-index","hcris-cmhc-2017-index","ppef-type2-enrollment","epa-sdwa-aggregate","wa-xray-aggregate","il-reportcard-hospitals","il-reportcard-ascs"}
 SUPPLEMENTAL_NUMERIC_PARENTS={"hcris-cmhc-2017-numeric":"hcris-cmhc-2017-index","hcris-rhc-2017-numeric":"hcris-rhc-2017-index","hcris-fqhc-2024-numeric":"hcris-fqhc-2014-index","hcris-hospice-2024-numeric":"hcris-hospice-2014-index","hcris-renal-2024-numeric":"hcris-renal-2011-index"}
+# Deterministic, nonoverlapping source ordinals for large FY2024 forms.
+LARGE_NUMERIC_ROWS={"hospital":19440697,"snf":13769223}
+LARGE_NUMERIC_PART_SIZE=3_000_000
+LARGE_NUMERIC_SCOPES={}
+for form,n in LARGE_NUMERIC_ROWS.items():
+    for start in range(1,n+1,LARGE_NUMERIC_PART_SIZE):
+        end=min(n,start+LARGE_NUMERIC_PART_SIZE-1)
+        key=f"hcris-{form}-2024-numeric-{start:08d}-{end:08d}"
+        LARGE_NUMERIC_SCOPES[key]=(form,start,end)
+        SUPPLEMENTAL_NUMERIC_PARENTS[key]=f"hcris-{form}-2024-index"
 KEYS.update(SUPPLEMENTAL_NUMERIC_PARENTS)
 KEYS.add("epa-frs-healthcare-aggregate")
 MAX_DB=1_500_000_000
