@@ -103,8 +103,22 @@ def coordinate_shape(v):
     if len(v)>24:return "over_24"
     return "".join("9" if "0"<=c<="9" else "A" if "A"<=c<="Z" else "a" if "a"<=c<="z" else "S" if c.isspace() else "P" for c in v)
 
+def coordinate_class(a,b,c,role):
+    if not re.fullmatch(r"[0-9]{1,5}",b):return "unrecognized"
+    if re.fullmatch(r"[A-Z0-9]{7}",a) and re.fullmatch(r"[0-9]{1,5}",c):
+        return "standard"
+    # CMS 1728-20 section 4790, Table 1: column number (3 chars)
+    # is alphanumeric and subcolumn (2 chars) numeric.
+    if role=="numeric" and re.fullmatch(r"[A-Z][0-9]{6}",a) and re.fullmatch(r"[0-9]{2}[A-Z][0-9]{2}",c):
+        return "alphanumeric_column"
+    # Table 2 and page 47-308 explicitly include asterisk worksheet
+    # indicators for B-1 and hospice O-6 Part II column headings.
+    if role=="alpha" and re.fullmatch(r"(?:B10000|O6[0-9]002)\*",a) and re.fullmatch(r"[0-9]{5}",c):
+        return "worksheet_heading"
+    return "unrecognized"
+
 def count_child(reader,keys,role):
-    rows=0;width=Counter();link=Counter();coord=Counter();values=Counter();covered=set();coords=set();exceptions={k:Counter() for k in ('worksheet','line','column')}
+    rows=0;width=Counter();link=Counter();coord=Counter();values=Counter();covered=set();coords=set();exceptions={k:Counter() for k in ('worksheet','line','column')};classes=Counter()
     for row in reader:
         rows+=1;require(rows<=MAX_ROWS,"child row bound")
         width[str(len(row))]+=1
@@ -116,7 +130,8 @@ def count_child(reader,keys,role):
         else:link["orphan_report_key"]+=1
         # Source coordinates only, not interpreted worksheet names or expense measures.
         a,b,c=(v.strip() for v in row[1:4])
-        if re.fullmatch(r"[A-Z0-9]{7}",a) and re.fullmatch(r"[0-9]{1,5}",b) and re.fullmatch(r"[0-9]{1,5}",c):
+        shape_class=coordinate_class(a,b,c,role);classes[shape_class]+=1
+        if shape_class!="unrecognized":
             coord["shape_valid"]+=1;coords.add((a,b,c));require(len(coords)<=500000,"coordinate bound")
         else:
             coord["shape_unrecognized"]+=1
@@ -125,7 +140,7 @@ def count_child(reader,keys,role):
         values[cell_state(row[4]) if role=="numeric" else ("present" if row[4].strip() else "blank")]+=1
     require(rows>0 and rows==sum(link.values())==sum(coord.values())==sum(values.values()),"child reconciliation")
     return {"rows":rows,"width_counts":dict(width),"report_key_link_counts":dict(link),"reports_with_cells":len(covered),
-            "coordinate_shape_counts":dict(coord),"unrecognized_coordinate_component_shapes":{k:dict(v) for k,v in exceptions.items()},"distinct_valid_worksheet_coordinates":len(coords),"value_states":dict(values)}
+            "coordinate_shape_counts":dict(coord),"coordinate_class_counts":dict(classes),"unrecognized_coordinate_component_shapes":{k:dict(v) for k,v in exceptions.items()},"distinct_valid_worksheet_coordinates":len(coords),"value_states":dict(values)}
 def inspect(path):
     with zipfile.ZipFile(path) as z:
         roles=members(z);result={}
@@ -150,7 +165,8 @@ def main():
          "tables":result,"retained_row_level_records":0,"reuse_review":"pending",
          "limits":"Structural streaming qualification only. No worksheet measure/unit crosswalk, report-status interpretation, unique facility count or durable projection. Numeric and alpha cells are not additional facility records. No provider identity, individual cell or alpha text retained."}
     with a.audit.open("x") as f:json.dump(out,f,indent=2);f.write("\n")
-    print("HCRIS_HHA_COORDINATE_DIAGNOSTIC",json.dumps(out),flush=True)
+    print("HCRIS_HHA_AUDIT",json.dumps(out),flush=True)
+    require(result["report"]["rows"]==11009 and result["numeric"]["rows"]==3558558 and result["alpha"]["rows"]==1222130,"pinned row count mismatch")
     rpt=result["report"]
     require(rpt["invalid_report_key_rows"]==rpt["duplicate_report_key_rows"]==0 and len(rpt["width_counts"])==1,"report exceptions")
     for role in ("numeric","alpha"):
@@ -158,4 +174,5 @@ def main():
         require(child["report_key_link_counts"]=={"report_present":child["rows"]},"child linkage exceptions")
         require(child["coordinate_shape_counts"]=={"shape_valid":child["rows"]},"coordinate exceptions")
         require(not child["value_states"].get("unrecognized"),"numeric syntax exceptions")
+    require(result["numeric"]["coordinate_class_counts"].get("alphanumeric_column")==239322 and result["alpha"]["coordinate_class_counts"].get("worksheet_heading")==312617,"recovered shape reconciliation")
 if __name__=="__main__":main()

@@ -1,6 +1,6 @@
 import csv,io,tempfile,unittest,zipfile
 from pathlib import Path
-from scripts.qualify_hcris_hha import resolve,inspect,cell_state,PAGE,coordinate_shape
+from scripts.qualify_hcris_hha import resolve,inspect,cell_state,PAGE,coordinate_shape,coordinate_class
 class HCRISHHATests(unittest.TestCase):
     def test_resolve_official_link(self):
         a='<a href="/files/zip/hha20-2024.zip">HHA-2020 FY 2024 DATA FILES</a>'
@@ -29,3 +29,10 @@ class HCRISHHATests(unittest.TestCase):
         self.assertEqual(coordinate_shape("A100 01"),"A999S99")
         self.assertEqual(coordinate_shape(""),"blank")
         self.assertEqual(coordinate_shape("9"*25),"over_24")
+
+    def test_documented_coordinate_classes(self):
+        self.assertEqual(coordinate_class("A000000","00001","06A00","numeric"),"alphanumeric_column")
+        self.assertEqual(coordinate_class("B10000*","00001","00001","alpha"),"worksheet_heading")
+        self.assertEqual(coordinate_class("O61002*","00001","00001","alpha"),"worksheet_heading")
+        for a,b,c,role in (("A000000","00001","06A00","alpha"),("B10000*","00001","00001","numeric"),("Z10000*","00001","00001","alpha"),("A000000","00001","06A0X","numeric")):
+            self.assertEqual(coordinate_class(a,b,c,role),"unrecognized")
