@@ -16,7 +16,7 @@ OUT=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"pages-live-visual-evidence"
 OUT.mkdir(exist_ok=True)
 def sha(data):return hashlib.sha256(data).hexdigest()
 ASSETS=("web/pages.js","web/pages.css")
-HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json")}
+HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json")}
 VERSIONS={x:x+"?v="+HASHES[x][:16] for x in ASSETS}
 MANIFEST=json.loads((ROOT/"web/public-directory/manifest.json").read_text())
 TOTAL=MANIFEST["provider_rows"]
@@ -25,6 +25,8 @@ PROVIDER=json.loads((ROOT/"web/public-directory/nursing.json").read_text())["rec
 ROUTES=[
     ("overview","overview",lambda page:page.get_by_text(f"{TOTAL:,}",exact=True)),
     ("search","search",lambda page:page.get_by_role("heading",name="Unified search",exact=True)),
+    ("advanced","advanced?source=nursing&state=NY&min=100&max=199&run=1",lambda page:page.locator('.advanced-status[data-complete="true"]')),
+    ("industry","industry?state=NY",lambda page:page.get_by_role("heading",name="Water treatment & dialysis")),
     ("market","geography?source=hospital&state=NY",lambda page:page.locator(".market-region[data-state=NY][aria-current=true]")),
     ("directory","facilities?source=hospital&state=NY",lambda page:page.locator("tbody tr").first),
     ("profile","detail?"+urlencode({"source":"nursing","id":PROVIDER["ccn"],"state":PROVIDER["state"],"section":"sources"}),lambda page:page.get_by_role("heading",name="Evidence availability for this record")),
@@ -60,6 +62,9 @@ def ordinary_entry(browser,base,utm,attempts):
                 assert seen and sha(seen[-1].body())==HASHES[asset],"Browser received stale "+asset
             geo=[resp for resp in responses if resp.url==base+"web/market-boundaries.json"]
             assert geo and sha(geo[-1].body())==HASHES["web/market-boundaries.json"],"Browser received stale geography"
+            summary=[resp for resp in responses if resp.url==base+"web/market-summary.json?v="+MANIFEST["source_database_sha256"][:16]]
+            assert summary and sha(summary[-1].body())==HASHES["web/market-summary.json"],"Browser received stale regional summary"
+            assert page.locator('[data-aggregation="precomputed"]').count()==1
             # Warm-cache reload is deliberately in the same context and ordinary URL.
             page.reload(wait_until="load")
             page.locator(".market-region").first.wait_for(timeout=15000)
@@ -89,6 +94,9 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="advanced":
+                    page.locator(".advanced-form").screenshot(path=str(OUT/f"{width}-advanced-filters.png"))
+                    page.locator(".advanced-results").screenshot(path=str(OUT/f"{width}-advanced-results.png"))
                 if name=="market":
                     assert page.locator(".market-region").count()==56
                     actual={x.get_attribute("data-state"):int(x.get_attribute("data-count")) for x in page.locator(".market-region").all()}
