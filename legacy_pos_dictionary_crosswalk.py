@@ -10,7 +10,6 @@ import hashlib
 import json
 from pathlib import Path
 import re
-import subprocess
 import tempfile
 
 from collect_registry import response
@@ -161,8 +160,10 @@ def main():
     with tempfile.TemporaryDirectory(prefix="legacy-pos-layout-") as tmp:
         path=Path(tmp)/"layout.pdf"
         meta=retrieve(a.source,path)
-        extracted=subprocess.run(["pdftotext","-layout",str(path),"-"],check=True,capture_output=True,
-                                 timeout=120).stdout.decode("utf-8",errors="strict")
+        from pypdf import PdfReader
+        reader=PdfReader(path)
+        need(len(reader.pages)<=800,"PDF page bound exceeded")
+        extracted="\f".join(page.extract_text(extraction_mode="layout") or "" for page in reader.pages)
         need(len(extracted)<=30_000_000,"layout extraction exceeds bound")
         parsed,categories=parse(extracted)
         result=crosswalk(a.source,parsed,categories,inv,meta)
