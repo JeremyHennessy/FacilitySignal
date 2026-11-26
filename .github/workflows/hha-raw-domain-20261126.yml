@@ -1,0 +1,35 @@
+name: FacilitySignal pinned HHA raw-domain qualification
+on:
+  push:
+    branches: [research/hha-raw-domain-20261126]
+    paths:
+      - 'scripts/hha_raw_domain_audit.py'
+      - 'tests/test_hha_raw_domain_audit.py'
+      - '.github/workflows/hha-raw-domain-20261126.yml'
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-hha-raw-domain-20261126
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p test_hha_raw_domain_audit.py -v
+      - name: One exact pinned source retrieval and aggregate-only audit
+        run: |
+          umask 077
+          python -m scripts.hha_raw_domain_audit --download --receipt "$RUNNER_TEMP/hha-raw-domain.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hha-raw-domain-aggregate-only
+          path: ${{ runner.temp }}/hha-raw-domain.json
+          if-no-files-found: error
+          retention-days: 30
