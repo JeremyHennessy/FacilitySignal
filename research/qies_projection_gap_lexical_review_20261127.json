@@ -1,0 +1,2484 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-27",
+  "base_commit": "4dd5821a03997a001883cb77a7f972517c6b116e",
+  "scope": "Original QIES populated aggregate fields outside November 26 baseline. Historical 2023 definition candidates and lexical screening only; no current dictionary, provider scope, domain, units, dates, reuse or application approval.",
+  "source_sha256": "8c83318826efc7de996811c22b67f5422ad639581e94830817645d5c0585bf7c",
+  "source_rows": 13598,
+  "publisher_metadata": {
+    "url": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-quality-improvement-and-evaluation-system/api-docs",
+    "version": "b1e5b072-5e82-4e37-9bd6-de8708679935",
+    "period": "Q3 2026",
+    "columns": 473,
+    "rows": 13598,
+    "last_updated": "2026-10-16",
+    "checked": "2026-11-27"
+  },
+  "pinned_evidence": {
+    "research/qies_historical_dictionary_crosswalk_20261126.json": "d3ba3da2c42af3ead3cf573ebd3016b8972a7d84",
+    "research/national_data_understanding_index_20261126.json": "2d4b60ea413e60c96a9500a4d5713b6d90bca03a",
+    "research/qies_raw_field_profile_20261126.json": "0dbacbc2732491559cca82dc3422b7237cb0307b"
+  },
+  "counts": {
+    "numeric_lexical_candidate": 53,
+    "integer_text_max_width_eight": 10,
+    "text_or_code_unverified": 91,
+    "historical_type_missing": 5,
+    "historical_definition_conflict": 3
+  },
+  "fields": [
+    {
+      "ordinal": 3,
+      "field": "CHOW_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13589,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13589
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 4,
+      "field": "CHOW_DT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "DATE"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 2543,
+      "lexical_shapes": {
+        "unsigned_integer_text": 2543
+      },
+      "disposition": "integer_text_max_width_eight",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 6,
+      "field": "ACPTBL_POC_SW",
+      "category": "regulatory_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "other_text": 13587
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 8,
+      "field": "SSA_CNTY_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13306,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13306
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 9,
+      "field": "CROSS_REF_PROVIDER_NUMBER",
+      "category": "other_field_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 3781,
+      "lexical_shapes": {
+        "other_text": 138,
+        "unsigned_integer_text": 3643
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 11,
+      "field": "ELGBLTY_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "other_text": 13587
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 13,
+      "field": "INTRMDRY_CARR_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13557,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13557
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 14,
+      "field": "MDCD_VNDR_NUM",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 3080,
+      "lexical_shapes": {
+        "other_text": 814,
+        "unsigned_integer_text": 2266
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 15,
+      "field": "ORGNL_PRTCPTN_DT",
+      "category": "other_field_review",
+      "historical_types": [
+        "DATE"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13598,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13598
+      },
+      "disposition": "integer_text_max_width_eight",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 16,
+      "field": "CHOW_PRIOR_DT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "DATE"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 2151,
+      "lexical_shapes": {
+        "unsigned_integer_text": 2151
+      },
+      "disposition": "integer_text_max_width_eight",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 17,
+      "field": "INTRMDRY_CARR_PRIOR_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        null
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 9662,
+      "lexical_shapes": {
+        "unsigned_integer_text": 9662
+      },
+      "disposition": "historical_type_missing",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 19,
+      "field": "RGN_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13598,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13598
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 20,
+      "field": "SKLTN_REC_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13589,
+      "lexical_shapes": {
+        "other_text": 13589
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 22,
+      "field": "SSA_STATE_CD",
+      "category": "identity_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 5,
+      "nonblank": 13598,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13598
+      },
+      "disposition": "historical_definition_conflict",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 23,
+      "field": "STATE_RGN_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13598,
+      "lexical_shapes": {
+        "other_text": 4880,
+        "unsigned_integer_text": 8718
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 25,
+      "field": "PHNE_NUM",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13086,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13086
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 26,
+      "field": "PGM_TRMNTN_CD",
+      "category": "regulatory_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13598,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13598
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 28,
+      "field": "CRTFCTN_ACTN_TYPE_CD",
+      "category": "regulatory_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 4,
+      "nonblank": 13586,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13586
+      },
+      "disposition": "historical_definition_conflict",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 29,
+      "field": "GNRL_CNTL_TYPE_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12312,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12312
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 31,
+      "field": "FIPS_STATE_CD",
+      "category": "identity_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13304,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13304
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 32,
+      "field": "FIPS_CNTY_CD",
+      "category": "identity_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13304,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13304
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 33,
+      "field": "CBSA_URBN_RRL_IND",
+      "category": "identity_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13304,
+      "lexical_shapes": {
+        "other_text": 13304
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 34,
+      "field": "CBSA_CD",
+      "category": "identity_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 3,
+      "nonblank": 13304,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13304
+      },
+      "disposition": "historical_definition_conflict",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 35,
+      "field": "ACRDTN_EFCTV_DT",
+      "category": "regulatory_review",
+      "historical_types": [
+        "DATE"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 7989,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7989
+      },
+      "disposition": "integer_text_max_width_eight",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 36,
+      "field": "ACRDTN_EXPRTN_DT",
+      "category": "regulatory_review",
+      "historical_types": [
+        "DATE"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 6351,
+      "lexical_shapes": {
+        "unsigned_integer_text": 6351
+      },
+      "disposition": "integer_text_max_width_eight",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 37,
+      "field": "ACRDTN_TYPE_CD",
+      "category": "regulatory_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13598,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13598
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 38,
+      "field": "TOT_AFLTD_AMBLNC_SRVC_CNT",
+      "category": "service_or_lab_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 39,
+      "field": "TOT_AFLTD_ASC_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 40,
+      "field": "TOT_COLCTD_HOSP_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 41,
+      "field": "TOT_AFLTD_ESRD_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 42,
+      "field": "TOT_AFLTD_FQHC_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 43,
+      "field": "TOT_AFLTD_HHA_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 44,
+      "field": "TOT_AFLTD_HOSPC_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 45,
+      "field": "TOT_AFLTD_OPO_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 46,
+      "field": "TOT_AFLTD_PRTF_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 47,
+      "field": "TOT_AFLTD_RHC_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 48,
+      "field": "TOT_AFLTD_SNF_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 49,
+      "field": "AFLTD_PRVDR_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 50,
+      "field": "RSDNT_PGM_ALPTHC_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 51,
+      "field": "RSDNT_PGM_DNTL_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 52,
+      "field": "RSDNT_PGM_OSTPTHC_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 53,
+      "field": "RSDNT_PGM_OTHR_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 54,
+      "field": "RSDNT_PGM_PDTRC_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 56,
+      "field": "PHRMCY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12158,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12158
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 60,
+      "field": "OVRRD_BED_CNT_SW",
+      "category": "capacity_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 61,
+      "field": "CRTFD_BED_CNT",
+      "category": "capacity_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13582
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 75,
+      "field": "BED_CNT",
+      "category": "capacity_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13582
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 78,
+      "field": "CAH_PSYCH_DPU_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "other_text": 13587
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 79,
+      "field": "CAH_REHAB_DPU_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "other_text": 13587
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 80,
+      "field": "CAH_SB_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "other_text": 13587
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 81,
+      "field": "CRDC_CTHRTZTN_PRCDR_ROOMS_CNT",
+      "category": "capacity_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13581,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13581
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 82,
+      "field": "GNRL_FAC_TYPE_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12245,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12245
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 84,
+      "field": "CLIA_ID_NUMBER_1",
+      "category": "other_field_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 6081,
+      "lexical_shapes": {
+        "other_text": 6081
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 85,
+      "field": "CLIA_ID_NUMBER_2",
+      "category": "other_field_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 932,
+      "lexical_shapes": {
+        "other_text": 932
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 86,
+      "field": "CLIA_ID_NUMBER_3",
+      "category": "other_field_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 403,
+      "lexical_shapes": {
+        "other_text": 403
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 87,
+      "field": "CLIA_ID_NUMBER_4",
+      "category": "other_field_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 194,
+      "lexical_shapes": {
+        "other_text": 194
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 88,
+      "field": "CLIA_ID_NUMBER_5",
+      "category": "other_field_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 110,
+      "lexical_shapes": {
+        "other_text": 110
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 89,
+      "field": "COLCTN_STUS_SW",
+      "category": "regulatory_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "other_text": 13587
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 90,
+      "field": "RN_24_HR_WVR_SW",
+      "category": "regulatory_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 93,
+      "field": "LSC_WVR_SW",
+      "category": "regulatory_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 95,
+      "field": "ENDSCPY_PRCDR_ROOMS_CNT",
+      "category": "capacity_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13581,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13581
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 98,
+      "field": "FAX_PHNE_NUM",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 5781,
+      "lexical_shapes": {
+        "unsigned_integer_text": 5781
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 99,
+      "field": "FY_END_MO_DAY_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12568,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12568
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 109,
+      "field": "MDCL_SCHL_AFLTN_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12309,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12309
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 111,
+      "field": "MDCD_MDCR_PRTCPTG_PRVDR_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        null
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "historical_type_missing",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 115,
+      "field": "NCRY_PRVDR_DSGNTD_DT",
+      "category": "other_field_review",
+      "historical_types": [
+        "DATE"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 189,
+      "lexical_shapes": {
+        "unsigned_integer_text": 189
+      },
+      "disposition": "integer_text_max_width_eight",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 116,
+      "field": "NCRY_PRVDR_DSGNTD_AS_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 118,
+      "field": "MEET_1861_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        null
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "historical_type_missing",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 119,
+      "field": "NPP_TYPE_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 969,
+      "lexical_shapes": {
+        "other_text": 969
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 120,
+      "field": "TOT_OFSITE_CNCR_HOSP_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 121,
+      "field": "TOT_OFSITE_CHLDRN_HOSP_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 122,
+      "field": "TOT_OFSITE_EMER_DEPT_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 123,
+      "field": "TOT_OFSITE_INPTNT_LCTN_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 124,
+      "field": "TOT_OFSITE_LTC_HOSP_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 125,
+      "field": "TOT_OFSITE_OPTHLMC_SRGRY_CNT",
+      "category": "service_or_lab_review; capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 126,
+      "field": "TOT_OFSITE_OTHR_LCTN_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 127,
+      "field": "TOT_OFSITE_PSYCH_HOSP_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 128,
+      "field": "TOT_OFSITE_PSYCH_UNIT_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 129,
+      "field": "TOT_OFSITE_REHAB_HOSP_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 130,
+      "field": "TOT_OFSITE_REHAB_UNIT_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 131,
+      "field": "TOT_OFSITE_URGNT_CARE_CNTR_CNT",
+      "category": "capacity_review; organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 132,
+      "field": "OFSITE_LCTN_CNT",
+      "category": "organization_or_contract_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13587,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13587
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 133,
+      "field": "OPRTG_ROOM_CNT",
+      "category": "capacity_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13581,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13581
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 139,
+      "field": "PGM_PRTCPTN_CD",
+      "category": "regulatory_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12309,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12309
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 141,
+      "field": "PRVNC_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 263,
+      "lexical_shapes": {
+        "other_text": 263
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 142,
+      "field": "PSYCH_UNIT_BED_CNT",
+      "category": "capacity_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13589,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13589
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 143,
+      "field": "PSYCH_UNIT_EFCTV_DT",
+      "category": "other_field_review",
+      "historical_types": [
+        "DATE"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 2444,
+      "lexical_shapes": {
+        "unsigned_integer_text": 2444
+      },
+      "disposition": "integer_text_max_width_eight",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 144,
+      "field": "PSYCH_UNIT_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13589,
+      "lexical_shapes": {
+        "other_text": 13589
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 145,
+      "field": "PSYCH_UNIT_TRMNTN_CD",
+      "category": "regulatory_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 2444,
+      "lexical_shapes": {
+        "unsigned_integer_text": 2444
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 146,
+      "field": "PSYCH_UNIT_TRMNTN_DT",
+      "category": "regulatory_review",
+      "historical_types": [
+        "DATE"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 1339,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1339
+      },
+      "disposition": "integer_text_max_width_eight",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 147,
+      "field": "REHAB_UNIT_BED_CNT",
+      "category": "capacity_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13589,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13589
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 148,
+      "field": "REHAB_UNIT_EFCTV_DT",
+      "category": "other_field_review",
+      "historical_types": [
+        "DATE"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 1652,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1652
+      },
+      "disposition": "integer_text_max_width_eight",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 149,
+      "field": "REHAB_UNIT_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13589,
+      "lexical_shapes": {
+        "other_text": 13589
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 150,
+      "field": "REHAB_UNIT_TRMNTN_CD",
+      "category": "regulatory_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 1652,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1652
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 151,
+      "field": "REHAB_UNIT_TRMNTN_DT",
+      "category": "regulatory_review",
+      "historical_types": [
+        "DATE"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 694,
+      "lexical_shapes": {
+        "unsigned_integer_text": 694
+      },
+      "disposition": "integer_text_max_width_eight",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 153,
+      "field": "ACUTE_RNL_DLYS_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 154,
+      "field": "PSYCH_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 156,
+      "field": "ALCHL_DRUG_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 157,
+      "field": "ANSTHSA_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 159,
+      "field": "AUDLGY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 163,
+      "field": "BURN_CARE_UNIT_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 164,
+      "field": "CRDC_CTHRTZTN_LAB_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 166,
+      "field": "CARF_IP_REHAB_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 167,
+      "field": "CHMTHRPY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 168,
+      "field": "CHRPRCTIC_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 172,
+      "field": "CL_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 173,
+      "field": "CRNRY_CARE_UNIT_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 180,
+      "field": "SHCK_TRMA_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 187,
+      "field": "EMER_PSYCH_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 188,
+      "field": "XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 189,
+      "field": "FRNSC_PSYCH_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 190,
+      "field": "GRTRC_PSYCH_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 191,
+      "field": "GRNTLGCL_SPCLTY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 198,
+      "field": "IP_SRGCL_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 203,
+      "field": "MDCR_TRNSPLNT_CNTR_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        null
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "historical_type_missing",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 209,
+      "field": "NEONTL_NRSRY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 210,
+      "field": "NRSRGCL_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 211,
+      "field": "ORGN_TRNSPLNT_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 221,
+      "field": "OB_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 222,
+      "field": "OPTHLMC_SRGY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 223,
+      "field": "OPTMTRC_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 225,
+      "field": "ORTHPDC_SRGY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 232,
+      "field": "OT_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12158,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12158
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 237,
+      "field": "OP_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 238,
+      "field": "OP_PSYCH_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 239,
+      "field": "OP_REHAB_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 240,
+      "field": "OP_SRGRY_UNIT_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 241,
+      "field": "PED_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 242,
+      "field": "PED_ICU_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 262,
+      "field": "PSTOPRTV_RCVRY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 263,
+      "field": "CHLD_ADLSCNT_PSYCH_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        null
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "historical_type_missing",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 270,
+      "field": "PT_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12158,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12158
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 274,
+      "field": "RCNSTRCTN_SRGY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 278,
+      "field": "RSPRTRY_CARE_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12158,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12158
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 283,
+      "field": "SCL_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12158,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12158
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 290,
+      "field": "SPCH_PTHLGY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12158,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12158
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 295,
+      "field": "SRGCL_ICU_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 305,
+      "field": "THRPTC_RDLGY_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 309,
+      "field": "URGNT_CARE_SRVC_CD",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 12203,
+      "lexical_shapes": {
+        "unsigned_integer_text": 12203
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 318,
+      "field": "OVRRD_STFG_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "CHAR"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 324,
+      "field": "PRSNEL_OTHR_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 5136,
+        "unsigned_integer_text": 8446
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 330,
+      "field": "CRNA_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 829,
+        "unsigned_integer_text": 12753
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 334,
+      "field": "DIETN_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 3128,
+        "unsigned_integer_text": 10454
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 348,
+      "field": "LAB_TCHNCN_CNT",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 1453,
+        "unsigned_integer_text": 12129
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 350,
+      "field": "LPN_LVN_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 4109,
+        "unsigned_integer_text": 9473
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 358,
+      "field": "MDCL_SCL_WORKR_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 2873,
+        "unsigned_integer_text": 10709
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 360,
+      "field": "MDCL_TCHNLGST_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 1715,
+        "unsigned_integer_text": 11867
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 367,
+      "field": "NUCLR_MDCN_TCHNCN_CNT",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 959,
+        "unsigned_integer_text": 12623
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 371,
+      "field": "NRS_PRCTNR_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 1172,
+        "unsigned_integer_text": 12410
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 375,
+      "field": "OCPTNL_THRPST_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 2544,
+        "unsigned_integer_text": 11038
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 404,
+      "field": "PHYSN_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 2058,
+        "unsigned_integer_text": 11524
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 406,
+      "field": "PHYSN_ASTNT_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 920,
+        "unsigned_integer_text": 12662
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 410,
+      "field": "RSDNT_PHYSN_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 197,
+        "unsigned_integer_text": 13385
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 414,
+      "field": "PSYCHLGST_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 310,
+        "unsigned_integer_text": 13272
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 416,
+      "field": "PHYS_THRPST_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 2898,
+        "unsigned_integer_text": 10684
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 427,
+      "field": "RDLGY_TCHNCN_CNT",
+      "category": "service_or_lab_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 2304,
+        "unsigned_integer_text": 11278
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 428,
+      "field": "REG_PHRMCST_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 3633,
+        "unsigned_integer_text": 9949
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 429,
+      "field": "INHLTN_THRPST_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 3616,
+        "unsigned_integer_text": 9966
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 430,
+      "field": "RN_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 5180,
+        "unsigned_integer_text": 8402
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 447,
+      "field": "SPCH_PTHLGST_AUDLGST_CNT",
+      "category": "other_field_review",
+      "historical_types": [
+        "NUMBER"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "decimal_text": 2206,
+        "unsigned_integer_text": 11376
+      },
+      "disposition": "numeric_lexical_candidate",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 468,
+      "field": "SB_SW",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 13582,
+      "lexical_shapes": {
+        "other_text": 13582
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 469,
+      "field": "SB_SIZE_CD",
+      "category": "other_field_review",
+      "historical_types": [
+        "VARCHAR2"
+      ],
+      "historical_definition_count": 1,
+      "nonblank": 3283,
+      "lexical_shapes": {
+        "unsigned_integer_text": 3283
+      },
+      "disposition": "text_or_code_unverified",
+      "application_approval": "not_granted"
+    }
+  ]
+}
