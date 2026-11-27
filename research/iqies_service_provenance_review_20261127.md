@@ -1,0 +1,37 @@
+# iQIES service field provenance and release disposition
+Date: 2026-11-27. Research evidence only. No source-record redistribution, public projection, ingest, billing change, or production release was performed.
+
+## Pinned source and grain
+
+- [CMS iQIES Provider of Services](https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system), **Q3 2026 (2026-07-01 through 2026-09-30)**. The quarter is a publisher release period, not a per-record service verification date or effective date. The filename of the [October 2026 CMS dictionary](https://data.cms.gov/sites/default/files/2026-11/dd404bad-f893-4c80-b472-ab600bee1405/iQIES%20POS%20Data%20Dictionary%20Oct2026.xlsx) is not a different observation period.
+- Source 100,334 rows, SHA-256 `50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2`; dictionary 40,305 bytes, SHA-256 `bd68d76dc72ee5c3b3249c459644ff2ed90c8e8cf6e182b76742ec53164c0594`. Keep version provenance; do not overwrite history with the next quarter.
+- One observation per `(registry=iQIES, release checksum, source row number, field)` conceptually. The physical table keys `(registry,row_number,field)` under its singleton pinned release and joins certification records on registry and row number. The importer verifies every source row SHA-256 and CCN/type against the base; it does not join to a canonical facility. `prvdr_num` is a six- or ten-position CMS Certification Number, not a physical site ID, NPI or ownership relation. Keep exact source-native records and repeated values; do not collapse by normalized names, strip leading zeros, deduplicate by CCN alone, or carry source-service flags across campuses, provider categories or releases.
+- Boolean definitions are unique dictionary rows in `POS Data Dictionary`, format Yes/No/Not Applicable/Not Available, no additional row mapping. Provider scope comes from pinned `M1` identification. Scope total: 8,492 ASC records per ASC field; 8,659 ESRD records per ESRD field. Counts below are observations on source rows, not unique locations, and fields overlap.
+
+## Field decisions
+
+| Source field | Scope, dictionary row | Safe reported meaning (display with Q3 2026) | Yes / No / Not available | Interpretation and publication guard |
+|---|---|---|---:|---|
+| `ft_srgry_sw` | ASC, 44 | Podiatric surgery | 2,293 / 5,747 / 452 | Offer indicator only |
+| `ob_gyn_srgry_sw` | ASC, 45 | Obstetrics/gynecology surgery | 1,512 / 6,528 / 452 | Not a maternity unit or birthing designation |
+| `opthmlgy_srgry_sw` | ASC, 48 | Ophthalmologic surgery | 2,594 / 5,446 / 452 | Not an eye clinic, procedure volume, or equipment inventory |
+| `orthpdc_srgry_sw` | ASC, 49 | Orthopedic surgery | 2,893 / 5,147 / 452 | Not implant inventory or procedure volume |
+| `othr_srgry_sw` | ASC, 50 | Other surgery types performed | 3,016 / 5,024 / 452 | Do not infer which specialty; defer as a standalone public filter |
+| `otlrynglgy_srgry_sw` | ASC, 51 | Ear, nose and throat surgery | 1,852 / 6,188 / 452 | Not outpatient ENT clinic availability |
+| `pain_srgry_sw` | ASC, 52 | Pain surgery | 2,812 / 5,228 / 452 | Not nonsurgical pain management |
+| `plstc_srgry_sw` | ASC, 53 | Plastic and reconstructive surgery | 2,268 / 5,772 / 452 | Combined publisher field; do not split into two indications |
+| `incntr_nctrnl_srvc_sw` | ESRD, 134 | Began in-center nocturnal hemodialysis | 12 / 8,435 / 212 | New-service indicator only; no begin date, established-service absence or current availability; defer public row/filter |
+| `sp_home_trng_sprt_hd_sw` | ESRD, 135 | Continued providing home hemodialysis | 2,105 / 6,342 / 212 | Continued flag only; not training-only, starts or current-day availability |
+| `sp_home_trng_sprt_pd_sw` | ESRD, 137 | Continued providing home peritoneal dialysis | 3,778 / 4,669 / 212 | Continued flag only; not training-only, starts or current-day availability |
+
+Aggregate: 25,135 Yes + 64,526 No + 4,252 Not available = 93,913 observations. Each ASC field excludes 91,842 out-of-scope Not Applicable rows; each ESRD field excludes 91,675. These exclusions are not No and do not belong to the eligible denominator. Unavailable never becomes No, zero, or a missing service; future blanks/unknown codes/wrong-scope populated values should fail review, not silently normalize. If a percentage is later shown, disclose whether it is Yes / all applicable or Yes / known applicable and show unavailable separately. Do not interpret a negative continuation or commencement flag as a full service absence. Do not invent equipment, capacity, activity, deficiencies, procurement, risk, or live operational status from any flag.
+
+## Projection recommendation
+
+- Existing published evidence can support a national, source-record scoped aggregate card with period, source, denominator and all three states. National aggregates are already committed; do not use this decision to publish an additional pack. Aggregate comparisons should be labeled publisher-reported and never used as infrastructure or compliance scores.
+- If the owner/project publication gate is cleared, prioritize the seven named ASC specialty indicators for a narrow candidate profile/filter, followed by the two continued home modalities with the exact qualified wording. A private route or public publisher availability is not permission to reuse the curated row-level projection. Until clearance, all 11 stay private at row level. Leave Other and nocturnal commencement out of the first row-level browse/filter design; if displayed later, preserve the nonspecific and commencement meanings. Do not layer small-cell state or local breakdowns without explicit publication review.
+- Before row-level release: document publisher/reuse and publication approval, decide durable storage cost separately, establish a testable release and source-record join/visibility contract, protect private routes and row hashes from public assets, and run count parity, status/label checks, wrong-scope and unknown-value rejection, duplicate/CCN-vs-campus fixtures, plus actual Pages visual checks. Neither this document nor the existing aggregate qualification grants approval.
+
+## Reconciliation evidence
+
+Compared the [dictionary extraction](iqies_full_dictionary_metadata_20261126.json), [raw value-profile evidence](iqies_raw_field_profile_20261126.json), [scope/domain review](iqies_projection_gap_domain_review_20261127.json), [full national qualification](iqies_national_service_qualification_20261127.json) and [byte-identical recovery](iqies_sidecar_roundtrip_20261127.json) against [the importer](../iqies_additional_services.py) and [private route](../private_iqies_service_research.py). Independently checked 115 assertions: reviewed ordinal, unique publisher metadata, domain/scope/no-publication status, each of 33 field×value counts, in-/out-of-scope denominators, source/dictionary/period pins, full observation count and identical recovered DB checksum. This was a committed-evidence reconciliation, not a new download or a fresh Azure readback. Original full qualification [run 45974990055](https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45974990055), compact round-trip [run 45989267301](https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45989267301). See [CMS’s general public-data guidance](https://data.cms.gov/about) for the publisher route; it does not substitute for the repository's row-level release approval.
