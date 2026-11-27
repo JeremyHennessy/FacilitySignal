@@ -60,8 +60,9 @@ def export(base, candidate, output):
         ready.rename(output)
     return manifest
 
-def restore(base, sidecar, output):
+def restore(base, sidecar, output, manifest_sha256):
     expected=pinned_receipt()
+    require(sha(sidecar/"manifest.json")==manifest_sha256,"trusted manifest pin mismatch")
     manifest=json.loads((sidecar/"manifest.json").read_text())
     pack=sidecar/"services.sqlite3"
     require(manifest=={"format_version":1,"base_database_sha256":expected["base_database_sha256"],"qualified_candidate_sha256":expected["database_sha256"],"sidecar_sha256":sha(pack),"sidecar_bytes":pack.stat().st_size,"observations":expected["observations"]},"sidecar manifest mismatch")
@@ -92,5 +93,12 @@ if __name__=="__main__":
     p.add_argument("base",type=Path)
     p.add_argument("input",type=Path)
     p.add_argument("output",type=Path)
+    p.add_argument("--manifest-sha256",help="Externally retained trusted manifest digest for restore")
     a=p.parse_args()
-    print(json.dumps((export if a.action=="export" else restore)(a.base,a.input,a.output),sort_keys=True))
+    if a.action=="restore":
+        require(bool(a.manifest_sha256),"trusted manifest digest required")
+        result=restore(a.base,a.input,a.output,a.manifest_sha256)
+    else:
+        result=export(a.base,a.input,a.output)
+        result["manifest_sha256"]=sha(a.output/"manifest.json")
+    print(json.dumps(result,sort_keys=True))
