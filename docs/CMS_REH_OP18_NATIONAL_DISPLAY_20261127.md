@@ -1,0 +1,9 @@
+# Rural Emergency Hospital emergency department timing
+
+The [CMS national REH Timely and Effective Care catalog](https://data.cms.gov/provider-data/dataset/d2k3-k3ac) displays and counts eight rows for its November 12, 2026 release, covering CY 2025. All eight displayed rows passed a fail-closed format and scope test. Four are median-labeled time measures for different reported populations; their four respective suffix `_NINETIETH` rows instead carry the publisher's top-ten-percent labels. In all four pairs, the top-labeled time is lower than the corresponding median-labeled time. They are different statistics, not eight time measures of the same kind.
+
+[CMS QualityNet's general benchmark methods](https://qualitynet.cms.gov/inpatient/data-management/benchmarks) describe rank-oriented top performance among provider medians. That general source and the display labels do not independently establish the exact REH cohort or rank calculation for this edition. In particular, do not display the suffix rows as the 90th percentile of patient waiting times, calculate a percentile from these aggregates, infer transfer causes or ambulance travel, or compare unrelated patient populations as though they are the same.
+
+This is a separate measure and CY period from the [REH OP-36 outpatient return-visit catalog](https://data.cms.gov/provider-data/dataset/zez1-ka2w). For OP-36, this pass could not access either the page-two catalog view or official datastore query with offset 25 and limit 24 using the text tool; no publisher status or data returned. Its last 24 provider rows and both datasets' raw CSV/API bytes remain unverified.
+
+Retained aggregate only; projection checksum is not the native payload hash. Two focused tests pass, including rejection of statistic role drift, incomplete or duplicate keys, wrong period, wrong edition, and unsupported numeric values. No identities, facility or clinical claims, public app, data ingestion, or Azure changes.

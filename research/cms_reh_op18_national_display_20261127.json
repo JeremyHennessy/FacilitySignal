@@ -1,0 +1,23 @@
+{
+  "app_facility_rows_emitted": 0,
+  "catalog": "d2k3-k3ac",
+  "catalog_rows": 8,
+  "edition": "2026-11-12",
+  "national_display_rows": 8,
+  "paired_reporting_populations": 4,
+  "patient_wait_quantiles_derived": 0,
+  "performance_or_transfer_inferences": 0,
+  "period": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "projection_sha256": "5a84126fcdbe65c38693775490c5df9d59edbea880c425a3c7d3c5debca5950a",
+  "publisher_statistic_counts": {
+    "median_labeled": 4,
+    "top_ten_percent_labeled": 4
+  },
+  "reported_pair_order_counts": {
+    "top_label_lower": 4
+  },
+  "sha256_scope": "Transient minimized displayed projection, not original CSV/API bytes"
+}
