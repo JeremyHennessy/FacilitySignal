@@ -6,6 +6,17 @@ on:
       - .github/workflows/qualify-iqies-sidecar-roundtrip.yml
       - scripts/qualify_iqies_sidecar_roundtrip.py
       - tests/test_iqies_sidecar_roundtrip.py
+  workflow_dispatch:
+    inputs:
+      permitted_private_read:
+        description: "Owner verified cost/egress headroom and private read authorization"
+        type: boolean
+        default: false
+        required: true
+      approval_reference:
+        description: "Non-secret owner approval or cost evidence reference"
+        type: string
+        required: true
 permissions:
   contents: read
 concurrency:
@@ -27,7 +38,7 @@ jobs:
       - run: python -m unittest discover -s tests -v
   roundtrip:
     needs: qualify
-    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch' && inputs.permitted_private_read == true && inputs.approval_reference != '' && github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     environment: azure-production
