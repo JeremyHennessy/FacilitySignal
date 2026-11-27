@@ -1,8 +1,8 @@
 """Qualify compact iQIES sidecar recovery from exact national inputs.
 
-One controlled reconstruction; no archive writes, pointer mutations, raw
-artifacts, or public projections. Only a small aggregate receipt may leave the
-temporary runner directory.
+One controlled reconstruction and loopback app smoke; no archive writes,
+pointer mutations, raw artifacts, or public projections. Only a small
+aggregate receipt may leave the temporary runner directory.
 """
 import argparse
 import json
@@ -16,6 +16,7 @@ from build_combined import require, readonly, sha
 from scripts import iqies_service_sidecar as sidecar
 from scripts import qualify_iqies_national_services as national
 from scripts import azure_verified_extension as ext
+from scripts.azure_private_workspace import verify_workspace
 
 
 class ReadOnlyStore:
@@ -39,6 +40,9 @@ def qualify(store, root):
     expected = sidecar.pinned_receipt()
     require(before["receipt_sha256"] == expected["base_receipt_sha256"],
             "qualified national receipt changed")
+    require(before["pointer"]["release"] == expected["base_release"]
+            and before["receipt"]["database_sha256"] == expected["base_database_sha256"],
+            "qualified national base lineage changed")
     rebuilt = national.run(store, root)
     require(rebuilt == expected, "reconstructed qualification receipt differs")
     base = root / "base" / "facilitysignal.sqlite3"
@@ -62,10 +66,21 @@ def qualify(store, root):
     require(recovery["observations"] == expected["observations"]
             and recovery["base_preserved"], "recovery receipt mismatch")
     require(recovery["database_sha256"] == sha(restored), "restored hash mismatch")
+    # The extension's actual handler verifies the retained restored-db pin
+    # at startup. Serve this very file, not a second restore or a base-only
+    # copy. Keep provider rows in loopback responses, never in the receipt.
+    restored.chmod(0o400)
+    workspace_smoke = verify_workspace(restored, {
+        "source": "private_azure_archive",
+        "release": expected["base_release"],
+        "source_records": expected["baseline_source_records"],
+        "read_only": True,
+        "qualified_service_extension_observations": recovery["observations"],
+    })
     ext.unchanged(store, before)
     return {
         "format_version": 1,
-        "scope": "Temporary full national sidecar round-trip; aggregate evidence only",
+        "scope": "Temporary full national sidecar round-trip and loopback app smoke; aggregate evidence only",
         "base_release": expected["base_release"],
         "base_receipt_sha256": expected["base_receipt_sha256"],
         "base_database_sha256": expected["base_database_sha256"],
@@ -83,6 +98,7 @@ def qualify(store, root):
         "baseline_tables_preserved": expected["unchanged_base_tables"],
         "baseline_source_records": expected["baseline_source_records"],
         "extension_tables_exact_bidirectional_parity": True,
+        "workspace_smoke": workspace_smoke,
         "national_pointer_unchanged": True,
         "private_storage_written": False,
         "public_promotion": False,
