@@ -4,7 +4,9 @@ Independent Pharm3r healthcare facility intelligence for the United States.
 
 **Public research workspace:** https://jeremyhennessy.github.io/FacilitySignal/ (GitHub Pages). Searchable Care Compare provider projections, nursing citation aggregates, regional markets, capacity and historical national research evidence. The public site is not the full national SQLite database. The Python/SQLite application below remains local development only. Do not expose it to a network.
 
-## Run
+Start with the [guide and evidence limits](docs/FACILITYSIGNAL_GUIDE.md) for route examples and the distinction between public data and the private archive.
+
+## Run locally
 
 Python 3.11+; no third-party dependencies.
 
@@ -22,7 +24,7 @@ python collect_cms.py --output data/cms-snapshot
 python facilitysignal.py --db data/cms-snapshot/facilitysignal.sqlite3 serve
 ```
 
-First full qualification: November 25, 2026, [run 45664651617](https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45664651617). 48,004 provider records and 619,069 nursing home citation records, across 56 jurisdictions. Not unique properties or open violations. Local reproduction remains the durable path until approved persistent storage is connected.
+First full qualification: November 25, 2026, [run 45664651617](https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45664651617). 48,004 provider records and 619,069 nursing home citation records, across 56 jurisdictions. Not unique properties or open violations. This was an ephemeral CI qualification, not the current retention status. Later private Azure archive recovery and inventory receipts are documented in the [guide](docs/FACILITYSIGNAL_GUIDE.md). The public Pages site does not query the private archive.
 
 ## Load source snapshots
 
@@ -52,7 +54,7 @@ The seven provider datasets represent source-scoped provider records, not unique
 
 A CSV import checks the declared row count, required field mappings, identifiers and duplicate facility keys; exact duplicate finding rows are counted separately. One transaction replaces only its source's current snapshot. Older releases are rejected. Failed imports leave the existing snapshot intact. The audit log stores input hash, release and count, not the full source CSV; retain input originals externally where permitted. Row count checks alone cannot prove completeness; live retrieval and independent source validation remain required. Do not commit raw CSV, local DB, secrets or restricted records. The separate qualification workflow temporarily retains only the normalized nine-dataset public CMS database and audit manifest, for three days; public repository artifacts may be accessed by signed-in GitHub users.
 
-## Current scope
+## Local development scope
 
 - National directory (search, state/provider filters, pagination, detail)
 - Nursing home deficiency search and exact-CCN link to nursing facility records
@@ -60,7 +62,7 @@ A CSV import checks the declared row count, required field mappings, identifiers
 - Source register browser and imported-release history
 - Read-only JSON endpoints: /api/overview, /api/facilities, /api/findings, /api/sources
 
-Original source research and planning are under research/ and docs/. Source discovery is not ingestion. SQLite, Python standard-library server and server-rendered HTML are provisional zero-dependency development choices, not the final production stack. PostgreSQL/PostGIS, authenticated API, React UI, source workers, coverage review, ownership, equipment, environmental and procurement remain planned. No secure dynamic production deployment or additional cloud provisioning. The static public Pages deployment is separate. See docs/PUBLIC_INTELLIGENCE_20261126.md.
+Original source research and planning are under research/ and docs/. Source discovery is not ingestion. SQLite, Python standard-library server and server-rendered HTML are provisional zero-dependency development choices, not the final production stack. A secure dynamic production API and canonical site, ownership, and equipment linkages are not established. The public workspace does expose selected research views in some of these areas; see the guide for scope and limitations. The static public Pages deployment is separate. See docs/PUBLIC_INTELLIGENCE_20261126.md.
 
 
 ## Public release verification
