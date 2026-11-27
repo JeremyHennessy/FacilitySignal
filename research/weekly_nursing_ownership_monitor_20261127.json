@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "scope": "Aggregate-only durable evidence from completed publisher monitoring run; no payload re-download or retention authority.",
+  "run": 46026273152,
+  "job": 140598467168,
+  "commit": "816ce65915b87f05abe5139eb73a0ba559e0fd44",
+  "artifact": 15211053975,
+  "artifact_digest": "sha256:34abae57d0e5aed19d260a34c42044bb264f406d781433b4d8477cc3ee987e19",
+  "checked_at": "2026-11-27T15:37:00.897979+00:00",
+  "base_release": "bootstrap-45845760984-1",
+  "archive_metadata_states": {
+    "metadata_unchanged": 23,
+    "metadata_review": 3,
+    "new_version_review": 3
+  },
+  "nursing_ownership": {
+    "api_count": 252468,
+    "publisher_modified": "2026-10-01",
+    "publisher_release": "2026-10-28",
+    "retained_organization_rows": 71270,
+    "scope": "Metadata and full source count only; no bytes, row retention, ownership inference or reuse approval.",
+    "state": "metadata_unchanged"
+  },
+  "changed_archives": {
+    "mn-boiler-aggregate:a9b6054c1b19": {
+      "state": "new_version_review"
+    },
+    "mn-elevator-aggregate:81014bada07b": {
+      "state": "new_version_review"
+    },
+    "osha-enforcement-healthcare-aggregate:8aff0f1394e6": {
+      "components": {
+        "inspection": "new_version_review",
+        "violation": "new_version_review"
+      },
+      "state": "new_version_review"
+    }
+  },
+  "review_archives": [
+    "institutional-field-observations:c19f08e7c24a",
+    "pecos-ppef-enrollment-corroboration:5918d959ffd0",
+    "repository-data-evidence:d99a4a943482"
+  ],
+  "failed_checks": [],
+  "new_candidate_writes_enabled": false,
+  "national_pointer_unchanged": true,
+  "pages_packs_unchanged": true,
+  "public_promotion": false,
+  "byte_identity_verified": false,
+  "first_scheduled_monday_execution_verified": false
+}

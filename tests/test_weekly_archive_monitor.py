@@ -57,3 +57,55 @@ class NursingOwnershipMonitorTests(unittest.TestCase):
             verify.assert_called_once_with(self.receipt,pin,{})
         self.assertEqual(next(iter(result.values()))["state"],"metadata_unchanged")
         store.create.assert_not_called()
+
+
+class MetadataChangeEvidenceTests(unittest.TestCase):
+    def test_changed_etag_only_does_not_claim_byte_change(self):
+        from scripts.weekly_archive_monitor import metadata_change_evidence
+        fields=("etag","last_modified","bytes")
+        result=metadata_change_evidence(
+            {"etag":"old","last_modified":"same","bytes":10},
+            {"etag":"new","last_modified":"same","bytes":10},fields)
+        self.assertEqual(result["state"],"new_version_review")
+        self.assertEqual(result["changed_fields"],["etag"])
+        self.assertEqual(result["equal_fields"],["last_modified","bytes"])
+        self.assertFalse(result["byte_identity_verified"])
+        self.assertNotIn('"new"',__import__("json").dumps(result))
+
+    def test_missing_newly_available_and_equal_are_distinct(self):
+        from scripts.weekly_archive_monitor import metadata_change_evidence
+        result=metadata_change_evidence({"etag":"old","bytes":10},{"last_modified":"now"},
+            ("etag","last_modified","bytes","other"))
+        self.assertEqual(result["state"],"metadata_review")
+        self.assertEqual(result["missing_current_fields"],["etag","bytes"])
+        self.assertEqual(result["newly_available_fields"],["last_modified"])
+        self.assertEqual(result["unavailable_in_both"],["other"])
+        self.assertEqual(result["changed_fields"],[])
+
+    def test_minnesota_and_osha_route_evidence_without_download(self):
+        import json
+        from unittest.mock import Mock, patch
+        from scripts import weekly_archive_monitor as monitor
+        from scripts import archive_state_equipment_directory as mn
+        from scripts import archive_osha_enforcement_coverage as osha
+        cases=[("mn-boiler-aggregate",{"url":"fixture","etag":"old","bytes":10}),
+               ("osha-enforcement-healthcare-aggregate",{"sources":{
+                   "inspection":{"etag":"old","bytes":10},
+                   "violation":{"etag":"old","bytes":10}}})]
+        for key,publisher in cases:
+            with self.subTest(key=key):
+                pin={"key":key,"source_sha256":"a"*64,"kind":"source"}
+                store=Mock()
+                with patch.object(monitor,"LEDGER") as ledger, patch.object(monitor,"read_small",return_value=({"publisher":publisher},None,None)), patch.object(monitor,"source_matches"), patch.object(mn,"head",return_value={"etag":"new","bytes":10}), patch.object(osha,"head",side_effect=lambda k:{"etag":"new" if k=="inspection" else "old","bytes":10}), patch.object(mn,"download") as md, patch.object(osha,"download") as od:
+                    ledger.read_text.return_value=json.dumps({"receipts":[pin]})
+                    out=next(iter(monitor.monitor(store,{}).values()))
+                    md.assert_not_called()
+                    od.assert_not_called()
+                self.assertEqual(out["state"],"new_version_review")
+                if key.startswith("mn-"):
+                    self.assertEqual(out["changed_fields"],["etag"])
+                else:
+                    self.assertEqual(out["components"],{"inspection":"new_version_review","violation":"metadata_unchanged"})
+                    self.assertEqual(out["component_metadata_evidence"]["inspection"]["changed_fields"],["etag"])
+                    self.assertEqual(out["component_metadata_evidence"]["violation"]["changed_fields"],[])
+                store.create.assert_not_called()

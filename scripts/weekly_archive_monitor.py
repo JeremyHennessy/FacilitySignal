@@ -26,6 +26,22 @@ def compare_metadata(old,new,fields):
     if any(old[k]!=new[k] for k in comparable):return "new_version_review"
     return "metadata_unchanged" if len(comparable)==len([k for k in fields if old.get(k) is not None]) else "metadata_review"
 
+def metadata_change_evidence(old,new,fields):
+    """Classify transport-header differences without claiming content changes.
+
+    Do not expose arbitrary upstream header strings in public CI receipts.
+    Equal metadata is not a content hash; absent headers are not changes.
+    """
+    comparable=[k for k in fields if old.get(k) is not None and new.get(k) is not None]
+    return {"state":compare_metadata(old,new,fields),
+            "changed_fields":[k for k in comparable if old[k]!=new[k]],
+            "equal_fields":[k for k in comparable if old[k]==new[k]],
+            "missing_current_fields":[k for k in fields if old.get(k) is not None and new.get(k) is None],
+            "newly_available_fields":[k for k in fields if old.get(k) is None and new.get(k) is not None],
+            "unavailable_in_both":[k for k in fields if old.get(k) is None and new.get(k) is None],
+            "byte_identity_verified":False,
+            "scope":"HTTP metadata only; candidate content and reuse not qualified."}
+
 def nursing_ownership_metadata(rec):
     """Monitor the full CMS publisher population, not the retained subset."""
     old=rec["publisher"]
@@ -67,11 +83,12 @@ def monitor(store,national):
                 results[ident]={"state":compare_metadata(old,discover(),("catalog_version","modified","main_file","url","resource_name"))}
             elif key=="osha-enforcement-healthcare-aggregate":
                 from scripts.archive_osha_enforcement_coverage import head,URLS
-                checks={k:compare_metadata(old["sources"][k],head(k),("etag","last_modified","bytes")) for k in URLS}
-                results[ident]={"state":"new_version_review" if "new_version_review" in checks.values() else "metadata_unchanged" if set(checks.values())=={"metadata_unchanged"} else "metadata_review","components":checks}
+                details={k:metadata_change_evidence(old["sources"][k],head(k),("etag","last_modified","bytes")) for k in URLS}
+                checks={k:v["state"] for k,v in details.items()}
+                results[ident]={"state":"new_version_review" if "new_version_review" in checks.values() else "metadata_unchanged" if set(checks.values())=={"metadata_unchanged"} else "metadata_review","components":checks,"component_metadata_evidence":details}
             elif key in {"mn-boiler-aggregate","mn-elevator-aggregate"}:
                 from scripts.archive_state_equipment_directory import head
-                results[ident]={"state":compare_metadata(old,head(old["url"]),("etag","last_modified","bytes"))}
+                results[ident]=metadata_change_evidence(old,head(old["url"]),("etag","last_modified","bytes"))
             elif key=="il-idph-hospital-directory":
                 from scripts.archive_state_equipment_directory import il_metadata,il_rows
                 new=il_metadata();_,digest=il_rows(new)
