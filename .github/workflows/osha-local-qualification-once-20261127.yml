@@ -1,0 +1,93 @@
+name: FacilitySignal one-shot local OSHA aggregate qualification
+on:
+  push:
+    branches: [research/osha-runner-qualification-20261127]
+    paths: [.github/workflows/osha-local-qualification-once-20261127.yml]
+permissions: {}
+concurrency:
+  group: facilitysignal-osha-enforcement-coverage
+  cancel-in-progress: false
+jobs:
+  qualify:
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/research/osha-runner-qualification-20261127' && github.event_name == 'push' && github.event.created == false && github.run_attempt == '1'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Check exact publisher pins and compute a local-only aggregate
+        shell: bash
+        env:
+          QUALIFIER_PIN: 72da4bc1924445da7f8f9bbfe717c0f355c4d630
+          GIT_TERMINAL_PROMPT: '0'
+          GIT_CONFIG_NOSYSTEM: '1'
+          GIT_CONFIG_GLOBAL: /dev/null
+          PIP_CONFIG_FILE: /dev/null
+        run: |
+          umask 077
+          unset GH_TOKEN GITHUB_TOKEN GIT_ASKPASS PIP_INDEX_URL PIP_EXTRA_INDEX_URL
+          scratch=$(mktemp -d "$RUNNER_TEMP/osha-qualify.XXXXXX")
+          trap 'rm -rf -- "$scratch"' EXIT
+          export TMPDIR="$scratch"
+          git -c init.defaultBranch=temporary init --quiet "$scratch/repo"
+          git -C "$scratch/repo" fetch --quiet --depth=1 https://github.com/JeremyHennessy/FacilitySignal.git "$QUALIFIER_PIN"
+          git -C "$scratch/repo" checkout --quiet --detach FETCH_HEAD
+          test "$(git -C "$scratch/repo" rev-parse HEAD)" = "$QUALIFIER_PIN"
+          python3 -m venv "$scratch/venv"
+          "$scratch/venv/bin/python" -m pip install --no-cache-dir --disable-pip-version-check --index-url https://pypi.org/simple openpyxl==3.1.5 et-xmlfile==2.0.0
+          cd "$scratch/repo"
+          timeout --signal=TERM 31m "$scratch/venv/bin/python" - "$scratch/task-receipt.json" <<'PY'
+          import contextlib
+          import io
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import shutil
+          import sys
+          from scripts import archive_osha_enforcement_coverage as m
+
+          pins = {
+              "inspection": {"etag": '"fabe2275e98ed72952742bf0c8a0b2f7-174"', "last_modified": "Fri, 27 Nov 2026 11:00:59 GMT", "bytes": 1457426341},
+              "violation": {"etag": '"40861ae62707d3624c8b62e56dc232c8-272"', "last_modified": "Thu, 26 Nov 2026 11:05:43 GMT", "bytes": 2276482292},
+          }
+          if shutil.disk_usage(os.environ["TMPDIR"]).free < 4_000_000_000:
+              raise SystemExit("OSHA stopped before publisher access: needs at least 4 GB scratch space.")
+          if any(pin["bytes"] > m.MAX_DOWNLOAD[kind] for kind, pin in pins.items()):
+              raise SystemExit("OSHA stopped before publisher access: compressed-size cap.")
+          real_head = m.head
+
+          def pinned_head(kind):
+              actual = real_head(kind)
+              if actual != pins[kind]:
+                  raise RuntimeError("Publisher HEAD drifted from the preflight receipt")
+              return actual
+
+          # Qualifier checks both HEADs before any GET, rechecks HEAD afterwards,
+          # matches GET metadata/byte count, and deletes each scratch ZIP before the next.
+          m.head = pinned_head
+          receipt = Path(sys.argv[1])
+          print("OSHA pinned preflight df164771; starting local-only qualification.", flush=True)
+          try:
+              with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+                  m.main(["--qualify-only", "--receipt", str(receipt)])
+              r = json.loads(receipt.read_text())
+              s = r["summary"]
+              if (r["status"], r["azure_writes"], r["archive_readback_verified"], r["public_promotion"],
+                  s["aggregate_rows"], s["site_or_event_rows_retained"], s["source_keys_retained"]) != (
+                  "QUALIFIED_LOCAL_ONLY", 0, False, False, 1, 0, 0):
+                  raise RuntimeError("Unexpected qualification scope")
+              out = {"status": r["status"], "archive_readback_verified": False, "azure_writes": 0, "public_promotion": False,
+                     "source_sha256": r["source_sha256"], "source_rows_screened": int(s["source_rows_screened"]),
+                     "source_keys_retained": 0, "site_or_event_rows_retained": 0,
+                     "matched_sector62_activity_keys": int(s["violation"]["matched_sector62_activity_keys"]), "sources": {}}
+              for kind, pin in pins.items():
+                  actual = r["publisher"]["sources"][kind]
+                  if any(actual[key] != value for key, value in pin.items()):
+                      raise RuntimeError("Receipt edition disagrees with pinned metadata")
+                  out["sources"][kind] = {**pin, "sha256": actual["sha256"], "source_rows_screened": int(s[kind]["source_rows_screened"])}
+              if any(not re.fullmatch("[0-9a-f]{64}", digest) for digest in [
+                     out["source_sha256"], *(d["sha256"] for d in out["sources"].values())]):
+                  raise RuntimeError("Unexpected digest format")
+          except Exception:
+              raise SystemExit("OSHA local-only qualification stopped; no result promoted. Check source pins, network, caps and reconciliation without printing upstream row data.")
+          print("FACILITYSIGNAL_OSHA_LOCAL_ONLY " + json.dumps(out, sort_keys=True), flush=True)
+          PY
