@@ -91,6 +91,9 @@ try:
             pathway.wait_for()
             card=page.locator(".industry-panel").filter(has=pathway)
             assert "Equipment is not linked" in card.inner_text()
+            campus_scope="CMS provider records are not a full list of physical campuses."
+            assert card.get_by_text(campus_scope,exact=False).is_visible()
+            assert "A certificate for one address does not verify equipment at another campus." in card.inner_text()
             assert "requires an account" in card.inner_text()
             assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
             card.screenshot(path=str(OUT/f"{width}-industry-minnesota-boiler.png"))
@@ -120,6 +123,12 @@ try:
             page.get_by_role("button",name="Apply jurisdiction").click()
             page.wait_for_function("location.hash === '#industry?state=NY'")
             pathway.wait_for(state="hidden")
+            page.goto(URL+"?utm_source=chatgpt.com#industry?state=MN")
+            assert card.get_by_text(campus_scope,exact=False).is_visible()
+            page.reload()
+            assert card.get_by_text(campus_scope,exact=False).is_visible()
+            assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+            card.screenshot(path=str(OUT/f"{width}-industry-minnesota-boiler-warm.png"))
             # Market and quick-search handoffs retain the exact selection and support back/forward.
             page.goto(URL+"#geography?source=hospital&state=NY")
             page.locator(".market-region[data-state=NY][aria-current=true]").wait_for()
