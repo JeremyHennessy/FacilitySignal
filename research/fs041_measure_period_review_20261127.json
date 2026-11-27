@@ -1,0 +1,269 @@
+{
+  "format_version": 1,
+  "scope": "Publisher-documentation semantic and collection-period review only; no live value-domain, facility linkage, reuse, or application qualification.",
+  "source_id": "FS-041",
+  "source_release": "2026-11-12",
+  "source_sha256": "1b3dd72de9e291b7b73845119499b62a8dfb09d8bc4243a6d6c78568a7635b14",
+  "source_rows": 5786,
+  "source_year_literal": "2025",
+  "reviewed_on": "2026-11-27",
+  "publisher_evidence": {
+    "facility_catalog": "https://data.cms.gov/provider-data/dataset/4jcv-atw7",
+    "measure_dates": "https://data.cms.gov/provider-data/dataset/4j6d-yzce",
+    "measure_dates_release": "2026-11-12",
+    "topic": "https://data.cms.gov/provider-data/topics/hospitals/ambulatory-surgical-centers/",
+    "frequency": "https://data.cms.gov/provider-data/topics/hospitals/measures-and-current-data-collection-periods",
+    "method": "Official catalog HTML/indexed table review; date-table raw bytes and exact dictionary release not downloaded or hashed."
+  },
+  "identity_fields": [
+    {
+      "field": "City/Town",
+      "meaning": "Publisher-reported geographic descriptor; not site/parcel verification",
+      "use": "source context only"
+    },
+    {
+      "field": "Facility ID",
+      "meaning": "Opaque source-scoped identifier; equivalence to CCN not established",
+      "use": "source context only"
+    },
+    {
+      "field": "Facility Name",
+      "meaning": "Publisher-reported facility name",
+      "use": "source context only"
+    },
+    {
+      "field": "NPI",
+      "meaning": "Identifier token; organizational type, checksum and same-site relationship not established",
+      "use": "source context only"
+    },
+    {
+      "field": "State",
+      "meaning": "Publisher-reported geographic descriptor; not site/parcel verification",
+      "use": "source context only"
+    },
+    {
+      "field": "Year",
+      "meaning": "Publisher row label, not a universal observation window",
+      "use": "source context only"
+    },
+    {
+      "field": "ZIP Code",
+      "meaning": "Publisher-reported geographic descriptor; not site/parcel verification",
+      "use": "source context only"
+    }
+  ],
+  "measures": [
+    {
+      "measure_id": "ASC_1",
+      "field_prefix": "ASC-1",
+      "meaning": "Patient burns before discharge",
+      "source_method": "ASC-submitted Hospital Quality Reporting System",
+      "collection_start": "2025-01-01",
+      "collection_end": "2025-12-31",
+      "update_frequency": "annual October",
+      "display_unit_review": "percentage described by topic; exact raw scale and footnote domain not qualified",
+      "fields": [
+        "ASC-1 Footnote",
+        "ASC-1 Rate*"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_2",
+      "field_prefix": "ASC-2",
+      "meaning": "Patient falls",
+      "source_method": "ASC-submitted Hospital Quality Reporting System",
+      "collection_start": "2025-01-01",
+      "collection_end": "2025-12-31",
+      "update_frequency": "annual October",
+      "display_unit_review": "percentage described by topic; exact raw scale and footnote domain not qualified",
+      "fields": [
+        "ASC-2 Footnote",
+        "ASC-2 Rate*"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_3",
+      "field_prefix": "ASC-3",
+      "meaning": "Wrong-site, wrong-side, wrong-patient, wrong-procedure or wrong-implant event",
+      "source_method": "ASC-submitted Hospital Quality Reporting System",
+      "collection_start": "2025-01-01",
+      "collection_end": "2025-12-31",
+      "update_frequency": "annual October",
+      "display_unit_review": "percentage described by topic; exact raw scale and footnote domain not qualified",
+      "fields": [
+        "ASC-3 Footnote",
+        "ASC-3 Rate*"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_4",
+      "field_prefix": "ASC-4",
+      "meaning": "Hospital transfer or admission at discharge",
+      "source_method": "ASC-submitted Hospital Quality Reporting System",
+      "collection_start": "2025-01-01",
+      "collection_end": "2025-12-31",
+      "update_frequency": "annual October",
+      "display_unit_review": "percentage described by topic; exact raw scale and footnote domain not qualified",
+      "fields": [
+        "ASC-4 Footnote",
+        "ASC-4 Rate*"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_9",
+      "field_prefix": "ASC-9",
+      "meaning": "Appropriate colonoscopy follow-up recommendation",
+      "source_method": "ASC-submitted Hospital Quality Reporting System",
+      "collection_start": "2025-01-01",
+      "collection_end": "2025-12-31",
+      "update_frequency": "annual October",
+      "display_unit_review": "percentage described by topic; exact raw scale and footnote domain not qualified",
+      "fields": [
+        "ASC-9 Footnote",
+        "ASC-9 Rate*"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_11",
+      "field_prefix": "ASC-11",
+      "meaning": "Visual function improvement after cataract surgery",
+      "source_method": "ASC-submitted Hospital Quality Reporting System",
+      "collection_start": "2025-01-01",
+      "collection_end": "2025-12-31",
+      "update_frequency": "annual October",
+      "display_unit_review": "percentage described by topic; exact raw scale and footnote domain not qualified",
+      "fields": [
+        "ASC-11 Footnote",
+        "ASC-11 Rate*"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_12",
+      "field_prefix": "ASC-12",
+      "meaning": "Seven-day hospital visits after outpatient colonoscopy",
+      "source_method": "Medicare claims",
+      "collection_start": "2022-01-01",
+      "collection_end": "2024-12-31",
+      "update_frequency": "annual January",
+      "display_unit_review": "risk-standardized rate; exact scale unresolved (topic footnote and display descriptions require reconciliation)",
+      "fields": [
+        "ASC-12 Footnote",
+        "ASC-12 Interval Lower Limit",
+        "ASC-12 Interval Upper Limit",
+        "ASC-12 Performance Category",
+        "ASC-12 RSHV Rate",
+        "ASC-12 Total Cases"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_13",
+      "field_prefix": "ASC-13",
+      "meaning": "Normothermia after anesthesia",
+      "source_method": "ASC-submitted Hospital Quality Reporting System",
+      "collection_start": "2025-01-01",
+      "collection_end": "2025-12-31",
+      "update_frequency": "annual October",
+      "display_unit_review": "percentage described by topic; exact raw scale and footnote domain not qualified",
+      "fields": [
+        "ASC-13 Footnote",
+        "ASC-13 Rate*"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_14",
+      "field_prefix": "ASC-14",
+      "meaning": "Unplanned anterior vitrectomy",
+      "source_method": "ASC-submitted Hospital Quality Reporting System",
+      "collection_start": "2025-01-01",
+      "collection_end": "2025-12-31",
+      "update_frequency": "annual October",
+      "display_unit_review": "percentage described by topic; exact raw scale and footnote domain not qualified",
+      "fields": [
+        "ASC-14 Footnote",
+        "ASC-14 Rate*"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_17",
+      "field_prefix": "ASC-17",
+      "meaning": "Hospital visits after orthopedic ASC procedures",
+      "source_method": "Medicare claims",
+      "collection_start": "2023-01-01",
+      "collection_end": "2024-12-31",
+      "update_frequency": "annual January",
+      "display_unit_review": "risk-standardized rate; exact scale unresolved (topic footnote and display descriptions require reconciliation)",
+      "fields": [
+        "ASC-17 Footnote",
+        "ASC-17 Interval Lower Limit",
+        "ASC-17 Interval Upper Limit",
+        "ASC-17 Performance Category",
+        "ASC-17 RSHV Rate",
+        "ASC-17 Total Cases"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_18",
+      "field_prefix": "ASC-18",
+      "meaning": "Hospital visits after urology ASC procedures",
+      "source_method": "Medicare claims",
+      "collection_start": "2023-01-01",
+      "collection_end": "2024-12-31",
+      "update_frequency": "annual January",
+      "display_unit_review": "risk-standardized rate; exact scale unresolved (topic footnote and display descriptions require reconciliation)",
+      "fields": [
+        "ASC-18 Footnote",
+        "ASC-18 Interval Lower Limit",
+        "ASC-18 Interval Upper Limit",
+        "ASC-18 Performance Category",
+        "ASC-18 RSHV Rate",
+        "ASC-18 Total Cases"
+      ],
+      "clinical_value_qualified": false
+    },
+    {
+      "measure_id": "ASC_19",
+      "field_prefix": "ASC-19",
+      "meaning": "Hospital visits after general surgery at an ASC",
+      "source_method": "Medicare claims",
+      "collection_start": "2023-01-01",
+      "collection_end": "2024-12-31",
+      "update_frequency": "annual January",
+      "display_unit_review": "ratio documented; numeric scale/domain not qualified",
+      "fields": [
+        "ASC-19 Footnote",
+        "ASC-19 Interval Lower Limit",
+        "ASC-19 Interval Upper Limit",
+        "ASC-19 Performance Category",
+        "ASC-19 RSHV Ratio",
+        "ASC-19 Total Cases"
+      ],
+      "clinical_value_qualified": false
+    }
+  ],
+  "limits": [
+    "Exact date windows taken from Measure Dates table for ASC_1 through ASC_19 measures present in facility header. No assumption that row Year applies to all measures.",
+    "The eight self-reported measures use 2025 dates, while four claims measures end in 2024. ASC-11 is voluntary under the publisher topic guidance.",
+    "Footnotes, performance categories, total-case applicability, confidence/interval meaning, scale and missing-value domains require exact release dictionary and pinned raw-value qualification.",
+    "No clinical scoring, facility risk inference, purchase inference or physical property merge. No raw data retention or row-level publication."
+  ],
+  "counts": {
+    "header_fields": 47,
+    "source_context_fields": 7,
+    "measure_fields": 40,
+    "measure_families": 12,
+    "documented_collection_windows": 12,
+    "normalized_fields": 0,
+    "app_qualified_fields": 0,
+    "raw_value_domain_qualified_fields": 0
+  }
+}
