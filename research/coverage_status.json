@@ -506,7 +506,28 @@
     },
     {
       "id": "FS-042",
-      "status": "discovered_not_tested"
+      "status": "aggregate_screening_qualified",
+      "evidence": "46070464820",
+      "source_release": "2026-09-23",
+      "source_records": 24285,
+      "source_releases": [
+        {
+          "dataset_id": "5zdx-ny2x",
+          "source_records": 27,
+          "source_columns": 7,
+          "source_sha256": "c49f3f5682e68ecc768b3bd293b42ef61885089d2634e5590f1a78fde32aa6d0"
+        },
+        {
+          "dataset_id": "fp6g-2gsn",
+          "source_records": 24258,
+          "source_columns": 16,
+          "source_sha256": "ea9d2a40ff6c9a4cce1e23b79e26621de4da230135f74838ef099d1b91316f07"
+        }
+      ],
+      "aggregate_evidence": "research/fs042_ltch_quality_qualification_20261127.json",
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "Two separate LTCH quality grains: 24,258 provider observations and 27 national benchmark observations; 311 expected CCN tokens, 78 provider measure codes, 47 jurisdictions. No duplicate provisional keys or unresolved identifier shapes; no clinical score interpretation, canonical linkage, or permanent retention."
     },
     {
       "id": "FS-043",

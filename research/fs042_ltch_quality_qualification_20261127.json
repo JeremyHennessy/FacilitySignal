@@ -1,0 +1,194 @@
+{
+  "format_version": 1,
+  "verified_commit": "20cd8cff75d2ad92647d6a8e62c7c8d704791fb7",
+  "run": 46070464820,
+  "job": 140745913077,
+  "artifact": 15232318373,
+  "artifact_digest": "sha256:207835e112b89ff7ff4e03bb1c7b2c412e5b66097cdbb45daa23147c7238783c",
+  "audit": {
+    "azure_writes": 0,
+    "canonical_matches": 0,
+    "input_rows": 24285,
+    "public_promotion": false,
+    "retrieved_at": "2026-11-27T21:28:06.615705+00:00",
+    "reuse_review": "pending",
+    "row_level_retained": 0,
+    "scope": "Historical quality reporting structural qualification only. National and provider grains separate. Measure values, footnotes and units not interpreted; no facility risk, current certification, physical property or service failure inferred.",
+    "source_id": "FS-042",
+    "sources": {
+      "national": {
+        "columns": 7,
+        "date_window_states": {
+          "ordered_explicit_dates": 27
+        },
+        "distinct_expected_identifier_tokens": 1,
+        "distinct_measure_code_tokens": 27,
+        "field_presence": {
+          "CMS Certification Number (CCN)": {
+            "present": 27
+          },
+          "End Date": {
+            "present": 27
+          },
+          "Footnote": {
+            "missing_literal": 27
+          },
+          "Measure Code": {
+            "present": 27
+          },
+          "Measure Date Range": {
+            "missing_literal": 27
+          },
+          "Score": {
+            "present": 27
+          },
+          "Start Date": {
+            "present": 27
+          }
+        },
+        "identifier_shapes": {
+          "expected": 27
+        },
+        "input_rows": 27,
+        "jurisdiction_row_counts": {},
+        "jurisdictions": 0,
+        "provisional_distinct_keys": 27,
+        "publisher": {
+          "bytes": 1787,
+          "id": "5zdx-ny2x",
+          "modified": "2026-08-12",
+          "released": "2026-09-23",
+          "sha256": "c49f3f5682e68ecc768b3bd293b42ef61885089d2634e5590f1a78fde32aa6d0",
+          "url": "https://data.cms.gov/provider-data/sites/default/files/resources/9f9a9d68bf3a5da8cc6b39243f48b2d2_1788977191/Long-Term_Care_Hospital-National_Data_Sep2026.csv"
+        },
+        "repeated_key_rows": 0,
+        "unresolved_key_rows": 0
+      },
+      "provider": {
+        "columns": 16,
+        "date_window_states": {
+          "ordered_explicit_dates": 24258
+        },
+        "distinct_expected_identifier_tokens": 311,
+        "distinct_measure_code_tokens": 78,
+        "field_presence": {
+          "Address Line 1": {
+            "present": 24258
+          },
+          "Address Line 2": {
+            "missing_literal": 24258
+          },
+          "CMS Certification Number (CCN)": {
+            "present": 24258
+          },
+          "CMS Region": {
+            "present": 24258
+          },
+          "City/Town": {
+            "present": 24258
+          },
+          "County/Parish": {
+            "present": 24258
+          },
+          "End Date": {
+            "present": 24258
+          },
+          "Footnote": {
+            "missing_literal": 22332,
+            "present": 1926
+          },
+          "Measure Code": {
+            "present": 24258
+          },
+          "Measure Date Range": {
+            "missing_literal": 24258
+          },
+          "Provider Name": {
+            "present": 24258
+          },
+          "Score": {
+            "missing_literal": 1766,
+            "present": 22492
+          },
+          "Start Date": {
+            "present": 24258
+          },
+          "State": {
+            "present": 24258
+          },
+          "Telephone Number": {
+            "present": 24258
+          },
+          "ZIP Code": {
+            "present": 24258
+          }
+        },
+        "identifier_shapes": {
+          "expected": 24258
+        },
+        "input_rows": 24258,
+        "jurisdiction_row_counts": {
+          "AK": 78,
+          "AL": 546,
+          "AR": 468,
+          "AZ": 390,
+          "CA": 1560,
+          "CO": 468,
+          "CT": 156,
+          "DC": 156,
+          "DE": 78,
+          "FL": 1716,
+          "GA": 858,
+          "HI": 78,
+          "IA": 156,
+          "ID": 156,
+          "IL": 390,
+          "IN": 546,
+          "KS": 234,
+          "KY": 780,
+          "LA": 1638,
+          "MA": 780,
+          "MD": 156,
+          "MI": 858,
+          "MN": 156,
+          "MO": 546,
+          "MS": 546,
+          "MT": 78,
+          "NC": 468,
+          "ND": 156,
+          "NE": 234,
+          "NJ": 702,
+          "NM": 234,
+          "NV": 468,
+          "NY": 78,
+          "OH": 1170,
+          "OK": 624,
+          "OR": 78,
+          "PA": 936,
+          "RI": 78,
+          "SC": 468,
+          "SD": 156,
+          "TN": 624,
+          "TX": 2964,
+          "UT": 156,
+          "VA": 468,
+          "WA": 78,
+          "WI": 234,
+          "WV": 312
+        },
+        "jurisdictions": 47,
+        "provisional_distinct_keys": 24258,
+        "publisher": {
+          "bytes": 4049344,
+          "id": "fp6g-2gsn",
+          "modified": "2026-09-11",
+          "released": "2026-09-23",
+          "sha256": "ea9d2a40ff6c9a4cce1e23b79e26621de4da230135f74838ef099d1b91316f07",
+          "url": "https://data.cms.gov/provider-data/sites/default/files/resources/5138c2286fd92faaef3ab3b52002b463_1789157140/Long-Term_Care_Hospital-Provider_Data_Sep2026_2.csv"
+        },
+        "repeated_key_rows": 0,
+        "unresolved_key_rows": 0
+      }
+    }
+  }
+}
