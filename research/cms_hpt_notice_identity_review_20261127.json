@@ -1,0 +1,13 @@
+{
+  "canonical_provider_links": 0,
+  "directory_revision": "8f10f0290d0829497190d2017edfdea815f635c0",
+  "linkage_review_counts": {
+    "missing_explicit_ccn_unique_address_candidate": 2
+  },
+  "notice_scope": "Two official PDFs in one row; no labeled CCN located in rendered text",
+  "notices_checked": 2,
+  "provider_or_case_rows_emitted": 0,
+  "public_hospital_directory_git_blob": "b0f0c73946064b5cb754912f685d2fcf975fb02b",
+  "public_hospital_directory_rows_checked": 5435,
+  "verification_scope": "Text-rendered notices and contemporary source directory. Not a historical case, ownership, or event crosswalk."
+}
