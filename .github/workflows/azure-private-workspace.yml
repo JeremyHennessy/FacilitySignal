@@ -1,0 +1,51 @@
+name: FacilitySignal private Azure workspace
+on:
+  pull_request:
+    paths:
+      - facilitysignal.py
+      - scripts/azure_private_workspace.py
+      - tests/test_azure_private_workspace.py
+      - .github/workflows/azure-private-workspace.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-azure-private-workspace
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify private app entry point without Azure access
+        run: python -m unittest discover -s tests -p test_azure_private_workspace.py -v
+  archived-data-smoke:
+    if: github.event_name == 'workflow_dispatch' && github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    needs: qualify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    environment: azure-production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Read approved national snapshot and exercise the private app
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.azure_private_workspace --verify-only
