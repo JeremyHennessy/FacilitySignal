@@ -27,6 +27,34 @@ LABELS = {
     "sp_home_trng_sprt_pd_sw": "Is Current Home Peritoneal Dialysis"
 }
 STATES = {"reported_yes", "reported_no", "not_available"}
+# Keep the publisher's original label, but expose the definition's temporal
+# meaning explicitly. In particular "Is Current" describes continuation in
+# this source, not verified present-day availability.
+INDICATOR_MEANINGS = {
+    "incntr_nctrnl_srvc_sw": ("commencement", "Provider reported having begun in-center nocturnal hemodialysis services."),
+    "sp_home_trng_sprt_hd_sw": ("continuation", "Provider reported continuing to provide home hemodialysis services."),
+    "sp_home_trng_sprt_pd_sw": ("continuation", "Provider reported continuing to provide home peritoneal dialysis services."),
+}
+
+
+def indicator_context(field):
+    scope = RULES[field][0]
+    kind, meaning = INDICATOR_MEANINGS.get(field, (
+        "specialty_offered", "ASC surgical specialty offered, as reported in the historical source."))
+    if scope == "ESRD":
+        caution = ("Reported no concerns this commencement or continuation indicator only. "
+                   "It does not establish that the service is absent or currently unavailable.")
+    else:
+        caution = "The indicator does not establish surgical volume, equipment or current availability."
+    return {
+        "indicator_kind": kind, "indicator_meaning": meaning,
+        "value_state_meanings": {
+            "reported_yes": "Affirmative source response to this indicator.",
+            "reported_no": "Negative source response to this indicator only.",
+            "not_available": "Source response not available; not a negative response.",
+        },
+        "interpretation_limit": caution,
+    }
 
 
 def pinned():
@@ -65,6 +93,7 @@ def search(db, params):
         "scope": scope, "registry": "iqies", "rows": [], "total": None,
         "page": page, "limit": limit,
         "semantic_status": "qualified_source_specific_iqies_service_indicator",
+        **indicator_context(field),
         "note": "Historical source-record observations; no current operations, installed assets, physical sites or purchasing intent implied. Private local research only.",
     }
     tables = ("certification_records", "certification_releases",

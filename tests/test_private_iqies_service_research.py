@@ -74,7 +74,10 @@ class PrivateServiceSearchTests(unittest.TestCase):
                         if enabled:
                             with urlopen(url,timeout=5) as res:
                                 self.assertEqual(res.headers["Cache-Control"],"no-store")
-                                self.assertEqual(json.load(res)["total"],1)
+                                payload=json.load(res)
+                                self.assertEqual(payload["total"],1)
+                                self.assertEqual(payload["indicator_kind"],"specialty_offered")
+                                self.assertIn("not a negative response",payload["value_state_meanings"]["not_available"])
                         else:
                             with self.assertRaises(HTTPError) as exc:urlopen(url,timeout=5)
                             self.assertEqual(exc.exception.code,404)
@@ -83,6 +86,49 @@ class PrivateServiceSearchTests(unittest.TestCase):
         before=sha(self.path)
         request(False);request(True)
         self.assertEqual(sha(self.path),before)
+
+    def test_all_indicator_meanings_match_pinned_dictionary_scope(self):
+        from iqies_additional_services import evidence
+        reviewed, _ = evidence()
+        for field, dictionary in reviewed.items():
+            with self.subTest(field=field):
+                context = q.indicator_context(field)
+                self.assertEqual(q.LABELS[field], dictionary["label"])
+                self.assertEqual(RULES[field][0], dictionary["applicability"])
+                self.assertIn("not a negative response", context["value_state_meanings"]["not_available"])
+                if field == "incntr_nctrnl_srvc_sw":
+                    self.assertIn("begun", dictionary["definition"])
+                    self.assertEqual(context["indicator_kind"], "commencement")
+                    self.assertIn("begun", context["indicator_meaning"])
+                elif field in ("sp_home_trng_sprt_hd_sw", "sp_home_trng_sprt_pd_sw"):
+                    self.assertIn("continued", dictionary["definition"])
+                    self.assertEqual(context["indicator_kind"], "continuation")
+                    self.assertIn("continuing", context["indicator_meaning"])
+                else:
+                    self.assertEqual(context["indicator_kind"], "specialty_offered")
+                if RULES[field][0] == "ESRD":
+                    self.assertIn("does not establish that the service is absent", context["interpretation_limit"])
+
+    def test_private_response_keeps_context_and_distinct_state(self):
+        p = {"field": "ft_srgry_sw", "value_state": "not_available"}
+        result = q.search(self.db, p)
+        self.assertEqual(result["rows"][0]["value_state"], "not_available")
+        self.assertEqual(result["indicator_kind"], "specialty_offered")
+        self.assertIn("not a negative response", result["value_state_meanings"]["not_available"])
+        for field, kind in (("incntr_nctrnl_srvc_sw","commencement"),
+                            ("sp_home_trng_sprt_hd_sw","continuation"),
+                            ("sp_home_trng_sprt_pd_sw","continuation")):
+            with self.subTest(field=field):
+                self.db.executemany("INSERT INTO iqies_additional_service_observations VALUES(?,?,?,?,?)",
+                    [("iqies",n,field,"ESRD",state) for n,state in
+                     ((1,"reported_yes"),(2,"reported_no"),(3,"not_available"))])
+                self.expected["field_states"][field] = {"reported_yes":1,"reported_no":1,"not_available":1}
+                answer = q.search(self.db, {"field":field,"value_state":"reported_no"})
+                self.assertEqual(answer["status"],"source_observations")
+                self.assertEqual(answer["total"],1)
+                self.assertEqual(answer["rows"][0]["value_state"],"reported_no")
+                self.assertEqual(answer["indicator_kind"],kind)
+                self.assertIn("does not establish that the service is absent",answer["interpretation_limit"])
 
     def test_actual_receipt_and_field_labels(self):
         proof=json.loads(q.ROUNDTRIP.read_text())["receipt"]
