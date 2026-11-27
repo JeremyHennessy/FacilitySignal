@@ -136,6 +136,21 @@ def run(base,local):
                     assert page.locator(".home-coverage").evaluate("(e)=>e.open")
                     page.locator(".home-coverage summary").click()
                     page.locator(".home-workflows").screenshot(path=str(OUT/f"{width}-home-workflows.png"))
+                if name=="search":
+                    q=PROVIDER["ccn"];state=PROVIDER["state"]
+                    page.goto(base+"#search?"+urlencode({"field":"id","q":q,"state":state}))
+                    page.get_by_role("link",name="Refine and export matching facilities").wait_for()
+                    page.screenshot(path=str(OUT/f"{width}-quick-search-refine.png"),animations="disabled")
+                    page.get_by_role("link",name="Refine and export matching facilities").click()
+                    page.locator('.advanced-status[data-complete="true"]').wait_for()
+                    expected=sum(sum(r["state"]==state and r["ccn"].lower()==q.lower() for r in json.loads((ROOT/f"web/public-directory/{key}.json").read_text())["records"]) for key in MANIFEST["sources"] if not key.startswith("nursing-"))
+                    assert int(page.locator(".advanced-status").get_attribute("data-total"))==expected
+                    assert page.locator("select[name=field]").input_value()=="id"
+                    assert page.locator("input[name=q]").input_value()==q
+                    assert page.locator("select[name=state]").input_value()==state
+                    assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+                    page.screenshot(path=str(OUT/f"{width}-refined-quick-search.png"),animations="disabled")
+                    page.go_back();page.get_by_role("link",name="Refine and export matching facilities").wait_for()
                 if name=="financial-research":
                     assert page.locator("#app .intelligence-table").count()==5
                     seen=[r for r in responses if r.url==base+"web/public-intelligence.json"]
@@ -291,6 +306,14 @@ def run(base,local):
                     assert actual=={s:HOSPITAL[s] for s in MANIFEST["jurisdictions"]}
                     page.locator(".market-map-frame").screenshot(path=str(OUT/f"{width}-market-map.png"))
                     page.locator(".market-selection").screenshot(path=str(OUT/f"{width}-market-selection.png"))
+                    page.get_by_role("link",name="Search this market with advanced filters").click()
+                    page.locator('.advanced-status[data-complete="true"]').wait_for()
+                    assert page.locator("select[name=source]").input_value()=="hospital"
+                    assert page.locator("select[name=state]").input_value()=="NY"
+                    assert int(page.locator(".advanced-status").get_attribute("data-total"))==HOSPITAL["NY"]
+                    assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+                    page.screenshot(path=str(OUT/f"{width}-market-advanced-handoff.png"),animations="disabled")
+                    page.go_back();page.locator(".market-region[data-state=NY][aria-current=true]").wait_for()
                 results.append({"width":width,"route":name,"screenshot":f"{width}-{name}.png"})
             ctx.close()
         browser.close()
