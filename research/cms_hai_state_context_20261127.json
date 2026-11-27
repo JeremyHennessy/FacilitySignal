@@ -1,0 +1,24 @@
+{
+  "catalog_provider_rows_not_fully_validated": 172332,
+  "catalog_state_rows_not_fully_validated": 1008,
+  "display_projection_sha256": "4634bce8bd7e9b3ce71721dcb06396919996a5dc0c79d4f1746bac3a8c2582fb",
+  "facility_or_jurisdiction_rows_emitted": 0,
+  "hash_scope": "Transient normalized projection of visible publisher tables; not original CSV/API bytes.",
+  "measure_families_checked": 6,
+  "numeric_recomparisons_or_label_changes": 0,
+  "performance_period": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "provider_catalog": "77hc-ibv8",
+  "provider_state_context_checks": {
+    "different_jurisdiction": 4
+  },
+  "release": "2026-11-12",
+  "scoped_api_result_available": false,
+  "state_catalog": "k2ze-bqvw",
+  "state_display_rows_read": 18,
+  "state_group_checks": {
+    "numeric_ordered_state_interval": 6
+  }
+}
