@@ -1,0 +1,105 @@
+name: FacilitySignal one-shot OSHA publisher transport diagnostic
+on:
+  push:
+    branches: [research/osha-publisher-transport-20261127]
+    paths: [.github/workflows/osha-publisher-metadata-once-20261127.yml]
+permissions: {}
+concurrency:
+  group: facilitysignal-osha-enforcement-coverage
+  cancel-in-progress: false
+jobs:
+  diagnose:
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/research/osha-publisher-transport-20261127' && github.event_name == 'push' && github.event.created == false && github.run_attempt == '1'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Use HEAD and at most four response bytes per archive
+        shell: bash
+        run: |
+          unset GH_TOKEN GITHUB_TOKEN
+          timeout --signal=TERM 75s python3 - <<'PY'
+          import http.client
+          import json
+          import socket
+          import ssl
+          import urllib.error
+          import urllib.request
+
+          BASE = "https://data.dol.gov/data-catalog/OSHA"
+          PINS = {
+              "inspection": {"ETag": '"fabe2275e98ed72952742bf0c8a0b2f7-174"', "Last-Modified": "Fri, 27 Nov 2026 11:00:59 GMT", "Content-Length": "1457426341"},
+              "violation": {"ETag": '"40861ae62707d3624c8b62e56dc232c8-272"', "Last-Modified": "Thu, 26 Nov 2026 11:05:43 GMT", "Content-Length": "2276482292"},
+          }
+
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, *args, **kwargs):
+                  return None
+
+          def exception_details(exc):
+              if isinstance(exc, urllib.error.HTTPError):
+                  code = int(exc.code)
+                  exc.close()  # Never consume an error response body.
+                  if 300 <= code <= 399:
+                      category = "redirect_refused"
+                  elif code in (401, 403):
+                      category = "http_access_rejected_not_entitlement_proof"
+                  elif code == 407:
+                      category = "proxy_authentication_required"
+                  elif code == 412:
+                      category = "etag_precondition_failed"
+                  elif code == 416:
+                      category = "range_unavailable"
+                  elif code == 429:
+                      category = "rate_limited"
+                  elif 500 <= code <= 599:
+                      category = "upstream_server_error"
+                  else:
+                      category = "http_error"
+                  return {"result": category, "http_status": code}
+              reason = getattr(exc, "reason", exc)
+              category = (
+                  "dns_error" if isinstance(reason, socket.gaierror) else
+                  "tls_error" if isinstance(reason, ssl.SSLError) else
+                  "timeout" if isinstance(reason, TimeoutError) else
+                  "connection_error" if isinstance(reason, ConnectionError) else
+                  "transport_error" if isinstance(reason, OSError) else
+                  "protocol_error" if isinstance(reason, http.client.HTTPException) else
+                  "unexpected_error"
+              )
+              return {"result": category}
+
+          def probe(kind, pin, opener):
+              url = f"{BASE}/{kind}/OSHA_{kind}.zip"
+              headers = {"Accept-Encoding": "identity", "User-Agent": "FacilitySignal public source qualification"}
+              phase = "head"
+              try:
+                  with opener.open(urllib.request.Request(url, method="HEAD", headers=headers), timeout=10) as head:
+                      diff = [key for key, value in pin.items() if head.headers.get(key) != value]
+                      if head.status != 200 or head.geturl() != url:
+                          return {"phase": phase, "result": "head_response_unexpected", "http_status": head.status}
+                      if diff:
+                          return {"phase": phase, "result": "head_pin_drift", "http_status": 200, "mismatch_fields": diff}
+                  phase = "range"
+                  headers.update({"Range": "bytes=0-3", "If-Match": pin["ETag"]})
+                  with opener.open(urllib.request.Request(url, method="GET", headers=headers), timeout=10) as r:
+                      if r.status != 206 or r.geturl() != url:
+                          return {"phase": phase, "result": "range_response_rejected_without_body", "http_status": r.status}
+                      required = {"Content-Length": "4", "Content-Range": f"bytes 0-3/{pin['Content-Length']}", "ETag": pin["ETag"]}
+                      bad = [key for key, value in required.items() if r.headers.get(key) != value]
+                      if r.headers.get("Content-Encoding") not in (None, "identity"):
+                          bad.append("Content-Encoding")
+                      if bad:
+                          return {"phase": phase, "result": "range_headers_rejected_without_body", "http_status": 206, "mismatch_fields": bad}
+                      signature = r.read(4)
+                      return {"phase": phase, "result": "pinned_zip_signature_valid" if signature == b"PK\x03\x04" else "invalid_or_truncated_zip_signature",
+                              "http_status": 206, "max_response_body_bytes_read": 4}
+              except (OSError, urllib.error.URLError, http.client.HTTPException) as exc:
+                  return {"phase": phase, **exception_details(exc)}
+
+          if __name__ == "__main__":
+              opener = urllib.request.build_opener(NoRedirect())
+              result = {kind: probe(kind, pin, opener) for kind, pin in PINS.items()}
+              print("FACILITYSIGNAL_OSHA_TRANSPORT_DIAGNOSTIC " + json.dumps(result, sort_keys=True), flush=True)
+              if any(r["result"] != "pinned_zip_signature_valid" for r in result.values()):
+                  raise SystemExit(2)
+          PY
