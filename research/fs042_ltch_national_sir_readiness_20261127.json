@@ -1,0 +1,34 @@
+{
+  "boundary": "Published national LTCH SIR is distinct from the mathematical reference 1.0. Do not derive provider comparison categories, baseline vintage, current safety, or an event rate.",
+  "catalog": "https://data.cms.gov/provider-data/dataset/5zdx-ny2x",
+  "dataset_id": "5zdx-ny2x",
+  "dictionary_september_2026": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/long_term_care_hospital/LTCH_Data_Dictionary.pdf",
+  "dictionary_tables": [
+    7,
+    8,
+    9
+  ],
+  "national_bytes": 1787,
+  "national_input_rows": 27,
+  "national_sha256": "c49f3f5682e68ecc768b3bd293b42ef61885089d2634e5590f1a78fde32aa6d0",
+  "observation_period_end": "2025-09-30",
+  "observation_period_start": "2024-10-01",
+  "other_national_rows_not_semantically_qualified": 24,
+  "provider_observations_consumed": 0,
+  "public_promotion": false,
+  "release": "2026-09-23",
+  "release_note": "https://www.cms.gov/medicare/quality/long-term-care-hospital/ltch-quality-public-reporting",
+  "reuse_review": "pending",
+  "row_level_retained": 0,
+  "sir_explicit_zero_rows": 0,
+  "sir_measure_families": [
+    "CAUTI",
+    "CDI",
+    "CLABSI"
+  ],
+  "sir_numeric_rows": 3,
+  "sir_reference_explanation": "https://www.cdc.gov/healthcare-associated-infections/php/data/progress-report-faqs.html",
+  "sir_scores_different_from_unity": 3,
+  "sir_unit": "unitless observed-to-predicted ratio",
+  "source_id": "FS-042"
+}
