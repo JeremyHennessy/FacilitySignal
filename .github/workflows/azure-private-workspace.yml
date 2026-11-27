@@ -7,6 +7,16 @@ on:
       - tests/test_azure_private_workspace.py
       - .github/workflows/azure-private-workspace.yml
   workflow_dispatch:
+    inputs:
+      permitted_private_read:
+        description: "Owner verified cost/egress headroom and private read authorization"
+        type: boolean
+        default: false
+        required: true
+      approval_reference:
+        description: "Non-secret owner approval or cost evidence reference"
+        type: string
+        required: true
 permissions:
   contents: read
 concurrency:
@@ -27,8 +37,11 @@ jobs:
       - name: Verify private app entry point without Azure access
         run: python -m unittest discover -s tests -p test_azure_private_workspace.py -v
   archived-data-smoke:
-    if: github.event_name == 'workflow_dispatch' && github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch' && inputs.permitted_private_read == true && inputs.approval_reference != '' && github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
     needs: qualify
+    concurrency:
+      group: facilitysignal-iqies-national-service-recovery
+      cancel-in-progress: false
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     environment: azure-production
