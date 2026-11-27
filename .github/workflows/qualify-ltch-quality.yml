@@ -1,0 +1,36 @@
+name: Qualify national LTCH quality reporting FS042
+on:
+  push:
+    branches: [research/fs042-ltch-quality-national-20261127]
+    paths:
+      - scripts/qualify_ltch_quality.py
+      - tests/test_ltch_quality.py
+      - .github/workflows/qualify-ltch-quality.yml
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-fs042-national-qualification
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_ltch_quality.py -v
+      - name: Screen pinned CMS LTCH releases, aggregate only
+        run: |
+          umask 077
+          python -m scripts.qualify_ltch_quality --audit "$RUNNER_TEMP/fs042-audit.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fs042-aggregate-audit
+          path: ${{ runner.temp }}/fs042-audit.json
+          retention-days: 7
+          if-no-files-found: error
