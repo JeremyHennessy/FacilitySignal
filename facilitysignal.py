@@ -427,7 +427,14 @@ def render_local_research(db,path,params):
     body+=pager(path,params,result)
     return layout(title_text,path,body)
 
-def handler(db_path, *, private_service_extension=False):
+def handler(db_path, *, private_service_extension=False, readonly_snapshot=False):
+    def open_database():
+        if not readonly_snapshot:
+            return connect(db_path)
+        db = sqlite3.connect(Path(db_path).resolve().as_uri() + "?mode=ro", uri=True, timeout=30)
+        db.row_factory = sqlite3.Row
+        db.execute("PRAGMA query_only=ON")
+        return db
     if private_service_extension:
         from private_iqies_service_research import verify_database
         verify_database(db_path)
@@ -449,7 +456,7 @@ def handler(db_path, *, private_service_extension=False):
                 params={k:v[0] for k,v in parse_qs(parsed.query,max_num_fields=20).items()}
                 if path=="/styles.css":
                     return self.send(200,(ROOT/"web"/"styles.css").read_text(encoding="utf-8"),"text/css; charset=utf-8")
-                with closing(connect(db_path)) as db:
+                with closing(open_database()) as db:
                     if path.startswith("/api/"):
                         kind=path[5:]
                         if kind=="iqies-additional-services":
