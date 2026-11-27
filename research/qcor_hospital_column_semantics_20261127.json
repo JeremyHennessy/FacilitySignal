@@ -76,7 +76,7 @@
     {
       "ordinal": 2,
       "field": "Facility Name",
-      "adapter_projection": "facility_name",
+      "adapter_projection": "name",
       "meaning": "Name at survey snapshot, not verified legal or present name.",
       "disposition": "historical_context",
       "profile": {
@@ -108,7 +108,7 @@
     {
       "ordinal": 3,
       "field": "Hospital Subtype",
-      "adapter_projection": "hospital_subtype",
+      "adapter_projection": "subtype",
       "meaning": "Publisher hospital subtype classification; ten distinct values but exact domain not enumerated.",
       "disposition": "candidate_classification",
       "profile": {
@@ -268,7 +268,7 @@
     {
       "ordinal": 8,
       "field": "CMS Region",
-      "adapter_projection": "cms_region",
+      "adapter_projection": "region",
       "meaning": "CMS administrative region, not service market; ten distinct labels.",
       "disposition": "historical_context",
       "profile": {

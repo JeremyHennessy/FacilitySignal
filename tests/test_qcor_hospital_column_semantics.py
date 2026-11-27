@@ -2,6 +2,7 @@ import hashlib
 import json
 from pathlib import Path
 import unittest
+import sqlite3
 import collect_qcor_hospital as adapter
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +21,10 @@ class QcorColumnSemanticsTests(unittest.TestCase):
             self.assertFalse(f["new_application_approved"])
             p = f["profile"]
             self.assertEqual(sum(p.get("states", p.get("presence", {})).values()), audit["source_rows"])
+        with sqlite3.connect(":memory:") as db:
+            db.executescript((ROOT / "schema.sql").read_text())
+            columns = [r[1] for r in db.execute("PRAGMA table_info(qcor_hospital_rows)")]
+        self.assertEqual([f["adapter_projection"] for f in audit["fields"][:14]], columns[3:-1])
         self.assertEqual(sum(f["adapter_projection"] is not None for f in audit["fields"]), 14)
         self.assertTrue(all(f["disposition"] == "excluded_narrative" for f in audit["fields"][14:]))
 
