@@ -10,6 +10,7 @@ from scripts.audit_azure_archive_inventory import source_matches,LEDGER
 from scripts import archive_environment_state as state, archive_hcris_form_indexes as forms
 from probe_ownership import select
 import collect_registry as registry
+import collect_cms as cms
 
 def head_metadata(url):
     p=urlsplit(url)
@@ -24,6 +25,24 @@ def compare_metadata(old,new,fields):
     if not comparable:return "metadata_review"
     if any(old[k]!=new[k] for k in comparable):return "new_version_review"
     return "metadata_unchanged" if len(comparable)==len([k for k in fields if old.get(k) is not None]) else "metadata_review"
+
+def nursing_ownership_metadata(rec):
+    """Monitor the full CMS publisher population, not the retained subset."""
+    old=rec["publisher"]
+    prior_count=rec["summary"]["input_rows"]
+    require(old["id"]=="y2hd-n93e" and type(prior_count) is int and prior_count>0,
+            "nursing ownership archive identity")
+    fields=("id","released","modified","url")
+    require(all(old.get(k) for k in fields),"incomplete archived ownership metadata")
+    new=cms.metadata(old["id"])
+    require(new.get("id")==old["id"],"ownership publisher identity changed")
+    count=cms.count(old["id"])
+    require(type(count) is int and count>0,"ownership publisher count")
+    outcome=compare_metadata(old,new,fields)
+    if prior_count!=count:outcome="new_version_review"
+    return {"state":outcome,"api_count":count,"publisher_release":new.get("released"),
+            "publisher_modified":new.get("modified"),"retained_organization_rows":rec["summary"]["stored_organization_rows"],
+            "scope":"Metadata and full source count only; no bytes, row retention, ownership inference or reuse approval."}
 
 def monitor(store,national):
     ledger=json.loads(LEDGER.read_text());results={};catalog=None
@@ -41,6 +60,8 @@ def monitor(store,national):
                 expected=rec["summary"].get("input_rows")
                 if expected is not None and expected!=n:outcome="new_version_review"
                 results[ident]={"state":outcome,"api_count":n,"publisher_period":new["period"]}
+            elif key=="cms-nursing-ownership-organizations":
+                results[ident]=nursing_ownership_metadata(rec)
             elif key=="ppef-type2-enrollment":
                 from scripts.archive_ppef_enrollment import discover
                 results[ident]={"state":compare_metadata(old,discover(),("catalog_version","modified","main_file","url","resource_name"))}
