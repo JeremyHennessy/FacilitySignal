@@ -187,6 +187,7 @@ async function unifiedSearch(p,signal,epoch){
     form.addEventListener("submit",e=>{e.preventDefault();location.hash=route("search",Object.fromEntries(new FormData(form)))});
     app.append(form);
     if(!(p.q||"").trim()){app.append(el("div","Enter a provider name, CCN, address, city or ZIP. A search reads only the limited published provider projections, one source at a time.","empty"));return}
+    app.append(add(el("div",undefined,"links"),anchor("Refine and export matching facilities",route("advanced",{source:"all",state:p.state,field:p.field||"name",q:(p.q||"").trim().slice(0,100),run:1}))));
     const progress=el("div","Searching published provider sources…","notice");app.append(progress);
     let total=0,completed=0,failed=0;
     for(const s of providerSources()){
@@ -437,6 +438,7 @@ function marketSelection(p,sources,sums){
     const source=p.source||"all",v=marketValue(row,source);
     box.append(el("h2",row.state+" market"),el("p",(source==="all"?"All provider sources":names[source])+" · "+N.format(v)+" source records","market-selected-count"));
     const links=el("div",undefined,"links");
+    links.append(anchor("Search this market with advanced filters",route("advanced",{source,state:row.state,run:1})));
     for(const s of sources){
         const n=row.m.get(s.key)||0;
         if(n)links.append(anchor(names[s.key]+" · "+N.format(n),route("facilities",{source:s.key,state:row.state})))
@@ -478,7 +480,7 @@ async function marketMap(panel,p,sums,sources,signal,epoch){
     const legend=el("div",undefined,"market-legend");
     for(const b of marketBands)legend.append(add(el("span",undefined,"market-legend-item"),el("span",undefined,"market-swatch "+b.cls),el("span",b.label)));
     const notice=el("p","Loading qualified Census boundary projection…","notice");
-    panel.append(el("h2","National jurisdiction map"),el("p","Shading shows absolute counts of source records in the selected provider category, not population-adjusted rates or risk. Select a jurisdiction for directory links.","intro"),legend,notice,selected);
+    panel.append(el("h2","National jurisdiction map"),el("p","Shading shows absolute counts of source records in the selected provider category, not population-adjusted rates or risk. Select a jurisdiction to search the market or open a category directory.","intro"),legend,notice,selected);
     try{
         const resp=await fetch(marketGeometryUrl,{signal});
         if(!resp.ok)throw Error("Boundary projection HTTP "+resp.status);
