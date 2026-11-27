@@ -1,0 +1,1128 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-27",
+  "reviewed_base": "96b7fc1c1bb6db3a9a542c4f9c7f46e2d98e8c3d",
+  "scope": "Source-specific semantic routing for pinned historical citation fields only; no new row-level data, current status, property risk or purchasing inference.",
+  "dictionary": {
+    "url": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+    "sha256": null,
+    "extracted_version": "October 2026",
+    "rendered_version": "June 2026, printed pages 17–19",
+    "technical_details": "https://data.cms.gov/provider-data/topics/nursing-homes/technical-details",
+    "health_catalog": "https://data.cms.gov/provider-data/dataset/r5ix-sfxw",
+    "limit": "Rendered and extracted versions differ. Survey Footnote is absent from June render but present in October text. Exact dictionary-byte version and observed literal domains remain unqualified."
+  },
+  "profile_path": "research/care_compare_citations_raw_field_profiles_20261126.json",
+  "profile_blob": "cd719426e681d6c90173727e6b11766a712960dd",
+  "prior_profile_run": 45822384234,
+  "totals": {
+    "sources": 2,
+    "rows": 619069,
+    "reviewed_fields": 48,
+    "aggregate_value_profile_fields": 48,
+    "render_and_text_review_fields": 47,
+    "text_only_definition_fields": 1,
+    "new_full_domain_qualified_fields": 0,
+    "new_application_approved_fields": 0,
+    "new_downloads": 0
+  },
+  "sources": [
+    {
+      "source": "nursing-fire",
+      "release": "2026-10-28",
+      "source_sha256": "54a18c6409013e2bdcac2da315ddc4557430a993fd324abecd34d7d071c70cb7",
+      "rows": 200387,
+      "columns": 24,
+      "dictionary_table": 6,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "category": "program_identifier",
+          "unit": "text",
+          "meaning": "Source certification identifier; preserve letters and leading zeros; not physical site identity.",
+          "application_disposition": "source_scoped_join",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "other_text": 2878,
+            "unsigned_integer_text": 197509
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 2,
+          "field": "Provider Name",
+          "category": "institutional_label",
+          "unit": "text",
+          "meaning": "Provider name as recorded in citation snapshot; not verified legal name.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 3,
+          "field": "Provider Address",
+          "category": "institutional_address",
+          "unit": "text",
+          "meaning": "Reported provider street address; not parcel, ownership or present location proof.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 4,
+          "field": "City/Town",
+          "category": "geography",
+          "unit": "text",
+          "meaning": "Reported municipality text; no automatic site merge.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 5,
+          "field": "State",
+          "category": "geography",
+          "unit": "text",
+          "meaning": "Reported postal jurisdiction; validate independently of identifier.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 53,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 6,
+          "field": "ZIP Code",
+          "category": "geography",
+          "unit": "text",
+          "meaning": "Postal code; treat as string despite publisher numeric type.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "unsigned_integer_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 7,
+          "field": "Survey Date",
+          "category": "event_date",
+          "unit": "date",
+          "meaning": "Inspection date, separate from processing and correction dates.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "iso_date_shape": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 8,
+          "field": "Survey Type",
+          "category": "survey_context",
+          "unit": "code",
+          "meaning": "Publisher survey family; not an event identifier.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 9,
+          "field": "Deficiency Prefix",
+          "category": "tag_namespace",
+          "unit": "code",
+          "meaning": "Tag family namespace; preserve prefix together with tag and version.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 10,
+          "field": "Deficiency Category",
+          "category": "tag_classification",
+          "unit": "text",
+          "meaning": "Publisher grouping of citation types, not a property risk classification.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 9,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 11,
+          "field": "Deficiency Tag Number",
+          "category": "tag_identifier",
+          "unit": "text",
+          "meaning": "Tag number in its own namespace; preserve leading zeros and version; not unique citation ID.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 145,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "unsigned_integer_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 12,
+          "field": "Tag Version",
+          "category": "tag_version",
+          "unit": "code",
+          "meaning": "Historical regulatory tag-definition epoch around July 5 2016; same number may change meaning.",
+          "application_disposition": "candidate_versioned_lookup",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 13,
+          "field": "Deficiency Description",
+          "category": "tag_definition",
+          "unit": "text",
+          "meaning": "Publisher generic tag wording, not individualized inspector narrative or a verified present condition.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 143,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 14,
+          "field": "Scope Severity Code",
+          "category": "regulatory_context",
+          "unit": "code",
+          "meaning": "Source assessment of harm and scope; not a building-risk or procurement score.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 11,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 15,
+          "field": "Deficiency Corrected",
+          "category": "correction_context",
+          "unit": "code",
+          "meaning": "Reported correction-state wording at snapshot; retain plan, corrected, past noncompliance and unresolved separately; observed exact labels not enumerated here.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 7,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 16,
+          "field": "Correction Date",
+          "category": "correction_context",
+          "unit": "date",
+          "meaning": "Reported date associated with correction status; cannot alone establish verified remediation or impose chronological ordering.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "blank": 1636,
+            "other_nonblank": 198751
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "iso_date_shape": 198751
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 17,
+          "field": "Inspection Cycle",
+          "category": "survey_context",
+          "unit": "ordinal",
+          "meaning": "Publisher display-cycle order; standard and complaint cycles have different rules; not event count or calendar year.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 3,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "unsigned_integer_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 18,
+          "field": "Standard Deficiency",
+          "category": "survey_context",
+          "unit": "Y/N",
+          "meaning": "Indicates standard-inspection origin; not mutually exclusive with other survey flags.",
+          "application_disposition": "candidate_nonexclusive_flag",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 19,
+          "field": "Complaint Deficiency",
+          "category": "survey_context",
+          "unit": "Y/N",
+          "meaning": "Indicates complaint-inspection origin; not distinct complaint count.",
+          "application_disposition": "candidate_nonexclusive_flag",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 20,
+          "field": "Infection Control Inspection Deficiency",
+          "category": "survey_context",
+          "unit": "Y/N",
+          "meaning": "Indicates infection-control inspection origin; not infection incidence.",
+          "application_disposition": "candidate_nonexclusive_flag",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 21,
+          "field": "Citation under IDR",
+          "category": "dispute_context",
+          "unit": "Y/N",
+          "meaning": "Informal Dispute Resolution status at snapshot; not outcome or current case status.",
+          "application_disposition": "candidate_dispute_flag",
+          "dictionary_printed_page": 17,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 22,
+          "field": "Citation under IIDR",
+          "category": "dispute_context",
+          "unit": "Y/N",
+          "meaning": "Independent Informal Dispute Resolution status at snapshot; not outcome or current case status.",
+          "application_disposition": "candidate_dispute_flag",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 23,
+          "field": "Location",
+          "category": "geography",
+          "unit": "text",
+          "meaning": "Combined reported address components; not coordinates or a separate independent corroboration.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "other_text": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 24,
+          "field": "Processing Date",
+          "category": "release_context",
+          "unit": "date",
+          "meaning": "Publisher processing/retrieval date, not survey date or FacilitySignal ingestion date.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 200387
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "iso_date_shape": 200387
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        }
+      ]
+    },
+    {
+      "source": "nursing-health",
+      "release": "2026-10-28",
+      "source_sha256": "15185c61678f9bcc663076de666d5054a0ca34249c97206cf9e0e3f4ae922473",
+      "rows": 418682,
+      "columns": 24,
+      "dictionary_table": 7,
+      "fields": [
+        {
+          "ordinal": 1,
+          "field": "CMS Certification Number (CCN)",
+          "category": "program_identifier",
+          "unit": "text",
+          "meaning": "Source certification identifier; preserve letters and leading zeros; not physical site identity.",
+          "application_disposition": "source_scoped_join",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "other_text": 4982,
+            "unsigned_integer_text": 413700
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 2,
+          "field": "Provider Name",
+          "category": "institutional_label",
+          "unit": "text",
+          "meaning": "Provider name as recorded in citation snapshot; not verified legal name.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 3,
+          "field": "Provider Address",
+          "category": "institutional_address",
+          "unit": "text",
+          "meaning": "Reported provider street address; not parcel, ownership or present location proof.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 4,
+          "field": "City/Town",
+          "category": "geography",
+          "unit": "text",
+          "meaning": "Reported municipality text; no automatic site merge.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 5,
+          "field": "State",
+          "category": "geography",
+          "unit": "text",
+          "meaning": "Reported postal jurisdiction; validate independently of identifier.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 53,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 6,
+          "field": "ZIP Code",
+          "category": "geography",
+          "unit": "text",
+          "meaning": "Postal code; treat as string despite publisher numeric type.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "unsigned_integer_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 7,
+          "field": "Survey Date",
+          "category": "event_date",
+          "unit": "date",
+          "meaning": "Inspection date, separate from processing and correction dates.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "iso_date_shape": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 8,
+          "field": "Survey Footnote",
+          "category": "survey_context",
+          "unit": "code",
+          "meaning": "Supplementary survey annotation; exact October code meaning and observed literal not reconciled.",
+          "application_disposition": "hold_definition_version",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "october_extracted_text_only",
+          "profile_states": {
+            "blank": 418488,
+            "other_nonblank": 194
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "unsigned_integer_text": 194
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 9,
+          "field": "Survey Type",
+          "category": "survey_context",
+          "unit": "code",
+          "meaning": "Publisher survey family; not an event identifier.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 10,
+          "field": "Deficiency Prefix",
+          "category": "tag_namespace",
+          "unit": "code",
+          "meaning": "Tag family namespace; preserve prefix together with tag and version.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 11,
+          "field": "Deficiency Category",
+          "category": "tag_classification",
+          "unit": "text",
+          "meaning": "Publisher grouping of citation types, not a property risk classification.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 10,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 12,
+          "field": "Deficiency Tag Number",
+          "category": "tag_identifier",
+          "unit": "text",
+          "meaning": "Tag number in its own namespace; preserve leading zeros and version; not unique citation ID.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 249,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "unsigned_integer_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 13,
+          "field": "Deficiency Description",
+          "category": "tag_definition",
+          "unit": "text",
+          "meaning": "Publisher generic tag wording, not individualized inspector narrative or a verified present condition.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 239,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 14,
+          "field": "Scope Severity Code",
+          "category": "regulatory_context",
+          "unit": "code",
+          "meaning": "Source assessment of harm and scope; not a building-risk or procurement score.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 11,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 15,
+          "field": "Deficiency Corrected",
+          "category": "correction_context",
+          "unit": "code",
+          "meaning": "Reported correction-state wording at snapshot; retain plan, corrected, past noncompliance and unresolved separately; observed exact labels not enumerated here.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 6,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 16,
+          "field": "Correction Date",
+          "category": "correction_context",
+          "unit": "date",
+          "meaning": "Reported date associated with correction status; cannot alone establish verified remediation or impose chronological ordering.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "blank": 2610,
+            "other_nonblank": 416072
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "iso_date_shape": 416072
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 17,
+          "field": "Inspection Cycle",
+          "category": "survey_context",
+          "unit": "ordinal",
+          "meaning": "Publisher display-cycle order; standard and complaint cycles have different rules; not event count or calendar year.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 3,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "unsigned_integer_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 18,
+          "field": "Standard Deficiency",
+          "category": "survey_context",
+          "unit": "Y/N",
+          "meaning": "Indicates standard-inspection origin; not mutually exclusive with other survey flags.",
+          "application_disposition": "candidate_nonexclusive_flag",
+          "dictionary_printed_page": 18,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 19,
+          "field": "Complaint Deficiency",
+          "category": "survey_context",
+          "unit": "Y/N",
+          "meaning": "Indicates complaint-inspection origin; not distinct complaint count.",
+          "application_disposition": "candidate_nonexclusive_flag",
+          "dictionary_printed_page": 19,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 20,
+          "field": "Infection Control Inspection Deficiency",
+          "category": "survey_context",
+          "unit": "Y/N",
+          "meaning": "Indicates infection-control inspection origin; not infection incidence.",
+          "application_disposition": "candidate_nonexclusive_flag",
+          "dictionary_printed_page": 19,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 21,
+          "field": "Citation under IDR",
+          "category": "dispute_context",
+          "unit": "Y/N",
+          "meaning": "Informal Dispute Resolution status at snapshot; not outcome or current case status.",
+          "application_disposition": "candidate_dispute_flag",
+          "dictionary_printed_page": 19,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 22,
+          "field": "Citation under IIDR",
+          "category": "dispute_context",
+          "unit": "Y/N",
+          "meaning": "Independent Informal Dispute Resolution status at snapshot; not outcome or current case status.",
+          "application_disposition": "candidate_dispute_flag",
+          "dictionary_printed_page": 19,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 23,
+          "field": "Location",
+          "category": "geography",
+          "unit": "text",
+          "meaning": "Combined reported address components; not coordinates or a separate independent corroboration.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 19,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 2049,
+            "method": "lower_bound"
+          },
+          "lexical_shapes": {
+            "other_text": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        },
+        {
+          "ordinal": 24,
+          "field": "Processing Date",
+          "category": "release_context",
+          "unit": "date",
+          "meaning": "Publisher processing/retrieval date, not survey date or FacilitySignal ingestion date.",
+          "application_disposition": "historical_context",
+          "dictionary_printed_page": 19,
+          "dictionary_evidence": "june_render_and_october_text",
+          "profile_states": {
+            "other_nonblank": 418682
+          },
+          "distinct_nonmissing": {
+            "count": 1,
+            "method": "exact"
+          },
+          "lexical_shapes": {
+            "iso_date_shape": 418682
+          },
+          "observed_code_domain_qualified": false,
+          "new_application_approval": false
+        }
+      ]
+    }
+  ],
+  "findings": {
+    "missing_correction_date_rows": {
+      "fire": 1636,
+      "health": 2610
+    },
+    "health_survey_footnote_nonblank": 194,
+    "fire_tag_version_distinct": 1,
+    "scope_severity_distinct_each": 11,
+    "correction_state_distinct": {
+      "fire": 7,
+      "health": 6
+    },
+    "dispute_fields": "Both IDR and IIDR have two observed distinct nonblank tokens in each source; counts by literal absent from profile. Do not infer the actual Y/N distribution or case outcomes.",
+    "tag_description_caution": "Distinct tag numbers and description counts differ; cannot infer one-to-one mapping. Preserve source namespace and tag version.",
+    "identity_caution": "7,860 citation rows have nonnumeric CCN lexical shape; they are observations, not distinct invalid IDs. Preserve text identifiers."
+  }
+}
