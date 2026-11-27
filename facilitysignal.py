@@ -427,7 +427,10 @@ def render_local_research(db,path,params):
     body+=pager(path,params,result)
     return layout(title_text,path,body)
 
-def handler(db_path):
+def handler(db_path, *, private_service_extension=False):
+    if private_service_extension:
+        from private_iqies_service_research import verify_database
+        verify_database(db_path)
     class Handler(BaseHTTPRequestHandler):
         def send(self, status, data, content_type):
             payload = data.encode("utf-8")
@@ -449,6 +452,12 @@ def handler(db_path):
                 with closing(connect(db_path)) as db:
                     if path.startswith("/api/"):
                         kind=path[5:]
+                        if kind=="iqies-additional-services":
+                            if not private_service_extension or self.client_address[0]!="127.0.0.1":
+                                return self.send(404,json.dumps({"error":"not found"}),"application/json; charset=utf-8")
+                            from private_iqies_service_research import search
+                            db.execute("PRAGMA query_only=ON")
+                            return self.send(200,json.dumps(search(db,params)),"application/json; charset=utf-8")
                         if kind in ("service-research","organization-research"):
                             from local_research import service_search,portfolio_search
                             result=service_search(db,params) if kind=="service-research" else portfolio_search(db,params)
@@ -499,6 +508,7 @@ def main():
     sub.add_parser("init")
     s=sub.add_parser("serve")
     s.add_argument("--port",type=int,default=8080)
+    s.add_argument("--private-service-extension",action="store_true",help="Enable exact qualified restored iQIES extension for loopback research only")
     i=sub.add_parser("import-csv")
     i.add_argument("dataset",choices=CATALOG)
     i.add_argument("csv",type=Path)
@@ -511,9 +521,14 @@ def main():
         except (ValueError,sqlite3.Error,OSError) as e:
             p.exit(1,"Import rejected: "+str(e)+"\n")
     else:
-        init(args.db)
+        if args.cmd=="serve" and args.private_service_extension:
+            # Do not initialize or otherwise mutate the checksum-pinned database.
+            local_handler=handler(args.db,private_service_extension=True)
+        else:
+            init(args.db)
+            local_handler=handler(args.db) if args.cmd=="serve" else None
         if args.cmd=="serve":
-            with ThreadingHTTPServer(("127.0.0.1",args.port),handler(args.db)) as server:
+            with ThreadingHTTPServer(("127.0.0.1",args.port),local_handler) as server:
                 print("FacilitySignal: http://127.0.0.1:"+str(server.server_port),flush=True)
                 server.serve_forever()
 
