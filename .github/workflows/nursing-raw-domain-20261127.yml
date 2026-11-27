@@ -1,0 +1,36 @@
+name: FacilitySignal pinned nursing aggregate-domain qualification
+on:
+  push:
+    branches: [research/nursing-domain-audit-20261127]
+    paths:
+      - 'scripts/nursing_raw_domain_audit.py'
+      - 'tests/test_nursing_raw_domain_audit.py'
+      - '.github/workflows/nursing-raw-domain-20261127.yml'
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-nursing-raw-domain-20261127
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_nursing_raw_domain_audit.py -v
+      - name: One bounded checksum-pinned nursing source audit
+        run: |
+          umask 077
+          python -m scripts.nursing_raw_domain_audit --download --receipt "$RUNNER_TEMP/nursing-raw-domain.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nursing-raw-domain-aggregate-only
+          path: ${{ runner.temp }}/nursing-raw-domain.json
+          if-no-files-found: error
+          retention-days: 30
