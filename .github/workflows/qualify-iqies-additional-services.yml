@@ -1,0 +1,84 @@
+name: Qualify additional iQIES services against exact source
+on:
+  push:
+    branches: [build/iqies-additional-service-contract-20261127]
+    paths:
+      - .github/workflows/qualify-iqies-additional-services.yml
+      - iqies_additional_services.py
+      - tests/test_iqies_additional_services.py
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-iqies-additional-services-qualification
+  cancel-in-progress: false
+jobs:
+  qualify:
+    if: github.repository == 'JeremyHennessy/FacilitySignal'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+      - name: Qualify pinned source and dictionary in an isolated registry database
+        run: |
+          umask 077
+          python - <<'PY'
+          import os, json, sqlite3, tempfile
+          from pathlib import Path
+          from contextlib import closing
+          from build_combined import require, sha, readonly, check_integrity
+          from restore_snapshot import LOCK, load_lock, fetch_missing, import_one
+          import facilitysignal as fs
+          import iqies_capabilities as cap
+          import probe_iqies_dictionary as dictionary
+          import iqies_additional_services as extension
+          with tempfile.TemporaryDirectory(prefix="iqies-private-", dir=os.environ["RUNNER_TEMP"]) as tmp:
+              root = Path(tmp)
+              item = next(s for s in load_lock(LOCK)["sources"] if s["family"]=="registry" and s["key"]=="iqies")
+              raw = root/item["file"]
+              # Only the exact iQIES source and dictionary; the national archive
+              # retains a processed database, not these original input bytes.
+              fetch_missing(item, raw)
+              doc = root/"iqies-dictionary.xlsx"
+              dictionary.download(doc)
+              require(doc.stat().st_size == cap.DICT_BYTES and sha(doc)==cap.DICT_SHA, "dictionary pin mismatch")
+              base = root/"baseline.sqlite3"
+              fs.init(base)
+              import_one(base,item,raw)
+              with closing(sqlite3.connect(base)) as db:
+                  db.execute("PRAGMA foreign_keys=ON")
+                  prior = cap.project(db,raw,item,doc)
+              require(prior["capability_observations"]==68604, "prior capability count mismatch")
+              require(prior["provider_scope_rows"]=={"ASC":8492,"ESRD":8659}, "prior scope mismatch")
+              audit = extension.build(base,raw,doc,root/"extension")
+              require(audit["verified_source_rows"]==100334 and audit["observations"]==93913, "extension count mismatch")
+              with closing(readonly(root/"extension"/"facilitysignal.sqlite3")) as db:
+                  check_integrity(db)
+                  db.execute("ATTACH DATABASE ? AS baseline", (base.resolve().as_uri()+"?mode=ro&immutable=1",))
+                  existing = list(db.execute("SELECT name,sql FROM baseline.sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name"))
+                  for name, ddl in existing:
+                      require(db.execute("SELECT sql FROM main.sqlite_master WHERE type='table' AND name=?",(name,)).fetchone()[0]==ddl, "base schema changed")
+                      identifier = '"'+name.replace('"','""')+'"'
+                      for a,b in (("main","baseline"),("baseline","main")):
+                          require(db.execute("SELECT 1 FROM (SELECT * FROM "+a+"."+identifier+" EXCEPT SELECT * FROM "+b+"."+identifier+") LIMIT 1").fetchone() is None, "base rows changed: "+name)
+                      require(db.execute("SELECT count(*) FROM main."+identifier).fetchone()==db.execute("SELECT count(*) FROM baseline."+identifier).fetchone(), "base count changed")
+              require(sha(base)==audit["base_database_sha256"], "base database changed")
+              audit["unchanged_base_tables"]=len(existing)
+              audit["prior_capability_observations"]=prior["capability_observations"]
+              audit["qualification_scope"]="Full pinned iQIES source, isolated registry database only; not full national archive recovery, API or publication approval."
+              out=Path(os.environ["RUNNER_TEMP"])/"iqies-additional-service-aggregate.json"
+              out.write_text(json.dumps(audit,indent=2)+"\n")
+              print("IQIES_ADDITIONAL_SERVICES_QUALIFIED",json.dumps(audit,sort_keys=True),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iqies-additional-service-aggregate
+          path: ${{ runner.temp }}/iqies-additional-service-aggregate.json
+          retention-days: 30
+          if-no-files-found: error
