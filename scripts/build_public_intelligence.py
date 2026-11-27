@@ -1,5 +1,6 @@
 """Generate only the explicitly specified public aggregate evidence projection."""
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -77,6 +78,77 @@ def qualify_clia_semantic(a,prior,ledger):
             "unmatched_references":identity["affiliation_reference_occurrences"]-identity["affiliation_occurrences_matching_registry_id"],
             "history_match":a["current_class_history_corroboration"]["current_in_reported_history"],
             "reversed_dates":a["date_order_diagnostics"]["effective_vs_termination_or_expiration/after"],"multisite":a["multi_site_flag_and_count"]}
+IQIES_SERVICE_RECEIPT = ROOT/"research/iqies_national_service_qualification_20261127.json"
+IQIES_SERVICE_RUN = 45974990055
+IQIES_SERVICE_RECEIPT_SHA256 = "10edaa42842359365fbb485b0b16b76a25b387bf644417594c182addaef12859"
+IQIES_SERVICES = {
+    "ASC": (
+        ("ft_srgry_sw", "Podiatric surgery"),
+        ("ob_gyn_srgry_sw", "Obstetrics / gynecology surgery"),
+        ("opthmlgy_srgry_sw", "Ophthalmologic surgery"),
+        ("orthpdc_srgry_sw", "Orthopedic surgery"),
+        ("othr_srgry_sw", "Other surgery (specialty not specified)"),
+        ("otlrynglgy_srgry_sw", "Ear, nose and throat surgery"),
+        ("pain_srgry_sw", "Pain surgery"),
+        ("plstc_srgry_sw", "Plastic and reconstructive surgery"),
+    ),
+    "ESRD": (
+        ("incntr_nctrnl_srvc_sw", "Began in-center nocturnal hemodialysis"),
+        ("sp_home_trng_sprt_hd_sw", "Continued providing home hemodialysis"),
+        ("sp_home_trng_sprt_pd_sw", "Continued providing home peritoneal dialysis"),
+    ),
+}
+
+def iqies_service_groups(evidence, source_pin):
+    """Select only national aggregate counts and reviewed labels; no provider export."""
+    receipt=evidence["receipt"]
+    if (evidence["run"]!=IQIES_SERVICE_RUN
+        or receipt["source_sha256"]!=source_pin["sha256"]
+        or receipt["dictionary_sha256"]!="bd68d76dc72ee5c3b3249c459644ff2ed90c8e8cf6e182b76742ec53164c0594"
+        or receipt["source_period"]!=source_pin["release"]
+        or source_pin["release"]!="2026-07-01/2026-09-30"
+        or receipt["verified_source_rows"]!=source_pin["stored_rows"] or source_pin["stored_rows"]!=100334
+        or receipt["source_record_filter_checks"]!=33 or receipt["public_promotion"] is not False):
+        raise ValueError("Unqualified national iQIES service evidence")
+    fields=receipt["field_states"]
+    if set(fields)!={field for services in IQIES_SERVICES.values() for field,_ in services}:
+        raise ValueError("Unexpected national iQIES service fields")
+    columns=["CMS-reported indicator", "Applicable records", "Reported yes", "Reported no", "Not available"]
+    base_note=("Q3 2026 (July–September) national iQIES source records. Counts overlap across fields; "
+               "they are not unique facilities. Not available is not No. "
+               "Records outside the provider scope do not count in the denominator. ")
+    text={
+      "ASC":("ASC surgical specialty evidence",
+             "These are historical specialty flags for ambulatory surgical centers, not activity, equipment or current availability."),
+      "ESRD":("Dialysis commencement and continuation evidence",
+              "Began and Continued are separate historical flags. A No on Began does not rule out an established service. "
+              "No start date or current availability is established."),
+    }
+    states=("reported_yes","reported_no","not_available")
+    totals={k:0 for k in states}
+    groups=[]
+    for scope,services in IQIES_SERVICES.items():
+        eligible=8492 if scope=="ASC" else 8659
+        missing=452 if scope=="ASC" else 212
+        rows=[]
+        for field,label in services:
+            values=fields[field]
+            if (set(values)!=set(states) or any(type(v) is not int or v<0 for v in values.values())
+                or sum(values.values())!=eligible or values["not_available"]!=missing):
+                raise ValueError("iQIES service value states or scope do not reconcile")
+            for k in states: totals[k]+=values[k]
+            rows.append([label,eligible,*[values[k] for k in states]])
+        title,note=text[scope]
+        groups.append({"id":"iqies-additional-"+scope.lower(),"title":title,"note":base_note+note,
+                       "run":IQIES_SERVICE_RUN,"columns":columns,"source":
+                       "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/"
+                       "provider-of-services-file-internet-quality-improvement-and-evaluation-system",
+                       "rows":rows})
+    if (totals!=receipt["service_states"] or totals!={"reported_yes":25135,"reported_no":64526,"not_available":4252}
+        or sum(totals.values())!=receipt["observations"]):
+        raise ValueError("iQIES service totals do not reconcile")
+    return groups
+
 def build(ledger,cap,spec,data_use=None):
     epa=next(x for x in ledger["sources"] if x["id"]=="FS-157")
     ctx={"ledger":ledger,"cap":cap,"epa":epa}
@@ -212,6 +284,12 @@ def build(ledger,cap,spec,data_use=None):
         for g in section["groups"]:
             groups.append({**{k:g[k] for k in ("id","title","note","run","columns","source")},"rows":[[resolve(c) for c in row] for row in g["rows"]]})
             if any(len(row)!=len(g["columns"]) for row in groups[-1]["rows"]):raise ValueError("table width")
+        if section["id"]=="services":
+            pin=next(x for x in read(ROOT/"research/snapshot_release_20261125.json")["sources"] if x["key"]=="iqies")
+            receipt_bytes=IQIES_SERVICE_RECEIPT.read_bytes()
+            if hashlib.sha256(receipt_bytes).hexdigest()!=IQIES_SERVICE_RECEIPT_SHA256:
+                raise ValueError("iQIES service qualification receipt changed")
+            groups[1:1]=iqies_service_groups(json.loads(receipt_bytes),pin)
         result.append({**{k:section[k] for k in ("id","title","intro")},"groups":groups})
     return {"version":1,"scope":"historical national aggregate qualification","sections":result}
 def main():

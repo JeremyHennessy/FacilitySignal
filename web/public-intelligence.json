@@ -98,6 +98,115 @@
           ]
         },
         {
+          "id": "iqies-additional-asc",
+          "title": "ASC surgical specialty evidence",
+          "note": "Q3 2026 (July–September) national iQIES source records. Counts overlap across fields; they are not unique facilities. Not available is not No. Records outside the provider scope do not count in the denominator. These are historical specialty flags for ambulatory surgical centers, not activity, equipment or current availability.",
+          "run": 45974990055,
+          "columns": [
+            "CMS-reported indicator",
+            "Applicable records",
+            "Reported yes",
+            "Reported no",
+            "Not available"
+          ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system",
+          "rows": [
+            [
+              "Podiatric surgery",
+              8492,
+              2293,
+              5747,
+              452
+            ],
+            [
+              "Obstetrics / gynecology surgery",
+              8492,
+              1512,
+              6528,
+              452
+            ],
+            [
+              "Ophthalmologic surgery",
+              8492,
+              2594,
+              5446,
+              452
+            ],
+            [
+              "Orthopedic surgery",
+              8492,
+              2893,
+              5147,
+              452
+            ],
+            [
+              "Other surgery (specialty not specified)",
+              8492,
+              3016,
+              5024,
+              452
+            ],
+            [
+              "Ear, nose and throat surgery",
+              8492,
+              1852,
+              6188,
+              452
+            ],
+            [
+              "Pain surgery",
+              8492,
+              2812,
+              5228,
+              452
+            ],
+            [
+              "Plastic and reconstructive surgery",
+              8492,
+              2268,
+              5772,
+              452
+            ]
+          ]
+        },
+        {
+          "id": "iqies-additional-esrd",
+          "title": "Dialysis commencement and continuation evidence",
+          "note": "Q3 2026 (July–September) national iQIES source records. Counts overlap across fields; they are not unique facilities. Not available is not No. Records outside the provider scope do not count in the denominator. Began and Continued are separate historical flags. A No on Began does not rule out an established service. No start date or current availability is established.",
+          "run": 45974990055,
+          "columns": [
+            "CMS-reported indicator",
+            "Applicable records",
+            "Reported yes",
+            "Reported no",
+            "Not available"
+          ],
+          "source": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-internet-quality-improvement-and-evaluation-system",
+          "rows": [
+            [
+              "Began in-center nocturnal hemodialysis",
+              8659,
+              12,
+              8435,
+              212
+            ],
+            [
+              "Continued providing home hemodialysis",
+              8659,
+              2105,
+              6342,
+              212
+            ],
+            [
+              "Continued providing home peritoneal dialysis",
+              8659,
+              3778,
+              4669,
+              212
+            ]
+          ]
+        },
+        {
           "id": "qies",
           "title": "Hospital service provision codes",
           "note": "Q3 2026 QIES, hospital category 01. Historical 2023 reference layout remains provisional for this release. Codes are presented literally without interpreting provision mode, current availability or installation.",
