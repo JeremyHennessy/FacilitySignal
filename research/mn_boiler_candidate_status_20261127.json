@@ -1,0 +1,104 @@
+{
+  "groups_by_matching_mode": {
+    "literal": {
+      "all": {
+        "address_keys_with_boiler_rows": 10,
+        "address_keys_with_literal_active_boiler_rows": 10,
+        "address_keys_with_only_explicit_exclusion_boiler_rows": 0,
+        "candidate_address_keys": 10,
+        "explicit_retired_out_of_service_or_not_found_boiler_rows": 51,
+        "literal_active_boiler_rows": 100,
+        "other_or_unknown_boiler_rows": 0
+      },
+      "multiple_or_missing_dli_location": {
+        "address_keys_with_boiler_rows": 3,
+        "address_keys_with_literal_active_boiler_rows": 3,
+        "address_keys_with_only_explicit_exclusion_boiler_rows": 0,
+        "candidate_address_keys": 3,
+        "explicit_retired_out_of_service_or_not_found_boiler_rows": 21,
+        "literal_active_boiler_rows": 46,
+        "other_or_unknown_boiler_rows": 0
+      },
+      "multiple_provider": {
+        "address_keys_with_boiler_rows": 1,
+        "address_keys_with_literal_active_boiler_rows": 1,
+        "address_keys_with_only_explicit_exclusion_boiler_rows": 0,
+        "candidate_address_keys": 1,
+        "explicit_retired_out_of_service_or_not_found_boiler_rows": 5,
+        "literal_active_boiler_rows": 7,
+        "other_or_unknown_boiler_rows": 0
+      },
+      "one_provider_one_dli_location": {
+        "address_keys_with_boiler_rows": 6,
+        "address_keys_with_literal_active_boiler_rows": 6,
+        "address_keys_with_only_explicit_exclusion_boiler_rows": 0,
+        "candidate_address_keys": 6,
+        "explicit_retired_out_of_service_or_not_found_boiler_rows": 25,
+        "literal_active_boiler_rows": 47,
+        "other_or_unknown_boiler_rows": 0
+      }
+    },
+    "street_suffix_only": {
+      "all": {
+        "address_keys_with_boiler_rows": 114,
+        "address_keys_with_literal_active_boiler_rows": 103,
+        "address_keys_with_only_explicit_exclusion_boiler_rows": 4,
+        "candidate_address_keys": 116,
+        "explicit_retired_out_of_service_or_not_found_boiler_rows": 357,
+        "literal_active_boiler_rows": 557,
+        "other_or_unknown_boiler_rows": 37
+      },
+      "multiple_or_missing_dli_location": {
+        "address_keys_with_boiler_rows": 18,
+        "address_keys_with_literal_active_boiler_rows": 16,
+        "address_keys_with_only_explicit_exclusion_boiler_rows": 0,
+        "candidate_address_keys": 18,
+        "explicit_retired_out_of_service_or_not_found_boiler_rows": 87,
+        "literal_active_boiler_rows": 142,
+        "other_or_unknown_boiler_rows": 20
+      },
+      "multiple_provider": {
+        "address_keys_with_boiler_rows": 4,
+        "address_keys_with_literal_active_boiler_rows": 4,
+        "address_keys_with_only_explicit_exclusion_boiler_rows": 0,
+        "candidate_address_keys": 4,
+        "explicit_retired_out_of_service_or_not_found_boiler_rows": 18,
+        "literal_active_boiler_rows": 26,
+        "other_or_unknown_boiler_rows": 1
+      },
+      "multiple_provider_and_dli_location": {
+        "address_keys_with_boiler_rows": 2,
+        "address_keys_with_literal_active_boiler_rows": 2,
+        "address_keys_with_only_explicit_exclusion_boiler_rows": 0,
+        "candidate_address_keys": 2,
+        "explicit_retired_out_of_service_or_not_found_boiler_rows": 8,
+        "literal_active_boiler_rows": 13,
+        "other_or_unknown_boiler_rows": 1
+      },
+      "one_provider_one_dli_location": {
+        "address_keys_with_boiler_rows": 90,
+        "address_keys_with_literal_active_boiler_rows": 81,
+        "address_keys_with_only_explicit_exclusion_boiler_rows": 4,
+        "candidate_address_keys": 92,
+        "explicit_retired_out_of_service_or_not_found_boiler_rows": 244,
+        "literal_active_boiler_rows": 376,
+        "other_or_unknown_boiler_rows": 15
+      }
+    }
+  },
+  "input_cms_sha256": {
+    "hospital": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a",
+    "nursing": "36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce"
+  },
+  "input_dli_sha256": "7f745253a9c58e739d572cc88eddb8c84153c0458301642634f69ca4a91c3b4c",
+  "literal_exclusion_statuses": [
+    "CONDEMNED",
+    "OUT OF SERV",
+    "OUT OF SERVICE",
+    "REMOVED/NOT FOUND",
+    "SCRAPPED"
+  ],
+  "scope": "CMS provider/DLI address-key candidates, not confirmed co-location, ownership or current operating state. Literal Active is a snapshot token, not a current finding. Other statuses are not inferred. The explicit exclusion group includes records marked not found; this is not proof of physical absence. No row output.",
+  "source_rows_screened": 171503,
+  "status": "AGGREGATE_RESEARCH_ONLY"
+}
