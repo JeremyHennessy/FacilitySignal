@@ -431,6 +431,7 @@ function industryResearch(p){
         const item=el("section",undefined,"industry-panel");
         item.append(el("h2","Minnesota boiler registration research"),
             el("p","Use the Minnesota CMS hospital or nursing provider directory for research context, then look up boiler and pressure-vessel certificates separately with the Minnesota Department of Labor and Industry. Equipment is not linked to these provider records here.","intro"),
+            el("p","CMS provider records are not a full list of physical campuses. Some Minnesota hospitals stop reporting independently while continuing to operate as offsite campuses. A certificate for one address does not verify equipment at another campus.","intro"),
             el("p","The state requires an account for certificate searches. Insurance-inspected records are loaded weekly and may not reflect the latest information. FacilitySignal does not send provider identifiers or addresses to the state.","intro"),
             add(el("div",undefined,"industry-links"),
                 anchor("Minnesota hospital provider records",search("hospital")),
