@@ -93,7 +93,8 @@ class PrivateServiceSearchTests(unittest.TestCase):
         for field, dictionary in reviewed.items():
             with self.subTest(field=field):
                 context = q.indicator_context(field)
-                self.assertEqual(q.LABELS[field], dictionary["label"])
+                # The publisher orthopedic label has one trailing space.
+                self.assertEqual(q.LABELS[field], dictionary["label"].strip())
                 self.assertEqual(RULES[field][0], dictionary["applicability"])
                 self.assertIn("not a negative response", context["value_state_meanings"]["not_available"])
                 if field == "incntr_nctrnl_srvc_sw":
