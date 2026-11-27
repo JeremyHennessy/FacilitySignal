@@ -1,0 +1,34 @@
+{
+  "commit": "3b3e81ad092979d67a15c6202e364b6a5dea8cde",
+  "run": 45992501763,
+  "job": 140483794439,
+  "artifact": 15194492225,
+  "artifact_digest": "sha256:02b5475278c5f11ec7a86527823d47f93b3072f29ae1dda94b7a58f32bc28b79",
+  "artifact_expires": "2026-12-27T11:44:33Z",
+  "receipt": {
+    "base_release": "bootstrap-45845760984-1",
+    "checks": {
+      "all_states": 11,
+      "default_denial": 1,
+      "field_state": 33,
+      "geography": 11,
+      "invalid_requests": 7,
+      "literal_search": 14,
+      "pagination": 11
+    },
+    "database_sha256": "28f90c1b3e2d2b0fe5c800ff2da671df320748f00e9e333dbbf0ca84d21db3d3",
+    "database_unchanged": true,
+    "format_version": 1,
+    "loopback_only": true,
+    "max_successful_request_ms": 52.05,
+    "national_pointer_unchanged": true,
+    "private_storage_written": false,
+    "public_promotion": false,
+    "response_rows_published": 0,
+    "scope": "Temporary national loopback HTTP qualification; not production deployment or load testing.",
+    "service_fields": 11,
+    "service_observations": 93913,
+    "source_records": 1904060,
+    "successful_requests": 80
+  }
+}
