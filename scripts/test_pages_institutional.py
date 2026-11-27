@@ -27,6 +27,7 @@ assert META==manifest_for(ROOT/"web")
 PACK=json.loads((ROOT/"web/institutional-evidence.json").read_text())["sources"]
 DATA={s:json.loads((ROOT/"web/public-directory"/(s+".json")).read_text())["records"] for s in FIELDS}
 OBS={s:{(r[0],r[1]):dict(zip(FIELDS[s],r[2:])) for r in PACK[s]["records"]} for s in FIELDS}
+COMPARE_LABELS={"emergency_services":"Emergency services","chain_owned_or_managed":"Chain owned or managed","late_shift":"Shift starting at 5 p.m. or later","in_center_hemodialysis":"In-center hemodialysis","peritoneal_dialysis":"Peritoneal dialysis","home_hemodialysis_training":"Home hemodialysis training","ownership_change_12_months":"Ownership change in preceding 12 months"}
 HASHES={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in ("index.html","web/pages.js","web/pages.css","web/institutional-evidence.json")}
 def digest(b):return hashlib.sha256(b).hexdigest()
 def expected(source,field,value,state=""):
@@ -107,14 +108,50 @@ def run(base,live):
             page.goto(base+"#advanced?source=dialysis&institutional_field=late_shift&institutional_value=reported_no&run=1");results(page,6335)
             page.goto(base+"#advanced?source=nursing&institutional_field=sprinklers&institutional_value=reported_yes&run=1")
             page.get_by_text("Choose an institutional characteristic",exact=False).wait_for()
+            chosen=[(s,DATA[s][0]) for s in ("hospital","dialysis","nursing")]
+            for source,r in chosen:
+                page.goto(base+"#detail?"+urlencode({"source":source,"id":r["ccn"],"state":r["state"]}))
+                page.get_by_role("button",name="Save to research portfolio").click()
+            page.get_by_role("link",name="Open saved portfolio").click()
+            for i in range(3):page.locator(".portfolio-provider-cell input").nth(i).check()
+            page.get_by_role("button",name="Compare selected (3 / 4)").click()
+            comparison=page.locator(".comparison-table[data-records='3']")
+            comparison.wait_for()
+            compare_url=page.url
+            def comparison_rows():
+                return {cells[0]:cells[1:] for cells in [tr.locator("td").all_inner_texts() for tr in comparison.locator("tbody tr").all()]}
+            compare_rows=comparison_rows()
+            assert compare_rows["Institutional evidence release"]==[PACK[s]["release"] for s,r in chosen]
+            for field,label in COMPARE_LABELS.items():
+                expected_values=[("Reported yes" if OBS[s][(r["ccn"],r["state"])][field]=="reported_yes" else "Reported no") if field in FIELDS[s] else "Not applicable to this source" for s,r in chosen]
+                assert compare_rows[label+" (reported)"]==expected_values,(width,field)
+            with page.expect_download() as info:page.get_by_role("button",name="Export comparison CSV").click()
+            matrix=list(csv.reader(io.StringIO(info.value.path().read_text())))
+            exported={row[0]:row[1:] for row in matrix[1:]}
+            assert all(exported[label+" (reported)"]==compare_rows[label+" (reported)"] for label in COMPARE_LABELS.values())
+            assert exported["Institutional evidence release"]==compare_rows["Institutional evidence release"]
+            assert all("not current service availability" in x for x in exported["Evidence limitations"])
+            assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+            page.screenshot(path=str(OUT/f"{width}-institutional-comparison.png"),full_page=True,animations="disabled")
+            if comparison.evaluate("(e)=>e.scrollWidth>e.clientWidth+1"):
+                comparison.evaluate("(e)=>{e.scrollLeft=e.scrollWidth}")
+                page.screenshot(path=str(OUT/f"{width}-institutional-comparison-scrolled.png"),full_page=True,animations="disabled")
             page.route("**/web/institutional-evidence.json*",lambda route:route.fulfill(status=200,body="{}"))
+            page.reload();comparison.wait_for()
+            invalid_rows=comparison_rows()
+            assert invalid_rows["Institutional evidence release"]==["Qualified institutional evidence unavailable"]*3
+            assert "3 exact published records resolved" in page.locator(".comparison-status").inner_text()
+            for field,label in COMPARE_LABELS.items():
+                assert invalid_rows[label+" (reported)"]==["Qualified institutional evidence unavailable" if field in FIELDS[s] else "Not applicable to this source" for s,r in chosen]
+            assert page.url==compare_url
+
             page.goto(base+"#advanced?source=hospital&institutional_field=emergency_services&institutional_value=reported_yes&run=1")
             page.locator('.advanced-status[data-complete=false]').wait_for()
             assert "Partial results" in page.locator(".advanced-status").inner_text()
             assert not page.get_by_role("button",name="Export current page (CSV)").count()
             page.unroute("**/web/institutional-evidence.json*")
             assert not errors,errors
-            summary.append({"width":width,"dialysis_NY_late_shift":len(want),"positive_negative_and_exact_filters":True,"private_field_rejected":True,"bad_pack_unavailable":True,"csv_and_return":True})
+            summary.append({"width":width,"dialysis_NY_late_shift":len(want),"positive_negative_and_exact_filters":True,"private_field_rejected":True,"bad_pack_unavailable":True,"csv_and_return":True,"institutional_comparison_all_seven_and_csv":True,"comparison_bad_pack_preserves_basic_records":True})
             ctx.close()
         browser.close()
     report={"mode":"ordinary_live" if live else "candidate","entry_checks":entries,"viewport_checks":summary}

@@ -1345,14 +1345,17 @@ async function compareFacilities(p,signal,epoch){
         if(tokens.length<2||tokens.length>4||new Set(tokens).size!==tokens.length||tokens.some(k=>!map.has(k)))throw Error("Select 2–4 distinct records from your saved portfolio.");
         selected=tokens.map(k=>map.get(k));
     }catch(e){app.append(el("div",e.message,"error"));return}
-    const status=el("div","Loading exact source records and historical nursing citation aggregates…","notice");app.append(status);
+    const status=el("div","Loading exact source records, qualified institutional characteristics and historical nursing citation aggregates…","notice");app.append(status);
     const wanted=new Set(selected.map(r=>r.source));
     if(wanted.has("nursing")){wanted.add("nursing-health");wanted.add("nursing-fire")}
     const data=new Map();
     await Promise.all([...wanted].map(async key=>{
         const source=lock.sources.find(s=>s.key===key&&s.family==="care-compare");
-        try{if(!source)throw Error("Source missing");data.set(key,{source,rows:(await loadShard(source,signal)).records})}
-        catch(e){data.set(key,{source,error:true})}
+        try{
+            if(!source)throw Error("Source missing");
+            const institutional=Object.hasOwn(institutionalPin.sources,key)?await institutionalEvidence(source,signal).catch(()=>null):null;
+            data.set(key,{source,rows:institutional?institutional.directory.records:(await loadShard(source,signal)).records,institutional})
+        }catch(e){data.set(key,{source,error:true})}
     }));
     if(epoch!==sequence||signal.aborted)return;
     function observation(key,r){
@@ -1370,6 +1373,15 @@ async function compareFacilities(p,signal,epoch){
         const c=observation(key,r);
         return c.record?N.format(c.record.citation_rows)+" historical rows":c.label+" (not zero)"
     };
+    const applicableFields=Object.keys(institutionalLabels).filter(f=>selected.some(r=>institutionalPin.sources[r.source]?.fields.includes(f)));
+    const institutionalCell=(r,o,field)=>{
+        const pin=institutionalPin.sources[r.source];
+        if(!pin||(field&&!pin.fields.includes(field)))return "Not applicable to this source";
+        if(!o.record)return "Provider record unresolved";
+        const evidence=data.get(r.source)?.institutional,obs=evidence?.records.get(institutionalKey(o.record));
+        if(!obs)return "Qualified institutional evidence unavailable";
+        return field?institutionalValues[obs[field]]:evidence.release
+    };
     const rows=[
         cellsFor("Provider category",r=>names[r.source]),
         cellsFor("Source identifier",r=>r.ccn),
@@ -1380,6 +1392,10 @@ async function compareFacilities(p,signal,epoch){
         cellsFor("Published provider name",(_,o)=>o.record?shown(o.record.name):"Unavailable"),
         cellsFor("Published address",(_,o)=>o.record?[o.record.address,o.record.city,o.record.state,o.record.zip].filter(Boolean).join(", ")||"Not reported":"Unavailable"),
         cellsFor("Reported capacity", (r,o)=>o.record?advancedCapacityText(data.get(r.source).source,o.record):"Unavailable"),
+        ...(applicableFields.length?[
+            cellsFor("Institutional evidence release",(r,o)=>institutionalCell(r,o)),
+            ...applicableFields.map(f=>cellsFor(institutionalLabels[f]+" (reported)",(r,o)=>institutionalCell(r,o,f)))
+        ]:[]),
         cellsFor("Nursing health citation evidence",(r,o)=>citation("nursing-health",r,o)),
         cellsFor("Nursing fire citation evidence",(r,o)=>citation("nursing-fire",r,o)),
         cellsFor("Facility evidence profile",r=>anchor("Open source record",route("detail",{source:r.source,id:r.ccn,state:r.state})))
@@ -1391,9 +1407,9 @@ async function compareFacilities(p,signal,epoch){
         ["Evidence field",...selected.map(r=>r.name+" · "+r.ccn)],
         ...rows.slice(0,-1),
         ["Facility evidence profile",...selected.map(r=>new URL(route("detail",{source:r.source,id:r.ccn,state:r.state}),location.href).href)],
-        ["Evidence limitations",...selected.map(()=>"Historical nursing citation rows are not current findings or counts of inspections. Missing or unresolved evidence does not establish compliance. No portfolio ownership or shared property is inferred.")]
+        ["Evidence limitations",...selected.map(()=>"Institutional characteristics are publisher-reported historical flags, not current service availability, equipment installation or verified legal ownership. Historical nursing citation rows are not current findings or counts of inspections. Missing or unresolved evidence does not establish compliance. No portfolio ownership or shared property is inferred.")]
     ]));
-    app.append(add(el("div",undefined,"links"),exportComparison),el("p","On narrow screens, scroll the table horizontally to see all selected facilities. Evidence field labels stay visible.","comparison-scroll-hint intro"),wrapper,el("div","Historical nursing citation rows are not current findings or counts of inspections. Missing or unresolved evidence does not establish compliance. No portfolio ownership or shared property is inferred.","notice"))
+    app.append(add(el("div",undefined,"links"),exportComparison),el("p","On narrow screens, scroll the table horizontally to see all selected facilities. Evidence field labels stay visible.","comparison-scroll-hint intro"),wrapper,el("div","Institutional characteristics are publisher-reported historical flags, not current service availability, equipment installation or verified legal ownership. Historical nursing citation rows are not current findings or counts of inspections. Missing or unresolved evidence does not establish compliance. No portfolio ownership or shared property is inferred.","notice"))
 }
 
 async function procurementResearch(signal,epoch){

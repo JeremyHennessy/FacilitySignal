@@ -28,6 +28,8 @@ DIALYSIS_OBS=json.loads((ROOT/"web/dialysis-service-evidence.json").read_text())
 DIALYSIS_ROWS=json.loads((ROOT/"web/public-directory/dialysis.json").read_text())["records"]
 DIALYSIS_LINKED=next(r for r in DIALYSIS_ROWS if r["ccn"] in DIALYSIS_OBS)
 DIALYSIS_UNLINKED=next(r for r in DIALYSIS_ROWS if r["ccn"] not in DIALYSIS_OBS)
+INSTITUTIONAL_PACK=json.loads((ROOT/"web/institutional-evidence.json").read_text())["sources"]
+INSTITUTIONAL_LABELS={"emergency_services":"Emergency services","chain_owned_or_managed":"Chain owned or managed","late_shift":"Shift starting at 5 p.m. or later","in_center_hemodialysis":"In-center hemodialysis","peritoneal_dialysis":"Peritoneal dialysis","home_hemodialysis_training":"Home hemodialysis training","ownership_change_12_months":"Ownership change in preceding 12 months"}
 HHA_OBS=json.loads((ROOT/"web/hha-service-evidence.json").read_text())["records"]
 HHA_ROWS=json.loads((ROOT/"web/public-directory/home-health.json").read_text())["records"]
 HHA_PROFILE=next(r for r in HHA_ROWS if HHA_OBS[r["state"]+":"+r["ccn"]]["Nursing Care"]=="dash_marker")
@@ -290,6 +292,19 @@ def run(base,local):
                     assert len(exported[0])==3 and all(len(r)==3 for r in exported)
                     assert report["Source identifier"]==page.locator(".comparison-table tbody tr").filter(has_text="Source identifier").locator("td").all_inner_texts()[1:]
                     assert all("does not establish compliance" in v for v in report["Evidence limitations"])
+                    compare_rows={cells[0]:cells[1:] for cells in [tr.locator("td").all_inner_texts() for tr in page.locator(".comparison-table tbody tr").all()]}
+                    chosen_sources=["nursing","dialysis"]
+                    for field,label in INSTITUTIONAL_LABELS.items():
+                        applicable=[field in INSTITUTIONAL_PACK[s]["fields"] for s in chosen_sources]
+                        if not any(applicable):continue
+                        values=[]
+                        for i,s in enumerate(chosen_sources):
+                            if not applicable[i]:values.append("Not applicable to this source");continue
+                            p=INSTITUTIONAL_PACK[s];key=(report["Source identifier"][i],report["Reported state"][i])
+                            row=next(r for r in p["records"] if tuple(r[:2])==key)
+                            values.append("Reported yes" if row[2+p["fields"].index(field)]=="reported_yes" else "Reported no")
+                        assert compare_rows[label+" (reported)"]==report[label+" (reported)"]==values
+                    assert report["Institutional evidence release"]==[INSTITUTIONAL_PACK[s]["release"] for s in chosen_sources]
                     assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
                     page.screenshot(path=str(OUT/f"{width}-facility-comparison.png"),full_page=True)
                     if width<=720:
