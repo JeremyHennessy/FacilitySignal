@@ -11,7 +11,7 @@ from unittest.mock import patch
 import facilitysignal
 from iqies_capabilities import DDL
 from build_combined import sha
-from scripts.azure_private_workspace import restored_snapshot, verify_workspace, workspace_handler
+from scripts.azure_private_workspace import cached_snapshot, restored_snapshot, verify_workspace, workspace_handler
 
 
 @contextmanager
@@ -77,6 +77,23 @@ class PrivateWorkspaceTest(unittest.TestCase):
             with patch("local_research.service_search", side_effect=wrong_service):
                 with self.assertRaisesRegex(ValueError, "service search differs"):
                     verify_workspace(db, {})
+
+    def test_local_copy_replays_exact_export_and_rejects_wrong_digest(self):
+        with fixture() as source:
+            digest = sha(source)
+            pin = {"release": "bootstrap-123-1", "reconstruction_audit": {
+                "source_records_total": 1904060, "database_bytes": source.stat().st_size,
+                "database_sha256": digest}}
+            with cached_snapshot(source, pin) as (db, report):
+                self.assertNotEqual(db, source)
+                self.assertEqual(verify_workspace(db, report)["http_smoke"], "PASS")
+                self.assertEqual(report["source"], "verified_local_copy_of_private_azure_archive")
+            self.assertFalse(db.exists())
+            self.assertEqual(sha(source), digest)
+            pin["reconstruction_audit"]["database_sha256"] = "0" * 64
+            with self.assertRaisesRegex(ValueError, "workspace cache digest"):
+                with cached_snapshot(source, pin):
+                    self.fail("wrong snapshot was opened")
 
     def test_digest_drift_stops_before_serving_and_cleans_up(self):
         db = None
