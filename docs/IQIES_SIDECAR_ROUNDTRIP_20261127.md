@@ -1,0 +1,9 @@
+# Qualified national iQIES compact recovery — 2026-11-27
+
+Actual national round-trip: [run 45989267301](https://github.com/JeremyHennessy/FacilitySignal/actions/runs/45989267301), job 140472766444, commit `fbd71a131d4fa27e2e4eec07a2a8e2659a7b6b28`, aggregate artifact 15192712657. Permanent aggregate receipt: [research/iqies_sidecar_roundtrip_20261127.json](../research/iqies_sidecar_roundtrip_20261127.json).
+
+- Preserved 1,904,060 original source records and all 21 existing tables; 93,913 new service observations, all 33 source-record filters verified.
+- Original national base 906,149,888 bytes. Compact payload 12,685,312 bytes plus 348-byte manifest, approximately 1.4% of base size. Recovered database SHA-256 exactly matched the previously qualified candidate in addition to bidirectional row parity.
+- Only aggregate evidence retained; no durable compact payload, no new Azure writes or pointers, no storage-cost verification. No duplicate full-source qualification authorized merely to repeat this evidence.
+- New explicit opt-in local route: `python facilitysignal.py --db /private/restored.sqlite3 serve --private-service-extension`; `/api/iqies-additional-services?field=orthpdc_srgry_sw&value_state=reported_yes`. Default route disabled; loopback only; exact restored DB hash required before startup; no database initialization in opt-in mode. State, literal name/source search, explicit value state and bounded pagination. No canonical merge, risk score, equipment or present-day service inference. Existing public Pages files unchanged.
+- Qualification of the new HTTP route against full national data is separate from fixture verification; do not assert live public deployment or commercial reuse approval. The actual private payload is not currently retained. Storage cost/account billing verification remains a gate before durable writes.

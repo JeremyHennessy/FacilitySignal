@@ -1,0 +1,92 @@
+{
+  "commit": "fbd71a131d4fa27e2e4eec07a2a8e2659a7b6b28",
+  "run": 45989267301,
+  "job": 140472766444,
+  "artifact": 15192712657,
+  "artifact_digest": "sha256:57d15d864c02ecd6e2d82f289a862f97270f4f99ccd05b3a3204c6783fb6bec2",
+  "receipt": {
+    "base_database_bytes": 906149888,
+    "base_database_sha256": "138ad57c3719fe63895eeaff702c04b51107fe1cf6dc4daf403a554985a1f033",
+    "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e",
+    "base_release": "bootstrap-45845760984-1",
+    "baseline_source_records": 1904060,
+    "baseline_tables_preserved": 21,
+    "extension_tables_exact_bidirectional_parity": true,
+    "field_states": {
+      "ft_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5747,
+        "reported_yes": 2293
+      },
+      "incntr_nctrnl_srvc_sw": {
+        "not_available": 212,
+        "reported_no": 8435,
+        "reported_yes": 12
+      },
+      "ob_gyn_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 6528,
+        "reported_yes": 1512
+      },
+      "opthmlgy_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5446,
+        "reported_yes": 2594
+      },
+      "orthpdc_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5147,
+        "reported_yes": 2893
+      },
+      "othr_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5024,
+        "reported_yes": 3016
+      },
+      "otlrynglgy_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 6188,
+        "reported_yes": 1852
+      },
+      "pain_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5228,
+        "reported_yes": 2812
+      },
+      "plstc_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5772,
+        "reported_yes": 2268
+      },
+      "sp_home_trng_sprt_hd_sw": {
+        "not_available": 212,
+        "reported_no": 6342,
+        "reported_yes": 2105
+      },
+      "sp_home_trng_sprt_pd_sw": {
+        "not_available": 212,
+        "reported_no": 4669,
+        "reported_yes": 3778
+      }
+    },
+    "format_version": 1,
+    "manifest_bytes": 348,
+    "manifest_sha256": "a1a777e3e88962a37bed981e931af42d5155b522e2dbcfb4aa20903ac4ff820d",
+    "national_pointer_unchanged": true,
+    "observations": 93913,
+    "private_storage_written": false,
+    "public_promotion": false,
+    "qualified_candidate_sha256": "28f90c1b3e2d2b0fe5c800ff2da671df320748f00e9e333dbbf0ca84d21db3d3",
+    "restored_database_sha256": "28f90c1b3e2d2b0fe5c800ff2da671df320748f00e9e333dbbf0ca84d21db3d3",
+    "scope": "Temporary full national sidecar round-trip; aggregate evidence only",
+    "service_states": {
+      "not_available": 4252,
+      "reported_no": 64526,
+      "reported_yes": 25135
+    },
+    "sidecar_payload_bytes": 12685312,
+    "sidecar_sha256": "ab64fdc8d36b6066788d1bfd9f565ec181e9a2df4d5c01387d3f749040b1c253",
+    "source_record_filter_checks": 33,
+    "storage_cost_verified": false
+  }
+}
