@@ -12,6 +12,7 @@ import os
 from pathlib import Path
 import re
 import sqlite3
+import stat
 import tempfile
 from threading import Thread
 from urllib.parse import urlencode
@@ -39,6 +40,37 @@ def restored_snapshot(store, national_manifest, restore_national):
         require(report["source_records"] == 1904060, "workspace archive scope")
         db.chmod(0o400)
         yield db, report
+
+
+@contextmanager
+def cached_snapshot(source, pin):
+    """Serve an already authorized local export without accessing Azure."""
+    day = pin["reconstruction_audit"]
+    release = pin["release"]
+    require(re.fullmatch(r"bootstrap-[0-9]+-[0-9]+", release) is not None
+            and day["source_records_total"] == 1904060, "workspace cache release")
+    require(source.is_file() and not source.is_symlink()
+            and source.stat().st_size == day["database_bytes"], "workspace cache size")
+    with tempfile.TemporaryDirectory(prefix="facilitysignal-local-replay-") as tmp:
+        copy = Path(tmp) / "snapshot.sqlite3"
+        flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0) | getattr(os, "O_BINARY", 0)
+        with os.fdopen(os.open(source, flags), "rb") as src, copy.open("xb") as dst:
+            source_stat = os.fstat(src.fileno())
+            require(stat.S_ISREG(source_stat.st_mode)
+                    and source_stat.st_size == day["database_bytes"], "workspace cache input drift")
+            remaining = day["database_bytes"]
+            while remaining:
+                part = src.read(min(1024 * 1024, remaining))
+                require(bool(part), "workspace cache truncated")
+                dst.write(part)
+                remaining -= len(part)
+            require(not src.read(1), "workspace cache grew during read")
+        require(copy.stat().st_size == day["database_bytes"]
+                and sha(copy) == day["database_sha256"], "workspace cache digest")
+        copy.chmod(0o400)
+        yield copy, {"source": "verified_local_copy_of_private_azure_archive",
+                     "release": release, "source_records": day["source_records_total"],
+                     "read_only": True}
 
 
 def workspace_handler(db, report):
@@ -133,13 +165,30 @@ def verify_workspace(db, report):
             t.join()
 
 
+def launch(db, report, args):
+    if args.verify_only:
+        print(json.dumps(verify_workspace(db, report), sort_keys=True), flush=True)
+    else:
+        with ThreadingHTTPServer(("127.0.0.1", args.port), workspace_handler(db, report)) as server:
+            print(f"Private FacilitySignal: http://127.0.0.1:{server.server_port}/", flush=True)
+            server.serve_forever()
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--verify-only", action="store_true",
                    help="Run an HTTP smoke check and output an aggregate receipt, then exit")
     p.add_argument("--port", type=int, default=8080)
+    p.add_argument("--verified-local-copy", type=Path,
+                   help="Use an authorized local copy of the exact pinned Azure snapshot; no Azure calls")
     args = p.parse_args()
     try:
+        if args.verified_local_copy is not None:
+            from scripts.recover_azure_bootstrap import load_pin
+            with cached_snapshot(args.verified_local_copy, load_pin()) as (db, report):
+                launch(db, report, args)
+            return
+
         from azure_national_archive import run_key
         from scripts.audit_azure_archive_inventory import ReadOnlyAzure
         from scripts.azure_verified_extension import national_manifest, restore_national
@@ -148,13 +197,7 @@ def main():
         store = ReadOnlyAzure(os.environ)
         try:
             with restored_snapshot(store, national_manifest, restore_national) as (db, report):
-                if args.verify_only:
-                    print(json.dumps(verify_workspace(db, report), sort_keys=True), flush=True)
-                else:
-                    with ThreadingHTTPServer(("127.0.0.1", args.port),
-                                             workspace_handler(db, report)) as server:
-                        print(f"Private FacilitySignal: http://127.0.0.1:{server.server_port}/", flush=True)
-                        server.serve_forever()
+                launch(db, report, args)
         finally:
             store.close()
     except (ValueError, OSError, ImportError):
