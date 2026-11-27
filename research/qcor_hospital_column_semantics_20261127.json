@@ -1,0 +1,570 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-27",
+  "scope": "Original pinned hospital QCOR workbook only; field-level interpretation and aggregate reconciliation; no new literal-domain, reuse or application approval.",
+  "reviewed_base": "8b28adff8c70b3c0314a3110701b8fbe4dfdba53",
+  "profile_path": "research/qcor_raw_field_profiles_20261126.json",
+  "profile_blob": "cc429f67b8f8d5e74fe2e443ee61b2bb0441e633",
+  "source_sha256": "0827c681005f3fe61b5e46f6448c3128456b5a7b25b0318738ab764d418c4eec",
+  "source_rows": 284391,
+  "prior_import_run": 45675519053,
+  "prior_import_job": 139421883200,
+  "publisher_evidence": {
+    "report": "https://qcor.cms.gov/Hospital_2567_Reports",
+    "faq": "https://qcor.cms.gov/documents/scpdq_FAQs.jsp",
+    "release_policy": "https://www.cms.gov/medicare/health-safety-standards/quality-safety-oversight-general-information/policy-memos/policy-memos-states-and-cms-locations/release-cms-2567-statement-deficiencies-and-plan-correction",
+    "report_default_records": 42805,
+    "report_default_filter": "Surveys citing deficiencies; all-surveys option available. Search index observed 2026-11-27; not a pinned workbook control total.",
+    "dictionary_status": "Report labels and policy reviewed; no exact release-specific complete field dictionary or code domain verified."
+  },
+  "grain": {
+    "source_rows": 284391,
+    "tag_rows": 206771,
+    "memo_rows": 77620,
+    "no_tag_rows": 0,
+    "source_event_groups": 81025,
+    "groups_without_nonmemo_tags": 38985,
+    "groups_with_nonmemo_tags": 42040,
+    "report_minus_groups_with_nonmemo_tags": 765,
+    "distinct_ccns": 6952,
+    "duplicate_projection_rows_retained": 1928,
+    "rejected_rows": 0,
+    "interpretation": "Workbook rows include tags and memo rows; event group uses CCN/event/date. Default report is survey-filtered and nests tag details. Difference of 765 remains unresolved; no claim of exact equivalence, unique sites, open violations or deficiency-free certification."
+  },
+  "totals": {
+    "reviewed_fields": 18,
+    "structured_projection_fields": 14,
+    "narrative_presence_only_fields": 4,
+    "new_full_domain_qualified_fields": 0,
+    "new_application_approved_fields": 0,
+    "new_downloads": 0
+  },
+  "fields": [
+    {
+      "ordinal": 1,
+      "field": "CCN",
+      "adapter_projection": "ccn",
+      "meaning": "Certification identifier; text, not canonical site identity.",
+      "disposition": "source_scoped_identifier",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "documented_code_counts": {},
+        "field": "CCN",
+        "lexical_shapes": {
+          "other_text": 74,
+          "unsigned_integer_text": 284317
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 6,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 1,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 2,
+      "field": "Facility Name",
+      "adapter_projection": "name",
+      "meaning": "Name at survey snapshot, not verified legal or present name.",
+      "disposition": "historical_context",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "documented_code_counts": {},
+        "field": "Facility Name",
+        "lexical_shapes": {
+          "other_text": 284391
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 50,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 2,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 3,
+      "field": "Hospital Subtype",
+      "adapter_projection": "subtype",
+      "meaning": "Publisher hospital subtype classification; ten distinct values but exact domain not enumerated.",
+      "disposition": "candidate_classification",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 10,
+          "method": "exact"
+        },
+        "documented_code_counts": {},
+        "field": "Hospital Subtype",
+        "lexical_shapes": {
+          "other_text": 284391
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 36,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 3,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 4,
+      "field": "Street Address",
+      "adapter_projection": "address",
+      "meaning": "Reported street address, not parcel identity or current location.",
+      "disposition": "historical_context",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "documented_code_counts": {},
+        "field": "Street Address",
+        "lexical_shapes": {
+          "other_text": 284391
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 50,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 4,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 5,
+      "field": "City",
+      "adapter_projection": "city",
+      "meaning": "Reported municipality text.",
+      "disposition": "historical_context",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "documented_code_counts": {},
+        "field": "City",
+        "lexical_shapes": {
+          "other_text": 284391
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 20,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 5,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 6,
+      "field": "State/Territory",
+      "adapter_projection": "state",
+      "meaning": "Reported state or territory; 55 observed distinct values, not universal coverage.",
+      "disposition": "historical_context",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 55,
+          "method": "exact"
+        },
+        "documented_code_counts": {},
+        "field": "State/Territory",
+        "lexical_shapes": {
+          "other_text": 284391
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 2,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 6,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 7,
+      "field": "ZIP",
+      "adapter_projection": "zip",
+      "meaning": "Postal text; do not cast to integer.",
+      "disposition": "historical_context",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "documented_code_counts": {},
+        "field": "ZIP",
+        "lexical_shapes": {
+          "unsigned_integer_text": 284391
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 5,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 7,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 8,
+      "field": "CMS Region",
+      "adapter_projection": "region",
+      "meaning": "CMS administrative region, not service market; ten distinct labels.",
+      "disposition": "historical_context",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 10,
+          "method": "exact"
+        },
+        "documented_code_counts": {},
+        "field": "CMS Region",
+        "lexical_shapes": {
+          "other_text": 284391
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 17,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 8,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 9,
+      "field": "Survey Event ID",
+      "adapter_projection": "event_id",
+      "meaning": "Survey event identifier; retain source scope and combine with CCN and survey date for candidate grouping.",
+      "disposition": "source_scoped_event_key",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "documented_code_counts": {},
+        "field": "Survey Event ID",
+        "lexical_shapes": {
+          "other_text": 282540,
+          "unsigned_integer_text": 1851
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 6,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 9,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 10,
+      "field": "Survey Date",
+      "adapter_projection": "survey_date",
+      "meaning": "Reported survey date, not correction or ingestion date.",
+      "disposition": "historical_context",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 2049,
+          "method": "lower_bound"
+        },
+        "documented_code_counts": {},
+        "field": "Survey Date",
+        "lexical_shapes": {
+          "iso_date_shape": 284391
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 10,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 10,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 11,
+      "field": "Survey Type",
+      "adapter_projection": "survey_type",
+      "meaning": "Publisher survey category, seven n/a markers; do not interpret unknown as standard.",
+      "disposition": "candidate_classification",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 9,
+          "method": "exact"
+        },
+        "documented_code_counts": {},
+        "field": "Survey Type",
+        "lexical_shapes": {
+          "other_text": 284391
+        },
+        "literal_marker_counts": {
+          "n/a": 7
+        },
+        "max_nonmissing_trimmed_length": 28,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 11,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 12,
+      "field": "Deficiency Tag",
+      "adapter_projection": "tag",
+      "meaning": "Regulatory tag label; family prefix and definition epoch matter; zero-tag memos excluded from tag counts by existing adapter.",
+      "disposition": "historical_tag_context",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 1413,
+          "method": "exact"
+        },
+        "documented_code_counts": {},
+        "field": "Deficiency Tag",
+        "lexical_shapes": {
+          "other_text": 284391
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 5,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 12,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 13,
+      "field": "Deficiency Description",
+      "adapter_projection": "description",
+      "meaning": "Publisher tag description, not individualized narrative or verified current condition.",
+      "disposition": "historical_tag_context",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 969,
+          "method": "exact"
+        },
+        "documented_code_counts": {},
+        "field": "Deficiency Description",
+        "lexical_shapes": {
+          "other_text": 284391
+        },
+        "literal_marker_counts": {},
+        "max_nonmissing_trimmed_length": 60,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 13,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 14,
+      "field": "Deficiency Tag Type",
+      "adapter_projection": "tag_type",
+      "meaning": "Publisher tag category, not severity or current resolution; 79 n/a markers.",
+      "disposition": "candidate_classification",
+      "profile": {
+        "cell_types": {
+          "str": 284391
+        },
+        "distinct_nonmissing": {
+          "count": 6,
+          "method": "exact"
+        },
+        "documented_code_counts": {},
+        "field": "Deficiency Tag Type",
+        "lexical_shapes": {
+          "other_text": 284391
+        },
+        "literal_marker_counts": {
+          "n/a": 79
+        },
+        "max_nonmissing_trimmed_length": 11,
+        "numeric_aggregate_by_scope": {},
+        "ordinal": 14,
+        "profile_status": "aggregate_lexical_profile",
+        "scope_counts": {},
+        "states": {
+          "other_nonblank": 284391
+        }
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 15,
+      "field": "Statement of Deficiency Text (Part 1)",
+      "adapter_projection": null,
+      "meaning": "Narrative fragment from statement of deficiencies; potential sensitive information; presence-only aggregate profiling, not retained by adapter.",
+      "disposition": "excluded_narrative",
+      "profile": {
+        "field": "Statement of Deficiency Text (Part 1)",
+        "ordinal": 15,
+        "presence": {
+          "blank": 111,
+          "nonblank": 284280
+        },
+        "profile_status": "narrative_excluded_presence_only"
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 16,
+      "field": "Statement of Deficiency Text (Part 2)",
+      "adapter_projection": null,
+      "meaning": "Narrative fragment from statement of deficiencies; potential sensitive information; presence-only aggregate profiling, not retained by adapter.",
+      "disposition": "excluded_narrative",
+      "profile": {
+        "field": "Statement of Deficiency Text (Part 2)",
+        "ordinal": 16,
+        "presence": {
+          "blank": 283278,
+          "nonblank": 1113
+        },
+        "profile_status": "narrative_excluded_presence_only"
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 17,
+      "field": "Statement of Deficiency Text (Part 3)",
+      "adapter_projection": null,
+      "meaning": "Narrative fragment from statement of deficiencies; potential sensitive information; presence-only aggregate profiling, not retained by adapter.",
+      "disposition": "excluded_narrative",
+      "profile": {
+        "field": "Statement of Deficiency Text (Part 3)",
+        "ordinal": 17,
+        "presence": {
+          "blank": 284257,
+          "nonblank": 134
+        },
+        "profile_status": "narrative_excluded_presence_only"
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    },
+    {
+      "ordinal": 18,
+      "field": "Statement of Deficiency Text (Part 4)",
+      "adapter_projection": null,
+      "meaning": "Narrative fragment from statement of deficiencies; potential sensitive information; presence-only aggregate profiling, not retained by adapter.",
+      "disposition": "excluded_narrative",
+      "profile": {
+        "field": "Statement of Deficiency Text (Part 4)",
+        "ordinal": 18,
+        "presence": {
+          "blank": 284360,
+          "nonblank": 31
+        },
+        "profile_status": "narrative_excluded_presence_only"
+      },
+      "observed_domain_qualified": false,
+      "new_application_approved": false
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-27",
+  "reviewed_base": "a6ea0b82fde4e82265e3d7b74125a7be06221759",
+  "scope": "Reconciliation of the six original pinned PECOS source headers, field semantic crosswalk, aggregate profiles, release manifest and existing private SQLite projection. No new source acquisition, application approval or canonical relationship determination.",
+  "evidence_blobs": {
+    "research/pecos_field_semantic_crosswalk_20261126.json": "dbe7a6354926cd27e67145d3d596164ef03708a0",
+    "research/pecos_raw_field_profiles_20261126.json": "971c37613bcf823fbdebae68c20fad7941e03764",
+    "research/care_compare_pecos_exact_headers_20261126.json": "77cb8affea343d0285fbdec648888a42d2018618",
+    "research/snapshot_release_20261125.json": "9162fbdcc3ee591b63429df3279cdf11a8ddf125",
+    "collect_ownership.py": "5d03f9dd2f3c293743624addce92960938ffeaab"
+  },
+  "historical_integrated_qualification": {
+    "run": 45681360390,
+    "artifact": 15054422926,
+    "source_records_total": 1904060
+  },
+  "totals": {
+    "sources": 6,
+    "header_fields": 186,
+    "publisher_definition_reviewed_fields": 186,
+    "existing_retained_field_occurrences": 90,
+    "not_retained_field_occurrences": 96,
+    "presence_only_field_occurrences": 20,
+    "lexical_only_semantic_review_fields": 98,
+    "input_rows": 479387,
+    "stored_rows": 152606,
+    "excluded_individual_rows": 326781,
+    "new_domain_qualified_fields": 0,
+    "new_application_approved_fields": 0
+  },
+  "sources": [
+    {
+      "source": "hospital-enrollment",
+      "source_sha256": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e",
+      "period": "2026-11-01/2026-11-30",
+      "columns": 39,
+      "retained_fields": 16,
+      "not_retained_fields": 23,
+      "presence_only_fields": 0,
+      "lexical_only_semantic_review_fields": 16,
+      "input_rows": 9120,
+      "stored_rows": 9120,
+      "excluded_individual_rows": 0
+    },
+    {
+      "source": "hospital-owner",
+      "source_sha256": "4886fc907dd67d56d2c45057a13288b5e74a220f11cd6ba32b908a81728038f0",
+      "period": "2026-11-01/2026-11-30",
+      "columns": 38,
+      "retained_fields": 14,
+      "not_retained_fields": 24,
+      "presence_only_fields": 10,
+      "lexical_only_semantic_review_fields": 13,
+      "input_rows": 147029,
+      "stored_rows": 22735,
+      "excluded_individual_rows": 124294
+    },
+    {
+      "source": "hospital-chow",
+      "source_sha256": "a8cb5111dee64780f2c5bd9b10fdd304140848eeeee2e4b2c5012c7421533648",
+      "period": "2026-07-01/2026-09-30",
+      "columns": 23,
+      "retained_fields": 15,
+      "not_retained_fields": 8,
+      "presence_only_fields": 0,
+      "lexical_only_semantic_review_fields": 20,
+      "input_rows": 779,
+      "stored_rows": 779,
+      "excluded_individual_rows": 0
+    },
+    {
+      "source": "snf-enrollment",
+      "source_sha256": "21f6b282b07017f2596d9c3cb84dac3eaa100bd2ec637e0d7f03510e0f0acf89",
+      "period": "2026-11-01/2026-11-30",
+      "columns": 23,
+      "retained_fields": 16,
+      "not_retained_fields": 7,
+      "presence_only_fields": 0,
+      "lexical_only_semantic_review_fields": 16,
+      "input_rows": 14401,
+      "stored_rows": 14401,
+      "excluded_individual_rows": 0
+    },
+    {
+      "source": "snf-owner",
+      "source_sha256": "538b02368085b57139619c643ef5bad19c1c855cc6643e4a7eb2e6f098f46657",
+      "period": "2026-11-01/2026-11-30",
+      "columns": 40,
+      "retained_fields": 14,
+      "not_retained_fields": 26,
+      "presence_only_fields": 10,
+      "lexical_only_semantic_review_fields": 13,
+      "input_rows": 302718,
+      "stored_rows": 100231,
+      "excluded_individual_rows": 202487
+    },
+    {
+      "source": "snf-chow",
+      "source_sha256": "8214fe65ec7c9b291bf579bd9fcdd281fbf9bd8a593613e9db93b6f0d8bdbcb5",
+      "period": "2026-07-01/2026-09-30",
+      "columns": 23,
+      "retained_fields": 15,
+      "not_retained_fields": 8,
+      "presence_only_fields": 0,
+      "lexical_only_semantic_review_fields": 20,
+      "input_rows": 5340,
+      "stored_rows": 5340,
+      "excluded_individual_rows": 0
+    }
+  ],
+  "limitations": [
+    "Counts of field occurrences across six source files, not unique field names or database columns.",
+    "The retained owner population excludes individual records; the profiles do not describe the excluded population.",
+    "Presence-only profiles do not authorize publication. Owner type is a filter, not a retained projected field.",
+    "Source fields mirrored in indexed columns also exist in the private JSON projection; do not double count them.",
+    "The accompanying tests exercise the actual importer and schema with synthetic fixtures; prior full-scale snapshot evidence is historical, not a fresh private database or Azure readback.",
+    "A Medicare enrollment, organization role or reported CHOW does not independently establish physical property ownership, current control, or a canonical facility. No UI changes or new row-level publication."
+  ]
+}

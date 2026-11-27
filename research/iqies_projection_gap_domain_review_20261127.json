@@ -1,0 +1,1396 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-27",
+  "scope": "Original November 26 unmapped populated aggregate iQIES fields only. Bounded domain means aggregate observations reconcile to existing interpretation shape; not current status, release-wide semantic approval, commercial reuse, or permission to publish. No new raw access.",
+  "base_commit": "e4910005e718f5b5fbb28fe294266f86195b4d40",
+  "source_sha256": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2",
+  "source_rows": 100334,
+  "pinned_evidence": {
+    "research/national_data_understanding_index_20261126.json": "2d4b60ea413e60c96a9500a4d5713b6d90bca03a",
+    "research/iqies_semantic_application_crosswalk_20261126.json": "52c58708bd65156fbac5d2f2c98fabeb72010b07",
+    "research/iqies_raw_field_profile_20261126.json": "1e33c18d0d2934352914b740f24c6b2e28bdf33f"
+  },
+  "counts": {
+    "other_review": 19,
+    "bounded_domain_mapped_code": 16,
+    "scope_conflict": 20,
+    "bounded_domain_boolean": 50,
+    "bounded_domain_fte_decimal": 36,
+    "bounded_domain_count_integer": 14,
+    "blocked_metadata": 5,
+    "domain_incomplete_mapped_code": 2,
+    "domain_incomplete_fte_decimal": 2
+  },
+  "fields": [
+    {
+      "ordinal": 4,
+      "field": "mdcd_vndr_num",
+      "category": "identity",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 5,
+      "field": "orgnl_prtcptn_dt",
+      "category": "certification",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 9,
+      "field": "ssa_cnty_cd",
+      "category": "geography",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 11,
+      "field": "phne_num",
+      "category": "contact",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 15,
+      "field": "ssa_state_cd",
+      "category": "geography",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 16,
+      "field": "state_rgn_cd",
+      "category": "geography",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 17,
+      "field": "rgn_cd",
+      "category": "geography",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 18,
+      "field": "fips_state_cd",
+      "category": "geography",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 19,
+      "field": "fips_cnty_cd",
+      "category": "geography",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 20,
+      "field": "cbsa_cd",
+      "category": "geography",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 21,
+      "field": "cbsa_urbn_rrl_ind",
+      "category": "geography",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 22,
+      "field": "acrdtn_type_cd",
+      "category": "certification",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "RHC"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 23,
+      "field": "intrmdry_carr_cd",
+      "category": "administrative",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "ICFIID"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 24,
+      "field": "acptbl_poc_sw",
+      "category": "certification",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 25,
+      "field": "fy_end_mo_day_cd",
+      "category": "administrative",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "FQHC"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 27,
+      "field": "crtfctn_actn_type_cd",
+      "category": "certification",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 28,
+      "field": "chow_dt",
+      "category": "organization",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 29,
+      "field": "phrmcy_srvc_cd",
+      "category": "service_provision",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "HHA"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 30,
+      "field": "hh_aide_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 31,
+      "field": "lab_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 32,
+      "field": "lpn_lvn_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 33,
+      "field": "mdcl_scl_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 34,
+      "field": "othr_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 35,
+      "field": "ot_srvc_cd",
+      "category": "service_provision",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "OPT/SLP"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 36,
+      "field": "nrsng_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 37,
+      "field": "prsnel_othr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 38,
+      "field": "pt_srvc_cd",
+      "category": "service_provision",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "OPT/SLP"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 39,
+      "field": "rn_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 40,
+      "field": "asc_bgn_srvc_dt",
+      "category": "certification",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 43,
+      "field": "ft_srgry_sw",
+      "category": "surgical_specialty",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 44,
+      "field": "ob_gyn_srgry_sw",
+      "category": "surgical_specialty",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 47,
+      "field": "opthmlgy_srgry_sw",
+      "category": "surgical_specialty",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 48,
+      "field": "orthpdc_srgry_sw",
+      "category": "surgical_specialty",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 49,
+      "field": "othr_srgry_sw",
+      "category": "surgical_specialty",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 50,
+      "field": "otlrynglgy_srgry_sw",
+      "category": "surgical_specialty",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 51,
+      "field": "pain_srgry_sw",
+      "category": "surgical_specialty",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 52,
+      "field": "plstc_srgry_sw",
+      "category": "surgical_specialty",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 53,
+      "field": "rdlgy_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 54,
+      "field": "aplnc_equip_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 55,
+      "field": "brnch_cnt",
+      "category": "organization",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 56,
+      "field": "brnch_oprtn_sw",
+      "category": "organization",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 57,
+      "field": "chow_sw",
+      "category": "organization",
+      "disposition": "blocked_metadata",
+      "conflicting_scopes": [
+        "HHA"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 58,
+      "field": "dietn_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 59,
+      "field": "hh_aide_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 60,
+      "field": "hh_aide_trng_pgm_cd",
+      "category": "service_provision",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 61,
+      "field": "intrn_rsdnt_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 62,
+      "field": "mdcr_hospc_sw",
+      "category": "certification",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 63,
+      "field": "medicare_hospice_provider_num",
+      "category": "identity",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "HHA",
+        "HOSPICE"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 64,
+      "field": "ntrtnl_gdnc_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 65,
+      "field": "ocptnl_thrpst_cnt",
+      "category": "workforce",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "HHA",
+        "HOSPICE"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 66,
+      "field": "pgm_prtcptn_cd",
+      "category": "certification",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "HHA"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 67,
+      "field": "phys_thrpst_stf_cnt",
+      "category": "workforce",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "HHA",
+        "OPT/SLP"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 68,
+      "field": "reg_phrmcst_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 69,
+      "field": "sbunit_cnt",
+      "category": "organization",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 70,
+      "field": "sbunit_oprtn_sw",
+      "category": "organization",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 71,
+      "field": "sbunit_sw",
+      "category": "organization",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 72,
+      "field": "scl_workr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 73,
+      "field": "spch_pthlgst_audlgst_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 74,
+      "field": "spch_thrpy_srvc_cd",
+      "category": "service_provision",
+      "disposition": "domain_incomplete_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 75,
+      "field": "vctnl_gdnc_srvc_cd",
+      "category": "service_provision",
+      "disposition": "domain_incomplete_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 76,
+      "field": "hospice_type",
+      "category": "identity",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 77,
+      "field": "acute_resp_care_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 78,
+      "field": "cnslng_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 79,
+      "field": "cnslr_emplee_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 80,
+      "field": "cnslr_vlntr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 81,
+      "field": "emplee_cnt",
+      "category": "workforce",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "HOSPICE",
+        "NH"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 82,
+      "field": "hh_aide_emplee_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 83,
+      "field": "hh_aide_vlntr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 84,
+      "field": "hmmkr_emplee_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 85,
+      "field": "hmmkr_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 86,
+      "field": "hmmkr_vlntr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 87,
+      "field": "lpn_lvn_vlntr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 88,
+      "field": "mdcl_scl_workr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 89,
+      "field": "mdcl_scl_workr_vlntr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 90,
+      "field": "mdcl_suply_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 91,
+      "field": "physn_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 92,
+      "field": "physn_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 93,
+      "field": "physn_vlntr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 94,
+      "field": "rn_vlntr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 95,
+      "field": "shrt_term_ip_srvc_cd",
+      "category": "service_provision",
+      "disposition": "bounded_domain_mapped_code",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 96,
+      "field": "spch_pthlgy_srvc_cd",
+      "category": "service_provision",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "OPT/SLP"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 97,
+      "field": "vlntr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 98,
+      "field": "vlntr_othr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 102,
+      "field": "control_type",
+      "category": "organization",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 103,
+      "field": "gnrl_fac_type_cd",
+      "category": "identity",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "HOSPICE",
+        "OPT/SLP"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 104,
+      "field": "processing_date",
+      "category": "administrative",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 105,
+      "field": "aids_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 106,
+      "field": "alzhmr_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 107,
+      "field": "bed_cnt",
+      "category": "capacity",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "NH"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 108,
+      "field": "bed_per_room_wvr_sw",
+      "category": "waiver",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "NH"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 109,
+      "field": "crtfd_bed_cnt",
+      "category": "capacity",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "NH"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 110,
+      "field": "dlys_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 111,
+      "field": "dsbl_chldrn_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 112,
+      "field": "elgblty_sw",
+      "category": "certification",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 113,
+      "field": "exprmt_rsrch_cndctd_sw",
+      "category": "governance_context",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 114,
+      "field": "fax_phne_num",
+      "category": "contact",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 115,
+      "field": "head_trma_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 116,
+      "field": "hntgtn_dease_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 117,
+      "field": "hosp_bsd_sw",
+      "category": "organization",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 118,
+      "field": "hospc_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 119,
+      "field": "intrmdry_carr_prior_cd",
+      "category": "administrative",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "ICFIID"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 120,
+      "field": "isCCRC",
+      "category": "organization",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 121,
+      "field": "lsc_wvr_sw",
+      "category": "waiver",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "ASC",
+        "NH",
+        "OPT/SLP"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 122,
+      "field": "mdcr_mdcd_snf_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 123,
+      "field": "mdcr_snf_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 124,
+      "field": "mlt_fac_org_name",
+      "category": "organization",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "ESRD",
+        "NH"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 125,
+      "field": "mlt_ownd_fac_org_sw",
+      "category": "organization",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 126,
+      "field": "orgnz_fmly_mbr_grp_sw",
+      "category": "governance_context",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 127,
+      "field": "orgnz_rsdnt_grp_sw",
+      "category": "governance_context",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 128,
+      "field": "rehab_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 129,
+      "field": "room_size_wvr_sw",
+      "category": "waiver",
+      "disposition": "scope_conflict",
+      "conflicting_scopes": [
+        "NH"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 130,
+      "field": "vntltr_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 131,
+      "field": "esrd_ntwrk_num",
+      "category": "administrative",
+      "disposition": "other_review",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 133,
+      "field": "incntr_nctrnl_srvc_sw",
+      "category": "dialysis_service",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 134,
+      "field": "sp_home_trng_sprt_hd_sw",
+      "category": "dialysis_service",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 136,
+      "field": "sp_home_trng_sprt_pd_sw",
+      "category": "dialysis_service",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 138,
+      "field": "lpn_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 139,
+      "field": "tchncl_stf_num",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 140,
+      "field": "tchncn_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 142,
+      "field": "tchnlgst_2_yr_rdlgc_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 143,
+      "field": "tchnlgst_asct_dgr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 144,
+      "field": "tchnlgst_bs_ba_dgr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 145,
+      "field": "mdcr_prtcptn_op_pt_spch_sw",
+      "category": "certification",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 146,
+      "field": "nrsng_srvc_emplee_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 147,
+      "field": "nrsng_srvc_cntrctr_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 148,
+      "field": "nrsng_srvc_arngmt_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 149,
+      "field": "orthtc_prsthtc_emplee_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 150,
+      "field": "orthtc_prsthtc_cntrctr_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 151,
+      "field": "orthtc_prsthtc_arngmt_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 152,
+      "field": "ot_emplee_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 153,
+      "field": "ot_cntrctr_sw",
+      "category": "corf_provision",
+      "disposition": "blocked_metadata",
+      "conflicting_scopes": [
+        "CORF"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 154,
+      "field": "ot_arngmt_sw",
+      "category": "corf_provision",
+      "disposition": "blocked_metadata",
+      "conflicting_scopes": [
+        "CORF"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 155,
+      "field": "physn_emplee_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 156,
+      "field": "physn_cntrctr_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 157,
+      "field": "physn_arngmt_sw",
+      "category": "corf_provision",
+      "disposition": "blocked_metadata",
+      "conflicting_scopes": [
+        "CORF"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 158,
+      "field": "psychlgcl_emplee_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 159,
+      "field": "psychlgcl_cntrctr_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 160,
+      "field": "psychlgcl_arngmt_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 161,
+      "field": "pt_emplee_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 162,
+      "field": "pt_cntrctr_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 163,
+      "field": "pt_arngmt_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 164,
+      "field": "rsprtry_care_emplee_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 165,
+      "field": "rsprtry_care_cntrctr_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 166,
+      "field": "rsprtry_care_arngmt_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 167,
+      "field": "scl_emplee_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 168,
+      "field": "scl_cntrctr_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 169,
+      "field": "scl_arngmt_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 170,
+      "field": "spch_pthlgy_emplee_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 171,
+      "field": "spch_pthlgy_cntrctr_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 172,
+      "field": "spch_pthlgy_arngmt_sw",
+      "category": "corf_provision",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 173,
+      "field": "ocptnl_thrpst_cntrct_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 174,
+      "field": "ocptnl_thrpst_fltm_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 175,
+      "field": "phys_thrpst_cnt",
+      "category": "workforce",
+      "disposition": "domain_incomplete_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 176,
+      "field": "phys_thrpst_arngmt_cnt",
+      "category": "workforce",
+      "disposition": "domain_incomplete_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 177,
+      "field": "spch_pthlgst_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 178,
+      "field": "spch_pthlgst_arngmt_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 179,
+      "field": "spch_pthlgst_fltm_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 180,
+      "field": "icfiid_bed_cnt",
+      "category": "capacity",
+      "disposition": "bounded_domain_count_integer",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 181,
+      "field": "prvdr_bsd_fac_sw",
+      "category": "organization",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 182,
+      "field": "drct_care_prsnel_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 183,
+      "field": "fed_fundd_fqhc_sw",
+      "category": "unresolved",
+      "disposition": "blocked_metadata",
+      "conflicting_scopes": [
+        "FQHC"
+      ],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 184,
+      "field": "fqhc_aprvd_rhc_sw",
+      "category": "certification",
+      "disposition": "bounded_domain_boolean",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 185,
+      "field": "nrs_prctnr_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 186,
+      "field": "physn_astnt_cnt",
+      "category": "workforce",
+      "disposition": "bounded_domain_fte_decimal",
+      "conflicting_scopes": [],
+      "application_approval": "not_granted"
+    }
+  ]
+}

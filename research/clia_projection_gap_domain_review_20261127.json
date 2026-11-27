@@ -1,0 +1,827 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-27",
+  "base_commit": "eae3b328d38724f9825fab093069cff061bb54cc",
+  "scope": "Original November 26 baseline projection gap. Reconciles previously qualified aggregate evidence only; historical 2023 semantics remain provisional for Q3 2026. No new row-level approval, current certification inference, physical site count or asset inference.",
+  "source_sha256": "b7b7dce68abec2ad69b6c3378ff14e0b1c4e12f5dda433d12db2cf8eb4c5b1bf",
+  "source_rows": 686058,
+  "pinned_evidence": {
+    "research/national_data_understanding_index_20261126.json": "2d4b60ea413e60c96a9500a4d5713b6d90bca03a",
+    "research/clia_raw_field_profile_20261126.json": "e3bab574ae5196bae4d4df12243c091f596e0d88",
+    "research/clia_historical_dictionary_crosswalk_20261126.json": "c06a3ffad8236f00eecc66f4e72e05399a71bde7",
+    "research/clia_certificate_semantic_audit_20261126.json": "3df016ade8d6d2f90fc7a1b26f3cda4fbb825fec"
+  },
+  "counts": {
+    "quantity_state_review": 8,
+    "date_state_review": 13,
+    "literal_flag_domain_reconciled": 15,
+    "lexical_only": 13,
+    "reference_shape_only": 10,
+    "contact_excluded": 2,
+    "unmapped_code_review": 3,
+    "historical_code_domain_reconciled": 25
+  },
+  "fields": [
+    {
+      "ordinal": 3,
+      "field": "CHOW_CNT",
+      "category": "quantity",
+      "nonblank": 686058,
+      "evidence_section": "quantity_states",
+      "disposition": "quantity_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 4,
+      "field": "CHOW_DT",
+      "category": "date",
+      "nonblank": 688,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 6,
+      "field": "ACPTBL_POC_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 8,
+      "field": "SSA_CNTY_CD",
+      "category": "geography",
+      "nonblank": 685664,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 9,
+      "field": "CROSS_REF_PROVIDER_NUMBER",
+      "category": "reference",
+      "nonblank": 6039,
+      "evidence_section": "reference_shape_counts",
+      "disposition": "reference_shape_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 11,
+      "field": "ELGBLTY_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 13,
+      "field": "INTRMDRY_CARR_CD",
+      "category": "administrative",
+      "nonblank": 5936,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 15,
+      "field": "ORGNL_PRTCPTN_DT",
+      "category": "date",
+      "nonblank": 686058,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 16,
+      "field": "CHOW_PRIOR_DT",
+      "category": "date",
+      "nonblank": 856,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 17,
+      "field": "INTRMDRY_CARR_PRIOR_CD",
+      "category": "administrative",
+      "nonblank": 1765,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 19,
+      "field": "RGN_CD",
+      "category": "geography",
+      "nonblank": 686058,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 20,
+      "field": "SKLTN_REC_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 22,
+      "field": "SSA_STATE_CD",
+      "category": "geography",
+      "nonblank": 686058,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 23,
+      "field": "STATE_RGN_CD",
+      "category": "geography",
+      "nonblank": 686058,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 25,
+      "field": "PHNE_NUM",
+      "category": "restricted_contact",
+      "nonblank": 684833,
+      "evidence_section": null,
+      "disposition": "contact_excluded",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 26,
+      "field": "PGM_TRMNTN_CD",
+      "category": "coded_classification",
+      "nonblank": 686058,
+      "evidence_section": "code_counts",
+      "disposition": "unmapped_code_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 28,
+      "field": "CRTFCTN_ACTN_TYPE_CD",
+      "category": "coded_classification",
+      "nonblank": 78869,
+      "evidence_section": "code_counts",
+      "disposition": "unmapped_code_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 29,
+      "field": "GNRL_CNTL_TYPE_CD",
+      "category": "coded_classification",
+      "nonblank": 686058,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 31,
+      "field": "FIPS_STATE_CD",
+      "category": "geography",
+      "nonblank": 685332,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 32,
+      "field": "FIPS_CNTY_CD",
+      "category": "geography",
+      "nonblank": 685332,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 33,
+      "field": "CBSA_URBN_RRL_IND",
+      "category": "geography",
+      "nonblank": 685276,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 34,
+      "field": "CBSA_CD",
+      "category": "geography",
+      "nonblank": 685276,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 35,
+      "field": "ADDTNL_ST_ADR",
+      "category": "geography",
+      "nonblank": 24889,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 36,
+      "field": "AFFILIATED_PROVIDER_NUMBER_1",
+      "category": "reference",
+      "nonblank": 111204,
+      "evidence_section": "reference_shape_counts",
+      "disposition": "reference_shape_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 37,
+      "field": "AFFILIATED_PROVIDER_NUMBER_2",
+      "category": "reference",
+      "nonblank": 61188,
+      "evidence_section": "reference_shape_counts",
+      "disposition": "reference_shape_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 38,
+      "field": "AFFILIATED_PROVIDER_NUMBER_3",
+      "category": "reference",
+      "nonblank": 38747,
+      "evidence_section": "reference_shape_counts",
+      "disposition": "reference_shape_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 39,
+      "field": "AFFILIATED_PROVIDER_NUMBER_4",
+      "category": "reference",
+      "nonblank": 23496,
+      "evidence_section": "reference_shape_counts",
+      "disposition": "reference_shape_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 40,
+      "field": "AFFILIATED_PROVIDER_NUMBER_5",
+      "category": "reference",
+      "nonblank": 11644,
+      "evidence_section": "reference_shape_counts",
+      "disposition": "reference_shape_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 41,
+      "field": "AFFILIATED_PROVIDER_NUMBER_6",
+      "category": "reference",
+      "nonblank": 7227,
+      "evidence_section": "reference_shape_counts",
+      "disposition": "reference_shape_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 42,
+      "field": "AFFILIATED_PROVIDER_NUMBER_7",
+      "category": "reference",
+      "nonblank": 4076,
+      "evidence_section": "reference_shape_counts",
+      "disposition": "reference_shape_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 43,
+      "field": "AFFILIATED_PROVIDER_NUMBER_8",
+      "category": "reference",
+      "nonblank": 3136,
+      "evidence_section": "reference_shape_counts",
+      "disposition": "reference_shape_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 44,
+      "field": "A2LA_ACRDTD_CD",
+      "category": "coded_classification",
+      "nonblank": 16,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 45,
+      "field": "A2LA_ACRDTD_Y_MATCH_DT",
+      "category": "date",
+      "nonblank": 9,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 46,
+      "field": "A2LA_ACRDTD_Y_MATCH_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 47,
+      "field": "AABB_ACRDTD_CD",
+      "category": "coded_classification",
+      "nonblank": 270,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 48,
+      "field": "AABB_ACRDTD_Y_MATCH_DT",
+      "category": "date",
+      "nonblank": 249,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 49,
+      "field": "AABB_ACRDTD_Y_MATCH_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 50,
+      "field": "AOA_ACRDTD_CD",
+      "category": "coded_classification",
+      "nonblank": 204,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 51,
+      "field": "AOA_ACRDTD_Y_MATCH_DT",
+      "category": "date",
+      "nonblank": 196,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 52,
+      "field": "AOA_ACRDTD_Y_MATCH_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 53,
+      "field": "ASHI_ACRDTD_CD",
+      "category": "coded_classification",
+      "nonblank": 127,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 54,
+      "field": "ASHI_ACRDTD_Y_MATCH_DT",
+      "category": "date",
+      "nonblank": 125,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 55,
+      "field": "ASHI_ACRDTD_Y_MATCH_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 56,
+      "field": "CAP_ACRDTD_CD",
+      "category": "coded_classification",
+      "nonblank": 8507,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 57,
+      "field": "CAP_ACRDTD_Y_MATCH_DT",
+      "category": "date",
+      "nonblank": 8012,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 58,
+      "field": "CAP_ACRDTD_Y_MATCH_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 59,
+      "field": "COLA_ACRDTD_CD",
+      "category": "coded_classification",
+      "nonblank": 7835,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 60,
+      "field": "COLA_ACRDTD_Y_MATCH_DT",
+      "category": "date",
+      "nonblank": 6772,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 61,
+      "field": "COLA_ACRDTD_Y_MATCH_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 62,
+      "field": "JCAHO_ACRDTD_CD",
+      "category": "coded_classification",
+      "nonblank": 3652,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 63,
+      "field": "JCAHO_ACRDTD_Y_MATCH_DT",
+      "category": "date",
+      "nonblank": 2806,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 64,
+      "field": "JCAHO_ACRDTD_Y_MATCH_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 65,
+      "field": "APLCTN_RCVD_DT",
+      "category": "date",
+      "nonblank": 686058,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 66,
+      "field": "APLCTN_TYPE_CD",
+      "category": "coded_classification",
+      "nonblank": 686058,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 67,
+      "field": "GNRL_FAC_TYPE_CD",
+      "category": "coded_classification",
+      "nonblank": 686058,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 68,
+      "field": "CRTFCT_EFCTV_DT",
+      "category": "date",
+      "nonblank": 686058,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 69,
+      "field": "CRTFCT_MAIL_DT",
+      "category": "date",
+      "nonblank": 652658,
+      "evidence_section": "date_states",
+      "disposition": "date_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 70,
+      "field": "CRTFCT_TYPE_CD",
+      "category": "coded_classification",
+      "nonblank": 686058,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 71,
+      "field": "CURRENT_CLIA_LAB_CLSFCTN_CD",
+      "category": "coded_classification",
+      "nonblank": 686058,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 72,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_1",
+      "category": "coded_classification",
+      "nonblank": 686058,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 73,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_10",
+      "category": "coded_classification",
+      "nonblank": 149104,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 74,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_2",
+      "category": "coded_classification",
+      "nonblank": 539576,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 75,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_3",
+      "category": "coded_classification",
+      "nonblank": 441049,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 76,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_4",
+      "category": "coded_classification",
+      "nonblank": 364773,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 77,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_5",
+      "category": "coded_classification",
+      "nonblank": 309858,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 78,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_6",
+      "category": "coded_classification",
+      "nonblank": 263723,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 79,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_7",
+      "category": "coded_classification",
+      "nonblank": 226886,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 80,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_8",
+      "category": "coded_classification",
+      "nonblank": 196331,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 81,
+      "field": "CLIA_LAB_CLASSIFICATION_CD_9",
+      "category": "coded_classification",
+      "nonblank": 170985,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 83,
+      "field": "CLIA_TRMNTN_CD",
+      "category": "coded_classification",
+      "nonblank": 686058,
+      "evidence_section": "code_counts",
+      "disposition": "unmapped_code_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 84,
+      "field": "ACRDTN_SCHDL_CD",
+      "category": "coded_classification",
+      "nonblank": 20285,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 85,
+      "field": "FORM_116_ACRDTD_TEST_VOL_CNT",
+      "category": "quantity",
+      "nonblank": 686058,
+      "evidence_section": "quantity_states",
+      "disposition": "quantity_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 86,
+      "field": "FORM_116_TEST_VOL_CNT",
+      "category": "quantity",
+      "nonblank": 686058,
+      "evidence_section": "quantity_states",
+      "disposition": "quantity_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 87,
+      "field": "DRCTLY_AFLTD_LAB_CNT",
+      "category": "quantity",
+      "nonblank": 686058,
+      "evidence_section": "quantity_states",
+      "disposition": "quantity_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 88,
+      "field": "FAX_PHNE_NUM",
+      "category": "restricted_contact",
+      "nonblank": 484835,
+      "evidence_section": null,
+      "disposition": "contact_excluded",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 89,
+      "field": "FY_END_MO_DAY_CD",
+      "category": "administrative",
+      "nonblank": 18240,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 90,
+      "field": "MLT_SITE_EXCPTN_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 91,
+      "field": "HOSP_LAB_EXCPTN_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 92,
+      "field": "NON_PRFT_EXCPTN_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 93,
+      "field": "LAB_TEMP_TSTG_SITE_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 94,
+      "field": "LAB_SITE_CNT",
+      "category": "quantity",
+      "nonblank": 686058,
+      "evidence_section": "quantity_states",
+      "disposition": "quantity_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 95,
+      "field": "PPMP_TEST_VOL_CNT",
+      "category": "quantity",
+      "nonblank": 686058,
+      "evidence_section": "quantity_states",
+      "disposition": "quantity_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 96,
+      "field": "ADDTNL_FAC_NAME",
+      "category": "identity",
+      "nonblank": 69949,
+      "evidence_section": null,
+      "disposition": "lexical_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 98,
+      "field": "SHR_LAB_SW",
+      "category": "indicator",
+      "nonblank": 686058,
+      "evidence_section": "literal_flag_counts",
+      "disposition": "literal_flag_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 99,
+      "field": "SHARED_LAB_XREF_NUMBER",
+      "category": "reference",
+      "nonblank": 934,
+      "evidence_section": "reference_shape_counts",
+      "disposition": "reference_shape_only",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 100,
+      "field": "FORM_1557_CRTFCT_SCHDL_CD",
+      "category": "coded_classification",
+      "nonblank": 15329,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 101,
+      "field": "FORM_1557_CMPLNC_SCHDL_CD",
+      "category": "coded_classification",
+      "nonblank": 15329,
+      "evidence_section": "code_counts",
+      "disposition": "historical_code_domain_reconciled",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 102,
+      "field": "FORM_1557_TEST_VOL_CNT",
+      "category": "quantity",
+      "nonblank": 685533,
+      "evidence_section": "quantity_states",
+      "disposition": "quantity_state_review",
+      "application_approval": "not_granted"
+    },
+    {
+      "ordinal": 103,
+      "field": "WVD_TEST_VOL_CNT",
+      "category": "quantity",
+      "nonblank": 686058,
+      "evidence_section": "quantity_states",
+      "disposition": "quantity_state_review",
+      "application_approval": "not_granted"
+    }
+  ]
+}

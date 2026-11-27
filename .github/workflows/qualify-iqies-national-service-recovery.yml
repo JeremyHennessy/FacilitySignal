@@ -1,0 +1,57 @@
+name: Qualify iQIES services in restored national snapshot
+on:
+  push:
+    branches: [main, build/iqies-national-service-recovery-20261127]
+    paths:
+      - .github/workflows/qualify-iqies-national-service-recovery.yml
+      - scripts/qualify_iqies_national_services.py
+      - tests/test_iqies_national_service_recovery.py
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-iqies-national-service-recovery
+  cancel-in-progress: false
+jobs:
+  qualify:
+    if: github.repository == 'JeremyHennessy/FacilitySignal'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  national:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment: azure-production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Restore existing archive without writes and qualify temporary integrated database
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.qualify_iqies_national_services --receipt "$RUNNER_TEMP/iqies-national-service-receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iqies-national-service-aggregate
+          path: ${{ runner.temp }}/iqies-national-service-receipt.json
+          retention-days: 30
+          if-no-files-found: error
