@@ -160,3 +160,6 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 
 /* Keep comparison evidence labels visible when tablet/desktop tables overflow. */
 @media(min-width:721px){.comparison-table th:first-child,.comparison-table td:first-child{position:sticky;left:0;z-index:1;background:#fff;box-shadow:1px 0 0 var(--border)}.comparison-table th:first-child{background:#edf3f6;z-index:2}}
+
+/* Bound each provider column by the actual comparison scrollport, not viewport width. */
+@media(min-width:721px) and (max-width:1100px){.comparison-table{container-type:inline-size;--compare-count:2}.comparison-table[data-records="3"]{--compare-count:3}.comparison-table[data-records="4"]{--compare-count:4}#app .comparison-table table{width:max(100%,calc(180px + var(--compare-count) * 220px));min-width:0;table-layout:fixed}.comparison-table th:first-child,.comparison-table td:first-child{box-sizing:border-box;width:180px;min-width:180px}.comparison-table th:not(:first-child){width:min(220px,calc(100cqw - 184px))}}
