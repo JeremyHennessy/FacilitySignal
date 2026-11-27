@@ -1,0 +1,113 @@
+{
+  "commit": "f455854317544b9f0f81686d21ddef6f7b15449e",
+  "run": 45974990055,
+  "job": 140424488965,
+  "artifact": 15186737220,
+  "artifact_digest": "sha256:710fd35a2577552cd71e9d4659c94c6a0d37fc81457897652a2e529f19e181cc",
+  "receipt": {
+    "base_database_sha256": "138ad57c3719fe63895eeaff702c04b51107fe1cf6dc4daf403a554985a1f033",
+    "base_receipt_sha256": "6fbcdfb7f1e4491b0874127ded141dd58e0fef95fe2dec57be64f0469167ab9e",
+    "base_release": "bootstrap-45845760984-1",
+    "baseline_source_records": 1904060,
+    "combined_capability_and_service_observations": 162517,
+    "database_sha256": "28f90c1b3e2d2b0fe5c800ff2da671df320748f00e9e333dbbf0ca84d21db3d3",
+    "dictionary_sha256": "bd68d76dc72ee5c3b3249c459644ff2ed90c8e8cf6e182b76742ec53164c0594",
+    "field_states": {
+      "ft_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5747,
+        "reported_yes": 2293
+      },
+      "incntr_nctrnl_srvc_sw": {
+        "not_available": 212,
+        "reported_no": 8435,
+        "reported_yes": 12
+      },
+      "ob_gyn_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 6528,
+        "reported_yes": 1512
+      },
+      "opthmlgy_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5446,
+        "reported_yes": 2594
+      },
+      "orthpdc_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5147,
+        "reported_yes": 2893
+      },
+      "othr_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5024,
+        "reported_yes": 3016
+      },
+      "otlrynglgy_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 6188,
+        "reported_yes": 1852
+      },
+      "pain_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5228,
+        "reported_yes": 2812
+      },
+      "plstc_srgry_sw": {
+        "not_available": 452,
+        "reported_no": 5772,
+        "reported_yes": 2268
+      },
+      "sp_home_trng_sprt_hd_sw": {
+        "not_available": 212,
+        "reported_no": 6342,
+        "reported_yes": 2105
+      },
+      "sp_home_trng_sprt_pd_sw": {
+        "not_available": 212,
+        "reported_no": 4669,
+        "reported_yes": 3778
+      }
+    },
+    "limitations": "Private source-record service observations only. No physical asset, current operation, procurement, canonical site match or public publication implied.",
+    "national_pointer_unchanged": true,
+    "observations": 93913,
+    "prior_capability_observations": 68604,
+    "private_storage_written": false,
+    "public_promotion": false,
+    "qualification_scope": "Full national archive restore plus additional service integration in temporary SQLite; no durable new snapshot or API/browser qualification.",
+    "service_states": {
+      "not_available": 4252,
+      "reported_no": 64526,
+      "reported_yes": 25135
+    },
+    "source_period": "2026-07-01/2026-09-30",
+    "source_record_filter_checks": 33,
+    "source_sha256": "50b3fd74d88e08d2eaaf60e11a9230175acae0045b9fe9f803b91be8b8359dd2",
+    "unchanged_base_table_counts": {
+      "certification_records": 799990,
+      "certification_releases": 3,
+      "current_release": 9,
+      "facilities": 48004,
+      "facility_registry_candidate": 47169,
+      "findings": 619069,
+      "iqies_capability_observations": 68604,
+      "iqies_capability_release": 1,
+      "iqies_status_observations": 100334,
+      "iqies_status_release": 1,
+      "iqies_termination_dictionary": 22,
+      "pecos_chow_rows": 6119,
+      "pecos_enrollment_rows": 23521,
+      "pecos_org_role_rows": 122966,
+      "pecos_releases": 6,
+      "qcor_hospital_current": 1,
+      "qcor_hospital_releases": 1,
+      "qcor_hospital_rows": 284391,
+      "qies_hospital_service_observations": 163176,
+      "qies_hospital_service_release": 1,
+      "releases": 9
+    },
+    "unchanged_base_tables": 21,
+    "verified_source_rows": 100334
+  }
+}
