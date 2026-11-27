@@ -1,0 +1,36 @@
+name: Qualify national ASC quality reporting source FS041
+on:
+  push:
+    branches: [research/fs041-asc-quality-national-20261127]
+    paths:
+      - scripts/qualify_asc_quality.py
+      - tests/test_asc_quality.py
+      - .github/workflows/qualify-asc-quality.yml
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-fs041-national-qualification
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -p test_asc_quality.py -v
+      - name: Screen the pinned CMS release, aggregate only
+        run: |
+          umask 077
+          python -m scripts.qualify_asc_quality --audit "$RUNNER_TEMP/fs041-audit.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fs041-aggregate-audit
+          path: ${{ runner.temp }}/fs041-audit.json
+          retention-days: 7
+          if-no-files-found: error
