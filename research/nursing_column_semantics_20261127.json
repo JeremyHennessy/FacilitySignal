@@ -1347,7 +1347,7 @@
       "application_disposition": "reporting_metadata",
       "measure_group": "staffing",
       "dictionary_table": 2,
-      "extracted_printed_page": 9,
+      "extracted_printed_page": 10,
       "rendered_printed_page": 9,
       "definition_status": "definition_corroborated_in_text_and_older_render",
       "profile_states": {
@@ -1378,7 +1378,7 @@
       "application_disposition": "reporting_metadata",
       "measure_group": "staffing",
       "dictionary_table": 2,
-      "extracted_printed_page": 9,
+      "extracted_printed_page": 10,
       "rendered_printed_page": 9,
       "definition_status": "definition_corroborated_in_text_and_older_render",
       "profile_states": {
@@ -1922,7 +1922,7 @@
       "application_disposition": "clinical_quality_context",
       "measure_group": "case_mix",
       "dictionary_table": 2,
-      "extracted_printed_page": 10,
+      "extracted_printed_page": 11,
       "rendered_printed_page": 10,
       "definition_status": "definition_corroborated_in_text_and_older_render",
       "profile_states": {
