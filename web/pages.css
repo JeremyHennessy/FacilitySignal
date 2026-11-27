@@ -181,7 +181,7 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
  .iqies-service-table :is(th,td):not(:first-child){text-align:end}
 }
 
-@media(max-width:345px){
+@media(max-width:420px){
  .iqies-service-table thead th{font-size:10px}
  .iqies-service-table :is(th,td):not(:first-child){padding-inline:2px}
  .iqies-service-table th:first-child{width:39%}
