@@ -1,0 +1,55 @@
+{
+  "format_version": 1,
+  "verified_commit": "40ec43777615df70fb79f1cd1ebc4110422d43de",
+  "run": 46077513014,
+  "job": 140768595081,
+  "artifact": 15235922253,
+  "artifact_digest": "sha256:da34bb583f86d09dab57371f73ed464ed65d2c5f8d204c6540a69f7b95b22eb3",
+  "audit": {
+    "azure_calls": 0,
+    "boundary": "Same-release publisher CCN and textual context only; not physical property, legal ownership, current status, or longitudinal attribution.",
+    "canonical_matches": 0,
+    "directory_only_ccns": 0,
+    "directory_rows": 311,
+    "distinct_provider_ccns": 311,
+    "exact_ccn_intersection": 311,
+    "input_mode": "publisher",
+    "observation_evidence_states": {
+      "same_state_exact_context": 24258
+    },
+    "pins": {
+      "directory": {
+        "bytes": 43350,
+        "id": "azum-44iv",
+        "modified": "2026-08-12",
+        "rows": 311,
+        "sha256": "176b1fae71a5ac97bf89f9d3404b98c6d3135b184f079baec939bcb2e016ba2e",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/2b538c65447e4897d75b0365b394e49b_1788977190/Long-Term_Care_Hospital-General_Information_Sep2026.csv"
+      },
+      "provider": {
+        "bytes": 4049344,
+        "id": "fp6g-2gsn",
+        "modified": "2026-09-11",
+        "rows": 24258,
+        "sha256": "ea9d2a40ff6c9a4cce1e23b79e26621de4da230135f74838ef099d1b91316f07",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/5138c2286fd92faaef3ab3b52002b463_1789157140/Long-Term_Care_Hospital-Provider_Data_Sep2026_2.csv"
+      }
+    },
+    "provider_evidence_states": {
+      "same_state_exact_context": 311
+    },
+    "provider_observations": 24258,
+    "provider_only_ccns": 0,
+    "public_promotion": false,
+    "publisher_reuse_basis": {
+      "application_clearance": "pending",
+      "dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/long_term_care_hospital/LTCH_Data_Dictionary.pdf",
+      "scope": "CMS states its Care Compare/PDC government data are public domain, with attribution encouraged and no implied endorsement.",
+      "version": "8.0 September 2026; printed page 4 (footer June 2026)"
+    },
+    "release": "2026-09-23",
+    "retained_rows": 0,
+    "score_values_consumed_for_analysis": 0,
+    "source_id": "FS-042"
+  }
+}
