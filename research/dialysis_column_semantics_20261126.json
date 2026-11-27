@@ -1,0 +1,4623 @@
+{
+  "as_of": "2026-11-26",
+  "source": "dialysis",
+  "source_sha256": "9b0232d73b8aa9628b51bc76b7246b8590daa0393ec9dfd3126171ce571469ed",
+  "release": "2026-10-28",
+  "rows": 7471,
+  "profile_path": "research/care_compare_directory_raw_field_profiles_20261126.json",
+  "profile_blob": "fffcab3246603538d4a3ff5be13e571aa868e744",
+  "prior_clinical_evidence_path": "research/clinical_measure_quality_qualification_20261126.json",
+  "prior_clinical_evidence_blob": "c7098b6ac0ae6525a959655a4a6095e67a95d2bb",
+  "prior_clinical_run": 45841298990,
+  "catalog": "https://data.cms.gov/provider-data/dataset/23ew-n7w9",
+  "dictionary": {
+    "url": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/dialysis/DF_Data_Dictionary.pdf",
+    "sha256": null,
+    "extracted_version": "October 2026 title, July 2026 footer, 36-page directory section",
+    "rendered_version": "January 2026 footer on pages 2–3; April 2025 footer on printed page 35",
+    "visually_reviewed_printed_pages": [
+      2,
+      3,
+      35
+    ],
+    "scope": "Semantic routing from extracted tables and header reconciliation. Exact current-version equivalence is unverified; page references refer to extracted printed pages. No new domain qualification."
+  },
+  "availability_codes": {
+    "scope": "Observed exact code counts from prior qualification; dictionary code semantics provisional until exact release version resolved.",
+    "provisional_meanings": {
+      "199": "insufficient cohort",
+      "201": "not reported",
+      "255": "accuracy concern",
+      "256": "no qualifying HD in period",
+      "257": "no qualifying PD in period",
+      "258": "insufficient time open for reporting",
+      "259": "no qualifying pediatric dialysis in period",
+      "260": "insufficient star-measure data",
+      "261": "one inaccurate star measure",
+      "280": "measure unavailable due to external factors",
+      "281": "2025 result unavailable; displayed rating may reflect earlier reporting year",
+      "001": "measure available"
+    }
+  },
+  "totals": {
+    "reviewed_fields": 146,
+    "clinical_context_fields": 127,
+    "restricted_presence_fields": 1,
+    "institutional_context_fields": 18,
+    "availability_code_fields": 24,
+    "new_domain_qualified_fields": 0,
+    "new_application_approved_fields": 0,
+    "new_downloads": 0
+  },
+  "fields": [
+    {
+      "ordinal": 1,
+      "field": "CMS Certification Number (CCN)",
+      "kind": "identity",
+      "meaning": "Source-native Medicare certification identifier, not a legal entity or parcel identifier.",
+      "unit": "text",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_identity_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 2,
+      "field": "Network",
+      "kind": "network",
+      "meaning": "ESRD network number; administrative network, not ownership chain.",
+      "unit": "code",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "candidate_institutional_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 18,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 3,
+      "field": "Facility Name",
+      "kind": "identity",
+      "meaning": "Reported dialysis facility name.",
+      "unit": "text",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_identity_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 4,
+      "field": "Five Star Date",
+      "kind": "measure_period",
+      "meaning": "Collection period for star-rating evidence, not necessarily release date.",
+      "unit": "period",
+      "measure_group": "star_rating",
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 5,
+      "field": "Five Star",
+      "kind": "clinical_rating",
+      "meaning": "Reported dialysis clinical quality star rating; not an infrastructure assessment.",
+      "unit": "stars",
+      "measure_group": "star_rating",
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 452,
+        "other_nonblank": 7019
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7019
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 6,
+      "field": "Five Star Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Reason for availability or limitation of the star-rating measure; preserve code as text.",
+      "unit": "code",
+      "measure_group": "star_rating",
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "201": 5,
+        "258": 28,
+        "260": 331,
+        "261": 2,
+        "281": 2781,
+        "001": 4324
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 7,
+      "field": "Address Line 1",
+      "kind": "address",
+      "meaning": "First reported physical-address line.",
+      "unit": "text",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_identity_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7470,
+        "unsigned_integer_text": 1
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 8,
+      "field": "Address Line 2",
+      "kind": "address",
+      "meaning": "Second reported physical-address line; blank does not establish missing site.",
+      "unit": "text",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_identity_context",
+      "profile_states": {
+        "blank": 6212,
+        "other_nonblank": 1259
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 1257,
+        "unsigned_integer_text": 2
+      },
+      "distinct_nonmissing": {
+        "count": 695,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 9,
+      "field": "City/Town",
+      "kind": "address",
+      "meaning": "Reported city or town.",
+      "unit": "text",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_identity_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 10,
+      "field": "State",
+      "kind": "address",
+      "meaning": "Reported state abbreviation.",
+      "unit": "text",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_identity_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 56,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 11,
+      "field": "ZIP Code",
+      "kind": "address",
+      "meaning": "Reported ZIP code; preserve leading zeros.",
+      "unit": "text",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_identity_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 12,
+      "field": "County/Parish",
+      "kind": "address",
+      "meaning": "Reported county/parish; do not infer an exact parcel.",
+      "unit": "text",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_identity_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1226,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 13,
+      "field": "Telephone Number",
+      "kind": "contact",
+      "meaning": "Reported telephone field; retain presence counts only in this research.",
+      "unit": "presence only",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "restricted_presence_only",
+      "profile_states": null,
+      "presence_only": {
+        "nonblank": 7471
+      },
+      "lexical_shapes": null,
+      "distinct_nonmissing": null,
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 14,
+      "field": "Profit or Non-Profit",
+      "kind": "ownership_category",
+      "meaning": "Reported profit/nonprofit category, not verified legal ownership.",
+      "unit": "category",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "candidate_institutional_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 15,
+      "field": "Chain Owned",
+      "kind": "chain_flag",
+      "meaning": "Whether facility is owned or managed by a chain; not solely ownership.",
+      "unit": "yes/no",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "candidate_institutional_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 16,
+      "field": "Chain Organization",
+      "kind": "chain_name",
+      "meaning": "Reported chain organization; not an independently verified corporate parent.",
+      "unit": "text",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "candidate_institutional_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 32,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 17,
+      "field": "Late Shift",
+      "kind": "service_schedule",
+      "meaning": "Reported late treatment shift beginning at or after 5 PM; not current hours.",
+      "unit": "yes/no",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "candidate_institutional_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 18,
+      "field": "# of Dialysis Stations",
+      "kind": "capacity",
+      "meaning": "Reported dialysis station count, separate from approved iQIES station counts; not a machine inventory.",
+      "unit": "stations",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_capacity_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 70,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 19,
+      "field": "Offers in-center hemodialysis",
+      "kind": "service",
+      "meaning": "Reported in-center hemodialysis offering.",
+      "unit": "yes/no",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_service_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": {
+        "no": 512,
+        "yes": 6959
+      },
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 20,
+      "field": "Offers peritoneal dialysis",
+      "kind": "service",
+      "meaning": "Reported peritoneal dialysis offering.",
+      "unit": "yes/no",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_service_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": {
+        "no": 3404,
+        "yes": 4067
+      },
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 21,
+      "field": "Offers home hemodialysis training",
+      "kind": "service",
+      "meaning": "Reported home hemodialysis training offering, not home-service volume.",
+      "unit": "yes/no",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "existing_service_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": {
+        "no": 5060,
+        "yes": 2411
+      },
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 22,
+      "field": "Certification Date",
+      "kind": "certification_date",
+      "meaning": "Initial certification or recertification date, not proof of current operation or opening date.",
+      "unit": "date",
+      "measure_group": null,
+      "dictionary_table": 1,
+      "extracted_printed_pages": [
+        2,
+        3
+      ],
+      "application_disposition": "candidate_institutional_context",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "slash_date_shape": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 23,
+      "field": "Claims Date",
+      "kind": "measure_period",
+      "meaning": "Claims-based reporting period; do not treat as current facility status.",
+      "unit": "period",
+      "measure_group": "claims",
+      "dictionary_table": 19,
+      "extracted_printed_pages": [
+        34,
+        35
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 24,
+      "field": "EQRS Date",
+      "kind": "measure_period",
+      "meaning": "Reporting period for EQRS-based measures; not an observation date for each clinical field.",
+      "unit": "period",
+      "measure_group": "eqrs",
+      "dictionary_table": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        14
+      ],
+      "extracted_printed_pages": [
+        14,
+        17,
+        19,
+        28
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 25,
+      "field": "SMR Date",
+      "kind": "measure_period",
+      "meaning": "Data collection period for mortality.",
+      "unit": "period",
+      "measure_group": "mortality",
+      "dictionary_table": 12,
+      "extracted_printed_pages": [
+        26
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 26,
+      "field": "Patient Survival Category Text",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for mortality.",
+      "unit": "category",
+      "measure_group": "mortality",
+      "dictionary_table": 12,
+      "extracted_printed_pages": [
+        26
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 250,
+        "other_nonblank": 7221
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7221
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 27,
+      "field": "Patient Survival data availability code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for mortality.",
+      "unit": "code",
+      "measure_group": "mortality",
+      "dictionary_table": 12,
+      "extracted_printed_pages": [
+        26
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 158,
+        "201": 5,
+        "258": 87,
+        "001": 7221
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 28,
+      "field": "Number of Patients included in survival summary",
+      "kind": "cohort_count",
+      "meaning": "Reporting cohort for mortality; not a facility census.",
+      "unit": "patients",
+      "measure_group": "mortality",
+      "dictionary_table": 12,
+      "extracted_printed_pages": [
+        26
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 775,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 29,
+      "field": "Mortality Rate (Facility)",
+      "kind": "clinical_estimate",
+      "meaning": "Reported mortality rate.",
+      "unit": "events per 100 patient-years",
+      "measure_group": "mortality",
+      "dictionary_table": 12,
+      "extracted_printed_pages": [
+        26
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 250,
+        "other_nonblank": 7221
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6461,
+        "unsigned_integer_text": 760
+      },
+      "distinct_nonmissing": {
+        "count": 353,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 30,
+      "field": "Mortality Rate: Upper Confidence Limit (97.5%)",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported mortality estimate.",
+      "unit": "events per 100 patient-years",
+      "measure_group": "mortality",
+      "dictionary_table": 12,
+      "extracted_printed_pages": [
+        26
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 250,
+        "other_nonblank": 7221
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6495,
+        "unsigned_integer_text": 726
+      },
+      "distinct_nonmissing": {
+        "count": 506,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 31,
+      "field": "Mortality Rate: Lower Confidence Limit (2.5%)",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported mortality estimate; blank is not zero.",
+      "unit": "events per 100 patient-years",
+      "measure_group": "mortality",
+      "dictionary_table": 12,
+      "extracted_printed_pages": [
+        26
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 250,
+        "other_nonblank": 7221
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6541,
+        "unsigned_integer_text": 680
+      },
+      "distinct_nonmissing": {
+        "count": 284,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 32,
+      "field": "SHR Date",
+      "kind": "measure_period",
+      "meaning": "Data collection period for hospitalization.",
+      "unit": "period",
+      "measure_group": "hospitalization",
+      "dictionary_table": 10,
+      "extracted_printed_pages": [
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 33,
+      "field": "Patient hospitalization category text",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for hospitalization.",
+      "unit": "category",
+      "measure_group": "hospitalization",
+      "dictionary_table": 10,
+      "extracted_printed_pages": [
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 204,
+        "other_nonblank": 7267
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7267
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 34,
+      "field": "Patient Hospitalization data availability Code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for hospitalization.",
+      "unit": "code",
+      "measure_group": "hospitalization",
+      "dictionary_table": 10,
+      "extracted_printed_pages": [
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 109,
+        "201": 19,
+        "258": 76,
+        "001": 7267
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 35,
+      "field": "Number of patients included in hospitalization summary",
+      "kind": "cohort_count",
+      "meaning": "Reporting cohort for hospitalization; not a facility census.",
+      "unit": "patients",
+      "measure_group": "hospitalization",
+      "dictionary_table": 10,
+      "extracted_printed_pages": [
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 242,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 36,
+      "field": "Hospitalization Rate (Facility)",
+      "kind": "clinical_estimate",
+      "meaning": "Reported hospitalization rate.",
+      "unit": "events per 100 patient-years",
+      "measure_group": "hospitalization",
+      "dictionary_table": 10,
+      "extracted_printed_pages": [
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 204,
+        "other_nonblank": 7267
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6526,
+        "unsigned_integer_text": 741
+      },
+      "distinct_nonmissing": {
+        "count": 1812,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 37,
+      "field": "Hospitalization Rate: Upper Confidence Limit (97.5%)",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported hospitalization estimate.",
+      "unit": "events per 100 patient-years",
+      "measure_group": "hospitalization",
+      "dictionary_table": 10,
+      "extracted_printed_pages": [
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 204,
+        "other_nonblank": 7267
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6551,
+        "unsigned_integer_text": 716
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 38,
+      "field": "Hospitalization Rate: Lower Confidence Limit (2.5%)",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported hospitalization estimate; blank is not zero.",
+      "unit": "events per 100 patient-years",
+      "measure_group": "hospitalization",
+      "dictionary_table": 10,
+      "extracted_printed_pages": [
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 205,
+        "other_nonblank": 7266
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6542,
+        "unsigned_integer_text": 724
+      },
+      "distinct_nonmissing": {
+        "count": 1523,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 39,
+      "field": "SRR Date",
+      "kind": "measure_period",
+      "meaning": "Data collection period for readmission.",
+      "unit": "period",
+      "measure_group": "readmission",
+      "dictionary_table": 11,
+      "extracted_printed_pages": [
+        24,
+        25
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 40,
+      "field": "Patient Hospital Readmission Category",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for readmission.",
+      "unit": "category",
+      "measure_group": "readmission",
+      "dictionary_table": 11,
+      "extracted_printed_pages": [
+        24,
+        25
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 358,
+        "other_nonblank": 7113
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7113
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 41,
+      "field": "Patient Hospital Readmission data availability Code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for readmission.",
+      "unit": "code",
+      "measure_group": "readmission",
+      "dictionary_table": 11,
+      "extracted_printed_pages": [
+        24,
+        25
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 283,
+        "201": 5,
+        "258": 70,
+        "001": 7113
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 42,
+      "field": "Number of hospitalizations included in hospital readmission summary",
+      "kind": "cohort_count",
+      "meaning": "Reporting cohort for readmission; not a facility census.",
+      "unit": "index discharges",
+      "measure_group": "readmission",
+      "dictionary_table": 11,
+      "extracted_printed_pages": [
+        24,
+        25
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 259,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 43,
+      "field": "Readmission Rate (Facility)",
+      "kind": "clinical_estimate",
+      "meaning": "Reported readmission rate among hospital discharges.",
+      "unit": "percent of discharges",
+      "measure_group": "readmission",
+      "dictionary_table": 11,
+      "extracted_printed_pages": [
+        24,
+        25
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 358,
+        "other_nonblank": 7113
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6386,
+        "unsigned_integer_text": 727
+      },
+      "distinct_nonmissing": {
+        "count": 457,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 44,
+      "field": "Readmission Rate: Upper Confidence Limit (97.5%)",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported readmission estimate.",
+      "unit": "percent of discharges",
+      "measure_group": "readmission",
+      "dictionary_table": 11,
+      "extracted_printed_pages": [
+        24,
+        25
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 358,
+        "other_nonblank": 7113
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6404,
+        "unsigned_integer_text": 709
+      },
+      "distinct_nonmissing": {
+        "count": 556,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 45,
+      "field": "Readmission Rate: Lower Confidence Limit (2.5%)",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported readmission estimate; blank is not zero.",
+      "unit": "percent of discharges",
+      "measure_group": "readmission",
+      "dictionary_table": 11,
+      "extracted_printed_pages": [
+        24,
+        25
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 358,
+        "other_nonblank": 7113
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6407,
+        "unsigned_integer_text": 706
+      },
+      "distinct_nonmissing": {
+        "count": 345,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 46,
+      "field": "STrR Date",
+      "kind": "measure_period",
+      "meaning": "Data collection period for transfusion.",
+      "unit": "period",
+      "measure_group": "transfusion",
+      "dictionary_table": 3,
+      "extracted_printed_pages": [
+        12
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 47,
+      "field": "Patient Transfusion category text",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for transfusion.",
+      "unit": "category",
+      "measure_group": "transfusion",
+      "dictionary_table": 3,
+      "extracted_printed_pages": [
+        12
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 3185,
+        "other_nonblank": 4286
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 4286
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 48,
+      "field": "Patient Transfusion data availability Code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for transfusion.",
+      "unit": "code",
+      "measure_group": "transfusion",
+      "dictionary_table": 3,
+      "extracted_printed_pages": [
+        12
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 3050,
+        "201": 47,
+        "258": 88,
+        "001": 4286
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 49,
+      "field": "Number of patients included in the transfusion summary",
+      "kind": "cohort_count",
+      "meaning": "Reporting cohort for transfusion; not a facility census.",
+      "unit": "patients",
+      "measure_group": "transfusion",
+      "dictionary_table": 3,
+      "extracted_printed_pages": [
+        12
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 123,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 50,
+      "field": "Transfusion Rate (Facility)",
+      "kind": "clinical_estimate",
+      "meaning": "Reported transfusion rate.",
+      "unit": "events per 100 patient-years",
+      "measure_group": "transfusion",
+      "dictionary_table": 3,
+      "extracted_printed_pages": [
+        12
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 3185,
+        "other_nonblank": 4286
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 3695,
+        "unsigned_integer_text": 591
+      },
+      "distinct_nonmissing": {
+        "count": 837,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 51,
+      "field": "Transfusion Rate: Upper Confidence Limit (97.5%)",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported transfusion estimate.",
+      "unit": "events per 100 patient-years",
+      "measure_group": "transfusion",
+      "dictionary_table": 3,
+      "extracted_printed_pages": [
+        12
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 3185,
+        "other_nonblank": 4286
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 3856,
+        "unsigned_integer_text": 430
+      },
+      "distinct_nonmissing": {
+        "count": 1641,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 52,
+      "field": "Transfusion Rate: Lower Confidence Limit (2.5%)",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported transfusion estimate; blank is not zero.",
+      "unit": "events per 100 patient-years",
+      "measure_group": "transfusion",
+      "dictionary_table": 3,
+      "extracted_printed_pages": [
+        12
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 3185,
+        "other_nonblank": 4286
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 3685,
+        "unsigned_integer_text": 601
+      },
+      "distinct_nonmissing": {
+        "count": 524,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 53,
+      "field": "FYSWR Date",
+      "kind": "measure_period",
+      "meaning": "Data collection period for first_year_waitlist.",
+      "unit": "period",
+      "measure_group": "first_year_waitlist",
+      "dictionary_table": 13,
+      "extracted_printed_pages": [
+        27,
+        28
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 54,
+      "field": "FYSWR category text",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for first_year_waitlist.",
+      "unit": "category",
+      "measure_group": "first_year_waitlist",
+      "dictionary_table": 13,
+      "extracted_printed_pages": [
+        27,
+        28
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 3008,
+        "other_nonblank": 4463
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 4463
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 55,
+      "field": "Patient transplant waitlist data availability code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for first_year_waitlist.",
+      "unit": "code",
+      "measure_group": "first_year_waitlist",
+      "dictionary_table": 13,
+      "extracted_printed_pages": [
+        27,
+        28
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 2835,
+        "201": 85,
+        "258": 88,
+        "001": 4463
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 56,
+      "field": "Number of patients in this facility for FYSWR",
+      "kind": "cohort_count",
+      "meaning": "Reporting cohort for first_year_waitlist; not a facility census.",
+      "unit": "patients",
+      "measure_group": "first_year_waitlist",
+      "dictionary_table": 13,
+      "extracted_printed_pages": [
+        27,
+        28
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 143,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 57,
+      "field": "First Year Standardized Kidney Transplant Waitlist Ratio",
+      "kind": "clinical_estimate",
+      "meaning": "Standardized kidney transplant waitlist ratio in the first year.",
+      "unit": "ratio",
+      "measure_group": "first_year_waitlist",
+      "dictionary_table": 13,
+      "extracted_printed_pages": [
+        27,
+        28
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 3008,
+        "other_nonblank": 4463
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 4029,
+        "unsigned_integer_text": 434
+      },
+      "distinct_nonmissing": {
+        "count": 359,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 58,
+      "field": "95% C.I. (upper limit) for FYSWR",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported first_year_waitlist estimate.",
+      "unit": "ratio",
+      "measure_group": "first_year_waitlist",
+      "dictionary_table": 13,
+      "extracted_printed_pages": [
+        27,
+        28
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 3008,
+        "other_nonblank": 4463
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 4424,
+        "unsigned_integer_text": 39
+      },
+      "distinct_nonmissing": {
+        "count": 596,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 59,
+      "field": "95% C.I. (lower limit) for FYSWR",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported first_year_waitlist estimate; blank is not zero.",
+      "unit": "ratio",
+      "measure_group": "first_year_waitlist",
+      "dictionary_table": 13,
+      "extracted_printed_pages": [
+        27,
+        28
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 3008,
+        "other_nonblank": 4463
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 3967,
+        "unsigned_integer_text": 496
+      },
+      "distinct_nonmissing": {
+        "count": 210,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 60,
+      "field": "PPPW category text",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for prevalent_waitlist.",
+      "unit": "category",
+      "measure_group": "prevalent_waitlist",
+      "dictionary_table": 14,
+      "extracted_printed_pages": [
+        28,
+        29
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 220,
+        "other_nonblank": 7251
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7251
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 61,
+      "field": "Patient prevalent transplant waitlist data availability code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for prevalent_waitlist.",
+      "unit": "code",
+      "measure_group": "prevalent_waitlist",
+      "dictionary_table": 14,
+      "extracted_printed_pages": [
+        28,
+        29
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 150,
+        "201": 13,
+        "258": 57,
+        "001": 7251
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 62,
+      "field": "Number of patients for PPPW",
+      "kind": "cohort_count",
+      "meaning": "Reporting cohort for prevalent_waitlist; not a facility census.",
+      "unit": "patients",
+      "measure_group": "prevalent_waitlist",
+      "dictionary_table": 14,
+      "extracted_printed_pages": [
+        28,
+        29
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 248,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 63,
+      "field": "Percentage of Prevalent Patients Waitlisted for Kidney Transplant",
+      "kind": "clinical_estimate",
+      "meaning": "Reported percentage of prevalent patients waitlisted for transplant.",
+      "unit": "percent",
+      "measure_group": "prevalent_waitlist",
+      "dictionary_table": 14,
+      "extracted_printed_pages": [
+        28,
+        29
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 220,
+        "other_nonblank": 7251
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6446,
+        "unsigned_integer_text": 805
+      },
+      "distinct_nonmissing": {
+        "count": 521,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 64,
+      "field": "95% C.I. (upper limit) for PPPW",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported prevalent_waitlist estimate.",
+      "unit": "percent",
+      "measure_group": "prevalent_waitlist",
+      "dictionary_table": 14,
+      "extracted_printed_pages": [
+        28,
+        29
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 220,
+        "other_nonblank": 7251
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6449,
+        "unsigned_integer_text": 802
+      },
+      "distinct_nonmissing": {
+        "count": 721,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 65,
+      "field": "95% C.I. (lower limit) for PPPW",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported prevalent_waitlist estimate; blank is not zero.",
+      "unit": "percent",
+      "measure_group": "prevalent_waitlist",
+      "dictionary_table": 14,
+      "extracted_printed_pages": [
+        28,
+        29
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 220,
+        "other_nonblank": 7251
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6470,
+        "unsigned_integer_text": 781
+      },
+      "distinct_nonmissing": {
+        "count": 307,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 66,
+      "field": "SEDR Date",
+      "kind": "measure_period",
+      "meaning": "Data collection period for emergency_department.",
+      "unit": "period",
+      "measure_group": "emergency_department",
+      "dictionary_table": 15,
+      "extracted_printed_pages": [
+        30
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 67,
+      "field": "SEDR category text",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for emergency_department.",
+      "unit": "category",
+      "measure_group": "emergency_department",
+      "dictionary_table": 15,
+      "extracted_printed_pages": [
+        30
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 665,
+        "other_nonblank": 6806
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 6806
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 68,
+      "field": "Emergency Department Encounter data availability Code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for emergency_department.",
+      "unit": "code",
+      "measure_group": "emergency_department",
+      "dictionary_table": 15,
+      "extracted_printed_pages": [
+        30
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 536,
+        "201": 44,
+        "258": 85,
+        "001": 6806
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 69,
+      "field": "Number of patients included in SEDR summary",
+      "kind": "cohort_count",
+      "meaning": "Reporting cohort for emergency_department; not a facility census.",
+      "unit": "patients",
+      "measure_group": "emergency_department",
+      "dictionary_table": 15,
+      "extracted_printed_pages": [
+        30
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 145,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 70,
+      "field": "Standardized ED visits ratio (Facility)",
+      "kind": "clinical_estimate",
+      "meaning": "Standardized emergency-department visit ratio; dictionary variable-name duplication requires exact header routing.",
+      "unit": "ratio",
+      "measure_group": "emergency_department",
+      "dictionary_table": 15,
+      "extracted_printed_pages": [
+        30
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 665,
+        "other_nonblank": 6806
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6720,
+        "unsigned_integer_text": 86
+      },
+      "distinct_nonmissing": {
+        "count": 281,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 71,
+      "field": "SEDR: Upper Confidence Limit (97.5%)",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported emergency_department estimate.",
+      "unit": "ratio",
+      "measure_group": "emergency_department",
+      "dictionary_table": 15,
+      "extracted_printed_pages": [
+        30
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 665,
+        "other_nonblank": 6806
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6729,
+        "unsigned_integer_text": 77
+      },
+      "distinct_nonmissing": {
+        "count": 411,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 72,
+      "field": "SEDR: Lower Confidence Limit (2.5%)",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported emergency_department estimate; blank is not zero.",
+      "unit": "ratio",
+      "measure_group": "emergency_department",
+      "dictionary_table": 15,
+      "extracted_printed_pages": [
+        30
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 665,
+        "other_nonblank": 6806
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6761,
+        "unsigned_integer_text": 45
+      },
+      "distinct_nonmissing": {
+        "count": 189,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 73,
+      "field": "ED30 Date",
+      "kind": "measure_period",
+      "meaning": "Data collection period for post_discharge_emergency_department.",
+      "unit": "period",
+      "measure_group": "post_discharge_emergency_department",
+      "dictionary_table": 17,
+      "extracted_printed_pages": [
+        32
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 74,
+      "field": "ED30 Category text",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for post_discharge_emergency_department.",
+      "unit": "category",
+      "measure_group": "post_discharge_emergency_department",
+      "dictionary_table": 17,
+      "extracted_printed_pages": [
+        32
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 625,
+        "other_nonblank": 6846
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 6846
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 75,
+      "field": "Emergency Department Encounter Ratio Occurring within 30 Days of Hospital Discharge data availability Code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for post_discharge_emergency_department.",
+      "unit": "code",
+      "measure_group": "post_discharge_emergency_department",
+      "dictionary_table": 17,
+      "extracted_printed_pages": [
+        32
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 539,
+        "201": 5,
+        "258": 81,
+        "001": 6846
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 76,
+      "field": "Number of hospitalizations included in ED30 summary",
+      "kind": "cohort_count",
+      "meaning": "Reporting cohort for post_discharge_emergency_department; not a facility census.",
+      "unit": "index discharges",
+      "measure_group": "post_discharge_emergency_department",
+      "dictionary_table": 17,
+      "extracted_printed_pages": [
+        32
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 226,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 77,
+      "field": "Standardized ED visits within 30 days of hospital discharge ratio (Facility)",
+      "kind": "clinical_estimate",
+      "meaning": "Standardized ED visit ratio within 30 days after hospital discharge.",
+      "unit": "ratio",
+      "measure_group": "post_discharge_emergency_department",
+      "dictionary_table": 17,
+      "extracted_printed_pages": [
+        32
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 625,
+        "other_nonblank": 6846
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6583,
+        "unsigned_integer_text": 263
+      },
+      "distinct_nonmissing": {
+        "count": 312,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 78,
+      "field": "ED30: Upper Confidence Limit (97.5%)",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported post_discharge_emergency_department estimate.",
+      "unit": "ratio",
+      "measure_group": "post_discharge_emergency_department",
+      "dictionary_table": 17,
+      "extracted_printed_pages": [
+        32
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 625,
+        "other_nonblank": 6846
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6785,
+        "unsigned_integer_text": 61
+      },
+      "distinct_nonmissing": {
+        "count": 485,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 79,
+      "field": "ED30: Lower Confidence Limit (2.5%)",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported post_discharge_emergency_department estimate; blank is not zero.",
+      "unit": "ratio",
+      "measure_group": "post_discharge_emergency_department",
+      "dictionary_table": 17,
+      "extracted_printed_pages": [
+        32
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 625,
+        "other_nonblank": 6846
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6611,
+        "unsigned_integer_text": 235
+      },
+      "distinct_nonmissing": {
+        "count": 168,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 80,
+      "field": "YEARS Modality Switch BASED UPON",
+      "kind": "measure_period",
+      "meaning": "Data collection period for modality_switch.",
+      "unit": "period",
+      "measure_group": "modality_switch",
+      "dictionary_table": 16,
+      "extracted_printed_pages": [
+        31
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 81,
+      "field": "SMoSR: Classification Category (FACILITY)",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for modality_switch.",
+      "unit": "category",
+      "measure_group": "modality_switch",
+      "dictionary_table": 16,
+      "extracted_printed_pages": [
+        31
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 941,
+        "other_nonblank": 6530
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 6530
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 82,
+      "field": "Modality Switch Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for modality_switch.",
+      "unit": "code",
+      "measure_group": "modality_switch",
+      "dictionary_table": 16,
+      "extracted_printed_pages": [
+        31
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 354,
+        "201": 499,
+        "258": 88,
+        "001": 6530
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 83,
+      "field": "SMoSR: Number of Eligible patients (FACILITY)",
+      "kind": "cohort_count",
+      "meaning": "Reporting cohort for modality_switch; not a facility census.",
+      "unit": "eligible patients",
+      "measure_group": "modality_switch",
+      "dictionary_table": 16,
+      "extracted_printed_pages": [
+        31
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 168,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 84,
+      "field": "SMoSR: Standardized Modality Switch Ratio (FACILITY)",
+      "kind": "clinical_estimate",
+      "meaning": "Standardized dialysis modality-switch ratio.",
+      "unit": "ratio",
+      "measure_group": "modality_switch",
+      "dictionary_table": 16,
+      "extracted_printed_pages": [
+        31
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 941,
+        "other_nonblank": 6530
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 5921,
+        "unsigned_integer_text": 609
+      },
+      "distinct_nonmissing": {
+        "count": 444,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 85,
+      "field": "SMoSR: Upper Confidence Limit (FACILITY)",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported modality_switch estimate.",
+      "unit": "ratio",
+      "measure_group": "modality_switch",
+      "dictionary_table": 16,
+      "extracted_printed_pages": [
+        31
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 941,
+        "other_nonblank": 6530
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6458,
+        "unsigned_integer_text": 72
+      },
+      "distinct_nonmissing": {
+        "count": 747,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 86,
+      "field": "SMoSR: Lower Confidence Limit (FACILITY)",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported modality_switch estimate; blank is not zero.",
+      "unit": "ratio",
+      "measure_group": "modality_switch",
+      "dictionary_table": 16,
+      "extracted_printed_pages": [
+        31
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 941,
+        "other_nonblank": 6530
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 5804,
+        "unsigned_integer_text": 726
+      },
+      "distinct_nonmissing": {
+        "count": 267,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 87,
+      "field": "SIR Date",
+      "kind": "measure_period",
+      "meaning": "Data collection period for infection.",
+      "unit": "period",
+      "measure_group": "infection",
+      "dictionary_table": 4,
+      "extracted_printed_pages": [
+        13
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 88,
+      "field": "Patient Infection category text",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for infection.",
+      "unit": "category",
+      "measure_group": "infection",
+      "dictionary_table": 4,
+      "extracted_printed_pages": [
+        13
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 1069,
+        "other_nonblank": 6402
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 6402
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 89,
+      "field": "Patient Infection Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for infection.",
+      "unit": "code",
+      "measure_group": "infection",
+      "dictionary_table": 4,
+      "extracted_printed_pages": [
+        13
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 100,
+        "201": 885,
+        "258": 84,
+        "001": 6402
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 90,
+      "field": "Standard Infection Ratio",
+      "kind": "clinical_estimate",
+      "meaning": "Reported standardized infection ratio, not a water or property condition measure.",
+      "unit": "ratio",
+      "measure_group": "infection",
+      "dictionary_table": 4,
+      "extracted_printed_pages": [
+        13
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 1069,
+        "other_nonblank": 6402
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 4252,
+        "unsigned_integer_text": 2150
+      },
+      "distinct_nonmissing": {
+        "count": 219,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 91,
+      "field": "SIR: Upper Confidence Limit (97.5%)",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported infection estimate.",
+      "unit": "ratio",
+      "measure_group": "infection",
+      "dictionary_table": 4,
+      "extracted_printed_pages": [
+        13
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 1069,
+        "other_nonblank": 6402
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6341,
+        "unsigned_integer_text": 61
+      },
+      "distinct_nonmissing": {
+        "count": 408,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 92,
+      "field": "SIR: Lower Confidence Limit (2.5%)",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported infection estimate; blank is not zero.",
+      "unit": "ratio",
+      "measure_group": "infection",
+      "dictionary_table": 4,
+      "extracted_printed_pages": [
+        13
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 3202,
+        "other_nonblank": 4269
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 4214,
+        "unsigned_integer_text": 55
+      },
+      "distinct_nonmissing": {
+        "count": 128,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 93,
+      "field": "Fistula Category Text",
+      "kind": "comparison_category",
+      "meaning": "Reported performance category relative to the publisher's comparison benchmark for fistula.",
+      "unit": "category",
+      "measure_group": "fistula",
+      "dictionary_table": 7,
+      "extracted_printed_pages": [
+        17,
+        18
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "not_available": 478,
+        "other_nonblank": 6993
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 6993
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 94,
+      "field": "Fistula data availability code",
+      "kind": "availability_code",
+      "meaning": "Measure-specific availability or suppression reason for fistula.",
+      "unit": "code",
+      "measure_group": "fistula",
+      "dictionary_table": 7,
+      "extracted_printed_pages": [
+        17,
+        18
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 233,
+        "201": 65,
+        "256": 121,
+        "258": 59,
+        "001": 6993
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 95,
+      "field": "Number of Patients included in fistula summary",
+      "kind": "cohort_count",
+      "meaning": "Reporting cohort for fistula; not a facility census.",
+      "unit": "patients",
+      "measure_group": "fistula",
+      "dictionary_table": 7,
+      "extracted_printed_pages": [
+        17,
+        18
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 266,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 96,
+      "field": "Fistula Rate (Facility)",
+      "kind": "clinical_estimate",
+      "meaning": "Reported fistula rate.",
+      "unit": "percent of patient-months",
+      "measure_group": "fistula",
+      "dictionary_table": 7,
+      "extracted_printed_pages": [
+        17,
+        18
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 478,
+        "other_nonblank": 6993
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6302,
+        "unsigned_integer_text": 691
+      },
+      "distinct_nonmissing": {
+        "count": 643,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 97,
+      "field": "Fistula Rate: Upper Confidence Limit (97.5%)",
+      "kind": "confidence_upper",
+      "meaning": "Upper uncertainty bound for the reported fistula estimate.",
+      "unit": "percent of patient-months",
+      "measure_group": "fistula",
+      "dictionary_table": 7,
+      "extracted_printed_pages": [
+        17,
+        18
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 478,
+        "other_nonblank": 6993
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6153,
+        "unsigned_integer_text": 840
+      },
+      "distinct_nonmissing": {
+        "count": 566,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 98,
+      "field": "Fistula Rate: Lower Confidence Limit (2.5%)",
+      "kind": "confidence_lower",
+      "meaning": "Lower uncertainty bound for the reported fistula estimate; blank is not zero.",
+      "unit": "percent of patient-months",
+      "measure_group": "fistula",
+      "dictionary_table": 7,
+      "extracted_printed_pages": [
+        17,
+        18
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 478,
+        "other_nonblank": 6993
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 6199,
+        "unsigned_integer_text": 794
+      },
+      "distinct_nonmissing": {
+        "count": 678,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 99,
+      "field": "HCP Vaccination Data Collection Dates",
+      "kind": "measure_period",
+      "meaning": "Collection period for healthcare personnel vaccination evidence.",
+      "unit": "period",
+      "measure_group": "hcp_vaccination",
+      "dictionary_table": 18,
+      "extracted_printed_pages": [
+        33,
+        34
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 100,
+      "field": "HCP Vaccination Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Availability reason for vaccination evidence.",
+      "unit": "code",
+      "measure_group": "hcp_vaccination",
+      "dictionary_table": 18,
+      "extracted_printed_pages": [
+        33,
+        34
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 626,
+        "201": 434,
+        "258": 76,
+        "001": 6335
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 101,
+      "field": "Healthcare worker COVID-19 vaccination adherence percentage",
+      "kind": "clinical_percentage",
+      "meaning": "Reported healthcare personnel COVID-19 vaccination adherence.",
+      "unit": "percent",
+      "measure_group": "hcp_vaccination",
+      "dictionary_table": 18,
+      "extracted_printed_pages": [
+        33,
+        34
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 1136,
+        "other_nonblank": 6335
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 6335
+      },
+      "distinct_nonmissing": {
+        "count": 77,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 102,
+      "field": "Adult HD Kt/V data availability code",
+      "kind": "availability_code",
+      "meaning": "Availability reason for adult_hd_ktv.",
+      "unit": "code",
+      "measure_group": "adult_hd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        14,
+        15
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 7,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 203,
+        "201": 156,
+        "255": 2,
+        "256": 87,
+        "258": 62,
+        "280": 2781,
+        "001": 4180
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 103,
+      "field": "Number of adult HD patients with KT/V data",
+      "kind": "cohort_count",
+      "meaning": "Patient count included in adult_hd_ktv reporting.",
+      "unit": "patients",
+      "measure_group": "adult_hd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        14,
+        15
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 248,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 104,
+      "field": "Number of adult HD patient-months with Kt/V data",
+      "kind": "cohort_exposure",
+      "meaning": "Patient-month count used for adult_hd_ktv reporting.",
+      "unit": "patient-months",
+      "measure_group": "adult_hd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        14,
+        15
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 431,
+        "other_nonblank": 7040
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7040
+      },
+      "distinct_nonmissing": {
+        "count": 1476,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 105,
+      "field": "Percent of Adult HD patients with Kt/V >= 1.2",
+      "kind": "clinical_percentage",
+      "meaning": "Adult hemodialysis adequacy percentage meeting Kt/V threshold 1.2.",
+      "unit": "percent",
+      "measure_group": "adult_hd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        14,
+        15
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 3291,
+        "other_nonblank": 4180
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4180
+      },
+      "distinct_nonmissing": {
+        "count": 77,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 106,
+      "field": "Adult PD Kt/V data availability code",
+      "kind": "availability_code",
+      "meaning": "Availability reason for adult_pd_ktv.",
+      "unit": "code",
+      "measure_group": "adult_pd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        14,
+        15
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 7,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 705,
+        "201": 527,
+        "255": 1,
+        "257": 1928,
+        "258": 48,
+        "280": 2781,
+        "001": 1481
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 107,
+      "field": "Number of adult PD patients with KT/V data",
+      "kind": "cohort_count",
+      "meaning": "Patient count included in adult_pd_ktv reporting.",
+      "unit": "patients",
+      "measure_group": "adult_pd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        14,
+        15
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 136,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 108,
+      "field": "Number of adult PD patient-months with Kt/V data",
+      "kind": "cohort_exposure",
+      "meaning": "Patient-month count used for adult_pd_ktv reporting.",
+      "unit": "patient-months",
+      "measure_group": "adult_pd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        14,
+        15
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 3908,
+        "other_nonblank": 3563
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 3563
+      },
+      "distinct_nonmissing": {
+        "count": 624,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 109,
+      "field": "Percentage of Adult PD PTS with Kt/V >= 1.7",
+      "kind": "clinical_percentage",
+      "meaning": "Adult peritoneal dialysis adequacy percentage meeting Kt/V threshold 1.7.",
+      "unit": "percent",
+      "measure_group": "adult_pd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        14,
+        15
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 5990,
+        "other_nonblank": 1481
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1481
+      },
+      "distinct_nonmissing": {
+        "count": 70,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 110,
+      "field": "Pediatric HD Kt/V Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Availability reason for pediatric_hd_ktv.",
+      "unit": "code",
+      "measure_group": "pediatric_hd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        15,
+        16
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 7,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 116,
+        "201": 151,
+        "255": 1,
+        "258": 19,
+        "259": 4383,
+        "280": 2781,
+        "001": 20
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 111,
+      "field": "Number of pediatric HD patients with Kt/V data",
+      "kind": "cohort_count",
+      "meaning": "Patient count included in pediatric_hd_ktv reporting.",
+      "unit": "patients",
+      "measure_group": "pediatric_hd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        15,
+        16
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 20,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 112,
+      "field": "Number of pediatric HD patient-months with KT/V data",
+      "kind": "cohort_exposure",
+      "meaning": "Patient-month count used for pediatric_hd_ktv reporting.",
+      "unit": "patient-months",
+      "measure_group": "pediatric_hd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        15,
+        16
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 7308,
+        "other_nonblank": 163
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 163
+      },
+      "distinct_nonmissing": {
+        "count": 71,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 113,
+      "field": "Percentage of Pediatric HD patients with Kt/V >= 1.2",
+      "kind": "clinical_percentage",
+      "meaning": "Pediatric hemodialysis adequacy percentage meeting Kt/V threshold 1.2.",
+      "unit": "percent",
+      "measure_group": "pediatric_hd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        15,
+        16
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 7451,
+        "other_nonblank": 20
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 20
+      },
+      "distinct_nonmissing": {
+        "count": 12,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 114,
+      "field": "Pediatric PD Kt/V Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Availability reason for pediatric_pd_ktv.",
+      "unit": "code",
+      "measure_group": "pediatric_pd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        16,
+        17
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 7,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 81,
+        "201": 119,
+        "255": 1,
+        "258": 19,
+        "259": 4447,
+        "280": 2781,
+        "001": 23
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 115,
+      "field": "Number of pediatric PD patients with Kt/V data",
+      "kind": "cohort_count",
+      "meaning": "Patient count included in pediatric_pd_ktv reporting.",
+      "unit": "patients",
+      "measure_group": "pediatric_pd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        16,
+        17
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 24,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 116,
+      "field": "Number of pediatric PD patient-months with KT/V data",
+      "kind": "cohort_exposure",
+      "meaning": "Patient-month count used for pediatric_pd_ktv reporting.",
+      "unit": "patient-months",
+      "measure_group": "pediatric_pd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        16,
+        17
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 7345,
+        "other_nonblank": 126
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 126
+      },
+      "distinct_nonmissing": {
+        "count": 81,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 117,
+      "field": "Percentage of pediatric PD patients with Kt/V>=1.8",
+      "kind": "clinical_percentage",
+      "meaning": "Pediatric peritoneal dialysis adequacy percentage meeting Kt/V threshold 1.8.",
+      "unit": "percent",
+      "measure_group": "pediatric_pd_ktv",
+      "dictionary_table": 5,
+      "extracted_printed_pages": [
+        16,
+        17
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 7448,
+        "other_nonblank": 23
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 23
+      },
+      "distinct_nonmissing": {
+        "count": 20,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 118,
+      "field": "Percentage of Medicare patients with Hgb<10 g/dL",
+      "kind": "clinical_percentage",
+      "meaning": "Percentage of Medicare patients below the 10 g/dL hemoglobin threshold.",
+      "unit": "percent",
+      "measure_group": "hemoglobin",
+      "dictionary_table": 19,
+      "extracted_printed_pages": [
+        34,
+        35
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 2294,
+        "other_nonblank": 5177
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 5177
+      },
+      "distinct_nonmissing": {
+        "count": 86,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 119,
+      "field": "HGB<10 data availability code",
+      "kind": "availability_code",
+      "meaning": "Availability reason specific to the lower hemoglobin threshold.",
+      "unit": "code",
+      "measure_group": "hemoglobin",
+      "dictionary_table": 19,
+      "extracted_printed_pages": [
+        34,
+        35
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 2052,
+        "201": 155,
+        "258": 87,
+        "001": 5177
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 120,
+      "field": "Percentage of Medicare patients with Hgb>12 g/dL",
+      "kind": "clinical_percentage",
+      "meaning": "Percentage of Medicare patients above the 12 g/dL hemoglobin threshold.",
+      "unit": "percent",
+      "measure_group": "hemoglobin",
+      "dictionary_table": 19,
+      "extracted_printed_pages": [
+        34,
+        35
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 2294,
+        "other_nonblank": 5177
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 5177
+      },
+      "distinct_nonmissing": {
+        "count": 22,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 121,
+      "field": "Hgb > 12 data availability code",
+      "kind": "availability_code",
+      "meaning": "Availability reason specific to the upper hemoglobin threshold.",
+      "unit": "code",
+      "measure_group": "hemoglobin",
+      "dictionary_table": 19,
+      "extracted_printed_pages": [
+        34,
+        35
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 2052,
+        "201": 155,
+        "258": 87,
+        "001": 5177
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 122,
+      "field": "Number of Dialysis Patients with Hgb data",
+      "kind": "cohort_count",
+      "meaning": "Reported hemoglobin cohort; dictionary relates it to the upper-threshold summary. Do not assume it is both denominators.",
+      "unit": "patients",
+      "measure_group": "hemoglobin",
+      "dictionary_table": 19,
+      "extracted_printed_pages": [
+        34,
+        35
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 97,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 123,
+      "field": "Hypercalcemia Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Availability reason for hypercalcemia.",
+      "unit": "code",
+      "measure_group": "hypercalcemia",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        19,
+        20
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 112,
+        "201": 15,
+        "255": 1,
+        "258": 57,
+        "280": 2781,
+        "001": 4505
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 124,
+      "field": "Number of patients in hypercalcemia summary",
+      "kind": "cohort_count",
+      "meaning": "Patient count included in hypercalcemia reporting.",
+      "unit": "patients",
+      "measure_group": "hypercalcemia",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        19,
+        20
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 298,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 125,
+      "field": "Number of patient-months in hypercalcemia summary",
+      "kind": "cohort_exposure",
+      "meaning": "Patient-month count used for hypercalcemia reporting.",
+      "unit": "patient-months",
+      "measure_group": "hypercalcemia",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        19,
+        20
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 49,
+        "other_nonblank": 7422
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7422
+      },
+      "distinct_nonmissing": {
+        "count": 1722,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 126,
+      "field": "Percentage of adult patients with hypercalcemia (serum calcium greater than 10.2 mg/dL)",
+      "kind": "clinical_percentage",
+      "meaning": "Adult patient percentage above serum calcium threshold 10.2 mg/dL.",
+      "unit": "percent",
+      "measure_group": "hypercalcemia",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        19,
+        20
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 2966,
+        "other_nonblank": 4505
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4505
+      },
+      "distinct_nonmissing": {
+        "count": 59,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 127,
+      "field": "Serum phosphorus Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Availability reason for the serum phosphorus distribution.",
+      "unit": "code",
+      "measure_group": "serum_phosphorus",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        20,
+        21,
+        22
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 107,
+        "201": 32,
+        "258": 56,
+        "280": 2781,
+        "001": 4495
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 128,
+      "field": "Number of patients in Serum phosphorus summary",
+      "kind": "cohort_count",
+      "meaning": "Patient count included in serum phosphorus reporting.",
+      "unit": "patients",
+      "measure_group": "serum_phosphorus",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        20,
+        21,
+        22
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 307,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 129,
+      "field": "Number of patient-months in Serum phosphorus summary",
+      "kind": "cohort_exposure",
+      "meaning": "Patient-month count included in serum phosphorus reporting.",
+      "unit": "patient-months",
+      "measure_group": "serum_phosphorus",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        20,
+        21,
+        22
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 49,
+        "other_nonblank": 7422
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7422
+      },
+      "distinct_nonmissing": {
+        "count": 1760,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 130,
+      "field": "Percentage of Adult patients with serum phosphorus less than 3.5 mg/dL",
+      "kind": "clinical_percentage",
+      "meaning": "Reported adult patient percentage in serum phosphorus band below 3.5 mg/dL.",
+      "unit": "percent",
+      "measure_group": "serum_phosphorus",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        20,
+        21,
+        22
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 2976,
+        "other_nonblank": 4495
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4495
+      },
+      "distinct_nonmissing": {
+        "count": 33,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 131,
+      "field": "Percentage of Adult patients with serum phosphorus between 3.5-4.5 mg/dL",
+      "kind": "clinical_percentage",
+      "meaning": "Reported adult patient percentage in serum phosphorus band 3.5–4.5 mg/dL.",
+      "unit": "percent",
+      "measure_group": "serum_phosphorus",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        20,
+        21,
+        22
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 2976,
+        "other_nonblank": 4495
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4495
+      },
+      "distinct_nonmissing": {
+        "count": 41,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 132,
+      "field": "Percentage of Adult patients with serum phosphorus between 4.6-5.5 mg/dL",
+      "kind": "clinical_percentage",
+      "meaning": "Reported adult patient percentage in serum phosphorus band 4.6–5.5 mg/dL.",
+      "unit": "percent",
+      "measure_group": "serum_phosphorus",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        20,
+        21,
+        22
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 2976,
+        "other_nonblank": 4495
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4495
+      },
+      "distinct_nonmissing": {
+        "count": 38,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 133,
+      "field": "Percentage of Adult patients with serum phosphorus between 5.6-7.0 mg/dL",
+      "kind": "clinical_percentage",
+      "meaning": "Reported adult patient percentage in serum phosphorus band 5.6–7.0 mg/dL.",
+      "unit": "percent",
+      "measure_group": "serum_phosphorus",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        20,
+        21,
+        22
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 2976,
+        "other_nonblank": 4495
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4495
+      },
+      "distinct_nonmissing": {
+        "count": 40,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 134,
+      "field": "Percentage of Adult patients with serum phosphorus greater than 7.0 mg/dL",
+      "kind": "clinical_percentage",
+      "meaning": "Reported adult patient percentage in serum phosphorus band above 7.0 mg/dL.",
+      "unit": "percent",
+      "measure_group": "serum_phosphorus",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        20,
+        21,
+        22
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 2976,
+        "other_nonblank": 4495
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4495
+      },
+      "distinct_nonmissing": {
+        "count": 45,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 135,
+      "field": "Hyperphosphatemia Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Availability reason for hyperphosphatemia.",
+      "unit": "code",
+      "measure_group": "hyperphosphatemia",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        22,
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 159,
+        "201": 29,
+        "258": 83,
+        "280": 2781,
+        "001": 4419
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 136,
+      "field": "Number of patients in hyperphosphatemia summary",
+      "kind": "cohort_count",
+      "meaning": "Patient count included in hyperphosphatemia reporting.",
+      "unit": "patients",
+      "measure_group": "hyperphosphatemia",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        22,
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 240,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 137,
+      "field": "Number of patient-months in hyperphosphatemia summary",
+      "kind": "cohort_exposure",
+      "meaning": "Patient-month count used for hyperphosphatemia reporting.",
+      "unit": "patient-months",
+      "measure_group": "hyperphosphatemia",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        22,
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 49,
+        "other_nonblank": 7422
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7422
+      },
+      "distinct_nonmissing": {
+        "count": 1430,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 138,
+      "field": "Percentage of adult patients with hyperphosphatemia (phosphorus at least 6.5 mg/dL)",
+      "kind": "clinical_percentage",
+      "meaning": "Adult patient percentage at or above serum phosphorus threshold 6.5 mg/dL.",
+      "unit": "percent",
+      "measure_group": "hyperphosphatemia",
+      "dictionary_table": 9,
+      "extracted_printed_pages": [
+        22,
+        23
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 3052,
+        "other_nonblank": 4419
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4419
+      },
+      "distinct_nonmissing": {
+        "count": 79,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 139,
+      "field": "Long term catheter Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Availability reason for long_term_catheter.",
+      "unit": "code",
+      "measure_group": "long_term_catheter",
+      "dictionary_table": 8,
+      "extracted_printed_pages": [
+        19
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 233,
+        "201": 65,
+        "256": 123,
+        "258": 57,
+        "001": 6993
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 140,
+      "field": "Number of patients in long term catheter summary",
+      "kind": "cohort_count",
+      "meaning": "Patient count included in long_term_catheter reporting.",
+      "unit": "patients",
+      "measure_group": "long_term_catheter",
+      "dictionary_table": 8,
+      "extracted_printed_pages": [
+        19
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 266,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 141,
+      "field": "Number of patient months in long term catheter summary",
+      "kind": "cohort_exposure",
+      "meaning": "Patient-month count used for long_term_catheter reporting.",
+      "unit": "patient-months",
+      "measure_group": "long_term_catheter",
+      "dictionary_table": 8,
+      "extracted_printed_pages": [
+        19
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 223,
+        "other_nonblank": 7248
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7248
+      },
+      "distinct_nonmissing": {
+        "count": 1611,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 142,
+      "field": "Percentage of Adult patients with long term catheter in use",
+      "kind": "clinical_percentage",
+      "meaning": "Adult patient percentage with long-term catheter in use; not an equipment inventory.",
+      "unit": "percent",
+      "measure_group": "long_term_catheter",
+      "dictionary_table": 8,
+      "extracted_printed_pages": [
+        19
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 478,
+        "other_nonblank": 6993
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 6993
+      },
+      "distinct_nonmissing": {
+        "count": 77,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 143,
+      "field": "nPCR Data Availability Code",
+      "kind": "availability_code",
+      "meaning": "Availability reason for npcr.",
+      "unit": "code",
+      "measure_group": "npcr",
+      "dictionary_table": 6,
+      "extracted_printed_pages": [
+        17
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "other_nonblank": 7471
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7471
+      },
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": {
+        "199": 115,
+        "201": 155,
+        "258": 19,
+        "259": 4370,
+        "280": 2781,
+        "001": 31
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 144,
+      "field": "Number of patients in nPCR summary",
+      "kind": "cohort_count",
+      "meaning": "Patient count included in npcr reporting.",
+      "unit": "patients",
+      "measure_group": "npcr",
+      "dictionary_table": 6,
+      "extracted_printed_pages": [
+        17
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 24,
+        "other_nonblank": 7447
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 7447
+      },
+      "distinct_nonmissing": {
+        "count": 27,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 145,
+      "field": "Number of patient-months in nPCR summary",
+      "kind": "cohort_exposure",
+      "meaning": "Patient-month count used for npcr reporting.",
+      "unit": "patient-months",
+      "measure_group": "npcr",
+      "dictionary_table": 6,
+      "extracted_printed_pages": [
+        17
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 7297,
+        "other_nonblank": 174
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 174
+      },
+      "distinct_nonmissing": {
+        "count": 80,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 146,
+      "field": "Percentage of pediatric HD patients with nPCR",
+      "kind": "clinical_percentage",
+      "meaning": "Pediatric HD patient percentage with nPCR reporting; not the measured protein catabolic rate itself.",
+      "unit": "percent",
+      "measure_group": "npcr",
+      "dictionary_table": 6,
+      "extracted_printed_pages": [
+        17
+      ],
+      "application_disposition": "clinical_context_only",
+      "profile_states": {
+        "blank": 7440,
+        "other_nonblank": 31
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 31
+      },
+      "distinct_nonmissing": {
+        "count": 14,
+        "method": "exact"
+      },
+      "literal_yes_no_counts": null,
+      "observed_availability_code_counts": null,
+      "new_application_approval": false
+    }
+  ],
+  "retained_clinical_cross_checks": {
+    "First Year Standardized Kidney Transplant Waitlist Ratio | availability": {
+      "001 | numeric": 4463,
+      "199 | blank": 2835,
+      "201 | blank": 85,
+      "258 | blank": 88
+    },
+    "First Year Standardized Kidney Transplant Waitlist Ratio | confidence interval": {
+      "incomplete_or_nonnumeric": 3008,
+      "ordered_and_contains_estimate": 4463
+    },
+    "Fistula Rate (Facility) | availability": {
+      "001 | numeric": 6993,
+      "199 | blank": 233,
+      "201 | blank": 65,
+      "256 | blank": 121,
+      "258 | blank": 59
+    },
+    "Fistula Rate (Facility) | confidence interval": {
+      "incomplete_or_nonnumeric": 478,
+      "ordered_and_contains_estimate": 6993
+    },
+    "Five Star | availability": {
+      "001 | numeric": 4324,
+      "201 | blank": 5,
+      "258 | blank": 28,
+      "260 | blank": 331,
+      "261 | blank": 2,
+      "281 | blank": 86,
+      "281 | numeric": 2695
+    },
+    "Healthcare worker COVID-19 vaccination adherence percentage | availability": {
+      "001 | numeric": 6335,
+      "199 | blank": 626,
+      "201 | blank": 434,
+      "258 | blank": 76
+    },
+    "Hospitalization Rate (Facility) | availability": {
+      "001 | numeric": 7267,
+      "199 | blank": 109,
+      "201 | blank": 19,
+      "258 | blank": 76
+    },
+    "Hospitalization Rate (Facility) | confidence interval": {
+      "incomplete_or_nonnumeric": 205,
+      "ordered_and_contains_estimate": 7266
+    },
+    "Mortality Rate (Facility) | availability": {
+      "001 | numeric": 7221,
+      "199 | blank": 158,
+      "201 | blank": 5,
+      "258 | blank": 87
+    },
+    "Mortality Rate (Facility) | confidence interval": {
+      "incomplete_or_nonnumeric": 250,
+      "ordered_and_contains_estimate": 7221
+    },
+    "Percent of Adult HD patients with Kt/V >= 1.2 | availability": {
+      "001 | numeric": 4180,
+      "199 | blank": 203,
+      "201 | blank": 156,
+      "255 | blank": 2,
+      "256 | blank": 87,
+      "258 | blank": 62,
+      "280 | blank": 2781
+    },
+    "Percentage of Adult PD PTS with Kt/V >= 1.7 | availability": {
+      "001 | numeric": 1481,
+      "199 | blank": 705,
+      "201 | blank": 527,
+      "255 | blank": 1,
+      "257 | blank": 1928,
+      "258 | blank": 48,
+      "280 | blank": 2781
+    },
+    "Percentage of Adult patients with long term catheter in use | availability": {
+      "001 | numeric": 6993,
+      "199 | blank": 233,
+      "201 | blank": 65,
+      "256 | blank": 123,
+      "258 | blank": 57
+    },
+    "Percentage of Adult patients with serum phosphorus between 3.5-4.5 mg/dL | availability": {
+      "001 | numeric": 4495,
+      "199 | blank": 107,
+      "201 | blank": 32,
+      "258 | blank": 56,
+      "280 | blank": 2781
+    },
+    "Percentage of Adult patients with serum phosphorus between 4.6-5.5 mg/dL | availability": {
+      "001 | numeric": 4495,
+      "199 | blank": 107,
+      "201 | blank": 32,
+      "258 | blank": 56,
+      "280 | blank": 2781
+    },
+    "Percentage of Adult patients with serum phosphorus between 5.6-7.0 mg/dL | availability": {
+      "001 | numeric": 4495,
+      "199 | blank": 107,
+      "201 | blank": 32,
+      "258 | blank": 56,
+      "280 | blank": 2781
+    },
+    "Percentage of Adult patients with serum phosphorus greater than 7.0 mg/dL | availability": {
+      "001 | numeric": 4495,
+      "199 | blank": 107,
+      "201 | blank": 32,
+      "258 | blank": 56,
+      "280 | blank": 2781
+    },
+    "Percentage of Adult patients with serum phosphorus less than 3.5 mg/dL | availability": {
+      "001 | numeric": 4495,
+      "199 | blank": 107,
+      "201 | blank": 32,
+      "258 | blank": 56,
+      "280 | blank": 2781
+    },
+    "Percentage of Medicare patients with Hgb<10 g/dL | availability": {
+      "001 | numeric": 5177,
+      "199 | blank": 2052,
+      "201 | blank": 155,
+      "258 | blank": 87
+    },
+    "Percentage of Medicare patients with Hgb>12 g/dL | availability": {
+      "001 | numeric": 5177,
+      "199 | blank": 2052,
+      "201 | blank": 155,
+      "258 | blank": 87
+    },
+    "Percentage of Pediatric HD patients with Kt/V >= 1.2 | availability": {
+      "001 | numeric": 20,
+      "199 | blank": 116,
+      "201 | blank": 151,
+      "255 | blank": 1,
+      "258 | blank": 19,
+      "259 | blank": 4383,
+      "280 | blank": 2781
+    },
+    "Percentage of Prevalent Patients Waitlisted for Kidney Transplant | availability": {
+      "001 | numeric": 7251,
+      "199 | blank": 150,
+      "201 | blank": 13,
+      "258 | blank": 57
+    },
+    "Percentage of Prevalent Patients Waitlisted for Kidney Transplant | confidence interval": {
+      "incomplete_or_nonnumeric": 220,
+      "ordered_and_contains_estimate": 7251
+    },
+    "Percentage of adult patients with hypercalcemia (serum calcium greater than 10.2 mg/dL) | availability": {
+      "001 | numeric": 4505,
+      "199 | blank": 112,
+      "201 | blank": 15,
+      "255 | blank": 1,
+      "258 | blank": 57,
+      "280 | blank": 2781
+    },
+    "Percentage of adult patients with hyperphosphatemia (phosphorus at least 6.5 mg/dL) | availability": {
+      "001 | numeric": 4419,
+      "199 | blank": 159,
+      "201 | blank": 29,
+      "258 | blank": 83,
+      "280 | blank": 2781
+    },
+    "Percentage of pediatric HD patients with nPCR | availability": {
+      "001 | numeric": 31,
+      "199 | blank": 115,
+      "201 | blank": 155,
+      "258 | blank": 19,
+      "259 | blank": 4370,
+      "280 | blank": 2781
+    },
+    "Percentage of pediatric PD patients with Kt/V>=1.8 | availability": {
+      "001 | numeric": 23,
+      "199 | blank": 81,
+      "201 | blank": 119,
+      "255 | blank": 1,
+      "258 | blank": 19,
+      "259 | blank": 4447,
+      "280 | blank": 2781
+    },
+    "Readmission Rate (Facility) | availability": {
+      "001 | numeric": 7113,
+      "199 | blank": 283,
+      "201 | blank": 5,
+      "258 | blank": 70
+    },
+    "Readmission Rate (Facility) | confidence interval": {
+      "incomplete_or_nonnumeric": 358,
+      "ordered_and_contains_estimate": 7113
+    },
+    "SMoSR: Standardized Modality Switch Ratio (FACILITY) | availability": {
+      "001 | numeric": 6530,
+      "199 | blank": 354,
+      "201 | blank": 499,
+      "258 | blank": 88
+    },
+    "SMoSR: Standardized Modality Switch Ratio (FACILITY) | confidence interval": {
+      "incomplete_or_nonnumeric": 941,
+      "ordered_and_contains_estimate": 6530
+    },
+    "Standard Infection Ratio | availability": {
+      "001 | numeric": 6402,
+      "199 | blank": 100,
+      "201 | blank": 885,
+      "258 | blank": 84
+    },
+    "Standard Infection Ratio | confidence interval": {
+      "incomplete_or_nonnumeric": 3202,
+      "ordered_and_contains_estimate": 4269
+    },
+    "Standardized ED visits ratio (Facility) | availability": {
+      "001 | numeric": 6806,
+      "199 | blank": 536,
+      "201 | blank": 44,
+      "258 | blank": 85
+    },
+    "Standardized ED visits ratio (Facility) | confidence interval": {
+      "incomplete_or_nonnumeric": 665,
+      "ordered_and_contains_estimate": 6806
+    },
+    "Standardized ED visits within 30 days of hospital discharge ratio (Facility) | availability": {
+      "001 | numeric": 6846,
+      "199 | blank": 539,
+      "201 | blank": 5,
+      "258 | blank": 81
+    },
+    "Standardized ED visits within 30 days of hospital discharge ratio (Facility) | confidence interval": {
+      "incomplete_or_nonnumeric": 625,
+      "ordered_and_contains_estimate": 6846
+    },
+    "Transfusion Rate (Facility) | availability": {
+      "001 | numeric": 4286,
+      "199 | blank": 3050,
+      "201 | blank": 47,
+      "258 | blank": 88
+    },
+    "Transfusion Rate (Facility) | confidence interval": {
+      "incomplete_or_nonnumeric": 3185,
+      "ordered_and_contains_estimate": 4286
+    }
+  },
+  "limitations": [
+    "Exact raw source header and aggregate lexical profile are pinned; no raw re-download.",
+    "Dictionary text/render version disagreement blocks current-version domain qualification.",
+    "Do not use clinical data, suppression codes or clinical performance to score property risk.",
+    "Do not combine Care Compare station counts with approved iQIES counts.",
+    "No contact values, patient-level records, new public payloads or application approvals."
+  ]
+}
