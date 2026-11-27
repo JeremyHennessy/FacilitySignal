@@ -69,6 +69,30 @@ function aggregateResearchLinks(){
     for(const [name,view] of [["Advanced facility search","advanced"],["Industry research","industry"],["Service intelligence","services"],["Compliance research","compliance-research"],["Equipment & environmental research","equipment-environment"],["Procurement research","procurement"],["Financial report research","financial-research"],["Saved facility portfolio","saved-portfolio"],["Data intelligence","data-evidence"]])wrap.append(anchor(name,route(view)));
     return wrap
 }
+const serviceTopics=[
+    {key:"",label:"All service evidence",note:"Use the two topic links to focus on national iQIES indicators. These counts describe source records, not individual facility services."},
+    {key:"asc",label:"ASC surgery indicators",group:"iqies-additional-asc",note:"Compare eight historical specialty indicators for ambulatory surgical centers (ASCs). A source record can appear under more than one specialty."},
+    {key:"dialysis",label:"Dialysis indicators",group:"iqies-additional-esrd",note:"Compare three historical dialysis indicators. “Began” and “continued” mean different things. A reported No on “began” does not mean the service was absent."}
+];
+function nationalServiceTopics(groups,requested){
+    const found=serviceTopics.find(t=>t.key===requested);
+    const topic=found||serviceTopics[0];
+    const visible=topic.group?groups.filter(g=>g.id===topic.group):groups;
+    if(topic.group&&visible.length!==1)throw Error("Selected iQIES topic has no unique qualified evidence");
+    const panel=el("section",undefined,"service-topic-panel");
+    panel.setAttribute("aria-labelledby","service-topic-heading");
+    const heading=el("h2","National iQIES topics");heading.id="service-topic-heading";
+    const nav=el("nav",undefined,"service-topic-nav");nav.setAttribute("aria-label","National iQIES evidence topics");
+    for(const change of serviceTopics){
+        const link=anchor(change.label,route("services",{topic:change.key}));
+        if(change===topic)link.setAttribute("aria-current","page");
+        nav.append(link);
+    }
+    panel.append(heading,nav,el("p",topic.note,"intro"));
+    if(requested&&!found)panel.append(el("p","That service topic is unavailable. Showing all service evidence.","intro service-topic-fallback"));
+    app.append(panel);
+    return visible;
+}
 async function intelligence(view,signal,epoch){
     const labels={"financial-research":"Financial report research","hospital-infrastructure":"Hospital infrastructure research","nursing-portfolios":"Nursing portfolio research",services:"Service intelligence","compliance-research":"Compliance research","equipment-environment":"Equipment & environmental research","data-evidence":"Data intelligence"};
     title(labels[view],"Historical national aggregate qualification. Public research only; not a live national database.");
@@ -85,6 +109,7 @@ async function intelligence(view,signal,epoch){
         const section=ids.length?{title:labels[view],intro:nursingPortfolio?"Research CMS-reported nursing-home groups, their member records and reported capacity by geography. Publisher-defined affiliations are not legal ownership or physical property portfolios.":"Research historical national service-provision and infrastructure evidence. QIES historical code labels are provisional; these aggregates are not installed equipment inventories, current operations, staffing totals or facility-level relationships.",groups:ids.map(id=>allGroups.find(g=>g.id===id))}:data.sections.find(x=>x.id===view);
         if(!section||!Array.isArray(section.groups))throw Error("Missing evidence section");
         title(section.title,section.intro);
+        const groups=view==="services"?nationalServiceTopics(section.groups,read().p.topic||""):section.groups;
         const nav=el("div",undefined,"links");
         if(view==="services")nav.append(anchor("Search reported public capacity",route("capacity")),anchor("Browse facility directory",route("facilities")),dialysisResearchLink(),hhaResearchLink(),anchor("Hospital infrastructure research",route("hospital-infrastructure")));
         if(view==="compliance-research")nav.append(anchor("Search public nursing citation aggregates",route("citations")),anchor("Hospital survey coverage",route("hospital-surveys")),anchor("Nursing portfolio research",route("nursing-portfolios")));
@@ -117,7 +142,7 @@ async function intelligence(view,signal,epoch){
         if(view==="equipment-environment")nav.append(anchor("Review source register",route("sources")),anchor("Hospital infrastructure research",route("hospital-infrastructure")),anchor("Nursing fire citations",route("citations",{source:"nursing-fire"})),anchor("Dialysis service research",route("dialysis-services")));
         if(view==="data-evidence")nav.append(anchor("Source inventory",route("sources")),anchor("Certification registry coverage",route("certifications")));
         app.append(nav);
-        for(const g of section.groups){
+        for(const g of groups){
             if(!Number.isSafeInteger(g.run)||g.run<=0||!Array.isArray(g.columns)||!Array.isArray(g.rows)||g.rows.some(r=>!Array.isArray(r)||r.length!==g.columns.length||r.some(x=>x!==null&&typeof x!=="string"&&!(Number.isSafeInteger(x)&&x>=0))))throw Error("Invalid evidence group");
             const src=safeExternal(g.source);
             const responsiveServiceTable=view==="services"&&["iqies-additional-asc","iqies-additional-esrd"].includes(g.id);

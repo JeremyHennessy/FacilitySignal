@@ -190,3 +190,12 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
  .iqies-service-short-heading{display:inline}
 }
 @media(max-width:307px){.intelligence-scroll-hint.compact-service-scroll-hint{display:block}}
+
+/* Topic links are ordinary bookmarks. Keep the active state distinct on light surfaces. */
+.service-topic-panel{margin:16px 0;padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:7px}
+.service-topic-panel h2{margin:0 0 8px}
+.service-topic-panel .intro{margin:8px 0 0}
+.service-topic-nav{flex-direction:row;flex-wrap:wrap;gap:8px}
+.service-topic-nav a{display:inline-flex;align-items:center;min-height:44px;padding:7px 10px;color:var(--link);border:1px solid var(--border);font-weight:650}
+.service-topic-nav a:hover{background:#edf3f6;color:var(--text)}
+.service-topic-nav a[aria-current]{background:#d9eef1;color:#133b4c;border-color:#638d97}

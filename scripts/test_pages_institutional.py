@@ -59,6 +59,42 @@ def entry(browser,base,utm,live):
             if not live or i==29:raise
             time.sleep(5)
         finally:ctx.close()
+def service_topics(page,base,width):
+    page.goto(base+"#services")
+    nav=page.get_by_role("navigation",name="National iQIES evidence topics")
+    panel=page.locator(".service-topic-panel")
+    groups=page.locator(".intelligence-table")
+    assert nav.get_by_role("link",name="All service evidence").get_attribute("aria-current")=="page"
+    assert groups.count()==10
+    asc=nav.get_by_role("link",name="ASC surgery indicators")
+    asc.focus();asc.press("Enter")
+    page.get_by_role("heading",name="ASC surgical specialty evidence",exact=True).wait_for()
+    assert urlsplit(page.url).fragment=="services?topic=asc"
+    assert asc.get_attribute("aria-current")=="page" and groups.count()==1
+    assert groups.locator("tbody tr").count()==8
+    assert groups.locator("tbody tr").first.locator("td").all_inner_texts()==["8,492","2,293","5,747","452"]
+    assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+    capture(page,f"{width}-service-topic-asc",panel)
+    page.goto(base+"#services?topic=dialysis")
+    page.get_by_role("heading",name="Dialysis commencement and continuation evidence",exact=True).wait_for()
+    assert nav.get_by_role("link",name="Dialysis indicators").get_attribute("aria-current")=="page"
+    assert groups.count()==1 and groups.locator("tbody tr").count()==3
+    assert groups.locator("tbody tr").first.locator("td").all_inner_texts()==["8,659","12","8,435","212"]
+    assert "does not mean the service was absent" in panel.inner_text()
+    assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+    capture(page,f"{width}-service-topic-dialysis",panel)
+    page.go_back()
+    asc.and_(page.locator("[aria-current=page]")).wait_for()
+    page.go_forward()
+    nav.get_by_role("link",name="Dialysis indicators").and_(page.locator("[aria-current=page]")).wait_for()
+    page.goto(base+"#services?topic=unknown")
+    page.get_by_text("That service topic is unavailable. Showing all service evidence.",exact=True).wait_for()
+    assert groups.count()==10
+    page.route("**/web/public-intelligence.json",lambda route:route.fulfill(status=503,body=""))
+    page.goto(base+"#services?topic=asc")
+    page.get_by_text("Qualified aggregate evidence unavailable:",exact=False).wait_for()
+    assert groups.count()==0
+    page.unroute("**/web/public-intelligence.json")
 def run(base,live):
     summary=[]
     with sync_playwright() as p:
@@ -154,8 +190,9 @@ def run(base,live):
             assert "Partial results" in page.locator(".advanced-status").inner_text()
             assert not page.get_by_role("button",name="Export current page (CSV)").count()
             page.unroute("**/web/institutional-evidence.json*")
+            service_topics(page,base,width)
             assert not errors,errors
-            summary.append({"width":width,"dialysis_NY_late_shift":len(want),"positive_negative_and_exact_filters":True,"private_field_rejected":True,"bad_pack_unavailable":True,"csv_and_return":True,"institutional_comparison_all_seven_and_csv":True,"comparison_bad_pack_preserves_basic_records":True,"sticky_evidence_labels_and_final_provider":True})
+            summary.append({"width":width,"dialysis_NY_late_shift":len(want),"positive_negative_and_exact_filters":True,"private_field_rejected":True,"bad_pack_unavailable":True,"csv_and_return":True,"institutional_comparison_all_seven_and_csv":True,"comparison_bad_pack_preserves_basic_records":True,"sticky_evidence_labels_and_final_provider":True,"national_iqies_topics_counts_history_and_error":True})
             ctx.close()
         browser.close()
     report={"mode":"ordinary_live" if live else "candidate","entry_checks":entries,"viewport_checks":summary}

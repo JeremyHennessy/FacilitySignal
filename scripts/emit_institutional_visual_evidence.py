@@ -3,7 +3,7 @@ import base64,hashlib,os
 from pathlib import Path
 root=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"institutional-browser-evidence"
 for width in (390,768,1024,1440):
-    for view in ("filters","profile"):
+    for view in ("filters","profile","service-topic-asc","service-topic-dialysis"):
         name=f"{width}-{view}.jpg"
         path=root/name
         if not path.is_file():raise ValueError("missing required screenshot")

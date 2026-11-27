@@ -48,6 +48,8 @@ ROUTES=[
     ("ltch-capacity","capacity?source=long-term-hospital",lambda page:page.locator(".ltch-capacity-table")),
     ("ltch-profile","detail?"+urlencode({"source":"long-term-hospital","id":LTCH["ccn"],"state":LTCH["state"],"section":"services"}),lambda page:page.get_by_role("heading",name="Reported capacity and service evidence")),
     ("services","services",lambda page:page.get_by_role("heading",name="ASC service provision arrangements")),
+    ("service-topic-asc","services?topic=asc",lambda page:page.get_by_role("heading",name="ASC surgical specialty evidence",exact=True)),
+    ("service-topic-dialysis","services?topic=dialysis",lambda page:page.get_by_role("heading",name="Dialysis commencement and continuation evidence",exact=True)),
     ("dialysis-services","dialysis-services?field=hmdlys_srvc_sw&evidence=reported_yes",lambda page:page.locator(".dialysis-status[data-ready=true]")),
     ("hha-services","hha-services?field=Nursing+Care&evidence=yes",lambda page:page.locator(".hha-status[data-ready=true]")),
     ("hha-profile","detail?"+urlencode({"source":"home-health","id":HHA_PROFILE["ccn"],"state":HHA_PROFILE["state"],"section":"services"}),lambda page:page.locator(".hha-profile[data-evidence=qualified]")),
