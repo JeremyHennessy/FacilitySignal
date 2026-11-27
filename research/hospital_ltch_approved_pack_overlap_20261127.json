@@ -1,0 +1,34 @@
+{
+  "address_or_provider_rows_emitted": 0,
+  "canonical_facility_or_location_merges": 0,
+  "distinct_ccn_values_by_source": {
+    "hospital": 5435,
+    "long-term-hospital": 311
+  },
+  "exact_literal_site_keys_present_in_both_packs": 0,
+  "release_dates": {
+    "hospital": "2026-11-12",
+    "long-term-hospital": "2026-09-23"
+  },
+  "same_ccn_candidates_by_address_state": {
+    "ccn_state_ltch_terminal_dash_only": 5
+  },
+  "scope": "Complete approved FacilitySignal packs at distinct publisher release dates. Candidate comparison only; same CCN does not prove current physical site or shared operations.",
+  "verified_directories": {
+    "hospital": {
+      "bytes": 806129,
+      "git_blob": "b0f0c73946064b5cb754912f685d2fcf975fb02b",
+      "sha256": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a"
+    },
+    "long-term-hospital": {
+      "bytes": 50338,
+      "git_blob": "4e7e88646adba0076bb6c46e1bd9bfedfa280e48",
+      "sha256": "e062c2a3c57be0e47f473c48be2c0c8aa1f77d456091c5a041fe1bf2569894d9"
+    },
+    "manifest": {
+      "bytes": 2094,
+      "git_blob": "34bea799c8f3e1d7e70d0c28688ef9772ff34441",
+      "sha256": "fa392edb9108636fd4c2293147c7832fc5734759a6524bc2cdb321c8958c343b"
+    }
+  }
+}
