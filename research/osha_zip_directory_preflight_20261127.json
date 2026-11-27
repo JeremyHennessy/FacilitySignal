@@ -1,0 +1,66 @@
+{
+  "status": "ZIP_DIRECTORY_PREFLIGHT_ONLY",
+  "observed_at_utc": "2026-11-27T12:55:26.451Z",
+  "source_documentation": "https://usdepartmentoflabor.github.io/Developer/health-and-safety/dol-osha-enforcement/",
+  "sources": [
+    {
+      "dataset": "inspection",
+      "url": "https://data.dol.gov/data-catalog/OSHA/inspection/OSHA_inspection.zip",
+      "etag": "\"fabe2275e98ed72952742bf0c8a0b2f7-174\"",
+      "last_modified_utc": "2026-11-27T11:00:59Z",
+      "archive_bytes": 1457426341,
+      "http_status": 206,
+      "range_start": 1457295269,
+      "range_end": 1457426340,
+      "range_bytes": 131072,
+      "declared_member_bytes": 1457425335,
+      "csv_members": 6,
+      "member_names": [
+        "2026-11-27_chunk_1.csv",
+        "2026-11-27_chunk_2.csv",
+        "2026-11-27_chunk_3.csv",
+        "2026-11-27_chunk_4.csv",
+        "2026-11-27_chunk_5.csv",
+        "2026-11-27_chunk_6.csv"
+      ],
+      "method": "stored",
+      "data_members_read": 0
+    },
+    {
+      "dataset": "violation",
+      "url": "https://data.dol.gov/data-catalog/OSHA/violation/OSHA_violation.zip",
+      "etag": "\"40861ae62707d3624c8b62e56dc232c8-272\"",
+      "last_modified_utc": "2026-11-26T11:05:43Z",
+      "archive_bytes": 2276482292,
+      "http_status": 206,
+      "range_start": 2276351220,
+      "range_end": 2276482291,
+      "range_bytes": 131072,
+      "declared_member_bytes": 2276479876,
+      "csv_members": 14,
+      "member_names": [
+        "2026-11-26_chunk_1.csv",
+        "2026-11-26_chunk_2.csv",
+        "2026-11-26_chunk_3.csv",
+        "2026-11-26_chunk_4.csv",
+        "2026-11-26_chunk_5.csv",
+        "2026-11-26_chunk_6.csv",
+        "2026-11-26_chunk_7.csv",
+        "2026-11-26_chunk_8.csv",
+        "2026-11-26_chunk_9.csv",
+        "2026-11-26_chunk_10.csv",
+        "2026-11-26_chunk_11.csv",
+        "2026-11-26_chunk_12.csv",
+        "2026-11-26_chunk_13.csv",
+        "2026-11-26_chunk_14.csv"
+      ],
+      "method": "stored",
+      "data_members_read": 0
+    }
+  ],
+  "method": "Use single non-redirected suffix Range GET per recorded archive with conditional If-Match and identity encoding. Require HTTP 206 and exact ETag, Content-Range and byte count. Parse ZIP directory with a seek-checked virtual file that rejects reads before the suffix. Require a bounded, unique, unencrypted CSV member inventory. No CSV member opened, no row counts checked and no complete archive SHA computed.",
+  "limitation": "Publisher member date is not inspection or citation date. Edition metadata and network range access do not establish full transfer, row correctness, cost or public-release eligibility.",
+  "azure_writes": 0,
+  "full_download": false,
+  "public_promotion": false
+}
