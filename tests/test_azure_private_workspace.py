@@ -1,4 +1,4 @@
-from contextlib import contextmanager
+from contextlib import closing, contextmanager
 from http.client import HTTPConnection
 from http.server import ThreadingHTTPServer
 import json
@@ -6,8 +6,10 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from threading import Thread
 import unittest
+from unittest.mock import patch
 
 import facilitysignal
+from iqies_capabilities import DDL
 from build_combined import sha
 from scripts.azure_private_workspace import restored_snapshot, verify_workspace, workspace_handler
 
@@ -22,6 +24,18 @@ def fixture():
         csv.write_text("CMS Certification Number (CCN),Facility Name,Address,City,State,ZIP Code\n"
                        "000001,Fixture Hospital,1 Example Street,Test City,NY,10001\n")
         facilitysignal.import_csv(db, "hospital", csv, "2026-11-01", 1)
+        with closing(facilitysignal.connect(db)) as con:
+            con.executescript(DDL)
+            con.execute("INSERT INTO certification_releases VALUES(?,?,?,?,?,?,?,?,?)",
+                        ("iqies","Fixture","2026-Q3","fixture-api","fixture-csv","a"*64,1,"2026-11-01","{}"))
+            con.execute("INSERT INTO certification_records VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                        ("iqies",1,"b"*64,"000002","Fixture ASC","2 Example Street",
+                         "Test City","NY","10002","Ambulatory surgical center","","","",""))
+            con.execute("INSERT INTO iqies_capability_release VALUES(?,?,?,?,?,?,?)",
+                        (1,"a"*64,"b"*64,"2026-Q3","fixture-dictionary",1,"2026-11-01"))
+            con.execute("INSERT INTO iqies_capability_observations VALUES(?,?,?,?,?,?)",
+                        ("iqies",1,"oprtg_room_cnt","ASC","reported_count",2))
+            con.commit()
         yield db
 
 
@@ -47,11 +61,22 @@ class PrivateWorkspaceTest(unittest.TestCase):
             with restored_snapshot(store, manifest, restore) as (db, report):
                 self.assertTrue(db.is_file())
                 result = verify_workspace(db, report)
-                self.assertEqual(result["workspace_provider_records"], 1)
+                self.assertEqual(result["filtered_provider_records"], 1)
+                self.assertEqual(result["service_observations"], 1)
+                self.assertTrue(result["provider_profile_verified"])
+                self.assertTrue(result["snapshot_unchanged"])
                 self.assertEqual(result["source"], "private_azure_archive")
                 self.assertNotIn("Fixture Hospital", str(result))
                 self.assertEqual(sha(db), sha(source))
             self.assertFalse(db.exists())
+
+    def test_http_count_drift_is_not_certified(self):
+        with fixture() as db:
+            def wrong_service(_db, _params):
+                return {"status":"source_observations","total":2,"rows":[{"state":"NY"}]}
+            with patch("local_research.service_search", side_effect=wrong_service):
+                with self.assertRaisesRegex(ValueError, "service search differs"):
+                    verify_workspace(db, {})
 
     def test_digest_drift_stops_before_serving_and_cleans_up(self):
         db = None

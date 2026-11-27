@@ -4,14 +4,17 @@ Never initializes a source database or exposes Azure connection information.
 Azure recovery reuses the existing trusted-main storage boundary.
 """
 import argparse
-from contextlib import contextmanager
+from contextlib import closing, contextmanager
+from html import escape
 from http.server import ThreadingHTTPServer
 import json
 import os
 from pathlib import Path
 import re
+import sqlite3
 import tempfile
 from threading import Thread
+from urllib.parse import urlencode
 from urllib.request import urlopen
 
 import facilitysignal
@@ -69,6 +72,31 @@ def workspace_handler(db, report):
 
 def verify_workspace(db, report):
     """Hit the actual UI and existing read-only service, emitting no provider rows."""
+    digest = sha(db)
+    with closing(sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True)) as sql:
+        provider = sql.execute("""SELECT f.ccn,f.name,f.state,r.published_on
+            FROM facilities f JOIN releases r ON f.release_id=r.id
+            WHERE f.dataset='hospital' ORDER BY f.ccn LIMIT 1""").fetchone()
+        require(provider is not None, "no hospital profile available")
+        ccn, name, state, release = provider
+        provider_count = sql.execute(
+            "SELECT count(*) FROM facilities WHERE dataset='hospital' AND state=? AND ccn=?",
+            (state, ccn)).fetchone()[0]
+        jurisdictions = sorted(facilitysignal.STATES)
+        placeholders = ",".join("?" for _ in jurisdictions)
+        service_state = sql.execute("""SELECT min(c.state)
+            FROM iqies_capability_observations o JOIN certification_records c
+              ON o.registry=c.registry AND o.row_number=c.row_number
+            WHERE o.registry='iqies' AND o.field='oprtg_room_cnt'
+              AND o.provider_scope='ASC' AND c.state IN (""" + placeholders + ")",
+              jurisdictions).fetchone()[0]
+        require(service_state in facilitysignal.STATES, "no scoped service observations")
+        service_count = sql.execute("""SELECT count(*)
+            FROM iqies_capability_observations o JOIN certification_records c
+              ON o.registry=c.registry AND o.row_number=c.row_number
+            WHERE o.registry='iqies' AND o.field='oprtg_room_cnt'
+              AND o.provider_scope='ASC' AND c.state=?""", (service_state,)).fetchone()[0]
+        require(provider_count == 1 and service_count > 0, "snapshot route inputs incomplete")
     with ThreadingHTTPServer(("127.0.0.1", 0), workspace_handler(db, report)) as server:
         t = Thread(target=server.serve_forever, daemon=True)
         t.start()
@@ -78,10 +106,28 @@ def verify_workspace(db, report):
                 require(b"Private Azure snapshot" in resp.read(), "workspace HTML")
             with urlopen(origin + "/api/archive", timeout=20) as resp:
                 require(json.load(resp) == report, "workspace archive lineage")
-            with urlopen(origin + "/api/facilities?limit=1", timeout=20) as resp:
+            filters = {"dataset": "hospital", "state": state, "ccn": ccn, "limit": 1}
+            with urlopen(origin + "/api/facilities?" + urlencode(filters), timeout=20) as resp:
                 data = json.load(resp)
-                require(data["total"] > 0, "workspace has no usable provider records")
-            return {**report, "workspace_provider_records": data["total"], "http_smoke": "PASS"}
+                require(data["total"] == provider_count and len(data["rows"]) == 1
+                        and all(data["rows"][0][k] == v for k,v in (
+                            ("ccn", ccn), ("name", name), ("state", state), ("dataset", "hospital"))),
+                        "filtered provider search differs from snapshot")
+            with urlopen(origin + "/facility?" + urlencode({"dataset": "hospital", "ccn": ccn}),
+                         timeout=20) as resp:
+                page = resp.read().decode()
+                require("<h1>" + escape(name) + "</h1>" in page
+                        and "<strong>" + escape(release) + "</strong>" in page,
+                        "provider profile differs from snapshot")
+            svc = {"registry": "iqies", "field": "oprtg_room_cnt", "state": service_state, "limit": 1}
+            with urlopen(origin + "/api/service-research?" + urlencode(svc), timeout=20) as resp:
+                data = json.load(resp)
+                require(data["status"] == "source_observations" and data["total"] == service_count
+                        and len(data["rows"]) == 1 and data["rows"][0]["state"] == service_state,
+                        "service search differs from snapshot")
+            require(sha(db) == digest, "snapshot changed during workspace smoke")
+            return {**report, "filtered_provider_records": provider_count, "service_observations": service_count,
+                    "provider_profile_verified": True, "snapshot_unchanged": True, "http_smoke": "PASS"}
         finally:
             server.shutdown()
             t.join()
