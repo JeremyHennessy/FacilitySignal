@@ -30,7 +30,7 @@
     "private_directory_archived": 1,
     "private_aggregate_key_review": 1
   },
-  "discovery_only_entries": 125,
+  "discovery_only_entries": 124,
   "sources": [
     {
       "id": "FS-001",
@@ -808,8 +808,8 @@
       "id": "FS-041",
       "source": "Ambulatory surgical center quality reporting",
       "priority": "P1",
-      "historical_status": "discovered_not_tested",
-      "qualification": "discovered_not_tested",
+      "historical_status": "aggregate_screening_qualified",
+      "qualification": "aggregate_screening_qualified",
       "storage": "no_pinned_source_projection",
       "evidence": [],
       "limit": null,
@@ -3305,10 +3305,10 @@
     },
     "limit": "Historical pack parity and pinned evidence inventory; not an ordinary-live browser check or new publication."
   },
-  "baseline_commit": "ee7cdfa1ffec443c25255de90c39c92ec806274a",
+  "baseline_commit": "5450a0bb577b566c5b8e9e4c842262270b377458",
   "input_git_blob_shas": {
     "research/facilitysignal_source_register_v0.2.json": "8d3a5e9992cc4b9d819452cd4050dd19731e0d55",
-    "research/coverage_status.json": "4805dc2b971e000efaddd1f3e0935a8c4056f30c",
+    "research/coverage_status.json": "8bde298652222c66d189c51000a196b27d04024e",
     "research/azure_archive_inventory_20261126.json": "420b6591d6b75dc10f8c4f564f5143c346611e0b",
     "research/private_source_register_receipt_map_20261126.json": "42e416efcb2973bbd219c12d444d747adf3a13ae",
     "research/snapshot_release_20261125.json": "9162fbdcc3ee591b63429df3279cdf11a8ddf125",
@@ -3328,6 +3328,7 @@
     "unmapped core source rejected",
     "append-only archive delta: all 73 prior receipts and two layers unchanged; new corroboration receipt's four input archive hashes, counts and database hashes match; payload bytes and files reconcile; 176 source classifications unchanged",
     "FS-039 append-only: exact completed private receipt, two payload hashes, 71,270 organizational role rows, unchanged preceding archive receipts and historical source states; source-specific readback, not yet included in a new consolidated audit.",
-    "Latest 216-file metadata audit 45900897912: exact totals and unchanged pointers; prior 212-file full readback scope separate. FS-049/050 now mapped in authoritative coverage metadata; original historical statuses preserved."
+    "Latest 216-file metadata audit 45900897912: exact totals and unchanged pointers; prior 212-file full readback scope separate. FS-049/050 now mapped in authoritative coverage metadata; original historical statuses preserved.",
+    "FS-041 aggregate screening 46043049342: 5,786 source rows and 47 columns, no retained source rows or new archive receipt. Historical qualification updated; archive totals, storage scope and other source rows unchanged."
   ]
 }

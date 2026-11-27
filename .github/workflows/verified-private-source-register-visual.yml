@@ -1,8 +1,10 @@
 name: FacilitySignal verified source register visual evidence
 on:
   push:
-    branches: [main, build/verified-archive-source-register-20261126, build/fs039-archive-receipt-reconciliation-20261126, build/postacute-register-reconcile-20261126]
+    branches: [main, build/verified-archive-source-register-20261126, build/fs039-archive-receipt-reconciliation-20261126, build/postacute-register-reconcile-20261126, fix/fs041-storage-register-parity-20261127]
     paths:
+      - docs/storage_coverage_reconciliation_20261126.json
+      - tests/storage_coverage_reconciliation.test.js
       - research/coverage_status.json
       - research/private_source_register_receipt_map_20261126.json
       - scripts/verify_private_source_register_visual.py
