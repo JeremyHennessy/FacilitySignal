@@ -1,0 +1,31 @@
+{
+  "cross_program_links": 0,
+  "hash_scope": "Transient minimized projection from official displayed table, not raw publisher CSV/API bytes",
+  "national_counts_used_as_provider_denominator": false,
+  "national_dataset": "uk3n-au7a",
+  "national_rate_inferred": false,
+  "national_rate_status": "source_not_available_not_zero",
+  "national_reported_category_counts": {
+    "better": 0,
+    "same": 2,
+    "too_few": 4,
+    "worse": 0
+  },
+  "national_rows_verified": 1,
+  "performance_window": [
+    "2024-01-01",
+    "2024-12-31"
+  ],
+  "projection_sha256": "2326ad045b92ade39db8d143296f34f5c3d17b7269ec05cd7e180ccfc9506ab2",
+  "provider_dataset": "zez1-ka2w",
+  "provider_preview_rows_verified": 25,
+  "provider_preview_score_dispositions": {
+    "no_eligible_cases": 1,
+    "numeric_with_reported_interval": 1,
+    "too_few_to_report": 2,
+    "unavailable_reason_unspecified": 21
+  },
+  "provider_records_emitted": 0,
+  "publisher_catalog_provider_rows_unverified": 49,
+  "release": "2026-11-12"
+}
