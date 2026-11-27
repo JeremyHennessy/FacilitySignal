@@ -1,8 +1,8 @@
 """Weekly source change detection and private candidate refresh.
 
 The stable national and extension pointers and Pages files are read-only.
-Care Compare changes are independently imported and archived by release.
-New NPPES releases retain verified organization-only private projections.
+Existing private candidates may be reviewed. New Care Compare and NPPES
+candidate downloads and writes are blocked pending cost and retention approval.
 No automatic public promotion of inconsistent multi-source data packs.
 """
 import argparse,hashlib,io,json,os,re,sqlite3,tempfile
@@ -23,6 +23,11 @@ from build_combined import require,sha,check_integrity
 ROOT=Path(__file__).resolve().parents[1]
 PREFIX=archive.PREFIX+"/refresh"
 POLICY_VERSION=1
+# No verified zero-incremental-cost capacity or release-specific retention
+# approval is recorded. A future reviewed change may lift this gate; an
+# environment variable or workflow dispatch must not bypass it.
+WRITE_BLOCK_STATE="new_release_storage_and_reuse_review"
+WRITE_BLOCK_REASON="Verified storage cost and release-specific retention approval required."
 EXTRA_CMS={"nursing-penalties":"g6vv-u9sr","nursing-survey-dates":"svdt-c123","nursing-survey-summary":"tbry-pc2d"}
 MAX_NEW_WEEKS=4
 MAX_CHANGED_CMS=9
@@ -47,9 +52,7 @@ class WeeklyAzure(source_archive.SourceAzure):
         else:archive.allowed_name(name)
         return self.container.get_blob_client(name)
     def create(self,name,stream,size,kind):
-        if name.startswith(source_archive.PREFIX+"/nppes-weekly/"):source_archive.safe(name)
-        else:safe_name(name)
-        return archive.Azure.create(self,name,stream,size,kind)
+        raise ValueError(WRITE_BLOCK_REASON)
     def list(self,prefix):
         if prefix.startswith(source_archive.PREFIX+"/nppes-weekly/"):
             yield from source_archive.SourceAzure.list(self,prefix);return
@@ -184,7 +187,7 @@ def discover_registry(catalog,sources):
 
 def run(store,national,root):
     lock,ledger,pinned,extra=load_evidence()
-    results={};failures=[];changed=0
+    results={};failures=[]
     for key,old in sorted(pinned.items()):
         try:
             ident=fs.CATALOG[key][0];meta=cms.metadata(ident);n=cms.count(ident)
@@ -196,12 +199,7 @@ def run(store,national,root):
                 if old_candidate:
                     report.update(state="candidate_already_qualified",candidate=old_candidate["result"])
                 else:
-                    changed+=1;require(changed<=MAX_CHANGED_CMS,"weekly changed-source bound")
-                    with tempfile.TemporaryDirectory(prefix="weekly-cms-",dir=root) as d:
-                        stage=Path(d);result,db=qualify_cms_candidate(key,meta,n,stage)
-                        a=stage/"audit.json";a.write_bytes(archive.encode(result))
-                        publish_candidate(store,prefix,key,identity,{"audit.json":a,"candidate.sqlite3":db},result,national)
-                    report.update(state="private_candidate_qualified",candidate=result)
+                    report.update(state=WRITE_BLOCK_STATE,candidate_identity=identity,reason=WRITE_BLOCK_REASON)
             results[key]=report
         except Exception as e:
             results[key]={"state":"failed","error_type":type(e).__name__};failures.append(key)
@@ -216,7 +214,7 @@ def run(store,national,root):
             page=res.read(5_000_001);require(0<len(page)<=5_000_000,"NPPES index bound")
         weeks,monthly=discover_nppes(page.decode("utf-8",errors="strict"))
         known={v["audit"]["publisher_label"]:v["audit"]["publisher"]["url"] for v in ledger["nppes_v2_qualified_baselines"].values()}
-        report=[];new=0
+        report=[]
         for week in weeks:
             if known.get(week["label"])==week["url"]:
                 report.append({**week,"state":"previously_qualified"});continue
@@ -225,12 +223,7 @@ def run(store,national,root):
             identity=fingerprint({"policy":POLICY_VERSION,"release":week,"private_projection":1});prefix=PREFIX+"/nppes-weekly/"+identity
             prior=existing(store,prefix,"nppes-weekly",identity)
             if prior:report.append({**week,"state":"candidate_already_qualified","organization_observations":prior["result"]["organization_observations"]});continue
-            new+=1;require(new<=MAX_NEW_WEEKS,"weekly update bound")
-            with tempfile.TemporaryDirectory(prefix="weekly-nppes-",dir=root) as d:
-                stage=Path(d);result=qualify_nppes_week(week,stage,store,national)
-                a=stage/"weekly-index-audit.json";a.write_bytes(archive.encode(result))
-                publish_candidate(store,prefix,"nppes-weekly",identity,{"audit.json":a},result,national)
-            report.append({**week,"state":"private_projection_qualified","organization_observations":result["organization_observations"],"archive_release":result["archive_release"]})
+            report.append({**week,"state":WRITE_BLOCK_STATE,"candidate_identity":identity,"reason":WRITE_BLOCK_REASON})
         results["nppes"]={"weeks":report,"monthly":{**monthly,"state":"unchanged" if known.get(monthly["label"])==monthly["url"] else "new_monthly_release_review"}}
     except Exception as e:results["nppes"]={"state":"failed","error_type":type(e).__name__};failures.append("nppes")
     try:results["registry_and_ownership"]=discover_registry(registry.get_json(registry.CATALOG),lock["sources"])
@@ -244,7 +237,7 @@ def run(store,national,root):
         results["additional_private_archives"]={"state":"failed","error_type":type(e).__name__}
         failures.append("additional_private_archives")
     unchanged(store,national)
-    return {"format_version":1,"checked_at":datetime.now(timezone.utc).isoformat(),"base_release":national["pointer"]["release"],"policy_version":POLICY_VERSION,"sources":results,"failed_checks":failures,"national_pointer_unchanged":True,"pages_packs_unchanged":True,"public_promotion":False,"limits":"Care Compare source candidates and NPPES weekly private institutional projections. Nursing supplementary, registry/ownership and monthly NPPES changes detected for separate qualification; not automatic public release. Source metadata equality does not prove unchanged bytes at mutable URLs."}
+    return {"format_version":1,"checked_at":datetime.now(timezone.utc).isoformat(),"base_release":national["pointer"]["release"],"policy_version":POLICY_VERSION,"sources":results,"failed_checks":failures,"national_pointer_unchanged":True,"pages_packs_unchanged":True,"public_promotion":False,"new_candidate_writes_enabled":False,"write_block_reason":WRITE_BLOCK_REASON,"limits":"Discovery and read-only verification of existing Care Compare and NPPES weekly candidates. New candidate downloads and writes blocked pending verified storage cost and release-specific retention approval. Nursing supplementary, registry/ownership and monthly NPPES changes detected for separate qualification; not automatic public release. Source metadata equality does not prove unchanged bytes at mutable URLs."}
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--audit",type=Path,required=True);a=p.parse_args()
