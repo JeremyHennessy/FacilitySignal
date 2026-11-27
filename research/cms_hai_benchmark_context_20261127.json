@@ -1,0 +1,29 @@
+{
+  "benchmark_measure_period_keys_checked": 6,
+  "catalog_provider_rows_unverified": 172332,
+  "comparison_period": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "facility_rows_emitted": 0,
+  "national_catalog_row_count": 6,
+  "national_dataset": "yd3s-jyhd",
+  "physical_site_attributions": 0,
+  "projection_sha256": "975599ab610a6f5d290e66e571ecd92b3e807878a23e63dd7b22e66e5e2ae6e1",
+  "provider_dataset": "77hc-ibv8",
+  "provider_screen_is_not_full_payload": true,
+  "provider_screen_rows": 24,
+  "publisher_labels_on_numeric_members": {
+    "Better than the National Benchmark": 2,
+    "No Different than National Benchmark": 1
+  },
+  "publisher_release_date": "2026-11-12",
+  "risk_scores_calculated": 0,
+  "row_dispositions": {
+    "numeric_sir_exact_benchmark_context": 3,
+    "other_metric_not_used_for_benchmark": 20,
+    "source_score_unavailable": 1,
+    "unavailable_with_footnote": 1
+  },
+  "sha256_scope": "Canonical JSON of transient minimal parsed displayed rows, not CMS raw CSV or HTTP response"
+}
