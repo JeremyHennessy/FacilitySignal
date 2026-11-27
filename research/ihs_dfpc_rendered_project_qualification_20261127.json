@@ -1,0 +1,25 @@
+{
+  "cards_with_photo_year": 15,
+  "cards_with_tbd_photo_year": 5,
+  "deduplicated_display_statuses": {
+    "completed": 19,
+    "in_construction": 1
+  },
+  "display_cards": 20,
+  "facility_links_qualified": 0,
+  "limits": "Publisher display statuses, not current construction verification, facility IDs, operations, contracts, awards, or expenditure. Photo years are not project dates.",
+  "normalized_distinct_display_titles": 20,
+  "photo_year_range": [
+    2015,
+    2024
+  ],
+  "public_promotion": false,
+  "rendered_input_bytes": 3958,
+  "rendered_input_sha256": "022299956250f80b9d4065889b03c34037c7f1315af69497f12775d0372a6bf8",
+  "repeated_titles": 0,
+  "scope": "rendered public project cards, not original publisher bytes",
+  "source": "https://www.ihs.gov/DFPC/projects/",
+  "qualification_observed_utc": "2026-11-27",
+  "source_capture_status": "complete_215_line_rendered_copy_crawl_age_about_four_weeks",
+  "retained_raw_extract": false
+}
