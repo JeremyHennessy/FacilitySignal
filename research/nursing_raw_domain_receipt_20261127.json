@@ -1,0 +1,202 @@
+{
+  "format_version": 1,
+  "as_of": "2026-11-27",
+  "qualified_commit": "6ecb3fc4192ec1cced420e3a7433e33af1598d19",
+  "run": 45916038405,
+  "job": 140235375515,
+  "artifact": {
+    "id": 15161604902,
+    "digest": "sha256:74290d17dd5116b6179ff770259f182aae903b4581b2868b6c8845ede83ec420",
+    "expires_at": "2026-12-27T00:19:42Z"
+  },
+  "tests_passed": 4,
+  "scope": "Full aggregate JSON emitted by successful qualification log. Artifact ZIP digest verified from GitHub metadata; not independently extracted. No row-level values.",
+  "ownership_broad_candidate_groups": {
+    "for_profit": 10885,
+    "nonprofit": 2853,
+    "government": 948
+  },
+  "result": {
+    "average_daily_residents": {
+      "reported": 14628,
+      "states": {
+        "blank": 58,
+        "reported": 14628
+      },
+      "sum": "1254183.5",
+      "zero": 0
+    },
+    "ccrc": {
+      "reported_no": 13138,
+      "reported_yes": 1548
+    },
+    "census_capacity_pairs": {
+      "beds_only": 55,
+      "both_reported": 14620,
+      "census_above_certified_beds": 122,
+      "census_at_or_below_certified_beds": 14498,
+      "census_only": 8,
+      "neither_reported": 3
+    },
+    "certified_beds": {
+      "max": 843,
+      "min": 2,
+      "public_projection_parity": 14686,
+      "reported": 14675,
+      "states": {
+        "blank": 11,
+        "reported": 14675
+      },
+      "sum": 1567009,
+      "zero": 0
+    },
+    "coordinate_geocoding_footnote": {
+      "within_global_bounds | 22": 808,
+      "within_global_bounds | blank": 13878
+    },
+    "coordinate_shape": {
+      "within_global_bounds": 14686
+    },
+    "field_count": 102,
+    "footnote_counts": {
+      "Administrator turnover footnote": {
+        "26": 1379,
+        "27": 274,
+        "blank": 13033
+      },
+      "Average Number of Residents per Day Footnote": {
+        "10": 58,
+        "blank": 14628
+      },
+      "Geocoding Footnote": {
+        "22": 808,
+        "blank": 13878
+      },
+      "Health Inspection Rating Footnote": {
+        "1": 39,
+        "18": 87,
+        "blank": 14560
+      },
+      "Long-Stay QM Rating Footnote": {
+        "1": 39,
+        "2": 400,
+        "18": 87,
+        "20": 83,
+        "blank": 14077
+      },
+      "Overall Rating Footnote": {
+        "1": 39,
+        "18": 87,
+        "blank": 14560
+      },
+      "Physical Therapist Staffing Footnote": {
+        "6": 246,
+        "23": 122,
+        "blank": 14318
+      },
+      "QM Rating Footnote": {
+        "1": 39,
+        "2": 54,
+        "18": 87,
+        "20": 83,
+        "blank": 14423
+      },
+      "Rating Cycle 1 Standard Survey Footnote": {
+        "29": 129,
+        "blank": 14557
+      },
+      "Rating Cycle 2 Standard Survey Footnote": {
+        "29": 4,
+        "blank": 14682
+      },
+      "Registered Nurse turnover footnote": {
+        "26": 879,
+        "27": 997,
+        "blank": 12810
+      },
+      "Reported Staffing Footnote": {
+        "6": 85,
+        "23": 122,
+        "25": 160,
+        "blank": 14319
+      },
+      "Short-Stay QM Rating Footnote": {
+        "1": 39,
+        "2": 2733,
+        "18": 87,
+        "20": 65,
+        "blank": 11762
+      },
+      "Staffing Rating Footnote": {
+        "1": 39,
+        "2": 77,
+        "18": 87,
+        "23": 119,
+        "24": 274,
+        "25": 136,
+        "blank": 13954
+      },
+      "Total nursing staff turnover footnote": {
+        "26": 892,
+        "27": 207,
+        "blank": 13587
+      }
+    },
+    "hospital_location": {
+      "reported_no": 14078,
+      "reported_yes": 608
+    },
+    "identity_projection_parity": 14686,
+    "initial_approval_date": {
+      "calendar_date": 14686
+    },
+    "limits": [
+      "Ownership labels are comparison candidates based on documented historical category names, not legal title or current-version equivalence.",
+      "Bed/census comparisons are diagnostics between different measures and possible time windows, not validated occupancy.",
+      "Global coordinate bounds and geocoding codes do not establish address accuracy. No coordinates or facility identifiers emitted.",
+      "Footnote code 29 meaning remains October text-only; no individual survey or risk inference. No suppressed values reconstructed."
+    ],
+    "new_application_approved_fields": 0,
+    "new_public_row_fields": 0,
+    "ownership_candidate_labels": {
+      "for_profit_corporation": 4601,
+      "for_profit_individual": 603,
+      "for_profit_llc_company_label": 5333,
+      "for_profit_partnership": 348,
+      "government_city": 49,
+      "government_city_county": 71,
+      "government_county": 341,
+      "government_federal": 14,
+      "government_hospital_district": 316,
+      "government_state": 157,
+      "nonprofit_church": 240,
+      "nonprofit_corporation": 2304,
+      "nonprofit_other": 309
+    },
+    "ownership_unmapped_distinct": 0,
+    "paired_totals": {
+      "average_daily_residents": "1253789.6",
+      "certified_beds": "1562040"
+    },
+    "processing_date": {
+      "calendar_date": 14686
+    },
+    "provider_reported_categories": {
+      "medicaid": 245,
+      "medicare": 537,
+      "medicare_and_medicaid": 13904
+    },
+    "provider_unmapped_distinct": 0,
+    "publisher_bytes": 9218563,
+    "publisher_downloads": 1,
+    "release": "2026-10-28",
+    "rows": 14686,
+    "source": "nursing",
+    "source_sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2",
+    "status": "AUDIT_COMPLETE_NOT_PUBLICATION_APPROVAL",
+    "urban": {
+      "reported_no": 4005,
+      "reported_yes": 10681
+    }
+  }
+}
