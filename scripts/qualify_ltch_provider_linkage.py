@@ -109,7 +109,7 @@ def read_local(path, pin):
 
 def retrieve(pin):
     # Only called in the explicit bounded publisher qualification mode.
-    from scripts import collect_cms as cms
+    import collect_cms as cms
     meta = cms.metadata(pin["id"])
     require(meta["url"]==pin["url"] and meta["released"]==RELEASE
             and meta["modified"]==pin["modified"] and cms.count(pin["id"])==pin["rows"],
