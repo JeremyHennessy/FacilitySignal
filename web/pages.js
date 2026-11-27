@@ -427,6 +427,17 @@ function industryResearch(p){
     ];
     const grid=el("div",undefined,"industry-grid");
     for(const [label,note,links] of sections){const item=el("section",undefined,"industry-panel");item.append(el("h2",label),el("p",note,"intro"));const list=el("div",undefined,"industry-links");for(const [name,url] of links)list.append(anchor(name,url));item.append(list);grid.append(item)}
+    if(state==="MN"){
+        const item=el("section",undefined,"industry-panel");
+        item.append(el("h2","Minnesota boiler registration research"),
+            el("p","Use the Minnesota CMS hospital or nursing provider directory for research context, then look up boiler and pressure-vessel certificates separately with the Minnesota Department of Labor and Industry. Equipment is not linked to these provider records here.","intro"),
+            el("p","The state requires an account for certificate searches. Insurance-inspected records are loaded weekly and may not reflect the latest information. FacilitySignal does not send provider identifiers or addresses to the state.","intro"),
+            add(el("div",undefined,"industry-links"),
+                anchor("Minnesota hospital provider records",search("hospital")),
+                anchor("Minnesota nursing provider records",search("nursing")),
+                anchor("Minnesota DLI certificate lookup instructions (opens in a new tab)","https://dli.mn.gov/workers/boiler-engineer/certificate-registration-boilers-and-pressure-vessels",true)));
+        grid.append(item)
+    }
     app.append(grid,el("div","National aggregate pages are not jurisdiction-filtered unless explicitly stated. These research pathways do not establish current purchasing intent or confirmed opportunities.","notice"))
 }
 

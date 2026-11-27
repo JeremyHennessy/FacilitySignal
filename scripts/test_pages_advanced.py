@@ -71,7 +71,7 @@ try:
             assert int(page.locator(".advanced-status").get_attribute("data-total"))==expected_all
             page.get_by_role("link",name="Next",exact=True).click()
             page.locator('.advanced-status[data-complete="true"]').wait_for()
-            assert page.get_by_text("Page 2 ·",exact=False).count()==1
+            page.get_by_text("Page 2 ·",exact=False).wait_for()
             page.goto(URL+"#advanced?source=all&min=1&run=1")
             page.get_by_text("Choose one capacity-qualified category",exact=False).wait_for()
             page.goto(URL+"#industry?state=NY")
@@ -81,6 +81,45 @@ try:
             page.get_by_role("link",name="Dialysis providers",exact=True).click()
             page.locator('.advanced-status[data-complete="true"]').wait_for()
             assert int(page.locator(".advanced-status").get_attribute("data-total"))==sum(r["state"]=="NY" for r in sources["dialysis"]["records"])
+            # Minnesota-only referral: no source traffic from viewing the card, no provider data sent to DLI.
+            page.goto(URL+"#industry")
+            pathway=page.get_by_role("heading",name="Minnesota boiler registration research")
+            pathway.wait_for(state="hidden")
+            page.locator("select[name=state]").select_option("MN")
+            start=len(requests)
+            page.get_by_role("button",name="Apply jurisdiction").click()
+            pathway.wait_for()
+            card=page.locator(".industry-panel").filter(has=pathway)
+            assert "Equipment is not linked" in card.inner_text()
+            assert "requires an account" in card.inner_text()
+            assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+            card.screenshot(path=str(OUT/f"{width}-industry-minnesota-boiler.png"))
+            assert not requests[start:],requests[start:]
+            official=card.get_by_role("link",name="Minnesota DLI certificate lookup instructions",exact=False)
+            assert official.get_attribute("href")=="https://dli.mn.gov/workers/boiler-engineer/certificate-registration-boilers-and-pressure-vessels"
+            assert official.get_attribute("target")=="_blank" and set(official.get_attribute("rel").split())=={"noopener","noreferrer"}
+            mn_counts={source:sum(r["state"]=="MN" for r in sources[source]["records"]) for source in ("hospital","nursing")}
+            for source,records in mn_counts.items():
+                assert records>0
+                start=len(requests)
+                card.get_by_role("link",name=f"Minnesota {source} provider records").click()
+                page.locator('.advanced-status[data-complete="true"]').wait_for()
+                assert urlsplit(page.url).fragment==f"advanced?source={source}&state=MN&run=1"
+                assert int(page.locator(".advanced-status").get_attribute("data-total"))==records
+                assert all(urlsplit(u).netloc==urlsplit(URL).netloc for u in requests[start:]),requests[start:]
+                assert all(urlsplit(u).path.rsplit("/",1)[-1] in ("manifest.json",f"{source}.json") for u in requests[start:]),requests[start:]
+                page.go_back()
+                assert urlsplit(page.url).fragment=="industry?state=MN"
+                pathway.wait_for()
+            page.go_forward()
+            page.locator('.advanced-status[data-complete="true"]').wait_for()
+            assert int(page.locator(".advanced-status").get_attribute("data-total"))==mn_counts["nursing"]
+            page.go_back()
+            pathway.wait_for()
+            page.locator("select[name=state]").select_option("NY")
+            page.get_by_role("button",name="Apply jurisdiction").click()
+            page.wait_for_function("location.hash === '#industry?state=NY'")
+            pathway.wait_for(state="hidden")
             # Market and quick-search handoffs retain the exact selection and support back/forward.
             page.goto(URL+"#geography?source=hospital&state=NY")
             page.locator(".market-region[data-state=NY][aria-current=true]").wait_for()
@@ -128,7 +167,7 @@ try:
             assert page.locator('[data-aggregation="source-shard-fallback"]').count()==1
             assert any(re.search(r"/public-directory/(?!manifest)[a-z-]+\.json",u) for u in requests)
             assert not errors,errors
-            checks.append({"width":width,"map_render_ms":map_ms,"nursing_matches":len(expected),"vermont_matches":expected_all,"export_and_return_state":True,"industry_links":True,"aggregate_fallback":True})
+            checks.append({"width":width,"map_render_ms":map_ms,"nursing_matches":len(expected),"vermont_matches":expected_all,"export_and_return_state":True,"industry_links":True,"minnesota_boiler_referral":mn_counts,"aggregate_fallback":True})
             ctx.close()
         b.close()
     (OUT/"report.json").write_text(json.dumps({"checks":checks},indent=2))
