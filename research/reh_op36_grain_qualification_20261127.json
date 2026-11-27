@@ -1,0 +1,73 @@
+{
+  "application_clearance": "pending",
+  "catalog_release": "2026-11-12",
+  "cross_grain_check": {
+    "derivation_or_coverage_population_supported": false,
+    "difference_explanation": "not established",
+    "matches_published_national_comparison_counts": false,
+    "provider_export_comparison_label_counts": {
+      "better": 0,
+      "same": 1,
+      "too_few": 3,
+      "worse": 0
+    }
+  },
+  "limits": [
+    "Provider rows are distinct historical measure records, not the current operating REH population.",
+    "National rate unavailable is not zero; a numeric provider result is not a confirmed national benchmark.",
+    "Publisher national counts and provider-export labels are different grains; do not reconstruct or impute missing classifications.",
+    "Footnote 7 is no eligible cases for this measure, not zero unplanned visits or absence of service.",
+    "The CMS measure-specific listing defines seven days; generic file descriptions in the Hospital Downloadable Database dictionary do not define the measure."
+  ],
+  "measure_id": "REH_OP_36",
+  "measure_semantics_source": "https://data.cms.gov/provider-data/topics/hospitals/measures-and-current-data-collection-periods",
+  "measure_window_days": 7,
+  "national_export": {
+    "published_comparison_counts": {
+      "better": 0,
+      "same": 2,
+      "too_few": 4,
+      "worse": 0
+    },
+    "rate_status": "period_result_unavailable"
+  },
+  "performance_period": [
+    "2024-01-01",
+    "2024-12-31"
+  ],
+  "provider_export": {
+    "distinct_ccns": 49,
+    "distinct_state_codes": 21,
+    "rows": 49,
+    "score_not_available": 48,
+    "status_counts": {
+      "no_eligible_cases": 1,
+      "period_result_unavailable": 44,
+      "reported_numeric": 1,
+      "too_few": 3
+    }
+  },
+  "provider_rows_retained": 0,
+  "provider_values_retained": 0,
+  "sources": {
+    "footnotes": {
+      "bytes": 3456,
+      "catalog": "https://data.cms.gov/provider-data/dataset/y9us-9xdf",
+      "download": "https://data.cms.gov/provider-data/sites/default/files/resources/f29bb7c812e242f6edfef0a4b7d0eaca_1760630713/Footnote_Crosswalk.csv",
+      "sha256": "5214e1468fb04c5cdeac8920f2c446cccaa65e2f6f929424cd228042a52d963e"
+    },
+    "national": {
+      "bytes": 320,
+      "catalog": "https://data.cms.gov/provider-data/dataset/uk3n-au7a",
+      "download": "https://data.cms.gov/provider-data/sites/default/files/resources/ab50380fe5f8578c9b07e118dcdc43e4_1792600039/REH_Unplanned_Hospital_Visits-National.csv",
+      "sha256": "f296d65d98bfa2fe71d58054d30c74f197a9db02213d968a032373ffb6bbdb08"
+    },
+    "provider": {
+      "bytes": 13537,
+      "catalog": "https://data.cms.gov/provider-data/dataset/zez1-ka2w",
+      "download": "https://data.cms.gov/provider-data/sites/default/files/resources/8058b83869a5ba155b84c3227e60f61c_1792600032/REH_Unplanned_Hospital_Visits-Hospital.csv",
+      "sha256": "08ef87fe8c8b116e2f32ba53fbdf0c2c79abf38334bb1a750190749a2ff138d4"
+    }
+  },
+  "status": "historical_aggregate_qualified"
+}
