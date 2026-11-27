@@ -1,0 +1,120 @@
+{
+  "cms_keyable_minnesota_provider_rows": {
+    "hospital": 135,
+    "nursing": 337
+  },
+  "cms_minnesota_provider_rows": {
+    "hospital": 136,
+    "nursing": 337
+  },
+  "cms_pack_sha256": {
+    "hospital": "222096b1bf7cfbfcb37c4c6375d6ba686c6e3ccdd7af47c542bfb91ad34d621a",
+    "nursing": "36363899e56c97433686ce8617a7d4b557b272a155e8a8eba1822c6f7a36e3ce"
+  },
+  "dli_source": {
+    "actual_header": [
+      "Asset_Number",
+      "Asset_Type",
+      "MNB_Number",
+      "Serial_Number",
+      "NB_Number",
+      "Last_Inspection_Date",
+      "Inspection_Type",
+      "Expiration_Date",
+      "Asset_SubType",
+      "Asset_Use",
+      "Fuel_Type",
+      "Manufacturer",
+      "Year_Built",
+      "MAWP",
+      "Heating_Surface",
+      "Max_BTU_Input",
+      "Milestone",
+      "Business_Name",
+      "Location_Address1",
+      "Location_Address2",
+      "Location_City",
+      "Location_County",
+      "Location_Zip",
+      "Owner_Name",
+      "Owner_Address1",
+      "Owner_Address2",
+      "Owner_City",
+      "Owner_State",
+      "Owner_Zip",
+      "Legacy_Site_No",
+      "Location_Record_ID"
+    ],
+    "archived_bytes": 8082131,
+    "asset_type_literal_buckets": {
+      "boiler": 46617,
+      "other_or_unmapped": 547,
+      "pressure_vessel": 124339
+    },
+    "distinct_dli_location_tokens": 35686,
+    "distinct_nonempty_asset_tokens": 171503,
+    "duplicate_nonempty_asset_rows": 0,
+    "literal_address_keyable_rows": 169146,
+    "local_csv_member": "BPV_SNAP_11_27_2026.csv",
+    "member_crc32": "9885b6be",
+    "milestone_literal_buckets": {
+      "ACTIVE": 66829,
+      "other_or_unmapped": 104674
+    },
+    "missing_asset_rows": 0,
+    "rows_screened": 171503,
+    "sha256": "7f745253a9c58e739d572cc88eddb8c84153c0458301642634f69ca4a91c3b4c"
+  },
+  "matching": {
+    "literal": {
+      "address_metrics": {
+        "matched_address_keys": 10,
+        "matched_with_boiler_rows": 10,
+        "matched_with_multi_provider_records": 1,
+        "matched_with_multiple_or_unset_dli_location_ids": 3,
+        "multi_provider_address_keys": 16,
+        "one_provider_one_dli_location_id_keys": 6,
+        "provider_address_keys": 456,
+        "unambiguous_key_with_boiler_rows": 6
+      },
+      "asset_source_rows_at_matched_keys": {
+        "boiler": 151,
+        "pressure_vessel": 132
+      },
+      "one_provider_one_dli_site_by_source": {
+        "hospital": 4,
+        "nursing": 2
+      },
+      "provider_records_with_candidates": {
+        "hospital": 8,
+        "nursing": 3
+      }
+    },
+    "street_suffix_only": {
+      "address_metrics": {
+        "matched_address_keys": 116,
+        "matched_with_boiler_rows": 114,
+        "matched_with_multi_provider_records": 6,
+        "matched_with_multiple_or_unset_dli_location_ids": 20,
+        "multi_provider_address_keys": 17,
+        "one_provider_one_dli_location_id_keys": 92,
+        "provider_address_keys": 455,
+        "unambiguous_key_with_boiler_rows": 90
+      },
+      "asset_source_rows_at_matched_keys": {
+        "boiler": 951,
+        "pressure_vessel": 760
+      },
+      "one_provider_one_dli_site_by_source": {
+        "hospital": 16,
+        "nursing": 76
+      },
+      "provider_records_with_candidates": {
+        "hospital": 39,
+        "nursing": 83
+      }
+    }
+  },
+  "scope": "Address/city/ZIP5 candidate co-location only, not asset ownership, installed/in-service equipment, operator, compliance, demand or vendor link. Only location (not owner) used. Multi-provider and DLI-site ambiguity stay distinct; one-to-one key still requires source review. No row/address/ID output, Azure write or promotion.",
+  "status": "AGGREGATE_RESEARCH_ONLY"
+}
