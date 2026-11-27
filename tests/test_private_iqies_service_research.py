@@ -51,6 +51,32 @@ class PrivateServiceSearchTests(unittest.TestCase):
         for invalid in ({"field":"bad"},{"field":"ft_srgry_sw","min":"1"},{"field":"ft_srgry_sw","value_state":"reported_count"},{"field":"ft_srgry_sw","limit":"101"}):
             with self.assertRaises(ValueError):q.search(self.db,invalid)
 
+    def test_html_route_scopes_results_and_escapes_names(self):
+        self.db.execute("UPDATE certification_records SET name='<em>Provider</em>' WHERE row_number=3")
+        self.db.commit()
+        for enabled in (False, True):
+            with patch.object(q, "verify_database"), fs.ThreadingHTTPServer(
+                    ("127.0.0.1", 0), fs.handler(self.path, private_service_extension=enabled,
+                                                 readonly_snapshot=True)) as server:
+                thread = threading.Thread(target=server.serve_forever, daemon=True)
+                thread.start()
+                try:
+                    url = f"http://127.0.0.1:{server.server_port}/additional-services?state=CA&value_state=not_available"
+                    if enabled:
+                        with urlopen(url, timeout=5) as response:
+                            page = response.read().decode()
+                        self.assertIn("&lt;em&gt;Provider&lt;/em&gt;", page)
+                        self.assertIn("Source period: Q3", page)
+                        self.assertIn("1 matching source observations", page)
+                        self.assertNotIn("Fixture 1", page)
+                    else:
+                        with self.assertRaises(HTTPError) as err:
+                            urlopen(url, timeout=5)
+                        self.assertEqual(err.exception.code, 404)
+                finally:
+                    server.shutdown()
+                    thread.join()
+
     def test_missing_and_mismatched_data_fail_closed(self):
         p={"field":"ft_srgry_sw"}
         self.db.execute("UPDATE iqies_additional_service_release SET dictionary_sha256='wrong'")

@@ -73,8 +73,37 @@ def cached_snapshot(source, pin):
                      "read_only": True}
 
 
+@contextmanager
+def with_service_sidecar(base, report, sidecar_dir):
+    if sidecar_dir is None:
+        yield base, report
+        return
+    from private_iqies_service_research import ROUNDTRIP
+    from scripts.iqies_service_sidecar import restore
+
+    pin = json.loads(ROUNDTRIP.read_text())["receipt"]
+    require(report["release"] == pin["base_release"] and sha(base) == pin["base_database_sha256"],
+            "service sidecar base lineage")
+    require(sidecar_dir.is_dir() and not sidecar_dir.is_symlink(), "service sidecar path")
+    for name, bytes_key, hash_key in (
+            ("manifest.json", "manifest_bytes", "manifest_sha256"),
+            ("services.sqlite3", "sidecar_payload_bytes", "sidecar_sha256")):
+        path = sidecar_dir / name
+        require(path.is_file() and not path.is_symlink() and path.stat().st_size == pin[bytes_key]
+                and sha(path) == pin[hash_key], "service sidecar pin")
+    with tempfile.TemporaryDirectory(prefix="facilitysignal-service-workspace-") as tmp:
+        db = Path(tmp) / "extended.sqlite3"
+        result = restore(base, sidecar_dir, db, pin["manifest_sha256"])
+        require(result["database_sha256"] == pin["restored_database_sha256"]
+                and result["observations"] == pin["observations"]
+                and result["base_preserved"], "service workspace restore mismatch")
+        db.chmod(0o400)
+        yield db, {**report, "qualified_service_extension_observations": pin["observations"]}
+
+
 def workspace_handler(db, report):
-    base = facilitysignal.handler(db, readonly_snapshot=True)
+    extension = "qualified_service_extension_observations" in report
+    base = facilitysignal.handler(db, readonly_snapshot=True, private_service_extension=extension)
 
     class WorkspaceHandler(base):
         def log_message(self, *_):
@@ -93,6 +122,8 @@ def workspace_handler(db, report):
             if self.path == "/" and status == 200 and content_type.startswith("text/html"):
                 note = ('<p><strong>Private Azure snapshot · read-only</strong> '
                         '<a href="/api/archive">Archive provenance</a></p>')
+                if extension:
+                    note += '<p><a href="/additional-services">Search additional service evidence</a></p>'
                 # Insert after the generated <main> element starts, before user-facing data.
                 data, changed = re.subn(r"(<main(?:\s[^>]+)?>)", r"\g<1>" + note, data, count=1)
                 if changed != 1:
@@ -105,6 +136,7 @@ def workspace_handler(db, report):
 def verify_workspace(db, report):
     """Hit the actual UI and existing read-only service, emitting no provider rows."""
     digest = sha(db)
+    extension = "qualified_service_extension_observations" in report
     with closing(sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True)) as sql:
         provider = sql.execute("""SELECT f.ccn,f.name,f.state,r.published_on
             FROM facilities f JOIN releases r ON f.release_id=r.id
@@ -129,6 +161,11 @@ def verify_workspace(db, report):
             WHERE o.registry='iqies' AND o.field='oprtg_room_cnt'
               AND o.provider_scope='ASC' AND c.state=?""", (service_state,)).fetchone()[0]
         require(provider_count == 1 and service_count > 0, "snapshot route inputs incomplete")
+        extension_count = None
+        if extension:
+            extension_count = sql.execute("""SELECT count(*) FROM iqies_additional_service_observations
+                WHERE registry='iqies' AND field='ft_srgry_sw' AND value_state='not_available'""").fetchone()[0]
+            require(extension_count > 0, "extension route inputs incomplete")
     with ThreadingHTTPServer(("127.0.0.1", 0), workspace_handler(db, report)) as server:
         t = Thread(target=server.serve_forever, daemon=True)
         t.start()
@@ -157,8 +194,18 @@ def verify_workspace(db, report):
                 require(data["status"] == "source_observations" and data["total"] == service_count
                         and len(data["rows"]) == 1 and data["rows"][0]["state"] == service_state,
                         "service search differs from snapshot")
+            evidence = {}
+            if extension:
+                query = urlencode({"field": "ft_srgry_sw", "value_state": "not_available", "limit": 1})
+                with urlopen(origin + "/api/iqies-additional-services?" + query, timeout=20) as resp:
+                    data = json.load(resp)
+                    require(data["status"] == "source_observations" and data["total"] == extension_count,
+                            "extension count differs from snapshot")
+                with urlopen(origin + "/additional-services?" + query, timeout=20) as resp:
+                    require(b"Additional service evidence" in resp.read(), "extension HTML missing")
+                evidence["extension_route_verified"] = True
             require(sha(db) == digest, "snapshot changed during workspace smoke")
-            return {**report, "filtered_provider_records": provider_count, "service_observations": service_count,
+            return {**report, **evidence, "filtered_provider_records": provider_count, "service_observations": service_count,
                     "provider_profile_verified": True, "snapshot_unchanged": True, "http_smoke": "PASS"}
         finally:
             server.shutdown()
@@ -181,12 +228,19 @@ def main():
     p.add_argument("--port", type=int, default=8080)
     p.add_argument("--verified-local-copy", type=Path,
                    help="Use an authorized local copy of the exact pinned Azure snapshot; no Azure calls")
+    p.add_argument("--verified-service-sidecar", type=Path,
+                   help="Use an already authorized local copy of the qualified private iQIES sidecar")
     args = p.parse_args()
+
+    def open_workspace(db, report):
+        with with_service_sidecar(db, report, args.verified_service_sidecar) as (selected, provenance):
+            launch(selected, provenance, args)
+
     try:
         if args.verified_local_copy is not None:
             from scripts.recover_azure_bootstrap import load_pin
             with cached_snapshot(args.verified_local_copy, load_pin()) as (db, report):
-                launch(db, report, args)
+                open_workspace(db, report)
             return
 
         from azure_national_archive import run_key
@@ -197,7 +251,7 @@ def main():
         store = ReadOnlyAzure(os.environ)
         try:
             with restored_snapshot(store, national_manifest, restore_national) as (db, report):
-                launch(db, report, args)
+                open_workspace(db, report)
         finally:
             store.close()
     except (ValueError, OSError, ImportError):
