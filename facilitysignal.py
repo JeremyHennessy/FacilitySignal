@@ -494,6 +494,9 @@ def handler(db_path, *, private_service_extension=False, readonly_snapshot=False
                         body=render_certifications(db,params)
                     elif path=="/hospital-surveys":
                         body=render_hospital_surveys(db,params)
+                    elif path == "/additional-services" and private_service_extension and self.client_address[0] == "127.0.0.1":
+                        from private_iqies_service_research import render
+                        body = render(db, params)
                     elif path in ("/service-research","/organization-research"):
                         body=render_local_research(db,path,params)
                     elif path=="/facility":

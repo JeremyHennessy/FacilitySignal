@@ -5,13 +5,14 @@ import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from threading import Thread
+from types import ModuleType
 import unittest
 from unittest.mock import patch
 
 import facilitysignal
 from iqies_capabilities import DDL
 from build_combined import sha
-from scripts.azure_private_workspace import cached_snapshot, restored_snapshot, verify_workspace, workspace_handler
+from scripts.azure_private_workspace import cached_snapshot, restored_snapshot, verify_workspace, workspace_handler, with_service_sidecar
 
 
 @contextmanager
@@ -94,6 +95,41 @@ class PrivateWorkspaceTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "workspace cache digest"):
                 with cached_snapshot(source, pin):
                     self.fail("wrong snapshot was opened")
+
+    def test_sidecar_rejects_changed_bytes_before_restore_and_cleans_output(self):
+        with fixture() as base, TemporaryDirectory() as tmp:
+            home = Path(tmp)
+            sidecar = home / "hold"
+            sidecar.mkdir()
+            manifest = sidecar / "manifest.json"
+            pack = sidecar / "services.sqlite3"
+            manifest.write_text("{}")
+            pack.write_bytes(b"fixture")
+            proof = home / "proof.json"
+            expected = {"base_release":"bootstrap-123-1","base_database_sha256":sha(base),
+                        "manifest_bytes":manifest.stat().st_size,"manifest_sha256":sha(manifest),
+                        "sidecar_payload_bytes":pack.stat().st_size,"sidecar_sha256":sha(pack),
+                        "restored_database_sha256":"c"*64, "observations":3}
+            proof.write_text(json.dumps({"receipt":expected}))
+            mod = ModuleType("scripts.iqies_service_sidecar")
+
+            def restore(src, path, out, pin):
+                self.assertEqual((src,path,pin),(base,sidecar,sha(manifest)))
+                out.write_bytes(b"test restore result")
+                return {"database_sha256":"c"*64,"observations":3,"base_preserved":True}
+
+            mod.restore = restore
+            report = {"release":expected["base_release"]}
+            with patch.dict("sys.modules", {"scripts.iqies_service_sidecar":mod}), patch(
+                    "private_iqies_service_research.ROUNDTRIP", proof):
+                with with_service_sidecar(base,report,sidecar) as (out, got):
+                    self.assertTrue(out.is_file())
+                    self.assertEqual(got["qualified_service_extension_observations"],3)
+                self.assertFalse(out.exists())
+                pack.write_bytes(b"altered")
+                with self.assertRaisesRegex(ValueError, "service sidecar pin"):
+                    with with_service_sidecar(base,report,sidecar):
+                        self.fail("changed sidecar was opened")
 
     def test_digest_drift_stops_before_serving_and_cleans_up(self):
         db = None

@@ -128,3 +128,32 @@ def search(db, params):
     total = db.execute("SELECT count(*)" + clause, args).fetchone()[0]
     rows = records(db.execute("SELECT c.registry,c.row_number,c.provider_id,c.name,c.city,c.state,o.field,o.provider_scope,o.value_state" + clause + " ORDER BY c.state,c.name COLLATE NOCASE,c.row_number LIMIT ? OFFSET ?", args + [limit, (page-1)*limit]))
     return dict(result, status="source_observations", release=release, total=total, rows=rows)
+
+
+def render(db, params):
+    """Private, paginated browser view on the same qualified service search."""
+    from facilitysignal import STATES as JURISDICTIONS, esc, fmt, layout, pager, select, table
+    path = "/additional-services"
+    params = {**params, "field": params.get("field") or "ft_srgry_sw"}
+    result = search(db, params)
+    filters = '<form class="filters" method="get" action="' + path + '">'
+    filters += select("field", "Service indicator", list(LABELS.items()), params)
+    filters += select("state", "Jurisdiction", [(s, s) for s in sorted(JURISDICTIONS)], params)
+    filters += select("value_state", "Reported state", [("reported_yes", "Reported yes"), ("reported_no", "Reported no"),
+                      ("not_available", "Unavailable")], params)
+    filters += ('<label>Provider search<input name="q" maxlength="120" value="'
+                + esc(params.get("q", "")) + '"></label><button type="submit">Search</button></form>')
+    body = ('<p class="intro">Private source evidence · Historical observations, not current availability.</p>'
+            + filters + '<h2>' + esc(result["label"]) + '</h2><p>'
+            + esc(result["indicator_meaning"]) + '</p><p>' + esc(result["interpretation_limit"]) + '</p>')
+    if result["status"] != "source_observations":
+        return layout("Additional service evidence", path, body +
+                      '<p class="empty">Evidence unavailable for this source release.</p>')
+    release = result["release"]
+    body += '<p>Source period: ' + esc(release["source_period"]) + ' · ' + fmt(result["total"]) + ' matching source observations</p>'
+    display = {"reported_yes": "Reported yes", "reported_no": "Reported no", "not_available": "Unavailable"}
+    data = [[esc(r["name"]), esc(r["provider_id"]), esc(r["city"]), esc(r["state"]),
+             esc(display[r["value_state"]])] for r in result["rows"]]
+    body += (table(["Provider", "Registry ID", "City", "State", "Source response"], data)
+             if data else '<p class="empty">No observations match these filters.</p>')
+    return layout("Additional service evidence", path, body + pager(path, params, result))
