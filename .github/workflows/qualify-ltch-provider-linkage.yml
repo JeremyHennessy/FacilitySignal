@@ -1,0 +1,33 @@
+name: Qualify LTCH provider directory linkage
+on:
+  push:
+    branches: [research/fs042-ltch-provider-linkage-20261127]
+    paths:
+      - .github/workflows/qualify-ltch-provider-linkage.yml
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-fs042-national-qualification
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p test_ltch_provider_linkage.py -v
+      - name: Verify two small pinned publisher files for new cross-grain evidence
+        run: |
+          umask 077
+          python -m scripts.qualify_ltch_provider_linkage --retrieve-pinned-public --audit "$RUNNER_TEMP/fs042-linkage.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fs042-linkage-aggregate
+          path: ${{ runner.temp }}/fs042-linkage.json
+          retention-days: 7
+          if-no-files-found: error
