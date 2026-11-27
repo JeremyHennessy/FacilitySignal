@@ -245,15 +245,19 @@ def run(base,local):
                             assert t.get_attribute("tabindex")=="0"
                             assert t.locator('tbody th[scope="row"]').count()==rows
                             assert t.get_by_role("columnheader",name="Not available",exact=True).count()==1
-                            assert t.evaluate("""(e)=>{
-                                if(e.scrollWidth>e.clientWidth+1)return false;
-                                const f=e.getBoundingClientRect();
-                                return Array.from(e.querySelectorAll('th,td')).every(c=>{
+                            layout=t.evaluate("""(e)=>{
+                                const f=e.getBoundingClientRect(),cells=[];
+                                for(const c of e.querySelectorAll('th,td')){
                                     const r=new Range();r.selectNodeContents(c);
                                     const b=r.getBoundingClientRect(),x=c.getBoundingClientRect();
-                                    return x.left>=f.left-1&&x.right<=f.right+1&&b.left>=x.left-1&&b.right<=x.right+1;
-                                });
-                            }"""),"Responsive service table clips a label or a count"
+                                    if(x.left<f.left-1||x.right>f.right+1||b.left<x.left-1||b.right>x.right+1)
+                                        cells.push({text:c.innerText,cell:[x.left,x.right],content:[b.left,b.right],font:getComputedStyle(c).font,whiteSpace:getComputedStyle(c).whiteSpace});
+                                }
+                                return {viewport:innerWidth,documentWidth:document.documentElement.clientWidth,clientWidth:e.clientWidth,scrollWidth:e.scrollWidth,scrollLeft:e.scrollLeft,table:[f.left,f.right],cells};
+                            }""")
+                            if layout["scrollWidth"]>layout["clientWidth"]+1 or layout["cells"]:
+                                t.screenshot(path=str(OUT/f"{width}-service-{key}-overflow.png"))
+                                raise AssertionError(f"Responsive service table clips a label or a count: {key} {json.dumps(layout,sort_keys=True)}")
                             t.focus();assert t.evaluate("(e)=>document.activeElement===e")
                             t.press("Tab")
                             assert page.evaluate("document.activeElement.textContent.startsWith('Qualification run ')")
