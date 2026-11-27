@@ -307,8 +307,10 @@ def run(base,local):
                     assert report["Institutional evidence release"]==[INSTITUTIONAL_PACK[s]["release"] for s in chosen_sources]
                     assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
                     page.screenshot(path=str(OUT/f"{width}-facility-comparison.png"),full_page=True)
-                    if width<=720:
-                        wrap=page.locator(".comparison-table")
+                    wrap=page.locator(".comparison-table")
+                    wrap.locator("tbody tr").filter(has_text="Institutional evidence release").scroll_into_view_if_needed()
+                    page.screenshot(path=str(OUT/f"{width}-comparison-institutional-rows.png"),animations="disabled")
+                    if wrap.evaluate("(e)=>e.scrollWidth>e.clientWidth+1"):
                         assert page.locator(".comparison-scroll-hint").is_visible()
                         assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const frame=e.getBoundingClientRect();return e.scrollLeft>0&&Array.from(e.querySelectorAll(\"tr\")).every(tr=>{const cells=tr.cells,first=cells[0].getBoundingClientRect(),last=cells[cells.length-1].getBoundingClientRect();return last.left>=first.right-2&&last.right<=frame.right+2&&last.width>=100})}"),"Final provider column is obscured by sticky evidence labels"
                         assert wrap.locator("td").first.evaluate("(e)=>getComputedStyle(e).position==='sticky'")

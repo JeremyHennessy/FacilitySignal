@@ -157,3 +157,6 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 /* Quick-search result tables: keep evidence and capacity labels readable within their scroll containers. */
 #app .unified-search-results table{min-width:640px}
 #app .unified-search-results th:nth-child(n+3),#app .unified-search-results td:nth-child(n+3){white-space:nowrap;overflow-wrap:normal;word-break:normal}
+
+/* Keep comparison evidence labels visible when tablet/desktop tables overflow. */
+@media(min-width:721px){.comparison-table th:first-child,.comparison-table td:first-child{position:sticky;left:0;z-index:1;background:#fff;box-shadow:1px 0 0 var(--border)}.comparison-table th:first-child{background:#edf3f6;z-index:2}}

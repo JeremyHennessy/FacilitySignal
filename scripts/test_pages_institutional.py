@@ -133,8 +133,12 @@ def run(base,live):
             assert all("not current service availability" in x for x in exported["Evidence limitations"])
             assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
             page.screenshot(path=str(OUT/f"{width}-institutional-comparison.png"),full_page=True,animations="disabled")
+            evidence_row=comparison.locator("tbody tr").filter(has_text="Emergency services (reported)")
+            evidence_row.scroll_into_view_if_needed()
+            page.screenshot(path=str(OUT/f"{width}-institutional-rows.png"),animations="disabled")
             if comparison.evaluate("(e)=>e.scrollWidth>e.clientWidth+1"):
-                comparison.evaluate("(e)=>{e.scrollLeft=e.scrollWidth}")
+                assert comparison.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const f=e.getBoundingClientRect();return e.scrollLeft>0&&Array.from(e.querySelectorAll('tr')).every(tr=>{const first=tr.cells[0].getBoundingClientRect(),last=tr.cells[tr.cells.length-1].getBoundingClientRect();return getComputedStyle(tr.cells[0]).position==='sticky'&&first.left>=f.left-2&&first.left<=f.left+2&&last.left>=first.right-2&&last.right<=f.right+2})}"),"Comparison labels or final provider clipped"
+                page.screenshot(path=str(OUT/f"{width}-institutional-rows-scrolled.png"),animations="disabled")
                 page.screenshot(path=str(OUT/f"{width}-institutional-comparison-scrolled.png"),full_page=True,animations="disabled")
             page.route("**/web/institutional-evidence.json*",lambda route:route.fulfill(status=200,body="{}"))
             page.reload();comparison.wait_for()
@@ -151,7 +155,7 @@ def run(base,live):
             assert not page.get_by_role("button",name="Export current page (CSV)").count()
             page.unroute("**/web/institutional-evidence.json*")
             assert not errors,errors
-            summary.append({"width":width,"dialysis_NY_late_shift":len(want),"positive_negative_and_exact_filters":True,"private_field_rejected":True,"bad_pack_unavailable":True,"csv_and_return":True,"institutional_comparison_all_seven_and_csv":True,"comparison_bad_pack_preserves_basic_records":True})
+            summary.append({"width":width,"dialysis_NY_late_shift":len(want),"positive_negative_and_exact_filters":True,"private_field_rejected":True,"bad_pack_unavailable":True,"csv_and_return":True,"institutional_comparison_all_seven_and_csv":True,"comparison_bad_pack_preserves_basic_records":True,"sticky_evidence_labels_and_final_provider":True})
             ctx.close()
         browser.close()
     report={"mode":"ordinary_live" if live else "candidate","entry_checks":entries,"viewport_checks":summary}
