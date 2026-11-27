@@ -1253,6 +1253,37 @@ async function nursingChainProfile(r,signal,epoch){
     }catch(e){if(epoch!==sequence||signal.aborted||e.name==="AbortError")return null;section.dataset.evidence="unavailable";section.append(el("div","Chain affiliation evidence unavailable; no membership inferred.","error"))}
     section.append(chainSourceLinks());return section
 }
+// FS-042 matched the approved LTCH directory release to the same publisher CCNs.
+const ltchQualityLinkPin=Object.freeze({
+    release:"2026-09-23",catalog:"azum-44iv",rows:311,
+    publisher:"176b1fae71a5ac97bf89f9d3404b98c6d3135b184f079baec939bcb2e016ba2e",
+    projection:"e062c2a3c57be0e47f473c48be2c0c8aa1f77d456091c5a041fe1bf2569894d9"
+});
+async function ltchQualitySourceHandoff(s,r,signal,epoch){
+    const pin=ltchQualityLinkPin,section=el("section",undefined,"dossier-evidence ltch-quality-source");
+    section.append(el("h2","Quality evidence on Medicare.gov"));
+    try{
+        if(s.release!==pin.release||s.catalog_id!==pin.catalog||s.sha256!==pin.publisher
+            ||publicManifest.field_enrichments?.[s.key]?.projection_sha256!==pin.projection
+            ||!/^\d{6}$/.test(r.ccn)||!states.includes(r.state))throw Error("LTCH source lineage mismatch");
+        const directory=await exactJson("web/public-directory/long-term-hospital.json?v="+pin.projection.slice(0,16),pin.projection,signal);
+        if(epoch!==sequence||signal.aborted)return null;
+        const matches=directory.records?.filter(x=>x.ccn===r.ccn);
+        if(directory.source!==s.key||directory.release!==pin.release||directory.row_count!==pin.rows
+            ||directory.records?.length!==pin.rows||matches?.length!==1
+            ||["state","name","address","city","zip"].some(field=>matches[0][field]!==r[field]))throw Error("Unique LTCH source record not verified");
+        section.dataset.evidence="source-link";
+        section.append(el("p","Open Medicare’s source page for this exact CMS record (CCN "+r.ccn+"). Medicare may show a newer release than the September 2026 directory here. FacilitySignal does not load or republish these scores.","intro"));
+        const link=anchor("Open this provider’s quality evidence on Medicare.gov","https://www.medicare.gov/care-compare/details/long-term-care/"+r.ccn+"/view-all",true);
+        link.referrerPolicy="no-referrer";
+        section.append(add(el("p"),link));
+    }catch(e){
+        if(epoch!==sequence||signal.aborted||e.name==="AbortError")return null;
+        section.dataset.evidence="unavailable";
+        section.append(el("div","No verified Medicare quality link for this source record. No quality finding inferred.","notice"));
+    }
+    return section
+}
 function profileSources(s,r,f){
     const section=el("section");
     section.append(el("h2","Source and release"),table(["Evidence","Value"],[["Provider source",names[s.key]],["Source identifier (CCN)",shown(value(r,f,"id"))],["Reported state",shown(value(r,f,"state"))],["Published release",s.release],["Public projection",sourceLink(s,"Official source")]]),
@@ -1318,7 +1349,14 @@ async function detail(p,signal,epoch){
             }else if(section==="services"){const services=await profileService(r,s,f,signal,epoch);if(!services||epoch!==sequence)return;app.append(services)}
             else if(section==="compliance"){const c=await profileCompliance(r,s,f,signal,epoch);if(!c||epoch!==sequence)return;app.append(c)}
             else if(section==="location"){const waiting=el("div","Loading source-scoped location evidence…","notice");app.append(waiting);const c=await profileLocation(r,s,signal,epoch,p);if(!c||epoch!==sequence)return;waiting.replaceWith(c)}
-            else app.append(profileSources(s,r,f))
+            else{
+                const sources=profileSources(s,r,f);
+                if(s.key==="long-term-hospital"&&result.total===1){
+                    const handoff=await ltchQualitySourceHandoff(s,r,signal,epoch);if(!handoff||epoch!==sequence)return;
+                    sources.prepend(handoff);
+                }
+                app.append(sources)
+            }
         }
     }catch(e){if(epoch!==sequence||e.name==="AbortError")return;title("Source record","Provider evidence unavailable.");app.append(errorBox(s,e))}
 }
