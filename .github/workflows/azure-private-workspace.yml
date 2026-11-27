@@ -23,6 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
       - name: Verify private app entry point without Azure access
         run: python -m unittest discover -s tests -p test_azure_private_workspace.py -v
   archived-data-smoke:
