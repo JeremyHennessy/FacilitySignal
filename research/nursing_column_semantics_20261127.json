@@ -1,0 +1,3023 @@
+{
+  "as_of": "2026-11-27",
+  "source": "nursing",
+  "source_sha256": "ab70309ae6f0ee86b19fe9acb61a6d2953f970d3b09e80bb9b090e4b19ce35a2",
+  "release": "2026-10-28",
+  "rows": 14686,
+  "profile_path": "research/care_compare_directory_raw_field_profiles_20261126.json",
+  "profile_blob": "fffcab3246603538d4a3ff5be13e571aa868e744",
+  "prior_clinical_evidence_path": "research/clinical_measure_quality_qualification_20261126.json",
+  "prior_clinical_evidence_blob": "c7098b6ac0ae6525a959655a4a6095e67a95d2bb",
+  "prior_clinical_run": 45841298990,
+  "prior_chain_evidence_path": "research/nursing_semantic_audit_20261126.json",
+  "prior_chain_evidence_blob": "39cdde371d049201f935cbf286a0a35d068e34e2",
+  "prior_chain_run": 45826186143,
+  "prior_institutional_evidence_path": "research/institutional_observations_qualification_20261126.json",
+  "prior_institutional_evidence_blob": "365a6a104d4906a86cf4ff8f0e1ed42116d05199",
+  "prior_institutional_run": 45842903741,
+  "catalog": "https://data.cms.gov/provider-data/dataset/4pq5-n9py",
+  "dictionary": {
+    "url": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/nursing_home/NH_Data_Dictionary.pdf",
+    "sha256": null,
+    "extracted_version": "October 2026",
+    "rendered_version": "June 2026 Table 2 and 16; May 2026 Table 15",
+    "table": 2,
+    "visually_reviewed_printed_pages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      25,
+      26
+    ],
+    "text_only_ordinals": [
+      29,
+      75,
+      84
+    ],
+    "september_change": "Table 16 October text lists three September 2026 provider additions and new risk-based survey footnote 29. Older render lacks these additions. Exact dictionary bytes not pinned."
+  },
+  "methodology": {
+    "url": "https://www.cms.gov/medicare/health-safety-standards/certification-compliance/five-star-quality-rating-system",
+    "technical_details": "https://data.cms.gov/provider-data/topics/nursing-homes/technical-details",
+    "technical_guide": "https://www.cms.gov/Medicare/Provider-Enrollment-and-Certification/CertificationandComplianc/Downloads/usersguide.pdf",
+    "scope": "Staffing intensity and annual turnover are separate measures. Health inspection rating uses two standard-survey cycles plus three years of specified complaint/infection-control evidence, with exclusions and adjustments. Fire safety citations are not part of this rating."
+  },
+  "totals": {
+    "reviewed_fields": 102,
+    "older_render_corroborated_fields": 99,
+    "text_only_fields": 3,
+    "restricted_presence_fields": 1,
+    "prior_footnote_shape_fields": 15,
+    "prior_institutional_domain_fields": 4,
+    "dispositions": {
+      "existing_identity_context": 6,
+      "restricted_presence_only": 1,
+      "candidate_geography": 6,
+      "candidate_institutional": 7,
+      "existing_capacity_context": 1,
+      "candidate_aggregate_context": 1,
+      "reporting_metadata": 16,
+      "restricted_identity_review": 1,
+      "existing_chain_context": 3,
+      "clinical_quality_context": 42,
+      "regulatory_context_only": 18
+    },
+    "new_domain_qualified_fields": 0,
+    "new_application_approved_fields": 0,
+    "new_downloads": 0
+  },
+  "fields": [
+    {
+      "ordinal": 1,
+      "field": "CMS Certification Number (CCN)",
+      "kind": "certification_id",
+      "meaning": "CMS program-specific certification identifier; preserve leading zeros; not a legal entity or property ID.",
+      "unit": "text",
+      "application_disposition": "existing_identity_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 245,
+        "unsigned_integer_text": 14441
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 2,
+      "field": "Provider Name",
+      "kind": "provider_name",
+      "meaning": "Publisher-reported facility name, not a verified legal owner.",
+      "unit": "text",
+      "application_disposition": "existing_identity_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 3,
+      "field": "Provider Address",
+      "kind": "address",
+      "meaning": "Reported provider street address; not a parcel boundary.",
+      "unit": "text",
+      "application_disposition": "existing_identity_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 4,
+      "field": "City/Town",
+      "kind": "geography",
+      "meaning": "Reported city or town.",
+      "unit": "text",
+      "application_disposition": "existing_identity_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 5,
+      "field": "State",
+      "kind": "geography",
+      "meaning": "Reported postal jurisdiction.",
+      "unit": "text",
+      "application_disposition": "existing_identity_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 53,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 6,
+      "field": "ZIP Code",
+      "kind": "geography",
+      "meaning": "ZIP code, retained as text to protect leading zeros.",
+      "unit": "text",
+      "application_disposition": "existing_identity_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 7,
+      "field": "Telephone Number",
+      "kind": "contact",
+      "meaning": "Telephone field; only presence counted.",
+      "unit": "presence",
+      "application_disposition": "restricted_presence_only",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": null,
+      "presence_only": {
+        "nonblank": 14686
+      },
+      "lexical_shapes": null,
+      "distinct_nonmissing": null,
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 8,
+      "field": "Provider SSA County Code",
+      "kind": "county_code",
+      "meaning": "Social Security Administration county code, not a FIPS code.",
+      "unit": "code",
+      "application_disposition": "candidate_geography",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 297,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 9,
+      "field": "County/Parish",
+      "kind": "county_name",
+      "meaning": "Reported county/parish label.",
+      "unit": "text",
+      "application_disposition": "candidate_geography",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 1691,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 10,
+      "field": "Urban",
+      "kind": "urban_flag",
+      "meaning": "Publisher urban classification using CBSA or MSA coding, not density or municipality designation.",
+      "unit": "yes/no",
+      "application_disposition": "candidate_geography",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 11,
+      "field": "Ownership Type",
+      "kind": "ownership_category",
+      "meaning": "Reported nature of the organization operating the facility; not title to real estate.",
+      "unit": "category",
+      "application_disposition": "candidate_institutional",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 13,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 12,
+      "field": "Number of Certified Beds",
+      "kind": "certified_capacity",
+      "meaning": "Federally certified bed count, not staffed, occupied or total installed beds.",
+      "unit": "beds",
+      "application_disposition": "existing_capacity_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 11,
+        "other_nonblank": 14675
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14675
+      },
+      "distinct_nonmissing": {
+        "count": 392,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 13,
+      "field": "Average Number of Residents per Day",
+      "kind": "average_census",
+      "meaning": "Average daily resident census from MDS; not unique admissions, live occupancy or certified capacity.",
+      "unit": "residents/day",
+      "application_disposition": "candidate_aggregate_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 58,
+        "other_nonblank": 14628
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14628
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 14,
+      "field": "Average Number of Residents per Day Footnote",
+      "kind": "footnote",
+      "meaning": "Qualification of the average resident census; not automatically zero or no residents.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 14628,
+        "other_nonblank": 58
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 58
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 14628,
+        "numeric_code_or_sequence": 58
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 15,
+      "field": "Provider Type",
+      "kind": "provider_category",
+      "meaning": "CMS provider category; exact observed labels need domain review.",
+      "unit": "category",
+      "application_disposition": "candidate_institutional",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 16,
+      "field": "Provider Resides in Hospital",
+      "kind": "hospital_location_flag",
+      "meaning": "Reported nursing facility resides in a hospital; does not establish campus boundaries or legal ownership.",
+      "unit": "yes/no",
+      "application_disposition": "candidate_institutional",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 17,
+      "field": "Legal Business Name",
+      "kind": "legal_business_name",
+      "meaning": "Publisher-reported legal business name; corporate identity or individual-name exposure requires separate review.",
+      "unit": "text",
+      "application_disposition": "restricted_identity_review",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 18,
+      "field": "Date First Approved to Provide Medicare and Medicaid Services",
+      "kind": "initial_approval_date",
+      "meaning": "Initial Medicare/Medicaid approval date, not opening date or current certification validity.",
+      "unit": "date",
+      "application_disposition": "candidate_institutional",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "iso_date_shape": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 19,
+      "field": "Chain Name",
+      "kind": "chain_name",
+      "meaning": "Reported CMS group name reflecting ownership, officer or managerial links; not a parent-company identity.",
+      "unit": "text",
+      "application_disposition": "existing_chain_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 4459,
+        "other_nonblank": 10227
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 10227
+      },
+      "distinct_nonmissing": {
+        "count": 612,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 20,
+      "field": "Chain ID",
+      "kind": "chain_id",
+      "meaning": "CMS chain identifier scoped to source and release; not a PAC ID, CCN or property identifier.",
+      "unit": "text",
+      "application_disposition": "existing_chain_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 4459,
+        "other_nonblank": 10227
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 10227
+      },
+      "distinct_nonmissing": {
+        "count": 612,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 21,
+      "field": "Number of Facilities in Chain",
+      "kind": "chain_member_count",
+      "meaning": "Group size repeated per member; must deduplicate at chain grain before aggregation.",
+      "unit": "facilities",
+      "application_disposition": "existing_chain_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 4459,
+        "other_nonblank": 10227
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 10227
+      },
+      "distinct_nonmissing": {
+        "count": 72,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 22,
+      "field": "Chain Average Overall 5-star Rating",
+      "kind": "chain_quality_rating",
+      "meaning": "Average overall rating repeated across chain members; do not sum or reweight by repeated records.",
+      "unit": "stars",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "chain",
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 4459,
+        "other_nonblank": 10227
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 10227
+      },
+      "distinct_nonmissing": {
+        "count": 41,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 23,
+      "field": "Chain Average Health Inspection Rating",
+      "kind": "chain_quality_rating",
+      "meaning": "Average health inspection rating repeated across chain members; do not sum or reweight by repeated records.",
+      "unit": "stars",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "chain",
+      "dictionary_table": 2,
+      "extracted_printed_page": 8,
+      "rendered_printed_page": 8,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 4459,
+        "other_nonblank": 10227
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 10227
+      },
+      "distinct_nonmissing": {
+        "count": 39,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 24,
+      "field": "Chain Average Staffing Rating",
+      "kind": "chain_quality_rating",
+      "meaning": "Average staffing rating repeated across chain members; do not sum or reweight by repeated records.",
+      "unit": "stars",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "chain",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 4459,
+        "other_nonblank": 10227
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 10227
+      },
+      "distinct_nonmissing": {
+        "count": 41,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 25,
+      "field": "Chain Average QM Rating",
+      "kind": "chain_quality_rating",
+      "meaning": "Average quality measure rating repeated across chain members; do not sum or reweight by repeated records.",
+      "unit": "stars",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "chain",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 4459,
+        "other_nonblank": 10227
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 10227
+      },
+      "distinct_nonmissing": {
+        "count": 39,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 26,
+      "field": "Continuing Care Retirement Community",
+      "kind": "ccrc_flag",
+      "meaning": "Reported continuing care retirement community indicator; not a full campus or service inventory.",
+      "unit": "yes/no",
+      "application_disposition": "candidate_institutional",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 27,
+      "field": "Special Focus Status",
+      "kind": "special_focus",
+      "meaning": "Reported special focus program participation or candidacy; distinguish the two, preserve missing and release context.",
+      "unit": "category",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 14159,
+        "other_nonblank": 527
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 527
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": {
+        "not_reported": 14159,
+        "reported_candidate": 440,
+        "reported_sff": 87
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 28,
+      "field": "Abuse Icon",
+      "kind": "abuse_icon",
+      "meaning": "CMS historical citation-based consumer alert, not a new adjudication or a property condition.",
+      "unit": "yes/no",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 29,
+      "field": "High Performing Icon",
+      "kind": "high_performing_icon",
+      "meaning": "CMS higher-performing consumer designation; criteria include inspection, staffing and quality data. Not an equipment or safety clearance.",
+      "unit": "yes/no",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": null,
+      "definition_status": "october_text_only_september_addition",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 30,
+      "field": "Most Recent Health Inspection More Than 2 Years Ago",
+      "kind": "survey_age_flag",
+      "meaning": "Publisher snapshot indicator of most recent health inspection being over two years old; not proof a legal deadline was missed.",
+      "unit": "yes/no",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": {
+        "reported_no": 13731,
+        "reported_yes": 955
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 31,
+      "field": "Provider Changed Ownership in Last 12 Months",
+      "kind": "ownership_change_flag",
+      "meaning": "Reported ownership change within the preceding twelve months; not a deed or present legal title.",
+      "unit": "yes/no",
+      "application_disposition": "candidate_institutional",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": {
+        "reported_no": 14626,
+        "reported_yes": 60
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 32,
+      "field": "With a Resident and Family Council",
+      "kind": "council_category",
+      "meaning": "Reported resident/family council category; not a service capacity measure.",
+      "unit": "category",
+      "application_disposition": "candidate_institutional",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 33,
+      "field": "Automatic Sprinkler Systems in All Required Areas",
+      "kind": "sprinkler_category",
+      "meaning": "Publisher-reported coverage category (full, partial, no, unavailable); no current inspection or asset-level conclusion.",
+      "unit": "category",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": {
+        "all_required_areas": 14599,
+        "not_available": 51,
+        "partial": 36
+      },
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 34,
+      "field": "Overall Rating",
+      "kind": "quality_rating",
+      "meaning": "CMS overall rating on its one-to-five-star scale; not a direct infrastructure or purchasing metric.",
+      "unit": "stars",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "overall",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 126,
+        "other_nonblank": 14560
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14560
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 35,
+      "field": "Overall Rating Footnote",
+      "kind": "footnote",
+      "meaning": "Reporting qualification specific to the overall rating; a numeric rating may coexist with a footnote.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "overall",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 14560,
+        "other_nonblank": 126
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 126
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 14560,
+        "numeric_code_or_sequence": 126
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 36,
+      "field": "Health Inspection Rating",
+      "kind": "quality_rating",
+      "meaning": "CMS health inspection rating on its one-to-five-star scale; not a direct infrastructure or purchasing metric.",
+      "unit": "stars",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "health inspection",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 126,
+        "other_nonblank": 14560
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14560
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 37,
+      "field": "Health Inspection Rating Footnote",
+      "kind": "footnote",
+      "meaning": "Reporting qualification specific to the health inspection rating; a numeric rating may coexist with a footnote.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "health inspection",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 14560,
+        "other_nonblank": 126
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 126
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 14560,
+        "numeric_code_or_sequence": 126
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 38,
+      "field": "QM Rating",
+      "kind": "quality_rating",
+      "meaning": "CMS combined quality measures rating on its one-to-five-star scale; not a direct infrastructure or purchasing metric.",
+      "unit": "stars",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "combined quality measures",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 198,
+        "other_nonblank": 14488
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14488
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 39,
+      "field": "QM Rating Footnote",
+      "kind": "footnote",
+      "meaning": "Reporting qualification specific to the combined quality measures rating; a numeric rating may coexist with a footnote.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "combined quality measures",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 14423,
+        "other_nonblank": 263
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 263
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 14423,
+        "numeric_code_or_sequence": 263
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 40,
+      "field": "Long-Stay QM Rating",
+      "kind": "quality_rating",
+      "meaning": "CMS long-stay quality measures rating on its one-to-five-star scale; not a direct infrastructure or purchasing metric.",
+      "unit": "stars",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "long-stay quality measures",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 544,
+        "other_nonblank": 14142
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14142
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 41,
+      "field": "Long-Stay QM Rating Footnote",
+      "kind": "footnote",
+      "meaning": "Reporting qualification specific to the long-stay quality measures rating; a numeric rating may coexist with a footnote.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "long-stay quality measures",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 14077,
+        "other_nonblank": 609
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 609
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 14077,
+        "numeric_code_or_sequence": 609
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 42,
+      "field": "Short-Stay QM Rating",
+      "kind": "quality_rating",
+      "meaning": "CMS short-stay quality measures rating on its one-to-five-star scale; not a direct infrastructure or purchasing metric.",
+      "unit": "stars",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "short-stay quality measures",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 2924,
+        "other_nonblank": 11762
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 11762
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 43,
+      "field": "Short-Stay QM Rating Footnote",
+      "kind": "footnote",
+      "meaning": "Reporting qualification specific to the short-stay quality measures rating; a numeric rating may coexist with a footnote.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "short-stay quality measures",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 11762,
+        "other_nonblank": 2924
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 2924
+      },
+      "distinct_nonmissing": {
+        "count": 4,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 11762,
+        "numeric_code_or_sequence": 2924
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 44,
+      "field": "Staffing Rating",
+      "kind": "quality_rating",
+      "meaning": "CMS staffing rating on its one-to-five-star scale; not a direct infrastructure or purchasing metric.",
+      "unit": "stars",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 203,
+        "other_nonblank": 14483
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14483
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 45,
+      "field": "Staffing Rating Footnote",
+      "kind": "footnote",
+      "meaning": "Reporting qualification specific to the staffing rating; a numeric rating may coexist with a footnote.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 13954,
+        "other_nonblank": 732
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 732
+      },
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 13954,
+        "numeric_code_or_sequence": 732
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 46,
+      "field": "Reported Staffing Footnote",
+      "kind": "footnote",
+      "meaning": "Reported nursing staffing data qualification; not zero staffing.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 14319,
+        "other_nonblank": 367
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 367
+      },
+      "distinct_nonmissing": {
+        "count": 3,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 14319,
+        "numeric_code_or_sequence": 367
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 47,
+      "field": "Physical Therapist Staffing Footnote",
+      "kind": "footnote",
+      "meaning": "Physical therapist staffing data qualification; not absence of therapy service.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 9,
+      "rendered_printed_page": 9,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 14318,
+        "other_nonblank": 368
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 368
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 14318,
+        "numeric_code_or_sequence": 368
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 48,
+      "field": "Reported Nurse Aide Staffing Hours per Resident per Day",
+      "kind": "reported_staffing",
+      "meaning": "Reported nurse aide staffing intensity, not total staff count or FTEs.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 49,
+      "field": "Reported LPN Staffing Hours per Resident per Day",
+      "kind": "reported_staffing",
+      "meaning": "Reported LPN/LVN staffing intensity, not total staff count or FTEs.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 50,
+      "field": "Reported RN Staffing Hours per Resident per Day",
+      "kind": "reported_staffing",
+      "meaning": "Reported RN staffing intensity, not total staff count or FTEs.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 51,
+      "field": "Reported Licensed Staffing Hours per Resident per Day",
+      "kind": "reported_staffing",
+      "meaning": "Reported licensed RN plus LPN/LVN staffing intensity, not total staff count or FTEs.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 52,
+      "field": "Reported Total Nurse Staffing Hours per Resident per Day",
+      "kind": "reported_staffing",
+      "meaning": "Reported total nurse aide plus LPN/LVN plus RN staffing intensity, not total staff count or FTEs.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 53,
+      "field": "Total number of nurse staff hours per resident per day on the weekend",
+      "kind": "reported_staffing",
+      "meaning": "Reported total nurse weekend staffing intensity, not total staff count or FTEs.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 54,
+      "field": "Registered Nurse hours per resident per day on the weekend",
+      "kind": "reported_staffing",
+      "meaning": "Reported RN weekend staffing intensity, not total staff count or FTEs.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 55,
+      "field": "Reported Physical Therapist Staffing Hours per Resident Per Day",
+      "kind": "reported_staffing",
+      "meaning": "Reported physical therapist staffing intensity, not total staff count or FTEs.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "staffing",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 368,
+        "other_nonblank": 14318
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14318
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 56,
+      "field": "Total nursing staff turnover",
+      "kind": "turnover",
+      "meaning": "Reported total nursing staff turnover over the applicable annual window.",
+      "unit": "percent",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "turnover",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 1099,
+        "other_nonblank": 13587
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 13587
+      },
+      "distinct_nonmissing": {
+        "count": 793,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 57,
+      "field": "Total nursing staff turnover footnote",
+      "kind": "footnote",
+      "meaning": "Total nursing turnover qualification.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "turnover",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 13587,
+        "other_nonblank": 1099
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1099
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 13587,
+        "numeric_code_or_sequence": 1099
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 58,
+      "field": "Registered Nurse turnover",
+      "kind": "turnover",
+      "meaning": "Reported RN staff turnover over the applicable annual window.",
+      "unit": "percent",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "turnover",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 1876,
+        "other_nonblank": 12810
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 12810
+      },
+      "distinct_nonmissing": {
+        "count": 486,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 59,
+      "field": "Registered Nurse turnover footnote",
+      "kind": "footnote",
+      "meaning": "RN turnover qualification.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "turnover",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 12810,
+        "other_nonblank": 1876
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1876
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 12810,
+        "numeric_code_or_sequence": 1876
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 60,
+      "field": "Number of administrators who have left the nursing home",
+      "kind": "administrator_departures",
+      "meaning": "Administrators who left over the applicable annual period; not the number currently employed.",
+      "unit": "administrators",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "turnover",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 1653,
+        "other_nonblank": 13033
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 13033
+      },
+      "distinct_nonmissing": {
+        "count": 7,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 61,
+      "field": "Administrator turnover footnote",
+      "kind": "footnote",
+      "meaning": "Administrator turnover qualification.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "turnover",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 13033,
+        "other_nonblank": 1653
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1653
+      },
+      "distinct_nonmissing": {
+        "count": 2,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 13033,
+        "numeric_code_or_sequence": 1653
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 62,
+      "field": "Nursing Case-Mix Index",
+      "kind": "case_mix_index",
+      "meaning": "Weighted average nursing case-mix index representing relative care needs; not staffing hours.",
+      "unit": "index",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 63,
+      "field": "Nursing Case-Mix Index Ratio",
+      "kind": "case_mix_ratio",
+      "meaning": "Facility weighted nursing index divided by the national weighted nursing index.",
+      "unit": "ratio",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 64,
+      "field": "Case-Mix Nurse Aide Staffing Hours per Resident per Day",
+      "kind": "case_mix_staffing",
+      "meaning": "Case-mix staffing benchmark for nurse aide; model-derived context rather than observed personnel.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 65,
+      "field": "Case-Mix LPN Staffing Hours per Resident per Day",
+      "kind": "case_mix_staffing",
+      "meaning": "Case-mix staffing benchmark for LPN; model-derived context rather than observed personnel.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 66,
+      "field": "Case-Mix RN Staffing Hours per Resident per Day",
+      "kind": "case_mix_staffing",
+      "meaning": "Case-mix staffing benchmark for RN; model-derived context rather than observed personnel.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 10,
+      "rendered_printed_page": 10,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 67,
+      "field": "Case-Mix Total Nurse Staffing Hours per Resident per Day",
+      "kind": "case_mix_staffing",
+      "meaning": "Case-mix staffing benchmark for total nurse; model-derived context rather than observed personnel.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 68,
+      "field": "Case-Mix Weekend Total Nurse Staffing Hours per Resident per Day",
+      "kind": "case_mix_staffing",
+      "meaning": "Case-mix staffing benchmark for weekend total nurse; model-derived context rather than observed personnel.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 367,
+        "other_nonblank": 14319
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14319
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 69,
+      "field": "Adjusted Nurse Aide Staffing Hours per Resident per Day",
+      "kind": "adjusted_staffing",
+      "meaning": "Case-mix-adjusted nurse aide staffing intensity; do not substitute for raw staffing.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 389,
+        "other_nonblank": 14297
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14297
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 70,
+      "field": "Adjusted LPN Staffing Hours per Resident per Day",
+      "kind": "adjusted_staffing",
+      "meaning": "Case-mix-adjusted LPN staffing intensity; do not substitute for raw staffing.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 389,
+        "other_nonblank": 14297
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14297
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 71,
+      "field": "Adjusted RN Staffing Hours per Resident per Day",
+      "kind": "adjusted_staffing",
+      "meaning": "Case-mix-adjusted RN staffing intensity; do not substitute for raw staffing.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 389,
+        "other_nonblank": 14297
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14297
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 72,
+      "field": "Adjusted Total Nurse Staffing Hours per Resident per Day",
+      "kind": "adjusted_staffing",
+      "meaning": "Case-mix-adjusted total nurse staffing intensity; do not substitute for raw staffing.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 389,
+        "other_nonblank": 14297
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14297
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 73,
+      "field": "Adjusted Weekend Total Nurse Staffing Hours per Resident per Day",
+      "kind": "adjusted_staffing",
+      "meaning": "Case-mix-adjusted weekend total nurse staffing intensity; do not substitute for raw staffing.",
+      "unit": "hours/resident/day",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "case_mix",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 389,
+        "other_nonblank": 14297
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14297
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 74,
+      "field": "Rating Cycle 1 Standard Survey Health Date",
+      "kind": "survey_date",
+      "meaning": "Most recent standard health survey date used for the rating cycle, not the release date.",
+      "unit": "date",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": "rating_cycle_1",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "iso_date_shape": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 970,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 75,
+      "field": "Rating Cycle 1 Standard Survey Footnote",
+      "kind": "footnote",
+      "meaning": "Standard-survey qualification; exact current code domain not retained.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "rating_cycle_1",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": null,
+      "definition_status": "october_text_only_september_addition",
+      "profile_states": {
+        "blank": 14557,
+        "other_nonblank": 129
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 129
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 14557,
+        "numeric_code_or_sequence": 129
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 76,
+      "field": "Rating Cycle 1 Total Number of Health Deficiencies",
+      "kind": "deficiency_count",
+      "meaning": "Recent standard survey plus complaint/infection-control reporting in the last 12 months; count as defined by the rating methodology, not the complete citation file.",
+      "unit": "citations",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": "rating_cycle_1",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 68,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 77,
+      "field": "Rating Cycle 1 Number of Standard Health Deficiencies",
+      "kind": "deficiency_count",
+      "meaning": "Health deficiency count for standard survey in this cycle.",
+      "unit": "citations",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": "rating_cycle_1",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 48,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 78,
+      "field": "Rating Cycle 1 Number of Complaint Health Deficiencies",
+      "kind": "deficiency_count",
+      "meaning": "Health deficiency count from complaint surveys in the corresponding time window.",
+      "unit": "citations",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": "rating_cycle_1",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 47,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 79,
+      "field": "Rating Cycle 1 Health Deficiency Score",
+      "kind": "inspection_score",
+      "meaning": "CMS health deficiency score under rating methodology, not number of events.",
+      "unit": "points",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "rating_cycle_1",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 410,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 80,
+      "field": "Rating Cycle 1 Number of Health Revisits",
+      "kind": "repeat_revisit_count",
+      "meaning": "Number of health survey repeat revisits used in rating cycle.",
+      "unit": "revisits",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": "rating_cycle_1",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 81,
+      "field": "Rating Cycle 1 Health Revisit Score",
+      "kind": "inspection_score",
+      "meaning": "CMS points attached to repeat revisits, not a count of inspections.",
+      "unit": "points",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "rating_cycle_1",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 148,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 82,
+      "field": "Rating Cycle 1 Total Health Score",
+      "kind": "inspection_score",
+      "meaning": "Total health inspection score for this cycle; distinct from weighted score.",
+      "unit": "points",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "rating_cycle_1",
+      "dictionary_table": 2,
+      "extracted_printed_page": 11,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 455,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 83,
+      "field": "Rating Cycle 2 Standard Health Survey Date",
+      "kind": "survey_date",
+      "meaning": "Second most recent standard health survey date used for the rating cycle, not the release date.",
+      "unit": "date",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": "rating_cycle_2/3",
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 11,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "iso_date_shape": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 1316,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 84,
+      "field": "Rating Cycle 2 Standard Survey Footnote",
+      "kind": "footnote",
+      "meaning": "Standard-survey qualification; exact current code domain not retained.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": "rating_cycle_2/3",
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": null,
+      "definition_status": "october_text_only_september_addition",
+      "profile_states": {
+        "blank": 14682,
+        "other_nonblank": 4
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 4
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 14682,
+        "numeric_code_or_sequence": 4
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 85,
+      "field": "Rating Cycle 2/3 Total Number of Health Deficiencies",
+      "kind": "deficiency_count",
+      "meaning": "Second standard survey plus complaint/infection-control reporting from months 13–36; count as defined by the rating methodology, not the complete citation file.",
+      "unit": "citations",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": "rating_cycle_2/3",
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 98,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 86,
+      "field": "Rating Cycle 2 Number of Standard Health Deficiencies",
+      "kind": "deficiency_count",
+      "meaning": "Health deficiency count for standard survey in this cycle.",
+      "unit": "citations",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": "rating_cycle_2/3",
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 53,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 87,
+      "field": "Rating Cycle 2/3 Number of Complaint Health Deficiencies",
+      "kind": "deficiency_count",
+      "meaning": "Health deficiency count from complaint surveys in the corresponding time window.",
+      "unit": "citations",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": "rating_cycle_2/3",
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 80,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 88,
+      "field": "Rating Cycle 2/3 Health Deficiency Score",
+      "kind": "inspection_score",
+      "meaning": "CMS health deficiency score under rating methodology, not number of events.",
+      "unit": "points",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "rating_cycle_2/3",
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 659,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 89,
+      "field": "Rating Cycle 2/3 Number of Health Revisits",
+      "kind": "repeat_revisit_count",
+      "meaning": "Number of health survey repeat revisits used in rating cycle.",
+      "unit": "revisits",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": "rating_cycle_2/3",
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 5,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 90,
+      "field": "Rating Cycle 2/3 Health Revisit Score",
+      "kind": "inspection_score",
+      "meaning": "CMS points attached to repeat revisits, not a count of inspections.",
+      "unit": "points",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "rating_cycle_2/3",
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 207,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 91,
+      "field": "Rating Cycle 2/3 Total Health Score",
+      "kind": "inspection_score",
+      "meaning": "Total health inspection score for this cycle; distinct from weighted score.",
+      "unit": "points",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": "rating_cycle_2/3",
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 695,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 92,
+      "field": "Total Weighted Health Survey Score",
+      "kind": "weighted_inspection_score",
+      "meaning": "Weighted health survey score from CMS rating methodology, not a property risk score.",
+      "unit": "points",
+      "application_disposition": "clinical_quality_context",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 39,
+        "other_nonblank": 14647
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14647
+      },
+      "distinct_nonmissing": {
+        "count": 1354,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 93,
+      "field": "Number of Citations from Infection Control Inspections",
+      "kind": "infection_control_count",
+      "meaning": "Citations from infection-control inspections within the publisher's three-year period; not current infection cases.",
+      "unit": "citations",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 13685,
+        "other_nonblank": 1001
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 1001
+      },
+      "distinct_nonmissing": {
+        "count": 17,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 94,
+      "field": "Number of Fines",
+      "kind": "fine_count",
+      "meaning": "Reported fine count within publisher penalty reporting scope; not unpaid balance.",
+      "unit": "fines",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 16,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 95,
+      "field": "Total Amount of Fines in Dollars",
+      "kind": "fine_amount",
+      "meaning": "Total reported fines in dollars, not current outstanding liability.",
+      "unit": "USD",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 96,
+      "field": "Number of Payment Denials",
+      "kind": "payment_denial_count",
+      "meaning": "Reported payment-denial count; not the number of days or unpaid dollars.",
+      "unit": "denials",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 6,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 97,
+      "field": "Total Number of Penalties",
+      "kind": "penalty_count",
+      "meaning": "Reported total penalty count; reconcile against fines and payment denials before interpreting totals.",
+      "unit": "penalties",
+      "application_disposition": "regulatory_context_only",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 18,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 98,
+      "field": "Location",
+      "kind": "location_text",
+      "meaning": "Publisher's concatenated address information; no new property identity.",
+      "unit": "text",
+      "application_disposition": "candidate_geography",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "other_text": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 99,
+      "field": "Latitude",
+      "kind": "latitude",
+      "meaning": "Reported geocoded address latitude; location precision depends on geocoding footnote.",
+      "unit": "degrees",
+      "application_disposition": "candidate_geography",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14684,
+        "unsigned_integer_text": 2
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 100,
+      "field": "Longitude",
+      "kind": "longitude",
+      "meaning": "Reported geocoded address longitude; not verified building coordinate.",
+      "unit": "degrees",
+      "application_disposition": "candidate_geography",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "decimal_text": 14655,
+        "signed_integer_text": 31
+      },
+      "distinct_nonmissing": {
+        "count": 2049,
+        "method": "lower_bound"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 101,
+      "field": "Geocoding Footnote",
+      "kind": "footnote",
+      "meaning": "Geocoding qualification; dictionary code 22 identifies ZIP-derived coordinates; actual tokens require confirmation.",
+      "unit": "code",
+      "application_disposition": "reporting_metadata",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "blank": 13878,
+        "other_nonblank": 808
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "unsigned_integer_text": 808
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": {
+        "blank": 13878,
+        "numeric_code_or_sequence": 808
+      },
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    },
+    {
+      "ordinal": 102,
+      "field": "Processing Date",
+      "kind": "processing_date",
+      "meaning": "Publisher retrieval/processing date, separate from release date and observation windows.",
+      "unit": "date",
+      "application_disposition": "reporting_metadata",
+      "measure_group": null,
+      "dictionary_table": 2,
+      "extracted_printed_page": 12,
+      "rendered_printed_page": 12,
+      "definition_status": "definition_corroborated_in_text_and_older_render",
+      "profile_states": {
+        "other_nonblank": 14686
+      },
+      "presence_only": null,
+      "lexical_shapes": {
+        "iso_date_shape": 14686
+      },
+      "distinct_nonmissing": {
+        "count": 1,
+        "method": "exact"
+      },
+      "prior_footnote_shape_counts": null,
+      "prior_institutional_domain_counts": null,
+      "new_application_approval": false
+    }
+  ],
+  "retained_clinical_cross_checks": {
+    "Health Inspection Rating | reporting": {
+      "blank | numeric_code_or_sequence": 126,
+      "numeric | blank": 14560
+    },
+    "Long-Stay QM Rating | reporting": {
+      "blank | numeric_code_or_sequence": 544,
+      "numeric | blank": 14077,
+      "numeric | numeric_code_or_sequence": 65
+    },
+    "Overall Rating | reporting": {
+      "blank | numeric_code_or_sequence": 126,
+      "numeric | blank": 14560
+    },
+    "QM Rating | reporting": {
+      "blank | numeric_code_or_sequence": 198,
+      "numeric | blank": 14423,
+      "numeric | numeric_code_or_sequence": 65
+    },
+    "Short-Stay QM Rating | reporting": {
+      "blank | numeric_code_or_sequence": 2924,
+      "numeric | blank": 11762
+    },
+    "Staffing Rating | reporting": {
+      "blank | numeric_code_or_sequence": 203,
+      "numeric | blank": 13954,
+      "numeric | numeric_code_or_sequence": 529
+    }
+  },
+  "retained_chain_counts": {
+    "nursing": {
+      "blank_chain_id": 4459,
+      "chain_id_name_both_populated": 10227,
+      "chain_id_name_conflict": 0,
+      "chain_id_size_conflict": 0,
+      "rows": 14686,
+      "unrecognized_chain_id": 0,
+      "valid_chain_id": 10227
+    },
+    "chains": {
+      "consistent_reported_size": 612,
+      "groups": 612,
+      "missing_name_groups": 0,
+      "multiple_reported_names": 0,
+      "names_associated_with_multiple_chain_ids": 0,
+      "observed_membership_size_bands": {
+        "100+": 9,
+        "2-4": 66,
+        "20-99": 118,
+        "5-19": 419
+      },
+      "reported_size_matches_observed_members": 612,
+      "reported_size_mismatch_or_missing": 0,
+      "single_reported_name": 612
+    },
+    "cross_source_exact_ccn_state": {
+      "both_missing_or_invalid": 4050,
+      "both_populated_different": 21,
+      "both_populated_equal": 9981,
+      "one_missing_or_invalid": 155,
+      "same_ccn_state_pairs": 14207
+    }
+  },
+  "limitations": [
+    "Pinned source raw-value profile is not exact release dictionary verification.",
+    "No current operation, legal title, equipment, open-violation or clinical-to-property risk inference.",
+    "No new row-level data publication, contact values, or new public projection."
+  ]
+}
