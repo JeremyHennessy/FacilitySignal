@@ -163,3 +163,30 @@ aside nav>.nav-group{border-top:1px solid #345064;margin-top:3px;padding-top:3px
 
 /* Bound each provider column by the actual comparison scrollport, not viewport width. */
 @media(min-width:721px) and (max-width:1100px){.comparison-table{container-type:inline-size;--compare-count:2}.comparison-table[data-records="3"]{--compare-count:3}.comparison-table[data-records="4"]{--compare-count:4}#app .comparison-table table{width:max(100%,calc(180px + var(--compare-count) * 220px));min-width:0;table-layout:fixed}.comparison-table th:first-child,.comparison-table td:first-child{box-sizing:border-box;width:180px;min-width:180px}.comparison-table th:not(:first-child){width:min(220px,calc(100cqw - 184px))}}
+
+
+/* Fit these five-column national service tables without cutting off counts. */
+.iqies-service-table th[scope="row"]{color:inherit;background:transparent;font:inherit;letter-spacing:normal;text-transform:none}
+.iqies-service-table tr:last-child th[scope="row"]{border-bottom:0}
+.iqies-service-short-heading{display:none}
+@media(max-width:960px){
+ .compact-service-scroll-hint{display:none}
+ .iqies-service-table table{table-layout:fixed;min-width:278px}
+ .iqies-service-table th,.iqies-service-table td{padding:7px 4px}
+ .iqies-service-table th:first-child{width:31%;min-width:0;padding-inline-start:7px}
+ .iqies-service-table thead th:nth-child(2){width:20%}
+ .iqies-service-table thead th{font-size:11px;line-height:1.25;text-transform:none;letter-spacing:normal}
+ .iqies-service-table thead th:not(:first-child){white-space:normal;overflow-wrap:normal}
+ .iqies-service-table tbody th[scope="row"],.iqies-service-table tbody td{font-size:12px;line-height:1.35}
+ .iqies-service-table :is(th,td):not(:first-child){text-align:end}
+}
+
+@media(max-width:345px){
+ .iqies-service-table thead th{font-size:10px}
+ .iqies-service-table :is(th,td):not(:first-child){padding-inline:2px}
+ .iqies-service-table th:first-child{width:39%}
+ .iqies-service-table thead th:nth-child(2){width:17%}
+ .iqies-service-full-heading{display:none}
+ .iqies-service-short-heading{display:inline}
+}
+@media(max-width:307px){.intelligence-scroll-hint.compact-service-scroll-hint{display:block}}

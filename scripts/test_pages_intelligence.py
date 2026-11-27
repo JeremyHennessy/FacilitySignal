@@ -34,14 +34,20 @@ try:
                 tables=page.locator("#app .table-wrap")
                 assert tables.count()==len(section["groups"])
                 for i,g in enumerate(section["groups"]):
-                    actual=[r.locator("td").all_inner_texts() for r in tables.nth(i).locator("tbody tr").all()]
+                    actual=[r.locator("th,td").all_inner_texts() for r in tables.nth(i).locator("tbody tr").all()]
                     expected=[["—" if v is None else f"{v:,}" if type(v) is int else v for v in row] for row in g["rows"]]
                     assert actual==expected,(section["id"],i,actual,expected)
                     table=tables.nth(i)
                     assert table.evaluate("(e)=>e.classList.contains('intelligence-table')&&e.tabIndex===0")
-                    assert table.evaluate("(e)=>[...e.querySelectorAll('th:not(:first-child),td:not(:first-child)')].every(c=>getComputedStyle(c).whiteSpace==='nowrap')")
-                    assert table.locator("th").first.evaluate("(e)=>e.getBoundingClientRect().width>=159")
-                    if width==390 and len(g["columns"])>3:
+                    responsive=g["id"] in ("iqies-additional-asc","iqies-additional-esrd")
+                    assert table.evaluate("(e)=>[...e.querySelectorAll('tbody td:not(:first-child)')].every(c=>getComputedStyle(c).whiteSpace==='nowrap')")
+                    if responsive:
+                        assert table.get_by_role("rowheader").count()==len(g["rows"])
+                        assert table.evaluate("(e)=>e.scrollWidth<=e.clientWidth+1")
+                    else:
+                        assert table.evaluate("(e)=>[...e.querySelectorAll('thead th:not(:first-child)')].every(c=>getComputedStyle(c).whiteSpace==='nowrap')")
+                        assert table.locator("th").first.evaluate("(e)=>e.getBoundingClientRect().width>=159")
+                    if width==390 and len(g["columns"])>3 and not responsive:
                         assert table.evaluate("(e)=>e.scrollWidth>e.clientWidth&&getComputedStyle(e).overflowX==='auto'")
                         assert table.evaluate("(e)=>{e.scrollLeft=100;const moved=e.scrollLeft>0;e.scrollLeft=0;return moved}")
                     assert page.get_by_role("link",name="Qualification run "+str(g["run"]),exact=True).count()>=1

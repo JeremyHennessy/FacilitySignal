@@ -16,7 +16,7 @@ function read(){const [view,query=""]=location.hash.slice(1).split("?",2);return
 function linkSource(s){return s.family==="care-compare"?"https://data.cms.gov/provider-data/dataset/"+s.catalog_id:s.family==="registry"?s.metadata.api:s.family==="qcor"?"https://qcor.cms.gov/Hospital_2567_Reports":"https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities";}
 function safeExternal(url){try{const u=new URL(url);return u.protocol==="https:"?u.href:null}catch{return null}}
 function sourceLink(s,txt="Official source"){return anchor(txt,linkSource(s),true)}
-function table(headers,rows){const wrap=el("div",undefined,"table-wrap");wrap.tabIndex=0;wrap.setAttribute("role","region");wrap.setAttribute("aria-label","Scrollable results table");const t=el("table"),head=el("thead"),tr=el("tr"),body=el("tbody");headers.forEach(x=>{const th=el("th",x);th.scope="col";tr.append(th)});head.append(tr);for(const r of rows){const line=el("tr");for(const c of r){const td=el("td");td.append(c instanceof Node?c:document.createTextNode(String(c??"")));line.append(td)}body.append(line)}t.append(head,body);return add(wrap,t)}
+function table(headers,rows,rowHeaders=false){const wrap=el("div",undefined,"table-wrap");wrap.tabIndex=0;wrap.setAttribute("role","region");wrap.setAttribute("aria-label","Scrollable results table");const t=el("table"),head=el("thead"),tr=el("tr"),body=el("tbody");headers.forEach(x=>{const th=el("th",x);th.scope="col";tr.append(th)});head.append(tr);for(const r of rows){const line=el("tr");for(const [i,c] of r.entries()){const rowHead=rowHeaders&&i===0,cell=el(rowHead?"th":"td");if(rowHead)cell.scope="row";cell.append(c instanceof Node?c:document.createTextNode(String(c??"")));line.append(cell)}body.append(line)}t.append(head,body);return add(wrap,t)}
 function title(text,note){app.replaceChildren(el("h1",text),el("p",note,"intro"))}
 function card(label,count,note,href){const a=anchor("",href);a.className="metric";return add(a,el("small",label),el("strong",N.format(count)),el("span",note),el("span","Explore ›","go"))}
 let lock,register,coverage,publicManifest,active,sequence=0;const schemas=new Map();
@@ -120,12 +120,25 @@ async function intelligence(view,signal,epoch){
         for(const g of section.groups){
             if(!Number.isSafeInteger(g.run)||g.run<=0||!Array.isArray(g.columns)||!Array.isArray(g.rows)||g.rows.some(r=>!Array.isArray(r)||r.length!==g.columns.length||r.some(x=>x!==null&&typeof x!=="string"&&!(Number.isSafeInteger(x)&&x>=0))))throw Error("Invalid evidence group");
             const src=safeExternal(g.source);
-            const evidenceTable=table(g.columns,g.rows.map(r=>r.map(x=>x===null?"—":typeof x==="number"?N.format(x):x)));
+            const responsiveServiceTable=view==="services"&&["iqies-additional-asc","iqies-additional-esrd"].includes(g.id);
+            const evidenceTable=table(g.columns,g.rows.map(r=>r.map(x=>x===null?"—":typeof x==="number"?N.format(x):x)),responsiveServiceTable);
             evidenceTable.classList.add("intelligence-table");
+            if(responsiveServiceTable){
+                evidenceTable.classList.add("iqies-service-table");
+                const shortLabels=["","Records","Yes","No","N/A"];
+                evidenceTable.querySelectorAll("thead th").forEach((heading,i)=>{
+                    if(!shortLabels[i])return;
+                    const full=heading.textContent,short=el(i===4?"abbr":"span",shortLabels[i],"iqies-service-short-heading");
+                    if(i===4)short.title=full;
+                    heading.setAttribute("aria-label",full);
+                    short.setAttribute("aria-hidden","true");
+                    heading.replaceChildren(el("span",full,"iqies-service-full-heading"),short);
+                });
+            }
             evidenceTable.setAttribute("aria-label",g.title+"; scroll horizontally if needed");
             const note=g.id==="nursing-chain-coverage"?g.note.replace("names and identifiers are not published.","the original aggregate audit does not contain names or identifiers. The separate nursing portfolio membership projection is qualified independently."):g.note;
             app.append(el("h2",g.title),el("p",note,"intro"));
-            if(g.columns.length>3||g.id==="clia-certificate")app.append(el("p","Scroll horizontally to see all columns.","intelligence-scroll-hint"));
+            if(g.columns.length>3||g.id==="clia-certificate")app.append(el("p","Scroll horizontally to see all columns.",responsiveServiceTable?"intelligence-scroll-hint compact-service-scroll-hint":"intelligence-scroll-hint"));
             if((hospitalInfra&&["qies-hospital-service-subset","qies-hospital-count-subset"].includes(g.id))||(view==="financial-research"&&g.id.endsWith("-cost-measure-quality"))){
                 const filter=el("div",undefined,"toolbar"),field=input("Filter "+(g.id.endsWith("service-subset")?"service names":g.id.endsWith("-cost-measure-quality")?"measure names":"infrastructure field names"),"q","");
                 const search=field.querySelector("input"),summary=el("p",N.format(g.rows.length)+" evidence categories","intro");

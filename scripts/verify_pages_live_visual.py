@@ -239,6 +239,25 @@ def run(base,local):
                     assert seen and sha(seen[-1].body())==HASHES["web/public-intelligence.json"],"Browser loaded wrong aggregate evidence"
                     groups=("ASC service provision arrangements","Home health reported services","Hospital enrollment subgroup classifications","Hospital service provision — matched research subset","Hospital infrastructure and affiliation count coverage") if name=="services" else ("Nursing inspection and dispute flags",) if name=="compliance" else ("CLIA certificate code distribution","Hospital-to-laboratory reference evidence","National field audit coverage","Reported nursing-home chain membership","Nursing cross-source group corroboration","Reported PECOS organizational relationship classes","Organization classification agreement and conflicts","Reported ownership-change types","Hospital registry and directory comparison","CLIA historical termination-code scopes","CLIA certificates by reported status scope","CLIA reported facility-type classifications","CLIA accreditation declarations and confirmations","CLIA certificate date diagnostics","CLIA identifier and affiliation-reference diagnostics")
                     for n,g in enumerate(groups):page.locator(f'[aria-label^="{g}"]').screenshot(path=str(OUT/f"{width}-{name}-group-{n}.png"))
+                    if name=="services":
+                        for key,label,rows in (("asc","ASC surgical specialty evidence",8),("dialysis","Dialysis commencement and continuation evidence",3)):
+                            t=page.get_by_role("region",name=label+"; scroll horizontally if needed")
+                            assert t.get_attribute("tabindex")=="0"
+                            assert t.locator('tbody th[scope="row"]').count()==rows
+                            assert t.get_by_role("columnheader",name="Not available",exact=True).count()==1
+                            assert t.evaluate("""(e)=>{
+                                if(e.scrollWidth>e.clientWidth+1)return false;
+                                const f=e.getBoundingClientRect();
+                                return Array.from(e.querySelectorAll('th,td')).every(c=>{
+                                    const r=new Range();r.selectNodeContents(c);
+                                    const b=r.getBoundingClientRect(),x=c.getBoundingClientRect();
+                                    return x.left>=f.left-1&&x.right<=f.right+1&&b.left>=x.left-1&&b.right<=x.right+1;
+                                });
+                            }"""),"Responsive service table clips a label or a count"
+                            t.focus();assert t.evaluate("(e)=>document.activeElement===e")
+                            t.press("Tab")
+                            assert page.evaluate("document.activeElement.textContent.startsWith('Qualification run ')")
+                            t.screenshot(path=str(OUT/f"{width}-service-{key}.png"))
                 if name=="profile-summary":
                     page.locator(".dossier-evidence[data-ready=true]").wait_for()
                     assert page.get_by_role("columnheader",name="Historical citation rows").count()==1
