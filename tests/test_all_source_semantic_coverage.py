@@ -95,10 +95,12 @@ class AllSourceSemanticCoverageTests(unittest.TestCase):
             "unmapped_populated_aggregate": 863,
         })
         self.assertEqual(sum(totals.values()), self.index["totals"]["columns"])
-        # The 31 restricted profiles include eight baseline-mapped occurrences.
+        # The 31 restricted profiles include eight entirely blank occurrences.
         # A baseline mapping does not authorize exposure of any literal value.
         self.assertEqual(sum(f["distinct"] is None for s in self.sources.values() for f in s["fields"]), 31)
         self.assertEqual(sum(f["distinct"] is None and baseline_partition(f) == "baseline_mapped"
+                             for s in self.sources.values() for f in s["fields"]), 0)
+        self.assertEqual(sum(f["distinct"] is None and f["all_blank"]
                              for s in self.sources.values() for f in s["fields"]), 8)
         for key, expected in (("qies", 162), ("iqies", 164), ("clia", 89)):
             self.assertEqual(sum(baseline_partition(f) == "unmapped_populated_aggregate"
