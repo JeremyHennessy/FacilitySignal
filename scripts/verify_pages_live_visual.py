@@ -103,6 +103,45 @@ def ordinary_entry(browser,base,utm,attempts):
             if i+1==attempts:raise AssertionError("Normal user URL failed: "+last) from e
             time.sleep(5)
         finally:context.close()
+def minnesota_industry_entry(context,base,width,utm):
+    """Check the changed route at the actual normal entry point, including warm cache."""
+    page=context.new_page()
+    replies=[]
+    errors=[]
+    requests=[]
+    page.on("response",lambda resp:replies.append(resp))
+    page.on("request",lambda req:requests.append(req.url))
+    page.on("pageerror",lambda err:errors.append(str(err)))
+    url=base+utm+"#industry?state=MN"
+    label="utm" if utm else "ordinary"
+    title=page.get_by_role("heading",name="Minnesota boiler registration research")
+    card=page.locator(".industry-panel").filter(has=title)
+    for visit in ("fresh","warm"):
+        replies.clear()
+        requests.clear()
+        res=(page.goto(url,wait_until="load",timeout=30000) if visit=="fresh"
+             else page.reload(wait_until="load",timeout=30000))
+        assert res and res.status==200 and sha(res.body())==HASHES["index.html"],(width,label,visit)
+        title.wait_for()
+        assert card.get_by_text("CMS provider records are not a full list of physical campuses.",exact=False).is_visible()
+        assert "A certificate for one address does not verify equipment at another campus." in card.inner_text()
+        assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+        assert not errors and all(u.startswith(base) for u in requests),(width,label,visit,errors,requests)
+        for asset,version in VERSIONS.items():
+            seen=[r for r in replies if r.url==base+version]
+            assert seen and sha(seen[-1].body())==HASHES[asset],(width,label,visit,asset)
+        for source in ("hospital","nursing"):
+            link=card.get_by_role("link",name=f"Minnesota {source} provider records")
+            assert link.get_attribute("href")==f"#advanced?source={source}&state=MN&run=1"
+        state_link=card.get_by_role("link",name="Minnesota DLI certificate lookup instructions",exact=False)
+        assert state_link.get_attribute("href")=="https://dli.mn.gov/workers/boiler-engineer/certificate-registration-boilers-and-pressure-vessels"
+        assert state_link.get_attribute("target")=="_blank"
+        card.screenshot(path=str(OUT/f"{width}-industry-minnesota-{label}-{visit}.png"))
+    page.close()
+    return {"width":width,"route":"industry?state=MN","entry":label,"fresh_and_warm":True,
+            "actual_loaded_assets":{asset:HASHES[asset] for asset in ("index.html",*ASSETS)}}
+
+
 def run(base,local):
     results=[]
     with sync_playwright() as p:
@@ -365,6 +404,10 @@ def run(base,local):
                     page.go_back();page.locator(".market-region[data-state=NY][aria-current=true]").wait_for()
                 results.append({"width":width,"route":name,"screenshot":f"{width}-{name}.png"})
             ctx.close()
+            for query in ("","?utm_source=chatgpt.com"):
+                mctx=browser.new_context(viewport={"width":width,"height":900})
+                try:results.append(minnesota_industry_entry(mctx,base,width,query))
+                finally:mctx.close()
         browser.close()
     report={"scope":"local candidate" if local else "ordinary public URL","revision":os.environ.get("GITHUB_SHA","local"),"entry_checks":entries,"screens":results,"visual_review_required":True}
     (OUT/"report.json").write_text(json.dumps(report,indent=2)+"\n")
