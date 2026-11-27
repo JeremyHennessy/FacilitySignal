@@ -89,6 +89,7 @@ try:
             assert page.locator("select[name=source]").input_value()=="hospital"
             assert page.locator("select[name=state]").input_value()=="NY"
             assert int(page.locator(".advanced-status").get_attribute("data-total"))==sum(r["state"]=="NY" for r in sources["hospital"]["records"])
+            page.wait_for_function("window.scrollY<=1")
             page.go_back()
             page.locator(".market-region[data-state=NY][aria-current=true]").wait_for()
             page.go_forward()
@@ -101,6 +102,13 @@ try:
             sample=next(r for r in sources["nursing"]["records"] if r["state"]=="NY")
             term=sample["ccn"]
             page.goto(URL+"#search?"+urlencode({"field":"id","q":term,"state":"NY"}))
+            page.locator('.unified-status[data-complete="true"]').wait_for()
+            wrap=page.locator(".unified-search-results").first
+            assert wrap.evaluate("(e)=>Array.from(e.querySelectorAll('th:nth-child(n+3),td:nth-child(n+3)')).every(c=>getComputedStyle(c).whiteSpace==='nowrap')")
+            assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+            if wrap.evaluate("(e)=>e.scrollWidth>e.clientWidth+1"):
+                assert wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth;const t=e.querySelector('tbody tr td:last-child');return e.scrollLeft>0&&t.getBoundingClientRect().right<=e.getBoundingClientRect().right+2}")
+                wrap.evaluate("(e)=>{e.scrollLeft=0}")
             page.get_by_role("link",name="Refine and export matching facilities").click()
             page.locator('.advanced-status[data-complete="true"]').wait_for()
             assert page.locator("select[name=field]").input_value()=="id"
@@ -111,7 +119,7 @@ try:
             assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
             page.screenshot(path=str(OUT/f"{width}-search-handoff.png"),full_page=True)
             page.go_back()
-            page.get_by_role("link",name="Refine and export matching facilities").wait_for()
+            page.locator('.unified-status[data-complete="true"]').wait_for()
             page.screenshot(path=str(OUT/f"{width}-quick-search-handoff.png"),full_page=True)
             # Missing/invalid aggregate must not turn into a false zero map.
             page.route("**/web/market-summary.json*",lambda route:route.fulfill(status=503,body="unavailable"))

@@ -187,8 +187,8 @@ async function unifiedSearch(p,signal,epoch){
     form.addEventListener("submit",e=>{e.preventDefault();location.hash=route("search",Object.fromEntries(new FormData(form)))});
     app.append(form);
     if(!(p.q||"").trim()){app.append(el("div","Enter a provider name, CCN, address, city or ZIP. A search reads only the limited published provider projections, one source at a time.","empty"));return}
-    app.append(add(el("div",undefined,"links"),anchor("Refine and export matching facilities",route("advanced",{source:"all",state:p.state,field:p.field||"name",q:(p.q||"").trim().slice(0,100),run:1}))));
-    const progress=el("div","Searching published provider sources…","notice");app.append(progress);
+    app.append(add(el("div",undefined,"links"),anchor("Refine and export matching facilities",route("advanced",{source:"all",state:p.state,field:p.field||"name",q:(p.q||"").trim().slice(0,100),run:1,from:"quick-search"}))));
+    const progress=el("div","Searching published provider sources…","notice unified-status");app.append(progress);
     let total=0,completed=0,failed=0;
     for(const s of providerSources()){
         if(epoch!==sequence)return;
@@ -197,13 +197,16 @@ async function unifiedSearch(p,signal,epoch){
             if(epoch!==sequence)return;
             total+=result.total;completed++;
             if(!result.total)continue;
+            const results=table(["Provider / CCN","Reported address","Reported capacity","Evidence"],result.rows.map(r=>cells("facilities",s,r,result.f)));
+            results.classList.add("unified-search-results");results.setAttribute("aria-label","Matching "+names[s.key]+"; scroll horizontally if needed");
             app.append(el("h2",names[s.key]+" · "+N.format(result.total)+" matches"),
-                table(["Provider / CCN","Reported address","Reported capacity","Evidence"],result.rows.map(r=>cells("facilities",s,r,result.f))),
+                results,
                 add(el("p"),anchor("View all "+N.format(result.total)+" matching records",route("facilities",{source:s.key,q:p.q,field:p.field,state:p.state}))));
         }catch(e){if(epoch!==sequence||e.name==="AbortError")return;failed++;app.append(errorBox(s,e))}
     }
     if(epoch!==sequence)return;
     progress.textContent=N.format(total)+" matching source records across "+completed+" of 7 provider sources."+(failed?" "+failed+" source(s) unavailable; totals are partial.":"");
+    progress.dataset.complete=String(failed===0);
     if(!total&&!failed)app.append(el("div","No matching published Care Compare source records. Other registries or sources may contain records.","empty"));
 }
 
@@ -352,6 +355,7 @@ async function advancedResearch(p,signal,epoch){
     title("Advanced facility search","Combine provider category, jurisdiction, text or identifier search, source-specific capacity and selected reported institutional characteristics. Results are program records, not unique buildings or confirmed service opportunities.");
     const sources=providerSources(),form=advancedForm(p,sources);
     app.append(form,add(el("div",undefined,"links"),anchor("Service research coverage",route("services")),anchor("Industry research pathways",route("industry",{state:p.state})),dialysisResearchLink(p.state),hhaResearchLink(p.state)));
+    if(p.from==="market"||p.from==="quick-search"){window.scrollTo(0,0);requestAnimationFrame(()=>{if(epoch===sequence&&!signal.aborted)window.scrollTo(0,0)})}
     let params;
     try{params=advancedParameters(p,sources)}catch(e){app.append(el("div",e.message,"error"));return}
     if(!p.run&&!p.q&&!p.state&&!p.source&&!p.reported&&!p.min&&!p.max&&!p.institutional_field){app.append(el("div","Select filters and apply the search. Searching all categories without text is allowed; results are paginated.","empty"));return}
@@ -438,7 +442,7 @@ function marketSelection(p,sources,sums){
     const source=p.source||"all",v=marketValue(row,source);
     box.append(el("h2",row.state+" market"),el("p",(source==="all"?"All provider sources":names[source])+" · "+N.format(v)+" source records","market-selected-count"));
     const links=el("div",undefined,"links");
-    links.append(anchor("Search this market with advanced filters",route("advanced",{source,state:row.state,run:1})));
+    links.append(anchor("Search this market with advanced filters",route("advanced",{source,state:row.state,run:1,from:"market"})));
     for(const s of sources){
         const n=row.m.get(s.key)||0;
         if(n)links.append(anchor(names[s.key]+" · "+N.format(n),route("facilities",{source:s.key,state:row.state})))

@@ -139,8 +139,16 @@ def run(base,local):
                 if name=="search":
                     q=PROVIDER["ccn"];state=PROVIDER["state"]
                     page.goto(base+"#search?"+urlencode({"field":"id","q":q,"state":state}))
-                    page.get_by_role("link",name="Refine and export matching facilities").wait_for()
+                    page.locator('.unified-status[data-complete="true"]').wait_for()
+                    wrap=page.locator(".unified-search-results").first
+                    assert wrap.evaluate("(e)=>Array.from(e.querySelectorAll('th:nth-child(n+3),td:nth-child(n+3)')).every(c=>getComputedStyle(c).whiteSpace==='nowrap')")
+                    assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
                     page.screenshot(path=str(OUT/f"{width}-quick-search-refine.png"),animations="disabled")
+                    wrap.screenshot(path=str(OUT/f"{width}-quick-search-results.png"))
+                    if wrap.evaluate("(e)=>e.scrollWidth>e.clientWidth+1"):
+                        wrap.evaluate("(e)=>{e.scrollLeft=e.scrollWidth}")
+                        wrap.screenshot(path=str(OUT/f"{width}-quick-search-results-scrolled.png"))
+                        wrap.evaluate("(e)=>{e.scrollLeft=0}")
                     page.get_by_role("link",name="Refine and export matching facilities").click()
                     page.locator('.advanced-status[data-complete="true"]').wait_for()
                     expected=sum(sum(r["state"]==state and r["ccn"].lower()==q.lower() for r in json.loads((ROOT/f"web/public-directory/{key}.json").read_text())["records"]) for key in MANIFEST["sources"] if not key.startswith("nursing-"))
@@ -311,6 +319,7 @@ def run(base,local):
                     assert page.locator("select[name=source]").input_value()=="hospital"
                     assert page.locator("select[name=state]").input_value()=="NY"
                     assert int(page.locator(".advanced-status").get_attribute("data-total"))==HOSPITAL["NY"]
+                    page.wait_for_function("window.scrollY<=1")
                     assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
                     page.screenshot(path=str(OUT/f"{width}-market-advanced-handoff.png"),animations="disabled")
                     page.go_back();page.locator(".market-region[data-state=NY][aria-current=true]").wait_for()
