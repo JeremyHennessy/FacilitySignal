@@ -163,6 +163,9 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name in ("service-topic-asc","service-topic-dialysis"):
+                    page.locator(".intelligence-table").screenshot(
+                        path=str(OUT/f"{width}-{name}-table.png"),animations="disabled")
                 if name=="overview":
                     assert page.locator(".home-discovery-form").count()==1
                     assert page.locator(".home-workflow").count()==4

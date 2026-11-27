@@ -75,6 +75,7 @@ def service_topics(page,base,width):
     assert groups.locator("tbody tr").first.locator("td").all_inner_texts()==["8,492","2,293","5,747","452"]
     assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
     capture(page,f"{width}-service-topic-asc",panel)
+    groups.screenshot(path=str(OUT/f"{width}-service-topic-asc-table.jpg"),type="jpeg",quality=64,animations="disabled")
     page.goto(base+"#services?topic=dialysis")
     page.get_by_role("heading",name="Dialysis commencement and continuation evidence",exact=True).wait_for()
     assert nav.get_by_role("link",name="Dialysis indicators").get_attribute("aria-current")=="page"
@@ -83,6 +84,7 @@ def service_topics(page,base,width):
     assert "does not mean the service was absent" in panel.inner_text()
     assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
     capture(page,f"{width}-service-topic-dialysis",panel)
+    groups.screenshot(path=str(OUT/f"{width}-service-topic-dialysis-table.jpg"),type="jpeg",quality=64,animations="disabled")
     page.go_back()
     asc.and_(page.locator("[aria-current=page]")).wait_for()
     page.go_forward()
