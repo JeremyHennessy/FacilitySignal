@@ -81,6 +81,38 @@ try:
             page.get_by_role("link",name="Dialysis providers",exact=True).click()
             page.locator('.advanced-status[data-complete="true"]').wait_for()
             assert int(page.locator(".advanced-status").get_attribute("data-total"))==sum(r["state"]=="NY" for r in sources["dialysis"]["records"])
+            # Market and quick-search handoffs retain the exact selection and support back/forward.
+            page.goto(URL+"#geography?source=hospital&state=NY")
+            page.locator(".market-region[data-state=NY][aria-current=true]").wait_for()
+            page.get_by_role("link",name="Search this market with advanced filters").click()
+            page.locator('.advanced-status[data-complete="true"]').wait_for()
+            assert page.locator("select[name=source]").input_value()=="hospital"
+            assert page.locator("select[name=state]").input_value()=="NY"
+            assert int(page.locator(".advanced-status").get_attribute("data-total"))==sum(r["state"]=="NY" for r in sources["hospital"]["records"])
+            page.go_back()
+            page.locator(".market-region[data-state=NY][aria-current=true]").wait_for()
+            page.go_forward()
+            page.locator('.advanced-status[data-complete="true"]').wait_for()
+            page.goto(URL+"#geography?source=all&state=VT")
+            page.locator(".market-region[data-state=VT][aria-current=true]").wait_for()
+            page.get_by_role("link",name="Search this market with advanced filters").click()
+            page.locator('.advanced-status[data-complete="true"]').wait_for()
+            assert int(page.locator(".advanced-status").get_attribute("data-total"))==expected_all
+            sample=next(r for r in sources["nursing"]["records"] if r["state"]=="NY")
+            term=sample["ccn"]
+            page.goto(URL+"#search?"+urlencode({"field":"id","q":term,"state":"NY"}))
+            page.get_by_role("link",name="Refine and export matching facilities").click()
+            page.locator('.advanced-status[data-complete="true"]').wait_for()
+            assert page.locator("select[name=field]").input_value()=="id"
+            assert page.locator("input[name=q]").input_value()==term
+            assert page.locator("select[name=state]").input_value()=="NY"
+            expected_ccn=sum(sum(r["state"]=="NY" and r["ccn"].lower()==term.lower() for r in d["records"]) for d in sources.values())
+            assert int(page.locator(".advanced-status").get_attribute("data-total"))==expected_ccn
+            assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+            page.screenshot(path=str(OUT/f"{width}-search-handoff.png"),full_page=True)
+            page.go_back()
+            page.get_by_role("link",name="Refine and export matching facilities").wait_for()
+            page.screenshot(path=str(OUT/f"{width}-quick-search-handoff.png"),full_page=True)
             # Missing/invalid aggregate must not turn into a false zero map.
             page.route("**/web/market-summary.json*",lambda route:route.fulfill(status=503,body="unavailable"))
             requests.clear();page.goto(URL+"#geography?source=hospital&state=NY")
