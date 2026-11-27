@@ -1,0 +1,288 @@
+{
+  "format_version": 1,
+  "verified_commit": "f12fc44445c143b8f9c56d573c645e491e1ec8ec",
+  "run": 46043049342,
+  "job": 140655338841,
+  "artifact": 15220727716,
+  "artifact_digest": "sha256:29cdb7120db1538fb4c35be269d0ad7615e62525e3728377b562bd754779bf33",
+  "audit": {
+    "azure_writes": 0,
+    "canonical_matches": 0,
+    "dataset_id": "4jcv-atw7",
+    "distinct_facility_year_keys": 5685,
+    "distinct_source_facility_ids": 5685,
+    "distinct_ten_digit_npi_tokens": 5655,
+    "facility_id_shapes": {
+      "blank": 2,
+      "ten_alphanumeric": 5784
+    },
+    "field_presence_profiles": {
+      "ASC-1 Footnote": {
+        "blank": 4641,
+        "populated": 1145
+      },
+      "ASC-1 Rate*": {
+        "populated": 4641,
+        "publisher_missing_literal": 1145
+      },
+      "ASC-11 Footnote": {
+        "blank": 130,
+        "populated": 5656
+      },
+      "ASC-11 Rate*": {
+        "populated": 130,
+        "publisher_missing_literal": 5656
+      },
+      "ASC-12 Footnote": {
+        "blank": 1988,
+        "populated": 3798
+      },
+      "ASC-12 Interval Lower Limit": {
+        "populated": 1988,
+        "publisher_missing_literal": 3798
+      },
+      "ASC-12 Interval Upper Limit": {
+        "populated": 1988,
+        "publisher_missing_literal": 3798
+      },
+      "ASC-12 Performance Category": {
+        "populated": 2154,
+        "publisher_missing_literal": 3632
+      },
+      "ASC-12 RSHV Rate": {
+        "populated": 1988,
+        "publisher_missing_literal": 3798
+      },
+      "ASC-12 Total Cases": {
+        "populated": 1988,
+        "publisher_missing_literal": 3798
+      },
+      "ASC-13 Footnote": {
+        "blank": 2267,
+        "populated": 3519
+      },
+      "ASC-13 Rate*": {
+        "populated": 2267,
+        "publisher_missing_literal": 3519
+      },
+      "ASC-14 Footnote": {
+        "blank": 1618,
+        "populated": 4168
+      },
+      "ASC-14 Rate*": {
+        "populated": 1618,
+        "publisher_missing_literal": 4168
+      },
+      "ASC-17 Footnote": {
+        "blank": 1863,
+        "populated": 3923
+      },
+      "ASC-17 Interval Lower Limit": {
+        "populated": 1863,
+        "publisher_missing_literal": 3923
+      },
+      "ASC-17 Interval Upper Limit": {
+        "populated": 1863,
+        "publisher_missing_literal": 3923
+      },
+      "ASC-17 Performance Category": {
+        "populated": 3054,
+        "publisher_missing_literal": 2732
+      },
+      "ASC-17 RSHV Rate": {
+        "populated": 1863,
+        "publisher_missing_literal": 3923
+      },
+      "ASC-17 Total Cases": {
+        "populated": 1863,
+        "publisher_missing_literal": 3923
+      },
+      "ASC-18 Footnote": {
+        "blank": 584,
+        "populated": 5202
+      },
+      "ASC-18 Interval Lower Limit": {
+        "populated": 584,
+        "publisher_missing_literal": 5202
+      },
+      "ASC-18 Interval Upper Limit": {
+        "populated": 584,
+        "publisher_missing_literal": 5202
+      },
+      "ASC-18 Performance Category": {
+        "populated": 1080,
+        "publisher_missing_literal": 4706
+      },
+      "ASC-18 RSHV Rate": {
+        "populated": 584,
+        "publisher_missing_literal": 5202
+      },
+      "ASC-18 Total Cases": {
+        "populated": 584,
+        "publisher_missing_literal": 5202
+      },
+      "ASC-19 Footnote": {
+        "blank": 1429,
+        "populated": 4357
+      },
+      "ASC-19 Interval Lower Limit": {
+        "populated": 1429,
+        "publisher_missing_literal": 4357
+      },
+      "ASC-19 Interval Upper Limit": {
+        "populated": 1429,
+        "publisher_missing_literal": 4357
+      },
+      "ASC-19 Performance Category": {
+        "populated": 3591,
+        "publisher_missing_literal": 2195
+      },
+      "ASC-19 RSHV Ratio": {
+        "populated": 1429,
+        "publisher_missing_literal": 4357
+      },
+      "ASC-19 Total Cases": {
+        "populated": 1429,
+        "publisher_missing_literal": 4357
+      },
+      "ASC-2 Footnote": {
+        "blank": 4628,
+        "populated": 1158
+      },
+      "ASC-2 Rate*": {
+        "populated": 4628,
+        "publisher_missing_literal": 1158
+      },
+      "ASC-3 Footnote": {
+        "blank": 4640,
+        "populated": 1146
+      },
+      "ASC-3 Rate*": {
+        "populated": 4640,
+        "publisher_missing_literal": 1146
+      },
+      "ASC-4 Footnote": {
+        "blank": 4587,
+        "populated": 1199
+      },
+      "ASC-4 Rate*": {
+        "populated": 4587,
+        "publisher_missing_literal": 1199
+      },
+      "ASC-9 Footnote": {
+        "blank": 1749,
+        "populated": 4037
+      },
+      "ASC-9 Rate*": {
+        "populated": 1749,
+        "publisher_missing_literal": 4037
+      },
+      "City/Town": {
+        "blank": 7,
+        "populated": 5779
+      },
+      "Facility ID": {
+        "blank": 2,
+        "populated": 5784
+      },
+      "Facility Name": {
+        "populated": 5786
+      },
+      "NPI": {
+        "populated": 5786
+      },
+      "State": {
+        "populated": 5786
+      },
+      "Year": {
+        "populated": 5786
+      },
+      "ZIP Code": {
+        "blank": 34,
+        "populated": 5752
+      }
+    },
+    "input_rows": 5786,
+    "jurisdiction_row_counts": {
+      "AK": 17,
+      "AL": 50,
+      "AR": 70,
+      "AZ": 215,
+      "CA": 662,
+      "CO": 136,
+      "CT": 50,
+      "DC": 2,
+      "DE": 22,
+      "FL": 502,
+      "GA": 349,
+      "GU": 2,
+      "HI": 21,
+      "IA": 32,
+      "ID": 52,
+      "IL": 129,
+      "IN": 143,
+      "KS": 71,
+      "KY": 33,
+      "LA": 86,
+      "MA": 56,
+      "MD": 289,
+      "ME": 14,
+      "MI": 117,
+      "MN": 88,
+      "MO": 102,
+      "MS": 72,
+      "MT": 25,
+      "NC": 143,
+      "ND": 11,
+      "NE": 49,
+      "NH": 31,
+      "NJ": 220,
+      "NM": 19,
+      "NV": 74,
+      "NY": 174,
+      "OH": 184,
+      "OK": 40,
+      "OR": 88,
+      "PA": 231,
+      "PR": 16,
+      "RI": 19,
+      "SC": 81,
+      "SD": 14,
+      "TN": 141,
+      "TX": 442,
+      "UT": 53,
+      "VA": 69,
+      "VI": 3,
+      "VT": 2,
+      "WA": 171,
+      "WI": 79,
+      "WV": 6,
+      "WY": 19
+    },
+    "jurisdictions_represented": 54,
+    "missing_or_unreviewed_facility_year_rows": 2,
+    "npi_shapes": {
+      "ten_digits": 5786
+    },
+    "public_promotion": false,
+    "publisher": {
+      "bytes": 1494694,
+      "id": "4jcv-atw7",
+      "modified": "2026-10-27",
+      "released": "2026-11-12",
+      "sha256": "1b3dd72de9e291b7b73845119499b62a8dfb09d8bc4243a6d6c78568a7635b14",
+      "url": "https://data.cms.gov/provider-data/sites/default/files/resources/c3d535fe5b6ca25a60a2f8108882bef7_1793153143/ASC_Facility_2.csv"
+    },
+    "publisher_documentation": "https://data.cms.gov/provider-data/topics/hospitals/ambulatory-surgical-centers/",
+    "repeated_facility_year_rows": 99,
+    "report_years": {
+      "2025": 5786
+    },
+    "retrieved_at": "2026-11-27T17:35:42.185139+00:00",
+    "reuse_review": "pending",
+    "row_level_retained": 0,
+    "scope": "Aggregate structural screening only. Facility/year key is provisional, NPI shape is not identity verification, reporting participation is not current certification. No clinical values or facility identifiers published; missing/suppressed footnotes require dictionary qualification.",
+    "source_columns": 47,
+    "source_id": "FS-041"
+  }
+}

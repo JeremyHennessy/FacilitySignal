@@ -492,7 +492,17 @@
     },
     {
       "id": "FS-041",
-      "status": "discovered_not_tested"
+      "status": "aggregate_screening_qualified",
+      "evidence": "46043049342",
+      "dataset_id": "4jcv-atw7",
+      "source_release": "2026-11-12",
+      "source_records": 5786,
+      "source_columns": 47,
+      "source_sha256": "1b3dd72de9e291b7b73845119499b62a8dfb09d8bc4243a6d6c78568a7635b14",
+      "aggregate_evidence": "research/fs041_asc_quality_qualification_20261127.json",
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "National ASC quality reporting facility/year screening only; 99 repeated facility/year rows, 2 missing keys, no identity merges, clinical values published or storage writes. Exact schema and full row count verified; clinical definitions, footnotes, reporting periods and source-scoped linkage still require qualification."
     },
     {
       "id": "FS-042",
