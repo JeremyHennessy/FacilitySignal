@@ -97,6 +97,40 @@ def service_topics(page,base,width):
     page.get_by_text("Qualified aggregate evidence unavailable:",exact=False).wait_for()
     assert groups.count()==0
     page.unroute("**/web/public-intelligence.json")
+def ltch_source_handoff(page,base,width):
+    provider=base+"#detail?source=long-term-hospital&id=012006&state=AL"
+    requests=[]
+    def observe(request):
+        if (urlsplit(request.url).hostname or "").endswith("medicare.gov"):
+            requests.append(request.url)
+    page.on("request",observe)
+    page.goto(provider)
+    nav=page.get_by_role("navigation",name="Facility evidence sections")
+    nav.get_by_role("link",name="Sources & coverage").click()
+    card=page.locator(".ltch-quality-source[data-evidence='source-link']")
+    link=card.get_by_role("link",name="Open this provider’s quality evidence on Medicare.gov")
+    assert link.get_attribute("href")=="https://www.medicare.gov/care-compare/details/long-term-care/012006/view-all"
+    assert link.get_attribute("target")=="_blank" and link.get_attribute("referrerpolicy")=="no-referrer"
+    assert set(link.get_attribute("rel").split())=={"noopener","noreferrer"}
+    assert "does not load or republish these scores" in card.inner_text()
+    assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1")
+    capture(page,f"{width}-ltch-quality-publisher",card)
+    page.go_back()
+    assert not page.locator(".ltch-quality-source").count()
+    page.go_forward();link.wait_for()
+    page.goto(provider.replace("state=AL","state=DC")+"&section=sources")
+    page.get_by_text("No matching source record returned.",exact=True).wait_for()
+    assert not page.locator(".ltch-quality-source").count()
+    url="**/web/public-directory/long-term-hospital.json*"
+    altered=json.loads((ROOT/"web/public-directory/long-term-hospital.json").read_text())
+    next(r for r in altered["records"] if r["ccn"]=="012006")["address"]="Unverified fixture address"
+    page.route(url,lambda route:route.fulfill(status=200,json=altered))
+    page.goto(provider+"&section=sources")
+    page.locator(".ltch-quality-source[data-evidence='unavailable']").wait_for()
+    assert not page.locator(".ltch-quality-source a").count()
+    page.unroute(url)
+    page.remove_listener("request",observe)
+    assert not requests,"Medicare requested without user clicking the link"
 def run(base,live):
     summary=[]
     with sync_playwright() as p:
@@ -193,8 +227,9 @@ def run(base,live):
             assert not page.get_by_role("button",name="Export current page (CSV)").count()
             page.unroute("**/web/institutional-evidence.json*")
             service_topics(page,base,width)
+            ltch_source_handoff(page,base,width)
             assert not errors,errors
-            summary.append({"width":width,"dialysis_NY_late_shift":len(want),"positive_negative_and_exact_filters":True,"private_field_rejected":True,"bad_pack_unavailable":True,"csv_and_return":True,"institutional_comparison_all_seven_and_csv":True,"comparison_bad_pack_preserves_basic_records":True,"sticky_evidence_labels_and_final_provider":True,"national_iqies_topics_counts_history_and_error":True})
+            summary.append({"width":width,"dialysis_NY_late_shift":len(want),"positive_negative_and_exact_filters":True,"private_field_rejected":True,"bad_pack_unavailable":True,"csv_and_return":True,"institutional_comparison_all_seven_and_csv":True,"comparison_bad_pack_preserves_basic_records":True,"sticky_evidence_labels_and_final_provider":True,"national_iqies_topics_counts_history_and_error":True,"ltch_exact_href_no_external_fetch_and_drift_block":True})
             ctx.close()
         browser.close()
     report={"mode":"ordinary_live" if live else "candidate","entry_checks":entries,"viewport_checks":summary}

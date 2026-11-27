@@ -47,6 +47,7 @@ ROUTES=[
     ("capacity","capacity?source=dialysis&state=NY",lambda page:page.locator(".capacity-band").first),
     ("ltch-capacity","capacity?source=long-term-hospital",lambda page:page.locator(".ltch-capacity-table")),
     ("ltch-profile","detail?"+urlencode({"source":"long-term-hospital","id":LTCH["ccn"],"state":LTCH["state"],"section":"services"}),lambda page:page.get_by_role("heading",name="Reported capacity and service evidence")),
+    ("ltch-quality-publisher","detail?source=long-term-hospital&id=012006&state=AL&section=sources",lambda page:page.locator(".ltch-quality-source[data-evidence='source-link']")),
     ("services","services",lambda page:page.get_by_role("heading",name="ASC service provision arrangements")),
     ("service-topic-asc","services?topic=asc",lambda page:page.get_by_role("heading",name="ASC surgical specialty evidence",exact=True)),
     ("service-topic-dialysis","services?topic=dialysis",lambda page:page.get_by_role("heading",name="Dialysis commencement and continuation evidence",exact=True)),
@@ -163,6 +164,10 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="ltch-quality-publisher":
+                    link=page.locator(".ltch-quality-source a")
+                    assert link.get_attribute("href")=="https://www.medicare.gov/care-compare/details/long-term-care/012006/view-all"
+                    page.locator(".ltch-quality-source").screenshot(path=str(OUT/f"{width}-{name}-card.png"))
                 if name in ("service-topic-asc","service-topic-dialysis"):
                     page.locator(".intelligence-table").screenshot(
                         path=str(OUT/f"{width}-{name}-table.png"),animations="disabled")
