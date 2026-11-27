@@ -1,0 +1,57 @@
+name: Qualify national private iQIES service HTTP API
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/qualify-iqies-private-http.yml
+      - scripts/qualify_iqies_private_http.py
+      - tests/test_iqies_private_http_qualification.py
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-iqies-national-service-recovery
+  cancel-in-progress: false
+jobs:
+  qualify:
+    if: github.repository == 'JeremyHennessy/FacilitySignal'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5
+      - run: python -m unittest discover -s tests -v
+  national:
+    needs: qualify
+    if: github.repository == 'JeremyHennessy/FacilitySignal' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: azure-production
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install openpyxl==3.1.5 azure-storage-blob==12.25.1
+      - name: Qualify exact private national database and loopback HTTP API
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_CONTAINER: ${{ vars.AZURE_STORAGE_CONTAINER }}
+          AZURE_STORAGE_PREFIX: ${{ vars.AZURE_STORAGE_PREFIX }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        run: |
+          umask 077
+          python -m scripts.qualify_iqies_private_http --receipt "$RUNNER_TEMP/iqies-private-http-receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iqies-private-http-aggregate
+          path: ${{ runner.temp }}/iqies-private-http-receipt.json
+          retention-days: 30
+          if-no-files-found: error
