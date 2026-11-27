@@ -1,0 +1,16 @@
+# Minnesota hospital roster: source scope and comparison gate
+
+November 27, 2026 UTC. This is a source-verification checkpoint, not a new linkage or a listing of individual facilities.
+
+| Source | Verified observation | Limits |
+| --- | --- | --- |
+| [MDH Health Regulation Division annual directory, Tables 1–2](https://www2cdn.web.health.state.mn.us/facilities/regulation/directory/2026mdhdirectory.pdf#page=6) | As of March 13, 2026, state licensing totals reported in separate rows are 127 hospitals, 2 psychiatric hospitals, and 10 other specialized hospitals. Medicare certification rows show 50 hospitals, 76 critical access hospitals, and 9 psychiatric hospitals. | Distinct classifications, not an address intersection or a physical-campus count. Do not subtract these totals from the current CMS-derived application count to claim an unmatched provider. |
+| [FacilitySignal pinned Minnesota provider audit](https://github.com/JeremyHennessy/FacilitySignal/commit/4d3e10293ebac26af2d0c70efe3de99728c4b807) | 136 hospital provider records in the published CMS-derived pack; 337 nursing provider records, a separate cohort. | Publication and scope differ from the MDH annual counts; the hospital count is not a campus denominator. |
+| [MDH HCCIS hospital reporting lists](https://www.health.state.mn.us/data/economics/hccis/facilities.html) | The publisher distinguishes independent reporting closure from physical closure. The open-hospital description refers to beds from the 2024 reporting year; that is not a workbook publication timestamp. | Both [open](https://www.health.state.mn.us/data/economics/hccis/docs/hosplist.xlsx) and [closed](https://www.health.state.mn.us/data/economics/hccis/docs/closed.xlsx) workbooks returned HTTP 403 in the available retrieval route. No exact workbook bytes, rows, edition, coverage or CMS overlap were established. |
+| [MDH live licensure directory index](https://www.health.state.mn.us/facilities/regulation/directory/index.html) | The state describes a separate daily updated provider directory. | The linked provider search returned HTTP 403 through the tested route. The index is not proof of record-level access or complete coverage of offsite campuses. |
+
+## Admission rule for a later comparison
+
+Record source scope, a publisher date if explicit, retrieval timestamp, byte SHA-256, sheet or table identifiers, and the row definition before joining. Keep reporting entity, state license, federal provider, and physical campus distinct. Only compare exact address keys and narrowly declared normalization; retain direction and building-line holds. Keep legal-name and system affiliation as review context only. Count ambiguous and unmatched addresses separately, never as closure or equipment absence. Do not publish row-level treatment, contact, or equipment data from the qualification run.
+
+Do not replace unavailable HCCIS rows with the annual directory's totals, or substitute a state license or provider identifier for a campus. The two [campus negative controls](https://github.com/JeremyHennessy/FacilitySignal/commit/cc9f8397748593793e202341cbfd3ce7317c3643) remain valid without claiming actual equipment presence. No source archive writes, app changes, or release promotion.
