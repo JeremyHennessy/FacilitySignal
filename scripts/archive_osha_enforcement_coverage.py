@@ -120,28 +120,45 @@ def violations(path,ids):
     require(n==sum(counts[k] for k in ("unrecognized_activity_key","outside_resolved_sector62_activity_keys","sector62_activity_key_match")),"violation row reconciliation")
     require(sum(flags.values())==sum(types.values())==counts["sector62_activity_key_match"] and matched<=set(ids),"violation link reconciliation")
     return {"source_rows_screened":n,"members":members,"dispositions":dict(counts),"matched_sector62_activity_keys":len(matched),"matched_rows_by_delete_flag_literal":dict(flags),"matched_rows_by_violation_type_literal":dict(types)}
-def main():
-    p=argparse.ArgumentParser();p.add_argument("--receipt",type=Path,required=True);args=p.parse_args()
-    require(not args.receipt.exists(),"receipt exists");a.run_key(os.environ);store=storage.SourceAzure(os.environ)
+def qualify(root):
+    """Screen both exact publisher editions; leave only aggregate data in memory."""
+    before={k:head(k) for k in URLS};meta={}
+    for k in URLS:
+        path=root/(k+".zip");meta[k]=download(k,path)
+        require(all(meta[k][f]==v for f,v in before[k].items() if v is not None),"DOL source changed since HEAD")
+        if k=="inspection":ids,ins=inspect(path)
+        else:viol=violations(path,ids)
+        require(sha(path)==meta[k]["sha256"],"DOL source mutated")
+        path.unlink()
+    require(all(head(k)==before[k] for k in URLS),"DOL edition changed during acquisition")
+    # Combined source identity is a canonical manifest digest, not a raw ZIP hash.
+    combined=hashlib.sha256(json.dumps({k:{"url":v["url"],"sha256":v["sha256"],"bytes":v["bytes"]} for k,v in meta.items()},sort_keys=True,separators=(",",":")).encode()).hexdigest()
+    publisher={"kind":"multi_archive_publisher_manifest","sha256":combined,"documentation":DOC,"sources":meta,"retrieved_at":datetime.now(timezone.utc).isoformat()}
+    summary={"aggregate_rows":1,"source_rows_screened":ins["source_rows_screened"]+viol["source_rows_screened"],"inspection":ins,"violation":viol,"site_or_event_rows_retained":0,"source_keys_retained":0,"scope":"DOL inspection and violation bulk editions, sector 62 code observations and exact activity-number matches. Different member dates may reflect different publisher cuts; counts are source rows, not unique facilities, current unresolved violations, or legal compliance judgments. NAICS is unavailable for older inspections; no SIC crosswalk or injury records. No raw identifiers or narratives retained.","public_promotion":False}
+    return publisher,summary
+
+def main(argv=None):
+    p=argparse.ArgumentParser()
+    p.add_argument("--receipt",type=Path,required=True)
+    p.add_argument("--qualify-only",action="store_true",help="Validate both publisher archives without Azure, writing an aggregate-only local receipt")
+    args=p.parse_args(argv)
+    require(not args.receipt.exists(),"receipt exists")
+    if args.qualify_only:
+        with tempfile.TemporaryDirectory(prefix="osha-enforcement-coverage-") as d:
+            publisher,summary=qualify(Path(d))
+        rec={"status":"QUALIFIED_LOCAL_ONLY","source_sha256":publisher["sha256"],"publisher":publisher,
+             "summary":summary,"azure_writes":0,"archive_readback_verified":False,"public_promotion":False}
+        with args.receipt.open("xb") as f:f.write(a.encode(rec))
+        print("OSHA_ENFORCEMENT_QUALIFIED_LOCAL_ONLY",json.dumps(rec,sort_keys=True),flush=True)
+        return
+
+    a.run_key(os.environ);store=storage.SourceAzure(os.environ)
     try:
         national=storage.national_manifest(store)
         with tempfile.TemporaryDirectory(prefix="osha-enforcement-coverage-") as d:
-            root=Path(d);before={k:head(k) for k in URLS};meta={}
-            for k in URLS:
-                path=root/(k+".zip");meta[k]=download(k,path)
-                require(all(meta[k][f]==v for f,v in before[k].items() if v is not None),"DOL source changed since HEAD")
-                if k=="inspection":ids,ins=inspect(path)
-                else:viol=violations(path,ids)
-                require(sha(path)==meta[k]["sha256"],"DOL source mutated")
-                path.unlink()
-            require(all(head(k)==before[k] for k in URLS),"DOL edition changed during acquisition")
-            # Combined source identity is explicitly a canonical manifest digest,
-            # not the SHA-256 of either individual publisher ZIP.
-            combined=hashlib.sha256(json.dumps({k:{"url":v["url"],"sha256":v["sha256"],"bytes":v["bytes"]} for k,v in meta.items()},sort_keys=True,separators=(",",":")).encode()).hexdigest()
-            publisher={"kind":"multi_archive_publisher_manifest","sha256":combined,"documentation":DOC,"sources":meta,"retrieved_at":datetime.now(timezone.utc).isoformat()}
-            rec=storage.existing(store,KEY,combined)
+            root=Path(d);publisher,summary=qualify(root)
+            rec=storage.existing(store,KEY,publisher["sha256"])
             if rec is None:
-                summary={"aggregate_rows":1,"source_rows_screened":ins["source_rows_screened"]+viol["source_rows_screened"],"inspection":ins,"violation":viol,"site_or_event_rows_retained":0,"source_keys_retained":0,"scope":"DOL inspection and violation bulk editions, sector 62 code observations and exact activity-number matches. Different member dates may reflect different publisher cuts; counts are source rows, not unique facilities, current unresolved violations, or legal compliance judgments. NAICS is unavailable for older inspections; no SIC crosswalk or injury records. No raw identifiers or narratives retained.","public_promotion":False}
                 out=root/"projection.sqlite3";write_aggregate(out,summary)
                 audit={"publisher":publisher,"summary":summary,"projection_sha256":sha(out),"projection_bytes":out.stat().st_size,"reuse_review":"pending","public_promotion":False}
                 rec=storage.publish(store,KEY,publisher,out,audit,root,national)
