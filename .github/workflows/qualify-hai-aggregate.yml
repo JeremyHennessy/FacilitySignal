@@ -1,0 +1,42 @@
+name: Qualify FS040 HAI aggregates
+on:
+  push:
+    branches: [research/fs040-hai-aggregate-20261128]
+    paths:
+      - scripts/qualify_hai_aggregate.py
+      - tests/test_hai_aggregate.py
+      - .github/workflows/qualify-hai-aggregate.yml
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-fs040-hai-qualification
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p test_hai_aggregate.py -v
+      - name: Screen national reference first
+        run: |
+          umask 077
+          python -m scripts.qualify_hai_aggregate --scope national --audit "$RUNNER_TEMP/fs040-national.json"
+      - name: Screen separate provider grain
+        run: |
+          umask 077
+          python -m scripts.qualify_hai_aggregate --scope provider --audit "$RUNNER_TEMP/fs040-provider.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fs040-hai-aggregate-evidence
+          path: |
+            ${{ runner.temp }}/fs040-national.json
+            ${{ runner.temp }}/fs040-provider.json
+          retention-days: 7
+          if-no-files-found: ignore
