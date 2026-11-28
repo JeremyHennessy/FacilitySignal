@@ -1284,6 +1284,32 @@ async function ltchQualitySourceHandoff(s,r,signal,epoch){
     }
     return section
 }
+// The link uses only the CCN from the approved CMS nursing directory, not its citation projections.
+async function nursingCareCompareHandoff(s,r,signal,epoch){
+    const pin=nursingChainPin,section=el("section",undefined,"dossier-evidence nursing-care-compare");
+    section.append(el("h2","Inspection and quality records on Medicare.gov"));
+    try{
+        if(s.key!=="nursing"||s.release!==pin.release||s.catalog_id!=="4pq5-n9py"||s.sha256!==pin.source
+            ||s.stored_rows!==pin.rows||!/^[0-9]{6}$/.test(r.ccn)||!states.includes(r.state))throw Error("Nursing source lineage mismatch");
+        const directory=await exactJson("web/public-directory/nursing.json",pin.directory,signal);
+        if(epoch!==sequence||signal.aborted)return null;
+        if(directory.source!==s.key||directory.release!==pin.release||directory.row_count!==pin.rows
+            ||!Array.isArray(directory.records)||directory.records.length!==pin.rows)throw Error("Nursing directory scope mismatch");
+        const matches=directory.records.filter(x=>x.ccn===r.ccn);
+        if(matches.length!==1||["state","name","address","city","zip"].some(field=>matches[0][field]!==r[field]))
+            throw Error("Unique nursing source record not verified");
+        section.dataset.evidence="source-link";
+        section.append(el("p","For this CMS provider (CCN "+r.ccn+"), check Medicare for published inspection reports, penalties, staffing and quality measures. Medicare may show a newer release. The link does not establish current compliance or verify a physical site.","intro"));
+        const link=anchor("Open this provider on Medicare.gov","https://www.medicare.gov/care-compare/details/nursing-home/"+r.ccn+"/view-all/",true);
+        link.referrerPolicy="no-referrer";
+        section.append(add(el("p"),link));
+    }catch(e){
+        if(epoch!==sequence||signal.aborted||e.name==="AbortError")return null;
+        section.dataset.evidence="unavailable";
+        section.append(el("p","No Medicare link matched this source record. No inspection or quality finding inferred.","notice"));
+    }
+    return section
+}
 function profileSources(s,r,f){
     const section=el("section");
     section.append(el("h2","Source and release"),table(["Evidence","Value"],[["Provider source",names[s.key]],["Source identifier (CCN)",shown(value(r,f,"id"))],["Reported state",shown(value(r,f,"state"))],["Published release",s.release],["Public projection",sourceLink(s,"Official source")]]),
@@ -1347,7 +1373,15 @@ async function detail(p,signal,epoch){
                 const related=el("details",undefined,"dossier-coverage");
                 related.append(el("summary","National research and evidence limitations"),el("p","Monetary financial measures and individual-level equipment, environmental, property and ownership relationships are not inferred or published here. National coverage links do not establish relationships for this facility.","intro"),add(el("div",undefined,"links"),anchor("Certification registry coverage",route("certifications")),anchor("Hospital survey coverage",route("hospital-surveys")),anchor("Ownership evidence coverage",route("ownership")),anchor("National service evidence",route("services")),anchor("National equipment and environmental research",route("equipment-environment")),anchor("Financial report research",route("financial-research"))));app.append(related);
             }else if(section==="services"){const services=await profileService(r,s,f,signal,epoch);if(!services||epoch!==sequence)return;app.append(services)}
-            else if(section==="compliance"){const c=await profileCompliance(r,s,f,signal,epoch);if(!c||epoch!==sequence)return;app.append(c)}
+            else if(section==="compliance"){
+                const [c,handoff]=await Promise.all([
+                    profileCompliance(r,s,f,signal,epoch),
+                    s.key==="nursing"&&result.total===1?nursingCareCompareHandoff(s,r,signal,epoch):null
+                ]);
+                if(!c||epoch!==sequence)return;
+                app.append(c);
+                if(handoff)app.append(handoff);
+            }
             else if(section==="location"){const waiting=el("div","Loading source-scoped location evidence…","notice");app.append(waiting);const c=await profileLocation(r,s,signal,epoch,p);if(!c||epoch!==sequence)return;waiting.replaceWith(c)}
             else{
                 const sources=profileSources(s,r,f);
