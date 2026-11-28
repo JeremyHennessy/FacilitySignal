@@ -1,0 +1,129 @@
+{
+  "archive_sha256": "d34ae917f2da83e25c668547589c6da0044fd5852eea8f6bb16567205371d253",
+  "line5": {
+    "identity_or_period_hold": {
+      "cells": {
+        "contract_labor": {
+          "absent": 118
+        },
+        "employee_wages": {
+          "absent": 118
+        },
+        "labor_subtotal": {
+          "absent": 118
+        },
+        "nonlabor": {
+          "absent": 118
+        },
+        "unadjusted_subtotal": {
+          "absent": 118
+        }
+      },
+      "eq124_to_5": {},
+      "eq12_to_3": {},
+      "eq34_to_5": {},
+      "presence": {
+        "none": 118
+      },
+      "report_count": 118
+    },
+    "pre_rev3": {
+      "cells": {
+        "contract_labor": {
+          "absent": 7633,
+          "negative_integer_shape": 18,
+          "positive_integer_shape": 4023
+        },
+        "employee_wages": {
+          "absent": 363,
+          "negative_integer_shape": 1,
+          "positive_integer_shape": 11310
+        },
+        "labor_subtotal": {
+          "absent": 177,
+          "negative_integer_shape": 2,
+          "positive_integer_shape": 11495
+        },
+        "nonlabor": {
+          "absent": 170,
+          "negative_integer_shape": 5,
+          "positive_integer_shape": 11499
+        },
+        "unadjusted_subtotal": {
+          "absent": 4,
+          "negative_integer_shape": 1,
+          "positive_integer_shape": 11669
+        }
+      },
+      "eq124_to_5": {
+        "exact": 3686,
+        "incomplete": 4,
+        "incomplete_parts_residual_zero": 7970
+      },
+      "eq12_to_3": {
+        "exact": 3850,
+        "incomplete": 175,
+        "incomplete_parts_residual_zero": 7635
+      },
+      "eq34_to_5": {
+        "exact": 11319,
+        "incomplete": 4,
+        "incomplete_parts_residual_zero": 337
+      },
+      "presence": {
+        "12345": 3691,
+        "1235": 164,
+        "1345": 7456,
+        "2345": 184,
+        "235": 2,
+        "45": 173,
+        "none": 4
+      },
+      "report_count": 11674,
+      "subscript_held_reports": 14
+    },
+    "rev3": {
+      "cells": {
+        "contract_labor": {
+          "absent": 9,
+          "positive_integer_shape": 1
+        },
+        "employee_wages": {
+          "positive_integer_shape": 10
+        },
+        "labor_subtotal": {
+          "positive_integer_shape": 10
+        },
+        "nonlabor": {
+          "positive_integer_shape": 10
+        },
+        "unadjusted_subtotal": {
+          "positive_integer_shape": 10
+        }
+      },
+      "eq124_to_5": {
+        "exact": 1,
+        "incomplete_parts_residual_zero": 9
+      },
+      "eq12_to_3": {
+        "exact": 1,
+        "incomplete_parts_residual_zero": 9
+      },
+      "eq34_to_5": {
+        "exact": 10
+      },
+      "presence": {
+        "12345": 1,
+        "1345": 9
+      },
+      "report_count": 10
+    }
+  },
+  "rows": {
+    "A000000": 1665731,
+    "alpha": 3581725,
+    "line5_base_projected_rows": 50064,
+    "line5_subscript_rows": 72,
+    "numeric": 12357505
+  }
+}

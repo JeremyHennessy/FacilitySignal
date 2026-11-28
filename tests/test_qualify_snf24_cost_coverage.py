@@ -55,7 +55,7 @@ class CostCoverageTests(unittest.TestCase):
             q.audit({"1": header()}, {"1": identity()}, [["1"]])
 
     def test_no_coercion_and_capital_shaded_cells_excluded(self):
-        for token in ("", "NaN", "Infinity", "1e4", "1,234", " 1"):
+        for token in ("", "NaN", "Infinity", "1e4", "1,234", " 1", "+1", "+0"):
             self.assertIsNone(q.value(token))
         a = q.audit({"1": header()}, {"1": identity()}, cells(line="00100"))
         self.assertEqual(a["scan"]["other_base_column_rows"], 3)

@@ -54,8 +54,9 @@ def load_identity(rows):
 
 
 def value(raw):
+    # CMS Ch. 49 §4900.10: a positive number must not have a leading plus.
     # No inferred scale, coercion of blanks, exponent, NaN, or rounding.
-    if not re.fullmatch(r"[+-]?[0-9]{1,18}(?:\.[0-9]{1,8})?", raw):
+    if not re.fullmatch(r"-?[0-9]{1,18}(?:\.[0-9]{1,8})?", raw):
         return None
     return Decimal(raw)
 
