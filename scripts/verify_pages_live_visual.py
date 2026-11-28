@@ -16,7 +16,7 @@ OUT=Path(os.environ.get("RUNNER_TEMP","/tmp"))/"pages-live-visual-evidence"
 OUT.mkdir(exist_ok=True)
 def sha(data):return hashlib.sha256(data).hexdigest()
 ASSETS=("web/pages.js","web/pages.css")
-HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json","web/public-directory/manifest.json","web/public-directory/long-term-hospital.json","web/public-intelligence.json","web/dialysis-service-evidence.json","web/public-directory/dialysis.json","web/hha-service-evidence.json","web/public-directory/home-health.json","web/nursing-chain-evidence.json")}
+HASHES={x:sha((ROOT/x).read_bytes()) for x in ("index.html",*ASSETS,"web/market-boundaries.json","web/market-summary.json","web/public-directory/manifest.json","web/public-directory/long-term-hospital.json","web/public-intelligence.json","web/dialysis-service-evidence.json","web/public-directory/dialysis.json","web/hha-service-evidence.json","web/public-directory/home-health.json","web/nursing-chain-evidence.json","web/public-directory/nursing.json")}
 VERSIONS={x:x+"?v="+HASHES[x][:16] for x in ASSETS}
 MANIFEST=json.loads((ROOT/"web/public-directory/manifest.json").read_text())
 TOTAL=MANIFEST["provider_rows"]
@@ -43,6 +43,7 @@ ROUTES=[
     ("directory","facilities?source=hospital&state=NY",lambda page:page.locator("tbody tr").first),
     ("profile","detail?"+urlencode({"source":"nursing","id":PROVIDER["ccn"],"state":PROVIDER["state"],"section":"sources"}),lambda page:page.get_by_role("heading",name="Evidence availability for this record")),
     ("profile-summary","detail?"+urlencode({"source":"nursing","id":PROVIDER["ccn"],"state":PROVIDER["state"]}),lambda page:page.get_by_role("heading",name="Continue this research")),
+    ("nursing-care-compare","detail?"+urlencode({"source":"nursing","id":PROVIDER["ccn"],"state":PROVIDER["state"],"section":"compliance"}),lambda page:page.locator(".nursing-care-compare[data-evidence='source-link']")),
     ("certifications","certifications",lambda page:page.get_by_role("heading",name="Certifications & laboratories",exact=True)),
     ("capacity","capacity?source=dialysis&state=NY",lambda page:page.locator(".capacity-band").first),
     ("ltch-capacity","capacity?source=long-term-hospital",lambda page:page.locator(".ltch-capacity-table")),
@@ -164,6 +165,17 @@ def run(base,local):
                 assert page.evaluate("document.documentElement.scrollWidth<=innerWidth+1"),(width,name)
                 page.evaluate("window.scrollTo(0,0)")
                 page.screenshot(path=str(OUT/f"{width}-{name}.png"),animations="disabled")
+                if name=="nursing-care-compare":
+                    card=page.locator(".nursing-care-compare")
+                    link=card.get_by_role("link",name="Open this provider on Medicare.gov",exact=True)
+                    assert link.get_attribute("href")==f"https://www.medicare.gov/care-compare/details/nursing-home/{PROVIDER['ccn']}/view-all/"
+                    assert link.get_attribute("referrerpolicy")=="no-referrer"
+                    assert "does not establish current compliance or verify a physical site" in card.inner_text()
+                    projection="web/public-directory/nursing.json"
+                    seen=[r for r in responses if r.url==base+projection]
+                    assert seen and sha(seen[-1].body())==HASHES[projection],"Browser loaded wrong nursing projection"
+                    card.screenshot(path=str(OUT/f"{width}-{name}-card.png"),animations="disabled")
+                    page.screenshot(path=str(OUT/f"{width}-{name}-full.png"),full_page=True,animations="disabled")
                 if name=="ltch-quality-publisher":
                     link=page.locator(".ltch-quality-source a")
                     assert link.get_attribute("href")=="https://www.medicare.gov/care-compare/details/long-term-care/012006/view-all"

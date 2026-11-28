@@ -3,7 +3,7 @@ import json,os,re,subprocess,time
 from pathlib import Path
 from urllib.parse import urlencode,urlsplit,parse_qs
 from urllib.request import urlopen
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect as expect_locator,sync_playwright
 
 ROOT=Path(__file__).resolve().parents[1]
 URL="http://127.0.0.1:8096/"
@@ -53,6 +53,26 @@ try:
             nav=page.get_by_role("navigation",name="Facility evidence sections")
             assert nav.get_by_role("link",name="Summary").get_attribute("aria-current")=="page"
             page.get_by_role("columnheader",name="Historical citation rows").wait_for()
+            assert page.locator(".nursing-care-compare").count()==0
+            nav.get_by_role("link",name="Compliance evidence",exact=True).click()
+            handoff=page.locator('.nursing-care-compare[data-evidence="source-link"]')
+            handoff.wait_for()
+            medicare=handoff.get_by_role("link",name="Open this provider on Medicare.gov",exact=True)
+            assert medicare.get_attribute("href")==(
+                "https://www.medicare.gov/care-compare/details/nursing-home/"+provider["ccn"]+"/view-all/"
+            )
+            assert medicare.get_attribute("target")=="_blank"
+            assert set(medicare.get_attribute("rel").split())=={"noopener","noreferrer"}
+            assert medicare.get_attribute("referrerpolicy")=="no-referrer"
+            assert "does not establish current compliance or verify a physical site" in handoff.inner_text()
+            page.get_by_role("columnheader",name="Historical citation rows").wait_for()
+            check()
+            page.screenshot(path=str(OUT/f"{width}-nursing-compliance.png"),full_page=True)
+            handoff.screenshot(path=str(OUT/f"{width}-nursing-care-compare.png"))
+            page.go_back()
+            page.get_by_role("columnheader",name="Historical citation rows").wait_for()
+            assert nav.get_by_role("link",name="Summary").get_attribute("aria-current")=="page"
+            assert page.locator(".nursing-care-compare").count()==0
             page.get_by_role("link",name="Services & capacity",exact=True).click()
             page.get_by_role("heading",name="Reported capacity and service evidence").wait_for()
             assert page.get_by_text("Individual QIES and iQIES service observations",exact=False).count()==1
@@ -73,6 +93,7 @@ try:
             h=hospital["records"][0]
             page.goto(URL+"#detail?"+urlencode({"source":"hospital","id":h["ccn"],"state":h["state"],"section":"compliance","return":"https://example.test/"}))
             page.get_by_text("does not contain facility-linked inspection",exact=False).wait_for()
+            assert page.locator(".nursing-care-compare").count()==0
             assert page.get_by_role("link",name="Back to directory").get_attribute("href").startswith("#facilities?")
             check()
             for source,state in [("nursing",None),("dialysis","NY")]:
@@ -87,8 +108,7 @@ try:
                 band=page.locator('.capacity-band[data-band="1–49"]' if source=="nursing" else '.capacity-band[data-band="10–19"]')
                 expected_count=expect["1–49" if source=="nursing" else "10–19"]
                 band.click()
-                page.locator(".capacity-band").first.wait_for()
-                assert int(page.locator(".metrics .metric strong").first.inner_text().replace(",",""))==expected_count
+                expect_locator(page.locator(".metrics .metric strong").first).to_have_text(f"{expected_count:,}")
                 lo,hi=(1,49) if source=="nursing" else (10,19)
                 assert page.locator("input[name=min]").input_value()==str(lo)
                 assert page.locator("input[name=max]").input_value()==str(hi)
@@ -108,8 +128,31 @@ try:
                 assert evidence_table.evaluate("(e)=>{e.scrollLeft=100;const moved=e.scrollLeft>0;e.scrollLeft=0;return moved}")
             # Public provider projection only, no new restricted data.
             page.screenshot(path=str(OUT/f"{width}-profile-sources.png"),full_page=True)
-            checked.append({"width":width,"profile_sections":True,"return_state":True,"capacity_distribution":True})
+            checked.append({"width":width,"profile_sections":True,"return_state":True,"capacity_distribution":True,"nursing_care_compare":True})
             page.close()
+        page=b.new_page()
+        # Do not assume that Medicare routes support the directory's alphanumeric identifiers.
+        unverified=next(r for r in nursing["records"] if not re.fullmatch(r"[0-9]{6}",r["ccn"]))
+        page.goto(URL+"#detail?"+urlencode({"source":"nursing","id":unverified["ccn"],"state":unverified["state"],"section":"compliance"}))
+        page.get_by_role("heading",name=unverified["name"],exact=True).wait_for()
+        page.locator('.nursing-care-compare[data-evidence="unavailable"]').wait_for()
+        assert page.get_by_role("link",name="Open this provider on Medicare.gov").count()==0
+        # An otherwise valid profile may render, but a changed source projection cannot supply an external link.
+        body=(ROOT/"web/public-directory/nursing.json").read_bytes()
+        page.route("**/web/public-directory/nursing.json",lambda request:request.fulfill(
+            status=200,content_type="application/json",body=body+b" "
+        ))
+        params={"source":"nursing","id":provider["ccn"],"state":provider["state"],"section":"compliance"}
+        page.goto(URL+"#detail?"+urlencode(params))
+        page.get_by_role("heading",name=provider["name"],exact=True).wait_for()
+        page.get_by_role("columnheader",name="Historical citation rows").wait_for()
+        page.locator('.nursing-care-compare[data-evidence="unavailable"]').wait_for()
+        assert page.get_by_role("link",name="Open this provider on Medicare.gov").count()==0
+        for bad in ({"state":"TX" if provider["state"]!="TX" else "AK"},{"id":"000000"}):
+            page.goto(URL+"#detail?"+urlencode({**params,**bad}))
+            page.get_by_text("No matching source record returned.",exact=True).wait_for()
+            assert page.locator(".nursing-care-compare").count()==0
+        page.close()
         b.close()
     (OUT/"report.json").write_text(json.dumps({"public_projection_only":True,"checks":checked},indent=2))
     print("PROFILE_CAPACITY_BROWSER_PASS",json.dumps(checked),flush=True)
