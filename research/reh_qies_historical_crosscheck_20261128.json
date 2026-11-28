@@ -1,0 +1,304 @@
+{
+  "api_dataset_versions": {
+    "q1_2025": "315bbdac-3888-43d9-9012-a9a2e29ca179",
+    "q4_2024": "8143cbc7-484f-438b-9dfa-2e81d5d6a1ed"
+  },
+  "api_schema": "https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/provider-of-services-file-quality-improvement-and-evaluation-system/api-docs",
+  "application_clearance": "pending",
+  "editions": {
+    "q1_2025": {
+      "cohort_request_distinct_keys": 71,
+      "cohort_response_rows": 50,
+      "explicit_former_pecos_ccns": {
+        "lettered_ccns_not_returned": 8,
+        "literal_category_subtype": {
+          "01/01": 7,
+          "01/11": 7
+        },
+        "literal_date_buckets": {
+          "CRTFCTN_DT": {
+            "after_2024_end": 1,
+            "on_or_before_2024_end": 13
+          },
+          "ORGNL_PRTCPTN_DT": {
+            "on_or_before_2024_end": 14
+          },
+          "TRMNTN_EXPRTN_DT": {
+            "after_2024_end": 1,
+            "blank": 11,
+            "on_or_before_2024_end": 2
+          }
+        },
+        "literal_general_type": {
+          "01": 7,
+          "11": 7
+        },
+        "literal_termination_code": {
+          "00": 11,
+          "07": 3
+        },
+        "match_outcomes": {
+          "exact_ccn_and_state": 14,
+          "multiple_exact_ccn_rows": 0,
+          "not_returned": 8,
+          "state_conflict": 0
+        },
+        "reported_certification_and_original_participation_dates_differ": 12,
+        "requested_ccns": 22,
+        "typed_01_28_exact_matches": 0,
+        "typed_exact_matches_with_both_reported_dates_by_2024_end": 0
+      },
+      "historical_op36": {
+        "lettered_ccns_not_returned": 0,
+        "literal_category_subtype": {
+          "01/28": 36
+        },
+        "literal_date_buckets": {
+          "CRTFCTN_DT": {
+            "after_2024_end": 3,
+            "on_or_before_2024_end": 33
+          },
+          "ORGNL_PRTCPTN_DT": {
+            "after_2024_end": 1,
+            "on_or_before_2024_end": 35
+          },
+          "TRMNTN_EXPRTN_DT": {
+            "blank": 36
+          }
+        },
+        "literal_general_type": {
+          "blank": 36
+        },
+        "literal_termination_code": {
+          "00": 36
+        },
+        "match_outcomes": {
+          "exact_ccn_and_state": 36,
+          "multiple_exact_ccn_rows": 0,
+          "not_returned": 13,
+          "state_conflict": 0
+        },
+        "reported_certification_and_original_participation_dates_differ": 12,
+        "requested_ccns": 49,
+        "typed_01_28_exact_matches": 36,
+        "typed_exact_matches_with_both_reported_dates_by_2024_end": 33
+      },
+      "later_pecos_conversion_subset": {
+        "lettered_ccns_not_returned": 0,
+        "literal_category_subtype": {
+          "01/28": 3
+        },
+        "literal_date_buckets": {
+          "CRTFCTN_DT": {
+            "after_2024_end": 1,
+            "on_or_before_2024_end": 2
+          },
+          "ORGNL_PRTCPTN_DT": {
+            "after_2024_end": 1,
+            "on_or_before_2024_end": 2
+          },
+          "TRMNTN_EXPRTN_DT": {
+            "blank": 3
+          }
+        },
+        "literal_general_type": {
+          "blank": 3
+        },
+        "literal_termination_code": {
+          "00": 3
+        },
+        "match_outcomes": {
+          "exact_ccn_and_state": 3,
+          "multiple_exact_ccn_rows": 0,
+          "not_returned": 11,
+          "state_conflict": 0
+        },
+        "reported_certification_and_original_participation_dates_differ": 1,
+        "requested_ccns": 14,
+        "typed_01_28_exact_matches": 3,
+        "typed_exact_matches_with_both_reported_dates_by_2024_end": 2
+      },
+      "national_typed_distinct_exact_ccns": 40,
+      "national_typed_general_type_blank": 40,
+      "national_typed_literal_termination_code": {
+        "00": 38,
+        "01": 1,
+        "04": 1
+      },
+      "national_typed_response_rows": 40,
+      "typed_projection_overlap_checks_exact": true
+    },
+    "q4_2024": {
+      "cohort_request_distinct_keys": 71,
+      "cohort_response_rows": 47,
+      "explicit_former_pecos_ccns": {
+        "lettered_ccns_not_returned": 8,
+        "literal_category_subtype": {
+          "01/01": 7,
+          "01/11": 7
+        },
+        "literal_date_buckets": {
+          "CRTFCTN_DT": {
+            "on_or_before_2024_end": 14
+          },
+          "ORGNL_PRTCPTN_DT": {
+            "on_or_before_2024_end": 14
+          },
+          "TRMNTN_EXPRTN_DT": {
+            "blank": 13,
+            "on_or_before_2024_end": 1
+          }
+        },
+        "literal_general_type": {
+          "01": 7,
+          "11": 7
+        },
+        "literal_termination_code": {
+          "00": 13,
+          "07": 1
+        },
+        "match_outcomes": {
+          "exact_ccn_and_state": 14,
+          "multiple_exact_ccn_rows": 0,
+          "not_returned": 8,
+          "state_conflict": 0
+        },
+        "reported_certification_and_original_participation_dates_differ": 12,
+        "requested_ccns": 22,
+        "typed_01_28_exact_matches": 0,
+        "typed_exact_matches_with_both_reported_dates_by_2024_end": 0
+      },
+      "historical_op36": {
+        "lettered_ccns_not_returned": 0,
+        "literal_category_subtype": {
+          "01/28": 33
+        },
+        "literal_date_buckets": {
+          "CRTFCTN_DT": {
+            "on_or_before_2024_end": 33
+          },
+          "ORGNL_PRTCPTN_DT": {
+            "on_or_before_2024_end": 33
+          },
+          "TRMNTN_EXPRTN_DT": {
+            "blank": 33
+          }
+        },
+        "literal_general_type": {
+          "blank": 33
+        },
+        "literal_termination_code": {
+          "00": 33
+        },
+        "match_outcomes": {
+          "exact_ccn_and_state": 33,
+          "multiple_exact_ccn_rows": 0,
+          "not_returned": 16,
+          "state_conflict": 0
+        },
+        "reported_certification_and_original_participation_dates_differ": 6,
+        "requested_ccns": 49,
+        "typed_01_28_exact_matches": 33,
+        "typed_exact_matches_with_both_reported_dates_by_2024_end": 33
+      },
+      "later_pecos_conversion_subset": {
+        "lettered_ccns_not_returned": 0,
+        "literal_category_subtype": {
+          "01/28": 1
+        },
+        "literal_date_buckets": {
+          "CRTFCTN_DT": {
+            "on_or_before_2024_end": 1
+          },
+          "ORGNL_PRTCPTN_DT": {
+            "on_or_before_2024_end": 1
+          },
+          "TRMNTN_EXPRTN_DT": {
+            "blank": 1
+          }
+        },
+        "literal_general_type": {
+          "blank": 1
+        },
+        "literal_termination_code": {
+          "00": 1
+        },
+        "match_outcomes": {
+          "exact_ccn_and_state": 1,
+          "multiple_exact_ccn_rows": 0,
+          "not_returned": 13,
+          "state_conflict": 0
+        },
+        "reported_certification_and_original_participation_dates_differ": 0,
+        "requested_ccns": 14,
+        "typed_01_28_exact_matches": 1,
+        "typed_exact_matches_with_both_reported_dates_by_2024_end": 1
+      },
+      "national_typed_distinct_exact_ccns": 37,
+      "national_typed_general_type_blank": 37,
+      "national_typed_literal_termination_code": {
+        "00": 35,
+        "01": 1,
+        "04": 1
+      },
+      "national_typed_response_rows": 37,
+      "typed_projection_overlap_checks_exact": true
+    }
+  },
+  "limits": [
+    "Public API projections only, not full-file checksums; not returned is not evidence of non-certification.",
+    "QIES survey-related certification date, original Medicare and/or Medicaid participation approval, later PECOS REH enrollment approval and OP-36 collection period are separate clocks.",
+    "QIES category/subtype is the positive REH label here. A blank general facility type or termination field is not itself a type, status, or eligibility claim.",
+    "Chronology contrasts are publisher-field differences; they do not establish operating dates, program eligibility, claims attribution, or the OP-36 count discrepancy.",
+    "Lettered former keys are literal; never strip letters or substitute a numeric parent."
+  ],
+  "op36_performance_period": [
+    "2024-01-01",
+    "2024-12-31"
+  ],
+  "pinned_cohort_lineage": "research/reh_predecessors_2024_snapshot_20261128.json",
+  "projected_columns": [
+    "PRVDR_NUM",
+    "STATE_CD",
+    "PRVDR_CTGRY_CD",
+    "PRVDR_CTGRY_SBTYP_CD",
+    "GNRL_FAC_TYPE_CD",
+    "CRTFCTN_DT",
+    "ORGNL_PRTCPTN_DT",
+    "PGM_TRMNTN_CD",
+    "TRMNTN_EXPRTN_DT"
+  ],
+  "projection_response_pins": {
+    "q1_2025_cohort": {
+      "bytes": 10453,
+      "sha256": "7b3c49185aba769653fed0254a590da8fa442c2d5ccf77a163809c3be7643d6d"
+    },
+    "q1_2025_typed": {
+      "bytes": 8337,
+      "sha256": "808d13e97c2a4a9a783ddbdabbbf3a7cc672c32136af917b5d343fef4b39e09c"
+    },
+    "q4_2024_cohort": {
+      "bytes": 9813,
+      "sha256": "862aa2c639b85692ca70048a91e0f8649c2bc8aac73ec062638be9d04e77fa79"
+    },
+    "q4_2024_typed": {
+      "bytes": 7713,
+      "sha256": "aefc051d70e940b595eba2f092bed66baac7f1cd18f3206a2211fb051ef416a4"
+    }
+  },
+  "provider_rows_or_values_retained": 0,
+  "q4_catalog": "https://catalog.data.gov/dataset/provider-of-services-file-quality-improvement-and-evaluation-system-2024-12-02",
+  "q4_catalog_updated": "2025-01-31",
+  "q4_edition_catalog_label": "2024-12-02",
+  "record_layout": "https://data.cms.gov/sites/default/files/2023-07/0ca58d5d-7914-4532-b22d-41741d3e6151/P.QWB.POSQ.OTHER.LAYOUT.MAR23.pdf",
+  "reh_certification_memo": "https://www.cms.gov/files/document/qso-24-20-reh-revised-2024-09-06.pdf",
+  "request_recipe": {
+    "cohort_filter": "PRVDR_NUM IN the sorted union of 49 OP-36 CCNs and 22 exact former CCNs",
+    "endpoint": "https://data.cms.gov/data-api/v1/dataset/{version}/data",
+    "offset": 0,
+    "size": 200,
+    "sort": "PRVDR_NUM",
+    "typed_filter": "PRVDR_CTGRY_CD=01 AND PRVDR_CTGRY_SBTYP_CD=28"
+  },
+  "status": "exact_version_api_projections_qualified"
+}
