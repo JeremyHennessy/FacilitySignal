@@ -12,8 +12,11 @@ from pathlib import Path
 PIN = "7dba1fe969c1e0b7d9e82345175dd8e65c4bc3a7"
 SOURCE = Path(__file__).resolve().parents[1] / "research/hcris_direct_measure_crosswalk_20261126.json"
 DICTIONARY = "https://data.cms.gov/sites/default/files/2023-12/Skilled%20Nursing%20Facility%20Cost%20Report%20Data%20Dictionary_508.pdf"
-TRANSITION = "https://www.cms.gov/medicare/regulations-guidance/transmittals/2024-transmittals/r1p249i"
-BOUNDARY = date(2024, 10, 1)
+TRANSITION = "https://www.cms.gov/files/document/r1p249i.pdf"
+SUNSET = "https://www.cms.gov/files/document/R11P241i.pdf"
+REVISION = "https://www.cms.gov/files/document/r2p249i.pdf"
+# Revised November 27, 2024 transmittal supersedes its stale landing-page summary.
+BOUNDARY = date(2025, 9, 30)
 # Coordinate, dictionary page (one-based), reporting grain, interpretation.
 MEASURES = {
     "Contract Labor": (("S300002", "01400", "00300"), 4, "period_flow", "Contracted direct-care and defined senior-management services; not all vendor or facilities-service expenditure."),
@@ -28,13 +31,13 @@ MEASURES = {
 
 
 def form_gate(form, begin, end):
-    """Never select a coordinate map from report end or release year alone."""
+    """Require explicit form plus valid period; apply revised period-end boundary."""
     if not isinstance(begin, date) or not isinstance(end, date) or end < begin:
         return "unresolved_period"
     if form == "2540-10":
-        return "legacy_map_candidate" if begin < BOUNDARY else "form_period_conflict"
+        return "legacy_map_candidate" if end < BOUNDARY else "form_period_conflict"
     if form == "2540-24":
-        return "new_form_mapping_required" if begin >= BOUNDARY else "form_period_conflict"
+        return "new_form_mapping_required" if end >= BOUNDARY else "form_period_conflict"
     return "unresolved_form"
 
 
@@ -68,7 +71,9 @@ def qualify(raw):
     return {
         "source_git_blob": blob, "dictionary_url": DICTIONARY,
         "dictionary_date": "2022-12-16", "form_transition_url": TRANSITION,
-        "legacy_form": "2540-10", "new_form_effective_begin": BOUNDARY.isoformat(),
+        "legacy_form": "2540-10", "new_form_effective_end": BOUNDARY.isoformat(),
+        "legacy_sunset_url": SUNSET, "subsequent_revision_url": REVISION,
+        "transition_note": "Revised November 27, 2024 PDF supersedes original October landing-page summary; subsequent April 2025 electronic specification dates are separate.",
         "matched_reports": cohort, "measures": measures,
         "new_form_coordinates_qualified": 0,
         "row_values_read_or_retained": 0,
