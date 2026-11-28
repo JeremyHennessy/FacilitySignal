@@ -14,11 +14,11 @@ class SnfLegacyMeasureTest(unittest.TestCase):
         self.assertEqual(result["row_values_read_or_retained"], 0)
         self.assertFalse(result["occupancy_ratio_qualified"])
 
-    def test_period_begin_not_end_controls_transition(self):
-        self.assertEqual(gate.form_gate("2540-10", date(2024, 9, 30), date(2025, 9, 29)), "legacy_map_candidate")
-        self.assertEqual(gate.form_gate("2540-10", date(2024, 10, 1), date(2025, 9, 30)), "form_period_conflict")
-        self.assertEqual(gate.form_gate("2540-24", date(2024, 10, 1), date(2025, 9, 30)), "new_form_mapping_required")
-        self.assertEqual(gate.form_gate("2540-24", date(2024, 9, 30), date(2025, 9, 29)), "form_period_conflict")
+    def test_revised_period_end_controls_transition(self):
+        self.assertEqual(gate.form_gate("2540-10", date(2024, 10, 1), date(2025, 9, 29)), "legacy_map_candidate")
+        self.assertEqual(gate.form_gate("2540-10", date(2024, 9, 30), date(2025, 9, 30)), "form_period_conflict")
+        self.assertEqual(gate.form_gate("2540-24", date(2024, 9, 30), date(2025, 9, 30)), "new_form_mapping_required")
+        self.assertEqual(gate.form_gate("2540-24", date(2024, 10, 1), date(2025, 9, 29)), "form_period_conflict")
 
     def test_unknown_form_invalid_period_and_changed_pin_fail_closed(self):
         self.assertEqual(gate.form_gate(None, date(2024, 1, 1), date(2024, 12, 31)), "unresolved_form")
