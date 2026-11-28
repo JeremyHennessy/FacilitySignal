@@ -43,7 +43,7 @@ class HAIQualificationTests(unittest.TestCase):
         self.assertEqual(out["score_states"], {"reported_zero": 1, "missing": 1})
         self.assertNotIn("012345", str(out))
         self.assertNotIn("private example", str(out))
-        with self.assertRaisesRegex(ValueError, "row count"):
+        with self.assertRaisesRegex(ValueError, "provider reconciliation"):
             q.provider(stream(q.PROVIDER_HEADER, [row]), 2)
 
     def test_schema_gate(self):
