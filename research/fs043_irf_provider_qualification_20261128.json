@@ -1,0 +1,185 @@
+{
+  "qualification_run": 46103521521,
+  "qualification_job": 140851063918,
+  "qualification_head": "631ff9e2c2d033cb031406c1ff019aedec8c5127",
+  "artifact_id": 15245858357,
+  "artifact_digest": "sha256:d9056af06e53bb26a4ce3f3db4c4ae950284451f97f41ba0b94df0d568fd7d03",
+  "status": "structural_screening_pass_identifier_domain_unqualified",
+  "publisher_catalog": "https://data.cms.gov/provider-data/dataset/v9e4-nwhh",
+  "publisher_reuse": {
+    "url": "https://data.cms.gov/provider-data/topics/inpatient-rehabilitation-facilities/about-using-government-data",
+    "basis": "US government works public domain; CMS attribution encouraged; no implied endorsement. Internal row-level clearance remains pending."
+  },
+  "identifier_review": {
+    "source": "https://www.cdc.gov/nhsn/PDFs/irf/Updating-IRF-locations-within-NHSN.pdf",
+    "document_date": "2021-01",
+    "pages": [
+      1,
+      2
+    ],
+    "documented_unit_markers": [
+      "R",
+      "T",
+      "TA",
+      "TB",
+      "TC",
+      "TE",
+      "TF",
+      "TG",
+      "TH",
+      "TJ",
+      "TK"
+    ],
+    "freestanding_suffix_range": [
+      3025,
+      3099
+    ],
+    "note": "Rehabilitation unit identifiers differ from hospital identifiers. The initial numeric-only screen is incomplete; it did not profile the exact unresolved token formats. No inference that all unresolved observations correspond to units or that numeric-only keys identify standalone buildings. Preserve raw identifier text, qualify patterns on pinned bytes before linkage; no guessed parent hospital identifier."
+  },
+  "audit": {
+    "azure_writes": 0,
+    "canonical_matches": 0,
+    "input_rows": 79430,
+    "public_promotion": false,
+    "retrieved_at": "2026-11-28T03:34:49.764399+00:00",
+    "reuse_review": "pending",
+    "row_level_retained": 0,
+    "scope": "Historical quality reporting structural qualification only. IRF provider observations only; other FS-043 datasets remain unqualified. Measure values, footnotes and units not interpreted; no facility risk, current certification, physical property or service failure inferred.",
+    "source_id": "FS-043",
+    "sources": {
+      "provider": {
+        "columns": 16,
+        "date_window_states": {
+          "ordered_explicit_dates": 79430
+        },
+        "distinct_expected_identifier_tokens": 412,
+        "distinct_measure_code_tokens": 65,
+        "field_presence": {
+          "Address Line 1": {
+            "present": 79430
+          },
+          "Address Line 2": {
+            "missing_literal": 75010,
+            "present": 4420
+          },
+          "CMS Certification Number (CCN)": {
+            "present": 79430
+          },
+          "CMS Region": {
+            "present": 79430
+          },
+          "City/Town": {
+            "present": 79430
+          },
+          "County/Parish": {
+            "present": 79430
+          },
+          "End Date": {
+            "present": 79430
+          },
+          "Footnote": {
+            "missing_literal": 68767,
+            "present": 10663
+          },
+          "Measure Code": {
+            "present": 79430
+          },
+          "Measure Date Range": {
+            "missing_literal": 79430
+          },
+          "Provider Name": {
+            "present": 79430
+          },
+          "Score": {
+            "missing_literal": 9886,
+            "present": 69544
+          },
+          "Start Date": {
+            "present": 79430
+          },
+          "State": {
+            "present": 79430
+          },
+          "Telephone Number": {
+            "missing_literal": 260,
+            "present": 79170
+          },
+          "ZIP Code": {
+            "present": 79430
+          }
+        },
+        "identifier_shapes": {
+          "expected": 26780,
+          "unresolved": 52650
+        },
+        "input_rows": 79430,
+        "jurisdiction_row_counts": {
+          "AK": 130,
+          "AL": 1170,
+          "AR": 1690,
+          "AZ": 1625,
+          "CA": 5395,
+          "CO": 1430,
+          "CT": 520,
+          "DC": 130,
+          "DE": 260,
+          "FL": 5785,
+          "GA": 2210,
+          "HI": 65,
+          "IA": 910,
+          "ID": 520,
+          "IL": 2665,
+          "IN": 2145,
+          "KS": 1430,
+          "KY": 1235,
+          "LA": 3640,
+          "MA": 845,
+          "MD": 195,
+          "ME": 195,
+          "MI": 2665,
+          "MN": 715,
+          "MO": 1820,
+          "MS": 715,
+          "MT": 260,
+          "NC": 1755,
+          "ND": 260,
+          "NE": 585,
+          "NH": 325,
+          "NJ": 845,
+          "NM": 715,
+          "NV": 780,
+          "NY": 2730,
+          "OH": 3380,
+          "OK": 1495,
+          "OR": 455,
+          "PA": 4160,
+          "PR": 585,
+          "RI": 325,
+          "SC": 1885,
+          "SD": 325,
+          "TN": 2080,
+          "TX": 10205,
+          "UT": 715,
+          "VA": 1755,
+          "VT": 130,
+          "WA": 1170,
+          "WI": 1625,
+          "WV": 650,
+          "WY": 130
+        },
+        "jurisdictions": 52,
+        "provisional_distinct_keys": 26780,
+        "publisher": {
+          "bytes": 12935784,
+          "id": "v9e4-nwhh",
+          "modified": "2026-09-11",
+          "released": "2026-09-23",
+          "sha256": "693af4436e0977a48e7949a4f531d303a63a21d5c057e2c71102ba9cdc2b4a0a",
+          "url": "https://data.cms.gov/provider-data/sites/default/files/resources/951b6ffd298db4857dd89edc81ee1364_1789157136/Inpatient_Rehabilitation_Facility-Provider_Data_Sep2026_2.csv"
+        },
+        "repeated_key_rows": 0,
+        "unresolved_key_rows": 52650
+      }
+    }
+  }
+}
