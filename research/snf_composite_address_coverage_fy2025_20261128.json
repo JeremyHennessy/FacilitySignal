@@ -1,0 +1,131 @@
+{
+  "application_clearance": "pending",
+  "both_flags_y_and_civic_shape": {
+    "distinct_ccns": 4,
+    "distinct_exact_tuples": 4,
+    "observations": 4,
+    "reports": 4
+  },
+  "coordinate_scope": {
+    "ccn": "00300/00300",
+    "literal_composite_flag": "01200/00100",
+    "literal_distinct_part_flag": "01100/00100",
+    "report_period": "00900/00100\u201300200",
+    "reported_component": "01300 and full subscripts, 00100\u201300600"
+  },
+  "cost_report_headers": 11802,
+  "exact_ccn_and_period_gate_counts": {
+    "exact_header_identity_and_period": 11684,
+    "header_and_worksheet_period_unresolved": 118
+  },
+  "form_cutover_min_report_end": "2025-09-30",
+  "known_ccns_with_y_and_n_reports": 0,
+  "limits": [
+    "One status-selected historical archive; report dates are not publication, operation, certification, or location effective dates.",
+    "Shape-only observation requires literal line 12 Y, exact header CCN and dates, and complete civic syntax. It is not concordant distinct-part evidence.",
+    "The concordant reporting tier additionally requires one literal line 11 Y; N, missing and conflicting line 11 cannot be promoted.",
+    "Discordant fields are publisher-reported responses, not a statutory or compliance determination.",
+    "A shape-qualified tuple is not verified physical geography. Exact main-address repetition is not an additional site; differing strings can reflect formatting and establish no site count.",
+    "Postal-only fields, missing/negative flags and duplicate/conflicting cells do not imply a site or absence of a site.",
+    "No provider identity, address, site, control relationship, current certification, health outcome, inspection or asset determined or published."
+  ],
+  "line13_subscript_groups": {
+    "base_01300": 180
+  },
+  "literal_composite_flag_report_counts": {
+    "N": 11668,
+    "Y": 16,
+    "not_reported": 118
+  },
+  "literal_flag_and_cells": {
+    "N_line13_groups_with_required_cells_populated": 8,
+    "N_reports_with_any_line13_cells": 164,
+    "Y_line13_groups_with_required_cells_populated": 16,
+    "Y_line13_groups_with_separate_po_box": 2,
+    "Y_reports_with_any_line13_cells": 16
+  },
+  "literal_line11_distinct_part_for_line12_y_report_counts": {
+    "N": 11,
+    "Y": 5
+  },
+  "literal_line11_flag_by_line12_y_address_quality": {
+    "N": {
+      "complete_civic_shape": 10,
+      "unqualified_state_or_zip_shape": 1
+    },
+    "Y": {
+      "complete_civic_shape": 4,
+      "unqualified_state_or_zip_shape": 1
+    }
+  },
+  "literal_line11_flag_by_line12_y_shape_comparison_to_printed_main": {
+    "N": {
+      "different_printed_tuple_than_main": 6,
+      "exact_same_printed_tuple_as_main": 4
+    },
+    "Y": {
+      "different_printed_tuple_than_main": 2,
+      "exact_same_printed_tuple_as_main": 2
+    }
+  },
+  "literal_y_group_quality_counts": {
+    "complete_civic_shape": 14,
+    "unqualified_state_or_zip_shape": 2
+  },
+  "literal_y_header_matched_provider_ccns": 16,
+  "literal_y_header_matched_provider_period_keys": 16,
+  "literal_y_report_status_codes": {
+    "1": 5,
+    "2": 11
+  },
+  "numeric_or_rollup_members_opened": 0,
+  "period_contemporaneous_instructions_sections_4901_30_4990_30_and_edit_1090S": "https://www.cms.gov/files/document/r1p249i.pdf",
+  "provider_addresses_or_rows_retained": 0,
+  "publisher_archive": {
+    "bytes": 90890707,
+    "catalog": "https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year/snf-2024-fy-2025-data-files",
+    "last_modified_utc": "2026-10-05T23:54:28Z",
+    "member_bytes_and_crc32": {
+      "SNF24_2025_alpha.csv": [
+        140158016,
+        "c35c5b3e"
+      ],
+      "SNF24_2025_nmrc.csv": [
+        404092246,
+        "c472c8f7"
+      ],
+      "SNF24_2025_rollup.csv": [
+        17865554,
+        "19747188"
+      ],
+      "SNF24_2025_rpt.csv": [
+        1150371,
+        "cf424441"
+      ]
+    },
+    "sha256": "d34ae917f2da83e25c668547589c6da0044fd5852eea8f6bb16567205371d253",
+    "url": "https://downloads.cms.gov/FILES/HCRIS/SNF24FY2025.ZIP"
+  },
+  "regulatory_definition": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-483/subpart-B/section-483.5",
+  "repeated_y_provider_period_pairs": 0,
+  "report_end_years": {
+    "2025": 11477,
+    "2026": 325
+  },
+  "revised_form_cutover_instructions_section_4900": "https://www.cms.gov/files/document/r3p249i.pdf",
+  "shape_qualified_address_comparison_to_printed_main": {
+    "different_printed_tuple_than_main": 8,
+    "exact_same_printed_tuple_as_main": 6
+  },
+  "shape_qualified_address_distinct_ccn_count": 14,
+  "shape_qualified_address_distinct_exact_tuples": 13,
+  "shape_qualified_address_observation_count": 14,
+  "shape_qualified_address_report_count": 14,
+  "shape_qualified_distinct_provider_and_tuple": 14,
+  "shape_qualified_observations_held_for_nonaffirmative_or_ambiguous_line11": 10,
+  "source_form": "CMS-2540-24",
+  "worksheet": "S200000",
+  "worksheet_alpha_rows_screened": 3581725,
+  "y_overlapping_period_pairs_with_different_nonempty_civic_sets": 0,
+  "y_provider_ccns_with_multiple_reports": 0
+}
