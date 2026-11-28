@@ -30,7 +30,7 @@
     "private_directory_archived": 1,
     "private_aggregate_key_review": 1
   },
-  "discovery_only_entries": 123,
+  "discovery_only_entries": 122,
   "sources": [
     {
       "id": "FS-001",
@@ -834,8 +834,8 @@
       "id": "FS-043",
       "source": "Dialysis, hospice, home health, inpatient rehab quality",
       "priority": "P1",
-      "historical_status": "discovered_not_tested",
-      "qualification": "discovered_not_tested",
+      "historical_status": "partial_structural_qualification",
+      "qualification": "partial_structural_qualification",
       "storage": "no_pinned_source_projection",
       "evidence": [],
       "limit": null,
@@ -3305,10 +3305,10 @@
     },
     "limit": "Historical pack parity and pinned evidence inventory; not an ordinary-live browser check or new publication."
   },
-  "baseline_commit": "e1c8760bf51fab4a75915f0dd636145032b54232",
+  "baseline_commit": "8d0d3541957bce8531b53e6b8877aa2ec949e011",
   "input_git_blob_shas": {
     "research/facilitysignal_source_register_v0.2.json": "8d3a5e9992cc4b9d819452cd4050dd19731e0d55",
-    "research/coverage_status.json": "b3e12f1c941da1de35bfdcf9d8804ac788d312ec",
+    "research/coverage_status.json": "edddb07ab988709237e272b26914aa87962ae535",
     "research/azure_archive_inventory_20261126.json": "420b6591d6b75dc10f8c4f564f5143c346611e0b",
     "research/private_source_register_receipt_map_20261126.json": "42e416efcb2973bbd219c12d444d747adf3a13ae",
     "research/snapshot_release_20261125.json": "9162fbdcc3ee591b63429df3279cdf11a8ddf125",
@@ -3330,6 +3330,7 @@
     "FS-039 append-only: exact completed private receipt, two payload hashes, 71,270 organizational role rows, unchanged preceding archive receipts and historical source states; source-specific readback, not yet included in a new consolidated audit.",
     "Latest 216-file metadata audit 45900897912: exact totals and unchanged pointers; prior 212-file full readback scope separate. FS-049/050 now mapped in authoritative coverage metadata; original historical statuses preserved.",
     "FS-041 aggregate screening 46043049342: 5,786 source rows and 47 columns, no retained source rows or new archive receipt. Historical qualification updated; archive totals, storage scope and other source rows unchanged.",
-    "FS-042 aggregate screening 46070464820: 24,258 provider rows plus 27 national benchmark rows; 23 source-specific column positions; no retained rows, archive receipt or public reuse. Storage counts and other source rows unchanged."
+    "FS-042 aggregate screening 46070464820: 24,258 provider rows plus 27 national benchmark rows; 23 source-specific column positions; no retained rows, archive receipt or public reuse. Storage counts and other source rows unchanged.",
+    "FS-043 pinned provider quality and same-release directory linkage 46103521521 / 46107662293: 79,430 observations and 1,222 exact source-native CCN/text context relationships. Partial source scope; no retained quality rows or archive receipt; other source rows and storage totals unchanged."
   ]
 }

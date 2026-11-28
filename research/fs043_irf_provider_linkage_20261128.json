@@ -1,0 +1,69 @@
+{
+  "qualification_run": 46107662293,
+  "qualification_job": 140863929769,
+  "qualification_head": "8d0d3541957bce8531b53e6b8877aa2ec949e011",
+  "artifact_id": 15247959450,
+  "artifact_digest": "sha256:6ef840c6ef03687ce8edb7260bc9acafc70befc1485ad42fd273466acc711531",
+  "status": "same_release_provider_linkage_qualified",
+  "audit": {
+    "azure_calls": 0,
+    "boundary": "Exact source-native identifier and same-release text context only. No inferred parent CCN, physical property, current operation or clinical score interpretation.",
+    "canonical_matches": 0,
+    "directory_only": 0,
+    "directory_rows": 1222,
+    "directory_token_shapes": {
+      "extended_documented_marker_candidate": 44,
+      "numeric_rehab_range": 412,
+      "unit_R": 7,
+      "unit_T": 759
+    },
+    "distinct_reporting_keys": 79430,
+    "exact_token_intersection": 1222,
+    "identifier_reference": "https://www.cdc.gov/nhsn/PDFs/irf/Updating-IRF-locations-within-NHSN.pdf",
+    "input_mode": "publisher",
+    "observation_link_states": {
+      "same_state_exact_context": 79430
+    },
+    "parent_matches": 0,
+    "pins": {
+      "directory": {
+        "bytes": 159829,
+        "id": "7t8x-u3ir",
+        "modified": "2026-08-12",
+        "rows": 1222,
+        "sha256": "18f89d14e22355b3ae2bcf02b2db93e7e54341f679ad380a2d741ce58002e214",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/dfc1c2f6b3882096ee5eff28272b1028_1788977188/Inpatient_Rehabilitation_Facility-General_Information_Sep2026.csv"
+      },
+      "provider": {
+        "bytes": 12935784,
+        "id": "v9e4-nwhh",
+        "modified": "2026-09-11",
+        "rows": 79430,
+        "sha256": "693af4436e0977a48e7949a4f531d303a63a21d5c057e2c71102ba9cdc2b4a0a",
+        "url": "https://data.cms.gov/provider-data/sites/default/files/resources/951b6ffd298db4857dd89edc81ee1364_1789157136/Inpatient_Rehabilitation_Facility-Provider_Data_Sep2026_2.csv"
+      }
+    },
+    "provider_link_states": {
+      "same_state_exact_context": 1222
+    },
+    "provider_only": 0,
+    "provider_row_shapes": {
+      "extended_documented_marker_candidate": 2860,
+      "numeric_rehab_range": 26780,
+      "unit_R": 455,
+      "unit_T": 49335
+    },
+    "provider_rows": 79430,
+    "provider_token_shapes": {
+      "extended_documented_marker_candidate": 44,
+      "numeric_rehab_range": 412,
+      "unit_R": 7,
+      "unit_T": 759
+    },
+    "provider_tokens": 1222,
+    "public_row_clearance": "pending",
+    "release": "2026-09-23",
+    "retained_rows": 0,
+    "source_id": "FS-043"
+  }
+}

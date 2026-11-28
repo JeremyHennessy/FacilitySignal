@@ -531,7 +531,18 @@
     },
     {
       "id": "FS-043",
-      "status": "discovered_not_tested"
+      "status": "partial_structural_qualification",
+      "evidence": "46107662293",
+      "dataset_id": "v9e4-nwhh",
+      "source_release": "2026-09-23",
+      "source_records": 79430,
+      "source_columns": 16,
+      "source_sha256": "693af4436e0977a48e7949a4f531d303a63a21d5c057e2c71102ba9cdc2b4a0a",
+      "aggregate_evidence": "research/fs043_irf_provider_qualification_20261128.json",
+      "linkage_evidence": "research/fs043_irf_provider_linkage_20261128.json",
+      "retained_database_rows": 0,
+      "reuse_review": "pending",
+      "note": "IRF provider quality observations only; 1,222 source-native CCNs match the already qualified same-release IRF directory with exact state/name/address/city/ZIP corroboration. 412 numeric range, 766 single-marker unit tokens and 44 extended-marker candidates. No parent or property linkage, clinical interpretation, durable row retention or public clearance. Other FS-043 quality families remain separate."
     },
     {
       "id": "FS-044",
