@@ -1,0 +1,159 @@
+{
+  "application_clearance": "pending",
+  "at_hcris_report_end_assessment_rows": {
+    "all_literal": 758,
+    "companion_corroborated": 757
+  },
+  "at_hcris_report_end_reconstructed_from_october_2025_extract": {
+    "all_literal": {
+      "invalid_latest_interval": 11,
+      "multiple_unended_macs_conflicting_types": 7,
+      "multiple_unended_macs_same_type": 1,
+      "no_exact_ccn": 2,
+      "type_00_waiver_Y": 1,
+      "type_50_waiver_N": 736
+    },
+    "companion_corroborated": {
+      "invalid_latest_interval": 11,
+      "multiple_unended_macs_conflicting_types": 6,
+      "multiple_unended_macs_same_type": 1,
+      "no_exact_ccn": 2,
+      "type_00_waiver_Y": 1,
+      "type_50_waiver_N": 736
+    }
+  },
+  "cohorts": {
+    "all_candidates": {
+      "any_exact_psf_ccn": 798,
+      "any_literal_type50_with_effective_date_by_extract": 792,
+      "inverted_source_intervals_across_all_versions": 124,
+      "requested_ccns": 810,
+      "retrospective_checkpoint_counts": {
+        "2024-09-30": {
+          "invalid_latest_interval": 32,
+          "multiple_unended_macs_conflicting_types": 7,
+          "multiple_unended_macs_same_type": 1,
+          "no_exact_ccn": 12,
+          "no_unended_mac": 10,
+          "only_future_records": 9,
+          "type_00_waiver_Y": 1,
+          "type_50_waiver_N": 738
+        },
+        "2025-10-01": {
+          "invalid_latest_interval": 33,
+          "multiple_unended_macs_conflicting_types": 7,
+          "multiple_unended_macs_same_type": 1,
+          "no_exact_ccn": 12,
+          "no_unended_mac": 10,
+          "type_00_waiver_Y": 1,
+          "type_50_waiver_N": 746
+        }
+      }
+    },
+    "companion_corroborated_hcris_pair": {
+      "any_exact_psf_ccn": 749,
+      "any_literal_type50_with_effective_date_by_extract": 747,
+      "inverted_source_intervals_across_all_versions": 58,
+      "requested_ccns": 751,
+      "retrospective_checkpoint_counts": {
+        "2024-09-30": {
+          "invalid_latest_interval": 11,
+          "multiple_unended_macs_conflicting_types": 6,
+          "multiple_unended_macs_same_type": 1,
+          "no_exact_ccn": 2,
+          "only_future_records": 2,
+          "type_00_waiver_Y": 1,
+          "type_50_waiver_N": 728
+        },
+        "2025-10-01": {
+          "invalid_latest_interval": 12,
+          "multiple_unended_macs_conflicting_types": 6,
+          "multiple_unended_macs_same_type": 1,
+          "no_exact_ccn": 2,
+          "type_00_waiver_Y": 1,
+          "type_50_waiver_N": 729
+        }
+      }
+    },
+    "literal_hcris_pair": {
+      "any_exact_psf_ccn": 750,
+      "any_literal_type50_with_effective_date_by_extract": 748,
+      "inverted_source_intervals_across_all_versions": 58,
+      "requested_ccns": 752,
+      "retrospective_checkpoint_counts": {
+        "2024-09-30": {
+          "invalid_latest_interval": 11,
+          "multiple_unended_macs_conflicting_types": 7,
+          "multiple_unended_macs_same_type": 1,
+          "no_exact_ccn": 2,
+          "only_future_records": 2,
+          "type_00_waiver_Y": 1,
+          "type_50_waiver_N": 728
+        },
+        "2025-10-01": {
+          "invalid_latest_interval": 12,
+          "multiple_unended_macs_conflicting_types": 7,
+          "multiple_unended_macs_same_type": 1,
+          "no_exact_ccn": 2,
+          "type_00_waiver_Y": 1,
+          "type_50_waiver_N": 729
+        }
+      }
+    },
+    "no_literal_hcris_pair": {
+      "any_exact_psf_ccn": 48,
+      "any_literal_type50_with_effective_date_by_extract": 44,
+      "inverted_source_intervals_across_all_versions": 66,
+      "requested_ccns": 58,
+      "retrospective_checkpoint_counts": {
+        "2024-09-30": {
+          "invalid_latest_interval": 21,
+          "no_exact_ccn": 10,
+          "no_unended_mac": 10,
+          "only_future_records": 7,
+          "type_50_waiver_N": 10
+        },
+        "2025-10-01": {
+          "invalid_latest_interval": 21,
+          "no_exact_ccn": 10,
+          "no_unended_mac": 10,
+          "type_50_waiver_N": 17
+        }
+      }
+    }
+  },
+  "hcris_lineage": {
+    "archive_sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+    "receipt": "research/irf_hcris_report_relationship_20261128.json"
+  },
+  "limits": [
+    "Exact full CCN only, preserving letters and leading zeros; links and sites not inferred.",
+    "Type 04 denotes rehabilitation facility; type 50 denotes rehabilitation distinct part. Literal waiver is separate.",
+    "Each checkpoint uses latest effective record per MAC; the termination date is inclusive as the last specified MAC service date, not closure. Superseded rows are not revived.",
+    "Multiple unended MACs and malformed latest intervals are held; same-day latest-version ties are not broken arbitrarily.",
+    "This is retrospective effective-date reconstruction from an October 2025 extract, not information known at the checked time, contemporaneous proof, or observed payments.",
+    "Payment classification does not supply parent identity, current certification, shared premises, satellite status, ownership or current operation."
+  ],
+  "provider_rows_identifiers_or_values_retained": 0,
+  "psf": {
+    "bytes": 2789406,
+    "http_last_modified_utc": "2025-11-13T16:32:49Z",
+    "member": "IPSF_IRF_2025-10-01.csv",
+    "member_crc32": "34d7b3bd",
+    "member_file_edition": "2025-10-01",
+    "member_rows": 90916,
+    "member_uncompressed_bytes": 26442913,
+    "projected_fields": [
+      "providerCcn",
+      "effectiveDate",
+      "terminationDate",
+      "intermediaryNumber",
+      "providerType",
+      "waiverIndicator"
+    ],
+    "sha256": "e87846f28d3f96704f75c37ba4f4c4577ecd809bb3b930024752ba8d237a293f",
+    "url": "https://www.cms.gov/medicare/medicare-fee-for-service-payment/prospmedicarefeesvcpmtgen/downloads/irf-psf.zip"
+  },
+  "psf_reference": "https://www.cms.gov/files/document/r12615cp.pdf",
+  "satellite_scope_reference": "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-412/subpart-B/section-412.25"
+}
