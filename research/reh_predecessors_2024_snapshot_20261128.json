@@ -1,0 +1,69 @@
+{
+  "application_clearance": "pending",
+  "archived_enrollment_rows": 9283,
+  "archived_enrollment_rows_by_specialty": {
+    "00-09": 6544,
+    "00-24": 34,
+    "00-85": 2705
+  },
+  "cohort_later_current_ccns_present_in_historical_pecos": 0,
+  "cohort_later_typed_op36_ccns_with_reported_conversion_after_2024": 14,
+  "distinct_explicit_former_ccns": 22,
+  "distinct_qualified_former_ccns": 22,
+  "explicit_former_ccn_occurrences": 22,
+  "explicit_former_ccn_occurrences_by_outcome": {
+    "historical_cah_00_85": 11,
+    "historical_hospital_00_09": 11,
+    "historical_type_not_predecessor": 0,
+    "multiple_historical_enrollments": 0,
+    "not_in_archive": 0,
+    "state_conflict_or_missing": 0
+  },
+  "historical_pecos_file_date": "2024-12-05",
+  "later_cases_by_number_of_explicit_former_ccns": {
+    "1": 7,
+    "2": 6,
+    "3": 1
+  },
+  "later_cases_by_number_of_qualified_former_ccns": {
+    "1": 7,
+    "2": 6,
+    "3": 1
+  },
+  "later_pecos_file_date": "2026-11-12",
+  "lettered_exact_former_ccn_occurrences": 8,
+  "limits": [
+    "File dates are publisher filename dates; the December export is one snapshot, not full 2024 enrollment history.",
+    "Former CCNs come only from the later publisher's explicit predecessor field. Lettered keys stay distinct; no fuzzy, suffix, organization or location match.",
+    "Unique historical enrollment, exact former CCN, both state fields and typed hospital/CAH are required. Multiple valid former enrollments remain separate.",
+    "Guidance defines the reported conversion date as earliest approved REH enrollment status, not operational date or quality-program eligibility.",
+    "Historical predecessor enrollment evidence does not establish OP-36 billable-case attribution, reporting eligibility, site continuity or the cause of the national/provider mismatch."
+  ],
+  "op36_performance_period": [
+    "2024-01-01",
+    "2024-12-31"
+  ],
+  "provider_rows_identifiers_or_values_retained": 0,
+  "sources": {
+    "conversion_and_predecessor_field_guidance_sections_3_7_and_5_2": "https://data.cms.gov/sites/default/files/2026-02/Hospital_Data_Guidance.pdf",
+    "historical_ccn_format_guidance_section_2779c": "https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf",
+    "historical_enrollment": {
+      "bytes": 2593146,
+      "catalog_resource": "https://data.cms.gov/data-api/v1/dataset-resources/be4d4816-be24-4635-9f4b-af9af75b708e",
+      "download": "https://data.cms.gov/sites/default/files/2024-12/0b60b159-56e3-4c48-94e6-15d11eb3f1d0/Hospital_Enrollments_2024.12.05.csv",
+      "sha256": "9b1d29f2990f8ed9c9102e5c11c5be49487d64fc39a1f95f67215eaa832eab09"
+    },
+    "later_enrollment": {
+      "bytes": 3089060,
+      "catalog_resource": "https://data.cms.gov/data-api/v1/dataset-resources/f6f6505c-e8b0-4d57-b258-e2b94133aaf2",
+      "download": "https://data.cms.gov/sites/default/files/2026-11/68a679e0-ec3c-4c6f-98cf-566084547755/Hospital_Enrollments_2026.11.12.csv",
+      "sha256": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e"
+    },
+    "op36_provider": {
+      "bytes": 13537,
+      "catalog": "https://data.cms.gov/provider-data/dataset/zez1-ka2w",
+      "download": "https://data.cms.gov/provider-data/sites/default/files/resources/8058b83869a5ba155b84c3227e60f61c_1792600032/REH_Unplanned_Hospital_Visits-Hospital.csv",
+      "sha256": "08ef87fe8c8b116e2f32ba53fbdf0c2c79abf38334bb1a750190749a2ff138d4"
+    }
+  }
+}
