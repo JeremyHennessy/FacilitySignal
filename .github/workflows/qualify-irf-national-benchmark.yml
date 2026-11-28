@@ -1,0 +1,35 @@
+name: Qualify national IRF benchmark FS043
+on:
+  push:
+    branches: [research/fs043-irf-national-benchmark-20261128]
+    paths:
+      - scripts/qualify_irf_national_benchmark.py
+      - tests/test_irf_national_benchmark.py
+      - .github/workflows/qualify-irf-national-benchmark.yml
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-fs043-national-qualification
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p test_irf_national_benchmark.py -v
+      - name: Screen only new national aggregate release
+        run: |
+          umask 077
+          python -m scripts.qualify_irf_national_benchmark --audit "$RUNNER_TEMP/fs043-national-benchmark.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fs043-national-benchmark-aggregate
+          path: ${{ runner.temp }}/fs043-national-benchmark.json
+          retention-days: 7
+          if-no-files-found: error
