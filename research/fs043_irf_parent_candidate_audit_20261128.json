@@ -1,0 +1,81 @@
+{
+  "status": "offline_projection_candidate_audit_not_parent_qualification",
+  "baseline": "0f195fb62ee7dfd53ac6d5911e6b82f38f5c18c4",
+  "source": "FS-043",
+  "reference": "https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf",
+  "sections": [
+    "2779A1",
+    "2779C",
+    "2779C1"
+  ],
+  "pdf_zero_based_pages": [
+    410,
+    411
+  ],
+  "pins": {
+    "rehabilitation": {
+      "git_blob": "009eca9c0400521f8547bc542fa51cadb85be317",
+      "release": "2026-09-23",
+      "rows": 1222
+    },
+    "hospital": {
+      "git_blob": "b0f0c73946064b5cb754912f685d2fcf975fb02b",
+      "release": "2026-11-12",
+      "rows": 5435
+    },
+    "long-term-hospital": {
+      "git_blob": "4e7e88646adba0076bb6c46e1bd9bfedfa280e48",
+      "release": "2026-09-23",
+      "rows": 311
+    }
+  },
+  "aggregate": {
+    "counts": {
+      "same_state_context_differs": 769,
+      "same_state_address_name": 36,
+      "not_unit": 412,
+      "same_state_address_name_differs": 4,
+      "multiple_directory_records": 1
+    },
+    "shapes": {
+      "T": 759,
+      "extended_A": 42,
+      "numeric_rehab": 412,
+      "R": 7,
+      "extended_B": 2
+    },
+    "byShape": {
+      "T": {
+        "same_state_context_differs": 759
+      },
+      "extended_A": {
+        "same_state_address_name": 35,
+        "same_state_address_name_differs": 3,
+        "multiple_directory_records": 1,
+        "same_state_context_differs": 3
+      },
+      "numeric_rehab": {
+        "not_unit": 412
+      },
+      "R": {
+        "same_state_context_differs": 7
+      },
+      "extended_B": {
+        "same_state_address_name": 1,
+        "same_state_address_name_differs": 1
+      }
+    },
+    "rows": 1222,
+    "parentRows": 5746
+  },
+  "boundaries": [
+    "Candidate rule covers numeric state prefixes and reviewed number ranges only; other formats withheld.",
+    "Cross-release hospital directory and same-release LTCH directory; not exhaustive registry, no temporal status or ownership proof.",
+    "Multiple records remain unresolved, even across source families. Address difference may reflect projection formatting or separate location; no automatic normalization or forced match.",
+    "All 810 parent candidate identifiers require independent institutional corroboration before relationship publication.",
+    "No confirmed parent links, canonical properties, new row-level publication, Azure access or source downloads."
+  ],
+  "confirmed_parent_links": 0,
+  "canonical_property_matches": 0,
+  "new_retained_rows": 0
+}
