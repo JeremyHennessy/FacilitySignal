@@ -1,7 +1,7 @@
 name: FacilitySignal verified source register visual evidence
 on:
   push:
-    branches: [main, build/verified-archive-source-register-20261126, build/fs039-archive-receipt-reconciliation-20261126, build/postacute-register-reconcile-20261126, fix/fs041-storage-register-parity-20261127]
+    branches: [main, build/verified-archive-source-register-20261126, build/fs039-archive-receipt-reconciliation-20261126, build/postacute-register-reconcile-20261126, fix/fs041-storage-register-parity-20261127, research/fs043-irf-identifier-linkage-20261128]
     paths:
       - docs/storage_coverage_reconciliation_20261126.json
       - tests/storage_coverage_reconciliation.test.js
