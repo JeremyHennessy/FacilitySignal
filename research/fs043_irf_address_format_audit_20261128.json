@@ -1,0 +1,52 @@
+{
+  "status": "aggregate_text_sensitivity_only_not_parent_qualification",
+  "baseline": "7d3461491527c5175afe2094c38468efe360b333",
+  "pins": {
+    "rehabilitation": "009eca9c0400521f8547bc542fa51cadb85be317",
+    "hospital": "b0f0c73946064b5cb754912f685d2fcf975fb02b",
+    "long-term-hospital": "4e7e88646adba0076bb6c46e1bd9bfedfa280e48"
+  },
+  "method": "Existing rule-derived identifier plus exact state; unique same-state record; literal nonblank address/city/ZIP first; otherwise compare nonblank NFKC uppercase ASCII alphanumeric address and city strings with exact nonblank ZIP. No postal standardization, abbreviation expansion, fuzzy match, geocoding or identity inference.",
+  "aggregate": {
+    "T": {
+      "total": 759,
+      "exact_address_context": 0,
+      "format_only_address_context": 249,
+      "different_context": 510,
+      "multiple": 0,
+      "missing_or_conflict": 0
+    },
+    "extended": {
+      "total": 44,
+      "exact_address_context": 40,
+      "format_only_address_context": 0,
+      "different_context": 3,
+      "multiple": 1,
+      "missing_or_conflict": 0
+    },
+    "R": {
+      "total": 7,
+      "exact_address_context": 0,
+      "format_only_address_context": 3,
+      "different_context": 4,
+      "multiple": 0,
+      "missing_or_conflict": 0
+    }
+  },
+  "totals": {
+    "exact_address_context": 40,
+    "format_only_address_context": 252,
+    "different_context": 517,
+    "multiple": 1
+  },
+  "limitations": [
+    "Removing punctuation and whitespace can conflate different addresses; this is an audit sensitivity result only.",
+    "Cross-release projections do not establish parent certification, effective status, ownership or physical property identity.",
+    "Independent authoritative QIES/PECOS relationship evidence remains required."
+  ],
+  "confirmed_parent_links": 0,
+  "canonical_property_matches": 0,
+  "new_retained_rows": 0,
+  "publisher_downloads": 0,
+  "azure_calls": 0
+}
