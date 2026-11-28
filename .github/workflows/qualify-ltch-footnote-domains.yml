@@ -1,0 +1,61 @@
+name: Qualify pinned LTCH footnote domains
+on:
+  push:
+    branches: [qualification/ltch-footnote-semantics-20261127]
+    paths: [.github/workflows/qualify-ltch-footnote-domains.yml]
+permissions:
+  contents: read
+concurrency:
+  group: facilitysignal-fs042-national-qualification
+  cancel-in-progress: false
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p test_ltch_footnote_semantics.py -v
+      - name: Verify exact historical source bytes and aggregate score availability
+        shell: bash
+        run: |
+          umask 077
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from scripts import audit_ltch_footnote_semantics as audit
+          from scripts.qualify_ltch_provider_linkage import retrieve
+          receipt = json.loads(audit.RECEIPT.read_text(encoding="utf-8"))
+          pins = receipt["audit"]["sources"]
+          if set(pins) != {"provider", "national"}:
+              raise SystemExit("Unexpected receipt source scope")
+          bounds = {"provider": (4049344, 24258, "fp6g-2gsn"), "national": (1787, 27, "5zdx-ny2x")}
+          sources = {}
+          for grain, (size, rows, catalog) in bounds.items():
+              pin = pins[grain]
+              publisher = pin["publisher"]
+              if (publisher["bytes"], pin["input_rows"], publisher["id"]) != (size, rows, catalog):
+                  raise SystemExit("Unexpected receipt bounds")
+              try:
+                  sources[grain] = audit.audit_bytes(retrieve({**publisher, "rows": rows}), grain, pin)
+              except Exception as error:
+                  raise SystemExit("Pinned semantic audit failed: " + type(error).__name__) from None
+          result = {"source": "FS-042", "release": "2026-09-23",
+                    "structural_receipt_run": receipt["run"], "input_mode": "publisher",
+                    "azure_calls": 0, "clinical_scores_interpreted": 0, "retained_rows": 0,
+                    "public_promotion": False, "sources": sources}
+          output = Path(os.environ["RUNNER_TEMP"]) / "fs042-footnote-domains.json"
+          with output.open("x", encoding="utf-8") as stream:
+              json.dump(result, stream, indent=2, sort_keys=True)
+          print("FS042_FOOTNOTE_AGGREGATE", json.dumps(result, sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fs042-footnote-aggregate
+          path: ${{ runner.temp }}/fs042-footnote-domains.json
+          retention-days: 7
+          if-no-files-found: error
