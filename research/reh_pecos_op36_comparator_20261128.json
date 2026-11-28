@@ -1,0 +1,70 @@
+{
+  "all_enrollment_rows": 9120,
+  "application_clearance": "pending",
+  "both_sources_exact_ccn_both_states_agree": 49,
+  "enrollment_counts_by_type_code": {
+    "00-09": 6321,
+    "00-24": 57,
+    "00-85": 2742
+  },
+  "historical_op36_catalog_release": "2026-11-12",
+  "later_pecos_reported_conversion_date_by_match_scope": {
+    "exact_matched": {
+      "after_period_end": 14,
+      "not_reported": 5,
+      "on_or_before_period_end": 30
+    },
+    "pecos_only": {
+      "after_period_end": 7,
+      "not_reported": 1,
+      "on_or_before_period_end": 0
+    }
+  },
+  "limits": [
+    "Different identifiers and grains: enrollments, enrolling PECOS associates, exact CCNs, and historical quality-measure observations.",
+    "Classification only uses explicit PECOS provider type code, corroborated by publisher label; never CCN suffix or historical former-provider field.",
+    "Exact same CCN and state across releases does not establish identical entity, site, REH status at the earlier date or reporting eligibility.",
+    "Later PECOS reported conversion date is not independently adjudicated historical certification or operational evidence.",
+    "No operating census, current service or historic/program denominator inferred. This does not explain OP-36 provider and national count differences."
+  ],
+  "op36_distinct_exact_ccns": 49,
+  "op36_only": 0,
+  "op36_performance_period": [
+    "2024-01-01",
+    "2024-12-31"
+  ],
+  "pecos_date_basis": "dated CMS publisher filename, not an enrollment effective date",
+  "pecos_snapshot_file_date": "2026-11-12",
+  "provider_identifiers_or_values_retained": 0,
+  "provider_rows_retained": 0,
+  "provider_type_code": "00-24",
+  "record_scope": "approved Medicare hospital enrollment applications in the pinned November PECOS export",
+  "sources": {
+    "ccn_suffix_overlap": [
+      "https://www.cms.gov/files/document/r12369cp.pdf",
+      "https://www.cms.gov/regulations-and-guidance/guidance/manuals/downloads/som107c02.pdf"
+    ],
+    "enrollment": {
+      "bytes": 3089060,
+      "catalog_resource": "https://data.cms.gov/data-api/v1/dataset-resources/f6f6505c-e8b0-4d57-b258-e2b94133aaf2",
+      "download": "https://data.cms.gov/sites/default/files/2026-11/68a679e0-ec3c-4c6f-98cf-566084547755/Hospital_Enrollments_2026.11.12.csv",
+      "sha256": "d7ce302f73195b3ce6018291f3ee82af0ec026e51a3145bb9af41be8fbaa194e"
+    },
+    "enrollment_dictionary_reviewed": {
+      "bytes": 250776,
+      "download": "https://data.cms.gov/sites/default/files/2026-11/Hospital_Enrollments_Data_Dictionary.pdf",
+      "sha256": "3f98051204fa840e747dd6e90b51b2c53335f8dbcb1327d01c5858624b3aedea"
+    },
+    "op36_provider": {
+      "bytes": 13537,
+      "catalog": "https://data.cms.gov/provider-data/dataset/zez1-ka2w",
+      "download": "https://data.cms.gov/provider-data/sites/default/files/resources/8058b83869a5ba155b84c3227e60f61c_1792600032/REH_Unplanned_Hospital_Visits-Hospital.csv",
+      "sha256": "08ef87fe8c8b116e2f32ba53fbdf0c2c79abf38334bb1a750190749a2ff138d4"
+    }
+  },
+  "typed_distinct_enrollment_ids": 57,
+  "typed_distinct_exact_ccns": 57,
+  "typed_distinct_pac_ids": 56,
+  "typed_enrollment_rows": 57,
+  "typed_pecos_only": 8
+}
