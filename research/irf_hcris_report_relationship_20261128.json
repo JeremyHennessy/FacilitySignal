@@ -1,0 +1,123 @@
+{
+  "alpha_coordinates": {
+    "parent": [
+      "S200001",
+      "00300",
+      "00200"
+    ],
+    "unit": [
+      "S200001",
+      "00500",
+      "00200"
+    ],
+    "unit_cbsa": [
+      "S200001",
+      "00500",
+      "00300"
+    ],
+    "unit_certification_date": [
+      "S200001",
+      "00500",
+      "00500"
+    ],
+    "unit_name": [
+      "S200001",
+      "00500",
+      "00100"
+    ]
+  },
+  "alpha_screened_rows": 3763488,
+  "application_clearance": "pending",
+  "archive": {
+    "bytes": 135705434,
+    "catalog": "https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports/cost-reports-fiscal-year/hospital-2010-fy-2024",
+    "members_bytes_crc32": {
+      "HOSP10_2024_alpha.csv": [
+        145534467,
+        "3662afce"
+      ],
+      "HOSP10_2024_nmrc.csv": [
+        673482184,
+        "162c94e6"
+      ],
+      "HOSP10_2024_rpt.csv": [
+        584815,
+        "cedff978"
+      ]
+    },
+    "publisher_last_modified_utc": "2026-10-05T23:50:08Z",
+    "sha256": "291749abb7dca4d20aa93e7a5f6c560c4052206a626b8755963a7891b0dc8af2",
+    "url": "https://downloads.cms.gov/Files/hcris/HOSP10FY2024.zip"
+  },
+  "candidate_comparisons": {
+    "all_literal_identifier_candidates": {
+      "outcomes": {
+        "companion_corroborated": 751,
+        "exact_pair_lettered_third": 717,
+        "exact_pair_lettered_third_fourth": 35,
+        "unit_not_returned_in_literal_pairs": 58
+      },
+      "requested_candidates": 810
+    },
+    "single_same_state_directory_parent_candidates": {
+      "outcomes": {
+        "companion_corroborated": 750,
+        "exact_pair_lettered_third": 717,
+        "exact_pair_lettered_third_fourth": 34,
+        "unit_not_returned_in_literal_pairs": 58
+      },
+      "requested_candidates": 809
+    }
+  },
+  "candidate_lineage": "research/fs043_irf_parent_candidate_audit_20261128.json",
+  "child_ccns_with_multiple_parents": 0,
+  "child_ccns_with_overlapping_periods_across_parents": 0,
+  "companion_corroborated_distinct_pairs": 800,
+  "distinct_child_ccns": 801,
+  "form_instructions": "https://www.cms.gov/files/document/r21p240i.pdf",
+  "limits": [
+    "Historical hospital-reported worksheet relationship only. No current status, ownership, legal operator, shared property, capacity, or coverage claims.",
+    "Numeric member read only for the single provider-type coordinate; financial data not selected, stored or interpreted.",
+    "Reporting, certification, and publisher edition dates are separate. Archive is a status-selected release, not every filing or revision.",
+    "Preserve literal six-character keys including two-letter shapes; no pair, location or regulatory status may be inferred from syntax.",
+    "The later directory has 810 identifier candidates but 809 single same-state directory parent rows. An exact report pair can corroborate the CCN without choosing a directory site.",
+    "Directory comparisons are evidence across releases, not retrospective or current-status imputation."
+  ],
+  "literal_ccn_shape_rows": {
+    "lettered_third": 770,
+    "lettered_third_fourth": 38
+  },
+  "literal_distinct_pairs": 801,
+  "literal_numeric_type_codes": {
+    "1": 1,
+    "5": 807
+  },
+  "literal_pair_rows": 808,
+  "literal_report_status_codes": {
+    "1": 511,
+    "2": 43,
+    "5": 254
+  },
+  "numeric_target_coordinate_rows": 808,
+  "numeric_type_coordinate": [
+    "S200001",
+    "00500",
+    "00400"
+  ],
+  "period_appropriate_form": "https://www.cms.gov/files/document/r21p240f.pdf",
+  "period_layout_guard": "2023-08-01",
+  "raw_provider_rows_or_values_retained": 0,
+  "repeated_pair_keys": 7,
+  "report_companion_qualification": {
+    "provider_type_not_single_rehabilitation_5": 1,
+    "type5_and_report_companions_corroborated": 807
+  },
+  "report_outcomes": {
+    "literal_distinct_pair": 808,
+    "unit_ccn_not_reported": 5305
+  },
+  "report_rows": 6113,
+  "report_table_reference": "https://resdac.org/articles/medicare-cost-report-data-using-link-specifications-microsoft-access-when-importing-data",
+  "same_pair_nonidentical_overlapping_period_observation_pairs": 0,
+  "same_pair_same_period_observation_pairs": 0
+}
