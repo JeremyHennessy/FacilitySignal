@@ -1,0 +1,75 @@
+{
+  "qualification_run": 46093907942,
+  "qualification_job": 140820815509,
+  "qualification_head": "bd58f5028dc5b500f93dc4f4e28c72326b671c3c",
+  "regression_run": 46093912938,
+  "artifact_id": 15242965103,
+  "artifact_digest": "sha256:d14c490526004da72d8af6bbebdfbb22abbcad00bf7326b87f0cf77184fc7d7a",
+  "dictionary": "https://data.cms.gov/provider-data/sites/default/files/data_dictionaries/long_term_care_hospital/LTCH_Data_Dictionary.pdf",
+  "dictionary_version": "8.0 September 2026, Tables 6 and 9",
+  "application_clearance": "pending",
+  "limits": [
+    "116 provider observations have unresolved footnote formats; no inference or coercion.",
+    "A populated score is not necessarily numeric, comparable or actionable. Missing scores are not zero.",
+    "No clinical risk, compliance failure or physical site linkage inferred. No source rows published."
+  ],
+  "audit": {
+    "azure_calls": 0,
+    "clinical_scores_interpreted": 0,
+    "input_mode": "publisher",
+    "public_promotion": false,
+    "release": "2026-09-23",
+    "retained_rows": 0,
+    "source": "FS-042",
+    "sources": {
+      "national": {
+        "footnote_states": {
+          "no_reported_footnote": 27
+        },
+        "grain": "national",
+        "input_rows": 27,
+        "retained_rows": 0,
+        "score_footnote_states": {
+          "present|no_reported_footnote": 27
+        },
+        "score_presence": {
+          "present": 27
+        },
+        "source_sha256": "c49f3f5682e68ecc768b3bd293b42ef61885089d2634e5590f1a78fde32aa6d0"
+      },
+      "provider": {
+        "footnote_states": {
+          "insufficient_sample": 725,
+          "lower_confidence_limit_unavailable": 356,
+          "no_reported_footnote": 22332,
+          "not_calculable": 76,
+          "not_submitted": 233,
+          "period_data_unavailable": 411,
+          "shortened_reporting_period": 9,
+          "unresolved_footnote": 116
+        },
+        "grain": "provider",
+        "input_rows": 24258,
+        "retained_rows": 0,
+        "score_footnote_states": {
+          "missing_literal|insufficient_sample": 685,
+          "missing_literal|lower_confidence_limit_unavailable": 356,
+          "missing_literal|not_calculable": 76,
+          "missing_literal|not_submitted": 233,
+          "missing_literal|period_data_unavailable": 300,
+          "missing_literal|unresolved_footnote": 116,
+          "present|insufficient_sample": 40,
+          "present|no_reported_footnote": 22332,
+          "present|period_data_unavailable": 111,
+          "present|shortened_reporting_period": 9
+        },
+        "score_presence": {
+          "missing_literal": 1766,
+          "present": 22492
+        },
+        "source_sha256": "ea9d2a40ff6c9a4cce1e23b79e26621de4da230135f74838ef099d1b91316f07"
+      }
+    },
+    "structural_receipt_run": 46070464820
+  }
+}
