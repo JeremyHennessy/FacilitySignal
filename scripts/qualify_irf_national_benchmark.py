@@ -9,6 +9,7 @@ import hashlib
 import io
 import json
 import re
+from urllib.error import HTTPError
 from collections import Counter
 from datetime import datetime, timezone
 from decimal import Decimal
@@ -105,16 +106,30 @@ def screen(stream, expected):
             and footnotes.get("unreviewed_present", 0) == 0
             and not any(":unresolved" in x for x in scores)}
 
+def checked(stage, operation):
+    """Report only fixed stage names and HTTP status, never response bodies."""
+    try:
+        return operation()
+    except Exception as exc:
+        cause = exc
+        while cause.__cause__ is not None:
+            cause = cause.__cause__
+        status = cause.code if isinstance(cause, HTTPError) else None
+        print("FS043_NATIONAL_STAGE_FAILED", stage, type(cause).__name__, status, flush=True)
+        raise
+
+
 def acquire():
-    meta = cms.metadata(ID)
+    meta = checked("initial_metadata", lambda: cms.metadata(ID))
     require(meta == {"id": ID, "released": RELEASE, "modified": MODIFIED, "url": URL}, "publisher metadata drift")
-    expected = cms.count(ID)
+    expected = checked("initial_count", lambda: cms.count(ID))
     require(0 < expected <= 100, "publisher count bound")
-    with cms.response(URL) as response:
+    with checked("csv_open", lambda: cms.response(URL)) as response:
         require(response.geturl() == URL, "unexpected redirect")
         raw = response.read(MAX_BYTES + 1)
     require(0 < len(raw) <= MAX_BYTES, "source byte bound")
-    require(cms.metadata(ID) == meta and cms.count(ID) == expected, "publisher release changed")
+    require(checked("final_metadata", lambda: cms.metadata(ID)) == meta
+            and checked("final_count", lambda: cms.count(ID)) == expected, "publisher release changed")
     result = screen(io.StringIO(raw.decode("utf-8-sig"), newline=""), expected)
     return {**result, "publisher": {**meta, "bytes": len(raw),
                                     "sha256": hashlib.sha256(raw).hexdigest()},
